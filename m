@@ -1,65 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.75
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795759273;
-	b=R4lZ9k3Pye9+qgkLK7wD4bLOcF7PfYagzu0xjwv6d/xVV8BB3ZDlESvyrtv1giTs6tt6
-	 XgKL7LzRaHOke31N5/wi03ke+RwB0LcOJZhHtsT8KAjOMQw7q194Ol8ohJmVZQTVGoXGy
-	 M0BGVFq9reLVHl21S+6peuHwZrPGerddvjwsjhHWOBGBhXkETcPJiYpFvDK/jQSqoj1Ag
-	 cJ3Ql/UpYCyyw1lfr1fEL8Ut1292leiq9TknTprbkfhbWN4alg0CbHXxVUf5cDmLmJOXR
-	 LSayfCyt52R4V+2YQOra+9mf7WMLGOejRLDdqW/hh5PmSgeaugH7o29TCI/odkiusbA==
+	t=1795760307;
+	b=RaPJ8kdRqylIl1y8y3wPbIHlXArFTs/hoPkyDCQ87alDoGlwfRHx3wK4o9ySkPnTWV+h
+	 5Ez64rlOrUuqdxQQcNieqkcdLpOvS7ZeYE/xIqDNSgHho/gBU/+xt7RwMGo2/f3EYb6eY
+	 ff/AJTm2oh48G6t2uKTyf47TtV6phQwBP0XsKf2PVskLX1/SAg0XhRJlb7395oh2xuAdy
+	 cOkbNXadbaP2eh0rTj3YkmQbJ7Ew3JYWtJhs1gJjFTVUAU6PQrHbaYaJtiE0mecssGdrx
+	 uFGHTjsJXNEPTasgelOfnVMJqwzmBRDmKp5EhJhAIKdbvmd1AQ5MwtmUF4YszuFsVbw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795759273;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795760307;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=nrXUyBnnLMn4mqMV0QE9b5zcQInsdQBriad2AyK2+Eo=;
-	b=TOHvLRVtpqv/HVD70/OB01v91bwtHnUMfyxnVCWl0PQykDriSwVdYX/L9/KAaPh3wChA
-	 oJMvY//VGmWBfD9qyxDHNB5gY8dw3IcPmQxtlbCE5qAstPg7CABre1zwdOQc+wEZoxbU2
-	 dNCrfxsshKtc57YTJPvbfAEwzvqSehrrljfe3ApskKNkIZJMZTs6JW6G1V7D7L+SK3Wt5
-	 3CE7IY8YPCcPx6lmBxu97OVwDEy20UEE3tBsrpb8+vQz6LQXix1/wbP9+ZhxZCr2+bNbK
-	 pQAEvhoYkWO/ewKL9LV5XPQu0p9ZS79Htw/9JoLasAXyOsWszJrSbBkHOZJ1cHXaQ8w==
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=Xall2LvYqrNEWJ3haGr3baDKY0fqS4yjvxamjxNnjGY=;
+	b=E5zIdocz8agGxPSOD6iY5jFV4mdG1/71Ael56TQgviDPY402FTGV2jNVAtOjaTm/fb3A
+	 FGRazexEW/MXeZyH131quraeo6OnKjWL9XI886Djq78m7cR6S++Xnt2aRhaBa6OGnWOmI
+	 8hHxp0CFeSsDhvFh0CvS+jKZBcAOlx7rrKxHUhjE7cKqEO2FLKBQikdJ92IDj8rke0i/Q
+	 VHZN5E5M/PLq7C/14j0QF7fcyIrGuGxVyJAucXkZ1aBjk38PrseILom3baZVCr4KeF/Qg
+	 3uYXHqvR8WLwVpbdYk7wuxNOh3863Zu0frBapdTMJET3NvYLWR4ScVPrjbwJc+2i1RA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Y5sBkEAp;
-	arc=none smtp.remote-ip=91.218.175.75
-Received: from mta0.migadu.com (out-75.mta0.migadu.com [91.218.175.75])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sKr55MTO;
+	arc=none smtp.remote-ip=91.218.175.47
+Received: from mta0.migadu.com (out-47.mta0.migadu.com [91.218.175.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AAF92606A321
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:01:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AAF92606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 263C9606A31C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:18:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 263C9606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Y5sBkEAp
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sKr55MTO
 X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=7VngrNZEXiKoDUMjMc/nzPenWV2Zy0/emms0Y+lumzs=;
+DKIM-Signature: a=rsa-sha256; bh=kS24aWEDVFAGZg9av7QpzpXRdTf89yuZQQWrd8Pe7YI=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795759270; v=1; x=1796364070;
- b=Y5sBkEApFsaG7tDNVA61iRZ4F35l421r6lYOjienw2wc71fpUfYJS4oFsuZOprbajPMWb2Kd
- 9usp5H8ixhueAERbI0YLoOwHmmbj1ZDIMlXKoxFC3spponR6w+jpLJl2ott7gOdh7Vz3+vTY7NP
- PXHHL3qGfL5jdPEUKM7zdtKo=
+ t=1795760304; v=1; x=1796365104;
+ b=sKr55MTON/+6jrOYoyP4mbHJKogHVXu9Sy8xuEmw89uAYd4PLeivI6FcOlRQwTBLAeu3cSVF
+ uh7hEohrUeSmHTgPd+SFC4C0L1YiokNOradNPZrh86Ik6+ihBWo4j2q8XICHqB01t4IjwRlu1z1
+ xSzqw+oyTwgaacapk//YEWLo=
 X-Envelope-To: netdev@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 9ad39df9598d294b;
-	Fri, 27 Nov 2026 06:01:10 +0000
-X-Mizu-Trace-ID: 9ad39df9598d294b
+Received: by smtp.migadu.com with ESMTPS id 7a6dd275991888ae;
+	Fri, 27 Nov 2026 06:18:24 +0000
+X-Mizu-Trace-ID: 7a6dd275991888ae
 X-Migadu-Flow: FLOW_OUT
-Date: Fri, 27 Nov 2026 14:00:58 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: netdev-bot+sashiko@kernel.org
-Cc: jv@jvosburgh.net, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-	tonghao@bamaicloud.com, razor@blackwall.org, shuah@kernel.org,
-	jiangjiehua1@huawei.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net 2/3] bonding: update slave array on link change for
- broadcast mode
-Message-ID: <awkcmoDW5AHqJujs@fedora>
-References: <20261126-bond_broadcast_updelay-v1-2-188e5538d6ca@kylinos.cn>
- <179574935712.3135.18271637068349106750@kernel.org>
+Message-ID: <d5c55d47-8651-4c75-a0b6-2734a1394a9e@linux.dev>
+Date: Fri, 27 Nov 2026 15:18:02 +0900
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -69,174 +58,132 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179574935712.3135.18271637068349106750@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v1 0/6] net: avoid stack canaries in TCP/IPv4
+ fast paths
+To: gang.yan@linux.dev, netdev@vger.kernel.org
+Cc: "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
+ Emil Tsalapatis <emil@etsalapatis.com>,
+ Ihor Solodrai <ihor.solodrai@linux.dev>, Matthieu Baerts
+ <matttbe@kernel.org>, Mat Martineau <martineau@kernel.org>,
+ Geliang Tang <geliang@kernel.org>, David Ahern <dsahern@kernel.org>,
+ Ido Schimmel <idosch@nvidia.com>, Stanislav Fomichev <sdf@fomichev.me>,
+ Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>,
+ Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>,
+ Phil Sutter <phil@nwl.cc>, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, mptcp@lists.linux.dev,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+ Xuanqiang Luo <luoxuanqiang@kylinos.cn>, david.laight.linux@gmail.com
+References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
+ <133c1ca98af6beb48c0db1e6bb539a2a76ccda49@linux.dev>
+From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
+In-Reply-To: <133c1ca98af6beb48c0db1e6bb539a2a76ccda49@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 27, 2026 at 03:15:57AM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
+On 2026/11/26 at 17:48 gang.yan@linux.dev wrote:
+> November 24, 2026 at 9:06 PM, "Xuanqiang Luo" <xuanqiang.luo@linux.dev mailto:xuanqiang.luo@linux.dev?to=%22Xuanqiang%20Luo%22%20%3Cxuanqiang.luo%40linux.dev%3E > wrote:
 > 
-> Critical: 0 · High: 0 · Medium: 2 · Low: 1
 > 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
+>>
+>> From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+>>
+>> With CONFIG_STACKPROTECTOR_STRONG=y, a function that has a local array or
+>> passes the address of one of its locals to another function needs a stack
+>> canary. The canary is set up and checked on every call, also when the
+>> local is only used on a path that almost never runs.
+>>
+>> This series removes the canary from functions of the TCP/IPv4 fast paths,
+>> by returning results by value, by using storage that is not on the stack,
+>> or by not calling a function that has nothing to do.
+>>
+>> Patch 1 returns the two mptcp_space() values in a structure, so that
+>> __tcp_select_window() no longer needs a canary.
+>>
+>> Patch 2 changes ip_neigh_gw4() to take a pointer to the address, like
+>> ip_neigh_gw6(), so that ip_finish_output2() no longer needs a canary.
+>>
+>> Patch 3 uses pskb_may_pull() in icmp_filter(), so that
+>> raw_local_deliver() no longer needs a canary.
+>>
+>> Patch 4 turns skb_try_coalesce() into an inline wrapper over a function
+>> returning its results by value, so that its callers no longer need a
+>> canary because of it.
+>>
+>> Patch 5 returns the result of the TCP receive coalescing by value, so
+>> that tcp_rcv_established() and tcp_data_queue() no longer need a canary.
+>>
+>> Patch 6 calls bpf_skops_write_hdr_opt(), which needs a canary, only if a
+>> BPF program reserved room for TCP options.
+>>
+>> The bloat-o-meter numbers are from gcc 16.2 on x86_64. The functions
+>> named in patches 1 to 5 also lose their canary with clang 23.1.6 on
+>> x86_64, with and without ThinLTO, and on arm64.
+>>
 > 
-> - [Medium] The commit message says the patch makes the broadcast
->   usable_slaves snapshot 'follow link transitions the same way balance-…
-> - [Medium] Because broadcast now publishes usable_slaves (the revert,
->   which this patch relies on), switching a broadcast bond to balance-rr…
-> - [Low] The series ordering is not bisect-safe, and the dependency
->   between the two patches is not recorded in tags.
+> Hi Xuanqiang,
 > 
-> --
-> 
-> bonding: update slave array on link change for broadcast mode
-> 
-> This adds a BOND_MODE_BROADCAST case to bond_miimon_link_change(), so the
-> usable_slaves snapshot is rebuilt on miimon link transitions. That keeps
-> the ignore_updelay decision in bond_miimon_inspect() in line with the
-> current slave link states. It depends on a revert of 45fc134bcfad so that
-> bond_set_slave_arr() publishes the array for broadcast.
-> 
-> > Add the broadcast case so the snapshot follows link transitions the
-> > same way balance-xor does. This needs the revert of 45fc134bcfad as
-> > a prerequisite: with 45fc134bcfad applied, bond_set_slave_arr()
-> > discards the refreshed array for broadcast.
-> >
-> > Fixes: e0caeb24f538 ("net: bonding: update the slave array for broadcast mode")
-> 
-> [Severity: Low]
-> Is the series order bisect-safe? The revert of 45fc134bcfad is applied
-> before this patch. On its own, it makes bond_set_slave_arr() publish
-> usable_slaves for broadcast again, but nothing rebuilds the array on
-> miimon link changes yet.
-> 
-> At that intermediate commit, a batch enslave with updelay leaves the new
-> slaves in BOND_LINK_BACK. The snapshot taken at enslave time then has
-> count == 0 and is never refreshed, so bond_miimon_inspect() ignores
-> updelay permanently. That is the bug 45fc134bcfad fixed.
-> 
-> If this patch went first, it would be a no-op under 45fc134bcfad, and
-> every commit in the series would be correct.
-> 
-> Also, this patch carries Fixes: e0caeb24f538, but the revert it depends on
-> has no Fixes: tag and no dependency annotation. 45fc134bcfad is likely
-> already in stable trees.
-> 
-> Would a tag-driven backport of only this patch leave the stale snapshot
-> behaviour unchanged there?
+> Thanks for this series. Besides the code size, do you have any runtime perf
+> numbers (TCP_RR, cycles per packet...)? I think it may help the maintainers
+> judge the real gain.
+Hi Gang,
 
-This commit description already said it depends on the revert.
+I omitted runtime numbers from the cover letter because earlier cross-NIC
+TCP_RR runs were within boot-to-boot noise, and I did not want to overstate
+the gain. I re-ran the full 6-patch series against its base commit
+(a4c450594f5d) in a tighter setup on an x86_64 server (Hygon C86-4G,
+ConnectX-5 10GbE mlx5, GCC 12.3, CONFIG_STACKPROTECTOR_STRONG=y, identical
+.config, nokaslr, boost off, isolated CPUs/IRQs, busy_read=0, 3 alternating
+boots per kernel x 4 runs):
 
-> 
-> > diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
-> > index d6675e87d06b6..b1efbdf597ec4 100644
-> > --- a/drivers/net/bonding/bond_main.c
-> > +++ b/drivers/net/bonding/bond_main.c
-> > @@ -2780,6 +2780,7 @@ static void bond_miimon_link_change(struct bonding *bond,
-> >  		bond_alb_handle_link_change(bond, slave, link);
-> >  		break;
-> >  	case BOND_MODE_XOR:
-> > +	case BOND_MODE_BROADCAST:
-> >  		bond_update_slave_arr(bond, NULL);
-> >  		break;
-> >  	}
-> 
-> [Severity: Medium]
-> The commit message says the snapshot follows link transitions "the same
-> way balance-xor does". Does that hold outside the MII monitor?
-> 
-> balance-xor also rebuilds the array when the ARP load-balance monitor
-> changes a slave's link state. Broadcast is still left out there:
-> 
-> drivers/net/bonding/bond_main.c:bond_loadbalance_arp_mon() {
->     ...
-> 		if (slave_state_changed) {
-> 			bond_slave_state_change(bond);
-> 			if (BOND_MODE(bond) == BOND_MODE_XOR)
-> 				bond_update_slave_arr(bond, NULL);
-> 		}
->     ...
-> }
-> 
-> Broadcast can use ARP monitoring, because bond_mode_uses_arp() only
-> excludes BOND_MODE_8023AD, BOND_MODE_TLB and BOND_MODE_ALB.
-> bond_slave_netdev_event() also skips broadcast, since
-> bond_mode_can_use_xmit_hash() is false for it. So under ARP monitoring,
-> the broadcast snapshot keeps the state from the last enslave or release.
-> 
-> bond_option_miimon_set() can switch the bond from ARP monitoring to
-> miimon at runtime. It zeroes arp_interval, cancels arp_work and queues
-> mii_work, but it does not rebuild the slave array. params.updelay
-> survives the switch.
-> 
-> For example, slaves enslaved with carrier under ARP monitoring are marked
-> BOND_LINK_UP and counted in usable_slaves. Later the ARP monitor marks
-> them BOND_LINK_DOWN, but the snapshot is not refreshed. Once miimon is
-> enabled, bond_miimon_inspect() sees usable_slaves->count != 0:
-> 
-> 	if (usable_slaves && usable_slaves->count == 0)
-> 		ignore_updelay = true;
-> 
-> Recovering slaves then wait out updelay even though the bond has no usable
-> link.
-> 
-> The reverse case also happens. If slaves are enslaved without carrier,
-> count == 0 and updelay is wrongly ignored. Either state lasts until the
-> first miimon commit reaches bond_miimon_link_change().
-> 
-> Should BOND_MODE_BROADCAST also be added to the condition in
-> bond_loadbalance_arp_mon()?
+1. Single-CPU loopback 1-byte TCP_RR (both endpoints on 1 CPU running the
+    kernel under test, 99.9% busy with no cross-CPU lock contention; each
+    RR counts 2 TX + 2 RX = 4 Tcp InSegs+OutSegs):
+    - instructions:k / tx:  33,562.3 -> 33,410.6 (-151.8, -0.45%, CV 0.01%)
+    - instructions:k / seg:  8,372.8 ->  8,336.1 ( -36.8, -0.44%, CV 0.02%)
+    - branches:k / tx:       7,627.9 ->  7,604.4 ( -23.5, -0.31%, CV 0.03%)
+    - cycles:k / tx:        48,883.8 -> 48,613.8 (-270.0, -0.55%)
+    - throughput:           52,804   -> 53,068 tps (+0.50%)
 
-Ack, I will also handle the arp monitor.
+2. Cross-host 10GbE mlx5 8-flow 1-byte TCP_RR (server CPU-bound on 1 app
+    CPU + 1 IRQ CPU, client pinned on a fixed peer kernel):
+    - instructions:k / pkt: 12,040.6 -> 11,946.0 ( -94.6, -0.79%, CV 0.43%)
+    - cycles:k / pkt:       19,652.2 -> 19,450.1 (-202.1, -1.03%, CV 0.52%)
+    - throughput:           79,455   -> 79,883 tps (+0.54%)
 
-> 
-> [Severity: Medium]
-> Now that broadcast publishes usable_slaves, does a switch from broadcast
-> to balance-rr leave a stale snapshot behind?
-> 
-> Releasing the last broadcast slave goes through __bond_release_one():
-> 
-> 	if (bond_mode_can_use_xmit_hash(bond) ||
-> 	    BOND_MODE(bond) == BOND_MODE_BROADCAST)
-> 		bond_update_slave_arr(bond, slave);
-> 
-> This runs after bond_upper_dev_unlink(), so the slave list is already
-> empty. The result is a non-NULL usable_slaves with count == 0, and after
-> the revert that array is kept for broadcast.
-> 
-> Neither bond_option_mode_set() nor bond_close() resets the arrays.
-> 
-> In balance-rr, nothing rebuilds the array afterwards:
-> 
->   - bond_enslave() and __bond_release_one() only rebuild for xmit-hash
->     modes or broadcast
->   - bond_open() and bond_slave_netdev_event() only rebuild when
->     bond_mode_can_use_xmit_hash() is true
->   - bond_miimon_link_change() has no BOND_MODE_ROUNDROBIN case
-> 
-> So in balance-rr, bond_miimon_inspect() would see count == 0 on every
-> pass. It would set ignore_updelay = true and force slave->delay to 0 for
-> every recovering slave.
-> 
-> Documentation/networking/bonding.rst section 13.1 says updelay is ignored
-> only when the bond has no active links.
-> 
-> In the baseline tree with 45fc134bcfad, broadcast never published
-> usable_slaves, so a switch from broadcast to balance-rr left it NULL. The
-> same missing reset on mode change already existed for a switch from
-> balance-xor to balance-rr.
+3. Loopback small-write TCP_STREAM (-m 512 -D, 2 CPUs):
+    - instructions:k / seg:  5,805.6 ->  5,713.7 ( -91.9, -1.58%)
+    - cycles:k / seg:        8,538.5 ->  8,416.8 (-121.7, -1.42%)
+    - throughput:            641.8   ->  650.5 Mbit/s (+1.37%)
+    (Note: in the 2-CPU / multi-flow cases above, perf shows part of the
+     larger per-packet drop comes from fewer spinlock-slowpath and idle-loop
+     samples in addition to the direct TCP path savings; test 1 isolates
+     the direct instruction/branch reduction.)
 
-This seems not broadcast only issue. The other xmit hash mode also have this
-problem. Maybe we should set usable_array to NULL if it's length is 0? Need
-to further checking.
+4. perf record (cycles:k and instructions:k) confirms
+    bpf_skops_write_hdr_opt() drops from 0.04-0.12% to 0.00% across all
+    profiled workloads, with consistent drops in tcp_rcv_established(),
+    __tcp_transmit_skb(), and __tcp_select_window().
 
-Thanks
-Hangbin
----
-pw-bot: cr
+One caveat to be transparent: on a loopback 1-byte UDP_RR control (which
+only exercises patch 2's ip_finish_output2() canary removal),
+instructions:k/tx changed by the expected -23.2 insns/tx (-0.07%) and
+branches:k/tx was flat (+0.02%), yet wall-clock tps/cycles still shifted
+by -0.80%/+0.68% due to fixed code-layout/IPC differences under nokaslr.
+
+So the reliable runtime signal here is the deterministic drop in kernel
+instructions and branches (~152 insns / ~23.5 branches per loopback TCP_RR)
+and the disappearance of bpf_skops_write_hdr_opt() from the profile, while
+wall-clock TCP_RR tps/cycles (~0.5%) remain in the same range as
+code-alignment effects on this machine.
+
+Thanks,
+Xuanqiang
