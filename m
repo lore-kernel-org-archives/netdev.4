@@ -1,83 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795798008;
-	b=I9wvWG/FIpcv4V9pGXhb6Wcf51RrNOsTUY6s3+ARHPRjs2ZZtqNbTlUVn5SrPn6o5YwR
-	 qOfmAxFOrWBqo4M1XrAuLjLVZ7vt1V2TNyva1L0v3YXuuNacKEhlGAdvOnqWpNE3L6BhK
-	 JGREouET2PTbOM1dkhTs5ZL9VqCIPpLkg9jy9puALZqFNohp0877JU2AmVAWIkgzxaQQB
-	 zzW8JFy/OUqffU0eOWSXr/F9iZglTumDBhy2Vhsz0wgIrsKLufNrTFQbIY54N67PUad8z
-	 K5g1n5NZOvPOSs2jzKKFWiWYqCNeWsGLQGpeGFcVOo0Rewp4jfDuCDOMTJNsT1/P4fA==
+	t=1795798083;
+	b=4KZcn2gYf6apjOpCQpREGk9R+eUh+roAdNS9vzFT0QVCyVYjEkvEezjcOdLvF513M/Wl
+	 5Uci1zzO4KWyYEbatymwyRVDSxvL3ZKc2aiuxzWL9yppOfa/RYQT+KLXY+MZxQDDazVsh
+	 TECoOzaVSYwOX84Dv4x4qlEGn31Qm2dNfIbV+gxDuOR0bkS4hJvdhNxwvhoeFUfFcrfBe
+	 kJOy41U56bNnlrbdoHTHTNQHU17lzo3M1NvpEXV9VLKYh5ffl7qJhGxmu0FQaFBAq6d6B
+	 8h0RgEmicRTg0e1TCkvJvOmDlzKPmfiIifmY684Cgrnc5M1injr1JoEPnMprkDvvzlw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795798008;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
-	 From:To:X-Mailer:References:In-Reply-To;
-	bh=cPGonPnJaKEtU6M0q6SAoZxL8EtzmXx+NTo0dKeF1j8=;
-	b=wJDIvz45NgyiJgn5k0F/+PY/9LEa7vJVEJxq/UyCtQqVzwfGQAJ1iJUHua78qft7nN1x
-	 wL2RSk2m4T+YjKYKKowNsg5tgas0CaH/W2z6zjrVINvFmarTxndaNhpz0hmrbsEpg8/zY
-	 lPrbJICgiUj82LApMF93saDKD364ztMMiBwLbvS2J4bFh+NrWImMF2eiyA/xVgWSxZcvx
-	 fdQduoOpq6dY9RahOaHI8nr1B2D0zw5oQBxGFqZV1bMQ3rihPtMpYPnRiTz76oJDpOtT0
-	 eWiVo+H4fS2BKKCb8PagdEzLAzKe+s0Qqyg0PQDx45l4+TU8KxqB9ixE2KHaxGxf7+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795798083;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=mLudbu1Y/4LQ3CoYckg+50YXPqoYFD6//3daPKxQOis=;
+	b=Xjq9MYEJB4GA307+ukXOcgabbVK4+rxC1pm9NIRUnKdkGTfnu1UAkY9+sEkspYw3uFTL
+	 EglVf5qngfzHlvM77KFIp6A7g6Nxjj96+bgsdMqcp7kPzllYf20wUGq4Fqf9pOfCoVyiJ
+	 T02vwDmgwykk2/jekNpxrFTy7bTRlOLzEE8KEBdKu5GzU22qaTx41s1MFtzQ7/zNBoOa6
+	 WVONSnV397DRkPuxQeXMPy5UgLgmyMuDu9KuS9AAXGQ2iVA64VR8cbUKGMMfWGO/l5OFU
+	 XLMG8i6N3E5kte2fTmTjl7gM6+m5cyHEVg5KZiJY9iPS1Npwtp4krFiBJsI3b9qM6KQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zdDyJJsu;
-	arc=none smtp.remote-ip=209.85.210.172
-Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dTfiuXrt;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2492E606A31C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 16:46:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2492E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E556E606A337;
+	Fri, 27 Nov 2026 16:48:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zdDyJJsu
-Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8b612fd74e1so2897816b3a.0
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 08:46:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795798007; x=1796402807; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=cPGonPnJaKEtU6M0q6SAoZxL8EtzmXx+NTo0dKeF1j8=;
-        b=zdDyJJsuKWhdA2962ZWTNYhi8s5y5Nv0FWKguuVJinBVwrcS4zH4SEMbFEoKZVD/ct
-         F96MGE4gdM2pJIXVkQyx4CXALNnj2RX3AR2wD4tLlX2ectfX17pjL1dm8fS/anXmFqEI
-         Lp53bK9bU0W+wL603ygPeXGwnjC8P8cqwUFJLoLWMQu7uAL83a2/IL53PXH7evIK7xHI
-         Q3wKCeDVaRCdmVwV0Acl+moZUo9NZipKdIabeQaPSlIKDbBdnDpHguTuKwIlCBQO46TG
-         wMgFOmyfEzYvxB41sjeKfZIlPBV3ADbR0CqGg2uu9M4vRvyJmS2XN2wX4MOGOugO5kC4
-         xwqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795798007; x=1796402807;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cPGonPnJaKEtU6M0q6SAoZxL8EtzmXx+NTo0dKeF1j8=;
-        b=f81NYvrsXMLK/I2hlNjMAIzFiqt0yjyP6zz3h6t1z5ARgdCh0g8O+xkpBPvedWHW1p
-         aHxXwoHYQy1yhcUz2/MJOyH6ByVw5gl8C28BpCC8qrfrWyPCmvp/ZuH2BCMeFS2xWgbK
-         8JCOzTHXuK068Y+5hjGgW1aAwBI0wIsdbUcVNXQi1iEdv2wcFKp53Lt8rCjDU62WgjXw
-         y3UoqBu22X/xmHRzEmKbtb63LGZ9D2u2ReJI0XMNBR9dNW9JUPG+YqZZrvwP2HdHzKzw
-         3VXuqhoEzjOh4tMZcIilTmfaAjJz9gY5OVwmioeqyrTy68NkCfWtGamzxYbbbm/rxSSs
-         R9zA==
-X-Gm-Message-State: APuU4Z+57t5VLw3MLeyK5+yNEqNI33AlujlCj0qNxmBqECGLp0dAHn6B
-	SVB/fcUMzq7eUZBqpAvCsQ/vkajcJgso55cKK5AQV2XVv06Wpq9nyG4w
-X-Gm-Gg: AZFdTZerVOwPgdqW07hfG0DQzXqwBiiX+IcludDaqQu4P4QM9p4SfutgaP9q96IKzjY
-	UHvBLWzu9QtnwE8PEQLmPHqRSnWT7PpowGXpXdY5gcG9jzN06HOwvMXTAvlyD9nIpiMdauQzge8
-	DuUlXG44GRmglb8vHOT5Tr6nYreFptfRzGwdmQWyyIy8xR1hkNtjvlw52/GJGtkDDZXxi9uH9LJ
-	rr8kX9XBeUP0nstgjCA4FywMWjrzL91ZNoX+qz+RX6GebqpXz1BqCf7PmAEDnuAIrBiwxQP7G1Q
-	nQa1HJnvJMHoiC/D+zzxg8kymtz3KoUpjvKAPJCDP4N0vSa3g8h3Iaax5U4DQVRNHGQ6clQH7n9
-	runLyFF6XM1y+XEaUsuGPUY3v5TlmWYFov/VmDfmBJOdVGRMt1jWMTkU7VgnZWWTJC0KTlA+JBE
-	auM6JJeUaNe+gyUo5TclRBUchDzMcG+DXvQ8rQ5vf4lPRm2cQLey0TOdw6hUXM9qGpNzrWRjtPq
-	R1G8Af/3pLHtwyd/6EWxBEeqUMT7mieHeTJ5f11BetYOZLA7MaQIV7KLcisaEPq/pUVQzy/2Hbd
-	VOpwAhv4zv9ekQ==
-X-Received: by 2002:a05:6a00:1808:b0:89c:1f2b:a73f with SMTP id d2e1a72fcca58-8c87bcbced8mr24029762b3a.17.1795798007317;
-        Fri, 27 Nov 2026 08:46:47 -0800 (PST)
-Received: from localhost ([2601:600:a482:7d70::5e59])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c873b278f0sm12948345b3a.51.2026.11.27.08.46.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 08:46:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dTfiuXrt
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF8CA1F0089C;
+	Fri, 27 Nov 2026 16:48:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795798082;
+	bh=mLudbu1Y/4LQ3CoYckg+50YXPqoYFD6//3daPKxQOis=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=dTfiuXrt1G1zZDd0elcsWXvqDw60Oh3xSNRIqTwtgjb6Xg6aCVL2VIawQ1JO+Qigz
+	 wY0kwZ+PbIs+13OyhTROAhq5CnahErEYiD13sqKuDmRxkDlosnHB2W8kD6cOuM1e2R
+	 j7Jj/C7N1Py6mvvTnF1ESXWWuGaIHRZkMWl+EFvG1Ci9DXemVKU6HnLwNYJUFR7iyy
+	 iajyzVd36ZZVfY26g3joRjLhhhwj6I2jyA+MzAufxkLAGwNlrRxbzYBkbgaW8ZRbtx
+	 /PhYxIAFa8Ve0hX04z2KtEijxKBzlDiZdyUN7mA8gaA3ddcH+/8mcMw/6PRx0yixYQ
+	 4vgZbAaOXvCsA==
+Subject: Re: [PATCH net v6 3/8] ptp: ocp: preserve timestamp routes on DPLL
+ frequency changes
+From: netdev-bot+sashiko@kernel.org
+To: ahmadexp@gmail.com
+Cc: netdev@vger.kernel.org, richardcochran@gmail.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ vladimir.oltean@nxp.com, vadim.fedorenko@linux.dev, andrew@lunn.ch,
+ linux-kernel@vger.kernel.org, arkadiusz.kubalewski@intel.com,
+ jiri@resnulli.us, jonathan.lemon@gmail.com
+Date: Fri, 27 Nov 2026 16:48:01 +0000
+Message-ID: <179579808134.3135.14342336954222031404@kernel.org>
+In-Reply-To: <20261126-timecard-driver-v6-3-ahmadexp@gmail.com>
+References: <20261126-timecard-driver-v6-3-ahmadexp@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -86,75 +64,224 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 27 Nov 2026 08:46:46 -0800
-Message-Id: <DN659J3QCZRL.2PU3PICXJW6K9@gmail.com>
-Cc: <netdev@vger.kernel.org>, "Loic Poulain"
- <loic.poulain@oss.qualcomm.com>, "Sergey Ryazanov"
- <ryazanov.s.a@gmail.com>, "Johannes Berg" <johannes@sipsolutions.net>,
- "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, "Eric Dumazet" <edumazet@kernel.org>, "Jakub
- Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>
-Subject: Re: [PATCH net v3 2/2] net: wwan: iosm: re-bind the driver when the
- modem rebooted during S3
-From: "David Westen" <davidlwesten@gmail.com>
-To: "Maciej S. Szmigiero" <mail@maciej.szmigiero.name>, "David Westen"
- <davidlwesten@gmail.com>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261126194143.32283-1-davidlwesten@gmail.com>
- <20261126194143.32283-3-davidlwesten@gmail.com>
- <fd2a9a0a-106e-467b-acd0-7045410305e3@maciej.szmigiero.name>
-In-Reply-To: <fd2a9a0a-106e-467b-acd0-7045410305e3@maciej.szmigiero.name>
+MIME-Version: 1.0
 
-Hi Maciej,
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
 
-Thanks for taking the time to review this again!
+Critical: 0 · High: 0 · Medium: 4 · Low: 1
 
-On 27.11.2026 14:49, Maciej S. Szmigiero wrote:
-> That's a much more intrusive change than simply re-binding the driver
-> and to be honest, feels like a hack around various paths in the iosm
-> driver that may be touching a modem that lost its power and then crashed.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Fair point about the size. The aim was to avoid behavioral changes
-unless the modem rebooted, and, unlike v2, now also avoid possibly
-re-binding on s2idle or opportunistic sleep.
+- [Medium] In ptp_ocp_dpll_frequency_set() (drivers/ptp/ptp_ocp.c), the
+  value passed to ptp_ocp_sma_store_val() changes from the table index…
+- [Medium] The patch makes two user-visible changes to
+  ptp_ocp_dpll_frequency_get() that the commit message never mentions.
+- [Medium] On SMA inputs, ptp_ocp_dpll_frequency_set() can report success
+  for a 10 MHz request without selecting 10 MHz.
+- [Medium] ptp_ocp_dpll_frequency_set() now does an unlocked read-modify-
+  write of the SMA input selector.
+- [Low] The From:/author identity on the commit ("ahmadexp
+  <ahmadexp@gmail.com>") does not match the Signed-off-by: name ("Ahmad…
 
-On my laptop, the order is the other way around: the modem crashes
-during suspend entry, from the FORCE_SLEEP doorbell (which my s2idle
-series removes), and writes CD_READY to the shared memory. Then it
-loses power and boots again during resume. So after resume the modem
-is fine, and only that stale CD_READY says otherwise.
+--
 
-A plain re-bind of the unmodified driver after S3 worked in my tests,
-but those had no port open and wwan0 down; with this patch I also
-tested wwan0 up through the suspend. The checks are there because the
-driver and the modem are out of sync until the re-bind, so the cleanup
-shouldn't wait for replies or send commands the rebooted modem knows
-nothing about. If you prefer the plain re-bind, I'll keep only the
-detection and the re-bind, and test that with a port open and wwan0 up
-before sending v4.
+ptp: ocp: preserve timestamp routes on DPLL frequency changes
 
-> Also, wouldn't the problematic things that you describe in your cover
-> letter as happening at modem unbind during suspend also happen without
-> any power transition if the iosm module is simply unloaded from the
-> kernel (presumably with modem still connected)?
+This patch changes ptp_ocp_dpll_frequency_set() so that a DPLL frequency
+change on an SMA input keeps the timestamp and counter selector bits, and
+so that it programs the selector value instead of the table index. It also
+masks the value read in ptp_ocp_dpll_frequency_get() with SMA_SELECT_MASK.
+Input pins with combined routes now report a frequency of 0 instead of
+failing.
 
-Yes, rmmod and hibernation run the same cleanup, and both problems
-are already in mainline: unbinding with wwan0 up hits the
-use-after-free that patch 1 fixes, and unbinding under traffic lets
-the modem DMA into the freed MUX buffers. I reproduced them with my v2
-patches applied, which leave that part of the cleanup unchanged.
+> A coding assistant helped identify the route-loss issue, develop the fix and regression test, and prepare this changelog. The test uses the actual selector and DPLL functions with instrumented register access.
+>
+> Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
+> Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
 
-> If yes, then this new approach is simply papering over bugs in the
-> iosm module cleanup that really should be fixed at some point
-> independently from any suspend/resume transition issues.
+[Severity: Low]
+This isn't a bug, but the commit author ("ahmadexp <ahmadexp@gmail.com>")
+does not match the Signed-off-by name ("Ahmad Byagowi
+<ahmadexp@gmail.com>"). checkpatch reports this as FROM_SIGN_OFF_MISMATCH.
+Could the author be set to the real name?
 
-Agreed they need fixing, and I'd like to rework the teardown for
-net-next. But the re-bind doesn't hide them: a modem that lost power
-holds none of the driver's memory, and the remaining races are as
-exposed as with rmmod today.
+The changelog also mentions a regression test that uses instrumented
+register access. The patch only touches drivers/ptp/ptp_ocp.c, though.
 
-Thanks,
-David
+Will the test be posted? If it is an out-of-tree harness, should that
+description go below the --- line?
+
+> diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
+> index 625a85b2dc7e5..284908c6abc22 100644
+> --- a/drivers/ptp/ptp_ocp.c
+> +++ b/drivers/ptp/ptp_ocp.c
+> @@ -5873,16 +5873,31 @@ static int ptp_ocp_dpll_frequency_set(const struct dpll_pin *pin,
+
+[ ... ]
+
+>  	tbl = bp->sma_op->tbl[sma->mode];
+> -	for (i = 0; tbl[i].name; i++)
+> -		if (tbl[i].frequency == frequency)
+> -			return ptp_ocp_sma_store_val(bp, i, sma->mode, sma_nr + 1);
+> +	for (i = 0; tbl[i].name; i++) {
+> +		if (tbl[i].frequency != frequency)
+> +			continue;
+> +
+> +		if (sma->mode == SMA_MODE_IN) {
+> +			val = bp->sma_op->get(bp, sma_nr + 1) & SMA_SELECT_MASK;
+> +			if (sma->disabled)
+> +				val = 0;
+
+[Severity: Medium]
+Is this read-modify-write of the selector serialized against the other
+writers? The DPLL path holds only dpll_lock here. bp->lock is taken only
+inside ptp_ocp_sma_fb_set_inputs() and ptp_ocp_sma_adva_set_inputs(),
+around the final register merge.
+
+The other writers of the same selector do not take dpll_lock:
+
+- The sysfs path sma1..4_store()->ptp_ocp_sma_store()->
+  ptp_ocp_sma_store_val() holds no driver lock.
+- The PTP_PIN_SETFUNC path ptp_ocp_verify()->ptp_ocp_sma_store() holds
+  only the PTP core pincfg_mux.
+
+Consider this sequence:
+
+CPU0 (DPLL frequency set)
+ptp_ocp_dpll_frequency_set()
+   val = bp->sma_op->get(...);    /* no TS bits, aux = 0 */
+
+CPU1 (sysfs "IN: PPS1 TS1", or PTP verify "IN: None")
+ptp_ocp_sma_store()
+   ptp_ocp_sma_store_val()        /* writes the new selector */
+
+CPU0
+   ptp_ocp_sma_store_val(bp, tbl[i].value | 0, ...)
+      sma->disabled = false;      /* overwrites the selector */
+
+Wouldn't CPU1's TS1 route, or its disable, be lost while both callers
+report success? That is the same route loss the commit message describes.
+
+Would one driver mutex held across the read, the aux computation and the
+store close this? It would need to cover sysfs, PTP verify and the DPLL
+ops. Merging the preserved bits inside the bp->lock section is another
+option.
+
+> +
+> +			for (j = 0; tbl[j].name; j++) {
+> +				if (!tbl[j].frequency && (val & tbl[j].value))
+> +					aux |= tbl[j].value;
+> +			}
+> +		}
+> +		return ptp_ocp_sma_store_val(bp, tbl[i].value | aux,
+> +					     sma->mode, sma_nr + 1);
+
+[Severity: Medium]
+What happens here when 10 MHz is requested on an input that already has a
+timestamp route? In ptp_ocp_sma_in and ptp_ocp_adva_sma_in, the 10 MHz
+selector is encoded as zero:
+
+    { .name = "10Mhz",  .value = 0x0000,      .frequency = 10000000 },
+
+So tbl[i].value | aux is just aux.
+
+Take an input configured through sysfs as "IN: PPS1 TS1" (0x5):
+
+- frequency_get reports 1 Hz, so dpll_pin_freq_set() calls frequency_set.
+- aux becomes 0x4, and ptp_ocp_sma_store_val() writes 0x4. That clears
+  PPS1 and leaves only TS1.
+- The op returns 0, and dpll_pin_freq_set() sends
+  __dpll_pin_change_ntf().
+
+In this driver's encoding, 10 MHz means no selector bits are set. The
+readback is therefore TS1 (frequency 0), or 0 Hz through the new combining
+loop when several aux bits are set.
+
+Repeating the request is another no-op that succeeds and sends a
+notification, because old_freq stays 0.
+
+Doesn't this contradict "This keeps the timestamp route while changing
+the frequency-bearing source"? Should this combination be rejected, for
+example with -EINVAL or -EBUSY and an extack message? Or is there a defined
+way for the zero-valued 10 MHz selector to coexist with the aux
+destinations?
+
+[Severity: Medium]
+This also changes what gets programmed for both inputs and outputs. The
+old code passed the table index i to ptp_ocp_sma_store_val(), and the new
+code passes tbl[i].value. The two only agree for the first two entries of
+the fb tables (10Mhz = 0, PPS1 = 1).
+
+Inputs (ptp_ocp_sma_in): IRIG is index 5 / value 0x10, and DCF is index 6
+/ value 0x20. Before this patch, an IRIG-B (10000 Hz) request programmed
+0x5 (PPS1|TS1), and a DCF77 request programmed 0x6 (PPS2|TS1).
+
+Outputs (ptp_ocp_sma_out): an IRIG request used to program 0x5 (PHC|GNSS1)
+and now programs 0x10.
+
+The ART tables also differ between index and value: ART PPS1 is index 0
+but value 0x1.
+
+The changelog says "Preserve the existing output path", but output
+programming changes here. Could the commit message describe this
+index-to-value fix? It might also be worth splitting into its own patch,
+so maintainers and stable backporters know the IRIG/DCF behavior changes.
+
+[ ... ]
+
+> @@ -5900,6 +5915,7 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
+>  	int i;
+>  
+>  	val = bp->sma_op->get(bp, sma_nr + 1);
+> +	val &= SMA_SELECT_MASK;
+>  	tbl = bp->sma_op->tbl[sma->mode];
+>  	for (i = 0; tbl[i].name; i++)
+>  		if (val == tbl[i].value) {
+> @@ -5907,7 +5923,28 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
+>  			return 0;
+>  		}
+>  
+> -	return -EINVAL;
+> +	if (sma->mode == SMA_MODE_OUT)
+> +		return -EINVAL;
+> +
+> +	/* Inputs can feed several destinations, including timestampers. */
+> +	*frequency = 0;
+
+[Severity: Medium]
+Both of these changes affect what DPLL netlink reports, and the commit
+message does not mention either one.
+
+The first is the new mask. ptp_ocp_sma_fb_get() returns the 16-bit field,
+which includes SMA_ENABLE (bit 15):
+
+    return (ioread32(gpio) >> shift) & 0xffff;
+
+ptp_ocp_sma_store_val() also ORs SMA_ENABLE into every value on !fixed_dir
+boards. On configurable fb and ADVA boards, the old exact match
+val == tbl[i].value could therefore never succeed, and frequency_get
+returned -EINVAL.
+
+dpll_msg_add_pin_freq() passes that error on, so pin GET and dump failed
+for those pins. dpll_pin_freq_set() also failed before it could reach
+frequency_set.
+
+With the mask, pin GET succeeds on those boards, and DPLL frequency set
+can be reached there for the first time.
+
+The second is the new fallback. Inputs with no exact match now report
+DPLL_A_PIN_FREQUENCY = 0. That covers timestamp-only routes,
+mixed-frequency routes and unknown bits.
+
+0 Hz is not in the pin's advertised ptp_ocp_sma_freq list (1PPS, 10MHz,
+IRIG-B, DCF77). Userspace has never received it from this driver before.
+
+Could the commit message describe these user-visible changes?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126-timecard-driver-v6-0-ahmadexp%40gmail.com
