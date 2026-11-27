@@ -1,61 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.126
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795762433;
-	b=vdmvXjBKL3jNlaO2/WrUOvkDhYHMk9PUeH7xL+K2A8Skwaf4pjT+VDaO393xx+LE5oM/
-	 +B/p/HJ7ws6juSRDG7aGYrr9PldjiqoxJ13D/hINvOZfvXGsXnpz9gjggczDadvkruk7q
-	 UJ07EHQF6yJa2p28JleuKIqb6ENprKS2Q04BvIB/BK+7T3FKDjaeDH8ZPFrOnd3JWn8jJ
-	 SDkQQhgv4hj8xzmMcpB0pIEP0IkQthqd/J2Hko6GoQLjYZuBYu3U6oJTxbAMXmLX7uM7k
-	 T199nM1ia8IkJNT9SupaYnqrZzkLwADI2s09+4r474f/SZDOBBahb05p9ukQ8XenFTA==
+	t=1795762475;
+	b=y8fe0wyzJ6YmrQxxvv5WX/4Biq/fD+mz4G319gWbOa12SdNaeTs+/Kf/378RWe+sQapu
+	 ZvQASFehKiqD8U8K+pGrHCZJwXOvikZUdSWXI0bbQrgtxNtaEc45cJt3bMmX1nNoNh+LL
+	 wPloSTvcEaUf0M2y9K6vS9ydgRVIS2CSr6r1Xt7LcKsEOasNeJNakgfHnxKpXeFYh1xBY
+	 hd1jFK+zPfAek5sOQax0h6JiNSWguLA8br4zvRkyf5bHsillQDfYsNuVuvourGp0ZFzbJ
+	 OZu8xaSBbKyHbAi9FYql2DEII6bDnwaID7xEslFbyrJoDJcBXu9Ap2j1tW3s6JddH3Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795762433;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
-	b=2H0t5kpM3pe14/mbVtSpoJZsm/og4/cN5Fop4PduzXRHab5sUhJdQZUfHE4tnuWKrnOf
-	 kiRXLFLRu2C2iHvdGLyWv3uMBiHE2WXcs8PwxIAqUltLCpNU662L/uvqCGGtgfVX8VxlZ
-	 R2FpSf3BnS40AH3VYty5qDe7J9sJR3p0DkOzPb+WDksdRMNWVwP6KnqwinzMdrNJ12rvJ
-	 hrUpTgaECfmCJxCaHADf9OVBok7RMd47XnBPvNtdPuzscfeB5M4wuSJ8+WpV90RbUFpM7
-	 bOcANQdcYa9fOoz+2S3NvZyPKX3Mz9qAF4I5fWPIwk3dixpaIvhjdR6okCDv0TL+Djg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795762475;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ldgBYXNws0SrExrvq7eT+4NnxJR8sVTNBuuXZq814K4=;
+	b=tE9MwScFouRrU9zfu7V61p7aWwWvCBJL/TmnHzRoSgU5lE6VZgjmNrBYhEe8d0M5asje
+	 LAvaZCjqk7FVg7eDK0bdFN/lhzvmJBHAlpwGzPNddvi+otS/X3EnWwIBB3Ok4CxpEoYxO
+	 J09mIh1wAJI9dMWmGFS09CcO8r8J7nV68JnQp8BsGSRseQb3ltXjWm9zb15uw52P+kfs5
+	 9ihMsbH2VYhwCjo8u3vPV8pAeXfI+9TVRvOTeUQBlikIBxalc/6JDXTuwhAzsg5EhRnSp
+	 ubNudZIPfuPKtdrQOPV1VTygi0S3v+Snw9x5fZZDzcXScy4bOYibFUTx6SZY/i+yLmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dhz7djXo;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=srHIPuTm;
+	arc=none smtp.remote-ip=95.215.58.126
+Received: from mta1.migadu.com (out-126.mta1.migadu.com [95.215.58.126])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD5F2606A31E;
-	Fri, 27 Nov 2026 06:53:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73063606A321
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:54:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73063606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dhz7djXo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88F861F00893;
-	Fri, 27 Nov 2026 06:53:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795762433;
-	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=dhz7djXok8SLAjIzI4X5L/BWYSDpHRLmMjvU2ftAlS0nD49hnqwJVS4iXo4iIw5R8
-	 vSsTcDAhxYuJN1E/wMswWX/MEtFoWoWMbzmn2cxHR3tJXBIi7ZLFZ2dAR9YfhqpziC
-	 nt2KLCUGCuYnNjCwHxRoqfqEJNQsEmb9+qhrB90pa3fjSyPwKfOssYSrszwdRxi73j
-	 h2BOmfLQMsiW/QIKvhjCL1H/PuNsW3h6/1jBAwCPpZhkfva03P6ID/JEUWqWxeOxRv
-	 lgKUHRJf9WGOqAXVZR3CU++SO6lmP+ROBV1qLDdsshs9PS9RyJwSpnvHgL3i4rMDBP
-	 T2Of9y9PCSJBQ==
-From: netdev-bot+sinfo@kernel.org
-To: Henry Martin <bsdhenrymartin@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
- Pieter Jansen van Vuuren <pieter.jansenvanvuuren@netronome.com>,
- "David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>,
- netdev@vger.kernel.org, stable@vger.kernel.org
-Subject: 
- Re: [PATCH net] geneve: don't announce options that are not geneve options
-Date: Fri, 27 Nov 2026 06:53:52 +0000
-Message-ID: <179576243210.3294.12001284268844727459@kernel.org>
-In-Reply-To: <20261127064706.2920854-1-bsdhenrymartin@gmail.com>
-References: <20261127064706.2920854-1-bsdhenrymartin@gmail.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=srHIPuTm
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=h5rar8UUerAtpvggvfcIKvDaE3+p/9NaedNCkZ6XPI4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795762472; v=1; x=1796367272;
+ b=srHIPuTmAbozvAb76f9ZODMlxakRy9BKzVtH6BdUOSiPl6TMVnEIsMPAMHyeJJ11m5UcbiH9
+ 5eqYr4WJJQGOLP8O7E81eowjttOhEtB13JwE/FLs+CIf0BfoRhmasmaCneJxOmFzfGoXxuJgzbE
+ b9Tm9zHcLFX2jfJk5OUbNIDw=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id 5fb339c859fca4ae;
+	Fri, 27 Nov 2026 06:54:32 +0000
+X-Mizu-Trace-ID: 5fb339c859fca4ae
+X-Migadu-Flow: FLOW_OUT
+Date: Fri, 27 Nov 2026 14:54:21 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: sashiko-reviews@lists.linux.dev
+Cc: bpf@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next] bonding: undo enslave state when XDP setup fails
+Message-ID: <awkpHepMHPoNNYf0@fedora>
+References: <20261125-bond_xdp_rollback-v1-1-35dddaa337ba@kylinos.cn>
+ <sashiko-outbox-235667@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,22 +63,27 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <sashiko-outbox-235667@kernel.org>
 
-Hi!
+Hi,
+On Thu, Nov 26, 2026 at 02:00:05PM +0000, sashiko-bot@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue to consider:
+> - [Medium] bonding: unbalanced bond_slave_ns_maddrs_del() calls in
+>   bond_enslave()
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Ack, I will remove the call in err_close.
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+> It also noticed 1 related pre-existing issue this patch does not
+> introduce:
+> - [Critical] bonding: missing cleanup and 3ad unbind on XDP error in
+>   bond_enslave() [1]
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+This will be addressed in another patch.
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+Thanks
+Hangbin
+---
+pw-bot: cr
