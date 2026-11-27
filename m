@@ -1,55 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795799699;
-	b=Ph+tGx6HsDj10MbNBbJ/86nCojMcM5HiW6GVDVZl9a4szD3KEzLUcuNZ1YPWv6JfDViA
-	 dMqMODoqvzzPPCZa8hpN0LZ8J3KFs5nvUAV3sYVNg+0OsalyO49PCNZe/xTvDgOqTfq4c
-	 vHbBDU01bEtrKpwwFaYfwiHcQSFBMw+rHaLFJCaAETcnu8Y5mjidARW1CQbq+clRUQR1x
-	 ulg7YK1NMgOZ15L540WEARyP0RItLDiVWFutEvImf2u/5tqRmaThZ3ZbtPCFfpY2Uhau0
-	 uC1mp1D9tqAhvG+hx8uhX8NTNZMfPeDBHbEkmLcIL3vbFvFqoVEombb8mYO4jW3c5KA==
+	t=1795799769;
+	b=mcuK5n+a8bHY41ksNiIOJYfNIm4DGHjyd6J7nT38wMSX17clPu/rsqh/O+NBLm4b+j8p
+	 2iJpwVGj0KtCYIgy8pJuJcq6IIDBqkBj/ZAjiCJxd9x8GMv11SMNYfqY2U44LmQEMpSJU
+	 8zMAFDafv/RBIiaXj+6rAIfVYGTHNcnFdEwawodttaellw+hQCG6bZs7SNY27yYBrJoqT
+	 hbD+CsRDzkXUj/syCL+TJNYbS8phfWG9kkP/WBbRxrR13dDknkhihLDpZSTXqlaTN18CT
+	 JXgHXHk/XWEE7OFhIqhUs3fTVyLzUwZTx7Jxi5ih3zJhYmY+leV3Rp5GX5NPNTpJ3KQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795799699;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795799769;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:To:From:
-	 Subject:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
-	bh=/MqoVVokKifkTRP8a2e4Ou+A0vUAcRxSvdRQdtIKvJc=;
-	b=U0ZCgXCqNipSP/UyCLeWL2zTKA74OaHcnLWJ0UoxDtudbY8S7bNirkb2zxM08yXoiqMc
-	 gDZ9c0OCgCgepT1oWXUz359G3A147t0W2iA0CrwLhUTPDosMFXrT6ZraTBNly0Mp1xvXk
-	 piA3XVhRd3JAQivZigWpTgWTbY6YyRLby6dxqux8cwe1gecMigtxp23fuxodYjLSh3TpC
-	 zFeyKqnPrmOBQpdfTqkfXAXZC8FkPV1Op91KiuY0WkWxouZE2aGoPWsrjJFSvisivo84M
-	 hrKqHIMXKjnVmQKtYDQUW9tsPBZ+7U1EYdwVSQqTIwEXQgUZhitRiQXxa4h/Q8OSeoA==
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:From:Subject:
+	 Cc:To:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=oWWGjqN8OE499HH5hnT8tqqnA9LpEEbpX/53nixjxd0=;
+	b=jXg32+99/TVjqCICY/4DOnc3F4M0O/v4pgW8AkGkt2HUYCNPwTwQKGNC0UzDXUEdMN5k
+	 Rv0dpqG57dX/TEBewOWDJsRxzlq0+SaIwjlnOMZykPkQ+PeT+/qBdpLakGY/EuFFNVcDn
+	 kMWe8qN3MzdxIwlrvbmt0uw3Wox6bYB8q1MdFc0O51i/FMjWwZI5XIy4zrG5cc4Ct7Auf
+	 /TwBHxoUXQ+iHHSvU/WPzuD3bLS/Jn0CH8uUeFiH4P1Yt3y8z7qpdT6UrbtJOwOCiJ3i4
+	 1dFoFIG5Q3+hZ/bJ8+KLugMw5ybQNuZfNX1183QiRKu97oC260XAKGvLEb3igqOHHXw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=A4rnxq6G;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=SoaqsLhM;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D95B606A31E;
-	Fri, 27 Nov 2026 17:14:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D95B606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35091606A31E
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 17:16:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35091606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=A4rnxq6G
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=SoaqsLhM
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id DBC5B1A183A;
-	Fri, 27 Nov 2026 17:14:51 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id ED25FC2AC4C;
+	Fri, 27 Nov 2026 17:16:15 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 97C156049C;
-	Fri, 27 Nov 2026 17:14:51 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id ECB8311E90BE6;
-	Fri, 27 Nov 2026 18:14:39 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0E0516049C;
+	Fri, 27 Nov 2026 17:16:07 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 21F9811E90BE6;
+	Fri, 27 Nov 2026 18:15:57 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795799686; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795799762; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=/MqoVVokKifkTRP8a2e4Ou+A0vUAcRxSvdRQdtIKvJc=;
-	b=A4rnxq6G9TAuP6teLDmc1pkmtE4G0RWW7fRuKO2Th6mcAgEfs/fKdCB2HFnJtvGk/9aEbX
-	sOJfG649C3ULV/bcQjAlJR3Ixz+FPAkF26n+//HckujJ23NKdyKMOZjXqxv6244bfxqXwK
-	4L5rawC2Q/DQuHJN+nPz/HSgRnt0kMTdCCzSr8frPVgdKo/cNtT+dakQ911OIxxpVbbHoR
-	FUMFSrqwghuqKXLWqxfmXoseTaZzFKionaRAgcx9OwLCv3alW5P+IZXlvxecZndYA7cdlm
-	TlsCRR22G/pUz+3YeDcyRi+acWXtm3Qg/BFzPdm0PBv99HMTQDmyOvr/gh02ow==
+	bh=oWWGjqN8OE499HH5hnT8tqqnA9LpEEbpX/53nixjxd0=;
+	b=SoaqsLhM/tlXigy6t6UEhNbBvbXI+g7XezdLNppqTRArTa2/2o5hmw8cdhyeHRYNcd90TR
+	mgYtm+SzR++PqgWvzWjpbVR8wnU7W4rDX8rafLt3SDg11Uw+sW7g+YCZe+Csh+hB5gfofg
+	4BN5fMip5v2rUm0H9iapEGKFS1DeWoy79ZdUXz2l/Lq5rlr7mGfM2T7IHoHLLlG/JPCPeU
+	XTmJTBg0rQjw+6zirHhFA+Bc5Osq6KFPg1uPhsZDN2BEk5WtUzU4jfT6NkXbhDBlPILr4E
+	MYDcidYI6UcCnLRw+J75fiFE0qoGC9V7e0e9QsYf8lTr3pLHGdaaOLNIXyZHQQ==
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,8 +61,11 @@ Precedence: list
 Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Date: Fri, 27 Nov 2026 18:14:38 +0100
-Message-Id: <DN65UVCVRPGW.3O5CCD2XBNR@bootlin.com>
+Date: Fri, 27 Nov 2026 18:15:57 +0100
+Message-Id: <DN65VVN9YPGF.10F46ZEJTO574@bootlin.com>
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+Subject: Re: [PATCH net-next v8 3/3] net: macb: distribute evenly Tx SRAM
+ segments
 Cc: <conor.dooley@microchip.com>, <andrew+netdev@lunn.ch>,
  <davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
  <pabeni@redhat.com>, <linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
@@ -71,13 +74,10 @@ Cc: <conor.dooley@microchip.com>, <andrew+netdev@lunn.ch>,
  <benoit.monin@bootlin.com>, <tawfik.bayouk@mobileye.com>,
  <thomas.petazzoni@bootlin.com>, <vineeth.karumanchi@amd.com>
 To: <netdev-bot+sashiko@kernel.org>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Subject: Re: [PATCH net-next v8 2/3] net: macb: implement
- ethtool_ops.get|set_channels()
 X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261124-macb-set-channels-v8-2-770cf8e50e6d@bootlin.com>
- <179571152544.3135.2345418313808406902@kernel.org>
-In-Reply-To: <179571152544.3135.2345418313808406902@kernel.org>
+References: <20261124-macb-set-channels-v8-3-770cf8e50e6d@bootlin.com>
+ <179571152787.3135.16045423533153390042@kernel.org>
+In-Reply-To: <179571152787.3135.16045423533153390042@kernel.org>
 X-Last-TLS-Session-Version: TLSv1.3
 
 Hello netdev-bot+sashiko,
@@ -90,174 +90,74 @@ se
 >
 > Low priority / nit picks for your consideration:
 >
-> - [Low] The commit message does not mention changes to shared context-
->   swap code that the existing MTU and ringparam paths also use.
-> - [Low] On multi-queue GEM devices without MACB_CAPS_QUEUE_DISABLE,
->   macb_get_channels() advertises a channel range that=E2=80=A6
-> - [Low] macb_set_channels() checks `bp->enst.queue_mask >> num_queues`
->   before it takes bp->mac_cfg_lock.
+> - [Low] gem_sram_distribute_segments()
+>   (drivers/net/ethernet/cadence/macb_main.c) writes 0 to=E2=80=A6
 >
 > --
 >
-> net: macb: implement ethtool_ops.get|set_channels()
+> net: macb: distribute evenly Tx SRAM segments
 >
-> This commit moves the queue count into the per-context struct and adds
-> bp->max_num_queues and bp->configured_num_queues. It also implements the
-> ethtool get/set_channels operations. When the interface is running,
-> set_channels allocates a new context with the requested queue count and
-> swaps it in through the existing context swap window.
+> This adds gem_sram_distribute_segments(), which programs the GEM
+> TXQSEGALLOC register so the Tx SRAM segments reported by DCFG6 are spread
+> across the active queues as powers of two. It runs from macb_init_hw() an=
+d
+> macb_context_swap_end(). The new MACB_CAPS_TXQSEGALLOC capability enables
+> it on zynqmp, versal and eyeq5.
 >
 >> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethe=
 rnet/cadence/macb_main.c
->> index 1e06666921160..bcf77b2763448 100644
+>> index bcf77b2763448..b939a1391273b 100644
 >> --- a/drivers/net/ethernet/cadence/macb_main.c
 >> +++ b/drivers/net/ethernet/cadence/macb_main.c
+>> @@ -3319,6 +3319,69 @@ static u32 macb_dbw(struct macb *bp)
+>>  	}
+>>  }
+>> =20
+>> +/*
+>> + * Distribute evenly available segments across active queues. The compu=
+tation
+>> + * is complex because (1) segments are counted in powers of two and (2)=
+ a queue
+>> + * can only use up to 128 segments. There are four types of cases:
 >
 > [ ... ]
 >
->> @@ -3399,16 +3421,28 @@ static void macb_context_swap_end(struct macb *b=
-p,
->> =20
->>  	lockdep_assert_held(&bp->mac_cfg_lock);
->> =20
->> -	/* Swap contexts & give buffer pointers to HW. */
->> +	/* Swap contexts & give buffer pointers to HW.
->> +	 * !new_ctx means that the swap failed and we keep the old context.
->> +	 */
->> =20
->> -	old_ctx =3D bp->ctx;
->> -	WRITE_ONCE(bp->ctx, new_ctx);
->> -	wmb(); /* ensure IRQ enabled below read the new context */
->> -	macb_init_buffers(bp);
->> +	if (new_ctx) {
->> +		old_ctx =3D bp->ctx;
->> +		WRITE_ONCE(bp->ctx, new_ctx);
->> +		wmb(); /* ensure IRQ enabled below read the new context */
->> +
->> +		macb_init_buffers(bp);
->> +
->> +		/* Clear DQL (only on successful context swap). */
->> +		for (q =3D 0; q < bp->max_num_queues; ++q)
->> +			netdev_tx_reset_queue(netdev_get_tx_queue(bp->netdev,
->> +								  q));
->> +	} else {
->> +		gem_shuffle_tx_rings(bp);
->> +	}
+>> + *  - Sharing all segments is not doable because not enough segments ar=
+e
+>> + *    available. Take num_queues=3D4 and num_segments=3D2.
 >
-> [Severity: Low]
-> This isn't a bug, but the commit message doesn't mention that this patch
-> reworks the context swap helpers that macb_change_mtu() and
-> macb_set_ringparam() share. The message says set_channels:
+> [ ... ]
 >
->   "ends up only being an assignment to bp->configured_num_queues plus a
->   call into netif_set_real_num_queues()"
->
-> The patch also:
->
->   - moves the netdev_tx_reset_queue() loop from macb_context_swap_start()
->     into macb_context_swap_end(). The loop now runs only on a successful
->     swap and is bounded by bp->max_num_queues instead of the active
->     queue count.
->   - adds a new_ctx =3D=3D NULL rollback mode to macb_context_swap_end(). =
-It
->     keeps the old context, skips macb_init_buffers(), calls
->     gem_shuffle_tx_rings() and skips the free.
->   - makes macb_interrupt() self-disarm on queues where
->     q >=3D ctx->num_queues.
->   - switches gem_get_rx_ring_count() and macb_poll_controller() to
->     bp->configured_num_queues.
->
-> The existing MTU and ringparam callers always pass a non-NULL new_ctx, so
-> their behaviour doesn't appear to change.
->
-> Could the commit message describe these helper changes, or could they go
-> in a preparatory patch?
-
-That is correct. What the model doesn't point out above is that the
-reason for all those changes is pretty simple: our context swap window
-might now error out. Before all swap operations had to succeed. Now we
-have netif_set_real_num_queues() which must be called in the window and
-which can fail.
-
->> +static int macb_set_channels(struct net_device *netdev,
->> +			     struct ethtool_channels *ch)
+>> +static void gem_sram_distribute_segments(struct macb *bp)
 >> +{
->> +	struct macb *bp =3D netdev_priv(netdev);
->> +	unsigned int num_queues =3D ch->combined_count;
->> +	bool running =3D netif_running(bp->netdev);
->> +	struct macb_context *new_ctx;
->> +	int ret;
+>> +	unsigned int num_segments, pow, remaining_segments, i;
+>> +	unsigned int num_queues =3D bp->ctx->num_queues;
+>> +	unsigned int num_advantaged_queues =3D 0;
+>> +	u32 val =3D 0;
 >> +
->> +	/* MACB_CAPS_QUEUE_DISABLE means that the field QUEUE_DISABLE/BIT0 in
->> +	 * the per-queue RBQP/TBQP registers disable Tx/Rx queues. If we don't
->> +	 * have that capability we can have multiple queues but we must always
->> +	 * run with all enabled.
+>> +	if (!(bp->caps & MACB_CAPS_TXQSEGALLOC))
+>> +		return;
+>> +
+>> +	num_segments =3D 1U << GEM_BFEXT(SEGMENTS_BIT_SIZE, gem_readl(bp, DCFG=
+6));
+>> +
+>> +	/* When growing the max # of queues, make sure to write into
+>> +	 * TXQSEGALLOC_UPPER too.
 >> +	 */
->> +	if (!(bp->caps & MACB_CAPS_QUEUE_DISABLE))
->> +		return -EOPNOTSUPP;
+>> +	static_assert(MACB_MAX_QUEUES =3D=3D 8);
+>> +
+>> +	/* pow=3D0 for all queues. ilog2(0) is dangerous. */
+>> +	if (num_queues >=3D num_segments)
+>> +		goto writel;
 >
 > [Severity: Low]
-> Does macb_get_channels() advertise a range that this check never accepts?
->
-> macb_get_channels() always reports:
->
-> 	ch->max_combined =3D bp->max_num_queues;
-> 	ch->combined_count =3D bp->configured_num_queues;
->
-> Some multi-queue GEM configs don't set MACB_CAPS_QUEUE_DISABLE, for
-> example zynqmp_config, raspberrypi_rp1_config, pic64hpsc_config and
-> default_gem_config. On those devices ethtool -l shows something like
-> "Combined: max N, current N", but every request for 1..N-1 fails here
-> with EOPNOTSUPP.
->
-> Should max_combined be reported as bp->configured_num_queues when the
-> capability is absent?
+> Is the num_queues > num_segments case really handled here?
 
-When cap is absent, bp->configured_num_queues =3D=3D bp->max_num_queues.
-So this review sounds wrong.
+Argh, once again it does this review. I'll prompt the LLMs in my commit
+message (or below the '---' fold line) to avoid that in the future.
+https://lore.kernel.org/all/DN2Q44M3PG5M.1Q2PKJ5A3RKNY@bootlin.com/
 
->> +	if (num_queues > bp->max_num_queues)
->> +		return -EINVAL;
->> +
->> +	if (num_queues =3D=3D bp->configured_num_queues)
->> +		return 0;
->> +
->> +	/* If we allow disabling a queue which has TAPRIO active, we'll keep a
->> +	 * transmission window which would be unusable.
->> +	 */
->> +	if (bp->enst.queue_mask >> num_queues) {
->> +		netdev_err(bp->netdev, "TAPRIO schedule gates queues >=3D %u; destroy=
- the qdisc before reducing channels\n",
->> +			   num_queues);
->> +		return -EBUSY;
->> +	}
->
-> [Severity: Low]
-> Is it safe to read bp->enst.queue_mask here without bp->mac_cfg_lock?
->
-> In the running case the lock is only taken later, in
-> macb_context_swap_start(). In the not-running case it is never taken.
->
-> Other writers of bp->enst hold mac_cfg_lock. For example,
-> macb_taprio_destroy() does:
->
-> 	guard(mutex)(&bp->mac_cfg_lock);
->
-> 	netdev_reset_tc(netdev);
-> 	memset(&bp->enst, 0, sizeof(bp->enst));
->
-> macb_mac_link_up() also clears it on a link speed change. It holds only
-> mac_cfg_lock and runs from the phylink_resolve() worker without rtnl:
->
-> 	memset(&bp->enst, 0, sizeof(bp->enst));
->
-> So this unlocked read can race with a locked write, which KCSAN could
-> report. The worst outcome looks like a spurious -EBUSY.
->
-> Could this check be done under mac_cfg_lock?
-
-ACK, will grab the bp->mac_cfg_lock mutex. It is done before the context
-swap window so it is all safe and easy.
+[...]
 
 Thanks,
 
