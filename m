@@ -1,100 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.42
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795800890;
-	b=5hYTh42w6RxfXcTsg6LLYeWtCIQSov+jKTx91WktxoCQzZyAdQCPy+CfsgnAUbu4Gi0V
-	 VotDckZwVnvDDxHMgUPY5lu46fe/G5Lf/vT1CTudEFr2vdcxz6+poQkPmeIbvJmxZ4Chw
-	 +1ssrpMZN/njsHN91KcYZrRKlFYk5nxky3sdYJIakBBN5OqBlQFmtlf2v/PQYP9VGK7u5
-	 r1BPcSTTW5uHHAPqX2796DPkiTlJiapSSZsGYVSjh+PZpwEpMmXNrz3LhSYbGneVf6xYe
-	 RtNymfoQpZdG54/Izz+kq3oh3ROiDBdKsS1yTavx0LJJ0H/lCkAQPQU25y3a1d4zHEA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795800890;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795801413;
+	b=q8IbJz+RSVY/xVlVwGRrcdQ/UCmSN++oXsytsNG+M9iA1pirRqqZdCZl3lCjy20+OPb3
+	 zFDyaWoFLGwC1GNtjC6sL5sBu4Vyfdq4+qHY3M2LvvPGEqSZ0X1EIHdZ8RlvUhsJK2GoB
+	 lEmaEGP8oNLJnau/9UOnwsQR68pqZ1VyQmd4WSgmyVtQQr0n3ScTqu2nrIdQ3T4ZMJ0r4
+	 W3JOrgkSnotJ2sKs1N7aNdVZ4ErY9xJ4nC4t8PlWe+XHNAK10kUUl4ptCSrrUYAGwpewF
+	 a82onyy9Gs4+2x6216uwRept1QBWkf7JqF7Kb+Ix1AZ/e6oB5NAJWyivMEN9xmgRiwg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795801413;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=0cry1QYsMiE3GcTJ1U56O5LSXaxAFrv/OCa56hIGPb0=;
-	b=TzzwQr65eUid5CS6/SRvseUGXOgaSFFrRezklkPv14jnNQG2KIEOX+g4PkPMXn6f/Ka/
-	 qo4Dp+usCF/E1pgKGU+WdmS5jFAdKMZeobWlyxlcx/b66v/nYwbCQOCxkR+bjKZoM2dFh
-	 AmZFMEsXM7uB8qXfRoABnlfN9zwHWjpK8s1yWVNR182yst7XD3AGWPh5p9gQKV0Jv5rGK
-	 9PAqim/XTmRjOOfO5u++0EenPudESS5ltl2ciaRWX/ZeeO5nZiDiLkbNIx/EzAgcz98rw
-	 5EaFtlToJcrLj4Y2fNf8xmdQU9NniI9Vq7q1UaTSul2XjXdH+2gFfDyv0jWNjIfs6sg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=pU9Xk2Mqh993PZoYBYSJcD5UEr4iVVzCEZGF3w+CH3k=;
+	b=0DB/iEOHV01B5pDmWyAZl3vrH0UONFYCqX/Hzy5505iCKNnQNf5gOclVlPafeN3Mnwt+
+	 W26bW+xOj6ppybiLbEnplnlw9ENmbbjTn3UeqrTyg53hXZ1NgT2Xgmy8KpHk2gkMqzp9s
+	 sXPIE8WFseu2u0fK4VO7h0CyLLbNHFSy5qc4iKlasd2wBQhYFiLFbyowC+DrBaCRmy89W
+	 kFHVX3E2/gzKVhOk0zHpI+8bk1prqdJPH4K0ehAQSt1xPXQ3mFV3Tjl8KEJ0C7tfq/+dS
+	 sYv+cpSaHbjL3hRQ9fBgBRZUZGBXSEZyd3lN2tbwV/OatWy+ZDQIm+N+RMvHfYT1D2Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iqbseWq3;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.42
-Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w2lbzxZw;
+	arc=none smtp.remote-ip=74.125.82.171
+Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D2D6606A321
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 17:34:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D2D6606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 799BF606A31F
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 17:43:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 799BF606A31F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iqbseWq3
-Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-491971ac844so7366248f8f.2
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 09:34:50 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795800889; cv=none;
-        d=google.com; s=arc-20260327;
-        b=oe6vyRZ7/ABS64iRTg7S8S6KRaKik3n1r67F1dkTLGo1logdPnRhK2Rt1o8BEDt8IN
-         UVWBYDHEZ4SyeeV8JtqTYhzDgaHIVAjtNm8NkSOb209RZm1uF5dpe3hqJRBKX6wJKrr1
-         E1v2Lkp5ftqKVtrNxXhuioWO+Bqdg8ZLID+kGczKgJC8fUFuocjoltji8MHNS9iJivve
-         KbCMOqmaLrNEYP2xP5NxYVo7HqS8Ywqocd/l/fqAnPO30fTHlZeA7vtcQKvRswyT4xJ3
-         GSEGQf6WgJDBRyVBj+w5Hvj8AjfxaVR4OBPB8xwSEtQHGCxHSHgDO+AfNuJYMr/Mb814
-         YO1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=0cry1QYsMiE3GcTJ1U56O5LSXaxAFrv/OCa56hIGPb0=;
-        fh=sgMlnpPIkoatpKB1xJDHQICPZqesERPploa6LoXqXLk=;
-        b=WFZ9mrw4t/cavsmFG2582cjwtuiVQomHbbiTBMYXCZvXfv8C3QFdJqEvPTEHpwv0il
-         JxLP/CqE0oKTkCSyCniJe+qOKXS4jwfEGE6yiTBrHz02085UqfqQegopibpj8Q9/hYOh
-         JZfp6R0k/JVqpSkEP0L96a3Kw7WfAvw71OGxEsPZRSWghs8H4kU7K6rJvAjfXj+th3rO
-         gIlZDdRxZDMU4Uq0+1j1qhjGvtLKxKOWvjvvhapz7j8O6uo9QhRPApgCtoVCXRpdfHQO
-         MovNBTlbg00tG8NG+IwFKqzd+cbOvBAmZQaCE/EnJ5R4K7/6DNsS/qxTVVMWIEUqQi0I
-         HlQQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w2lbzxZw
+Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-38644aedba1so12800657eec.0
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 09:43:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795800889; x=1796405689; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=0cry1QYsMiE3GcTJ1U56O5LSXaxAFrv/OCa56hIGPb0=;
-        b=iqbseWq3fFzbbStynEkT3aseKkmIXjasPxjv3G6zZNtmADUYF0M5AYH7qZefaveRIK
-         +1HPF+mFV9CanXGGOSuXDT4sYzFX8vKBTROXCWilqqaRW10xdzJFiHBW5IrvoG9gmQ0P
-         lLX3lfEwlYZnVB7zRyeQxTqruIRDN2ppcS1smRBg9zq7fvGXYUOEP1FpSFAlvKeKpAq5
-         d7qcYW65PoDv8mU0i2S1U0JvSyzSHp8tW76wQxM3JkbrbFjzuB3Iax9/KTdUNK0fMcel
-         56oHXPWEEnyEiB2IO3cLohNnMXSPtKsl8F2V7wFNTV6FfxXmkRoTfACRASJmCZluOZ5N
-         2I4w==
+        d=gmail.com; s=20260707; t=1795801411; x=1796406211; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pU9Xk2Mqh993PZoYBYSJcD5UEr4iVVzCEZGF3w+CH3k=;
+        b=w2lbzxZw5pzl27cd/sQqEEa0dcgRQDHWtC4WlKCzmY+/Op1n+feOzCNsgu4Qolw6fI
+         SkhO6lQgGWBvIaNm3USmx+Ic4l0B+ssyTCNWNb1azkJ8WAOw4kNjGkMBypOg7l+2e9SC
+         8sNBbgpW1mKfgEURVGcjjBsgeWyoIF64PXkdUcBIk0sifAN6LRwRxBfFrAuRGcXrsSCy
+         2/CJb9MZUt7M5oBGDn03+GB/SFh4gj+aK9r2YHgiHqr/RIf2Bl5Ma/eYaLQxqOEz/rME
+         /jwTvrgYGJyIw07G/YFRCWu6itP7Q2k4/RA/nhXOyeXMxSwwXg+7TQR4bA7DEzA4BeER
+         TKoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795800889; x=1796405689;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0cry1QYsMiE3GcTJ1U56O5LSXaxAFrv/OCa56hIGPb0=;
-        b=fHiRpFaB9gR5ZV8CLOzWZukuq7APQ6OXXHFPtUfRN6ydeL5ZEl98efsbAsfOne1tS2
-         uahCTxow9Gghdn6W1WCyXxowKSX2l/nKLa9IfEKs5koAIk7dYxt5i0Q6g6hgrTbcQriA
-         q2ye/OLDtYSXiZEZm/sUVimL+ewiV9Pm55ypkHkGFhB33BkXywYUE9s6hCLMol8qDoAg
-         HKia+fDgUjiHDcHiuOivf3RqddE+n+wYX/ehj9lsXPcqyI9u8G9UjRXLFzH5d5CAZ6R3
-         r5iwGJoGHziD4V+znaTAWV6lMvi0ugSoJ1wwofvv8zwA7a9rAFvwVaMzObrnty63k8sQ
-         PBgA==
-X-Gm-Message-State: APuU4Z8g/sw7w/AyB58h1dV6+JXk/QfscUml21CWBJF67CB9lYnadnDb
-	eL32iwFUAH7UcBwUQjkyNGQBdEw4rvsqifVameCd83OeLwTkwJRToGvmeYEgBgRSEUj6Rw/jIHG
-	8Pq81Xi1R33S18fVX9aAVtzPpHNTjfaQ=
-X-Gm-Gg: AZFdTZfxbaKdcNCipLQjRjU/V9MXv/R/pO6QdJeqevpsmHXAx4Du06Nm+j6bd71Xi3C
-	cD8afb7h+8/uypW6GtpYSkGPeTYxBcf6PBCabGOySEm5mkH5LbGmkibOEI8YzYPV+HFprU46F5S
-	ur+AIfKNGAqvNfF9wLmcK5dUv7tl5rCo8vrMO4rO/UVRntwFgQqMsD5LKez+djEVw9WCPYJHd1l
-	VTLXTGKwA1pNqA2YGv6faWX0kvAnrwCPw5043wyUw9lvfVHCXLKRK5r/b/f1NKkTPrrELeOXmXC
-	6LT/Jj/jAJFH1zJwOUsNVnMQ3rUiP+VMIuyriRYaWIG+ER2Q8PmI++8jtFg9UEXf+udGYnQh/32
-	rMfLe8eNJg5pVAe8dZK+qTexjfdbJpno/IRNd3FXj51/OXb2FaY81CA6rHixVOZQXpoytQGEBMJ
-	6JgpolryJUfmEmvtOGjnem0B+DhfDqvubJ8qOmast5bhs0SjWFwky1qQ==
-X-Received: by 2002:a05:6000:990:b0:493:ec0:861c with SMTP id
- ffacd0b85a97d-4abb0c5d53fmr47509843f8f.16.1795800888445; Fri, 27 Nov 2026
- 09:34:48 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795801411; x=1796406211;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pU9Xk2Mqh993PZoYBYSJcD5UEr4iVVzCEZGF3w+CH3k=;
+        b=CwvhJaWkg+qEUNVFW0CBeCg60dxgfZdRmuMt7ZHM69MH0xABdQCQdICA+KPhPNgoFC
+         /tW61hrDggi2DTKS0W1K5djBfTPlQLUzBzKXjNF3LDOku7K7puH3hDNIki+7Gclgew5M
+         M1Bq58C8K28mEDVmMPKupoY7dnzzamwmevIqnBjt+hUCRjxcmvFOz++IcfJIxQzK/gai
+         3TYDG63FXPiu7Qtr4k245xgK5b8ZKXwL0BNdJja94Yoz133H3CPX5ym+uZizKGovFR5s
+         eaHotu2nYjB798EmOFA34C2NgIqfuwy94IW2IqyloaLXlfQ5FMakgz97JGBHrOFH21kB
+         rY5A==
+X-Gm-Message-State: APuU4Z99AkRceFt4mSLiYwkufdHO7Zfw1iZpqP7sn9ggrqBa0JrBv2vv
+	X4anhycpT1ihXdf9ji4KeNXri6OnZs/JJGrLDX2uGzz4tK9f+R/AApmst8hnT9OcdtI=
+X-Gm-Gg: AZFdTZdniOImoIydBcv2eETjQu63dLBjpXXwUVfm/pGok162KARg512LRu+xy6UxNYw
+	6THkIyM1qPNh3G943d5gOscwbWeHoaEHo3FaX4gSRJOLDHOufb2nx5e+dW1iEMbBxm9oJVuPb2D
+	7rVWhIcoQdS+wJhF+W1wF2vRGxOD786GrekQXxBj83OTk06IffkyyrxgZ6e7cDw8CmoY/d33uL+
+	nJy4FSJWs6N+Nr2RNfhab4DlM6LJIwWC9NFXEUWfMji8gX/6KjfiOphH+dC3nytawylvhuY+LjQ
+	771Hhy0nnZ+NEWKqH8yaZTRaEcDL2BlPw3CkePdUAd3/avIl4i1tpm1lDdVQ85p7bHiYb60j3Q+
+	LUmN34zic4mNlEFDf9RnA4fpgnOy49ksoTn9pqeYFp+pgbAai7ihkugc+EPbje/SO3wGyvL9U2P
+	GzoGkYLpDWSeKnrX1EGGvM2RFOiQa8FxXAgqIgYIBL8Q348DIRSd8ScBz5AxFdhIbduM1s5hln0
+	ehuedr/dmBAQOViJbXeJ0TlY7V1cqy+7D1cMmRHzD/0HMkYEhC8vYFCNagClyT3Gqss/I2O53GF
+	MU0TvvXAhT7euDlnW/Ld5gHC1xwc8Q2bzJ8lOmFH3WvXa1+tjD2v+ekz954=
+X-Received: by 2002:a05:693c:8843:b0:386:b429:fe0 with SMTP id 5a478bee46e88-386b429175cmr14278377eec.16.1795801411155;
+        Fri, 27 Nov 2026 09:43:31 -0800 (PST)
+Received: from houminxi ([61.170.160.92])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7fc3sm66064276eec.8.2026.11.27.09.43.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 09:43:30 -0800 (PST)
+From: Minxi Hou <houminxi@gmail.com>
+To: netdev@vger.kernel.org
+Cc: aconole@redhat.com,
+	davem@davemloft.net,
+	dev@openvswitch.org,
+	echaudro@redhat.com,
+	edumazet@kernel.org,
+	horms@kernel.org,
+	i.maximets@ovn.org,
+	i.maximets@redhat.com,
+	jhs@mojatatu.com,
+	kuba@kernel.org,
+	linux-kselftest@vger.kernel.org,
+	matttbe@kernel.org,
+	netdev-bot+sashiko@kernel.org,
+	pabeni@redhat.com,
+	shuah@kernel.org,
+	stable@vger.kernel.org,
+	willemb@google.com
+Subject: [PATCH net v7 0/3] net: openvswitch: fix a feature leak on a failed change
+Date: Fri, 27 Nov 2026 12:43:12 -0500
+Message-ID: <20261127173039.ovs-features-v7-1-houminxi@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,139 +107,108 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <179555667294.7867.14016739586914876839.stgit@ahduyck-xeon-server.home.arpa>
- <179577269832.3135.7443187068447815834@kernel.org>
-In-Reply-To: <179577269832.3135.7443187068447815834@kernel.org>
-From: Alexander Duyck <alexander.duyck@gmail.com>
-Date: Fri, 27 Nov 2026 09:34:11 -0800
-X-Gm-Features: Aa3M54r1_TVCRA1JT_YV989xkHkD5xf43Ig85tVxzevdSsbDM6bT93DfdxqYxwI
-Message-ID: <CAKgT0UfBW_XL_8cBJ5txwmD5Hv4Ubs=-qwwyxKwKwWPzuT-5XQ@mail.gmail.com>
-Subject: Re: [net PATCH 2/3] fbnic: Do not report a FW coredump info error as
- a parse failure
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, 
-	edumazet@google.com, horms@kernel.org, kernel-team@meta.com, kuba@kernel.org, 
-	pabeni@redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 27, 2026 at 1:45=E2=80=AFAM <netdev-bot+sashiko@kernel.org> wro=
-te:
->
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] The fix is incomplete.
->
-> --
->
-> fbnic: Do not report a FW coredump info error as a parse failure
->
-> This patch makes fbnic_fw_parse_coredump_info_resp() return 0 once the
-> completion has been filled in. A firmware-reported error, or -ENOENT when
-> no coredump is available, then no longer reaches the mailbox Rx path,
-> which would log it as an unprocessable message with a hex dump.
->
-> > diff --git a/drivers/net/ethernet/meta/fbnic/fbnic_fw.c b/drivers/net/e=
-thernet/meta/fbnic/fbnic_fw.c
-> > index e00d626f64384..9a3df37674424 100644
-> > --- a/drivers/net/ethernet/meta/fbnic/fbnic_fw.c
-> > +++ b/drivers/net/ethernet/meta/fbnic/fbnic_fw.c
-> > @@ -960,7 +960,7 @@ fbnic_fw_parse_coredump_info_resp(void *opaque, str=
-uct fbnic_tlv_msg **results)
-> >       complete(&cmpl_data->done);
-> >       fbnic_fw_put_cmpl(cmpl_data);
-> >
-> > -     return err;
-> > +     return 0;
-> >  }
->
-> [Severity: Medium]
->
-> This fixes the coredump info handler. Is the same problem still present i=
-n
-> fbnic_fw_parse_coredump_resp()? That handler came in with the same Fixes:
-> commit and runs in the same devlink health dump flow,
-> fbnic_fw_reporter_dump():
->
-> fbnic_fw_parse_coredump_resp() {
->     ...
->         err =3D fta_get_sint(results, FBNIC_FW_COREDUMP_READ_ERROR);
->         if (err)
->                 goto msg_err;
->     ...
-> msg_err:
->         cmpl_data->result =3D err;
->         complete(&cmpl_data->done);
->         fbnic_fw_put_cmpl(cmpl_data);
->
->         return err;
-> }
->
-> fbnic_fw_parse_qsfp_read_resp() does the same thing with
-> FBNIC_FW_QSFP_ERROR. It stores the error in cmpl_data->result, completes
-> the request, and then returns err.
->
-> fbnic_tlv_msg_parse() returns the handler's value unchanged, and
-> fbnic_mbx_process_rx_msgs() then does this:
->
->                 err =3D fbnic_tlv_msg_parse(fbd, msg, fbnic_fw_tlv_parser=
-);
->                 if (err) {
->                         dev_warn(fbd->dev, "Unable to process message: %d=
-\n",
->                                  err);
->                         print_hex_dump(KERN_WARNING, "fbnic:",
->                                        DUMP_PREFIX_OFFSET, 16, 2,
->                                        msg, length, true);
->                 }
->
-> So when the firmware reports an error on a coredump read chunk or a QSFP
-> EEPROM read, the driver still logs the parse-failure warning and hex dump=
-.
-> The callers already get the error through the completion. The later
-> patches in the series do not touch fbnic_fw.c, so both handlers are
-> unchanged at the end of the series.
->
-> Both handlers also have real malformed-message paths: -EINVAL for an
-> offset, length, bank or page mismatch, and -ENODATA for missing data. A
-> blanket return 0 would hide useful warnings in those cases.
->
-> Could these handlers follow the fbnic_fw_parse_tsene_read_resp() pattern
-> the commit message mentions? That handler keeps the firmware error in a
-> separate err_resp that only goes into the completion, and still returns
-> local validation errors:
->
->         err_resp =3D fta_get_sint(results, FBNIC_FW_TSENE_ERROR);
->         if (err_resp)
->                 goto msg_err;
->     ...
-> msg_err:
->         cmpl_data->result =3D err_resp ? : err;
->         complete(&cmpl_data->done);
->         fbnic_fw_put_cmpl(cmpl_data);
->
->         return err;
->
-> >
-> >  /**
+ovs_dp_change() records the requested features in dp->user_features before
+it updates the per-cpu upcall port IDs, and that update fails with -EINVAL
+when the per-cpu-pids attribute is empty or its length is not a multiple of
+four. The request fails with the new features already recorded, while the
+code that takes the reference for TC_RECIRC_SHARING never ran, so a later
+request that clears the bit drops a reference that was never taken.
 
-This is similar but isn't exactly the same issue. The problem with the
-coredump_info_resp was that if there wasn't a coredump present it was
-also being treated as an error which is the bigger issue being fixed.
+The first two patches are the fix, split so that the single read of
+dp->user_features in queue_userspace_packet() stands on its own: it closes
+a separate and older oops and carries its own Fixes: tag. The third patch
+adds the selftest. The series is three patches; v5 had two.
 
-I agree that an error response should be treated as not a parsing
-error, but that would likely be a better candidate for net-next rather
-than net since this is a much less common error so the priority is
-much lower, and the fix itself is more complex since there are parsing
-errors that are handled after the error response handling.
+These issues were found by code inspection with LLM assistance. The
+failed-feature update was reproduced on the unfixed parent 2a324a58a084:
+
+  # the rejected set changed the features
+  TEST: ovsdp: failed set keeps bits                        [FAIL]
+
+The upcall race and the reference-count warning were not triggered;
+those parts rest on code inspection, not on a runtime trace.
+
+Tested on x86_64 with CONFIG_NET_TC_SKB_EXT=y. Both new tests and the
+full 21-test OVS suite pass on the patched kernel. The baseline selftest
+scripts also pass all 19 cases on that same kernel.
+
+v7:
+ - Say what the comment in queue_userspace_packet() guards: the choice of
+   hlen, not head room. Sashiko.
+ - Correct the commit message of patch 2. Clearing the bit in the reset
+   path drops this datapath's reference to a kernel wide key; other holders
+   keep the key enabled, so the packet path is unaffected and what was lost
+   is a reference. Sashiko.
+ - Narrow the comment on ovs_dp_set_user_features() and the @user_features
+   kernel-doc to what is actually marked, and name the readers that still
+   use a plain load. Sashiko.
+ - ovs_add_dp() returned the status of registering its cleanup command
+   rather than the status of the add-dp it ran, so a datapath that was
+   never created was reported as a feature mismatch. It now returns that
+   status. Sashiko.
+ - Use f-strings in the prints this series adds, so the selftest patch adds
+   no new ruff errors. NIPA.
+ - Cc Willem de Bruijn, Jamal Hadi Salim and linux-kselftest, which
+   cc_maintainers asked for. NIPA.
+ - Rebased onto net 28a371228d4e.
+
+v6: https://lore.kernel.org/netdev/20261124145033.627044-1-houminxi@gmail.com/
+ - Split the single read of dp->user_features out of the fix. It closes a
+   crash that aea0bb4f8ee5 introduced in 2014, and folding it into a patch
+   whose Fixes: tag points at 35d39fecbc24 hid that from a stable backport.
+ - Move Fixes: and Cc: into the trailer block; they had prose below them.
+ - Read the field with READ_ONCE() in ovs_dp_set_user_features(), now that
+   every write to it is a single WRITE_ONCE(), and clear only the recirc
+   bit through one helper instead of repeating the mask at two sites.
+ - Carry a changelog per patch in the notes under ---, as Matthieu asked.
+ - Quote the variables the new selftest helpers pass to subprocesses, and
+   name both conditions that make the kernel reject the per-cpu-pids
+   attribute.
+ - Move Reported-by: to the kernel fix, with the link to the report.
+
+v5: https://lore.kernel.org/netdev/20261118065435.2367014-1-houminxi@gmail.com/
+ - Use an empty per-cpu-pids attribute to make the update fail, instead of
+   relying on the masks cache path. Suggested by Matthieu Baerts.
+ - Report the datapath that cannot be read as that, and not as a feature
+   mismatch.
+
+v4: https://lore.kernel.org/netdev/20261115163134.3202677-1-houminxi@gmail.com/
+ - Take and drop the reference in one setter, and call it from every path
+   that changes or clears the recirc bit, including
+   ovs_dp_reset_user_features() and __dp_destroy().
+ - Clear only the recirc bit in __dp_destroy(), so an upcall that is
+   reading the other bits keeps seeing them.
+
+v3: https://lore.kernel.org/netdev/20261110174651.972936-1-houminxi@gmail.com/
+ - Describe the user namespace path in the commit message.
+ - Check the feature bit and the reference count in the selftest instead of
+   only the return value.
+
+v2: https://lore.kernel.org/netdev/20261108123424.2825403-1-houminxi@gmail.com/
+ - Split the selftest into its own patch.
+ - Add the ovs-dpctl set-dp command the selftest needs.
+
+v1: https://lore.kernel.org/netdev/20261107113403.797779-1-houminxi@gmail.com/
+
+Signed-off-by: Minxi Hou <houminxi@gmail.com>
+
+Minxi Hou (3):
+  net: openvswitch: read the datapath features once when sending an
+    upcall
+  net: openvswitch: do not record user features when the change fails
+  selftests/net/openvswitch: check that a failed set keeps the features
+
+ net/openvswitch/datapath.c                    |  72 +++++--
+ net/openvswitch/datapath.h                    |  10 +-
+ .../testing/selftests/net/openvswitch/config  |   3 +
+ .../selftests/net/openvswitch/openvswitch.sh  | 201 ++++++++++++++++++
+ .../selftests/net/openvswitch/ovs-dpctl.py    |  74 +++++++
+ 5 files changed, 342 insertions(+), 18 deletions(-)
+
+
+base-commit: 28a371228d4eb4857cc31eeb1a0d7d01e9c3ea2f
+-- 
+2.56.1
+
