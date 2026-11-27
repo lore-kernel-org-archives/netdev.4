@@ -1,66 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795791974;
-	b=vNffM8HAoxRPiRAlgnfmoc22gRk55TL0dq3Srd8zlpreFgxB4LpmGbyqvwl5Sqxtjbcz
-	 zJ9ebEM5sJTyydNnfWmmR44PZJAcVQVQwEVIv3KcPhK54Zce7fT8p7bfN8OG+KO2LKlQR
-	 oxgn9UbYzVKOPr5i7jbtuqXcBTIrn2uBf2gxGWc0wFQcEelnfTpyJgf8pWP8lXELHZv0Z
-	 uBwVQb5an+H/zbIq7janeKO/UbCaYQzQiMF2RdaoiHB31MqNTnacRZTpdzxaILzqQdsz0
-	 C2JJbkeTqykOfiK0Tp62Cl4gjxFT+pFTxH2ZO8tEPIYtN/616R5dUUBEHSTB1/h8krA==
+	t=1795791976;
+	b=ThcwZRQj+Vs3EYBm+Cx6S1rvTFqfLq91msJdbQNwEHJgHIAqzTMTR6aqCjuuRoXRxp4z
+	 q652W+ydwxSPYcT7EiJQZ9HxdyyHuvE+wEbRQDFctdixKrhBuofozarckKzWH6LlIDCtY
+	 aabEvheZ3DLTJDTyW5GLJT4fIgmtOWttPF/iQf2D/SptW0WocSDNXvZdmq0nUZ3ZN4C5/
+	 T1DLxh8OI+7JHRZ3XaeO0BKB2cY01YugPj1p2uCZo3En8UQdW3jdJ4qwRC5T2ZJuq1GY2
+	 krGAEmXjNf/7/SStouAAmsbOpEf9cWRNSjgQKCd6WFf8doywdc2na3Sk2kTJf7kfOhA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795791974;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795791976;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=9Rxxl1rrEdctt+r1Mtefnwl58kjX+XnQdWv/Z3+1YBo=;
-	b=kT5DEJhMC9apWvDlsKD5kNycwK4PBFaLkx94lAIJbVVtF6Izrsv3/dDyPvOZqIlipPMI
-	 f+RCZ/Ih4T0giLsnk/F/CS8jXqYWioUT0m2K04MtC2iGLv/GOeF4fIKG9nyJQvKbHQVV3
-	 iP7QRtGkA6jYSQHoxkFROVq2mDapS0SzHLRvnsy6iAfAsjaBe2AVPOXTWqMM48f3w7LlH
-	 ID9TOCqnV/34dJvAH3+L7erO8k9Gte9z0TmIN2tgY8DXesqEPapjhMOzAxWdHpaU1pkkB
-	 +eVbXhURa7+Nnf1Ti9LyJ2ZEtV7CbZK2Qq29x/6DUgNBH6YnzPh6BSWPVUNIpm0FzBw==
+	 Content-Transfer-Encoding;
+	bh=gR1c2N+Q495nStvZp/LuuDtxmog0wN4+QVadgMYRGyg=;
+	b=KBGs1gvxBrcza3tqGnkYWE5mq3DLehi7Ha0Uxx4r/WU85SOhKmKrgohBDjIoAPG3SVaq
+	 ZdMuOPPU/Rw5X8o6uNf9G8tAlD3ZpSl4xes7bexk5XiWeRcub2x5rhcYqSMs5w4R0ztq4
+	 ijGAs41jzSuTE/VZ1lZlt0IAT3Dtw0IeIh3v4CO9YxrDfNi5ofA54j+SIYmwMNPFgdN/t
+	 EcwETX7mWFbVKOIUDqfgL/SXepVMv+2ZcFE2nJdBvEDVlfVNNG5rA4mQZBx/1uE7hCNqX
+	 +a4kvimHhqP6uSYe/c4Wis+UEPrB9Gfp74w+rO9z0Z0flj49oG8E4koPTrhPYfWoA6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LCyZfpGu;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=UybObJXR;
 	arc=none smtp.remote-ip=192.198.163.14
 Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87CAA606A321
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 15:06:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87CAA606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 574B2606A31F
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 15:06:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 574B2606A31F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LCyZfpGu
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=UybObJXR
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795791973; x=1827327973;
+  t=1795791976; x=1827327976;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=uMMtTChc/rfrnekD+bmHwz2frhfwk2d/hAKWT4v24dw=;
-  b=LCyZfpGuBGYQ39SkrROP7bVx9NZGCIUAxk2IRvKCGtQg1VMLeNY9FFDd
-   Tk9YbGPJcDAFcMQm5Mp5ab88h7rMiazrVcLIqzzAnQd0rj0QOvNkrbVHB
-   cOCY9m4/ukgzPv2NMZbcyDwOJrIeOFmH6aNVaELSo/1t+YVVcQ68KnxHp
-   rV21UXeVot5pD1d/PJL8RcrdG9alUJbP+Fff79ojW+qLv2Ezu6cquK346
-   B/1aT6aVeCykVyvfqs9llgPB3KRkJ8ZrI6CJGkacpnfJjEAXuyomYMj3O
-   UASYrECkKhwQKEIB7orptj0ERCBEhEqFi4WMtIJV384HBjMGevMo0mF12
-   Q==;
-X-CSE-ConnectionGUID: sowVCsRgSqSfKRBJy2QYng==
-X-CSE-MsgGUID: F6UvX/uLQOil1DvIuyp7/Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4666142"
+  bh=zkOlVY/t6WTsKrY+GsYBaxi5cMvBH0kWYhlSJsIPYUw=;
+  b=UybObJXRtD0Dp9wJKcMOyg1vdwyG/MMqqv1NA0wVZL5haQowX/upYV90
+   510J5kUe4wqnhAXjXOIeWTeBnacE9WDLnNNDcgLjw7Dz1meR5Jq1g9Da7
+   cvluPTg1UplO02LMcFKj3uzVqLjXiNmTIko0w+m3H2uSKtlcoEW48g4I+
+   1tuaBBI8beNQ/3kX5Y7STuucnwzT8SmkTwZ9NJupjXLkpEVVC6aNXzajT
+   eGwDP8zTSU2+8D+NsNdjBW8simAlmBAciQYabdJjwRxSh8AtJYAtF8oTY
+   czgwxq44AtdOhnBOvrVExS3VAeMKEGddDfJsVBlaHUgvP7eNuZSImi7mj
+   A==;
+X-CSE-ConnectionGUID: iDBWj6PdSbyPFtg4DigN+A==
+X-CSE-MsgGUID: D9h2bquUSB24Tf3kTDAnyg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4666168"
 X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
-   d="scan'208";a="4666142"
+   d="scan'208";a="4666168"
 Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 07:06:13 -0800
-X-CSE-ConnectionGUID: Xjo9dLfdSLuCdn2LS7m4BQ==
-X-CSE-MsgGUID: q1dvd1/sRuKzJhZGoWAvzw==
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 07:06:15 -0800
+X-CSE-ConnectionGUID: TIIxSn6lRMal50y6gPozcw==
+X-CSE-MsgGUID: 2wfsDGJiSMqBmmZbZtLDRA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
-   d="scan'208";a="12202854"
+   d="scan'208";a="12202882"
 Received: from boxer.igk.intel.com ([10.102.20.173])
-  by orviesa008.jf.intel.com with ESMTP; 27 Nov 2026 07:06:11 -0800
+  by orviesa008.jf.intel.com with ESMTP; 27 Nov 2026 07:06:13 -0800
 From: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
 To: netdev@vger.kernel.org
 Cc: magnus.karlsson@intel.com,
@@ -71,9 +71,9 @@ Cc: magnus.karlsson@intel.com,
 	kerneljasonxing@gmail.com,
 	bjorn@kernel.org,
 	Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-Subject: [PATCH v6 net-next 10/15] selftests: xsk: prepare xskxceiver for endpoints on two hosts
-Date: Fri, 27 Nov 2026 16:05:22 +0100
-Message-Id: <20261127150527.1122049-11-maciej.fijalkowski@intel.com>
+Subject: [PATCH v6 net-next 11/15] selftests: xsk: wait up to --timeout for the RX stats and a busy bind
+Date: Fri, 27 Nov 2026 16:05:23 +0100
+Message-Id: <20261127150527.1122049-12-maciej.fijalkowski@intel.com>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20261127150527.1122049-1-maciej.fijalkowski@intel.com>
 References: <20261127150527.1122049-1-maciej.fijalkowski@intel.com>
@@ -86,949 +86,245 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-drivers/net/xsk.py, added later in this series, runs each hardware case
-between a zero-copy endpoint on the DUT and an SKB-mode endpoint on a
-remote host. Add what such a pair needs:
+Two waits are too short on a slow kernel, e.g. a debug one:
 
-- --queue, the queue to bind
-- --max-frags, the DUT limit for TOO_MANY_FRAGS, so that both endpoints
-  build the same packets
-- --timeout, the RX and TX loop timeout, which also bounds the wait for
-  the link, as an MTU or XDP change can reset a NIC
-- a SKIP message, so that the peer of an endpoint that skips a case
-  skips too rather than failing
-- an endpoint probes only its own mode, and takes zero-copy support
-  from NETDEV_XDP_ACT_XSK_ZEROCOPY rather than from a probe bind
-- an SKB-mode endpoint runs the multi-buffer cases if its max MTU
-  allows, whatever its driver advertises, as generic XDP handles frags
-- a TX-only endpoint attaches an XDP program only in zero-copy mode,
-  where a driver can need one for TX wakeups
-- an RX endpoint fills its fill ring before the bind, when a zero-copy
-  driver posts its RX buffers
+- STAT_RX_FULL and STAT_FILL_EMPTY check a stat 1 ms after RX took its
+  share, while TX can still be sending the rest. Poll the stat instead.
+- TEARDOWN rebinds to the queue of a socket it just closed, which the
+  kernel releases from a work item, but xsk_configure() gives up after
+  10 tries 10 ms apart. Retry only on EBUSY, and bind TX before READY,
+  as RX does, so that the retries do not eat into the RX timeout.
 
-Cases now default to an MTU of 1500 rather than 1518: IFLA_MTU is the
-L3 MTU, so the old default changed it for every case, which can reset a
-NIC. An SKB-mode endpoint raises
-its MTU only when a case needs more, and cleanup_iface() restores it
-after the XDP detach, retrying for up to --timeout, as a driver can
-refuse it while it holds the pool of a closed socket.
+Both now wait for up to --timeout seconds.
 
-Reviewed-by: Björn Töpel <bjorn@kernel.org>
 Signed-off-by: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
 ---
- .../testing/selftests/net/lib/xsk/test_xsk.c  | 153 ++++++++++++++----
- .../testing/selftests/net/lib/xsk/test_xsk.h  |   7 +
- tools/testing/selftests/net/lib/xsk/xsk.c     | 102 ++++++++++++
- tools/testing/selftests/net/lib/xsk/xsk.h     |   3 +
- .../testing/selftests/net/lib/xsk/xsk_peer.c  |  46 ++++++
- .../testing/selftests/net/lib/xsk/xsk_peer.h  |   2 +
- .../selftests/net/lib/xsk/xskxceiver.c        | 153 ++++++++++++------
- 7 files changed, 384 insertions(+), 82 deletions(-)
+ .../testing/selftests/net/lib/xsk/test_xsk.c  | 113 +++++++++++-------
+ .../testing/selftests/net/lib/xsk/test_xsk.h  |   1 -
+ .../selftests/net/lib/xsk/xskxceiver.c        |   2 +-
+ .../selftests/net/lib/xsk/xskxceiver.h        |   1 -
+ 4 files changed, 71 insertions(+), 46 deletions(-)
 
 diff --git a/tools/testing/selftests/net/lib/xsk/test_xsk.c b/tools/testing/selftests/net/lib/xsk/test_xsk.c
-index b0ed41b40f82..4b8cf5a3d387 100644
+index 4b8cf5a3d387..a0ad1df00212 100644
 --- a/tools/testing/selftests/net/lib/xsk/test_xsk.c
 +++ b/tools/testing/selftests/net/lib/xsk/test_xsk.c
-@@ -48,6 +48,8 @@ static union {
- } flow_src, flow_dst;
- static u16 udp_port;
- static u32 pkt_hdr_size;
-+static u32 max_frags_override;
-+static u32 thread_tmout = THREAD_TMOUT;
- 
- bool opt_verbose;
- int min_pkt_size;
-@@ -129,6 +131,16 @@ int xsk_set_flow(const char *src_ip, const char *dst_ip, u16 port)
- 	return 0;
+@@ -1563,46 +1563,57 @@ static int validate_rx_dropped(struct ifobject *ifobject)
+ 	return TEST_FAILURE;
  }
  
-+void xsk_set_max_frags(u32 max_frags)
-+{
-+	max_frags_override = max_frags;
-+}
-+
-+void xsk_set_timeout(u32 timeout)
-+{
-+	thread_tmout = timeout;
-+}
-+
- /* Add up buf as big-endian 16-bit words, len being even. */
- static u32 csum_add(u32 sum, const void *buf, size_t len)
- {
-@@ -322,7 +334,8 @@ int xsk_configure_socket(struct xsk_socket_info *xsk, struct xsk_umem_info *umem
- 
- 	txr = ifobject->tx_on ? &xsk->tx : NULL;
- 	rxr = ifobject->rx_on ? &xsk->rx : NULL;
--	return xsk_socket__create(&xsk->xsk, ifobject->ifindex, 0, umem->umem, rxr, txr, &cfg);
-+	return xsk_socket__create(&xsk->xsk, ifobject->ifindex, ifobject->queue_id,
-+				  umem->umem, rxr, txr, &cfg);
- }
- 
- static void __test_spec_init(struct test_spec *test, struct ifobject *ifobj_tx,
-@@ -381,7 +394,7 @@ static void __test_spec_init(struct test_spec *test, struct ifobject *ifobj_tx,
- 	test->nb_sockets = 1;
- 	test->adjust_tail = false;
- 	test->adjust_tail_support = false;
--	test->mtu = MAX_ETH_PKT_SIZE;
-+	test->mtu = ETH_DATA_LEN;
- 	test->xdp_prog_rx = ifobj_rx->xdp_progs->progs.xsk_def_prog;
- 	test->xskmap_rx = ifobj_rx->xdp_progs->maps.xsk;
- 	test->xdp_prog_tx = ifobj_tx->xdp_progs->progs.xsk_def_prog;
-@@ -445,14 +458,25 @@ static void test_spec_set_xdp_prog(struct test_spec *test, struct bpf_program *x
- 	test->xskmap_tx = xskmap_tx;
- }
- 
--static int test_spec_set_mtu_ifobj(struct ifobject *ifobj, int mtu)
-+/* An MTU change can reset a NIC. An SKB-mode endpoint runs a case at any
-+ * larger MTU, as generic XDP does not limit it, so only raise its MTU.
+-static int validate_rx_full(struct ifobject *ifobject)
++/* TX sends more packets than RX takes, and the stat counts those that find the
++ * RX ring full or the fill ring empty. RX can take its share well before TX
++ * sends the rest, so wait for the stat to count one.
 + */
-+static bool mtu_change_needed(struct ifobject *ifobj, enum test_mode mode, int mtu)
-+{
-+	if (mode == TEST_MODE_SKB)
-+		return ifobj->dev_mtu < mtu;
-+	return ifobj->dev_mtu != mtu;
-+}
-+
-+static int test_spec_set_mtu_ifobj(struct ifobject *ifobj, enum test_mode mode, int mtu)
++static int wait_rx_stat(struct ifobject *ifobject, bool fill_empty)
  {
++	struct timeval tv_end, tv_now, tv_timeout = {thread_tmout, 0};
+ 	struct xsk_socket *xsk = ifobject->xsk->xsk;
+ 	struct xdp_statistics stats;
++	u64 cnt;
  	int err;
  
--	if (ifobj_is_local(ifobj) && ifobj->mtu != mtu) {
-+	if (ifobj_is_local(ifobj) && mtu_change_needed(ifobj, mode, mtu)) {
- 		err = xsk_set_mtu(ifobj->ifindex, mtu);
- 		if (err)
- 			return err;
-+		ifobj->dev_mtu = mtu;
- 	}
- 
- 	ifobj->mtu = mtu;
-@@ -463,11 +487,11 @@ static int test_spec_set_mtu(struct test_spec *test, int mtu)
- {
- 	int err;
- 
--	err = test_spec_set_mtu_ifobj(test->ifobj_rx, mtu);
-+	err = test_spec_set_mtu_ifobj(test->ifobj_rx, test->mode, mtu);
+-	usleep(1000);
+-	err = kick_rx(ifobject->xsk);
++	err = gettimeofday(&tv_now, NULL);
  	if (err)
- 		return err;
+ 		return TEST_FAILURE;
++	timeradd(&tv_now, &tv_timeout, &tv_end);
  
--	return test_spec_set_mtu_ifobj(test->ifobj_tx, mtu);
-+	return test_spec_set_mtu_ifobj(test->ifobj_tx, test->mode, mtu);
+-	err = get_xsk_stats(xsk, &stats);
+-	if (err)
+-		return TEST_FAILURE;
++	do {
++		usleep(1000);
++		err = kick_rx(ifobject->xsk);
++		if (err)
++			return TEST_FAILURE;
+ 
+-	if (stats.rx_ring_full)
+-		return TEST_PASS;
++		err = get_xsk_stats(xsk, &stats);
++		if (err)
++			return TEST_FAILURE;
++
++		cnt = fill_empty ? stats.rx_fill_ring_empty_descs :
++				   stats.rx_ring_full;
++		if (cnt)
++			return TEST_PASS;
++
++		err = gettimeofday(&tv_now, NULL);
++		if (err)
++			return TEST_FAILURE;
++	} while (!timercmp(&tv_now, &tv_end, >));
+ 
++	ksft_print_msg("ERROR: [%s] %s is 0 after %u s\n", __func__,
++		       fill_empty ? "rx_fill_ring_empty_descs" : "rx_ring_full",
++		       thread_tmout);
+ 	return TEST_FAILURE;
  }
  
- void pkt_stream_reset(struct pkt_stream *pkt_stream)
-@@ -1253,7 +1277,7 @@ bool all_packets_received(struct test_spec *test, struct xsk_socket_info *xsk, u
- 
- static int receive_pkts(struct test_spec *test)
+-static int validate_fill_empty(struct ifobject *ifobject)
++static int validate_rx_full(struct ifobject *ifobject)
  {
--	struct timeval tv_end, tv_now, tv_timeout = {THREAD_TMOUT, 0};
-+	struct timeval tv_end, tv_now, tv_timeout = {thread_tmout, 0};
- 	DECLARE_BITMAP(bitmap, test->nb_sockets);
- 	struct xsk_socket_info *xsk;
- 	u32 sock_num = 0;
-@@ -1309,6 +1333,11 @@ static int __send_pkts(struct ifobject *ifobject, struct xsk_socket_info *xsk,
- 	if (pkts_in_flight >= (int)((umem_size(umem) - xsk->batch_size * buffer_len) /
- 	    buffer_len) && !test_timeout) {
- 		/* Only RX progress reports can lower pkts_in_flight. */
-+		if (xsk_peer_skipped(ctrl_peer)) {
-+			ksft_print_msg("RX skipped the case with %d packets in flight\n",
-+				       pkts_in_flight);
-+			return TEST_SKIP;
-+		}
- 		if (xsk_peer_closed(ctrl_peer)) {
- 			ksft_print_msg("ERROR: [%s] RX exited with %d packets in flight\n",
- 				       __func__, pkts_in_flight);
-@@ -1425,7 +1454,7 @@ static int __send_pkts(struct ifobject *ifobject, struct xsk_socket_info *xsk,
+-	struct xsk_socket *xsk = ifobject->xsk->xsk;
+-	struct xdp_statistics stats;
+-	int err;
+-
+-	usleep(1000);
+-	err = kick_rx(ifobject->xsk);
+-	if (err)
+-		return TEST_FAILURE;
+-
+-	err = get_xsk_stats(xsk, &stats);
+-	if (err)
+-		return TEST_FAILURE;
+-
+-	if (stats.rx_fill_ring_empty_descs)
+-		return TEST_PASS;
++	return wait_rx_stat(ifobject, false);
++}
  
- static int wait_for_tx_completion(struct xsk_socket_info *xsk)
+-	return TEST_FAILURE;
++static int validate_fill_empty(struct ifobject *ifobject)
++{
++	return wait_rx_stat(ifobject, true);
+ }
+ 
+ static int validate_tx_invalid_descs(struct ifobject *ifobject)
+@@ -1635,23 +1646,32 @@ static int validate_tx_invalid_descs(struct ifobject *ifobject)
+ static int xsk_configure(struct test_spec *test, struct ifobject *ifobject,
+ 			  struct xsk_umem_info *umem)
  {
--	struct timeval tv_end, tv_now, tv_timeout = {THREAD_TMOUT, 0};
 +	struct timeval tv_end, tv_now, tv_timeout = {thread_tmout, 0};
- 	int ret;
+ 	int i, ret;
  
- 	ret = gettimeofday(&tv_now, NULL);
-@@ -1708,20 +1737,26 @@ static int thread_common_ops(struct test_spec *test, struct ifobject *ifobject)
- 	if (ret)
- 		return ret;
- 
-+	ifobject->xsk = &ifobject->xsk_arr[0];
++	if (gettimeofday(&tv_now, NULL))
++		return -errno;
++	timeradd(&tv_now, &tv_timeout, &tv_end);
 +
-+	/* Before the bind: a zero-copy driver posts its RX buffers then, or in
-+	 * a poll it schedules then. Otherwise it waits for a wakeup, and the
-+	 * peer can send before the RX endpoint gets to it.
-+	 */
-+	if (ifobject->rx_on) {
-+		ret = xsk_populate_fill_ring(umem, ifobject->xsk->pkt_stream,
-+					     ifobject->use_fill_ring);
+ 	for (i = 0; i < test->nb_sockets; i++) {
+ 		bool shared = !!i;
+-		u32 ctr = 0;
+ 
+-		while (ctr++ < SOCK_RECONF_CTR) {
++		/* The kernel releases the queue of a closed socket
++		 * asynchronously, so a bind to it can fail with EBUSY for a
++		 * while after the previous step or test case.
++		 */
++		do {
+ 			ret = xsk_configure_socket(&ifobject->xsk_arr[i], umem,
+-						     ifobject, shared);
+-			if (!ret)
++						   ifobject, shared);
++			if (ret != -EBUSY)
+ 				break;
+-
+-			/* Retry if it fails as xsk_socket__create() is asynchronous */
+-			if (ctr >= SOCK_RECONF_CTR)
+-				return ret;
+ 			usleep(USLEEP_MAX);
+-		}
++			if (gettimeofday(&tv_now, NULL))
++				return -errno;
++		} while (!timercmp(&tv_now, &tv_end, >));
 +		if (ret)
 +			return ret;
-+	}
 +
- 	ret = xsk_configure(test, ifobject, umem);
- 	if (ret)
- 		return ret;
- 
--	ifobject->xsk = &ifobject->xsk_arr[0];
--
- 	if (!ifobject->rx_on)
- 		return 0;
- 
--	ret = xsk_populate_fill_ring(umem, ifobject->xsk->pkt_stream,
--				     ifobject->use_fill_ring);
--	if (ret)
--		return ret;
--
- 	for (i = 0; i < test->nb_sockets; i++) {
- 		ret = xsk_update_xskmap(ifobject->xskmap, ifobject->xsk_arr[i].xsk, i);
- 		if (ret)
-@@ -1791,14 +1826,43 @@ static int testapp_validate_rx_endpoint(struct test_spec *test,
- 	return err;
- }
- 
-+/* An MTU or XDP program change can reset a NIC, which takes the link down on
-+ * both hosts. Each endpoint makes those changes before it is ready, so once
-+ * both are, wait while the local link is down. This is best effort: it misses
-+ * a reset that a driver has yet to start, and one on the bind of a TX socket,
-+ * which comes after the wait.
-+ */
-+static int wait_link_up(struct test_spec *test)
-+{
-+	struct ifobject *ifobj = test->ifobj_tx;
-+	int err;
-+
-+	if (!ifobj_is_local(ifobj))
-+		ifobj = test->ifobj_rx;
-+	err = xsk_wait_link_up(ifobj->ifname, thread_tmout * 1000);
-+	if (err) {
-+		ksft_print_msg("Link on %s is not up at step %u: %d (%s)\n",
-+			       ifobj->ifname, test->current_step, err, strerror(-err));
-+		xsk_peer_abort(ctrl_peer);
-+	}
-+	return err;
-+}
-+
- static int sync_endpoints(struct test_spec *test)
+ 		if (ifobject->busy_poll) {
+ 			ret = enable_busy_poll(&ifobject->xsk_arr[i]);
+ 			if (ret)
+@@ -1771,12 +1791,6 @@ static int testapp_validate_tx_endpoint(struct test_spec *test,
  {
- 	int err = xsk_peer_ready(ctrl_peer);
+ 	int err;
  
--	if (err)
-+	if (err && xsk_peer_skipped(ctrl_peer)) {
-+		ksft_print_msg("The peer endpoint skipped the case at step %u\n",
-+			       test->current_step);
-+		return TEST_SKIP;
-+	}
-+	if (err) {
- 		ksft_print_msg("Endpoint synchronization failed at step %u: %d (%s)\n",
- 			       test->current_step, err, strerror(-err));
--	return err;
-+		return err;
-+	}
-+	return wait_link_up(test);
- }
+-	if (test->current_step == 1) {
+-		err = thread_common_ops(test, ifobject);
+-		if (err)
+-			return err;
+-	}
+-
+ 	err = send_pkts(test, ifobject);
+ 
+ 	if (!err && ifobject->validation_func)
+@@ -1829,8 +1843,7 @@ static int testapp_validate_rx_endpoint(struct test_spec *test,
+ /* An MTU or XDP program change can reset a NIC, which takes the link down on
+  * both hosts. Each endpoint makes those changes before it is ready, so once
+  * both are, wait while the local link is down. This is best effort: it misses
+- * a reset that a driver has yet to start, and one on the bind of a TX socket,
+- * which comes after the wait.
++ * a reset that a driver has yet to start.
+  */
+ static int wait_link_up(struct test_spec *test)
+ {
+@@ -1867,13 +1880,27 @@ static int sync_endpoints(struct test_spec *test)
  
  int worker_testapp_validate_tx(struct test_spec *test)
-@@ -1810,7 +1874,7 @@ int worker_testapp_validate_tx(struct test_spec *test)
+ {
++	struct ifobject *ifobject = test->ifobj_tx;
+ 	int err;
+ 
++	/* Bind before READY, as RX does, so that a bind retry does not take
++	 * from the receive timeout of RX, which starts after READY.
++	 */
++	if (test->current_step == 1) {
++		err = thread_common_ops(test, ifobject);
++		if (err) {
++			ksft_print_msg("TX endpoint setup failed at step %u: %d\n",
++				       test->current_step, err);
++			xsk_peer_abort(ctrl_peer);
++			return err;
++		}
++	}
++
+ 	err = sync_endpoints(test);
+ 	if (err)
  		return err;
  
- 	err = testapp_validate_tx_endpoint(test, test->ifobj_tx);
--	if (err) {
-+	if (err && err != TEST_SKIP) {
+-	err = testapp_validate_tx_endpoint(test, test->ifobj_tx);
++	err = testapp_validate_tx_endpoint(test, ifobject);
+ 	if (err && err != TEST_SKIP) {
  		ksft_print_msg("TX endpoint traffic failed at step %u: %d\n",
  			       test->current_step, err);
- 		xsk_peer_abort(ctrl_peer);
-@@ -1895,12 +1959,22 @@ static int xsk_reattach_xdp(struct ifobject *ifobj, struct bpf_program *xdp_prog
- 	return 0;
- }
- 
-+/* An endpoint that only transmits needs XDP only in zero-copy mode, where a
-+ * driver can require it for TX wakeups.
-+ */
-+static bool xdp_prog_needed(struct test_spec *test, struct ifobject *ifobj)
-+{
-+	return ifobj->rx_on || test->mode == TEST_MODE_ZC;
-+}
-+
- static int xsk_attach_xdp_progs(struct test_spec *test, struct ifobject *ifobj_rx,
- 				 struct ifobject *ifobj_tx)
- {
- 	int err = 0;
- 
--	if (ifobj_is_local(ifobj_rx) && xdp_prog_changed_rx(test)) {
-+	/* A single-threaded step can pass a TX-only ifobj as ifobj_rx. */
-+	if (ifobj_is_local(ifobj_rx) && xdp_prog_needed(test, ifobj_rx) &&
-+	    xdp_prog_changed_rx(test)) {
- 		err = xsk_reattach_xdp(ifobj_rx, test->xdp_prog_rx, test->xskmap_rx, test->mode);
- 		if (err)
- 			return err;
-@@ -1909,7 +1983,7 @@ static int xsk_attach_xdp_progs(struct test_spec *test, struct ifobject *ifobj_r
- 	if (!ifobj_tx || !ifobj_is_local(ifobj_tx))
- 		return 0;
- 
--	if (xdp_prog_changed_tx(test))
-+	if (xdp_prog_needed(test, ifobj_tx) && xdp_prog_changed_tx(test))
- 		err = xsk_reattach_xdp(ifobj_tx, test->xdp_prog_tx, test->xskmap_tx, test->mode);
- 
- 	return err;
-@@ -1990,6 +2064,8 @@ static int __testapp_validate_traffic(struct test_spec *test, struct ifobject *i
- 		clean_umem(test, ifobj1, ifobj2);
- 	}
- 
-+	if (err == TEST_SKIP)
-+		return TEST_SKIP;
- 	return err ? TEST_FAILURE : TEST_PASS;
- }
- 
-@@ -2016,11 +2092,12 @@ static int testapp_validate_traffic_single_thread(struct test_spec *test, struct
- 
- int testapp_teardown(struct test_spec *test)
- {
--	int i;
-+	int i, ret;
- 
- 	for (i = 0; i < MAX_TEARDOWN_ITER; i++) {
--		if (testapp_validate_traffic(test))
--			return TEST_FAILURE;
-+		ret = testapp_validate_traffic(test);
-+		if (ret)
-+			return ret;
- 		test_spec_reset(test);
- 	}
- 
-@@ -2046,8 +2123,9 @@ int testapp_bidirectional(struct test_spec *test)
- 	test->ifobj_tx->rx_on = true;
- 	test->ifobj_rx->tx_on = true;
- 	test->total_steps = 2;
--	if (testapp_validate_traffic(test))
--		return TEST_FAILURE;
-+	res = testapp_validate_traffic(test);
-+	if (res)
-+		return res;
- 
- 	print_verbose("Switching Tx/Rx direction\n");
- 	swap_directions(&test->ifobj_rx, &test->ifobj_tx);
-@@ -2080,10 +2158,13 @@ static int swap_xsk_resources(struct test_spec *test)
- 
- int testapp_xdp_prog_cleanup(struct test_spec *test)
- {
-+	int ret;
-+
- 	test->total_steps = 2;
- 	test->nb_sockets = 2;
--	if (testapp_validate_traffic(test))
--		return TEST_FAILURE;
-+	ret = testapp_validate_traffic(test);
-+	if (ret)
-+		return ret;
- 
- 	if (swap_xsk_resources(test)) {
- 		clean_sockets(test, test->ifobj_rx);
-@@ -2365,7 +2446,9 @@ int testapp_too_many_frags(struct test_spec *test)
- 	u32 max_frags, i;
- 	int ret = TEST_FAILURE;
- 
--	if (test->mode == TEST_MODE_ZC) {
-+	if (max_frags_override) {
-+		max_frags = max_frags_override;
-+	} else if (test->mode == TEST_MODE_ZC) {
- 		max_frags = xsk_get_cap(test, xdp_zc_max_segs);
- 	} else {
- 		max_frags = xsk_get_cap(test, max_skb_frags);
-@@ -2461,6 +2544,7 @@ static int detect_ifobj_caps(struct ifobject *ifobj)
- 	if (query_opts.feature_flags & NETDEV_XDP_ACT_RX_SG)
- 		ifobj_set_cap(ifobj, XSK_CAP_MBUF);
- 	if (query_opts.feature_flags & NETDEV_XDP_ACT_XSK_ZEROCOPY) {
-+		ifobj_set_cap(ifobj, XSK_CAP_ZC_ADVERTISED);
- 		if (query_opts.xdp_zc_max_segs > 1) {
- 			ifobj_set_cap(ifobj, XSK_CAP_MBUF_ZC);
- 			ifobj->caps.xdp_zc_max_segs = query_opts.xdp_zc_max_segs;
-@@ -2713,9 +2797,18 @@ int testapp_adjust_tail_shrink_mb(struct test_spec *test)
- 	return testapp_adjust_tail(test, -XSK_UMEM__MAX_FRAME_SIZE, XSK_UMEM__LARGE_FRAME_SIZE * 2);
- }
- 
-+/* Generic XDP leaves no room to grow the tail. Only the RX endpoint runs the
-+ * program on the test flow, and the TX endpoint, which does not know the mode
-+ * of its peer, learns about the skip from it.
-+ */
-+static bool adjust_tail_grow_skip(struct test_spec *test)
-+{
-+	return ifobj_is_local(test->ifobj_rx) && test->mode == TEST_MODE_SKB;
-+}
-+
- int testapp_adjust_tail_grow(struct test_spec *test)
- {
--	if (test->mode == TEST_MODE_SKB)
-+	if (adjust_tail_grow_skip(test))
- 		return TEST_SKIP;
- 
- 	/* Grow by 4 bytes for testing purpose */
-@@ -2726,7 +2819,7 @@ int testapp_adjust_tail_grow_mb(struct test_spec *test)
- {
- 	u32 grow_size;
- 
--	if (test->mode == TEST_MODE_SKB)
-+	if (adjust_tail_grow_skip(test))
- 		return TEST_SKIP;
- 
- 	/* worst case scenario is when underlying setup will work on 3k
 diff --git a/tools/testing/selftests/net/lib/xsk/test_xsk.h b/tools/testing/selftests/net/lib/xsk/test_xsk.h
-index 4690ae2ad9c6..15534f4ec8f4 100644
+index 15534f4ec8f4..ee840ccdfcbf 100644
 --- a/tools/testing/selftests/net/lib/xsk/test_xsk.h
 +++ b/tools/testing/selftests/net/lib/xsk/test_xsk.h
-@@ -86,6 +86,8 @@ struct xsk_peer;
- /* The control channel to the other endpoint. */
- void xsk_set_endpoint(struct xsk_peer *peer);
- int xsk_set_flow(const char *src_ip, const char *dst_ip, u16 port);
-+void xsk_set_max_frags(u32 max_frags);
-+void xsk_set_timeout(u32 timeout);
+@@ -28,7 +28,6 @@
+ #define MAX_ETH_PKT_SIZE		1518
+ #define MAX_INTERFACE_NAME_CHARS	16
+ #define MAX_TEST_NAME_SIZE		48
+-#define SOCK_RECONF_CTR			10
+ #define USLEEP_MAX			10000
  
- struct xsk_socket_info {
- 	struct xsk_ring_cons rx;
-@@ -126,6 +128,7 @@ struct xsk_umem_info {
- #define XSK_CAP_HW_RING          (1U << 3)
- #define XSK_CAP_DRV              (1U << 4)
- #define XSK_CAP_ZC               (1U << 5)
-+#define XSK_CAP_ZC_ADVERTISED    (1U << 6)
- 
- struct xsk_caps {
- 	u32 flags;
-@@ -149,7 +152,11 @@ struct ifobject {
- 	struct ethtool_ringparam ring;
- 	enum test_mode mode;
- 	int ifindex;
-+	u32 queue_id;
- 	int mtu;
-+	/* Device MTU, which an SKB-mode endpoint may keep above mtu. */
-+	int dev_mtu;
-+	int orig_mtu;
- 	u32 bind_flags;
- 	bool tx_on;
- 	bool rx_on;
-diff --git a/tools/testing/selftests/net/lib/xsk/xsk.c b/tools/testing/selftests/net/lib/xsk/xsk.c
-index b5834ba16e69..a9a6ff3409e3 100644
---- a/tools/testing/selftests/net/lib/xsk/xsk.c
-+++ b/tools/testing/selftests/net/lib/xsk/xsk.c
-@@ -421,6 +421,75 @@ int xsk_set_mtu(int ifindex, int mtu)
- 	return ret;
- }
- 
-+/* A max MTU of 0 means no limit. */
-+int xsk_get_max_mtu(int ifindex, u32 *max_mtu)
-+{
-+	struct nl_mtu_req req = {
-+		.nh.nlmsg_len = NLMSG_LENGTH(sizeof(struct ifinfomsg)),
-+		.nh.nlmsg_type = RTM_GETLINK,
-+		.nh.nlmsg_flags = NLM_F_REQUEST,
-+		.msg.ifi_family = AF_UNSPEC,
-+		.msg.ifi_index = ifindex,
-+	};
-+	struct iovec iov = {};
-+	struct msghdr mhdr = {
-+		.msg_iov = &iov,
-+		.msg_iovlen = 1,
-+	};
-+	struct nlmsghdr *nh;
-+	struct rtattr *rta;
-+	int fd, len, ret;
-+
-+	fd = socket(AF_NETLINK, SOCK_DGRAM, NETLINK_ROUTE);
-+	if (fd < 0)
-+		return -errno;
-+
-+	if (send(fd, &req, req.nh.nlmsg_len, 0) < 0) {
-+		ret = -errno;
-+		goto out;
-+	}
-+
-+	/* The reply carries all the link attributes, so size it first. */
-+	len = netlink_recvmsg(fd, &mhdr, MSG_PEEK | MSG_TRUNC);
-+	if (len < 0) {
-+		ret = len;
-+		goto out;
-+	}
-+	ret = alloc_iov(&iov, len);
-+	if (ret)
-+		goto out;
-+	len = netlink_recvmsg(fd, &mhdr, 0);
-+	if (len < 0) {
-+		ret = len;
-+		goto out;
-+	}
-+
-+	ret = -EPROTO;
-+	nh = iov.iov_base;
-+	if (!NLMSG_OK(nh, len))
-+		goto out;
-+	if (nh->nlmsg_type == NLMSG_ERROR) {
-+		ret = ((struct nlmsgerr *)NLMSG_DATA(nh))->error ?: -EPROTO;
-+		goto out;
-+	}
-+	if (nh->nlmsg_type != RTM_NEWLINK)
-+		goto out;
-+
-+	*max_mtu = 0;
-+	len = IFLA_PAYLOAD(nh);
-+	for (rta = IFLA_RTA(NLMSG_DATA(nh)); RTA_OK(rta, len);
-+	     rta = RTA_NEXT(rta, len)) {
-+		if (rta->rta_type == IFLA_MAX_MTU &&
-+		    RTA_PAYLOAD(rta) == sizeof(*max_mtu))
-+			memcpy(max_mtu, RTA_DATA(rta), sizeof(*max_mtu));
-+	}
-+	ret = 0;
-+out:
-+	free(iov.iov_base);
-+	close(fd);
-+	return ret;
-+}
-+
- int xsk_attach_xdp_program(struct bpf_program *prog, int ifindex, u32 xdp_flags)
- {
- 	int prog_fd;
-@@ -827,3 +896,36 @@ int xsk_get_mac(const char *ifname, u8 mac[ETH_ALEN])
- 		memcpy(mac, ifr.ifr_hwaddr.sa_data, ETH_ALEN);
- 	return err;
- }
-+
-+int xsk_get_mtu(const char *ifname, int *mtu)
-+{
-+	struct ifreq ifr = {};
-+	int err;
-+
-+	err = xsk_ifreq_ioctl(ifname, SIOCGIFMTU, &ifr);
-+	if (!err)
-+		*mtu = ifr.ifr_mtu;
-+	return err;
-+}
-+
-+/* ETHTOOL_GLINK reports the carrier. SIOCGIFFLAGS cannot: IFF_LOWER_UP does
-+ * not fit in ifr_flags, and IFF_RUNNING follows the carrier only once the link
-+ * watch runs. A driver without .get_link has nothing to wait for, and one
-+ * that resets detaches the device, which fails the ioctl until it is back.
-+ */
-+int xsk_wait_link_up(const char *ifname, int timeout_ms)
-+{
-+	struct ethtool_value edata = { .cmd = ETHTOOL_GLINK };
-+	struct ifreq ifr = { .ifr_data = (void *)&edata };
-+	int err;
-+
-+	for (;;) {
-+		err = xsk_ifreq_ioctl(ifname, SIOCETHTOOL, &ifr);
-+		if (err == -EOPNOTSUPP || (!err && edata.data))
-+			return 0;
-+		if (timeout_ms <= 0)
-+			return err ?: -ETIMEDOUT;
-+		usleep(100 * 1000);
-+		timeout_ms -= 100;
-+	}
-+}
-diff --git a/tools/testing/selftests/net/lib/xsk/xsk.h b/tools/testing/selftests/net/lib/xsk/xsk.h
-index 263971a57e1e..dca8045b4745 100644
---- a/tools/testing/selftests/net/lib/xsk/xsk.h
-+++ b/tools/testing/selftests/net/lib/xsk/xsk.h
-@@ -242,9 +242,12 @@ int xsk_umem__delete(struct xsk_umem *umem);
- void xsk_socket__delete(struct xsk_socket *xsk);
- 
- int xsk_set_mtu(int ifindex, int mtu);
-+int xsk_get_max_mtu(int ifindex, u32 *max_mtu);
- 
- int get_hw_ring_size(char *ifname, struct ethtool_ringparam *ring_param);
- int xsk_get_mac(const char *ifname, u8 mac[ETH_ALEN]);
-+int xsk_get_mtu(const char *ifname, int *mtu);
-+int xsk_wait_link_up(const char *ifname, int timeout_ms);
- 
- #ifdef __cplusplus
- } /* extern "C" */
-diff --git a/tools/testing/selftests/net/lib/xsk/xsk_peer.c b/tools/testing/selftests/net/lib/xsk/xsk_peer.c
-index 3ff9d82aaf49..9b9b4db7fad6 100644
---- a/tools/testing/selftests/net/lib/xsk/xsk_peer.c
-+++ b/tools/testing/selftests/net/lib/xsk/xsk_peer.c
-@@ -24,6 +24,7 @@ enum xsk_peer_msg_type {
- 	XSK_PEER_READY = 1,
- 	XSK_PEER_PROGRESS,
- 	XSK_PEER_ABORT,
-+	XSK_PEER_SKIP,
- };
- 
- struct xsk_peer_msg {
-@@ -37,6 +38,7 @@ struct xsk_peer {
- 	u32 acked;
- 	bool ready_seen;
- 	bool closed;
-+	bool skipped;
- };
- 
- static int io_full(int fd, void *buf, size_t len, bool write_op)
-@@ -110,6 +112,11 @@ static int peer_recv_one(struct xsk_peer *peer)
- 		return 0;
- 	case XSK_PEER_ABORT:
- 		return -ECANCELED;
-+	case XSK_PEER_SKIP:
-+		/* The peer skips the case and closes the connection. */
-+		peer->closed = true;
-+		peer->skipped = true;
-+		return -EOPNOTSUPP;
- 	default:
- 		return -EPROTO;
- 	}
-@@ -145,6 +152,16 @@ int xsk_peer_ready(struct xsk_peer *peer)
- 	int err;
- 
- 	err = peer_send(peer, XSK_PEER_READY, 0);
-+	/*
-+	 * Read what a gone peer left, such as a SKIP, up to the end, even if its
-+	 * READY came early.
-+	 */
-+	if (peer_gone(err)) {
-+		do {
-+			err = peer_recv_one(peer);
-+		} while (!err);
-+		return err;
-+	}
- 	while (!err && !peer->ready_seen)
- 		err = peer_recv_one(peer);
- 	if (err)
-@@ -162,6 +179,30 @@ void xsk_peer_abort(struct xsk_peer *peer)
- 		peer_send(peer, XSK_PEER_ABORT, 0);
- }
- 
-+/*
-+ * Tell the peer that this endpoint skips the case, so that it skips too.
-+ * Closing with unread data, or getting data once closed, resets the
-+ * connection and drops the SKIP if the peer has yet to acknowledge it, as
-+ * when a NIC reset holds the link down. So read until the peer closes.
-+ */
-+void xsk_peer_skip(struct xsk_peer *peer, int timeout_ms)
-+{
-+	struct pollfd pfd = { .events = POLLIN };
-+	struct xsk_peer_msg msg;
-+	int ret;
-+
-+	if (!peer || peer->closed || peer_send(peer, XSK_PEER_SKIP, 0))
-+		return;
-+
-+	shutdown(peer->fd, SHUT_WR);
-+	pfd.fd = peer->fd;
-+	do {
-+		ret = poll(&pfd, 1, timeout_ms);
-+		if (ret > 0)
-+			ret = read(peer->fd, &msg, sizeof(msg));
-+	} while (ret > 0 || (ret < 0 && errno == EINTR));
-+}
-+
- int xsk_peer_rx_progress(struct xsk_peer *peer, u32 pkts)
- {
- 	int err;
-@@ -195,6 +236,11 @@ bool xsk_peer_closed(struct xsk_peer *peer)
- 	return peer->closed;
- }
- 
-+bool xsk_peer_skipped(struct xsk_peer *peer)
-+{
-+	return peer->skipped;
-+}
-+
- static int accept_tmout(int lfd)
- {
- 	struct pollfd pfd = { .fd = lfd, .events = POLLIN };
-diff --git a/tools/testing/selftests/net/lib/xsk/xsk_peer.h b/tools/testing/selftests/net/lib/xsk/xsk_peer.h
-index da4462192994..26ae6b1bb384 100644
---- a/tools/testing/selftests/net/lib/xsk/xsk_peer.h
-+++ b/tools/testing/selftests/net/lib/xsk/xsk_peer.h
-@@ -12,8 +12,10 @@ void xsk_peer_close(struct xsk_peer *peer);
- 
- int xsk_peer_ready(struct xsk_peer *peer);
- void xsk_peer_abort(struct xsk_peer *peer);
-+void xsk_peer_skip(struct xsk_peer *peer, int timeout_ms);
- int xsk_peer_rx_progress(struct xsk_peer *peer, u32 pkts);
- int xsk_peer_tx_sync(struct xsk_peer *peer);
- bool xsk_peer_closed(struct xsk_peer *peer);
-+bool xsk_peer_skipped(struct xsk_peer *peer);
- 
- #endif /* XSK_PEER_H_ */
+ #define MAX_SKB_FRAGS_PATH "/proc/sys/net/core/max_skb_frags"
 diff --git a/tools/testing/selftests/net/lib/xsk/xskxceiver.c b/tools/testing/selftests/net/lib/xsk/xskxceiver.c
-index f7fa9ab93512..7ef6f08538bd 100644
+index 7ef6f08538bd..07e4cadfb164 100644
 --- a/tools/testing/selftests/net/lib/xsk/xskxceiver.c
 +++ b/tools/testing/selftests/net/lib/xsk/xskxceiver.c
-@@ -117,6 +117,9 @@ static const char *opt_dst_ip;
- static const struct ether_addr *opt_dst_mac;
- static struct ether_addr dst_mac;
- static u16 opt_udp_port;
-+static u32 opt_queue;
-+static u32 opt_max_frags;
-+static u32 opt_timeout = 3;
- 
- enum {
- 	OPT_LISTEN = 256,
-@@ -124,6 +127,9 @@ enum {
- 	OPT_DST_IP,
- 	OPT_DST_MAC,
- 	OPT_UDP_PORT,
-+	OPT_QUEUE,
-+	OPT_MAX_FRAGS,
-+	OPT_TIMEOUT,
- };
- 
- static void __exit_with_error(int error, const char *file, const char *func, int line)
-@@ -135,49 +141,6 @@ static void __exit_with_error(int error, const char *file, const char *func, int
- 
- #define exit_with_error(error) __exit_with_error(error, __FILE__, __func__, __LINE__)
- 
--static bool ifobj_zc_avail(struct ifobject *ifobject)
--{
--	size_t umem_sz = DEFAULT_UMEM_BUFFERS * XSK_UMEM__DEFAULT_FRAME_SIZE;
--	int mmap_flags = MAP_PRIVATE | MAP_ANONYMOUS | MAP_NORESERVE;
--	struct xsk_socket_info *xsk;
--	struct xsk_umem_info *umem;
--	bool zc_avail = false;
--	void *bufs;
--	int ret;
--
--	bufs = mmap(NULL, umem_sz, PROT_READ | PROT_WRITE, mmap_flags, -1, 0);
--	if (bufs == MAP_FAILED)
--		exit_with_error(errno);
--
--	umem = calloc(1, sizeof(struct xsk_umem_info));
--	if (!umem) {
--		munmap(bufs, umem_sz);
--		exit_with_error(ENOMEM);
--	}
--	umem->frame_size = XSK_UMEM__DEFAULT_FRAME_SIZE;
--	ret = xsk_configure_umem(ifobject, umem, bufs, umem_sz);
--	if (ret)
--		exit_with_error(-ret);
--
--	xsk = calloc(1, sizeof(struct xsk_socket_info));
--	if (!xsk)
--		goto out;
--	ifobject->bind_flags = XDP_USE_NEED_WAKEUP | XDP_ZEROCOPY;
--	ifobject->rx_on = true;
--	xsk->rxqsize = XSK_RING_CONS__DEFAULT_NUM_DESCS;
--	ret = xsk_configure_socket(xsk, umem, ifobject, false);
--	if (!ret)
--		zc_avail = true;
--
--	xsk_socket__delete(xsk->xsk);
--	free(xsk);
--out:
--	munmap(umem->buffer, umem_sz);
--	xsk_umem__delete(umem->umem);
--	free(umem);
--	return zc_avail;
--}
--
- static struct option long_options[] = {
- 	{"interface", required_argument, 0, 'i'},
- 	{"busy-poll", no_argument, 0, 'b'},
-@@ -193,6 +156,9 @@ static struct option long_options[] = {
- 	{"dst-ip", required_argument, 0, OPT_DST_IP},
- 	{"dst-mac", required_argument, 0, OPT_DST_MAC},
- 	{"udp-port", required_argument, 0, OPT_UDP_PORT},
-+	{"queue", required_argument, 0, OPT_QUEUE},
-+	{"max-frags", required_argument, 0, OPT_MAX_FRAGS},
-+	{"timeout", required_argument, 0, OPT_TIMEOUT},
- 	{"help", no_argument, 0, 'h'},
- 	{0, 0, 0, 0}
- };
-@@ -218,6 +184,9 @@ static void print_usage(char **argv)
- 		"      --dst-mac MAC    Destination MAC address of the test packets\n"
- 		"      --udp-port PORT  UDP destination port, and source port of socket 0;\n"
+@@ -186,7 +186,7 @@ static void print_usage(char **argv)
  		"                       the caller steers the test flow to the bound queue\n"
-+		"      --queue N        AF_XDP queue to bind (default 0)\n"
-+		"      --max-frags N    Fragment limit for TOO_MANY_FRAGS (default by mode)\n"
-+		"      --timeout SEC    Traffic and link timeout (default 3)\n"
+ 		"      --queue N        AF_XDP queue to bind (default 0)\n"
+ 		"      --max-frags N    Fragment limit for TOO_MANY_FRAGS (default by mode)\n"
+-		"      --timeout SEC    Traffic and link timeout (default 3)\n"
++		"      --timeout SEC    Traffic, link and bind timeout (default 3)\n"
  		"  -h, --help           Display this help and exit\n";
  
  	ksft_print_msg(str, basename(argv[0]));
-@@ -242,6 +211,11 @@ static void bind_iface(struct ifobject *ifobj, const char *ifname, char **argv)
- 		ksft_print_msg("Error: cannot initialize interface %s\n", ifobj->ifname);
- 		ksft_exit_fail();
- 	}
-+	if (xsk_get_mtu(ifobj->ifname, &ifobj->dev_mtu)) {
-+		ksft_print_msg("Error: cannot read MTU of interface %s\n", ifobj->ifname);
-+		ksft_exit_fail();
-+	}
-+	ifobj->orig_mtu = ifobj->dev_mtu;
- }
+diff --git a/tools/testing/selftests/net/lib/xsk/xskxceiver.h b/tools/testing/selftests/net/lib/xsk/xskxceiver.h
+index 3ca518df23ad..2365bda57a4b 100644
+--- a/tools/testing/selftests/net/lib/xsk/xskxceiver.h
++++ b/tools/testing/selftests/net/lib/xsk/xskxceiver.h
+@@ -24,7 +24,6 @@
  
- static void print_tests(void)
-@@ -258,6 +232,7 @@ static void parse_command_line(struct ifobject *ifobj_tx, struct ifobject *ifobj
- {
- 	int option_index, c;
- 	unsigned long val;
-+	char *end;
- 
- 	opterr = 0;
- 
-@@ -334,6 +309,27 @@ static void parse_command_line(struct ifobject *ifobj_tx, struct ifobject *ifobj
- 				print_usage(argv);
- 			opt_udp_port = val;
- 			break;
-+		case OPT_QUEUE:
-+			errno = 0;
-+			val = strtoul(optarg, &end, 10);
-+			if (errno || end == optarg || *end || val > UINT32_MAX)
-+				print_usage(argv);
-+			opt_queue = val;
-+			break;
-+		case OPT_MAX_FRAGS:
-+			/* It sizes the packet array of TOO_MANY_FRAGS. */
-+			val = strtoul(optarg, NULL, 10);
-+			if (val > 0xffff)
-+				print_usage(argv);
-+			opt_max_frags = val;
-+			break;
-+		case OPT_TIMEOUT:
-+			/* Passed on in milliseconds, as an int. */
-+			val = strtoul(optarg, NULL, 10);
-+			if (!val || val > 0xffff)
-+				print_usage(argv);
-+			opt_timeout = val;
-+			break;
- 		case 'h':
- 		default:
- 			print_usage(argv);
-@@ -357,7 +353,12 @@ static int run_pkt_test(struct test_spec *test)
- 	int ret;
- 
- 	ret = test->test_func(test);
-+	pkt_stream_restore_default(test);
-+	return ret;
-+}
- 
-+static void report_pkt_test(struct test_spec *test, int ret)
-+{
- 	switch (ret) {
- 	case TEST_PASS:
- 		ksft_test_result_pass("PASS: %s %s%s\n", mode_string(test), busy_poll_string(test),
-@@ -375,9 +376,6 @@ static int run_pkt_test(struct test_spec *test)
- 		ksft_test_result_fail("FAIL: %s %s%s -- Unexpected returned value (%d)\n",
- 				      mode_string(test), busy_poll_string(test), test->name, ret);
- 	}
--
--	pkt_stream_restore_default(test);
--	return ret;
- }
- 
- static bool is_xdp_supported(int ifindex)
-@@ -408,12 +406,29 @@ static bool is_xdp_supported(int ifindex)
- 	return true;
- }
- 
-+/* Probe only the mode that the endpoint runs in. */
- static u32 detect_mode_caps(struct ifobject *ifobj)
- {
--	if (is_xdp_supported(ifobj->ifindex)) {
-+	u32 max_mtu;
-+
-+	if (opt_mode == TEST_MODE_ZC && ifobj_has_cap(ifobj, XSK_CAP_ZC_ADVERTISED)) {
-+		/* Trust the advertised flag; an XDP_ZEROCOPY bind never falls back to copy. */
-+		ifobj_set_cap(ifobj, XSK_CAP_DRV | XSK_CAP_ZC);
-+	} else if (opt_mode == TEST_MODE_DRV && is_xdp_supported(ifobj->ifindex)) {
- 		ifobj_set_cap(ifobj, XSK_CAP_DRV);
--		if (ifobj_zc_avail(ifobj))
--			ifobj_set_cap(ifobj, XSK_CAP_ZC);
-+	} else if (opt_mode == TEST_MODE_SKB) {
-+		if (xsk_get_max_mtu(ifobj->ifindex, &max_mtu)) {
-+			ksft_print_msg("Error: cannot read max MTU of interface %s\n",
-+				       ifobj->ifname);
-+			ksft_exit_fail();
-+		}
-+		/* Generic XDP handles frags whatever the driver supports, so
-+		 * the multi-buffer cases need only a jumbo MTU.
-+		 */
-+		if (!max_mtu || max_mtu >= MAX_ETH_JUMBO_SIZE)
-+			ifobj_set_cap(ifobj, XSK_CAP_MBUF);
-+		else
-+			ifobj->caps.flags &= ~XSK_CAP_MBUF;
- 	}
- 
- 	return ifobj->caps.flags;
-@@ -428,8 +443,10 @@ static bool mode_supported(enum test_mode mode, u32 caps)
- 	return caps & XSK_CAP_ZC;
- }
- 
--static void cleanup_iface(struct ifobject *ifobj)
-+static int cleanup_iface(struct ifobject *ifobj)
- {
-+	int err = 0;
-+
- 	/* A peer shadow has a skeleton but no bound interface. */
- 	if (!ifobj_is_local(ifobj))
- 		goto unload;
-@@ -437,8 +454,27 @@ static void cleanup_iface(struct ifobject *ifobj)
- 	if (ifobj->xdp_prog)
- 		xsk_detach_xdp_program(ifobj->ifindex,
- 				       mode_to_xdp_flags(ifobj->mode));
-+	/* After the detach, as an attached program can cap the MTU. A driver
-+	 * can also refuse it while it holds the pool of a closed socket, which
-+	 * the kernel releases from a work item.
-+	 */
-+	if (ifobj->dev_mtu != ifobj->orig_mtu) {
-+		int wait_ms = opt_timeout * 1000;
-+
-+		for (;;) {
-+			err = xsk_set_mtu(ifobj->ifindex, ifobj->orig_mtu);
-+			if (!err || wait_ms <= 0)
-+				break;
-+			usleep(100 * 1000);
-+			wait_ms -= 100;
-+		}
-+		if (err)
-+			ksft_print_msg("Failed to restore MTU %d on %s\n",
-+				       ifobj->orig_mtu, ifobj->ifname);
-+	}
- unload:
- 	xsk_unload_xdp_programs(ifobj);
-+	return err;
- }
- 
- /* Connect the two endpoints without negotiating the remote NIC's capabilities. */
-@@ -475,6 +511,7 @@ int main(int argc, char **argv)
- 	struct test_spec test = {};
- 	int ret = TEST_FAILURE;
- 	u32 caps;
-+	int err;
- 
- 	/* Use libbpf 1.0 API mode */
- 	libbpf_set_strict_mode(LIBBPF_STRICT_ALL);
-@@ -518,6 +555,8 @@ int main(int argc, char **argv)
- 		ksft_exit_xfail();
- 	}
- 
-+	xsk_set_max_frags(opt_max_frags);
-+	xsk_set_timeout(opt_timeout);
- 	/* Before the default packet streams, which have its minimum size. */
- 	if (xsk_set_flow(opt_src_ip, opt_dst_ip, opt_udp_port))
- 		print_usage(argv);
-@@ -533,6 +572,7 @@ int main(int argc, char **argv)
- 		shadow_ifobj = ifobj_tx;
- 	}
- 	bind_iface(local_ifobj, opt_ifname, argv);
-+	local_ifobj->queue_id = opt_queue;
- 	caps = detect_mode_caps(local_ifobj);
- 
- 	test.tx_pkt_stream_default = pkt_stream_generate(DEFAULT_PKT_CNT, MIN_PKT_SIZE);
-@@ -558,8 +598,17 @@ int main(int argc, char **argv)
- 
- out:
- 	xsk_set_endpoint(NULL);
--	cleanup_iface(ifobj_tx);
--	cleanup_iface(ifobj_rx);
-+	err = cleanup_iface(ifobj_tx);
-+	err |= cleanup_iface(ifobj_rx);
-+	/* A passed or skipped case still fails if it cannot restore the MTU. */
-+	if (err)
-+		ret = TEST_FAILURE;
-+	/* After the cleanup, which can still fail a case that ran. */
-+	if (test.test_func)
-+		report_pkt_test(&test, ret);
-+	/* The peer skips the case too, rather than fail on the closed connection. */
-+	if (ret == TEST_SKIP)
-+		xsk_peer_skip(peer, opt_timeout * 1000);
- 	xsk_peer_close(peer);
- 	pkt_stream_delete(test.tx_pkt_stream_default);
- 	pkt_stream_delete(test.rx_pkt_stream_default);
+ #define MAX_TEARDOWN_ITER 10
+ #define MAX_ETH_JUMBO_SIZE 9000
+-#define SOCK_RECONF_CTR 10
+ #define RX_FULL_RXQSIZE 32
+ #define UMEM_HEADROOM_TEST_SIZE 128
+ #define XSK_UMEM__INVALID_FRAME_SIZE (MAX_ETH_JUMBO_SIZE + 1)
 -- 
 2.43.0
 
