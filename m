@@ -1,79 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795805110;
-	b=MTbDmOsY+AkU1RkL438tq+3nFIf6vRMgeMLl3HKfIKAS12nvLbEpxPZHt/Ql50Ctq66N
-	 u9opXV+JZqRgSqU63RYCbxciTmdHLDcHkc8A7aIsZETtNHRGTc2C8usyymTXhHsuZ672Z
-	 YtKC6mJXwmim971sjTU0w6Maip5XfjI41VGiyvOELGGw4+ieOTqIfQJojxIy2R6NL9glr
-	 mOOORHBIezYT7sANWF1ILOyyFzOROY7ygVZw5OlqJ29pg40JlPLMMQMy1RdKmtNOLy6by
-	 1x8XAWJlVbsSFirAVP/CJ7A3uV0wHcwJHHcMBZu66WGjiVIHgUZE/Pbw9k2WYDwMsag==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795805110;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Vqm6kDq6SLnWsSXCALjlpHMEGWdLueHGFZDMxMHGmNo=;
-	b=dGHDPIj/3fBBcyOMhc0MDfQe31/81EY3U6Eq4umKCeYGmA0LBLVZcd6pr1jbCkUAqr7F
-	 Ra8vSJNjGI5ITgripMgBFLaV4N+8P6mzwz6ME3X5nx4BVZKyh19gnguskBdWsVjam06zH
-	 bS3zdp6armJ47/AYEOwgusDlkB3hn39xJ0kFvDe/UYt4UEY//vXBrC1DRImOyDpEzebEJ
-	 nzueTA6k956CIRMqpJv9f7XYmDhl0X8LdtOpYctZ9SJ323hZz4K8sKI9c90o6xYeWiDQv
-	 6RbiEaL0A+65FKVPUtMT6EoRylfoW4bOsWheJeJsrmYA3oIa8QV5pJflffOKShy1pAA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HSPfhfNO;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8F69606A323;
-	Fri, 27 Nov 2026 18:45:10 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HSPfhfNO
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795805110;
-	b=zqdz2EI/RG8JRRWNfSFMjr1WK46PV2hzb9Ou40RDPDebp+hseCVTfxWmjnEs5kbnrPoH
-	 RLoC2sprDrlb0FgUCyHZ6B8etDjnDpsK0W+pXkIAggY3V9/F/FppPz7I/pyH8VZogLnNl
-	 +ULscpebbrE2IERS2jQGFWwqdNuloEU52NK8qifM6aTWHgcJ+OXEUnRqjl+ET4857PHvi
-	 sFLCf6JXTJFDG23yZmyDcADnuX/bp3bNcfZ3DUJkyCu0m99HLZBssfifEkxhO1YOKUfK2
-	 ZODSeZB9/Su/ngv598xj0j5E80cXuOkCIGMYZ+oB3Aa3fNF/L0iFsDVhN9SNObqCvyA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795805110;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Vqm6kDq6SLnWsSXCALjlpHMEGWdLueHGFZDMxMHGmNo=;
-	b=l2mH7hgbU4lsz1u792qxVjZHbrHDo1beMyq0Iv03q6JNnc1WGsPAD9T3caksYToG8b4z
-	 Ym203AL/dt9PXRM2mNQHF8UNpZwjcJelrwQR90YIfkiG3bHxvJQ/7QjOpGEBpZtA/AwMp
-	 VLAljjtSXcZSngUlxuBBQXS198eblECluw72K21uZf0K4a/HemVzm1IbdzacWi5t3bvIH
-	 8cKfsT+3qp9BFFcmOR2Tw6DAMkpj0b4SWQCZ0QWDps04DmcBApBSC7cgoDhQNmACwF9ou
-	 S7ICS2k3spgD46IVB3vl99Oh27XUe1lO/F8DrovVzkBzxcqw//Eb3C0qRX80Do26P4A==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795805814;
+	b=kZbHwEUxFKwtC+HwD/k1qCgfvKInkcv0XKjnTXtOokQFMXeDGTrNmfFrNrSxc8fVbd8Q
+	 uBQXIaPmPUy2PEAni+GSvX8UwDG0IrpHmreRzuzQYaIiLk3BwuYsOXFSIn3D7meBLEBHG
+	 P5u5EXo7CSKxTG2S4TVRIdFIdzXJ9jlEOdQ8tua8yZvB/+YhxI8Wu517FPSSp/9ExLrI5
+	 i6ntaYDRNulYcssEX3divxvySxctRnS6YE/r1wzyXOW2wKI6VAJToznj5jILvmopEGurO
+	 +C7y/bdiGy0RKcF1nzUyoDKr/Cd/eQ17X5/xksA3Pk+sUAX1/VeC6PasGnZkcyuyWNA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795805814;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
+	 From:To:X-Mailer:References:In-Reply-To;
+	bh=F5Nr3iW4BqVQetm5Pe4Fx7V1QuIWu+0bYDS3Y41KKMg=;
+	b=ij4eoY8y+Yg9Xrgj3Khoc5w5zxuid1LnAmiDAaZ4+uBH3If/iTAWP6LALf9Af46nA9w5
+	 JpHnjcAZuzATQqzGUhG7T5j4/UzvnEW+ERYuuPvFX3Xp6ET6iUy1fALGELPTryYN3dP3U
+	 rmDMvwtNqtS41kTapQm+6lKgxjdCg/b4pGHxQ1OBnkDE3/rsaaJB0puPKOH9BrNjS5WBK
+	 UygTnBhGmVRwXqC3cB5kcB0Mom0hDhpR6Ull5MzynW4hhAvlakuwK9Ukm2s1JFxbGdoHz
+	 61IqtHiNBjuV73XS1nujwA5nOn/aNiOFNYbzAnZRgtLpYREyhVjeqAx/EkGysFDrjgA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aeqSMXMP;
+	arc=none smtp.remote-ip=209.85.216.43
+Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id CBDD71F0089C;
-	Fri, 27 Nov 2026 18:44:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795805110;
-	bh=Vqm6kDq6SLnWsSXCALjlpHMEGWdLueHGFZDMxMHGmNo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=HSPfhfNO5kxm3dRLp0yCSUFY8bD1/P4mZl9Y/SZxaJKZL05qsRO9N+jnWyspNDtss
-	 R5nSb32YsD5MKWYQ/GSMW/CmRs1M+PGF5XthopSpmue3zLZUHDw7F46xCgZ6+vAArR
-	 fbS9fo4cQExrMfZNFD4rW0aCQ7Y4i2Ud/4sL27bBVUY7l1hBKweSXlB+vovPTlA6ha
-	 e9DvkGEcvSGUliW7uYHklkftDUkp84lwI2vhFL0eeMsXDBNvftrtauZjXbmQbG02SZ
-	 wgwSiAwcgUdrNj0jZk/fX/7kJ79qsFoGNATqmYJO7inVLL5gAPHP7l+F79D4aYrC/Z
-	 ZlBsbFNijUO1Q==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 546DA4DD3B;
-	Fri, 27 Nov 2026 18:44:58 +0000 (UTC)
-From: Willie Wiholm via B4 Relay <devnull+willie.wiholm.tritechsolutions.se@kernel.org>
-Date: Fri, 27 Nov 2026 19:44:57 +0100
-Subject: [PATCH RFC net 2/2] net: phy: dp83867: clear latched WoL interrupt
- before suspend
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D87D606A31C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 18:56:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D87D606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aeqSMXMP
+Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3b49a6e8212so3568240a91.2
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 10:56:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795805813; x=1796410613; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=F5Nr3iW4BqVQetm5Pe4Fx7V1QuIWu+0bYDS3Y41KKMg=;
+        b=aeqSMXMPAYjCALUh7eZa/1ncFtf+1PfU7M8up8SCrZ39n2OmoAFN1Wen/orDjCzcv5
+         XmnSvpfR+Fc2mdwA21bY/TJTAJUJDC6e7JqgpXLZ5wnfDqcquPMjoRQP/uuAX54wUX3j
+         5zTiXtfnHdInzMhjOBZNLlWKJD7XG2yoV3Zc0eOWY8RmgFIdrOaQlEoSOqYdfpiMDxtD
+         6PAx/8IrOLzOsQBfD37CqTozXl8/Ajcezgh5EBiBih3OS0c4WWJux4tSAQ0ZJFRgPZMS
+         3Buur4yV9VjIpkShGucwbmJPyw3FDzpw3Zdv48rF6k+sBoOwXMw0GyIxya5g6dMO1a+U
+         eZtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795805813; x=1796410613;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=F5Nr3iW4BqVQetm5Pe4Fx7V1QuIWu+0bYDS3Y41KKMg=;
+        b=UI51sr5DUVoMrkeWjTfw2RVj5bzLQkgLfUNrJ3QerXe8Tjz+OYqppAPWRKOk5gWaUo
+         3iU2U/38axMizTJH4sW7wB5bQUH7i/gwAZMVX7z1AT+KRZZ4WGQH0IAJGcOJX+gRrtgm
+         V8cotXpCqOTlyQbEV+6CAF4MWByca9viEhB78ej01tHHF7ldpWAswmBHGmnfD834Jx4O
+         XBwoV1bztHPlDrp5AdOPogBdBPRSoAIpNwhM+zYSP7qgYLi1FoTANarQjMrMH/IEDgXl
+         daeZmJRombUdFtt71Ewz4l+mWsa+dDZQGvudG5J1wizRBETyc1kP7xniE7YpZ/kDUGvg
+         WXGg==
+X-Gm-Message-State: APuU4Z8FGUgOl97zHDFAnp8Na+tya/vqqQmlzA3NGKoM1e56ZKbF+DO3
+	0iqE6j5PHQcj3JVaZvakdiuBq1ctTznT+jw8PHdEclQdzPvfz4KeIPEA
+X-Gm-Gg: AZFdTZcI8vGugiFI9jQlw/7RmuAY7z+ztAZ15rcIWOAcshL2boMGFVFrjHn3e50RyUJ
+	Z/lxE8YQjxBfloSZuBnKkwWEx63SswaABE46lx6a4ghRmbgW8RyNzJEWpgNme1NQYuBf8DTy8Xv
+	zVDaQx7DqmsKfqY6EGyFQcfTWS680z49hEBuOK5f5M/FycUyUSX+MQEDfM9OCKrScy+ADVxLkVQ
+	08zS2K+ZZWipgsP65BHrcsa8q5NLt5ZdNlGV55etwKv5vrFaNw9XL6ZCRXzjqS8bUYwJZ11BbvE
+	zHWBs8cjrZFgSRyt8z7cec/vC7p+0Dig5pf73rmJ6US0ODP8+FHLyNMCj5x3lBzO8gTw6uaXoSi
+	fJ67QlmvdRLk+zS7dbqlisjSxcj2WKdRRr1FlWqECC3VZU7sEy2Ax8shxjO0aUnclCJJwpad6k3
+	NhmrDvQi/sR+cZDCyHnlximOM+CmCYKvXD3h/pwIh06VNQARN2j3RdNcCxIDsqo530SoTtVFrzt
+	z/utUnVPGj0CvLon7D6qhfboHuFXRM74JQj70/GeYhltF8riGQ5f26NVhrg/kILblsh2svHtW11
+	eJBt/vZRSff7B/kdOK0rsHA0hbmu0WNmGmQ=
+X-Received: by 2002:a17:90b:39a3:b0:3a0:9c9d:eb18 with SMTP id 98e67ed59e1d1-3b41cb20e66mr27984760a91.54.1795805813227;
+        Fri, 27 Nov 2026 10:56:53 -0800 (PST)
+Received: from localhost ([2601:600:a482:7d70::5e59])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b53479b149sm5395556a91.6.2026.11.27.10.56.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 10:56:52 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -82,95 +86,65 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-wol-net-v1-2-769a2aff91df@tritechsolutions.se>
-References: <20261127-wol-net-v1-0-769a2aff91df@tritechsolutions.se>
-In-Reply-To: <20261127-wol-net-v1-0-769a2aff91df@tritechsolutions.se>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Thomas Haemmerle <thomas.haemmerle@wolfvision.net>
-Cc: netdev@vger.kernel.org, 
- Willie Wiholm <willie.wiholm@tritechsolutions.se>, stable@vger.kernel.org
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795805097; l=2183;
- i=willie.wiholm@tritechsolutions.se; s=20261127;
- h=from:subject:message-id;
- bh=OTu68TuDMbFEnIoadSFdiWgIpDYzTT9DBuTGVclx374=;
- b=K+6XR3DKmSbFx+H6GWP5nkkaPMLUcI58nSHrZYYxzLt9Y3KYkoqND/LRot5U4Zpc9a7/6tuXN
- gpnhZ5bODA+DDVYfEypo7h9VKIt0pahoY4PeJWGQw31j27vazdOMw/8
-X-Developer-Key: i=willie.wiholm@tritechsolutions.se; a=ed25519;
- pk=+cNLoL8211zFctWUX7P+l/TZm0pSVfYhLugt3NOecW8=
-X-Endpoint-Received: by B4 Relay for
- willie.wiholm@tritechsolutions.se/20261127 with auth_id=1669
-X-Original-From: Willie Wiholm <willie.wiholm@tritechsolutions.se>
-Reply-To: willie.wiholm@tritechsolutions.se
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 27 Nov 2026 10:56:51 -0800
+Message-Id: <DN6814XXB0ZC.MN5JW6XHOMHU@gmail.com>
+Cc: <netdev@vger.kernel.org>, <mail@maciej.szmigiero.name>,
+ <loic.poulain@oss.qualcomm.com>, <ryazanov.s.a@gmail.com>,
+ <johannes@sipsolutions.net>, <andrew+netdev@lunn.ch>,
+ <davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+ <pabeni@redhat.com>, <nihaal@cse.iitm.ac.in>, <m.chetan.kumar@intel.com>
+Subject: Re: [PATCH net v2 1/3] net: wwan: iosm: reset the host PM state
+ when the sleep handshake times out
+From: "David Westen" <davidlwesten@gmail.com>
+To: <netdev-bot+sashiko@kernel.org>, <davidlwesten@gmail.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261124172627.41847-2-davidlwesten@gmail.com>
+ <179575732269.3135.16660281513861185989@kernel.org>
+In-Reply-To: <179575732269.3135.16660281513861185989@kernel.org>
 
-From: Willie Wiholm <willie.wiholm@tritechsolutions.se>
+> [Severity: Medium]
+> This is a pre-existing issue, but can an interrupted wait skip the new
+> reset entirely?
 
-WOL_INT in ISR is latched until ISR is read. When the PHY has no IRQ,
-nothing reads ISR, so a magic packet received while the system is
-running leaves the WoL interrupt pending and INT/PWDN_N asserted. The
-next suspend then does not wake up on a magic packet, as the pin is
-already active.
+Yes, and as you say, patch 2/3 fixes it by switching to
+wait_for_completion_timeout().
 
-With WoL enabled, phy_suspend() does not call the driver's suspend
-callback, so the driver has no chance to clear the interrupt. Set
-PHY_ALWAYS_CALL_SUSPEND and, when WoL is enabled, only read ISR in
-dp83867_suspend(). ISR is only read when the PHY has no IRQ, so that
-pending interrupts are not lost when it has one. Without WoL the
-behaviour is unchanged.
+> [Severity: Medium]
+> Does restoring ACTIVE here let the next suspend consume a stale completio=
+n
+> count?
 
-bcm54xx_suspend() acknowledges the WoL interrupt before suspend in the
-same way.
+Yes, between this patch and 2/3, which adds reinit_completion() before
+each wait. If there is a v3, I'll put the wait fix first so that the
+series has no such gap.
 
-Fixes: caabee5b53f5 ("net: phy: dp83867: support Wake on LAN")
-Cc: stable@vger.kernel.org
-Signed-off-by: Willie Wiholm <willie.wiholm@tritechsolutions.se>
----
- drivers/net/phy/dp83867.c | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+> [Severity: Medium]
+> Is a doorbell parked during SLEEP_WAIT_D3 ever replayed after this
+> rollback?
 
-diff --git a/drivers/net/phy/dp83867.c b/drivers/net/phy/dp83867.c
-index e3617f01b5d9..d997e10cd5ef 100644
---- a/drivers/net/phy/dp83867.c
-+++ b/drivers/net/phy/dp83867.c
-@@ -712,6 +712,22 @@ static int dp83867_of_init(struct phy_device *phydev)
- 
- static int dp83867_suspend(struct phy_device *phydev)
- {
-+	int ret;
-+
-+	/* The PHY must stay powered up for WoL. Without a PHY IRQ nothing
-+	 * reads ISR, so a WoL event latched while the system was running
-+	 * keeps INT/PWDN_N asserted and the next magic packet does not
-+	 * wake the system. Clear it before suspend.
-+	 */
-+	if (phydev->wol_enabled) {
-+		if (!phy_interrupt_is_valid(phydev)) {
-+			ret = phy_read(phydev, MII_DP83867_ISR);
-+			if (ret < 0)
-+				return ret;
-+		}
-+		return 0;
-+	}
-+
- 	/* Disable PHY Interrupts */
- 	if (phy_interrupt_is_valid(phydev)) {
- 		phydev->interrupts = PHY_INTERRUPT_DISABLED;
-@@ -1274,6 +1290,7 @@ static struct phy_driver dp83867_driver[] = {
- 		.phy_id_mask	= 0xfffffff0,
- 		.name		= "TI DP83867",
- 		/* PHY_GBIT_FEATURES */
-+		.flags		= PHY_ALWAYS_CALL_SUSPEND,
- 
- 		.probe          = dp83867_probe,
- 		.config_init	= dp83867_config_init,
+Not until the next doorbell to the modem. The existing rollback when
+sending ENTER_SLEEP fails, which this patch copies, has the same gap,
+and either path needs the handshake to fail first. Replaying the update
+on rollback would have to go through the task queue, as the store isn't
+serialized with the tasklet. I'd rather do that as a separate change
+than grow this fix.
 
--- 
-2.43.0
+> [Severity: Medium]
+> This isn't a bug introduced by this patch, but the new comment says "we
+> are still active" while the suspend still goes ahead. Is the false return
+> from ipc_protocol_suspend() meant to abort the suspend?
 
+The comment is about the driver's host PM state: the modem wasn't told
+to sleep, so the driver must not behave as if it was. Whether a failed
+handshake should abort system suspend is a separate question, and the
+driver has never done that. Aborting would keep the whole system from
+suspending whenever the modem stops answering, for example after it
+has crashed, which seems worse than suspending without it. This patch
+only gets the driver out of the state where every later suspend and
+resume is refused.
 
+Thanks,
+David
