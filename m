@@ -1,68 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.154
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795746656;
-	b=okDZwdoRuqMSOI//+082WGiK39AfZHJZtMGaIDN9RekH7OTMeQkdFthAU7YjR+9zhOCq
-	 jT0TG0UrqoaoonHBMbcjIH7ngS8s+WXcIEgj/EoLOkpjByNGkVA/N8imV8RZVTzJ1Wb+f
-	 AnlatJT9fTgTv9fk4k2M/zWe0x4BAbBExJYlgcBVrAq4JH69EsxTdZ7N1F3RYj5myT0cN
-	 7gWCoZPvjh7oyDYhQOz8zaFwSFngvkZI2Z0aSpU5+Lj8hSEReYDPnZpNiHQPZ2Ug/Q7k3
-	 pOKavDHPV55HPGz3drFsNvCXs7MvYBycd0UWN0rwVL4Klh31ez+ntQURD0iOERP09/A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795746656;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=yhPqhFmiPr+CMbPss5FuS1lnYkQ0ByFCw1K+Q5WzccA=;
-	b=QQXEvzp0C4C1QCwSQij8VdGZq2tRpyRDYGjt43itKgU9epBiUBFdntmb9CEtsNovVgXr
-	 bKYHtNKeydhLZYJMXLBxqEaW3XLnXvu+Lejp/5R0Z/O9fsCH5pqCTPnVXnv8qRvHQA9r9
-	 +0nskFhxK/IXK80/PPfNtdS1s3SuegNJ0Q1A+Q8Mfw6C6xdURfPJzIN+kZTZ8DZV7x3X3
-	 rO9FEQK99lQeYYDO1U4ZvXPGYtf2w6+Xr5iLtMXtYLj2NpSjo3j5/hJ3CRIfufFqv+qEj
-	 341StAkz2phe9e2YRpVWu8H4Dbc1J+/3dhAQFnfKNGaqA9ZFFg7YeGplJIri+6lB9LQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=da1hQ3Np;
-	arc=none smtp.remote-ip=95.215.58.154
-Received: from mta1.migadu.com (out-154.mta1.migadu.com [95.215.58.154])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.48
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795746674;
+	b=rlgQxaXrBsa2nV1lrRnALqMvMNNJxDcB8H3N1UMSOOx7cEMc1wT0JznDCGKsITkVQLJv
+	 tPLw3HXfKjPaRnaqZNu39oSWFiHD2dSX9mVU2MVcQTNcv0Io3/fuoC+dzu36ksiAYHCcU
+	 AQGgJMHNedtzZab7lgy6mzoKyf5WxH2gAAFttCC0HDt/0fMFWc0mgxvfw+KqCFZ6KxJ5c
+	 2Yb6TZGH/muqYsRxn2hNhAeC1mQuGJLFTUlxhOb/OJZ7NINOfTlflsDI9aZYOOHYdEwrr
+	 IxMt2Q4+hZisJ9EUWxsB2+oXmqg1no+4dWtIsMAaMH/jwNaV/AkD+tSP6YoKMUrwYcg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795746674;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=3mvD5SHJizr8aoJUr14kNfOc0+9+6jccMe+xxh5ocXI=;
+	b=skOjE2oKJnXDgOhktO/URwyYgHsvTY9OaEiSfRrUvmSVFYjABpSuzJe7ZJ4IrfXUgWhG
+	 9dM5xb7YB8fcJbv7veCV6uGvwi3ugqF9KTufBP6JumL19vGvWhRFAb5WG3K/YZSm35peO
+	 w5z8ordJswZWzdv6tZaW/djmI1XjgQfBX2uilMydYNxIUgNU6Red1420Dl/cGrUQkAPnT
+	 DMkCGjRb9J/L5WC8jQUL6qxVWZFgbYvxqsaWZ6QH67Vl0jy61lNY4pm/kgDCCXfJYnt/l
+	 phr1siNs+LcuciDe5pQ4xQDKhn9ihw0DrxiaoTG1K7pe4HbdQMw+KrAuAho8FoC1SsA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qERfAWsJ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.48
+Received: from mail-lf1-f48.google.com (mail-lf1-f48.google.com [209.85.167.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF933606A31C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 02:30:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF933606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 136F5606A321
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 02:31:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 136F5606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=da1hQ3Np
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=21MWGW1/WGQFy49l3Efg4AOdUE1giNJT27Feeuow9j8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795746654; v=1; x=1796351454;
- b=da1hQ3NpHC2PvHLVxJB5EWqSZ8sbqJ7ogw9ldSI0BkGpDUlsyBjfiGqUDFxIoqBrni3okmuE
- Iidrw80cnZp/WP4+91R9W+tB8GJ6uOFhg8BjFn2WYvonubS1B+TPPb/ZLpqgH4ehEf6ttq9C4Ce
- Lx49K1dsLzH4lilQOFw3dJos=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 51ad85fc44c1ffed;
-	Fri, 27 Nov 2026 02:30:50 +0000
-X-Mizu-Trace-ID: 51ad85fc44c1ffed
-X-Migadu-Flow: FLOW_OUT
-Date: Fri, 27 Nov 2026 10:30:36 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
-Cc: netdev@vger.kernel.org, David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Alice Mikityanska <alice.kernel@fastmail.im>,
-	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 6/6] selftests: net: big_tcp_tunnels: Cover
- IP tunnels
-Message-ID: <awjrTKpsp0dO1qe4@fedora>
-References: <20261126025015.10416-1-yanhaishuang@cmss.chinamobile.com>
- <20261126025015.10416-7-yanhaishuang@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qERfAWsJ
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5c14f7768acso6136597e87.3
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 18:31:13 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795746672; cv=none;
+        d=google.com; s=arc-20260327;
+        b=OuxdKolNzdFzwi/BqcN0XmuhtDd9/Hr7QBKnQdmagIAFDbO/Q+UL58kmGcCDhxyj/e
+         vF0orC1gCZqOKf8m3iJ1R4St43kj5ZcypCzO9Ywl5PdcrwDRZROZQNR80ajDCyv7WDwq
+         fgBhtKELTPqCGnjR5kIzRnEF1pdfHj8BysakUDuY3lTCTEEYsMKvtUsD3vx0dioODJb5
+         R6jWQy8pqTa7qedMnWKglUmpThGFj+BgbC7tQIA7WvaqvyGUDWDlCx1KnSUOCMdHDA3I
+         YyLLJ2Dk1UKygLb/i+tcgSQLIs2l0np+OGr5Zl0Jq2bvkzqKggFdwZ2gUo8HUYVwP0eQ
+         4wog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=3mvD5SHJizr8aoJUr14kNfOc0+9+6jccMe+xxh5ocXI=;
+        fh=gcFIvIcG7RKY9uXiIAs2XkZBnjSiCnLwcZE5JT7eNuY=;
+        b=qPpYJjG6Jl4ruV7qRrb2RaXXi/AYonr+5H/0zmt+wehTcwnjyFa0ynhMPgMX0iwmRI
+         bjruqW/KBSMg5YMNUYhzN8U8vszizoGxSkWG4PZyNRYnCXY0AqjhvNVXa2kaLfOTqlbQ
+         09ibhBqfgsb436VtokObkwt+xz/PC8uS0u9UpkXo6XaOIeRazvbDOTkrDB4lNycPz7Wn
+         WOpJShBMy/RmFRRF5Xs7zNHIG2EdEl8sLOVKCzAuQ8rUuwZmUrQhxisVIB1JLGdP5nd3
+         qM1p6xKo2F2hsXvjFw16TsVpueM728pRu9YDHgGgdvbEqK/BGGhdjF0gwajSUPdddGfA
+         23Mg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795746672; x=1796351472; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=3mvD5SHJizr8aoJUr14kNfOc0+9+6jccMe+xxh5ocXI=;
+        b=qERfAWsJLcMKn5W1+KMjLc9CebAaBdsi/1G+woZOLgB3/twU0XYdloPUN2mWvrM0lq
+         ZmjkPHBg6hE4TECOpPUuME67pi/+kIWTh6dKsrrg2kwClDgMCrryU3PA+g2T90pkxul4
+         hulvBnFR65xIfs8Qyt50nkDQB4iBRRfQSVDpJfveyavzGjbuZdHPI/Q5Gx3Pv4qg64pr
+         twJ8niXamQL5zeCiMh0Z0HwTWL19o5A2ey9bCjlwLKyqIEXD0+mzNGfUAQ86estOQGE5
+         wuoacrdvsCesOjmpc4qxx5bixMVTpnUKCsyNl9aIRxasZxnefL3rulkYEJIQHET95FOZ
+         8oNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795746672; x=1796351472;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3mvD5SHJizr8aoJUr14kNfOc0+9+6jccMe+xxh5ocXI=;
+        b=OuylK/DYqecX/FbnxY12P0YXjVK3cjfLE4dWRtOlxsnOIcF3y+Jj1EY5cbokVUWt6Z
+         153z/rBA+6FEhP3uVf2VSyD5SttL0ghHMSYBIWXJXSdRPNxT1MRQhCONhzz4O4U/UaS1
+         DEslHiiOtlnyqVXeYrttPmCyjAAB+H52Fdj3+YbQp6zpNrcoW0p8ZJ4ctQ8LPP+HvrBY
+         EwikdQHUqx9Ao76PnjQilW4gZLOT34Yh8V5Pn26ysR3cHx0rBn6VgKI+NsDERsBSTpe0
+         USxwbsCNVt7my7a1/n+2dGwmDzjNZyWh93HK4z28UX5Hq3vaxdFxJaUw8HBrhghm0VCb
+         bGAA==
+X-Forwarded-Encrypted: i=1; AL+hErFFMHBEUuQhY7SM4Sc++o5Ch+rSvG4YvU7rL/jqNL/+dFzXGn0A3/UXuqDeenS7RXR6ctSV8K8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Ls6XhzoBxmhBRzXizA8IdzPb+8CFkp+eUSvyTiNe1dz/VEnW9
+	+2wsfKhkggJ2VLgQg6zo6X/vzV28ZRumv1ciQP+gz+nY9QHT2lA12cygUAfigbXKzPhaYr4H0aA
+	GbqxmmMEsYMEwYLTN/OuYOfaSOId9990=
+X-Gm-Gg: AZFdTZeqwA1tB20ge9+crwcbFnQuPuDlop/DWdfFgNoK9Cn6D3N+5mHyo0RyyLq1zE8
+	KXyqYzMvHQ7+Uuq98zAAXrW8/A/clwBE+28doIfc+r2Wkyj9304Ai+zTLTkp5yAXAC/4hEEU7tD
+	bVEVMIKV+VpPJJA+OUIsnSbv7Z6d6XQDf4p8flHypiIXWAf6BS0ld90GBMw6MAIiw1RNuOocp7N
+	6Me8kBlw0wQaZhv+uJ3SIXBI93ql8hjifN+sK1blFRaCNB8EI/XMboouqxntG9Znx94+KGoqa7Y
+	YDCmIXUgwGQ/Lma2zehVvCuhKWKvas6KKjN6x0i1soYZpP4AMlHz024qHIFvWVjuyUF1xwodd5W
+	7OcJmtpUQikDPn5O0HVGJDXK2xADGv/01oldZrVdobtF7Abs8cb9B500qRMTYlmqDKhqNy8bLa1
+	AlR0GpcfO8a/YkV6QpMCQxMLS00wAbeKZo78bG/MFLtBt1j9O2pdA=
+X-Received: by 2002:a05:6512:b9d:b0:5c1:4f5e:4b59 with SMTP id
+ 2adb3069b0e04-5c1bc844972mr7043793e87.58.1795746672038; Thu, 26 Nov 2026
+ 18:31:12 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -72,113 +105,50 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126025015.10416-7-yanhaishuang@cmss.chinamobile.com>
+References: <179562059260.3381969.13546710565371160648@gmail.com>
+In-Reply-To: <179562059260.3381969.13546710565371160648@gmail.com>
+From: Jason Xing <kerneljasonxing@gmail.com>
+Date: Fri, 27 Nov 2026 10:30:33 +0800
+X-Gm-Features: Aa3M54qQCzHWtPap6VwRTDk3zW_mgnH0uTaijvFXX22zIZb75qUgadyaUbnQ8mk
+Message-ID: <CAL+tcoBzM3owy4tnRWW_ZV+0Tq0R=_GnrigL2Ud=2DhyviUivw@mail.gmail.com>
+Subject: Re: [PATCH net v3] xsk: keep the charged page count when pinning a
+ umem fails
+To: Kyuwon Cho <kyuwoncho18@gmail.com>
+Cc: Magnus Karlsson <magnus.karlsson@intel.com>, 
+	Maciej Fijalkowski <maciej.fijalkowski@intel.com>, Stanislav Fomichev <sdf@fomichev.me>, 
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, netdev@vger.kernel.org, 
+	bpf@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 25, 2026 at 06:50:15PM -0800, Haishuang Yan wrote:
-> Now that ipip, gre, gretap, sit, ip6tnl, ip6gre and ip6gretap allow BIG
-> TCP too, run the same checks over them as for vxlan, geneve and
-> bareudp, without encapsulation and with FOU and GUE. With FOU and GUE,
-> turn on the outer UDP checksum, which is off by default on an IPv4
-> underlay, so that it is checked too.
-> 
-> sit only carries IPv6, and is only run with veth tx checksum offload
-> enabled: unlike the other tunnels it does not use gro_cells on receive,
-> so with software GSO on the sender the receiver does not see any BIG
-> TCP packet.
-> 
-> fou is not loaded on demand when it is built as a module, so load fou
-> and fou6 first, and skip the FOU and GUE cases if that fails.
-> 
-> Signed-off-by: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
-> ---
->  .../testing/selftests/net/big_tcp_tunnels.sh  | 139 +++++++++++++++++-
->  1 file changed, 136 insertions(+), 3 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/net/big_tcp_tunnels.sh b/tools/testing/selftests/net/big_tcp_tunnels.sh
-> index 9c1482b842b..1e8387fce99 100755
-> --- a/tools/testing/selftests/net/big_tcp_tunnels.sh
-> +++ b/tools/testing/selftests/net/big_tcp_tunnels.sh
-> @@ -1,7 +1,9 @@
+On Thu, Nov 26, 2026 at 10:08=E2=80=AFAM Kyuwon Cho <kyuwoncho18@gmail.com>=
+ wrote:
+>
+> xdp_umem_reg() charges umem->npgs pages to the user's locked_vm before
+> it pins the umem. When pin_user_pages() pins fewer pages than asked,
+> xdp_umem_pin_pages() overwrites umem->npgs with the pinned count so that
+> xdp_umem_unpin_pages() releases only those, and xdp_umem_unaccount_pages(=
+)
+> then gives back only that many. The rest of the charge is never returned.
+>
+> A short pin happens when the tail of the umem area is not mapped. With
+> RLIMIT_MEMLOCK at 16 pages, three registrations of an 8-page area whose
+> last 4 pages are unmapped leave the user able to register only 4 pages,
+> for as long as the user has a process running.
+>
+> Unpin the pinned pages directly and leave umem->npgs as charged.
+>
+> Fixes: c0c77d8fb787 ("xsk: add user memory registration support sockopt")
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/all/20260421172951.A7052C2BCB5@smtp.kerne=
+l.org/
+> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
 
-[...]
+LGTM, thanks!
 
->  
-> +# For IP tunnels: $1: tunnel family, $2: encapsulation
->  cleanup_tunnel() {
-> +	local fou_args=()
-> +	local ns
-> +
->  	ip -netns "$CLIENT_NS" link del tun0
->  	ip -netns "$SERVER_NS" link del tun1
-> +	if [ "${2:-none}" = none ]; then
-> +		return 0
-> +	fi
-
-nit: maybe just [ -z $2 ] ? No need to change if no new version.
-
-> +	if [ "$1" = 6 ]; then
-> +		fou_args=(-6)
-> +	fi
-> +	for ns in "$CLIENT_NS" "$SERVER_NS"; do
-> +		ip -netns "$ns" fou del port "$FOU_PORT" "${fou_args[@]}"
-> +	done
->  }
->  
->  cleanup() {
-> @@ -240,6 +336,30 @@ if ! ip link help 2>&1 | grep gso_ipv4_max_size &> /dev/null; then
->  	exit "$ksft_skip"
->  fi
->  
-> +# $1: tunnel type, $2: tunnel family, $3: traffic family, $4: encapsulation
-> +run_ip_tunnel() {
-> +	local csum_offload
-> +
-> +	for csum_offload in on off; do
-> +		# sit does not use gro_cells on receive, so with software GSO
-> +		# on the sender there is nothing big to receive.
-> +		if [ "$1" = sit ] && [ "$csum_offload" = off ]; then
-> +			continue
-> +		fi
-> +		setup_tunnel "$1" "$2" "$csum_offload" "$3" "$4" || exit "$?"
-> +		do_test "$2" "$3" "$csum_offload" || exit "$?"
-> +		cleanup_tunnel "$2" "$4"
-> +	done
-> +}
-> +
-> +# fou is not loaded on demand when built as a module
-> +ENCAPS=(none)
-> +if modprobe -q fou && modprobe -q fou6; then
-> +	ENCAPS+=(fou gue)
-> +else
-> +	echo "SKIP: FOU and GUE tests, could not load fou and fou6"
-> +fi
-> +
->  WORKDIR=$(mktemp -d)
->  trap cleanup EXIT
->  setup
-> @@ -254,3 +374,16 @@ for tunnel in vxlan geneve bareudp; do
->  		done
->  	done
->  done
-> +for encap in "${ENCAPS[@]}"; do
-> +	run_ip_tunnel ipip 4 4 "$encap"
-> +	for traffic_family in 4 6; do
-> +		run_ip_tunnel gre 4 "$traffic_family" "$encap"
-> +		run_ip_tunnel gretap 4 "$traffic_family" "$encap"
-> +	done
-> +	run_ip_tunnel sit 4 6 "$encap"
-> +	for traffic_family in 4 6; do
-> +		run_ip_tunnel ip6tnl 6 "$traffic_family" "$encap"
-> +		run_ip_tunnel ip6gre 6 "$traffic_family" "$encap"
-> +		run_ip_tunnel ip6gretap 6 "$traffic_family" "$encap"
-> +	done
-> +done
-> -- 
-> 2.43.0
-> 
-> 
-
-Tested-by: Hangbin Liu <liuhangbin@kylinos.cn>
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+Reviewed-by: Jason Xing <kerneljasonxing@gmail.com>
