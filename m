@@ -1,98 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.254.224.24
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795786120;
-	b=aMvmhvz90Pod+rWGfx2t0Tkkd99jH+al3Wamuq2wji4pGMA9JmvutBLkeZq1pUBqQqna
-	 NxV38goHmTB1lFb6YB7qPFAfeJIZzv9if5JOAEQidhZ+4J2em8EqEpXhVmrjYOkIiplpy
-	 r4Zrrol+QCsBB5vEGQejtPiU+kd7YGfK53pH/24fAg3ShfhQjHYFEIWVjZ8ywe8F+GzEJ
-	 bKRPxFQz9OxYtXjLTBsXpA3AhFKxbZrhql6dJum+gW0Doz/O/k7eA6+oLNQuE24Tq6nVA
-	 gVurpDoeM+r4HJ7epaHIPDC8Oxnt1ybaqhnh6SAY5fv7xXBLQ4ku1eg9PMcf1pngzHQ==
+	t=1795786195;
+	b=nHndAme6Bz5EsowA/EOmYadKInTVTuWL/jO+54W2tJViItXJbf8WYM/XAt7xv634qD8w
+	 NEXirrppEGFq4ZKjo62GXt9tsOw9DE6iamHFnU7MfMGTNkf2EIi4ka6GaySDIPSl3c5QP
+	 nDx8WJP6sq6eCfW6wSO6im+iGYUTV8F52epbjkOL/M5V3k0FApQUKKOSJIXEUIBaHYSTg
+	 nkhIyv6J60ZT7k5ukrYBshcMW9cuag8Hc5uL3bytaHDzM1Wy+NYFzZbd7rJCB4S+KN6OS
+	 tfT4b9Sjmy9DJ/O4NgYE5KwkmxAu4cFm18iwf8NUTLcwk5Mwf9ZWGCRRJNtWA+dq+Bw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795786120;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=LLbqNYnO454mMUff5E6gIY1DPjJ0b2afsLpoASZgEQk=;
-	b=cXnsPBqp6ZeCPSup5tQRbAjEcjafzt3765W4OGKI8lHDqm+qML5iqaFBHzoIJoa8/5mC
-	 MxIpyNaEp6fSyfzR5UIDAAQwEKQQnTnH4KTOvoglVIX4KRQajMcD2HaOnr2+XMUpZYStY
-	 YZHD6BWx1Kd0oaStVgBt0E+pb26V4pblpn4802rl45pVNfFb+Y0i8YG1WFHC+A2vfMSXd
-	 FRCeM0CV2siVZxa6Aiw6kQpXdhXiPrZ5XJIj0vsbjwXCvspVth6h1LCcJfjCLOXIinqgI
-	 cNroB8ChhL9Pr3g32tW5pBHLsMzknRUIShm9mYnl9Dfcoh5N/QEeOSGg6+HMYNT1H/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795786195;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 Received:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
+	 In-Reply-To:MIME-Version:Content-Transfer-Encoding:X-CMS-MailID:
+	 X-Msg-Generator:Content-Type:CMS-TYPE:X-CPGSPASS:cpgsPolicy:
+	 X-CFilter-Loop:X-CMS-RootMailID:References;
+	bh=+e0EnoojV4Ojk5HHoz5ipTGnR/a7RUdVjidQuApwaUY=;
+	b=fr0XCbI7Ay7Fdd8hgRTk8PUo9lfSbocRgjazp0C62wctrfqOpV3FKub5KYDKIj9331Ms
+	 UEc/jJQE1EmxeDxksbPUzT3garL9gwxh+wC9yzuMRYuvHm9suzHTrMm6Je3LMG6MEQs2I
+	 t4/3hrxKU06+xoqYQ4HTJbpbA6V+J5zljH6JnBfanMW1FiDbLXLx7nJjT+miz9Hn05ygu
+	 pWwkzRPyTBjiIRekkJ6B8sZlSTAo8JQ+FYE1IvFcYeGcXmbmG+nuoS1xg8/b6hF8UqJr6
+	 mhY3U+2LT8lTyQcKGsaA0fh718wle3u8tk/DAy1etXxoRewiiP2eIlNKVBb48sKg1sA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w2jcQoet;
-	arc=none smtp.remote-ip=209.85.208.53
-Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com [209.85.208.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=ZPB9N6X8;
+	arc=none smtp.remote-ip=203.254.224.24
+Received: from mailout1.samsung.com (mailout1.samsung.com [203.254.224.24])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E655606A31C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:28:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E655606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85B99606A31F
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:29:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85B99606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w2jcQoet
-Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-6b8786bb305so9714659a12.0
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:28:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795786118; x=1796390918; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LLbqNYnO454mMUff5E6gIY1DPjJ0b2afsLpoASZgEQk=;
-        b=w2jcQoetCxdWtWEsQmQxiJPapWOdd8pI169GJXvJK0FakFi98wi4TFk1BLlpYUAQU2
-         KWeT0KR14LzQpVAJb5HiePsKh8A9gwAubgr6jtg22oQDvbnn5gzr8/ThjEqDD5rxv1jj
-         fVUf/eW++wAdnuV+27kRHPLnY+2EndJzv7Rw2KVOjK1tI+xrgdMHgBbCj2gyDPWOpWKD
-         nUz83u455Xw8SYJLEHQU+72uQMGqrh+ZukK6Zt4l4zpfRM79QCZzKK1fSdhuKaQePV/k
-         1cVRwyjWbbbxf2+D7JFsX9Aj4W5iLds1fF/l9r+VL7XgkqAmxpnxDhg/hY7UP6D7S+p8
-         /6qA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795786118; x=1796390918;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LLbqNYnO454mMUff5E6gIY1DPjJ0b2afsLpoASZgEQk=;
-        b=BGvKW8MBL9It7tGreiDKp+P6yNTW1MaethKhc8i6WdHSpha+V84cWu3yvaxw0K66+B
-         3p/VClS80Bq+rG8skTezIAm6ABwHoP8tbj+Vr5tEI+dejqayr2sN2xWJaQ7z/ohsvNfu
-         ATy4GW2fDXJ+lGOAfrZphtcyiBltZqOVB4pcFW+vuQuvz9foo8sIUlKr8iKkKvbXCVBm
-         Oy+py8adYCXUkt3QthR5PHbH8wcXZ8ta1LvRiScMBr2oJ/hdXb0zSVmI+F39epMdCM5x
-         opwnTp7KImTxzn7jnL+a4EJ0LGn+nMd1lwpZaOkaXnIltm7YTHaHRhvo7GUZ5AwrnX5r
-         7/9A==
-X-Gm-Message-State: APuU4Z+X+UIaOMehYpH3NLDODregES3cem8rSwsdV3Uyxb4pauYsBeMb
-	y7VdSnCVirbGYhfYzwjFYJMwXpaFKFXwFWsncKVm3IvOW1QIK77Uxat3
-X-Gm-Gg: AZFdTZckFBAdhoWgvinPzdMIvADYZB1nbfb/2S76Vu+cDDz4I8Y0AXsFTbO9zbHk5BD
-	B+uKyDol29A6UyyQvgyP+mebeT8xqDLaOhdRQGwTyJs8st4T8BT5gHYeTD0OjPn8VpnZWiNZwgn
-	RGjhQEYT23uSTpzK54J3iFd8PPTPhMWHXkm7BDIa+YxsW/TuKUlbs7S8N2qGj8nYFmZ5+hpA/RF
-	kbzYGKFd6vOMbvZmAfKjzBtEFYsaeHHqLKTkKG7ZRRiErZktPXoQhJ2dHdfm34EwE0qBfSJEIxf
-	ghz9P7bR9Tso6zzrQH5pbBsqLKAeQ84bBG+J4U6JniNVNToiSuUg2cm5w6ZDC1DNU79F1nkw9+1
-	rcSIV18ou0O66Vas95StNBacnszj1szxTyKEc4j135HhK00ly/YOh4hHgbhtJxnIu0vP6Fzwsxn
-	pFr4BFDJ0mggtAlP/ln1pZcCU8XWpJFf488CaeIzW2jdNFytFX5s8L6PCs6vWkFFAAz+m2ZsJ8k
-	OAurpJ50tvKOEplOP+4tbQQfpPkCgZIfztxTNBpVK4/5NOkoLHjmnMYgeioXJ4GsL7FDEr4Czuv
-	DpoEK4BCxwrvSQCoLZ7jlMlaUDbf5EZ3mesmM/BpU0uvrw==
-X-Received: by 2002:a05:6402:5c9:b0:6b5:7de8:87cd with SMTP id 4fb4d7f45d1cf-6ba37edda4fmr17675385a12.42.1795786117728;
-        Fri, 27 Nov 2026 05:28:37 -0800 (PST)
-Received: from XPS-15.robovision.ai ([78.29.219.39])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370e78a7sm10530361a12.16.2026.11.27.05.28.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 05:28:37 -0800 (PST)
-From: Cyriel Ladriere <cyriel.ladriere@gmail.com>
-To: anthony.l.nguyen@intel.com,
-	przemyslaw.kitszel@intel.com,
-	intel-wired-lan@lists.osuosl.org
-Cc: netdev@vger.kernel.org,
-	kurt@linutronix.de,
-	hawk@kernel.org,
-	richardcochran@gmail.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	Cyriel Ladriere <cyriel.ladriere@gmail.com>
-Subject: [PATCH iwl-net] igb: only pull the Rx timestamp header from the first buffer of a frame
-Date: Fri, 27 Nov 2026 14:28:05 +0100
-Message-ID: <20261127132804.975014-2-cyriel.ladriere@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=ZPB9N6X8
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20261127132951epoutp0198d56b85f979448fde09d9b4bfca5599~r6gbGjt9F1502415024epoutp01_
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:29:51 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20261127132951epoutp0198d56b85f979448fde09d9b4bfca5599~r6gbGjt9F1502415024epoutp01_
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795786191;
+	bh=+e0EnoojV4Ojk5HHoz5ipTGnR/a7RUdVjidQuApwaUY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ZPB9N6X8ltU7XV/OpPle23jlzArhwfXF/etE2+DHSHKz4OeFCIePspzU9iK7l+KbP
+	 rl5iNFPlXxp2FpdkBGVlKhOJUhrcOe+Q0EkItn0AjeMkmbIoDz7NGIt2TS1g7Jijr/
+	 VSj4l4VTEJk7XOKQP1xaqNX+33c9WBgImRAN1qKY=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20261127132950epcas5p1d554aa812d54077b060f3366c8b5db63~r6gZ-Ahc30558605586epcas5p1f;
+	Fri, 27 Nov 2026 13:29:50 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.91]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4jbZ5n2NGZz2SSKX; Fri, 27 Nov
+	2026 13:29:49 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20261127132948epcas5p424c1b991bbb4b77880d85cbabba12428~r6gYoc29C2027720277epcas5p4I;
+	Fri, 27 Nov 2026 13:29:48 +0000 (GMT)
+Received: from ws2030076956.sa.corp.samsungelectronics.net (unknown
+	[107.99.235.31]) by epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20261127132944epsmtip20b32668b4bfed0de5e5833ad3e015229~r6gVGtgwy1701617016epsmtip2n;
+	Fri, 27 Nov 2026 13:29:44 +0000 (GMT)
+From: Irlanki Sandeep <irlanki.s@samsung.com>
+To: kuniyu@google.com
+Cc: alexei.starovoitov@gmail.com, ameryhung@gmail.com, andrii@kernel.org,
+	ast@kernel.org, bpf@vger.kernel.org, corbet@lwn.net, cpgs@samsung.com,
+	daeil2.hwang@samsung.com, daniel@iogearbox.net, davem@davemloft.net,
+	edumazet@google.com, g.pokhra@samsung.com, irlanki.s@samsung.com,
+	kuba@kernel.org, linux-kernel@vger.kernel.org, lorenzo@google.com,
+	madhan.raj@samsung.com, maze@google.com, motomuman@google.com,
+	ncardwell@google.com, netdev@vger.kernel.org, pabeni@redhat.com,
+	r.kumawat@samsung.com, raj.kumars@samsung.com, ramyashree.s@samsung.com,
+	sharmasagarika@google.com, sporeba@google.com, srihari.k@samsung.com,
+	ts413.lee@samsung.com
+Subject: [PATCH bpf-next v10 1/2] bpf: tcp: add ecn_init callback to
+ bpf_tcp_ops for per-connection ECN
+Date: Fri, 27 Nov 2026 19:00:50 +0530
+Message-Id: <20261127133051.2540069-1-irlanki.s@samsung.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261127132411.2523201-1-irlanki.s@samsung.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,60 +88,226 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20261127132948epcas5p424c1b991bbb4b77880d85cbabba12428
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+X-CPGSPASS: Y
+cpgsPolicy: CPGSC10-065,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20261127132948epcas5p424c1b991bbb4b77880d85cbabba12428
+References: <20261127132411.2523201-1-irlanki.s@samsung.com>
+	<CGME20261127132948epcas5p424c1b991bbb4b77880d85cbabba12428@epcas5p4.samsung.com>
 
-When Rx hardware timestamping is enabled on 82580 and later parts, the
-NIC timestamps every received packet in-band: it writes a 16 byte
-timestamp header in front of the frame and sets E1000_RXDADV_STAT_TSIP
-in the Rx descriptor.
+TCP ECN and Accurate ECN (AccECN) negotiation are currently decided
+globally by the net.ipv4.tcp_ecn sysctl; the per-route knob
+(RTAX_FEATURE_ECN) can only force-enable classic ECN on a path. This
+lacks the granularity required for per-application and per-connection
+ECN policies in multi-application runtimes such as Android.
 
-Since commit 5379260852b0 ("igb: Fix XDP with PTP enabled"),
-igb_clean_rx_irq() checks TSIP and calls igb_ptp_rx_pktstamp() for every
-Rx buffer, including the continuation buffers of a frame that spans
-several descriptors (jumbo frames, e.g. MTU 9000 with 3072 byte
-buffers). igb_ptp_rx_pktstamp() is meant for the first buffer only; its
-only validity check is that the first 8 bytes are zero. When a
-continuation buffer happens to start with 8 zero bytes, 16 bytes of
-packet data are treated as a timestamp header and removed from the
-frame. ip_rcv_core() then drops the packet because skb->len is smaller
-than the IP total length (IpExtInTruncatedPkts).
+ECN/L4S selection is an application-level property, not only a path
+property: on the exact same route, latency-sensitive applications
+(real-time gaming, interactive video/VoIP, low-latency messaging)
+benefit from negotiating AccECN for low-queuing-delay L4S treatment,
+while bulk background transfers or legacy applications in other
+cgroups prefer classic RFC3168 ECN, or no ECN at all where middlebox
+traversal is a concern. On the passive side, a server may further
+want to decide the ECN mode per peer at handshake time. RTAX_FEATURE_ECN
+cannot select AccECN, and it cannot distinguish applications that share
+one route.
 
-The drop depends on the payload, so retransmissions of the same data are
-dropped as well. We hit this with GigE Vision cameras streaming 9000 byte
-UDP packets to an I210 with ptp4l running: about one 4K frame in 700 lost
-one packet; every original and every resend counted in
-IpExtInTruncatedPkts, and a capture on the interface showed those
-packets exactly 16 bytes short (8994 instead of 9010 bytes). With Rx
-hardware timestamping disabled, or with packets small enough to fit one
-Rx buffer, no packet was lost.
+To support this without adding per-socket state to struct tcp_sock or
+resorting to the legacy sock_ops interface, add an 'ecn_init' callback
+to struct bpf_tcp_ops, following the existing timeout_init()/
+rwnd_init() pattern. The ECN mode is only consulted once per handshake,
+so the kernel queries the BPF program via tcp_ecn_init_bpf() when the
+sysctl value is read: before the SYN is built on active open, and on
+passive open only when the incoming SYN requests ECN (AccECN or
+ECE+CWR), where the program sees the listener and the request_sock and
+can thus decide per peer. The sysctl value is passed to the program as
+the default via bpf_get_retval(); an out-of-range return keeps it. With
+syncookies no request_sock is created, so the program is not invoked and
+the sysctl and route decide as before. No negotiated-mode state is
+stored; the decision taken at handshake time stands for the connection.
+The struct_ops program is attached per-cgroup, giving the per-application
+policy point (containers, Android app sandboxes).
 
-Only pull the timestamp header while no skb has been started for the
-frame, i.e. from its first buffer, as before the commit above.
+Document the sysctl precedence in ip-sysctl.rst.
 
-Fixes: 5379260852b0 ("igb: Fix XDP with PTP enabled")
-Signed-off-by: Cyriel Ladriere <cyriel.ladriere@gmail.com>
+Signed-off-by: Irlanki Sandeep <irlanki.s@samsung.com>
 ---
- drivers/net/ethernet/intel/igb/igb_main.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+v9 -> v10:
+ - Skip the ecn_init BPF call in tcp_ecn_create_request() for SYNs
+   that neither request AccECN nor carry ECE+CWR (Kuniyuki Iwashima).
+ - Sort variable declarations in reverse xmas tree order inside
+   tcp_ecn_send_syn() and tcp_ecn_create_request() (Kuniyuki Iwashima).
 
-diff --git a/drivers/net/ethernet/intel/igb/igb_main.c b/drivers/net/ethernet/intel/igb/igb_main.c
-index 131df3e09ba1..24be1f37cc6a 100644
---- a/drivers/net/ethernet/intel/igb/igb_main.c
-+++ b/drivers/net/ethernet/intel/igb/igb_main.c
-@@ -9068,8 +9068,12 @@ static int igb_clean_rx_irq(struct igb_q_vector *q_vector, const int budget)
- 		rx_buffer = igb_get_rx_buffer(rx_ring, size, &rx_buf_pgcnt);
- 		pktbuf = page_address(rx_buffer->page) + rx_buffer->page_offset;
+ Documentation/networking/ip-sysctl.rst |  8 ++++++++
+ include/net/tcp.h                      |  6 ++++++
+ include/net/tcp_ecn.h                  | 16 ++++++++++++++--
+ net/ipv4/bpf_tcp_ops.c                 | 21 ++++++++++++++++-----
+ net/ipv4/tcp_input.c                   | 11 ++++++++---
+ 5 files changed, 52 insertions(+), 10 deletions(-)
+
+diff --git a/Documentation/networking/ip-sysctl.rst b/Documentation/networking/ip-sysctl.rst
+index f7af0286341c..265746e72942 100644
+--- a/Documentation/networking/ip-sysctl.rst
++++ b/Documentation/networking/ip-sysctl.rst
+@@ -484,6 +484,14 @@ tcp_ecn - INTEGER
+ 	5     AccECN               No ECN
+ 	===== ==================== ====================
  
--		/* pull rx packet timestamp if available and valid */
--		if (igb_test_staterr(rx_desc, E1000_RXDADV_STAT_TSIP)) {
-+		/* pull rx packet timestamp if available and valid; the
-+		 * timestamp header is only present in the first buffer of a
-+		 * frame, a continuation buffer (skb already started) holds
-+		 * packet data that must not be stripped
-+		 */
-+		if (!skb && igb_test_staterr(rx_desc, E1000_RXDADV_STAT_TSIP)) {
- 			int ts_hdr_len;
++	Note that a BPF program implementing the bpf_tcp_ops 'ecn_init'
++	struct_ops callback, attached to a cgroup, can override this value
++	per connection for the sockets of that cgroup. The callback sees
++	this sysctl value as the default via bpf_get_retval(), and any
++	return value outside the table above falls back to it. Connections
++	established via syncookies are not seen by the callback and use the
++	sysctl and route settings instead.
++
+ 	Default: 2
  
- 			ts_hdr_len = igb_ptp_rx_pktstamp(rx_ring->q_vector,
+ tcp_ecn_option - INTEGER
+diff --git a/include/net/tcp.h b/include/net/tcp.h
+index f7624ab9b420..19fd7652b1c1 100644
+--- a/include/net/tcp.h
++++ b/include/net/tcp.h
+@@ -2971,6 +2971,12 @@ struct bpf_tcp_ops {
+ 	 */
+ 	int (*rwnd_init)(struct sock *sk, struct request_sock *req);
+ 
++	/* Should return the ECN variant to negotiate in this handshake:
++	 * one of net.ipv4.tcp_ecn values. bpf_get_retval() has the sysctl.
++	 * @req as in timeout_init().
++	 */
++	int (*ecn_init)(struct sock *sk, struct request_sock *req);
++
+ 	/* Called when an active connection becomes established.
+ 	 * @skb is the SYNACK that completed the 3WHS, or NULL for a
+ 	 * TCP_REPAIR socket (tcp_finish_connect() with no skb).
+diff --git a/include/net/tcp_ecn.h b/include/net/tcp_ecn.h
+index 865d5c5a7718..4d57b4c75846 100644
+--- a/include/net/tcp_ecn.h
++++ b/include/net/tcp_ecn.h
+@@ -32,6 +32,18 @@ enum tcp_accecn_option {
+ 	TCP_ACCECN_OPTION_PERSIST = 3,
+ };
+ 
++/* Resolve the effective ECN mode: BPF callback or sysctl fallback */
++static inline u8 tcp_ecn_init_bpf(struct sock *sk)
++{
++	u8 tcp_ecn = READ_ONCE(sock_net(sk)->ipv4.sysctl_tcp_ecn);
++	int ret;
++
++	ret = bpf_tcp_ops_call_int(ecn_init, tcp_ecn, sk);
++	if (ret < 0 || ret > TCP_ECN_IN_ACCECN_OUT_NOECN)
++		return tcp_ecn;
++	return ret;
++}
++
+ /* Apply either ECT(0) or ECT(1) based on TCP_CONG_ECT_1_NEGOTIATION flag */
+ static inline void INET_ECN_xmit_ect_1_negotiation(struct sock *sk)
+ {
+@@ -596,10 +608,10 @@ static inline void tcp_ecn_send_synack(struct sock *sk, struct sk_buff *skb)
+ /* Packet ECN state for a SYN.  */
+ static inline void tcp_ecn_send_syn(struct sock *sk, struct sk_buff *skb)
+ {
+-	struct tcp_sock *tp = tcp_sk(sk);
+ 	bool bpf_needs_ecn = tcp_bpf_ca_needs_ecn(sk);
++	u8 tcp_ecn = tcp_ecn_init_bpf(sk);
++	struct tcp_sock *tp = tcp_sk(sk);
+ 	bool use_ecn, use_accecn;
+-	u8 tcp_ecn = READ_ONCE(sock_net(sk)->ipv4.sysctl_tcp_ecn);
+ 
+ 	use_accecn = tcp_ecn == TCP_ECN_IN_ACCECN_OUT_ACCECN ||
+ 		     tcp_ca_needs_accecn(sk);
+diff --git a/net/ipv4/bpf_tcp_ops.c b/net/ipv4/bpf_tcp_ops.c
+index 2ba73dd6c52c..785517364f0b 100644
+--- a/net/ipv4/bpf_tcp_ops.c
++++ b/net/ipv4/bpf_tcp_ops.c
+@@ -24,6 +24,14 @@ static int rwnd_init_stub(struct sock *sk, struct request_sock *req__nullable)
+ 	return ctx->retval;
+ }
+ 
++static int ecn_init_stub(struct sock *sk, struct request_sock *req__nullable)
++{
++	struct bpf_tramp_run_ctx *ctx =
++		container_of(current->bpf_ctx, struct bpf_tramp_run_ctx, run_ctx);
++
++	return ctx->retval;
++}
++
+ static void active_established_stub(struct sock *sk, struct sk_buff *skb__nullable)
+ {
+ }
+@@ -87,6 +95,7 @@ static void dequeue_rcvq_stub(struct sock *sk)
+ static struct bpf_tcp_ops __bpf_tcp_ops = {
+ 	.timeout_init = timeout_init_stub,
+ 	.rwnd_init = rwnd_init_stub,
++	.ecn_init = ecn_init_stub,
+ 	.active_established = active_established_stub,
+ 	.passive_established = passive_established_stub,
+ 	.rto = rto_stub,
+@@ -202,10 +211,11 @@ BPF_CALL_0(bpf_tcp_ops_get_retval)
+ 	struct bpf_tramp_run_ctx *ctx =
+ 		container_of(current->bpf_ctx, struct bpf_tramp_run_ctx, run_ctx);
+ 
+-	/* bpf_get_retval() is only exposed to timeout_init/rwnd_init, which
+-	 * always run via bpf_tcp_ops_call_int(). Its run_ctx carries the int
+-	 * return value chained across the bpf_tcp_ops attached to the cgroup
+-	 * and is this program's saved_run_ctx.
++	/* bpf_get_retval() is only exposed to timeout_init, rwnd_init and
++	 * ecn_init, which always run via bpf_tcp_ops_call_int(). Its
++	 * run_ctx carries the int return value chained across the
++	 * bpf_tcp_ops attached to the cgroup and is this program's
++	 * saved_run_ctx.
+ 	 */
+ 	if (WARN_ON_ONCE(!ctx->saved_run_ctx))
+ 		return 0;
+@@ -258,7 +268,8 @@ get_func_proto(enum bpf_func_id func_id, const struct bpf_prog *prog)
+ 		return NULL;
+ 	case BPF_FUNC_get_retval:
+ 		if (moff == offsetof(struct bpf_tcp_ops, timeout_init) ||
+-		    moff == offsetof(struct bpf_tcp_ops, rwnd_init))
++		    moff == offsetof(struct bpf_tcp_ops, rwnd_init) ||
++		    moff == offsetof(struct bpf_tcp_ops, ecn_init))
+ 			return &bpf_tcp_ops_get_retval_proto;
+ 		return NULL;
+ 	case BPF_FUNC_reserve_hdr_opt:
+diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
+index 46f5c4fafa8d..4554429f5bde 100644
+--- a/net/ipv4/tcp_input.c
++++ b/net/ipv4/tcp_input.c
+@@ -7500,13 +7500,18 @@ static void tcp_ecn_create_request(struct request_sock *req,
+ 				   const struct dst_entry *dst)
+ {
+ 	const struct tcphdr *th = tcp_hdr(skb);
+-	const struct net *net = sock_net(listen_sk);
+ 	bool th_ecn = th->ece && th->cwr;
+ 	bool ect, ecn_ok;
+ 	u32 ecn_ok_dst;
++	u8 tcp_ecn;
++
++	if (!tcp_accecn_syn_requested(th) && !th_ecn)
++		return;
++
++	tcp_ecn = tcp_ecn_init_bpf((struct sock *)req);
+ 
+ 	if (tcp_accecn_syn_requested(th) &&
+-	    (READ_ONCE(net->ipv4.sysctl_tcp_ecn) >= 3 ||
++	    (tcp_ecn >= 3 ||
+ 	     tcp_ca_needs_accecn(listen_sk))) {
+ 		inet_rsk(req)->ecn_ok = 1;
+ 		tcp_rsk(req)->accecn_ok = 1;
+@@ -7520,7 +7525,7 @@ static void tcp_ecn_create_request(struct request_sock *req,
+ 
+ 	ect = !INET_ECN_is_not_ect(TCP_SKB_CB(skb)->ip_dsfield);
+ 	ecn_ok_dst = dst_feature(dst, DST_FEATURE_ECN_MASK);
+-	ecn_ok = READ_ONCE(net->ipv4.sysctl_tcp_ecn) || ecn_ok_dst;
++	ecn_ok = tcp_ecn || ecn_ok_dst;
+ 
+ 	if (((!ect || th->res1 || th->ae) && ecn_ok) ||
+ 	    tcp_ca_needs_ecn(listen_sk) ||
 -- 
-2.53.0
+2.34.1
 
