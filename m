@@ -1,76 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795765254;
-	b=KygwcA90Cd5KhWys7gb+5dZ7bv6D8+Ycdr+O+PICAa9D6cWU8JBxxSA2+ACNxieDC/d1
-	 CgiVF5R6rvD9LiwCmZQZE8tHALB4ckZ0QrUCbV7kyd7z206jQERBAkRfzsRKkSi98f30V
-	 nVUhAHSYBRr1geaC8dJHBkuHleKv4OfqRjiDCgFiNiXLxcWMpDnqBsfT1BFIUeedQRA5l
-	 g6YJRf+7fl/xWleiWwBsSnjRYeQHr6eyYPeSyBsIm5bsHs1Vb/Gw5tV8dB0jS+UKD95LB
-	 xbtqkMbch2H5aQAf3xmsRWdAcw2aAiHaDKRXNaD6hCvB0e3j2ga7F9EK9jSxy8O8AZg==
+	t=1795765354;
+	b=EfUJ02+tUvnExV9C7hizpTtTkC+BLlF8gfd34/2faggwuVbFRmHwFFe2iYtKzVKtvo1r
+	 c/V45p3IUr+ovR94BSJWJG0tq5lqkzi57PmVaAbx3IoqJWFXyk/QCtqcYKup7sI/4MYMb
+	 2TpP7Xlx/RjsbdWtU4cLwzGfGWVLMk/nTYMWzzhLKHPhlmtYlvu7QBItdBdN47/V9aeFg
+	 4glPAKF5V+0WbG3uQ+BCtE5OfnUaVOzO1O3KYAf6E6De1re/1y2du1VsnAGnvgHuxbb7/
+	 HBU2lVCTXhTFIDZZ8QHnKapD1Hy2pfu/CYVvpikVCJdV8tjUuZsoOG1vlSd5wjX+SPA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795765254;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=YJURtdxXhk/lHCVcZI4FeclTTDjf9Rsj5NTK+HMt0g0=;
-	b=ZL4NLVsJEwjIa1dLz7IKtnVwidRaztSeTdCLAgQ9HMwNeDSjwB9PhodRiOU/x35uB/FV
-	 YHhHrMo4M0Z1uKUP/lgqpV2rK+oenv4jwu7dpC3LsKQWyZNpm+ZpkbBC9XmPIGcXUm6zv
-	 gp1C/dXUERV0pCQdee4G4cEreUEtuo3+hCCdaV1WNqUC05kUqP+o6XrLQhaz0el99a2D6
-	 ID6kL8zsj8aIJzur7bu3re7qmZujg4O2ZHlYJ0WCAUlXOBPhnJRaDs9JzFCEBuElfL9GK
-	 czHjPBFgb8UAMHtYtN/a3r67Xy+724DMakBFR5f8m+6/H2vGitdOpP0WPsBZ8CYduuQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795765354;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=7bd0Nz1pjsbwTK60RSBaNfECOmPKPFjKeCpx+H/z5QU=;
+	b=yhFIgGyK/Z1tAJrksWf7S9oM7FDoGxzTQvm29cfuY6y98ZBjlQA8AV/Qzqp8bifkf9FC
+	 pUuaz16Y0T2r88O0fuHiIDTit19fXiEDM5GsWie9+XOtdPbsfY4OUb3QWKkq27r0c+RmQ
+	 rXJq7sBvMuE7ZxfDNk19bK3KQ9qNSfuh+1XuQn1twpsI96/TTW1LRSdlZXzsBW6hjJNgN
+	 vWHD4f3tPTOe7M5Z2qMlsI4brqj42HckjrqOvfDzzTmAT1XudullDa4I6f7PZhgxqdiVY
+	 ZgCYUFwS73yrNSrdbKkz2k0SnFfaw6lPsM4mfRRT4MogWZYh/Gz/CTWIUwp3mm1nc8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=uFAGwKh1;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=d7cB27l5;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8487D606A330
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 07:40:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8487D606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=XUIZSjB5;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 78A0D606A31C;
+	Fri, 27 Nov 2026 07:42:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78A0D606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=uFAGwKh1;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=d7cB27l5
-Date: Fri, 27 Nov 2026 08:40:49 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795765251;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YJURtdxXhk/lHCVcZI4FeclTTDjf9Rsj5NTK+HMt0g0=;
-	b=uFAGwKh1mYYcN/ZFaYoL/O++vUd/8BRC/Q6CKLoryXdWQnbz4i7T3nlfwJu0RrT2pR83jd
-	MaB1SZbA7RxlKtXsdcIFvvKtwXZdWi6KjGiazAoJLrzfmTJpDxzkDYguXvFhkg5UnUpOWj
-	BoANrsYMaFLlqw29N51lHAgdJ4RIrK6Ny3hgAyHudv99PLEYDV8+5IGmotGSpTXMDDci/A
-	SzY/Hpg0DUfCFPkwVPGWQIqnpVr0XByOay64ZNLjBz1UoDnNwstrPGGbjGARQgjViEhv01
-	Od6ZgAU1B42fUipbUdzifW/3yUPCo+zvejLp5p1FnF8B+R2kRf4xmgigowkh7w==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795765251;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YJURtdxXhk/lHCVcZI4FeclTTDjf9Rsj5NTK+HMt0g0=;
-	b=d7cB27l51k0fyU1WX7KekOMVfSV6Leshcm+YbbDPZWfQ1ftX5UkN2KG3LxKyT3Zh7vbE34
-	/cgvxw1qzZiLBkBw==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, j-rameshbabu@ti.com, andrew+netdev@lunn.ch,
-	danishanwar@ti.com, d-qiu@ti.com, davem@davemloft.net,
-	fmaurer@redhat.com, kuba@kernel.org, neelima@ti.com,
-	pabeni@redhat.com, praneeth@ti.com, pratheesh@ti.com,
-	richardcochran@gmail.com, horms@kernel.org, vigneshr@ti.com,
-	willemdebruijn.kernel@gmail.com, daniel.machon@microchip.com,
-	edumazet@kernel.org
-Subject: Re: [PATCH net-next v12 2/8] hsr: Use skb_clone() while adding the
- HSR header
-Message-ID: <20261127074049.1DL-U1BM@linutronix.de>
-References: <20261125-hsr_ptp-v12-2-9ddd2a73cb90@linutronix.de>
- <179570403216.3135.10008194988280246872@kernel.org>
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=XUIZSjB5
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=XUIZSjB5ngnCEl6HZtWnv7QB5gs6cYWqvZmWfQWdXW+8/EGiX6aTe//p5kArB6ZM0MDt4zRRJxpuM
+	 ZbeLStHhcEjgdFzGpOVpc3X4uHmCZ/RH0A9uQPLG2SlcIDuVwhmSqkWy+ckhqFeN7liozuZJ6moH07
+	 IRtUcagQ4KgkYNXo=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app09-12009 (RichMail) with SMTP id 2ee96b093463896-6961e;
+	Fri, 27 Nov 2026 15:42:30 +0800 (CST)
+X-RM-TRANSID:2ee96b093463896-6961e
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from Z04181456177947 (unknown[10.55.1.71])
+	by rmsmtp-syy-appsvr07-12007 (RichMail) with SMTP id 2ee76b093465044-8bc3b;
+	Fri, 27 Nov 2026 15:42:30 +0800 (CST)
+X-RM-TRANSID:2ee76b093465044-8bc3b
+From: zhaofeng2@cmss.chinamobile.com
+To: Wells Lu <wells.lu@sunplus.com>
+Cc: Zhao Feng <zhaofeng2@cmss.chinamobile.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] net: ethernet: sunplus: spl2sw: fix OF node leak in spl2sw_probe()
+Date: Fri, 27 Nov 2026 15:42:28 +0800
+Message-ID: <20261127074228.268-1-zhaofeng2@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.55.0.windows.5
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -80,31 +68,37 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <179570403216.3135.10008194988280246872@kernel.org>
+Content-Transfer-Encoding: 8bit
 
-On 2026-11-26 14:40:32 [+0000], netdev-bot+sashiko@kernel.org wrote:
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
->=20
-> - [Medium] In hsr_create_tagged_frame() (net/hsr/hsr_forward.c), the
->   clone made with skb_clone() keeps the original skb's timestamp request=
-=E2=80=A6
-> - [Low] hsr_create_tagged_frame() in net/hsr/hsr_forward.c now calls
->   skb_set_network_header(skb, HSR_HLEN + movelen) and=E2=80=A6
->=20
-> --
-=E2=80=A6
-> [Severity: Medium]
-> After skb_clone() and skb_cow_head(), the frame for each slave port has
-> the original tx_flags (SKBTX_HW_TSTAMP / SKBTX_SW_TSTAMP) and tskey.
-> pskb_expand_head() copies them into the clone's private shinfo. But
-> __skb_clone() leaves the clone's sk NULL. Can a timestamp generated for
-> this clone ever reach anyone?
+From: Zhao Feng <zhaofeng2@cmss.chinamobile.com>
 
-The socket is attached later in the series. It is possible to forward
-the timestamp properly within this series.
+spl2sw_probe() calls of_get_child_by_name() to obtain the
+"ethernet-ports" child node and uses it as the parent for
+spl2sw_get_eth_child_node() in a loop, but never releases
+the reference, leaking it on every probe (and on every
+goto error path).
 
-Sebastian
+Drop the reference with of_node_put() once the node is no
+longer needed.
+
+Signed-off-by: Zhao Feng <zhaofeng2@cmss.chinamobile.com>
+---
+Verified against current tree. Leak found by code inspection
+(OF reference-counting audit of spl2sw_probe()).
+
+ net/ethernet/sunplus/spl2sw.c | 2 +--++
+ 1 file changed, 2 insertions(+), 0 deletion(-)
+
+--- a/drivers/net/ethernet/sunplus/spl2sw_driver.c
++++ b/drivers/net/ethernet/sunplus/spl2sw_driver.c
+@@ -471,6 +471,8 @@
+ 		spl2sw_mac_rx_mode_set(mac);
+ 	}
+ 
++	of_node_put(eth_ports_np);
++
+ 	/* Find first valid net device. */
+ 	for (i = 0; i < MAX_NETDEV_NUM; i++) {
+ 		if (comm->ndev[i])
+
+
