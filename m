@@ -1,105 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.245
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795754313;
-	b=TYHkf+/DFlEqjOfFaybo4ouz77P5u4g0askJs8PQUHPYMDZMY4ZU3470sZfr36y3q+Q2
-	 SuVMfsH096tFxSivpdyJo6KRv176ndeDQy2QQS3pLNdxb86x75F5Dld1FDV/jH+RREztN
-	 uWmGxXvZmhjAH1EwBqz9R0+CAAu6vG1ZDMhFf+fI5m9TNVX3BVK4c+dto6sqxl7JqJNeZ
-	 W7ZYKvZ4hPpTet6eOIvhCK6bM20xwHo7YoFAy9iB1k0ShYbuNq5SHzias5CfjwG5wC9kP
-	 Oj1aTINpHjhynMcCz5AfGZKgCBSyE9TcrcvEv82gBOyQqrORn+bXQ0ywFhhMEp+PQ+A==
+	t=1795755071;
+	b=BghiXkWnk5HwHt4DwL/ZKEbHK3m9gy2qFrULZ4Cu/LKtE++vbFCoK8Z/MhSsmQd0YUCd
+	 uDOZbtchuwjk36Z+6Dmla2aMNuGY3vV6UL6YrKDbdW2ssntSidVi+DRrxDb7giJ/vQ28I
+	 YlxW/cq22XxvRtVwQ2Mc4DhRgw4ORKEGIybdTvscDMkpvgxTkfvg3pi1iX9JJfKJh3Jxa
+	 Q1efkxUCGade/n4LfBuJqB7qr3rEyqODNHhPI+snJIB/JkTljxM4yILAKbapidA6EDjLc
+	 OYGkzRBTZ3n8tZjb8QB6Evhwdtu19myuwB/asYrv6p+VJu03SIMjwUWSptYwYH14oZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795754313;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=N1T0evME3yiI8dB4BC7sUR9jHQxNyppjV0Y1RlmSCUc=;
-	b=mVSEFTustrP8c7D9FXO+/uDAHoTG5+j4gUdIFf+wTuTzkL8tAcpehOT5hd0nj1mtMppl
-	 v83Y2pqw6Mxhmkz2stfyRqn8CPIwJJ65SBmKqkzSZ49LQM0KYUwp2GDCWb5nBTCeOKJg1
-	 +KRN8EbRQVFTnMhRHJsSOZEVTsc4Z/hFqheUF3AKTeUt4ajlbsKAQNWAhkVhBu6T2tKI1
-	 Tc/h1gwRkInBPo2k+M4YLRKmVd7zmmWTsNsmycV3VctcHMD/QLdmlHFs1yGiJ9+ECEKQw
-	 L4ljZl2lWdKQ1Pr77EZEu5S07odDEbLDz3H83/c5MQZHe1b8SFbQnuzsNTBmPrTOIrA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795755071;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=r+zl2OxSNHXAEG7sUZ66NUVaTdjkd8Y/67M1UrdLLDo=;
+	b=DhHOGZHzPctS1BEQZNC9p0Q8IkDsAJuT2wABXiUijl4j6BxF1FAANReT1h/dQh527Tfv
+	 ihjNfkCI8pP+42XaDsuR9teVXqTkyy3JMTlfWKjKLYnTTAp3XBT42yZkkKytvB/yW6zUz
+	 dpOPzXdWGcAyAt2o0m31QjGxgPUkiiNqyZbtHwYKozt4Pv9J8fb/GpKIN2VDfEL3+DTXA
+	 UkLKT8F9NrTXp9ZVlglMw66sR2iRendLyb4lwVaIMopPczQtbtASS2ga0VvUrJoHNgAWP
+	 EPDAhGONF4eniul0eorGp9YKQei/Yf6KbajJWURLZd5Tl5v/XhKQ3EwaehY2aPcEBrQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=jclark.com;
-	spf=pass smtp.mailfrom=jclark.com;
-	dkim=pass header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Y7xS3rW+;
-	arc=none smtp.remote-ip=74.125.82.44
-Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EkFsqC68;
+	arc=none smtp.remote-ip=91.218.175.245
+Received: from mta0.migadu.com (out-245.mta0.migadu.com [91.218.175.245])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E7FB606A33D
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 04:38:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E7FB606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=jclark.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jclark.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FAAC606A31C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 04:51:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5FAAC606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Y7xS3rW+
-Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1ae58d17cd9so8669617c88.1
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 20:38:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jclark-com.20260707.gappssmtp.com; s=20260707; t=1795754311; x=1796359111; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=N1T0evME3yiI8dB4BC7sUR9jHQxNyppjV0Y1RlmSCUc=;
-        b=Y7xS3rW+y2a5KajpD5g8Ipa3HbLgBxepzUSdyRpHaW/E/omWMWRrN2OwgOx8moZZ3z
-         EZY++J+k8/UW3xjUWn6LiQkxUXEDlEtirAdN0/vI/qD1ESkWPQro0ZMpMc9Y2X4L7CEB
-         u9v3L8peWjNOrmjQeMjOkUvu9xsiOpfnc/diTL97ThKkYGVha9ujDkaJ5MEJ8Oc5+V1C
-         xLvSgvehMY3CvoPT7s8IC+zCgcF/TwmJis6Eo/OdmoyAWFkSqVDp/hhN0qy9GSQrtN39
-         qpgcVq767pEgKvicm9JGqeqt5I2rGrVfPzP6uOG6sbv3LY/Vz55Zl4ugoms2WAX15ATT
-         BzWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795754311; x=1796359111;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=N1T0evME3yiI8dB4BC7sUR9jHQxNyppjV0Y1RlmSCUc=;
-        b=gNV8lxocO1kWIW2/ZNP4t4uu4F4z0cMC491OMN2JJRxwaojGkYYCrQvuRBOMsLR3nN
-         lYngTxM1XyzQHQvasvxYOlv2S8GJT7UyjXHBARqupPsvjxYg4GSveVsMvKRD4ZVeKU80
-         Factkl2TVLwumixhPCETPms5eKq/16gzxTYbDVpCAUn1pZjL8QhkQilpfXPJzn/kT1nz
-         zH1VepIcqLNBbcFSgDHkQn1bR6C8zE29LFpmgakJ8ALtb07CqPmMGa6EF4OwujuRsmPf
-         uae6ut/y7+hqPgvikkgkdjfcdjUDEEmYxZnKyI7lPlkTDciwdS+iYSQNBlVWnh9R85gE
-         AG7Q==
-X-Forwarded-Encrypted: i=1; AL+hErGTg0B7eZRRJR/T0lMZjnQFh6NxWJObMSuek0NDvq6wolvQBT/G4DP++Msyxc+tmc5l5JhdpUU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/88WRr+f314NMDfBgfGilOEU8sKBcgFD5L/RucfGUipBerdTUX
-	m4WvDs/19e2SDJitnn42q0KqLtSVUwww8ly4Oo8K5E5xdiy+J45JfHhGdzLeKrcezg==
-X-Gm-Gg: AZFdTZcEqVNYEyRBlFBYwCyyA2eYnBXcoQ7QmS5gWb4nFisJD8ZpuX+OUL83jtGtifw
-	GXNMaejOVkhqOihBxUf26KySBNUxFsxvA/oIGMT5nS0CAdmArNgOFYbUBW4tLvS5YfeIlPpix07
-	t3fO2XhNn3F8pAmUQ6zUmuI7tisf61rxMzsup4cn4jxhSRxE6ue3XQRKFX7lMUKTgao7LPDsBYy
-	Kp76xypHyPxgbNwGAj1H4VEg+raLskZFWIefItlEDIJWjsfte0jokwhOGW5xabCI8fQYtId3ffA
-	kaH+HjqZ57wOoB2X7ms4dGMoU9352XmKneL+LpY4q5hvBFckK4jTr+QF7I0632/XktG9Lt6RqWJ
-	DN6FECJUmdb6+Q36MJGJx2Jw9xunCHNYTK9lqoCuIRK8m1tZpRXjQSZjw+2QClEPhKIU7cx3ZW8
-	4sYZ1HGL7R8kuStrVF6l8ts8BlsgYB3GbXcJj4NjwxLWxgDENe8po3a2uTGxjHx8OMNyZsQs01Y
-	hZBNB/EZWU4RXGToX/Ke7UKJhGjTiUPZleTwu9qNDAJcE9AsSZEiogjYmfXne8wV2df9g4NEfm/
-	pwu8PKlbZ64fgsS9N99jX6MAVGj3Kf9OcKsMCzhVXSmQ1CxKuMxPvcRC+kPXPC8BBdImsgWkHH+
-	Anq+eovwmFLYHMrkqkw==
-X-Received: by 2002:a05:701b:4513:20b0:14a:d8fe:3390 with SMTP id a92af1059eb24-1b5568cf65bmr22258739c88.32.1795754311354;
-        Thu, 26 Nov 2026 20:38:31 -0800 (PST)
-Received: from cantal.lan ([58.136.75.118])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ff27bsm60732658c88.6.2026.11.26.20.38.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 20:38:30 -0800 (PST)
-From: James Clark <jjc@jclark.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rohan.g.thomas@altera.com,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	alex.cramt@gmail.com
-Subject: Re: [PATCH net] net: stmmac: dwmac-socfpga: disable split header on Agilex 5
-Date: Fri, 27 Nov 2026 11:38:25 +0700
-Message-ID: <20261127043825.601200-1-jjc@jclark.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <179574936116.3135.3699981290049268393@kernel.org>
-References: <20261126031300.211248-1-jjc@jclark.com> <179574936116.3135.3699981290049268393@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EkFsqC68
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=fEspHw4t5fpXm+0QjasgULIFVTPbdXf2a8mYT7wPvsY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795755068; v=1; x=1796359868;
+ b=EkFsqC68iyBj2nzZZ8hmxzUj7rlknz+eMVG/wncZsqyFxIfeUj9frZHp1YgypKXHHVDh1w5E
+ rFj0zbAWpYecww3WgOMqSDB1Cp+veQCpYJbiKJojEHDG2iR/R+3VYjShUCAiwnKzBwukFVD3baW
+ 0f4cx2kmn43naCzfI7FVTohA=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 520e6476b5f0411c;
+	Fri, 27 Nov 2026 04:51:08 +0000
+X-Mizu-Trace-ID: 520e6476b5f0411c
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: netdev@vger.kernel.org
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Neal Cardwell <ncardwell@google.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] tcp_metrics: fix zero snd_cwnd_clamp from a half updated entry
+Date: Fri, 27 Nov 2026 12:50:58 +0800
+Message-ID: <20261127045059.142247-1-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -111,30 +72,87 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On Fri, 27 Nov 2026 03:16:01 +0000, netdev-bot+sashiko@kernel.org wrote:
-> Is the root cause specific to Agilex 5, or does it affect all XGMAC
-> users?
+tcp_init_metrics() takes snd_cwnd_clamp from the cached TCP_METRIC_CWND
+when that metric is locked, i.e. the route has "cwnd lock N".
 
-Probably not specific to Agilex 5. When the same failure was fixed for
-Intel in 47f753c1108e, Intel reported that "according to Synopsys IP
-support, they have confirmed the header-payload splitting for IPv4
-fragmented packets is not supported for the Synopsys Ether IPs":
+tcpm_suck_dst() refreshes a cached entry in place. It writes tcpm_lock
+first and only then updates TCP_METRIC_CWND from
+dst_metric_raw(dst, RTAX_CWND). Readers only hold rcu_read_lock(), so
+when an entry that had no cwnd metric (value 0) is refreshed from a
+route with a locked cwnd we can have:
 
-https://lore.kernel.org/all/20220428015538.GC26326@linux.intel.com/
+  CPU0                                 CPU1
+  tcpm_suck_dst()                      tcp_init_metrics()
+    WRITE_ONCE(tm->tcpm_lock, val)
+                                         tcp_metric_locked(tm, TCP_METRIC_CWND)
+                                           -> true
+                                         tcp_metric_get(tm, TCP_METRIC_CWND)
+                                           -> 0, not updated yet
+                                         tp->snd_cwnd_clamp = 0
+    tcp_metric_set(tm, TCP_METRIC_CWND,
+                   dst_metric_raw(dst, RTAX_CWND))
 
-So it looks like a limitation of the IP, not a bug in the driver's RX
-path.
+So tcp_init_metrics() sets snd_cwnd_clamp to 0, which is what commit
+363c8c79220d ("net: ipv4: add zero check for snd_cwnd_clamp") tried to
+prevent.
 
-> If the corruption actually comes from this shared dwxgmac2 header
-> length handling, would it be better to fix it in the core instead of
-> adding a per-platform flag? That would also let Agilex 5 keep split
-> header enabled.
+With an mdelay() added after the tcpm_lock write to widen the window,
+I can hit:
 
-If split header does not support fragments, there is nothing to fix in
-the RX path, and Agilex 5 cannot keep split header on. A general fix
-would mean not enabling split header by default, which would affect
-every stmmac platform. Agilex 5 is the only XGMAC hardware I have, so
-I have done what the other seven glue drivers do: disable it for the
-platform I could test.
+ WARNING: ./include/net/tcp.h:1580 at tcp_init_transfer+0xc16/0xd50
+ Call Trace:
+  <TASK>
+  tcp_finish_connect+0xec/0x2f0
+  tcp_rcv_state_process+0x8ae/0x3060
+  tcp_v4_do_rcv+0xbe/0x580
+  __release_sock+0x1a2/0x1d0
+  release_sock+0x133/0x150
+  inet_stream_connect+0x5d/0x80
+  __sys_connect_file+0xad/0xf0
+  __sys_connect+0xa8/0xe0
+  __x64_sys_connect+0x42/0x60
+  x64_sys_call+0x2554/0x27e0
+  do_syscall_64+0xe4/0x470
+  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+  </TASK>
 
-James
+Writing the value before the lock bit does not help, changing the route
+the other way (from "cwnd lock N" to no cwnd) then gives the same 0,
+since the lock bit and the value are read separately.
+
+Commit 363c8c79220d ("net: ipv4: add zero check for snd_cwnd_clamp")
+already rejects a locked cwnd of 0 from the route config, so a 0 here
+can only come from a half updated entry. Just ignore it and keep the
+current snd_cwnd_clamp, like we already do for TCP_METRIC_SSTHRESH.
+
+Fixes: 51c5d0c4b169 ("tcp: Maintain dynamic metrics in local cache.")
+Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+---
+Found by sashiko:
+https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261019222531.1073-1-kj2864%40nyu.edu
+---
+ net/ipv4/tcp_metrics.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/net/ipv4/tcp_metrics.c b/net/ipv4/tcp_metrics.c
+index ae551546422f..fe29fd433eb6 100644
+--- a/net/ipv4/tcp_metrics.c
++++ b/net/ipv4/tcp_metrics.c
+@@ -494,9 +494,11 @@ void tcp_init_metrics(struct sock *sk)
+ 		goto reset;
+ 	}
+ 
+-	if (tcp_metric_locked(tm, TCP_METRIC_CWND))
+-		tp->snd_cwnd_clamp = min(tcp_metric_get(tm, TCP_METRIC_CWND),
+-					 TCP_MAX_SND_CWND);
++	if (tcp_metric_locked(tm, TCP_METRIC_CWND)) {
++		val = tcp_metric_get(tm, TCP_METRIC_CWND);
++		if (val)
++			tp->snd_cwnd_clamp = min(val, TCP_MAX_SND_CWND);
++	}
+ 
+ 	val = READ_ONCE(net->ipv4.sysctl_tcp_no_ssthresh_metrics_save) ?
+ 	      0 : tcp_metric_get(tm, TCP_METRIC_SSTHRESH);
+-- 
+2.43.0
+
