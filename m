@@ -1,58 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795753624;
-	b=2cQdBUq8noCSPhzry85lkgdG09UBWuCeBk4zIVHEPwZh3mYS0qDTqIEF61/TIYtjWrN+
-	 PWJTUreMLtgimCOxeyuTJuHBAo87unXyHC9y9S1PLGp5vKgio2k5zY66IZ4/NmDdLes9G
-	 qecAy6GQCsLKkhfW0ZKEwDSTb1Mt6MTitnyAjrkaP8RcsiO+MQNCItbXFFMats6SpPszv
-	 r9VEA65/I87yJj9dNZZl5yQCxGrKdEnIDxTKQ7K7YmgtzI7voa9iOP2pHL0FZBkhNP7LG
-	 0pVPAWlcwRnfqrcBGvg/hccbu99MbitMnWHJQxOaHBLP3OyZDCLRrTE5kDE0HDKMvVg==
+	t=1795753626;
+	b=gbxtMC0sGYgmKLNOFv8JjmEzrpwd6hjW0FQ3/mhvah488KnKIOthOideQi+0sBd83QmN
+	 T4hvpmWJEDbQXUxz7PYVnVv/+/gXglufx3lnI/yp7/VPKInDxCfenJhXrNnze3nDTC0Cu
+	 jiUMrGmcGWaacQ+f9oR6lB+ciNvee697CRYTKApddtiICreHUOFDXxviFkYd6TbEjr3l4
+	 V6KdIrYI8o5p5Bw4y/tGXfNd61ZwJvn0nH5joJKh2CztF7Ugeae9nT0GROOApRlOxtnTa
+	 wu2ItZlUejm6legV0S+vSYNgXZKvOpoL0DTaD1HaZ1QQxE3TunSCKSDEzq5/pDsoDug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795753624;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795753626;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=aM7yTZa2mR1XHJV/CGPWguWQsTg/lG+DKYjci4/Vjco=;
-	b=I/sjGlU45+p2nDUmH/HFO8ydQY3e/p8bXeiSUQQfICTH5S9v07hj8hXfB7rvdMyziZCX
-	 xT/l938bOHigEsxedWU/8tVsR0fK6QSJZYZ5FgPIZ0kI9SxavLNOQav7gc+lAi/swDKkZ
-	 sc00HMVgfIXBscvFEZzzVMvbTvz0gzIzPckgq5RL04qtJFCx5VgK+96acUZwzQGyjdPI0
-	 FvWSs+RYbtf8TxJDOpOSTNw0evDfayXxbvraCzQ8VJ4f60CX6bt0Vcd24eoeT/vg+oQc6
-	 DvaH3XlWL3rvCBIYvhthwVCiR7yKRldioj1Iqad0h7i13VGTSSyCHLAQyAVHeuDOjhQ==
+	bh=AnVF3aqWclhab2tDyVjUIAz+dvlD7Ph4asBpLs76sgM=;
+	b=QENIoKmPEJnoEqsM5MCGHR6XsDp3dldxJRHWnRCExv+RigN7gm4MKDNgfPQUQFi6g20K
+	 wGmUs5gZgd0L/pOBdLXg5Dv6tnW1ryih4InW2LKuiPBfUlHZPAsZUmAE6Yfqw7dfMCuPL
+	 H97DAJ2zhJ2i3myXlSHGnqOZ9MfOWJhwpzs4jpDRzzituD9cJfvZ29juPYqnVOKSNv50J
+	 alppnaQ62RWJK8elfZS8/U77QWXKh8nUBkPiGzQ03xxZq9O763TobvajDBm3Opfwt6MQs
+	 VT8cAoOQlnrtoHH5DiZ9RYka2f0DhONwmAi+Zx2k6O8yPqCmKgoPoHA2Hp8o0noG51Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ltmiJSkh;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=al1QV3xI;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBF40606A334;
-	Fri, 27 Nov 2026 04:27:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B56B2606A330;
+	Fri, 27 Nov 2026 04:27:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ltmiJSkh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAFF71F00925;
-	Fri, 27 Nov 2026 04:27:03 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=al1QV3xI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FDC41F000C1;
+	Fri, 27 Nov 2026 04:27:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795753624;
-	bh=aM7yTZa2mR1XHJV/CGPWguWQsTg/lG+DKYjci4/Vjco=;
+	s=k20260515; t=1795753626;
+	bh=AnVF3aqWclhab2tDyVjUIAz+dvlD7Ph4asBpLs76sgM=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ltmiJSkh1N/uSfnZVvELdlJk/ydOiVgbfRj3Eoj1QaWgckvIYEkdBou9vIWND0Dmr
-	 SiPlXJz7zpLRat6TX998z1l+ZvBx48js64VjWheF7yB+mOIWTxildmmFxYe8YLLlFQ
-	 uOB8ZnhjMmGWfTQNZTAJ/YDNrnbE3p3P9n9qlWqF0OsRBgDdNcQD9axZoOEpwhhcdX
-	 kWpZIDSOwfNA28+s31kFLCVXlzjstKDklfhWCdPQnRKNosc+9kPbxNy9ScR2aqm8ja
-	 PHN/B2zzHX4WYmAsQqqhMZE2p6OpAJYj6DvFdqykvWl6/WkqrTEt6PZJbBl0CZLSsu
-	 YkxJr+5FG6/Tw==
-Subject: Re: [PATCH net-next v9 08/12] r8152: split RTL_VER_17 into QFN68 and
- QFN100 package variants
+	b=al1QV3xIkZ5dqOk1kE1P/ZADOJMFYJz3uJFz6XluEcSo0GwKqC01NMupmEwP6etna
+	 F5hn515ycJSojfAw5IbCK0K/vX+8S8cEYzLlOm001l+6CbmCiXAWiresaFGi34lOsZ
+	 /Q+Lc4dhoWDO+5W4lByJPSCHtjVRQCRj7NwtWXLeG3/d3DVmLOmK+WQI/KCiMR3Ah7
+	 WSYWQrFj+R3c7CNSRt/Fni7EWr61g6BT2ddiVCIrDoWpGPUdSDSDtJL65p+aU0S4EG
+	 lVcizVZm+Xw+TInsiIJiZfhOC65BMhqtlEBY/N2063d4p2XJ1gG276RzO5O/l4aHws
+	 7qNeuUUjVQ/6w==
+Subject: Re: [PATCH net-next v9 10/12] r8152: split r8157_hw_phy_cfg into
+ RTL8157 and RTL8159 variants
 From: netdev-bot+sashiko@kernel.org
 To: hsu.chih.kai@realtek.com
 Cc: davem@davemloft.net, kuba@kernel.org, netdev@vger.kernel.org,
  nic_swsd@realtek.com, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
  edumazet@google.com, bjorn@mork.no, pabeni@redhat.com, andrew+netdev@lunn.ch,
  mail@birger-koblitz.de
-Date: Fri, 27 Nov 2026 04:27:03 +0000
-Message-ID: <179575362324.3135.9669497990549921570@kernel.org>
-In-Reply-To: <20261126033211.51850-9-nic_swsd@realtek.com>
-References: <20261126033211.51850-9-nic_swsd@realtek.com>
-X-sashiko-severity: Medium
+Date: Fri, 27 Nov 2026 04:27:05 +0000
+Message-ID: <179575362520.3135.17351544520034128631@kernel.org>
+In-Reply-To: <20261126033211.51850-11-nic_swsd@realtek.com>
+References: <20261126033211.51850-11-nic_swsd@realtek.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -65,155 +65,107 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] Before this patch, chip ID 0x2020 always mapped to RTL_VER_17
-  and r8152 drove it.
-- [Low] The commit message says QFN100 "uses a different firmware image
-  from QFN68" and gives "guessing a package could load the wrong…
+- [Low] r8159_hw_phy_cfg() (drivers/net/usb/r8152.c) adds two RTL8159
+  (VER_17_QFN68/QFN100) PHY register writes that neither the code nor…
+- [Low] The commit message says that clearing PLA 0xd3c8 BIT(0) ("Disable
+  bypass_turn_off_clk_in_aldps") "is needed by both chips" and now also…
 
 --
 
-r8152: split RTL_VER_17 into QFN68 and QFN100 package variants
+r8152: split r8157_hw_phy_cfg into RTL8157 and RTL8159 variants
 
-This patch splits RTL_VER_17 into RTL_VER_17_QFN68 and RTL_VER_17_QFN100.
-The package is detected by reading the new PLA_PKG_DET register from
-__rtl_get_hw_ver(). QFN100 parts now load rtl_nic/rtl8159-2.fw instead of
-rtl8159-1.fw, and r8157_init() gains a QFN68-only u2phy backup restore
-write.
+This patch splits r8157_hw_phy_cfg() into an RTL8157-only function and a
+new r8159_hw_phy_cfg() for RTL8159 (VER_17_QFN68/QFN100). It also changes
+the RTL8159 EEE, 10M clock divider, 0xa5ea and 0x8ffe programming, and
+moves the 0xd3c8 bypass_turn_off_clk_in_aldps clear into the shared
+prologue so RTL8157 runs it too. Several new RTL8159 PHY tuning parameters
+are added as well.
 
 > diff --git a/drivers/net/usb/r8152.c b/drivers/net/usb/r8152.c
-> index 3e16d0f832bc3..151acb0f58da6 100644
+> index dbbaf06dca20b..2f3d97e2400c3 100644
 > --- a/drivers/net/usb/r8152.c
 > +++ b/drivers/net/usb/r8152.c
 
 [ ... ]
 
-> @@ -10223,9 +10253,12 @@ static int rtl_fw_init(struct r8152 *tp)
->  	case RTL_VER_16:
->  		rtl_fw->fw_name		= FIRMWARE_8157_1;
->  		break;
-> -	case RTL_VER_17:
-> +	case RTL_VER_17_QFN68:
->  		rtl_fw->fw_name		= FIRMWARE_8159_1;
->  		break;
-> +	case RTL_VER_17_QFN100:
-> +		rtl_fw->fw_name		= FIRMWARE_8159_2;
-> +		break;
->  	default:
->  		break;
->  	}
-
-[Severity: Low]
-
-The commit message says:
-
-  QFN100 uses a different firmware image from QFN68, so rtl_fw_init()
-  selects rtl8159-2.fw for it and keeps rtl8159-1.fw for QFN68.
-
-It also explains rejecting unknown packages with "guessing a package could
-load the wrong firmware".
-
-Before this patch, every 0x2020 chip got rtl_nic/rtl8159-1.fw, QFN100 parts
-included. If that image was wrong for QFN100, is this a fix to the original
-RTL8159 support? Other fixes in this series carry a tag like:
-
-  Fixes: ad2a55b63b41 ("r8152: Add support for the RTL8159 chip")
-
-Should this patch carry one too?
-
-Is rtl_nic/rtl8159-2.fw already in linux-firmware?
-rtl8152_request_firmware() does not fail when the file is missing:
-
-result:
-	if (rc) {
-		rtl_fw->fw = ERR_PTR(rc);
-
-		dev_warn(&tp->intf->dev,
-			 "unable to load firmware patch %s (%ld)\n",
-			 rtl_fw->fw_name, rc);
-	}
-
-If the new file is not published yet, QFN100 users would go from loading
-rtl8159-1.fw to running with no firmware patch at all. Only a warning would
-show the change.
-
-Could the commit message say whether this is a fix or a feature, and where
-the new firmware can be found?
+> @@ -8231,11 +8242,14 @@ static void r8157_hw_phy_cfg(struct r8152 *tp)
 
 [ ... ]
 
-> @@ -10318,7 +10382,20 @@ static u8 __rtl_get_hw_ver(struct usb_device *udev)
->  		version = RTL_VER_16;
->  		break;
->  	case 0x2020:
-> -		version = RTL_VER_17;
-> +		ret = __rtl_get_pkg_det(udev, &pkg_det);
-> +		if (ret < 0) {
-> +			version = RTL_VER_UNKNOWN;
-> +			dev_err(&udev->dev, "Failed to read package: %d\n",
-> +				ret);
-> +		} else if (pkg_det == 0x1e || pkg_det == 0x1c) {
-> +			version = RTL_VER_17_QFN68;
-> +		} else if (pkg_det == 0x18 || pkg_det == 0x1a) {
-> +			version = RTL_VER_17_QFN100;
-> +		} else {
-> +			version = RTL_VER_UNKNOWN;
-> +			dev_info(&udev->dev, "Unknown package 0x%04x\n",
-> +				 pkg_det);
-> +		}
->  		break;
->  	default:
->  		version = RTL_VER_UNKNOWN;
+>  	/* Disable ALDPS force mode */
+>  	ocp_reg_clr_bits(tp, 0xa44a, BIT(2));
+>  
+> +	/* Disable bypass_turn_off_clk_in_aldps */
+> +	ocp_byte_clr_bits(tp, MCU_TYPE_PLA, 0xd3c8, BIT(0));
+> +
 
-[Severity: Medium]
+[Severity: Low]
+This isn't a bug, but should this patch carry Fixes: tags?
 
-Before this patch, chip ID 0x2020 always mapped to RTL_VER_17. Now it maps
-to RTL_VER_UNKNOWN in two cases:
+The commit message says the 0xd3c8 BIT(0) clear "is needed by both
+chips". Until now r8157_hw_phy_cfg() has not run it for RTL8157, and the
+RTL8157 support came in with fd3c7d080df5 ("r8152: Add support for the
+RTL8157 hardware").
 
-  - __rtl_get_pkg_det() fails (three failed control reads, a short read,
-    or -ENOMEM).
-  - The masked value is not 0x1e, 0x1c, 0x18 or 0x1a. That covers 12 of
-    the 16 values PKG_MASK allows.
+In the same way, the RTL8159 EN_10M_CLKDIV, 0xa5ea and 0x8ffe changes in
+r8159_hw_phy_cfg() correct programming added by ad2a55b63b41 ("r8152: Add
+support for the RTL8159 chip"):
 
-The commit message calls this a fallback. Do the callers treat it as one?
-Both of them reject the device:
+	ocp_reg_clr_bits(tp, OCP_DOWN_SPEED,
+			 EN_EEE_100 | EN_EEE_1000 | EN_10M_CLKDIV);
+	tp->ups_info._10m_ckdiv = false;
 
-rtl8152_cfgselector_choose_configuration()
-	if (__rtl_get_hw_ver(udev) == RTL_VER_UNKNOWN)
-		return -ENODEV;
+Other "per the datasheet" corrections in this series that target the same
+two commits do carry Fixes: tags. Examples are "r8152: add
+rtl8157_unload() for RTL8157 and RTL8159", "r8152: add
+rtl8157_change_mtu() for RTL8157 and RTL8159" and "r8152: fix
+RTL8156/RTL8156B/RTL8157/RTL8159 up and down settings".
 
-rtl8152_probe()
-	version = rtl8152_get_version(intf);
-	if (version == RTL_VER_UNKNOWN)
-		return -ENODEV;
+This patch has no tag and doesn't describe a user-visible symptom. That
+makes it hard for stable and distro backporters to tell whether the old
+programming caused real problems or whether this is only a datasheet
+alignment. Could the commit message say which one it is?
 
-In those cases a previously supported RTL8159 is never switched to vendor
-mode, and r8152 never drives it. The unknown-package case is logged only
-at dev_info. Should the commit message say that a chip which used to bind
-to r8152 can now stop binding?
+[ ... ]
 
-The stated reason is to avoid loading the wrong firmware. Is refusing the
-whole device needed for that? rtl8152_request_firmware() already skips
-loading when no firmware name is set:
+> @@ -8372,22 +8459,35 @@ static void r8157_hw_phy_cfg(struct r8152 *tp)
 
-	if (rtl_fw->fw || !rtl_fw->fw_name) {
-		dev_info(&tp->intf->dev, "skip request firmware\n");
+[ ... ]
 
-Also, each caller reads PLA_PKG_DET again on its own: the cfgselector,
-rtl8152_probe(), and r8153_ecm_probe() through rtl8152_get_version(). If
-one read fails transiently, the callers can get different answers. Could
-the cfgselector then switch the device to vendor mode, only for
-rtl8152_probe() to reject it?
+> +		sram2_clr_bits(tp, 0x83ef, 0x0e00);
+> +
+> +		ocp_reg_w0w1(tp, 0xbf38, 0x01f0, 0x0160);
+> +		ocp_reg_w0w1(tp, 0xbf3a, 0x001f, 0x0014);
+> +		/* shorten CLKS latency */
+> +		ocp_reg_clr_bits(tp, 0xbf28, BIT(14) | BIT(13));
+> +		ocp_reg_clr_bits(tp, 0xbf2c, BIT(15) | BIT(14));
+> +		/* CMP_Timer on MP_Timer=333
+> +		 * GPHY OCP 0xbf28 bit[0] = 0x1
+> +		 * GPHY OCP 0xbf28 bit[6:1] = 0x3
+> +		 * GPHY OCP 0xbf28 bit[12:7] = 0x3
+> +		 */
+> +		ocp_reg_w0w1(tp, 0xbf28, 0x1fff, 0x0187);
+> +		ocp_reg_w0w1(tp, 0xbf2a, 0x3f, 0x03);
+
+[Severity: Low]
+This isn't a bug, but what do the 0xbf38 and 0xbf3a writes in
+r8159_hw_phy_cfg() configure?
+
+They have no comment. None of the new RTL8159 tuning parameters listed in
+the commit message (shorten CLKS latency, CMP_Timer on MP_Timer=333,
+spdchg_pga1_lpf_cap, ENET PLL jitter improvement) seem to cover them.
+
+The CMP_Timer comment also describes only the 0xbf28 bit fields. Nothing
+explains the 0xbf2a write that follows it.
+
+Could these writes get a short comment, and a mention in the commit
+message, so each one can be traced to the datasheet item it implements?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126033211.51850-1-nic_swsd%40realtek.com
