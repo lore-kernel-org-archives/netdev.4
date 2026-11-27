@@ -1,102 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795791871;
-	b=kX5SKjuXkhK//acFuT7IB+4EfMBTQM6sVWPYkVXjw02/q4cXe8Q0hv261DRC8EXOq69J
-	 0V7wBdWn10gmus0de/6x1QMF/m2Zl2+2tNr/A2OGthCfYM2pBvdt+YESTLrbcPbk0pDa2
-	 Th9lUgil6GxqzGzpKZBYrgPBSStrTWhbFmNPIvnXj7umexTkjTqZopjSc5o6vY8f7Sbn4
-	 JfUcaZKuFaICCMHsrdaIyxueMXHm9UDQgvWKxw89+N3YGwk57OBnwB/YvRXBMrphYfNHp
-	 kS1rFO2S1aH6tD6eOw5QrD8KTh/ak3waaOtX0RyNKZmbA5EMUENZ5VnVJu2a3U/6aIA==
+	t=1795791956;
+	b=UUS1idXfmFwRuEJDzhsQUaodPHayJHRld+Wy9ig/FLdn+RWD5ttqO7gxqA4UxGcqR5aV
+	 Qe7sReZwaEjTc+A5MS18sJv2VvutvAPlFIkbjDHKzwlek1F21IUok9+2J7EwCVfCSQVyJ
+	 CoBIqD2LBRvXXfsSKcvxSgE5Lx2l0TosadpAV85tX0YC/59OU+LkYQe3Eaxt/Yt8gvSzh
+	 OL/UfwnsbKChH9IN+/paWvaucFcwNCYbEGZ01KGbjmQ/Vv6RbUTSnC3PDDEEz8cIw0keW
+	 cEXCXyzckr70v8Zf/b+zrKAiFN+succGdwy7Ocu286NFbnLFag5yNdUC8XgXtWDNevQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795791871;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795791956;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=evZv5hVWWdGZaCGpsWgw0bSasbGvdKzP09x7/rjAc+Y=;
-	b=hj0EKGKVniWc08eyRiKR5+R39dcZVTv6eZ5d/pNwKb5/b2Pc6NfcmXKFhhtzSS6STvVi
-	 cyUWGwFtpAi9tixFZ99Axixq/zN7PROzm038idCcKa+myqACUT7wcVpEWX7rTWx9jNgF8
-	 c5kP/ORpvT04Hg/uNuZmOiGmq6yrZqkSIJlJu0j0sCkj0DFZe5c2l6etVjxwca8HwTYjX
-	 B/mudvC2kTTFPQ81gcl+fM5N+zVLmet7Cv0T9OGYWtH3TwOjRexeo+lirk+UWFxxtZ5Ys
-	 15kRETp9WnhgUzvUaDWlvidt038l5ZnRFqV12hcevTTzdthxQevVIUtHS/czcS7tW+Q==
+	bh=tUMH5Nnj2ym7Y7xKItom/YX51tYtaFVM580wp9fFU5I=;
+	b=dind49TVRKKP3QkdRf1TznFdCDWgXFuXCWh5HGrsKTE7ahiyLABmM/tDTZzienqdPzT3
+	 mgmi9RGy8WcT3oUMaeEqBhTIABHh5j52pwz6HDMh7xnJWQYijUhLkqtgf507fJWhDwH5c
+	 +IXk3P5QUofshEBazm7vHjINuKOWlcsnfxCTkJhLKuqGr+wmW32tJSX80sDeEjjf7neC3
+	 hwipPGcWnuKTgjj1d94uEj5qVBuwVFs6MNC3Dh3zw7vmmvrkBtfFT/OYLQQvwutWG6159
+	 6Ir/lpSy3h8rprhm1R05WVD0xg1aAAKtDekkd36zyC41iQ7pWwHF6W/hmyoyZ2SfGJg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FYMGeXEy;
-	arc=none smtp.remote-ip=74.125.82.169
-Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PLsTMyY3;
+	arc=none smtp.remote-ip=192.198.163.14
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38AD0606A31F
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 15:04:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38AD0606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDF5F606A31C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 15:05:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EDF5F606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FYMGeXEy
-Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-3863db981d4so11545516eec.0
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 07:04:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795791870; x=1796396670; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=evZv5hVWWdGZaCGpsWgw0bSasbGvdKzP09x7/rjAc+Y=;
-        b=FYMGeXEycxZkHzzZ8Ikig9UJ8Hpp9wM7ypyAIbIfsBMWVStPflQ83reJpJDHbdR8qO
-         pL1bO+vvoxYTezTfnLg4rukWOLHmZgQiZn0NY7DiqjCS+tXvWUOv4JbZXnpxcMU8bFyb
-         JcOGsyORNqWPOZFApIJQdoatPSLFrGNAYpLz1hzmoEZDM1Mvpm3wSpH1OQ2RjT5k2xQV
-         a6gNTONcqrg7ISvqxw/RrCu+xeKo3AvXua7oBGt2WhnvEFfG6j7HVNHWmkP6WJFEyUxi
-         K5cY4VhGiKbk2SmgkI7mdm2TQp4YYVVrXezT9o5+Pc5/QUMmjHt8dqJeslKPuF50w8jr
-         TJkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795791870; x=1796396670;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=evZv5hVWWdGZaCGpsWgw0bSasbGvdKzP09x7/rjAc+Y=;
-        b=GwJjKkUH/5MCkos3jlhKiVal55yg5jweR+XZlUbKAZtkN+zhMhhpkJao8DjwEPvE37
-         5HxKQ8HlCoRV0IPlmwYc7SMVayuQZmS+uBtmuJvpgqCoNveT0Wq8cxMkpVP7llFfjTEV
-         EcKk4JOWHfoN5ga5HrZewMAkkLdQDVJQz24M5INNJPEiaqeKvEZDMblQUGQk494E2LFH
-         0lgfZe15wQimXYwPfppkxsHvrzeKf5hq0wjISIqiqrkmY8eYTCb2Ygk2DUFIXzuu5qhz
-         6o5u7bv+aPe8lvXmsTEgoWNvRwRkrDpnSlDXmVI6t6leT7bmovs1+jmhXuJILHkt+Tua
-         5lww==
-X-Gm-Message-State: APuU4Z/FuGrf/4BBgjjlHzNZVOGo0kECy/dlw9mglfIKqr0FWV+B//mU
-	IXdOFP0xPooykpM5onqsoYN9fZuw/cQ6k+Wp8lbNM8yuVzPkiYWo2CfL
-X-Gm-Gg: AZFdTZcqtB5LQhVqfA/kVYAGLlCaO6vfbkBr7yW7n8qm0uldDTsWSr+s0Vrg1UcgOmZ
-	LP35zWniH5sYzmCPZNz09c3xZJhdoDuOC3bpNcLwt+4okr/KFgDpOrQy3uA+HBsiZbP26TLoPKN
-	A3qMhiYvgWVyRgdHXt5RVuZWNZGdISEuIdxF2f9CSTDFcWUi8CV6gCOkp3X223ktxm5tDscm7dO
-	ipDDXrdN1aps0M0FRUQUl4ORZeJ0Fdq83eytPG1L91jK2cO7/NMwJ8+ix4DM4TjC6GqLDamjvTj
-	8U5w5fGlZC96fKm4GZmojVN0cucuzJrGugxbqLvViGZMBYD3Y0FLGr4SOi9O6AJNTwoDfPYG3CN
-	zukcvANaCb4x0y+0l1RXj8sZAZaQMKX4vwLT3ECThB2ACHlpUVhbw6dO6essJ3GrX3rLPjpWLIp
-	9RuI7qwyifFQ718FkLhvdCT1w+dDhV/NRR3BrWpWT6H4JkOxDoqPyU6nCvQ/CGFirtsj/ReYKqj
-	Ql4xShaMj2ruTofTS/90jRs1Ye83YHXzoRKz/XYWydLxB3PdinYcdiBm0cecXPZJPm18kOc4KJ9
-	d4BpbIV7vvsHGuP2mbu7FGQtNtgUHg1mEBXVR6qmgiQ6mA==
-X-Received: by 2002:a05:7301:929:b0:376:37a2:87f3 with SMTP id 5a478bee46e88-38570f25262mr22505837eec.31.1795791870034;
-        Fri, 27 Nov 2026 07:04:30 -0800 (PST)
-Received: from localhost ([2605:52c0:1:e99:982a:f6ff:fe2e:6e83])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm87628909eec.4.2026.11.27.07.04.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 07:04:29 -0800 (PST)
-From: Lin Lei <llleigoing@gmail.com>
-To: Eric Dumazet <edumazet@kernel.org>
-Cc: netdev@vger.kernel.org,
-	mptcp@lists.linux.dev,
-	ncardwell@google.com,
-	kuniyu@google.com,
-	davem@davemloft.net,
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PLsTMyY3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795791954; x=1827327954;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=C+ss9yETrJzWBolofXz5DfHY/J6mSDTq3ANdst6DSY0=;
+  b=PLsTMyY30sX48Yko6GjwnxlG2OpY56v2JxKuOOap825On5s/ICodEm8/
+   8ZYn/+/ZWsX2WdccBMOVfTXgkMkHA9ZopIXYZvFruAvaiIxK82tnx3j9V
+   w1ZVW5fFVNkMc+dEip1bEeJ4BpCj3UfzmqFjyLbkoZFFLvEbP5Dw2TOq+
+   BxjkPjN6Gr4wYYNgaQAA8jV70M6hqP9vK/QX3mCDLRnhRX9FxASIiyzjC
+   NKlXAomqQPtXbnpZLH0yVOkyCqDOUNpbL+RRQNtKTwXxUrFjCo0D5jQ+A
+   m4dlJAfke2TLDfwqibYggOIdUeajPDebi621q4PeJsXQK3SRGV/yHPR58
+   Q==;
+X-CSE-ConnectionGUID: AzpE2gdkRKCPLOlGZ1g0Mw==
+X-CSE-MsgGUID: k+FV77K3SUeabVjhHR3Msg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4665954"
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="4665954"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 07:05:47 -0800
+X-CSE-ConnectionGUID: m+jYFvJ7QommtNDqVIOfHw==
+X-CSE-MsgGUID: 15QLY4YwSZSlqcUzBbsOTQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="12202594"
+Received: from boxer.igk.intel.com ([10.102.20.173])
+  by orviesa008.jf.intel.com with ESMTP; 27 Nov 2026 07:05:45 -0800
+From: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
+To: netdev@vger.kernel.org
+Cc: magnus.karlsson@intel.com,
+	stfomichev@gmail.com,
 	kuba@kernel.org,
 	pabeni@redhat.com,
-	horms@kernel.org,
-	matttbe@kernel.org,
-	martineau@kernel.org,
-	geliang@kernel.org,
-	llleigoing@outlook.com
-Subject: Re: [PATCH net 2/3] net: bound receive window predictions before narrowing
-Date: Fri, 27 Nov 2026 15:04:25 +0000
-Message-ID: <20261127150425.1393380-1-llleigoing@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <CAL4WiiqM1E9wzfjCzHcOy2SN6j0CjN6r94JYdPNt=RoLLDL5hw@mail.gmail.com>
-References: <20261117052200.1507847-1-llleigoing@outlook.com> <20261117052200.1507847-3-llleigoing@outlook.com> <CAL4WiiqM1E9wzfjCzHcOy2SN6j0CjN6r94JYdPNt=RoLLDL5hw@mail.gmail.com>
+	tushar.vyavahare@intel.com,
+	kerneljasonxing@gmail.com,
+	bjorn@kernel.org,
+	Maciej Fijalkowski <maciej.fijalkowski@intel.com>
+Subject: [PATCH v6 net-next 00/15] selftests: net: adjust xskxceiver to drv-net
+Date: Fri, 27 Nov 2026 16:05:12 +0100
+Message-Id: <20261127150527.1122049-1-maciej.fijalkowski@intel.com>
+X-Mailer: git-send-email 2.38.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,228 +84,222 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Hi Eric,
+v5:
+https://lore.kernel.org/netdev/20261119164636.1071385-1-maciej.fijalkowski@intel.com/
+v5->v6:
 
-Sorry for the late reply -- it took me some time to put together clean
-WAN reproducers and check the tracepoints carefully before getting back
-to you.
+- new patch 1: stack overrun fix split out of patch 9 (Sashiko)
+- new patch 11: poll the RX stats, a single read was flaky in CI (Jakub),
+  and retry a busy queue bind for up to --timeout seconds
+- new patch 13: rename nsim_test to sw_test (Jakub)
+- drop the README patch (Jakub)
+- use NetDrvEpEnv(sw_drv="veth") (Jakub)
+- busy poll over veth too (Jakub)
+- set up huge pages, RSS, ntuple and busy poll per case (Jakub)
+- reset RSS over netlink, drop the queue-out-of-RSS check (Jakub)
+- use ctl_file_write(), set_ethtool_feat(), ethtool(), ksft_pr() (Jakub)
+- steer the control connection to DUT queue 0 (Sashiko)
+- fall back to IPv4 if IPv6 ntuple rules are rejected (Sashiko)
+- detach XDP and restore MTU after every case (Sashiko)
+- mark the tests disruptive (Sashiko)
+- xskxceiver fixes: multi-buffer in SKB mode (if max MTU allows), link
+  wait, MTU restore, XDP cleanup, POLL_TXQ_FULL, --udp-port and --queue
+  checks, huge page probe, TX bind before READY (Sashiko)
 
-Reading your comments on patches 1 and 2, I realize my v1 changelogs
-did not explain the failure mode clearly and conflated two separate
-issues:
+v4:
+https://lore.kernel.org/netdev/20261016174338.787135-1-maciej.fijalkowski@intel.com/
+v4->v5:
 
-  1) an implementation bug where 32-bit wrap coupled with the
-     unconditional rcvq_space.space update can leave sk_rcvbuf stuck at
-     its initial value across subsequent steady in-order streaming; and
-  2) the pre-existing overshoot of the slow-start heuristic itself on
-     burst or backlog samples.
+- merge drivers/net/hw/xsk.py and net/test_xsk.py into
+  drivers/net/xsk.py (Jakub)
+- make variables used for netdevsim addrs generic and reuse for veth
+- drop net/lib/py/xsk.py and keep its helpers in xsk.py (Jakub)
+- use and rely on bkg() and cmd() instead of home-grown solutions
+  (Jakub)
+- make xsk.py pylint and ruff clean (Jakub)
+- single test cases listing for both scenarios (hw/sw)
+- skip busy_poll for veth; NAPI id is not exposed there (yet)
+- skip HW_SW_MAX_RING_SIZE when the HW TX ring has 8 descriptors or
+  fewer (Sashiko)
+- reject --timeout outside 1-0xffff and --max-frags above 0xffff in
+  xskxceiver (Sashiko)
+- turn on ntuple filters before taking the DUT queue out of RSS, and
+  fail a case after which the queue is back in RSS, as on ixgbe (Sashiko)
 
-I think it is clearer to look at them separately. Replies inline below.
+v3: https://lore.kernel.org/netdev/20261014184539.774708-1-maciej.fijalkowski@intel.com/
+v3 -> v4:
+- add tags from Mr Björn
+- drop --hw in xskxceiver, align packet layout between hw/veth runners (Björn)
+- drop parse_u32() in xskxceiver (Björn)
+- move ethtool -G and ring sizing logic from C to python
+- configurable --timeout (Björn)
+- keep the HW_SW_MAX_RING_SIZE batch below the XSK TX ring size (Sashiko)
+- restore hugepage count in veth runner on exception paths (Sashiko)
+- use ExitStack in hw runner to cover setup unrolls (Björn, Sashiko)
+- support IPv6 next to IPv4 (Björn)
+- send to the next-hop MAC, the peer need not be on-link (Björn)
+- make --listen work on its own rather than follow the TX role (Björn)
+- run XDP_SHARED_UMEM on HW, the socket is picked by UDP source port
+- fail a case when one endpoint fails and the other skips (Björn)
+- keep the TX half of the unaligned check in the xsk_caps conversion
+- detach in cleanup_iface() with the flags of mode_to_xdp_flags()
+- reserve 2 MiB huge pages, tolerate hosts without hugetlb or root (Sashiko)
+- lower the veth case timeout to 20s, within the net timeout (Sashiko)
+- guard pkts_in_flight against forged PROGRESS reports (Sashiko)
+- log short fragments, fix the IPv4 fragment comment (Sashiko)
+- keep the MIN_PKT_SIZE and PKT_HDR_SIZE names to cut churn
+- read what a gone peer left at READY, drain after a SKIP (Sashiko)
+- cap --max-frags, which sizes a packet array (Sashiko)
+- skip the hw run when RSS or ntuple setup is refused (Sashiko)
+- bound the gateway ping, fail clearly without its MAC (Sashiko)
+- note in the README that RFS has to stay off on the DUT (Sashiko)
 
-On Thu, 19 Nov 2026 08:56:32 +0100, Eric Dumazet wrote:
-> What happens today: this round gets a smaller sk_rcvbuf increase than
-> the formula asked for (or none). sk_rcvbuf never shrinks here, and
-> the next measurement has a sane @oldval. So we lose one step.
+v2: https://lore.kernel.org/netdev/20261008114909.734364-1-maciej.fijalkowski@intel.com/
+v2 -> v3:
+- new patch: size the TX UMEM of HW_SW_MAX_RING_SIZE like the RX one
+- replace test_xsk.sh with test_xsk.py, a veth pair per case (Sashiko)
+- add busy-poll variants to both runners
+- wait for the listener's stderr line instead of polling with ss
+- default MTU of 1500, wait for link after MTU/XDP changes (Sashiko)
+- fill the fill ring before bind, as zero-copy drivers need
+- xskxceiver -L lists HW cases, replacing test_xsk_case_defs.h (Jakub)
+- run more cases on HW, e.g. TEARDOWN and HW_SW_{MIN,MAX}_RING_SIZE
+- follow drv-net conventions in xsk.py, drop XSK_* variables (Jakub)
+- set up queue, ntuple and huge pages once per run
+- build, ring reset, control channel, XDP and xsk.py fixes (Sashiko)
+- document both runners with a netns remote example
 
-Looking closer at tcp_rcvbuf_grow(), it seems this can lose more than
-one step -- once @rcvwin wraps, sk_rcvbuf can stay stuck at its initial
-value across subsequent steady in-order RTTs (barring an OOO packet
-hitting tcp_data_queue_ofo() or another multi-RTT stall).
+v1: https://lore.kernel.org/netdev/20261001202124.692591-1-maciej.fijalkowski@intel.com/
+v1 -> v2:
+- rebase on net-next, NIPA could not apply v1 (Stanislav)
+- new patch: pass non-test traffic to the stack on HW (Stanislav)
+- support a netns remote, like NIPA's E810/X710 setup (Stanislav)
+- drop XSK_STATIC, link xskxceiver dynamically
+- fail TX when RX exits with packets in flight
+- fix IPv4/UDP lengths in verbatim multi-buffer streams
+- build fixes for a failing or broken bpftool
+- document both remote types and the traffic filter
 
-In tcp_rcvbuf_grow(), tp->rcvq_space.space is overwritten with @newval
-at the top of the function, even when u32 @rcvwin wraps and
-sk->sk_rcvbuf (and therefore tp->window_clamp) is not updated:
 
-  void tcp_rcvbuf_grow(struct sock *sk, u32 newval)
-  {
-          ...
-          oldval = tp->rcvq_space.space;
-          tp->rcvq_space.space = newval;   /* updated unconditionally */
-          ...
-          rcvwin = newval << 1;
-          ...
-          grow = div_u64(((u64)rcvwin << 1) * (newval - oldval), oldval);
-          rcvwin += grow;                  /* wraps in u32 */
-          ...
-          rcvbuf = min_t(u32, tcp_space_from_win(sk, rcvwin), cap);
-          if (rcvbuf > sk->sk_rcvbuf) {    /* false after wrap */
-                  WRITE_ONCE(sk->sk_rcvbuf, rcvbuf);
-                  WRITE_ONCE(tp->window_clamp,
-                             tcp_win_from_space(sk, rcvbuf));
-          }
-  }
+Hi,
 
-Concretely, taking the values from the TCP trace below (rtt_us = 100000,
-ooo = 0, scaling_ratio = 158):
+[0] moved the AF_XDP test suite from selftests/bpf to selftests/net.
+This series hooks it up to drv-net, so that it runs over veth in SW CI
+and on a NIC in HW CI; so far our HW runs have been manual. We keep the
+existing xskxceiver cases rather than start from scratch.
 
-  1. Initial sk_rcvbuf = 6,382,000 gives tp->window_clamp = 3,938,890,
-     with initial oldval = 14,480.
+xskxceiver ran the RX and TX sides of a case as two threads of one
+process. drv-net needs a process per side, so each endpoint becomes a
+process of its own, and the two talk over xsk_peer, a small TCP control
+channel: READY separates the steps, PROGRESS paces TX by what RX has
+consumed, ABORT stops the peer after a failure, and SKIP makes the peer
+skip a case that its endpoint skips.
 
-  2. After an initial receiver stall, a measurement sees copied =
-     3,987,000 and inq = 39,096, so net @newval = 3,947,904:
-       - tp->rcvq_space.space becomes 3,947,904;
-       - the unnarrowed prediction is 4,297,614,134 (2^32 + 2,646,838),
-         which wraps in u32 @rcvwin to 2,646,838 -> rcvbuf = 4,288,547;
-       - since rcvbuf < sk->sk_rcvbuf, neither sk->sk_rcvbuf nor
-         tp->window_clamp changes.
+drivers/net/xsk.py runs each case between a local and a remote
+endpoint. The remote one is always an SKB-mode xskxceiver, so the remote
+needs no zero-copy support, and both ends share the packet generation
+and validation of the cases.
+- Without NETIF, they run over a veth pair, the remote end in a
+  namespace, with the local endpoint receiving in SKB and DRV mode
+  (skb_<case> and drv_<case> variants).
+- With NETIF, the local endpoint runs in zero-copy mode once per role
+  that xskxceiver -l lists for the case (rx_<case> and tx_<case>), e.g.
+  rx_SEND_RECEIVE tests ice_clean_rx_irq_zc() and tx_SEND_RECEIVE
+  ice_xmit_zc(). ntuple rules steer the test flow to the AF_XDP queue.
+Every case also runs with the local endpoint busy polling. The single
+interface (loopback) mode is removed.
 
-  3. Now tp->rcvq_space.space (3,947,904) exceeds tp->window_clamp
-     (3,938,890) by 9,014 bytes. (tcp_measure_rcv_mss() clamps
-     rcvq_space.space down to window_clamp only when scaling_ratio
-     changes.)
+Over veth, the cases that cannot pass are expected failures without
+being run: XDP_ADJUST_TAIL_SHRINK_MULTI_BUFF and the XDP_ADJUST_TAIL_GROW
+cases, which hit veth and generic XDP limits, and
+HW_SW_{MIN,MAX}_RING_SIZE, as veth has no rings. We can keep them, drop
+them or run them on HW only. The UNALIGNED cases are expected failures
+without huge pages.
 
-  4. Across the rest of the 64 MiB steady in-order transfer with
-     continuous reads, each ~1-RTT sample stays below 3,947,904, so
-     tcp_rcv_space_adjust() keeps taking:
+Patch 1 fixes a stack overrun, 2-4 prepare the split, 5-8 make the
+endpoints separate processes and remove test_xsk.sh, 9-12 adapt the
+endpoints to two hosts and list the roles of each case, 13-14 prepare
+NetDrvEpEnv for veth, and 15 adds xsk.py.
 
-       if (copied <= tp->rcvq_space.space)
-           goto new_measure;
-
-     no further tcp_rcvbuf_grow tracepoint fires, and sk_rcvbuf stays
-     at 6,382,000.
-
-A similar lock-in happens in mptcp_rcvbuf_grow(): once
-msk->rcvq_space.space is set to 3,963,800 (with oldval = 14,600,
-wrapping 4,296,650,602 to 1,683,306 -> rcvbuf = 3,215,868 at
-scaling_ratio = 134), sk_rcvbuf stays at 6,553,600 (whose full-budget
-window at that ratio is ~3.43 MB) throughout steady streaming.
-
-> For TCP, the slow start branch is only taken if the RTT is above
-> tcp_rcvbuf_low_rtt (1ms by default). I guess you had to change this
-> sysctl to get this result over loopback ? Please describe the full
-> setup, including tcp_rmem[1].
->
-> More importantly, reaching tcp_rmem[2] after a single 4MB burst is
-> not a goal. What is the user visible problem here ? Do you have
-> numbers (throughput, drops, rcv window) for a real flow ?
-
-Yes -- my v1 loopback test for TCP had lowered tcp_rcvbuf_low_rtt
-(MPTCP has no low_rtt check). To test without touching that sysctl, I
-reran over a simulated WAN on 7.4.0-rc2 (mptcp_net-next commit
-800508bf1ccd, keeping tcp_rcvbuf_low_rtt = 1000 us and tcp_timestamps =
-1 at defaults, with tcp_wmem raised so the sender is not
-send-buffer-bound):
-
-1) WAN reproducer setup and results:
-
-   I tuned tcp_rmem[1] and the initial write size here specifically to
-   land inside the narrow (~1.8 KB on TCP, ~1.6 KB on MPTCP)
-   non-growing wrap window and verify whether the flow recovers on
-   subsequent RTTs; I do not have data suggesting this narrow window is
-   hit frequently on mainline.
-
-   Trigger conditions:
-     - Path: two netns over veth + tc netem with 100 ms RTT and
-       1 Gbit/s (BDP = 12.5 MB), MTU 1500, TSO/GSO/GRO disabled.
-     - Budgets: tcp_rmem[1] ~ 6.1-6.25 MiB, tcp_rmem[2] = 64 MiB,
-       tcp_wmem[1] = 16 MiB on TCP / 8 MiB on MPTCP, tcp_wmem[2] =
-       64 MiB.
-     - Traffic: Phase 1 queues an initial burst before draining so that
-       the resulting sample lands in the first 4 GiB wrap window (on
-       Phase 1's drain for MPTCP, and as Phase 2 starts for TCP);
-       Phase 2 streams 64 MiB with normal continuous reads.
-
-   Results (Phase 2 application goodput over 64 MiB):
-     - Plain TCP (tcp_rmem = "4096 6382000 67108864"):
-       * unpatched: SO_RCVBUF stays 6382000 -> 6382000 -> 6382000;
-         trace_tcp_rcvbuf_grow fires once (time=113917 rtt_us=100000
-         copied=3987000 inq=39096 space=14480 ooo=0 scaling_ratio=158
-         window_clamp=3938890); 64 MiB takes 1.823s (294.4 Mbit/s).
-       * with v1 patches 1+2: SO_RCVBUF reaches 67108864 and 64 MiB
-         takes 0.767s (699.8 Mbit/s).
-
-     - MPTCP (tcp_rmem = "4096 6553600 67108864"):
-       * unpatched: SO_RCVBUF stays 6553600 -> 6553600 -> 6553600;
-         trace_mptcp_rcvbuf_grow fires once; 64 MiB takes 2.019s
-         (265.9 Mbit/s).
-       * with v1 patches 1+2: SO_RCVBUF reaches 67108864 and 64 MiB
-         takes 0.815s (658.8 Mbit/s).
-
-   Standalone reproducer scripts for TCP and MPTCP:
-     https://gist.githubusercontent.com/llleixx/5201855b015831b5377a02478f843949/raw/repro_tcp_lockin.sh
-     https://gist.githubusercontent.com/llleixx/5201855b015831b5377a02478f843949/raw/repro_mptcp_lockin.sh
-
-2) Original workload (your question on patch 1): I first ran into a
-   stuck receive buffer on an Ubuntu 6.8 kernel with default tcp_rmem
-   ("4096 131072 6291456") on MPTCP over a high-jitter path; in a local
-   6.8 reproduction of that setup, sk_rcvbuf stayed at 131,072
-   alongside msk->rcvq_space.space = 16,282,074. (On 6.8,
-   mptcp_rcv_space_adjust() kept rcvwin in u64 but narrowed at int win
-   in __tcp_space_from_win(), and its older msk rtt_us caching could
-   allow a longer sampling interval.) While auditing current mainline
-   from there, I noticed the u32 @rcvwin wrap above as well.
-
-> This needs @newval to be ~256 times @oldval between two consecutive
-> measurements. The "allow the sender to double its rate" logic was
-> never meant to be meaningful for such a sample: a 4GB prediction
-> out of 4MB copied to user space is garbage, wrapped or not.
-> [...]
-> What happens with your patch: a single sample like this sends
-> sk_rcvbuf straight to tcp_rmem[2].
->
-> This is the kind of sk_rcvbuf inflation we have been trying to avoid
-> lately, see commit aa251c84636c and the tcp_rcvbuf_low_rtt logic.
-> I am not convinced this is an improvement.
-> [...]
-> If there is a real case where growth is too slow, I would rather
-> discuss the heuristic than the type of @rcvwin.
-
-Agreed -- a 4 GB prediction from a 4 MB read makes no sense, and
-jumping straight to tcp_rmem[2] on a single burst is undesirable.
-
-It seems this overshoot is inherent to the current formula rather than
-caused by widening @rcvwin: even on unpatched mainline, with
-oldval = 14,480 and scaling_ratio = 158, a burst or OOO release of
-~382 KiB already yields rcvwin > 39.5 MiB and sends sk_rcvbuf straight
-to a 64 MiB tcp_rmem[2] (~342 KiB already reaches ~51 MiB). Around
-~3.95 MB, the u32 wrap turns that overshoot into the lock-in above.
-
-Following the comment above the formula ("slow start: allow the sender
-to double its rate"), one option (with u64 @rcvwin) might be to cap the
-growth ratio (newval - oldval) / oldval at 1:
-
-  grow = rcvwin << 1;
-  if (newval - oldval < oldval)
-          grow = div_u64(grow * (newval - oldval), oldval);
-
-That leaves rising samples up to 2x unchanged while bounding larger
-jumps to a 6 * newval window (~3.6 MiB rcvbuf instead of 64 MiB for a
-382 KiB burst, though a 3.95 MB burst still yields ~36.6 MiB). Since
-genuine slow-start samples can exceed 2x slightly (e.g. ~2.2x in commit
-aa251c84636c's trace), this would still need to be evaluated against
-the slow-start workloads from aa251c84636c to check the ramp-up vs.
-peak-budget trade-off.
-
-> If you send this again:
->
-> - net-next, no Fixes: tag, unless you can show a real regression.
->
-> - Please split TCP and MPTCP changes. One patch with a "net:" prefix
->   touching both, with a single Fixes: tag pointing to a TCP commit
->   is not right for mptcp_rcvbuf_grow().
-> [...]
-> Same remark about the Signed-off-by: than for patch 1.
-
-Understood -- for any follow-up patches, I will target net-next without
-Fixes:, split TCP and MPTCP, and fix my From:/Signed-off-by:
-consistency. On patch 1, I also agree with your point about huge
-best-effort SO_RCVLOWAT values.
-
-To summarize:
-
-  1) The 32-bit @rcvwin wrap coupled with the unconditional
-     rcvq_space.space update is an implementation bug that can leave
-     sk_rcvbuf stuck across steady in-order streaming on both TCP and
-     MPTCP, rather than only losing one step.
-  2) Jumping straight to tcp_rmem[2] on a burst is a separate
-     limitation of the current unbounded slow-start extrapolation,
-     which could potentially be tamed by bounding (newval - oldval) /
-     oldval (e.g. at 1, subject to slow-start benchmarking).
-
-The above is just my personal take on these issues -- I would really
-appreciate your thoughts and advice.
+Known issues:
+- On ice, the RSS reset over netlink fails without [1], which NIPA
+  already carries.
+- BIDIRECTIONAL, STAT_RX_DROPPED and TX_QUEUE_CONSUMER do not run on
+  HW. I think BIDIRECTIONAL can go, as the rx_ and tx_ variants cover
+  both directions.
 
 Thanks,
-Lin
+Maciej
+
+[0]: https://lore.kernel.org/netdev/20261109193048.1006986-1-maciej.fijalkowski@intel.com/
+[1]: https://lore.kernel.org/netdev/20261123205600.1794292-2-kuba@kernel.org/
+
+Maciej Fijalkowski (15):
+  selftests: xsk: fix the stack overrun in is_adjust_tail_supported()
+  selftests: xsk: factor endpoint work out of pthread wrappers
+  selftests: xsk: size the TX UMEM in HW_SW_MAX_RING_SIZE
+  selftests: xsk: drop the single-interface loopback mode
+  selftests: xsk: collect interface capabilities in struct xsk_caps
+  selftests: xsk: split xskxceiver main() into setup, run and cleanup
+  selftests: xsk: run one test case per xskxceiver invocation
+  selftests: xsk: run the RX and TX endpoints in separate processes
+  selftests: xsk: send UDP over IPv4 or IPv6 between the interface MACs
+  selftests: xsk: prepare xskxceiver for endpoints on two hosts
+  selftests: xsk: wait up to --timeout for the RX stats and a busy bind
+  selftests: xsk: list the endpoint roles of the test cases
+  selftests: drv-net: rename nsim_test to sw_test
+  selftests: drv-net: decouple local link setup from netdevsim
+  selftests: drv-net: run the AF_XDP tests over veth or a NIC
+
+ MAINTAINERS                                   |    2 +-
+ tools/testing/selftests/drivers/net/Makefile  |    1 +
+ tools/testing/selftests/drivers/net/config    |    3 +
+ .../testing/selftests/drivers/net/hw/csum.py  |    2 +-
+ .../drivers/net/hw/devlink_rate_cross_esw.py  |    2 +-
+ .../drivers/net/hw/devlink_rate_tc_bw.py      |    2 +-
+ .../selftests/drivers/net/hw/gro_stats.py     |    2 +-
+ .../selftests/drivers/net/hw/ipsec_vxlan.py   |    2 +-
+ tools/testing/selftests/drivers/net/hw/irq.py |    2 +-
+ .../selftests/drivers/net/hw/nic_timestamp.py |    2 +-
+ .../selftests/drivers/net/hw/ntuple.py        |    2 +-
+ .../testing/selftests/drivers/net/hw/pause.py |    2 +-
+ .../selftests/drivers/net/hw/pp_alloc_fail.py |    2 +-
+ .../selftests/drivers/net/hw/rss_api.py       |    2 +-
+ .../selftests/drivers/net/hw/rss_ctx.py       |    2 +-
+ .../drivers/net/hw/rss_flow_label.py          |    2 +-
+ .../drivers/net/hw/rss_input_xfrm.py          |    2 +-
+ tools/testing/selftests/drivers/net/hw/tso.py |   10 +-
+ .../selftests/drivers/net/hw/xsk_reconfig.py  |    2 +-
+ .../selftests/drivers/net/lib/py/env.py       |   83 +-
+ .../selftests/drivers/net/perf/devmem.py      |    2 +-
+ .../selftests/drivers/net/perf/iperf.py       |    2 +-
+ tools/testing/selftests/drivers/net/xsk.py    |  453 ++++++++
+ tools/testing/selftests/net/Makefile          |    2 -
+ tools/testing/selftests/net/lib/Makefile      |    4 +-
+ .../testing/selftests/net/lib/xsk/test_xsk.c  | 1009 +++++++++++------
+ .../testing/selftests/net/lib/xsk/test_xsk.h  |  151 ++-
+ tools/testing/selftests/net/lib/xsk/xsk.c     |  134 ++-
+ tools/testing/selftests/net/lib/xsk/xsk.h     |    5 +-
+ .../testing/selftests/net/lib/xsk/xsk_peer.c  |  339 ++++++
+ .../testing/selftests/net/lib/xsk/xsk_peer.h  |   21 +
+ .../selftests/net/lib/xsk/xsk_xdp_common.h    |    3 +-
+ .../selftests/net/lib/xsk/xsk_xdp_progs.bpf.c |   91 +-
+ .../selftests/net/lib/xsk/xskxceiver.c        |  564 +++++----
+ .../selftests/net/lib/xsk/xskxceiver.h        |    1 -
+ tools/testing/selftests/net/test_xsk.sh       |  251 ----
+ tools/testing/selftests/net/xsk_prereqs.sh    |   93 --
+ 37 files changed, 2215 insertions(+), 1039 deletions(-)
+ create mode 100755 tools/testing/selftests/drivers/net/xsk.py
+ create mode 100644 tools/testing/selftests/net/lib/xsk/xsk_peer.c
+ create mode 100644 tools/testing/selftests/net/lib/xsk/xsk_peer.h
+ delete mode 100755 tools/testing/selftests/net/test_xsk.sh
+ delete mode 100755 tools/testing/selftests/net/xsk_prereqs.sh
+
+
+base-commit: ccb81d5e317b0ae2cc66ca1c628c0ca907928f94
+-- 
+2.43.0
+
