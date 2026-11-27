@@ -1,58 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.155
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795761209;
-	b=C1Zvp0lNeIhEreJtYW+XtI0R0ka1A/bAKqOZeH1KXB4IQXbyifbvcm0cZeFWffp4X5Ud
-	 nkc43pyRqVgtfjseH2TeYxT3G+tP6Hwht/Ph393M6972lFGWkFxtkHNsVdq8NgnYiO2Sz
-	 Z5k9pHI6G3fVlktC08ojahzzVPuYkZhtR5XaHdwmysmlWkAz1lkDM/Ng2eN+ymjJZ1jgV
-	 fsIPEF4nimaQ8039VoOpBj4ta2Ya81/GDQwBQHpBezz0pMdl6zrhL6P7owwAIGS52rkn9
-	 wdwDLp37xQ1FJeiYovR26C4oGcCwrtqbl9a8bpE6mcqkVHtIaXyWct8xPcmVjtZ9mcw==
+	t=1795761218;
+	b=NgD8O1MDmdvI9tK4Wl8bD7COki7yxOud+WaEcYukRgo1ZqyIfyAUz33w0zm8m2kXvS1e
+	 kKMMBkn3l0f+TjH/hu81fIoi+yVaQEvHI8Hq0Zmhe1aT0IXsXq8v1Il2SRMaVRQ5dzJqN
+	 UO/7FYSF5Edv3yKzcqUZKJMZLTcZS7xaqK0zDBMDZlxJdpR6MK81w2sY6fJ3h2cuicWhy
+	 ngaIyqydN8aty1+X1NpATjn7vkluDOeNAdJEUhebk8keL3qFH7Ky1nwczonGQ+FbsIG2M
+	 65KQ8B2R6RwFUAnePRy+i85fUyoagYNB32ynRyRB78pmTaB0WhZEEq+/tXopu3g20Tg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795761209;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=dS5ygjpbGcXnLl8Jw5pT0NegDxF1r6K+iha3ueXN9qQ=;
-	b=uCUZ6CefbDV/oump86gIoxYb1qFI1Ug2u0SlfpgeEsYCS/s2RAHlKOjvWvoxdFt4R2f6
-	 vWx9QS9yYLdqGzgKUwxee8EUKIR5/lxhJGwfd6ZDKaoKdOF6NDK4vJ2srKQXhQI3mY3p+
-	 qmIaJkxlin3050EI1dVb/KCfS6JIwxUBrZtZeQ7euy7qkkpYprZnK0MQLwNlnaDV63DgF
-	 tFP4vMrqH6XZys6Eplw66fq4da0WXyPlrQ5xMxQzBCx7xyGUEnQ6LVJO2swQ1ga1HY9Kb
-	 +Cmpi4QCOt9KzU6Ph3xxgxZA17DUzM0V5G9WEmtlfjSDVdrqKe56VfgH/b+nhaBrFgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795761218;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=6LC43k933l8Ek/GrSPWgwkIQo2nW1+6+OwznWt8NdeU=;
+	b=L6Jlk1UDqC8Y+UvbMVGsOtM7PUe3jA2KskgpabOx2RLO8WerGPFsjgDHar47eGGPo7sG
+	 N2H0kxILFci5OjgDpOWYq4gNH9UBd0lnEJNLaymC+Quc4ETWuA7NPp/vy7QJ+AfPUFj7e
+	 aDb/+rgJMg5Rx+qKC+BGs2VutMRPacyrr+7Tl3fcf3Tot4aURvH7ySVl66iS8BIMbDd/U
+	 tvzaM52OGwmkGjUSOqwfh/k6fiw4TG7gZdxSSzxOpEuGt8m87wv4AKs/QpPSF3BDzeOXL
+	 SQrD0Db3yETnlxt4cmqCxLcPFXWFhrF/cyRJ5GtdHJJdE6DYLb/Dq4Zn12CZmHvyp0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ny4xdCfx;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Pyc4YtWB;
+	arc=none smtp.remote-ip=91.218.175.155
+Received: from mta0.migadu.com (out-155.mta0.migadu.com [91.218.175.155])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 719D5606A31C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:33:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36E98606A31E
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:33:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36E98606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ny4xdCfx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D7051F000C1;
-	Fri, 27 Nov 2026 06:33:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795761209;
-	bh=dS5ygjpbGcXnLl8Jw5pT0NegDxF1r6K+iha3ueXN9qQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ny4xdCfxAxWY39C8e7GOR3UzVl3kEpg1E5Jov7ksIIuVy/SjjuvTvxUo29M7dnq/3
-	 BSlCrJ2AYAXirIwzKvPJM02jhF7AQir0STPDrDuRA1BDyy7y4iq9KodekTH6gToHPD
-	 NLIVK/f4egMN/iQhVN5/2gD2/+Hc5j4je+GFe7Xyql+TkTXi6btTAoTL/ZbdNmOrZc
-	 rUkUvy61v9PaWy37myrw5LhIruUpI0G/Eile5z4BIpLsajTtcBCwGoIMDRAKq+2C4m
-	 leozLwyWdKC3f+jBnNgr0/nKrLDHoV4No2xH7FfaicBGjyw7GMY8S52ay25/qstiYu
-	 GtZ29Pq+HpX0Q==
-Subject: Re: [PATCH net-next] net: dsa: motorcomm: Add limited ACL flow
- statistics support
-From: netdev-bot+sashiko@kernel.org
-To: mmyangfl@gmail.com
-Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com
-Date: Fri, 27 Nov 2026 06:33:28 +0000
-Message-ID: <179576120817.3135.17802062908132194085@kernel.org>
-In-Reply-To: <20261126060127.185631-1-mmyangfl@gmail.com>
-References: <20261126060127.185631-1-mmyangfl@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Pyc4YtWB
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=Aqo9Gh/z13+vrH5nhABhxwXDDFLj9lawY51vL3ULqrs=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795761215; v=1; x=1796366015;
+ b=Pyc4YtWBMb+uDyjRZFohccHRXDcqxjekMGI9XBuOksTtl7RsTdQSl90YeRagfq6ustsfEyj9
+ RXxSbMkwBQgQSKiCwi2CDTcdMz72XIz3prRT/9iFhHufQspLXgM2e/yR5BFUF99cVMJIl7Yeejd
+ l3jHHduYcvGqugwctNqkEQD4=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id bf87ac2432157dd5;
+	Fri, 27 Nov 2026 06:33:35 +0000
+X-Mizu-Trace-ID: bf87ac2432157dd5
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <bffee809-2992-40eb-97c7-72d919de0aed@linux.dev>
+Date: Fri, 27 Nov 2026 15:33:15 +0900
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,335 +58,91 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-
-Thank you for your contribution! Sashiko AI review found 9 potential
-issue(s) to consider.
-
-Critical: 0 · High: 0 · Medium: 2 · Low: 7
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] Counters are withheld from DROP rules on the premise that
-  "FLOWSTAT only counts passed frames", but police rules, which also…
-- [Medium] `yt921x_acl_stat()` always passes `jiffies` as `lastused` to
-  `flow_stats_update()`, even when `diff == 0` (no new packets since the…
-- [Low] Flow counters always run in packet mode, so `tc -s` always shows
-  0 bytes for offloaded flower rules.
-- [Low] `yt921x_acl_rule_ext_parse_flow_action()` now rejects some
-  skip_sw rules based on their tc `hw_stats` setting, and the commit…
-- [Low] The feature patch also changes existing code without mentioning
-  it.
-- [Low] The patch adds a second limited ACL hardware pool,
-  `flowstats_map` with `YT921X_FLOWSTAT_NUM` = 64 entries, managed…
-- [Low] `yt921x_acl_add()` initialises `use_trap` by comparing an
-  unshifted `FIELD_GET()` result with a shifted `FIELD_PREP()` constant:…
-- [Low] Flowstat counter IDs are returned to the software allocator even
-  when the hardware update that should drop the ACL entry's reference to…
-- [Low] When a counter is reused, `yt921x_acl_add()` resets it only by
-  writing zeros directly to `YT921X_FLOWSTATn_STAT(statid)` via…
-
---
-
-net: dsa: motorcomm: Add limited ACL flow statistics support
-
-This commit implements .cls_flower_stats() for the yt921x switch using its
-hardware flow counters. A pool of 64 counters is tracked in flowstats_map,
-and a counter is only allocated to a flower rule when hardware stats are
-applicable. Counters are programmed in packet mode and reported as deltas
-against the last read value.
-
-> diff --git a/drivers/net/dsa/motorcomm/chip.h b/drivers/net/dsa/motorcomm/chip.h
-> index fc315f1d8f87b..fe6cf03a09c8e 100644
-> --- a/drivers/net/dsa/motorcomm/chip.h
-> +++ b/drivers/net/dsa/motorcomm/chip.h
-
-[ ... ]
-
-> @@ -527,6 +529,7 @@ struct yt921x_priv {
->  	u16 eee_ports_mask;
->  
->  	DECLARE_BITMAP(meters_map, YT921X_METER_NUM);
-> +	DECLARE_BITMAP(flowstats_map, YT921X_FLOWSTAT_NUM);
-
-[Severity: Low]
-Should this new pool also be registered as a devlink resource?
-
-yt921x_devlink_resources[] in devlink.c exposes "ACL" and "meters", each
-with an occupancy callback, for example:
-
-	count = bitmap_weight(priv->meters_map, YT921X_METER_NUM);
-
-There is no entry for the 64 flow counters. Once they run out, a rule is
-either rejected with "No more flowstats, but immediate HW stats requested"
-or gets HW stats silently disabled. devlink resource show gives no sign of
-either.
-
-> diff --git a/drivers/net/dsa/motorcomm/tc.c b/drivers/net/dsa/motorcomm/tc.c
-> index e3f057ed580f5..1d927a02e1153 100644
-> --- a/drivers/net/dsa/motorcomm/tc.c
-> +++ b/drivers/net/dsa/motorcomm/tc.c
-
-[ ... ]
-
-> @@ -1059,6 +1073,9 @@ yt921x_acl_rule_ext_parse_flow_action(struct yt921x_acl_rule_ext *ruleext,
->  			terminal = true;
->  			break;
->  		case FLOW_ACTION_DROP:
-> +			/* FLOWSTAT only counts passed frames */
-> +			ruleext->stat_applicable = false;
-> +
-
-[Severity: Medium]
-If the counter only sees passed frames, what happens with police rules?
-
-The FLOW_ACTION_POLICE case sets YT921X_ACL_ACTa_METER_EN and leaves
-stat_applicable alone. yt921x_meter_config() programs the meter with
-YT921X_METER_CTRLc_DROP_R, so exceeding frames are dropped in hardware.
-
-For a rule like "flower skip_sw ... action police rate X burst Y
-conform-exceed drop/pipe action pass", yt921x_acl_add() allocates both a
-meter and a counter. yt921x_acl_stat() then reports the counter as the
-filter's packet count, with drops always 0:
-
-	flow_stats_update(stats, aclrule->stat_pkt_mode ? 0 : diff,
-			  !aclrule->stat_pkt_mode ? 0 : diff, 0,
-			  jiffies, FLOW_ACTION_HW_STATS_IMMEDIATE);
-
-If the comment is accurate, would that undercount the matched packets for
-police rules, including for the police action itself? If it isn't
-accurate, are drop rules being refused counters unnecessarily?
-
-[ ... ]
-
-> @@ -1143,7 +1161,21 @@ yt921x_acl_rule_ext_parse_flow_action(struct yt921x_acl_rule_ext *ruleext,
->  			break;
->  	}
->  
-> +	/* When frames are counted by software, a hardware counter would double
-> +	 * count those. Do not assign a counter when !skip_sw && !redir.
-> +	 */
-> +	if (ruleext->stat_applicable && !cls->common.skip_sw && !redir)
-> +		ruleext->stat_applicable = false;
-> +	/* Do not check on !skip_sw rules: we can't stop software from
-> +	 * installing them.
-> +	 */
-> +	if (ruleext->stat_applicable && cls->common.skip_sw &&
-> +	    !flow_action_hw_stats_check(flow_action, extack,
-> +					FLOW_ACTION_HW_STATS_IMMEDIATE_BIT))
-> +		return -EOPNOTSUPP;
-
-[Severity: Low]
-With this check, skip_sw rules using "hw_stats delayed", or rules whose
-actions use different hw_stats types, now fail with -EOPNOTSUPP. They were
-accepted before this patch. Could the commit message mention this?
-
-The check also only runs while stat_applicable is still true, and the
-FLOW_ACTION_DROP case clears it. So a "skip_sw ... action drop hw_stats
-immediate" rule is never validated here. yt921x_acl_add() takes the
-!stat_applicable branch and installs it without a counter or any extack
-warning. After that, yt921x_acl_stat() returns -EOPNOTSUPP for it.
-
-A skip_sw accept or redirect rule with the same explicit "hw_stats
-immediate" is refused in yt921x_acl_add() once the counters run out:
-
-	if (!ruleext->r.sw_assisted && ruleext->stat_required) {
-		NL_SET_ERR_MSG_MOD(extack,
-				   "No more flowstats, but immediate HW stats requested");
-		return -EOPNOTSUPP;
-	}
-
-Is it intended that the same explicit request is rejected in one case and
-silently ignored in the other?
-
-> @@ -1208,6 +1240,9 @@ yt921x_acl_rule_ext_parse_flow(struct yt921x_acl_rule_ext *ruleext, int port,
->  	yt921x_acl_rule_set_ports(&ruleext->r, ord, BIT(port));
->  	ruleext->r.tag = cls->cookie;
->  	ruleext->r.type = TC_SETUP_CLSFLOWER;
-> +	/* Align with sja1105 */
-> +	ruleext->r.stat_pkt_mode = true;
-> +	ruleext->r.laststat = 0;
-
-[Severity: Low]
-This is the only place stat_pkt_mode is set. The counters therefore always
-run in packet mode, and tc -s will always show 0 bytes for offloaded
-flower rules.
-
-As a result, the byte mode paths can never be taken: the
-YT921X_FLOWSTAT_CTRL_PKT_MODE check in yt921x_acl_add() and the
-stat_pkt_mode ternaries in yt921x_acl_stat().
-
-The commit message says:
-
-    and you must choose between byte mode and packet mode.
-
-but it does not say which mode is used, or that byte counts are never
-reported. Could the commit message state this? Is the byte mode code
-needed at all?
-
-> @@ -1281,6 +1316,45 @@ yt921x_acl_reserve(struct yt921x_priv *priv, unsigned int entscnt,
->  	return UINT_MAX;
->  }
->  
-> +static int
-> +yt921x_acl_stat(struct yt921x_priv *priv, enum tc_setup_type type,
-> +		unsigned long tag, u16 ports_mask, struct flow_stats *stats)
-> +{
-
-[ ... ]
-
-> +	diff = stat - aclrule->laststat;
-> +	aclrule->laststat = stat;
-> +	flow_stats_update(stats, aclrule->stat_pkt_mode ? 0 : diff,
-> +			  !aclrule->stat_pkt_mode ? 0 : diff, 0,
-> +			  jiffies, FLOW_ACTION_HW_STATS_IMMEDIATE);
-
-[Severity: Medium]
-Does passing jiffies as lastused here, even when diff is 0, mark the rule
-as just used on every stats poll?
-
-flow_stats_update() stores max(lastused, jiffies), and
-tcf_action_stats_update() copies that into the actions' lastuse. As a
-result, tc -s filter show would always report "used 0 sec". Anything that
-ages out idle offloaded flows by lastuse while polling stats, such as OVS
-tc offload, would never see these rules as idle.
-
-cxgb4 only updates last_used when the packet count has changed, and ocelot
-and lan966x pass 0. Could lastused be updated only when diff is non-zero?
-
-[ ... ]
-
-> @@ -1413,9 +1487,13 @@ yt921x_acl_del(struct yt921x_priv *priv, enum tc_setup_type type,
->  	}
->  
->  	if (aclrule->action[0] & YT921X_ACL_ACTa_METER_EN)
-> -		clear_bit(FIELD_GET(YT921X_ACL_ACTa_METER_ID_M,
-> -				    aclrule->action[0]),
-> -			  priv->meters_map);
-> +		__clear_bit(FIELD_GET(YT921X_ACL_ACTa_METER_ID_M,
-> +				      aclrule->action[0]),
-> +			    priv->meters_map);
-
-[Severity: Low]
-This isn't a bug, but this patch also changes existing code that flow
-statistics does not need:
-
-  - meters_map moves from clear_bit()/set_bit() to
-    __clear_bit()/__set_bit()
-  - sw_assisted in struct yt921x_acl_rule becomes a bitfield
-  - "bool use_trap = false" in yt921x_acl_add() is replaced by a value
-    derived from the action word
-
-The non-atomic bitops look fine, since every meters_map user holds
-priv->reg_lock. The new use_trap initialisation has no effect, because the
-later if (use_trap) block only rewrites TRAP bits that a trap rule already
-carries.
-
-Could these changes be split into a separate patch, or at least mentioned
-in the commit message?
-
-> +	if (aclrule->action[0] & YT921X_ACL_ACTa_FLOWSTAT_EN)
-> +		__clear_bit(FIELD_GET(YT921X_ACL_ACTa_FLOWSTAT_ID_M,
-> +				      aclrule->action[0]),
-> +			    priv->flowstats_map);
-
-[Severity: Low]
-Is it safe to release the counter ID here when yt921x_acl_commit() failed
-earlier in yt921x_acl_del()?
-
-	aclblk->rules[binid] = NULL;
-	ret = yt921x_acl_commit(priv, entid, aclrule->mask);
-	/* the kernel never rolls back on failure */
-
-yt921x_acl_commit() writes the action word first and then does several
-more register writes. Any of those later writes can fail and leave the
-hardware entry still referencing statid.
-
-The error path of yt921x_acl_add() has the same problem. If
-yt921x_acl_commit() fails after writing an action word that contains
-YT921X_ACL_ACTa_FLOWSTAT_EN | YT921X_ACL_ACTa_FLOWSTAT_ID(statid), the rule
-is freed and statid is never marked as used.
-
-In both cases the next yt921x_acl_add() can pick the same statid via
-find_first_zero_bit(), reprogram and zero it, and attach it to a new rule.
-yt921x_acl_stat() might then report the stale entry's traffic as the new
-rule's. The meter IDs already have the same lifecycle, but this patch adds
-it for the new flowstat resource.
-
-[ ... ]
-
-> @@ -1448,6 +1528,11 @@ yt921x_acl_add(struct yt921x_priv *priv,
->  	if (entid == UINT_MAX)
->  		return -EOPNOTSUPP;
->  
-> +	stat_applicable = ruleext->stat_applicable;
-> +	use_trap = (ruleext->r.action[2] & YT921X_ACL_ACTc_FWD_EN) &&
-> +		   (FIELD_GET(YT921X_ACL_ACTc_FWD_M,
-> +			      ruleext->r.action[2]) == YT921X_ACL_ACTc_FWD_TRAP);
-
-[Severity: Low]
-Can this comparison ever be true? FIELD_GET() returns the unshifted field
-value, 0 to 3 for GENMASK(22, 21). YT921X_ACL_ACTc_FWD_TRAP is already
-shifted:
-
-#define  YT921X_ACL_ACTc_FWD_M			GENMASK(22, 21)
-#define   YT921X_ACL_ACTc_FWD(x)			FIELD_PREP(YT921X_ACL_ACTc_FWD_M, (x))
-#define   YT921X_ACL_ACTc_FWD_TRAP			YT921X_ACL_ACTc_FWD(3)
-
-So use_trap always starts out false, even for trap rules. Should this be
-(ruleext->r.action[2] & YT921X_ACL_ACTc_FWD_M) == YT921X_ACL_ACTc_FWD_TRAP
-instead?
-
-There's no runtime effect today, since the if (use_trap) block would only
-rewrite TRAP bits a trap rule already has.
-
-[ ... ]
-
-> @@ -1467,6 +1553,43 @@ yt921x_acl_add(struct yt921x_priv *priv,
->  		}
->  	}
->  
-> +	if (!stat_applicable) {
-> +		statid = YT921X_FLOWSTAT_NUM;
-> +	} else {
-
-[ ... ]
-
-> +		} else {
-> +			u32 zeros[2] = {};
-> +
-> +			ctrl = YT921X_FLOWSTAT_CTRL_TYPE_FLOW |
-> +			       YT921X_FLOWSTAT_CTRL_EN;
-> +			if (ruleext->r.stat_pkt_mode)
-> +				ctrl |= YT921X_FLOWSTAT_CTRL_PKT_MODE;
-> +			res = yt921x_reg_write(priv,
-> +					       YT921X_FLOWSTATn_CTRL(statid),
-> +					       ctrl);
-> +			if (res)
-> +				return res;
-> +
-> +			res = yt921x_reg64_write(priv,
-> +						 YT921X_FLOWSTATn_STAT(statid),
-> +						 zeros);
-
-[Severity: Low]
-Does a direct write to the STAT register actually clear the counter?
-
-This is the only place the driver writes a statistics count register.
-YT921X_METERn_STAT is never written, and the MIB counters are cleared
-through YT921X_MIB_CTRL_CLEAN.
-
-If the FLOWSTAT count register is read-only or ignores writes, a reused
-counter keeps its previous owner's total. Since
-yt921x_acl_rule_ext_parse_flow() sets laststat = 0, the first
-yt921x_acl_stat() call after reuse would report all of the previous rule's
-packets as new traffic.
-
-Would it be safer to read the counter at allocation and store that value
-as laststat? That works whether or not the register is writable.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126060127.185631-1-mmyangfl%40gmail.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v1 0/6] net: avoid stack canaries in TCP/IPv4
+ fast paths
+To: David Laight <david.laight.linux@gmail.com>
+Cc: netdev@vger.kernel.org, "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
+ Emil Tsalapatis <emil@etsalapatis.com>,
+ Ihor Solodrai <ihor.solodrai@linux.dev>, Matthieu Baerts
+ <matttbe@kernel.org>, Mat Martineau <martineau@kernel.org>,
+ Geliang Tang <geliang@kernel.org>, David Ahern <dsahern@kernel.org>,
+ Ido Schimmel <idosch@nvidia.com>, Stanislav Fomichev <sdf@fomichev.me>,
+ Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>,
+ Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>,
+ Phil Sutter <phil@nwl.cc>, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, mptcp@lists.linux.dev,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+ Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
+ <20261126102058.1fecf50f@pumpkin>
+From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
+In-Reply-To: <20261126102058.1fecf50f@pumpkin>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+
+On 2026/11/26 at 19:20 David Laight wrote:
+> On Tue, 24 Nov 2026 22:06:25 +0900
+> Xuanqiang Luo <xuanqiang.luo@linux.dev> wrote:
+> 
+>> From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+>>
+>> With CONFIG_STACKPROTECTOR_STRONG=y, a function that has a local array or
+>> passes the address of one of its locals to another function needs a stack
+>> canary. The canary is set up and checked on every call, also when the
+>> local is only used on a path that almost never runs.
+>>
+>> This series removes the canary from functions of the TCP/IPv4 fast paths,
+>> by returning results by value, by using storage that is not on the stack,
+>> or by not calling a function that has nothing to do.
+>>
+>> Patch 1 returns the two mptcp_space() values in a structure, so that
+>> __tcp_select_window() no longer needs a canary.
+> 
+> While all (I think) architectures can return a big integer in two
+> registers (dx:ax on x86), not all ABI do the same for small structures.
+> For those architectures returning a struct by value is implemented by
+> passing the address of a hidden on stack structure.
+> So code generation may be worse than passing the values by reference.
+> I can't remember the list of architectures, mostly old ones - but not
+> 32bit x86 because the compiler option was set when regparm=3 was added
+> for 2.6.
+> (Note that this is different from passing small structures by value.)
+> 
+> David
+
+Hi David,
+
+Good point! thanks for bringing that up.
+
+The small-struct-by-value pattern in patches 1 and 4 follows the same
+approach Eric used in commit 7a4cd71fa451 ("net: add
+vlan_get_protocol_offset_inline() helper"), which returns a 2-field
+struct vlan_type_depth to avoid stack canaries in callers.
+
+I did note the 8-byte struct ABI distinction you mentioned:
+- On the main 64-bit targets (x86_64, arm64, riscv64, ppc64le, loongarch64)
+   as well as 32-bit x86 (with -mregparm=3 / reg-struct-return), both
+   8-byte structs (struct mptcp_space_info and struct skb_coalesce_res) are
+   returned in registers and the stack canaries are dropped cleanly.
+- On ABIs that return structs (> 4 bytes on 32-bit ARM EABI, or any struct
+   on s390x) via a hidden stack buffer, it indeed falls back to a hidden
+   pointer. Even there, the callers previously passed *two* pointers to
+   locals (&space/&full_space in patch 1, &fragstolen/&delta_truesize in
+   patch 4), so passing one hidden 8-byte return slot should not be worse
+   than before, while keeping the code cleaner and type-safe.
+
+That said, if maintainers prefer packing the two fields into a u64 so that
+even 32-bit ARM / s390x return them in registers, I'd be happy to change
+patches 1 and 4 to do that in v2.
+
+Thanks,
+Xuanqiang
