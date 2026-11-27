@@ -1,80 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795784875;
-	b=pSKVhBLnIMM558eSs8JBEf7A7cs5I4Hx5IcxLcaIrOYnX7sHDj2whrCCiJR6JbxujHld
-	 2MIpYL3+SxS1mjOyGCpN13nT8wg1uvZMviHvdXnkhYkZKEWEtdKXCiChGNgoJ2zEUPpBZ
-	 vWFZaPjv0FrkL8g8jYUK7sagMtQIdgvHwboqpzGjfPBd25wCB0XP9RArt4e2S6Qg/jS6f
-	 VfofniTk4Aoyyb555wE8guR84ssVQgM/W23LeFAXXPNlURAXVEJgWpZI6t+z7Twn4vjV3
-	 JiyfDAjkLA35mkHSTK4E4edp5J5ic7pzwSNyHK0YWpICoAQ0qI2a805Cbq2uIwyxHtw==
+	t=1795784879;
+	b=1u/eVx9OfmkJ0OuSLxTVH/5UQNld+JZkt+oDafbJXqXEmNI6URMhzfxWnuZsDHNQ8Jep
+	 7sXqWNj2Twk5vo2oxlcM2bfG+RYd/Q/BM8sU0kk3g98iG8hP0UFfiKpsNUMAIMveexlCh
+	 5NIHRXmewpnuXOI09gmddakc6ZRUP3Wm2+cxScBpVpdty1I6WT+HZnOTA/rv9r6p/RBba
+	 uXXc3VHlcqwoQjMz5ZaE0Zbs4lM4aduVCenaIaPyyzGHS0RV9wcy8yxJyCx1Ag/hKfpdR
+	 nQaO/aUiUIiDkdcwD9dWIFC6Ln8kR0ZmaUOZ94DUBzoG5zSlMsU5MpW9nXrw2ZVPGMw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795784875;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795784879;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=ijCcEu/XLQwc3B0jG3H2IvbuucYEaV6jcq96t9cxNCA=;
-	b=GkFvYQ8HImhPPJgdEYL8hqasDpZOseuhQgQeT0+V2q05H+Bx8fZ7H1y/httUP/oWulTZ
-	 zlwU14VGndFw2j56n4Uq3bIdVg9EvGpe9AEJxWtNNUlDF8uJFfkpeIH4fPCOmOY9fDaJH
-	 xxoohL6cjxe7LdYrm6I/RYDUTfZPVAeHoY9pIJFCs9xq3OTuGa0HBgdKerzUh36tb/HBe
-	 nkizL+HsCX4fRiwy8jWAhVCoiaOBPwhsI984L9AE0OktyQgHEY2io6CvhtkiQGSStjJsr
-	 NVxnIlM0s+bjVQYkQfIvOAb4qphKcFP7FWuU9ydDn2e3QNjTYG2XXHzRbI5IMaOmn6A==
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=q7pXSodQ3oxakxZGu05XNTUl2qeE/DKNBEL1VNjhFJs=;
+	b=hDxUFURMRnw6hDJbIpgzNBim0l5zWiaI/CCTqvusAovPVFF+0aHEaeZARcYlIzEXym0r
+	 AmTRszEx/qlIkQNiwzzJUXha5hgStreJeAbbhRD2u0dqByF67hn5NhatP/BXGI3hsYdsi
+	 kO2bTDCbpA5vy2isi6Cu5tZ4+Flt7rHn9jMDQuG99gmaawRmmiOwrmEsSWwP6T25d5+Li
+	 9HS6d/wjOeLhxX1qQduIqqlSICBxZWH33o3BYYID4E9D6ei5YZWfFEMxhHvubbmq+CMmR
+	 3EYy94eKMRwtVeW1zL2iurKvhRvozD7Gqkg9H0r480SLOrbHbwHayM6w0uYnQh4N3zg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=u6LMD18h;
-	arc=none smtp.remote-ip=209.85.210.174
-Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zUDRj4Dg;
+	arc=none smtp.remote-ip=209.85.215.181
+Received: from mail-pg1-f181.google.com (mail-pg1-f181.google.com [209.85.215.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB662606A31E
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:07:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB662606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95781606A31E
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:07:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95781606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=u6LMD18h
-Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8d1aec63541so675426b3a.3
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:07:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zUDRj4Dg
+Received: by mail-pg1-f181.google.com with SMTP id 41be03b00d2f7-cdab938dc83so3171112a12.3
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:07:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795784874; x=1796389674; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ijCcEu/XLQwc3B0jG3H2IvbuucYEaV6jcq96t9cxNCA=;
-        b=u6LMD18hkaK2iyL2rTA6qLbRHePQJddzH/CZyyL1iav+dwgXyYHl5Q40TP8PGJrDY2
-         rc+iG3rrb7xTF00GIJiXl+yziXMUQBcg0FEvEU65xl/3rlLYXX+vx5k1Q81N7JMzlAZA
-         lgjEJ4XeZMwHc88684p6VXhh0IRQIu2IC5i7WraahyJNdRKZztAD6AfDUzrJrHz2mtpW
-         e2bZYX2FAtuZ86NOUUWX24sl1hfiQTqYJ9TPpyv4Ro8Nh+kUzRuQAWIvSYbqcdM7eYVM
-         bLPfxiJ5I3VCnZp+ztPaF27OXIGD4bT+wOmIDqV0YfWU+EKcmrU81ysQqg/NALoJeA45
-         B+pA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795784874; x=1796389674;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795784879; x=1796389679; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ijCcEu/XLQwc3B0jG3H2IvbuucYEaV6jcq96t9cxNCA=;
-        b=1oA8NZaN+ytoegw8+8NLFlHmiz00RqSvCR/ww8PbyyXwub+ghb4aKCgglxlV8MgsCx
-         2E1m76N+XeHyEEhIoNahM9vuknodWzedQ4VCvUb59aFygUg1zTV6CpSPyMGYY+VDE5ov
-         AP1L5mFUwJWM0miDTZUq50vMLq4ztAMYNvR1wPv3MxFVzu1geyBITX1qpNjtZXRYSZDO
-         tYjQnb7Rku8yPS21v9OB/1krhntf48heXYgCr5vN6OKeISnCsEEVHON7kidlUKEmDbUg
-         Lxcb52G5zeXURs3vetB5OoWsFcKagl/6qhFQVMIQsp97R40f7AxVRtDcs4UsJ1oeMc0Y
-         ZeQw==
-X-Gm-Message-State: APuU4Z+bT4Psb/LU2zzBflLgoR3jROi76WB8YJz8FVmIDByeYQkMfiRT
-	5SsgNwArnxJhrJL+5rNgwyzTJmInLxUvPwB5mXXwlWjcoXHeneYC3NBMLrFs5g==
-X-Gm-Gg: AZFdTZeM/mbU6RWZsFAr99BLKBpAWXl/cvxsxJQbuRtqVZnRUJ4ieEDeVZLz25gPTYH
-	JtI1mtYAa+/Sfe5XdZHVPQCMaY3NxpxnBNgfAIa0T+Uzs6o4vEd9g6nTllHm8+DNkZTZszlZUyD
-	3f0ydCNcbIJVO9owfGJeDfCFBOlzM8gHJuyj9rFtA7dL0BhR0q3HZ+sXnTzIZnUYoyeqDp3KjVh
-	oZqqKgsMV4/SUExe09eysxtGOWSxKs/9cOZEuYgnojStoJxWaqgTmhWDZinJoCUUyLK4+a7Q21+
-	ATOvaE1iFxeFy908jQLjcynqo7FTMhbhTGMLDNbZDJ+XUBxWpPAVUY6ewdjW1qDyClVS2hbNghQ
-	UB3zkN5u5+xbyOxCHh/DHYPDEZ3xj2eQk9hNqHyz8fPc1gQx9qsKd1u4Vi7Yg3p+69vsR9htuUd
-	EHSJ9tvo1BECfsXh5/w52EwMMyi1j3cYSlMQhfJQYLrNWF+BrCU/fTH4s/nc5bNku/d0tHfolkk
-	KbzafKYsxt4oytv1Qlo01JmMSSPuusn54a8qEuLgwXejn3bz/2E2d5xWtRIGydoLcin3Yx/kg6Y
-	YGh7j0kyoI7+Im+usNPPwXdXcF2W/OWvLdmTqYb30KRPhWvWq2OkfGo=
-X-Received: by 2002:a05:6300:8a0c:b0:40a:4b4e:e078 with SMTP id adf61e73a8af0-40a4b4efb1bmr3555693637.23.1795784873791;
-        Fri, 27 Nov 2026 05:07:53 -0800 (PST)
+        bh=q7pXSodQ3oxakxZGu05XNTUl2qeE/DKNBEL1VNjhFJs=;
+        b=zUDRj4DgIwIRP1GNaPEYyvmjo96JxLAia3Ehryrfxnk7h1ezrUKjWZHAxsjNjMszTH
+         kQKizHif8zI/5oGPgZGhCiulkvVUoxHDptGiHJeRSH3pYJU9e5TJ8GourtD5oizgHiU/
+         U6w2XHpjtA6jrtBu2f6UDQzzlTzTlJVYPxhGdIY1ae5CIGplf4tzZJrewAZ1tymz3MUc
+         fd4w3fIfyu/dYAYv6JYpc6XzOb/0eSvHq5DZTEA+aI74QV47Scd3EYZSZp8Uc94EBQQu
+         iAPvPaS+zcQ5q3vZOWfXQhifH/aiLEF1fgBkUVVOryIpq+NbuUT5lA0ZE4ZJ1TnljW4Y
+         978w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795784879; x=1796389679;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=q7pXSodQ3oxakxZGu05XNTUl2qeE/DKNBEL1VNjhFJs=;
+        b=mfghptLRk5mrF9y+xWg9IOK+cb5SDR2LBDo+OShREBFWj1NU1A3S6zq09lgnRvByfL
+         qhSqqGdAZppuhf1WQTQL0Is3codZdgWGU6vyYEuiCOfRClpuyEjXYEJHSFyxSedCGx24
+         UCNjRu3cVv47/dWcaYTiblc/tUQZGodrPUy5taBR9qcM/uvWpPNgplf4KbpXkSujKoK8
+         my3pg8yVVFoSnFxZgZQptRjQK35q8eWtfhi5aaHrU9ftayATW8b9dgctzVoWw3+PEFx8
+         JctoO4sx9RCg+c2a3RktKyVyqTpnjBcy0t8z6XwWKLpt6sWu0Skk3zWKYfIiOZo3Bnek
+         nXPw==
+X-Gm-Message-State: APuU4Z+ae8aCcTpKJtSZ45kzVGypaW47s+hlBpB7E8JfLLIfZ5RCrVdD
+	5RdWLgVVbjQ+TM9IRcx6SRshDScmRvy+G1DZyEoyRKrlU7qzCl/tCDO27JWLgg==
+X-Gm-Gg: AZFdTZfsAzO17jWYqBI0k2ETvbvDy63rfQbei0LCIdaUeDrgR44/4queZjuuC60bkvS
+	vObwSfovUU3J+lUBy0dwWSp1aYP+gzc1wpfWPimFcv5KId6JLs7yqJapXU/iEb4LVr+gRKUifUP
+	+z2hW+/0sB+IkQS8nrCM3t14zu951ST95VWh/PHflHVdzapjB9CxzK56cCKApKuCA/5it3YvVhb
+	7tEwx8x00ggUkq+lIQ5QNd7CxmqLCTlOk7FG2lWU/0eocyExLytLTSB63bSWYYtcsDwtQ3m4ObP
+	tFptKT4vD17IP57/8Y+DLZRdwlM3zeA0lpu6Scj2UEBAdzMHX3cMcGhaMQWQ7QxebOcB0/f/ljx
+	Zkw7lvYJQ7h92JGnCvcorHG82prclyRruZ8RTaBDR2FxZfxNVQgZrBOL6krbzNqssBODuBTh7hY
+	zlfbzyS2PsyMEO8T0ZdARm8HBdQIMlaJ/edXLiltJUaY8JmPZbpBvgTyFk6Da2F2u8h3hL+be8I
+	0nFQ2IrbCPs4PjEVkniEc33TE/4FhY9R2G2K2yjU/pU3DZ2UWMaBtRtYECX1RKB9fnytY3g6iuF
+	F+P4SlJFKcJnHgYG8mm92jn9GGGAxx/N2OYnjG9HmQImyNdPbIZ3AKE=
+X-Received: by 2002:a17:90b:5287:b0:3b0:d35d:bb86 with SMTP id 98e67ed59e1d1-3b41c8fe261mr23954938a91.15.1795784878648;
+        Fri, 27 Nov 2026 05:07:58 -0800 (PST)
 Received: from d.home.yangfl.dn42 ([2a09:bac1:7680:d30::4d0:13])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d028a54sm11860795a12.18.2026.11.27.05.07.49
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d028a54sm11860795a12.18.2026.11.27.05.07.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 05:07:53 -0800 (PST)
+        Fri, 27 Nov 2026 05:07:58 -0800 (PST)
 From: David Yang <mmyangfl@gmail.com>
 To: netdev@vger.kernel.org
 Cc: David Yang <mmyangfl@gmail.com>,
@@ -89,10 +91,12 @@ Cc: David Yang <mmyangfl@gmail.com>,
 	Jian Shen <shenjian15@huawei.com>,
 	Jijie Shao <shaojijie@huawei.com>,
 	devicetree@vger.kernel.org
-Subject: [PATCH net-next v5 0/5] net: hix5hd2_gmac: Support fixed-link
-Date: Fri, 27 Nov 2026 21:07:23 +0800
-Message-ID: <20261127130729.1263920-1-mmyangfl@gmail.com>
+Subject: [PATCH net-next v5 1/5] net: hix5hd2_gmac: Use devm_ managed netdev and MDIO bus
+Date: Fri, 27 Nov 2026 21:07:24 +0800
+Message-ID: <20261127130729.1263920-2-mmyangfl@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261127130729.1263920-1-mmyangfl@gmail.com>
+References: <20261127130729.1263920-1-mmyangfl@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,34 +108,108 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Support MAC-to-MAC link on hix5hd2_gmac. Also add and support mdio child
-node to suppress warnings when fixed linked, as in macb.
+Let devres manage the netdev and the MDIO bus allocation, so that
+neither needs to be freed by hand in the error path and on remove.
+The MDIO bus itself is still registered and unregistered by hand, so
+that it is torn down before the MAC clocks are disabled on the probe
+error path.
 
-v5:
- - fix bus registration for in-band links
- - check NULL for priv->bus on remove
-v4: https://lore.kernel.org/r/20261126005524.4156940-1-mmyangfl@gmail.com
- - reword in dt bindings
- - register MDIO bus manually
- - skip disabled mdio child
-v3: https://lore.kernel.org/r/20261124002442.19414-1-mmyangfl@gmail.com
- - use devm_*
- - split mdio child node and fixed-link
-v2: https://lore.kernel.org/r/20261122230134.3366017-1-mmyangfl@gmail.com
- - add mdio bus child node
-v1: https://lore.kernel.org/r/20261120031026.1371052-1-mmyangfl@gmail.com
+Signed-off-by: David Yang <mmyangfl@gmail.com>
+---
+ drivers/net/ethernet/hisilicon/hix5hd2_gmac.c | 20 +++++++------------
+ 1 file changed, 7 insertions(+), 13 deletions(-)
 
-David Yang (5):
-  net: hix5hd2_gmac: Use devm_ managed netdev and MDIO bus
-  dt-bindings: net: hisilicon,hisi-gmac-v1: Add mdio bus child node
-  net: hix5hd2_gmac: Use mdio child node for MDIO bus if it exists
-  dt-bindings: net: hisilicon,hisi-gmac-v1: Allow fixed-link
-  net: hix5hd2_gmac: Support fixed-link
-
- .../bindings/net/hisilicon,hisi-gmac-v1.yaml  | 25 +++++-
- drivers/net/ethernet/hisilicon/hix5hd2_gmac.c | 89 +++++++++++--------
- 2 files changed, 78 insertions(+), 36 deletions(-)
-
+diff --git a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
+index 12a5657653f8..44b05d41cb95 100644
+--- a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
++++ b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
+@@ -1106,7 +1106,7 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
+ 	struct mii_bus *bus;
+ 	int ret;
+ 
+-	ndev = alloc_etherdev(sizeof(struct hix5hd2_priv));
++	ndev = devm_alloc_etherdev(dev, sizeof(struct hix5hd2_priv));
+ 	if (!ndev)
+ 		return -ENOMEM;
+ 
+@@ -1121,26 +1121,26 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
+ 	priv->base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(priv->base)) {
+ 		ret = PTR_ERR(priv->base);
+-		goto out_free_netdev;
++		return ret;
+ 	}
+ 
+ 	priv->ctrl_base = devm_platform_ioremap_resource(pdev, 1);
+ 	if (IS_ERR(priv->ctrl_base)) {
+ 		ret = PTR_ERR(priv->ctrl_base);
+-		goto out_free_netdev;
++		return ret;
+ 	}
+ 
+ 	priv->mac_core_clk = devm_clk_get(&pdev->dev, "mac_core");
+ 	if (IS_ERR(priv->mac_core_clk)) {
+ 		netdev_err(ndev, "failed to get mac core clk\n");
+ 		ret = -ENODEV;
+-		goto out_free_netdev;
++		return ret;
+ 	}
+ 
+ 	ret = clk_prepare_enable(priv->mac_core_clk);
+ 	if (ret < 0) {
+ 		netdev_err(ndev, "failed to enable mac core clk %d\n", ret);
+-		goto out_free_netdev;
++		return ret;
+ 	}
+ 
+ 	priv->mac_ifc_clk = devm_clk_get(&pdev->dev, "mac_ifc");
+@@ -1175,7 +1175,7 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
+ 		hix5hd2_phy_reset(priv);
+ 	}
+ 
+-	bus = mdiobus_alloc();
++	bus = devm_mdiobus_alloc(dev);
+ 	if (bus == NULL) {
+ 		ret = -ENOMEM;
+ 		goto out_disable_clk;
+@@ -1191,7 +1191,7 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
+ 
+ 	ret = of_mdiobus_register(bus, node);
+ 	if (ret)
+-		goto err_free_mdio;
++		goto out_disable_clk;
+ 
+ 	ret = of_get_phy_mode(node, &priv->phy_mode);
+ 	if (ret) {
+@@ -1271,14 +1271,10 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
+ 	of_node_put(priv->phy_node);
+ err_mdiobus:
+ 	mdiobus_unregister(bus);
+-err_free_mdio:
+-	mdiobus_free(bus);
+ out_disable_clk:
+ 	clk_disable_unprepare(priv->mac_ifc_clk);
+ out_disable_mac_core_clk:
+ 	clk_disable_unprepare(priv->mac_core_clk);
+-out_free_netdev:
+-	free_netdev(ndev);
+ 
+ 	return ret;
+ }
+@@ -1291,13 +1287,11 @@ static void hix5hd2_dev_remove(struct platform_device *pdev)
+ 	unregister_netdev(ndev);
+ 	cancel_work_sync(&priv->tx_timeout_task);
+ 	mdiobus_unregister(priv->bus);
+-	mdiobus_free(priv->bus);
+ 
+ 	if (HAS_CAP_TSO(priv->hw_cap))
+ 		hix5hd2_destroy_sg_desc_queue(priv);
+ 	hix5hd2_destroy_hw_desc_queue(priv);
+ 	of_node_put(priv->phy_node);
+-	free_netdev(ndev);
+ }
+ 
+ static const struct of_device_id hix5hd2_of_match[] = {
 -- 
 2.53.0
 
