@@ -1,93 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795798250;
-	b=pn/KqrE+NzyX6S1FIYfRE4AZ/tpdfwtd4slS88VwG88oVjO1tCAeeLzo1hW92iOkueQn
-	 g6KukSRb1pCVKg21K0gpxq9E7QuecK9p82tMO9WqVeP5QzLrgUMr07CpC6Wc58dffH8/P
-	 w6QcMqZoIX11/v/L/Na4CAWU3XHWFO3rOfOo71cKnaQTHQSZ7qldqu4upZmXQnUlTgdIc
-	 ABpHfUj4HdUtBc8EzinhHWWZWRbPIGThesEZ9EWJBl/ITjkxGf7tUhS8CEqbrSbjlzNR5
-	 oXFRlSzsT7+1UdrJMcHN6vcvF+1Kt3+9o24PnWoM9tNvf9OMOwIHHGwg2i6N1VG2/3Q==
+	t=1795798295;
+	b=Mc+seGvyvJaOZjjT6Hyt82Oi/4j1cPz6bWvWszPBW2mNiX5czqxjAWfUIwqbpNITryjj
+	 W+nCE+TnrLxBa8HgR5qY6yaF9JkySi4lxNcCmR7YeXdR79ZbWcI3WZssJ7pFIc4Ap6ajR
+	 VfjAKnANy26gq7LPYTW/D+fsu/KRHQKD77RAHjLiCLYEbhzTTabGZF1l+OGKeNNmZaymH
+	 wh4+M+pzLfCwSaZjGws268J91PL24gXD0HcJ5Ok+DnmbRpwC4dNAKVf0xrhTWsXW4RpoC
+	 28Ob1g+tRrTztLeXMxb1pmXt6oxvwtHiRAHQevFw3jriiA/pFD7sXfco/MgPwJPrpvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795798250;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=CC9xMLD9bTgnYkNcn5iSuVnlB9AbFq24eDdqRch041s=;
-	b=RhCx46mAcBojnYj0Vb7e/DEq7/CjTEeKjVR8hSPZqad6E7vZoqa8pG6YYVDosbfLK3NM
-	 J8EyypffK2smW7x5gLytOs1UxBZDpwxCbvxOHrDVlmn7mD7K698TUSTu64QrzXwjijiaa
-	 W2u62W0he136V9Rjm8gPtw9xZXYej9sbVjofTEyRuDsdsubyUs+r6IZwNq8hEhwqyfhQp
-	 BC4FZawN6OUmnyUkrvOMom/Nk+bwdPTTj2JcZSnbFYTYvDfOnsD7Vx50pE3jxpD8gUXu+
-	 zOzgh87ufVIsK+jckNyXfiF2BxGwLHFsLgFQWTyuT03mArKS/nodjFKHzLjng6m9SaA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795798295;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:Cc:To:
+	 From:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=dQSR59RiW0IbkNtXBm69k9/kOvof6x0Vm6WyyZtX8xU=;
+	b=WwrYTgRBsNYl7mvSOORUc3RHLO2ywwl/ID/q6zELEHH8OXM1tp7evBDXnyENPzZjkKxK
+	 JOwg6uD2GBeItSagBY+UCnQ6soT+Kmfad9aSb5khaUUOQ0ccwmMQLw40XgkUjvq6pPpqE
+	 IErDOV229Wnsoy0ah3j4PmfN1BPLQrfcQSDZ0U+MGDPWXEGdx6GHJ4TsGjlS7Yj06FaWK
+	 Q1e2XwfV4JiRCPn2MaqQQ7fJWXQFPz465iOFeSLjX1MGIU2+vRsdYNjP0IHMv4Hx9tNoj
+	 TE+uRVP/MGs5yj8RLnuhQLkgylLkWEVPFisi2uGMJGUa7GadnE+3BLfkyS7U9ric2KQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=networkplumber.org;
-	spf=pass smtp.mailfrom=networkplumber.org;
-	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="P/SDgzim";
-	arc=none smtp.remote-ip=209.85.215.182
-Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=qD9uDFxM;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BD60606A31E
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 16:50:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BD60606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=networkplumber.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=networkplumber.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1611A606A31C;
+	Fri, 27 Nov 2026 16:51:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1611A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=P/SDgzim
-Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-cd62c570b5dso5562878a12.2
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 08:50:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1795798249; x=1796403049; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=CC9xMLD9bTgnYkNcn5iSuVnlB9AbFq24eDdqRch041s=;
-        b=P/SDgzimikDxe/mlpt3fI+NiRDwfjEbxSXHdnnxOFlclySZqITon8HUzQw10HsYck1
-         EF0zjzipLDdWyn+1Y148vKqWW6JNMSn4TnUSDR4AAw3Lk4iE3leIGHk6jbIqL5XVeYo6
-         OaTyLerMSa7FcFtInHMOQAX2/NtIz6Ua2D1KW5Z4JXBOnfxQ30Sm5Ru42yn3eFezWfoH
-         UOKGvic2pSGmRdnW9yL3mRzUk6sooFPGqNoqhXqCWq9a8UOzeGKY4QbgMDkW1HkvR3nz
-         Yuon4a/tiaG4NeSo4oLZE20P6gDUS2t3H2i2bxjnnlJ0s0sXnriNRe4xNMManOrGvBCO
-         BM0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795798249; x=1796403049;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CC9xMLD9bTgnYkNcn5iSuVnlB9AbFq24eDdqRch041s=;
-        b=2FeZhv0U4mEbHqsDFqvbE1wbVtmTT6cFq/J/IHfg51eMyTcwLahaNtTbqZmToKCj5a
-         3mC9nVLtf/eC7l4Wrj4JoHhOZDG9b/pfFLPcAQQjj7T0hQmLMoJjX1BsoNxFAGpP4A0I
-         ZzOIZCVBjycPXOTUc1Q2/XRvSYiUxivUoPMRCYGMDzwZNbUz7Ug4rjuMpvbxx10ONNGV
-         HGb5whuhL+/oCRPRTqmS5oCsLdp1AKA0qLnuYd4BrqdSLdP+venJSk6YRtms4YII0o1b
-         Ag8ZxcqeeuqqQmYnVzAvDvSm1zTx+cErq1OAQyhUkBlBrp/+u9WrLQWnIK3SiemvmXnh
-         vhwQ==
-X-Gm-Message-State: APuU4Z+GO0z7ZGXolGYZi7mh5V6Mg+c0Q0p3aRiSRxPvI3l5xb4pjvSl
-	IMHFZLMXw68VtQ69OBIfNysVwHHSvBeUGRa6HBE1eTWAAeFEMyLMz7hg3p8qBnQ0oKs+XYitXgU
-	ZbeswfuQ=
-X-Gm-Gg: AZFdTZe5er8oycQ2RFehALdL2alUmmwAAyErNMRa41GqCkA9JSUG1D/vJk8E1i/ZDPi
-	IHIutsv+VI7WVQWE7c7uZNaGj/hJPRJLdkacfs9b5PU16ASe3jxJt5EbUWZb0T8KLwhuONt2ZMZ
-	jd7RKRQytwiWySjPk+M1/kIL/BQPXIzNDrIl/rjcMdG5phtqfB58SI2HMb3Ffa0/6hYnfKhcHNw
-	XTtXou1msBxejvgwUx8g2pbB4tfYC7acX8+V8L2xAYIFeo3BmZXSzMcOEI9WqEY0NBLtlvzNpsa
-	7uCiexQz1CtoIUhifJ1cW6VbsAORri6rnpFLFbe4fahAKXmTrNleLanCzFdzamAdzz54dJjxOMh
-	O2dRm0/Ljl7hjMgLtsRNTM0WCMO7/eRYksyR52qcneM10GZwKW/b03I6dTimyVLuVNcs+IGbUll
-	uGi8gw/IMxX3Kx0TfMW9wg9IzrO4aAYXktNNH07dSOccTRWMRbWNDwn65AJOgFdiGtcojcMSRXG
-	x4Su9mv/L3ENZ4GuzMq9CXnXHTbcVc2QSUn4oCxHOdAi2Pvxc4zSAKHChRWz7zyA9MSCdVD931r
-	hMcBoTYHSCrZvTStfEf72peq1uxENGUa9CSXyCVUB5AxdwLOjdPhvA==
-X-Received: by 2002:a17:90b:2e49:b0:3b4:625:3d2f with SMTP id 98e67ed59e1d1-3b41cb212bfmr23289223a91.55.1795798249527;
-        Fri, 27 Nov 2026 08:50:49 -0800 (PST)
-Received: from phoenix.lan (204-195-112-43.wavecable.com. [204.195.112.43])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4b3c71192sm23148044a91.5.2026.11.27.08.50.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 08:50:49 -0800 (PST)
-From: Stephen Hemminger <stephen@networkplumber.org>
-To: netdev@vger.kernel.org
-Cc: dsahern@kernel.org,
-	Stephen Hemminger <stephen@networkplumber.org>
-Subject: [PATCH iproute2-next 2/2] lib: use flex array for names
-Date: Fri, 27 Nov 2026 08:50:46 -0800
-Message-ID: <20261127165046.3656340-2-stephen@networkplumber.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261127165046.3656340-1-stephen@networkplumber.org>
-References: <20261127165046.3656340-1-stephen@networkplumber.org>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=qD9uDFxM
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 08E844E417C7;
+	Fri, 27 Nov 2026 16:51:32 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C01C66049C;
+	Fri, 27 Nov 2026 16:51:31 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 13ACF102F013F;
+	Fri, 27 Nov 2026 17:51:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795798290; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=dQSR59RiW0IbkNtXBm69k9/kOvof6x0Vm6WyyZtX8xU=;
+	b=qD9uDFxMmT/3UwZss6BngA2505nHpfyDQFtRUDcN9b6w69+GYiKTntpfeWpT8THJb2LLX8
+	58b8pTOIFU7R75i5v8qSWKoUQObC9XzLVEq0cXEWKBmxmrKOnDyhgY2H4BlgeMTSZEb3fV
+	BMdbAzLrNA83CvcCKlG+Aqpo9U6RTaKeAdTrDDVdOBtDOopOZVrB0FMxIb0ed434vJLSqM
+	K28JplMzCQFA4GX6JXy6Vx4c5j7sC1L6QUvybtGFnvwP/Eo/59RahA6cRfTC3s0WI29snB
+	QvhB5CgCiKaXmYW5tA/2vZMpU6qaL7JcAIK1ef7SKM7XdKegZ8CZCvLgKyZR8Q==
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -96,63 +58,155 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 27 Nov 2026 17:51:19 +0100
+Message-Id: <DN65D0SH90VI.2OD8UAD9HSLHI@bootlin.com>
+Subject: Re: [PATCH net-next v8 1/3] net: macb: cache ENST config across
+ link down/up
+Cc: <conor.dooley@microchip.com>, <andrew+netdev@lunn.ch>,
+ <davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+ <pabeni@redhat.com>, <linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <nb@tipi-net.de>, <pvalerio@redhat.com>,
+ <vladimir.kondratiev@mobileye.com>, <gregory.clement@bootlin.com>,
+ <benoit.monin@bootlin.com>, <tawfik.bayouk@mobileye.com>,
+ <thomas.petazzoni@bootlin.com>, <vineeth.karumanchi@amd.com>
+To: <netdev-bot+sashiko@kernel.org>
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261124-macb-set-channels-v8-1-770cf8e50e6d@bootlin.com>
+ <179571152363.3135.15940503307792785015@kernel.org>
+In-Reply-To: <179571152363.3135.15940503307792785015@kernel.org>
+X-Last-TLS-Session-Version: TLSv1.3
 
-Can save an allocation here by using flexible array to store the names.
+Hello netdev-bot+sashiko,
 
-Signed-off-by: Stephen Hemminger <stephen@networkplumber.org>
----
- include/names.h |  2 +-
- lib/names.c     | 11 +++--------
- 2 files changed, 4 insertions(+), 9 deletions(-)
+On Thu Nov 26, 2026 at 5:45 PM CET,  wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] In macb_mac_link_up()
+>   (drivers/net/ethernet/cadence/macb_main.c), when the link comes back=E2=
+=80=A6
+>
+> --
+>
+> net: macb: cache ENST config across link down/up
+>
+> The macb driver now keeps the ENST (taprio offload) config in bp->enst
+> and writes it again on every link-up. If the link speed has changed, the
+> cached config is dropped with a warning. The commit also caches the link
+> speed in bp->speed_mbps, serialises the taprio paths with
+> bp->mac_cfg_lock, and removes the pm_runtime_suspended() check.
+>
+>> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethe=
+rnet/cadence/macb_main.c
+>> index 9f6111661b40d..1e06666921160 100644
+>> --- a/drivers/net/ethernet/cadence/macb_main.c
+>> +++ b/drivers/net/ethernet/cadence/macb_main.c
+>
+> [ ... ]
+>
+>> @@ -1009,6 +1048,15 @@ static void macb_mac_link_up(struct phylink_confi=
+g *config,
+>> =20
+>>  	spin_unlock_irqrestore(&bp->lock, flags);
+>> =20
+>> +	if (bp->enst.speed_mbps && speed !=3D bp->enst.speed_mbps) {
+>> +		netdev_warn(bp->netdev,
+>> +			    "TAPRIO dropped because link speed changed\n");
+>> +
+>> +		memset(&bp->enst, 0, sizeof(bp->enst));
+>> +	}
+>> +
+>> +	macb_apply_enst_config(bp);
+>> +
+>
+> [Severity: Medium]
+> After the link comes back at a different speed, the cache is zeroed.
+> macb_apply_enst_config() then sets the disable bits for every queue and
+> writes 0 to the per-queue timing registers. ENST_CONTROL is not enabled
+> again, because of this check:
+>
+> 	if (bp->enst.queue_mask)
+> 		gem_writel(bp, ENST_CONTROL, bp->enst.queue_mask);
+>
+> From then on the MAC applies no gate control at all. Only a netdev_warn()
+> reports this.
+>
+> Does the taprio qdisc still report a fully offloaded schedule in this
+> state? netdev->num_tc and tc_to_txq are left as they were, since only
+> macb_taprio_destroy() calls netdev_reset_tc(). In offload mode the taprio
+> core does not call ndo_setup_tc again on link changes, so nothing
+> reprograms the hardware.
+>
+> Can the schedule ever come back without the user reinstalling the qdisc?
+> struct macb_enst stores only on/off times already converted to bytes for
+> one speed:
+>
+> 	config.queues[queue_id].on_time_bytes =3D
+> 		enst_ns_to_hw_units(entry->interval, bp->speed_mbps);
+> 	config.queues[queue_id].off_time_bytes =3D
+> 		enst_ns_to_hw_units(off, bp->speed_mbps);
+>
+> macb_taprio_setup_replace() discards the nanosecond intervals from
+> tc_taprio_qopt_offload. Because of that, macb_mac_link_up() cannot
+> recompute or re-check the schedule for the new speed. It also cannot
+> restore it if the link later comes back at the original speed, for
+> example after a temporary PHY downshift or a cable swap.
+>
+> Would it work to keep the ns intervals in bp->enst, then re-validate and
+> recompute the byte values on each link-up? The schedule would then
+> survive whenever it still fits the new speed.
 
-diff --git a/include/names.h b/include/names.h
-index 7ea83681..dd491a20 100644
---- a/include/names.h
-+++ b/include/names.h
-@@ -11,7 +11,7 @@
- struct db_entry {
- 	struct db_entry *next;
- 	unsigned int id;
--	char *name;
-+	char name[];
- };
- 
- struct db_names {
-diff --git a/lib/names.c b/lib/names.c
-index 6295a981..299da9d2 100644
---- a/lib/names.c
-+++ b/lib/names.c
-@@ -53,17 +53,13 @@ int db_names_load(struct db_names *db, db_id_parser_t parse_id,
- 		}
- 		ret = -1;
- 
--		entry = malloc(sizeof(*entry));
-+		entry = malloc(sizeof(*entry) + strlen(namebuf) + 1);
- 		if (!entry)
- 			goto exit;
- 
--		entry->name = strdup(namebuf);
--		if (!entry->name) {
--			free(entry);
--			goto exit;
--		}
--
- 		entry->id   = id;
-+		strcpy(entry->name, namebuf);
-+
- 		entry->next = db->hash[id & (db->size - 1)];
- 		db->hash[id & (db->size - 1)] = entry;
- 	}
-@@ -87,7 +83,6 @@ void db_names_free(struct db_names *db)
- 		while (entry) {
- 			struct db_entry *next = entry->next;
- 
--			free(entry->name);
- 			free(entry);
- 			entry = next;
- 		}
--- 
-2.53.0
+This has been discussed; read the thread under [PATCH net-next v7 1/3].
+https://lore.kernel.org/lkml/20261118-macb-set-channels-v7-1-2dbc00f686af@b=
+ootlin.com/#r
+
+Conclusion is:
+
+ - If the link speed changes, then an ENST schedule makes little sense
+   and userspace should give us a new one. The idea is that a schedule
+   is scaled based on the workload to know what is emittable in each
+   timeslot. Once you change the link speed, all timeslots now can
+   contain more/less the previous amount.
+
+ - Also, ENST is about Time Sensitive Networks. The link down caused by
+   the link speed change is already massive trouble for such usecases.
+
+ - It'd be nice if we could drop the qdisc from driver code.
+
+ - I do not want to store =C2=B5s in the cached state and compute register
+   values from the current link speed. This is more code and many risks
+   of bugs (rounding is critical to avoid ENST timeslot overlaps and
+   such).
+
+However, I would be okay to keep the existing schedule around even if
+the current link speed isn't matching. It would allow:
+
+ - 1G link =3D> userspace assigns ENST schedule
+ - 100M degraded link =3D> delete ENST schedule and warn
+ - 1G link =3D> our cached schedule is valid, reapply it
+
+I will respin for this and for a low prio finding on patch 2;
+the one about locking bp->mac_cfg_lock to read bp->enst in
+macb_set_channels().
+
+Thanks,
+
+--
+Th=C3=A9o Lebrun, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
