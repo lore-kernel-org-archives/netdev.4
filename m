@@ -1,52 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.53
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795782199;
-	b=Nl2fc9Eub5vtBUFwUPrYrqioOJJZKpoIZh57Hc8AKpbYlns5RXN0rFEjKnr6PnOHqRF5
-	 Vh98EbYNiNlEYHHF/WNqnhsgQ+YR5GsP+MsJ+efVIsfRmRbMX5BCLlMUmPnL/D9z7F7nh
-	 kS0SYJ/T9hna+ewqJHYlfSkv+A6Y9UNnIkVGX5uzCxzftLnmPQPc6iYVW3fD6sYcOBItG
-	 GPVFvJ7W7K9ly7fnxGXYWxTNKcSLI9HjWb3O1oA7yttHloLLyS7WMVnzwDKRXG5lFtn38
-	 lcgHHWQCdXDqshLVz4FCiL3/5U/aJtz2V6FWPjvi1hlpU2kqbYpvv9L1WU90R3S6PLg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795782199;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:MIME-Version:Date:Content-Type:
-	 Content-Transfer-Encoding:From:Message-ID:TLS-Required:Subject:To:Cc:
-	 In-Reply-To:References;
-	bh=we26npX57rKL+VL8xivi5E7EKRh5WKL6xyTPMHFncME=;
-	b=fvwjVVTneA1xXkmmKZG2gMGGG2xEl+EwYJonZQlfzb9wey1e8/452LMskN2lmm2/REXL
-	 iTSBzB4VU1K27RvaAoOOkO3WLplA0hOjb4xqRgxpR5Dv6WhIZG0AM2pkxd6Ax2x8AY0YF
-	 31BoFmOqBwj5VgrS/hO4Ui+JhZs8udomT8EjdbNjS45FJFoV/M4pvBDTpFiYfNHK9iS98
-	 jdqkd3dvi7hvv3LFjADCR5TggomVqwydtZlnANEnkukAPZlYoyhZkj0oTNPuFkK7nJ8HV
-	 JaYEnXS9/VFqPkpGR8w/O3vUuqABKak6LvPZlZsq/SppH/eU6JihZazpnFljjZrmT/g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ZQ3enJyt;
-	arc=none smtp.remote-ip=91.218.175.53
-Received: from mta0.migadu.com (out-53.mta0.migadu.com [91.218.175.53])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.181
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795782574;
+	b=totmD34UUAyLafze2VuJRTnue8SurfIC+SufbQ8eNGMtR0Szko0yEJgDrj0X1HQr9Cp0
+	 3aGmCCg/DdeBg6UGt5sl/h7vzZIl4peboImScTkR2RN73yghsx4CwqGcelf0NYysql8zI
+	 N4cCoH4xWiDtckPsyb3U3srJQX0Ilf5qW8s6oABN6a66Nq9USK0IeuPxePcQKD1eqEc5D
+	 bqkrk92oe9fW+n4xjAseGZx0kh00B0P98fh86A9hMOnOSYHNWU0eCl2HsyG3rcJ77ZqWM
+	 EeNotOZcBIttfR0xPmpov0ntnMGPj/V2WWc429UhHZ71YznZWPO9NiQxtJOKu5D88kA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795782574;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=gXf5stEDIYuDZVQjUcNyW733hx6qDRKNZoyJXoBIROc=;
+	b=cdmc/zbM5tRuZgdRaHVXBMhufzsDgWp3b4ZmGKInMVnUozgBVXgZUIjHuDE0SmO80eeM
+	 Rb50cjhWLZM1UfQtvNGM0k0/9fJtRQO84m9fOyO6Ux1M2LZSej1WWpR/mt5UwdAJa/2Hh
+	 +dm7NDIiIJwiJmvLRT6s5KGy9pucpikdhqOxr5WEgZpm4dIM8GFGcpivPlaaiEsnmA+Wq
+	 gW34OlfgAEP25kFkuKkL6C3dKA75APZ67ETBcHIcr6kk5LFWp3BvMkVLta/ropPdvseaM
+	 extk/rzd5BYbQwjkng/+81NUxzYSQPZtf3Wl40q2S/TJM3x1+j68sPhhcM2UHPB6mmw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=IDtGKepm;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.181
+Received: from mail-qt1-f181.google.com (mail-qt1-f181.google.com [209.85.160.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2287606A32C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 12:23:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2287606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5785A606A321
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 12:29:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5785A606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ZQ3enJyt
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=BA10GbeixydBlnD7l7DBKlHSr5quCNW2fqkr45XbMcM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795782197; v=1; x=1796386997;
- b=ZQ3enJyt7KEbqECNYjUWqm9CuJMuvWzmGYMGsfNCLdt6we75CVwrz88wsqwYH4BzicNPOUlp
- DVcwjo0Zvgc/I8ZiepVHJzl29fcYGBVAqHA0LBlqBciM/hFOzl1UbA6FPnxzLGGcQ3Qi+I3C1++
- 3Lua1XtiUG61PRAuZ3RmFtAw=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id adf3816c4789e0e7;
-	Fri, 27 Nov 2026 12:23:16 +0000
-X-Mizu-Trace-ID: adf3816c4789e0e7
-X-Migadu-Flow: FLOW_OUT
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=IDtGKepm
+Received: by mail-qt1-f181.google.com with SMTP id d75a77b69052e-55be673e029so1832101cf.1
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 04:29:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795782568; cv=none;
+        d=google.com; s=arc-20260327;
+        b=BA9ZYdt2egw2vZFmbt3oBYUjCrOFqinEsRs+GkwSa3zEGLncGyiyUpsBEYmYHdzNPa
+         R/tfZ4z0PDbNLMRwidWIiwNdBF76eLR7rZDCmAuJtKl1/ryylhi9V06sp0EnceJceT1F
+         UuVoFlQ0Go3MVNQd5Gm9Gn6lQFc83PXeuLKZJej1hJ9olvw+i1jPIYEbVEmfPNxHTSPY
+         g1hBO+DaU2PZCnTxy9ruOLeONrdxTQhmCAvECZ4NLJGsLC2oFliJVCbwJZFBuY1s5SGq
+         mCs3MuaCDkCRUGCz6ELkQuEM4MsEoyXVpdQbh5TnYd752hxmR2oYPyUUzRzOYh7HVFHX
+         FX4A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=gXf5stEDIYuDZVQjUcNyW733hx6qDRKNZoyJXoBIROc=;
+        fh=+hf9eU4L4MDsppBRHBkwL/uVJenOdUa9s4CYR4gCcsg=;
+        b=Jg8xB525GGKWNOj5pbYR+c+5SaHI4x9hR51Qnh0Xe3reEMz5nZxBnJ+xMPkSc5ANK/
+         0MAPvApaQ9EDjSadCd8eJhvVN2jWLU+YnVRgybLQsbnvfRLBzV5tB/qmVL8r+9/Jtq9j
+         YmMR7Tg+Y56NNzCjwYnRFxewcnQJK/BE47VS7hBP2G9KBGHFGWGB4c5yb0oEF01wRcrE
+         dvehA4lVNfnjxbIOwFkBd/yG0PfXSea5MBXXmVUJd46eGyHEfRoOsQvHiHNwbryrXrru
+         gxRcR0r5Gz818u+99AOXovUrEStSkAaEu/erJY25R2ytZap3UoafTv88CpQmL9ZOosce
+         78Aw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795782568; x=1796387368; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=gXf5stEDIYuDZVQjUcNyW733hx6qDRKNZoyJXoBIROc=;
+        b=IDtGKepmhQShYR7D/olwV/obTk+1pmvySEjMhbDi/ma/1i93QiS/JtjUrgxBSMhQ0k
+         JL+ilsf6MgB7rL0RhzqkxVfHwpWehnk7Fk4Q747FAHE3PcGDe+yn84ff6jYRMPlMbx0e
+         QokdEvRzq0preycHEpMBQ2Lohvx+Zw/uSsx2DMrkiT1qcSSKYLtRImSCVnyuzNksYALX
+         NtWTa/1okzanV5FHK0NJqjKm441asfoZ8MYagjrt+QkZuqm+fqNCuiCSxrGhrELhPKIE
+         fk/8Dwyrnu3Us/ZvtQsa36mEXHtFs/36/ZYUVzpvU3JIUzDhbiIDtqOBlvidXDxzNxSY
+         eJ7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795782568; x=1796387368;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gXf5stEDIYuDZVQjUcNyW733hx6qDRKNZoyJXoBIROc=;
+        b=tV9i48+q3jfF/IcaJvgofZRBkuoGf1Lv5FRAJp+9Ey5FesUdgeRWiwAONwcGS3qtge
+         1EjeGu9Ur+JqqkfcdKPt6eqSqx03JGSsBTPewR9gb3VOih6xs4oSYirRkw0VAFB69A59
+         AcOrOmXerQxmJCo392VgzTChyJTm36iQdt79piRVhjvLoVGLtyuSM54Yz200WLn1+sQJ
+         wV604RnzreTUs678Rx+HEWqm+Ga9CE6MhBR5GwfVQhV49sIf8See2ZEnDvjfM0SlcXds
+         Sm3TKrYYecxs5VDaxb8S+ADd6HvZ5lgUd1YdhiNq++lSZAU8/C/tAXEaFA0gsdb0gDcN
+         xr/w==
+X-Forwarded-Encrypted: i=1; AL+hErGV2Y97K8xIy58F3K7GCmwohUnOuqj4DYtid+gmP4DWLmUtZZd6lE7MWMcU1M//4oFSFTG4mY8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9wKyLy/P7qNINOvP2fuF1FAlaLHpgf1Qe1Y9pF+G553ZrDXvrX
+	jPTH7y6W+iAdf6XCS2kql0XWHp4Cd37xhYkHceYMUeI7Vhou+K4iFqFkG7VO8sRo2N3PrWAOJUw
+	3NchRFihwwfwFWqvmsftGZiDPkS3R23bXJkIhndW4
+X-Gm-Gg: AZFdTZdzDu/6LzSPATDcORCIBS3g5PRblISfRHjFsf2h4Stum6UrzhrBguy/7IfzOwr
+	moTCLHK9aRvN3/Z128copl87WE+Z48tpKiawvFznvfKEimkHfQoqXEi4wnlM2smi6jFPcYUeiwE
+	2w/p+CZ1dKwk0MOX7MNpBQmaWyGHHjdRCTqZvPSBUt9PWqdSNPQIj0zfYr6lrnXjiuH59jA5csm
+	t2BHie4P+dU9dlfmrj4I89M2WM0V9ZG66++QsAwLBjM/aBBY96eLapdAPkI8u7vxi4UnRF2uFRg
+	ck9C5m6Jc5pd/BTKHkhkMS4NHk6AgMikSoetilp0MvqnRfkP+D4xJZzDiSR00c2HKA6+vJcul3H
+	evD4F53beb/KlNiNly+bl8CEBxVmjIFDN5IHuzw==
+X-Received: by 2002:a05:622a:a14:b0:536:6ae9:f55f with SMTP id
+ d75a77b69052e-55d8900bdcfmr34062041cf.7.1795782567558; Fri, 27 Nov 2026
+ 04:29:27 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -56,153 +104,139 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Fri, 27 Nov 2026 12:23:16 +0000
-Content-Type: text/plain; charset="utf-8"
+References: <20261109182533.3594984-1-lrizzo@google.com> <20261120010655.467825-1-lrizzo@google.com>
+ <20261120135013.GO3115493@ziepe.ca> <CAMOZA0LmZ9PFzxLcc1SuS8piFyZu6P=vX_qR2jy-3QRUoNCUKA@mail.gmail.com>
+ <1f10002ea9ee16a17087bd06e4a1685a973fdf6e.camel@linux.ibm.com>
+ <CAMP57yVZx=s-JXHfQfd_ouv2jV6MMsJXpxVLkQQHG=7qfFVJfA@mail.gmail.com> <d42bd9452d00a0b2a5b7d6652d556c9fc8d2c830.camel@linux.ibm.com>
+In-Reply-To: <d42bd9452d00a0b2a5b7d6652d556c9fc8d2c830.camel@linux.ibm.com>
+From: Luigi Rizzo <lrizzo@google.com>
+Date: Fri, 27 Nov 2026 13:28:50 +0100
+X-Gm-Features: Aa3M54o01jhZM9dCQYVFb8_-yMQWCkVYamRB04RwDLjyCo_Cf-5r3I24fRo_Jr4
+Message-ID: <CAMOZA0JMZ8wUrV08YznFUH7AkmyqXcNdzfd26KsoTtzqt69SVA@mail.gmail.com>
+Subject: Re: [RFC PATCH v3 00/25] PISA: Pre-mapped IOVA Superpage Allocator
+ for DMA and CoCo
+To: Niklas Schnelle <schnelle@linux.ibm.com>
+Cc: Naman Gulati <namangulati@google.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Vlastimil Babka <vbabka@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Jens Axboe <axboe@kernel.dk>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Luigi Rizzo <rizzo.unipi@gmail.com>, 
+	Lorenzo Stoakes <ljs@kernel.org>, "Liam R . Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, Harry Yoo <harry@kernel.org>, 
+	Christoph Lameter <cl@gentwo.org>, David Rientjes <rientjes@google.com>, 
+	Roman Gushchin <roman.gushchin@linux.dev>, Hao Li <hao.li@linux.dev>, 
+	Matthew Wilcox <willy@infradead.org>, Jan Kara <jack@suse.cz>, Jann Horn <jannh@google.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Simon Horman <horms@kernel.org>, Jesper Dangaard Brouer <hawk@kernel.org>, 
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Willem de Bruijn <willemb@google.com>, 
+	Kuniyuki Iwashima <kuniyu@google.com>, Joshua Washington <joshwash@google.com>, 
+	Harshitha Ramamurthy <hramamurthy@google.com>, Alexander Lobakin <aleksander.lobakin@intel.com>, 
+	Christoph Hellwig <hch@lst.de>, Dragos Tatulea <dtatulea@nvidia.com>, Pranjal Shrivastava <praan@google.com>, 
+	Mostafa Saleh <smostafa@google.com>, Randy Dunlap <rdunlap@infradead.org>, linux-mm@kvack.org, 
+	iommu@lists.linux.dev, netdev@vger.kernel.org, linux-block@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, driver-core@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-api@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-From: "Zqiang" <qiang.zhang@linux.dev>
-Message-ID: <37ac3078817eb588433881217b273f0dfd301014@linux.dev>
-TLS-Required: No
-Subject: Re: [PATCH] neighbour: Move the netdev_put() out of RCU callback
-To: "Kuniyuki Iwashima" <kuniyu@google.com>
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-In-Reply-To: <au-AQ7OPf6QPyc3Q@google.com>
-References: <20261009091941.5837-1-qiang.zhang@linux.dev>
- <CAAVpQUAeHP7M07uMweRePtuzPPUo-99dL6jOYUiVf7CSVUxNDQ@mail.gmail.com>
- <a951af6957fe4890d3eaaf5a661754fc259a4b79@linux.dev>
- <au99DNHQEsaaDqpJ@google.com> <au-AQ7OPf6QPyc3Q@google.com>
 
->=20
->=20On Sat, 07 Nov 2026 19:34:07 +0000, Kuniyuki Iwashima wrote:
->=20
->=20>=20
->=20> On Sat, 07 Nov 2026 11:47:45 +0000, Zqiang wrote:
-> >  >=20
->=20>  > On Fri, Oct 9, 2026 at 2:19 AM Zqiang <qiang.zhang@linux.dev> wr=
-ote:
-> >  >=20
->=20>  > >=20
->=20>  > > For builts with CONFIG_NET_DEV_REFCNT_TRACKER=3Dy kernels, net=
-dev_put()
-> >  > > records the caller's stack trace via ref_tracker_free() for debu=
-gging
-> >  > > reference leaks. however, the netdev_put() is within pneigh_dest=
-roy()
-> >  > > RCU callback, this recorded stack is uninformative, it does not =
-reveal
-> >  > > which code path initiated the deletion.
-> >  > >=20
->=20>  > Have you seen pneigh double-free ? What motivates this change ?
-> >=20=20
->=20>  Firstly, Apologies for delayed reply.
-> >=20=20
->=20>=20=20
->=20>=20=20
->=20>  Actually, I didn't see any double-free happening, just wanted it t=
-o
-> >  record a meaningful callstack which on release path. After all, if d=
-ouble-free
-> >  really occurs, the callstack of the RCU callback execution path will=
- not be helpful.
-> >=20=20
->=20>=20=20
->=20>  >=20
->=20>  > >=20
->=20>  > > This commit therefore move netdev_put() from the RCU callback =
-into the
-> >  > > caller's process context, and replace call_rcu() with kfree_rcu(=
-).
-> >  > >=20
->=20>  > > Fixes: d539d8fbd8fc ("neighbour: Free pneigh_entry after RCU g=
-race period.")
-> >  > >=20
->=20>  > Please elaborate why your change is safe in the commit message
-> >  > and remove the tag.
-> >=20=20
->=20>  Does it refer to using kfree_rcu instead of call_rcu ensures safel=
-y ?
-> >=20=20
->=20>  I mean why dropping netdev refcnt waiting RCU gp is safe.
+Catching up on a few comments:
 
-Hi Kuniyuki,
-
-Do you mean that if we dropping netdev refcnt and this is the final
-reference count of the netdev object, the netdev will be free when
-it still be referenced in neigh RCU read critical section ?
-
-But the synchronize_net() will be invoked before free netdev.
-
-I am not an expert in netdev. if I missed something please correct me.
-
-Thanks
-Zqiang
-=20
-
-
->=20>=20
->=20*without waiting
->=20
->=20>=20
->=20> Thanks
-> >  Zqiang
-> >=20=20
->=20>  >=20
->=20>  > >=20
->=20>  > > Signed-off-by: Zqiang <qiang.zhang@linux.dev>
-> >  > >=20
->=20>  > nit: full name
-> >  >=20
->=20>  > >=20
->=20>  > > ---
-> >  > > net/core/neighbour.c | 14 ++++----------
-> >  > > 1 file changed, 4 insertions(+), 10 deletions(-)
-> >  > >=20
->=20>  > > diff --git a/net/core/neighbour.c b/net/core/neighbour.c
-> >  > > index 6ed8eb075146..4263689fc415 100644
-> >  > > --- a/net/core/neighbour.c
-> >  > > +++ b/net/core/neighbour.c
-> >  > > @@ -818,14 +818,6 @@ int pneigh_create(struct neigh_table *tbl,
-> >  > > return err;
-> >  > > }
-> >  > >=20
->=20>  > > -static void pneigh_destroy(struct rcu_head *rcu)
-> >  > > -{
-> >  > > - struct pneigh_entry *n =3D container_of(rcu, struct pneigh_ent=
-ry, rcu);
-> >  > > -
-> >  > > - netdev_put(n->dev, &n->dev_tracker);
-> >  > > - kfree(n);
-> >  > > -}
-> >  > > -
-> >  > > int pneigh_delete(struct neigh_table *tbl, const void *pkey,
-> >  > > struct net_device *dev)
-> >  > > {
-> >  > > @@ -849,7 +841,8 @@ int pneigh_delete(struct neigh_table *tbl, c=
-onst void *pkey,
-> >  > > if (tbl->pdestructor)
-> >  > > tbl->pdestructor(n);
-> >  > >=20
->=20>  > > - call_rcu(&n->rcu, pneigh_destroy);
-> >  > > + netdev_put(n->dev, &n->dev_tracker);
-> >  > > + kfree_rcu(n, rcu);
-> >  > > return 0;
-> >  > > }
-> >  > > }
-> >  > > @@ -891,7 +884,8 @@ static void pneigh_ifdown(struct neigh_table=
- *tbl, struct net_device *dev,
-> >  > > if (tbl->pdestructor)
-> >  > > tbl->pdestructor(n);
-> >  > >=20
->=20>  > > - call_rcu(&n->rcu, pneigh_destroy);
-> >  > > + netdev_put(n->dev, &n->dev_tracker);
-> >  > > + kfree_rcu(n, rcu);
-> >  > > }
-> >  > > }
-> >  > >=20
->=20>  > > --
-> >  > > 2.17.1
-> >  > >
-> >  >
+On Thu, Nov 26, 2026 at 9:46=E2=80=AFPM Niklas Schnelle <schnelle@linux.ibm=
+.com> wrote:
+>
+> On Mon, 2026-11-23 at 09:50 -0800, Naman Gulati wrote:
+> > On Mon, Nov 23, 2026 at 2:10=E2=80=AFAM Niklas Schnelle <schnelle@linux=
+.ibm.com> wrote:
+...
+> > > I think that approach would also align with Jason's idea to keep thin=
+gs
+> > > within the network stack and to work with the tools we have until the=
+ir
+> > > limits become very clear.
+> >
+> > Hi Niklas,
+> >
+> > I have been working on this idea exactly - extending the network
+> > page-pool with a memory provider that allocates large pages, splitting
+> > them into N smaller pages that all share a single IOMMU entry. I
+> > breifly shared my approach in the v1 PMD series [1]. I'm readying a
+> > short RFC to share shortly, would appreciate your feedback.
+> >
+> >
+> > [1] https://lore.kernel.org/netdev/CAMP57yWvHO0pWCR3-9q1gtwVe8WV4Y6i69t=
+rmw+BJRVYf3JB1g@mail.gmail.com/
 > >
 >
+> Hi Naman,
+>
+> This does look more contained, but I'd say you should still go simpler
+> and fewer steps per series. Some thoughts:
+...
+> - This is still a LOT of churn, my gut says much of the benefit should
+> be possible with much less churn. It's really too much to follow but a
+> cursory look makes me feel like there is duplication between rx and tx,
+> which is weird since for the pre-mapping they should be quite similar.
+> There also seems to be very little integration with the existing page
+> pool, rather it seems to set up a parallel mechanism for the pre-mapped
+> buffers. Really in a first step I think we "just" want to use a more
+> efficient DMA mapping and contiguous memory chunks for the page pool
+> and also keep the page pool API unchanged as much as possible.
+
+The implementations seem large because they expose limitations
+in the current kernel code (or our understanding of it;
+but the proof is in the pudding). Networking for one, since you
+mention it: the tx path allocates memory in many places without any
+hint on how the memory will be used (loopback or device with IOMMU ?
+cleartext or encrypted?).
+
+If we limit to the easy parts (e.g. just network RX) we may avoid
+some churn but we will not resolve the problems arising
+from reasonably strict IOMMU deployments on large systems:
+- IOTLB thrashing (network traffic uses separate PTEs for
+  rx buffers, rx headers, tx_buffers, tx headers). Rx buffers
+  are only 25..50% of the total. See [1] for some data.
+- per-buffer VM exits on overcommitted VMs (same problem as above)
+- IOMMU unmap serialization (with strict DMA, I measured over 10us under lo=
+ad)
+- swiotlb copy cost (on tx and a backlogged queue, most of the copies
+  happen on the TX softirq handler).
+
+Also we will not be able to see what is lacking in the current kernel
+code to address all the above.
+
+What I wanted to do with my series (Request-For-Comment, for a reason)
+was to identify the components we presumably need (meaning: implement,
+or figure out where they already exist and actually do what we need)
+and get an idea of how intrusive the changes would be.
+
+Then it is completely fair to say that the goal is not worth the effort
+and should not be pursued, or to take the low-hanging fruits out of it.
+
+cheers
+luigi
+
+[1] Here is an experiment with a system using bidirectional TCP
+traffic on multiple NICs, where IOTLB thrashing becomes a bottleneck.
+Below is how total throughput (TCP payload TX+RX across all NICs)
+changes using 2MB mappings for different regions.
+We really need to cover them all to recover the performance
+of identity mode
+
+Use of 2MB mappings         total TCP throughput Gbps
+-----------------------------------------------------
+none                                  440
+rings                                 572
+rx_buf rings                          577
+rx_buf tx_hdr                         572
+rx_buf tx_buf                         649
+rx_buf rx_hdr                         674
+rx_buf rx_hdr tx_buf                  716
+rx_buf tx_buf tx_hdr                  734
+rx_buf rx_hdr tx_buf tx_hdr rings     744
+identity mode                         744
+------------------------------------------------------
