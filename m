@@ -1,54 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795771241;
-	b=bkblQKm1v8rV/2vp38K3UR+3ht4AaXdop7xRuMih7ADIwnYX0tQXF1aKEJ/NRnBn5ffH
-	 2S+nmwmfpcZ8+Elljvo0qwZpmdTQapPutHF8DbL8L/x79s8yvNYwQkENdZl2wVwnog5rF
-	 ss49DGyPgl+cBIx9siCOYJY1Ne/gSOiGtMlnZkAZfK9+aXtqK0mWcO35iMeNjDzyZNr1J
-	 X88dFatV/4VIJcUeaVu+GcQg0wZjhTpekE+DzNNcA5fyZqUBeL8Uccmz5fxDhNGTChcCV
-	 TqXer9aVwwNOnnS6r4FWpFkj+PMNio3IXIOgC6ypX6FmY6pIGQ2Q22KAIdYfOnEydcg==
+	t=1795771308;
+	b=ppjeDV7RDpwziT13weXwHnJ6E7wMszPx13aecT3WNIGiBBXYi4ctsGjkukvRt8E+ZViJ
+	 b9ZlvyF93I9i5TJV8wWhsnOZZDmeNb7pxInWRYzccaAXxkukW8Q0p5rNme+2VQcvcwpuA
+	 1lX3GG/+nIJiy/R4pdotn+/uBj4uTn/WrKdsc6gh1CYPjn+P7CMo2oj/NKCEfMDvZctPG
+	 AQEesN0tN64B/vKbNAT2hSXUEVK4emPbLhAQl6erOPiqpgLcrw1kbhaXCVKaOCEubVFp4
+	 khmUT/Cb3t7k6mjhS5O9u/5jBHkGHfdeT514XKYsPKlqhvBWZfsNdjXg3vvEKp3rvbg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771241;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=/7Oro6stEyht5ylWx2OeBhdAP8u3/yZshWoQxNRbz9o=;
-	b=NpVhhv3WU1EjAmg02Mdksw4ik3Qz3eq6DXusgD5r4PUjWgiJ6hcNt+7gWktRn5klXqVw
-	 hDaRYkYHPxz/SEepL2zTmP8UhQexv/KisdxjeuWXsDoOt3nRgz/f12HBgG5zkAQDQoFPl
-	 4W9x89zAqcmSu7IpMZhK3RwuDlJsW/bYEf18IDfurt4J5qzkKBi935I8ubD90kKi4qIn2
-	 jpfjeX1G+PWGMxrZrIdnlztEGOfhL2YtnV+2zflepUaNX7cUkQkc8UEZhiyPHWlHuPXxP
-	 aiMWit5SlwLe9nPtWtgqpC/PlDeEybfZWlSM/xvPv4ky8WQPyJnQGr9xPH8y3+HWuqg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795771308;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
+	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy;
+	bh=0E/HB4XTW7vp/uTJ9UtjtqwZ2GG8veKfz4kYsiwlpjA=;
+	b=XfLIQzpOY8kjS6T0aIBXBvzPLfqgr5+4M7lBeeHq1R44/QKpYeodejlkfyb+kx5Dvn1H
+	 yX8oR+Ikrks/nHarF/gVY2M866nxtnk58nC46sHbSazt36w7vAA5UOpberJ4plmipaLtN
+	 3aAupLXKCUdZIVc3thLOWb05shcjxLy3W5/xKmOGfUy06nE9H2jenVj5bbwGfzHhPA3U7
+	 k9+4BmSXvLhpr90aFzSMnlWmZD9nZj1w1uum1Vwbp2Yan2fbs3imVpMuKYT+DjBuWurPS
+	 5MO/jazhOkeUkyrkmOPmboqx9eiJveDF+rTY7AQ4ltaxYv8EoEI7n8E6VulZjz2+K1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ur9fmHQJ;
-	arc=none smtp.remote-ip=91.218.175.49
-Received: from mta0.migadu.com (out-49.mta0.migadu.com [91.218.175.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=secunet.com;
+	spf=pass smtp.mailfrom=secunet.com;
+	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=SOkuM5DF;
+	arc=none smtp.remote-ip=62.96.220.36
+Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A3CD606A326
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 09:20:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A3CD606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A85E4606A321
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 09:21:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A85E4606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ur9fmHQJ
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=5/yRDbbSamitvwmgETj+GShqjtr6n0Tqkzy+8FxqKRc=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795771238; v=1; x=1796376038;
- b=Ur9fmHQJbiYGgYVO2RBEP2yt4dR4lJR7Dp7d0ronH15YG8aZObXZHh4xJRcXgPHhZSvd7XOX
- 7j8NNCUOLzROybwithXsjnJERgQAUC41S/ohxNwM1dVcRazcHBccJXiw6aY8EFM46oBYsC7IwxQ
- +bo2BRK71j9RrvCwMY+GOSeQ=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id b7fd4c2070e9fb12;
-	Fri, 27 Nov 2026 09:20:37 +0000
-X-Mizu-Trace-ID: b7fd4c2070e9fb12
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <7f411177-8ecd-4411-8873-bb2ff232dff6@linux.dev>
-Date: Fri, 27 Nov 2026 17:20:29 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=SOkuM5DF
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.secunet.com (Postfix) with ESMTP id 6ECAF20849;
+	Fri, 27 Nov 2026 10:21:40 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from mx1.secunet.com ([127.0.0.1])
+ by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 1UwdPtv7kA7j; Fri, 27 Nov 2026 10:21:39 +0100 (CET)
+Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.secunet.com (Postfix) with ESMTPS id C77AB207AC;
+	Fri, 27 Nov 2026 10:21:39 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com C77AB207AC
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
+	s=202301; t=1795771299;
+	bh=0E/HB4XTW7vp/uTJ9UtjtqwZ2GG8veKfz4kYsiwlpjA=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
+	b=SOkuM5DFzqHMnHU7+OH+sOmyf5Dwwv88W8Ms119yNKBSYj1ES6ojSJhHV290T8fmi
+	 YFlneRdFjs2y09lc3+mg+MAPKYz/eaZ/PbUTJDTchG3hHHYlhRrIzpXKIc59jDRJdW
+	 Rm6qP9TCTQ6fuTBByapfPxkteEuarci15qnxHb313wJ7pgISsZjgsP8qf5tBHHWct+
+	 Xys7Pjscrw+SWdNyQDZCcv/bdv9wDRUT0kvdm6SYqPKoiPMKHBvhnHS7rHEHYeVJXx
+	 aHiP1f1DOCzq+yxLgeYUTbNKOC6aCL0alzcCx6kuNIvrhIa/WPn/M1UPCxDq/+tXY0
+	 wvXSufd5Dy7KA==
+Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 27 Nov
+ 2026 10:21:39 +0100
+Received: (nullmailer pid 3464846 invoked by uid 1000);
+	Fri, 27 Nov 2026 09:21:38 -0000
+Date: Fri, 27 Nov 2026 10:21:38 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: Zihan Xi <zihanx@nebusec.ai>
+CC: <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
+	<herbert@gondor.apana.org.au>, <davem@davemloft.net>, <edumazet@kernel.org>,
+	<pabeni@redhat.com>, <horms@kernel.org>, <sd@queasysnail.net>,
+	<vega@nebusec.ai>
+Subject: Re: [PATCH net 1/1] xfrm: espintcp: select receive path by skb
+ protocol
+Message-ID: <awlLogRS02zbcZJL@gauss4>
+References: <20261116155229.318582-1-zihanx@nebusec.ai>
+ <20261116155229.318582-2-zihanx@nebusec.ai>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,42 +83,23 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 1/1] netdevsim: bound the peer TX queue index in
- nsim_start_peer_tx_queue()
-To: Kyuwon Cho <kyuwoncho18@gmail.com>, Jakub Kicinski <kuba@kernel.org>
-Cc: Breno Leitao <leitao@debian.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <179528809256.2009509.5007624677973207521@gmail.com>
- <179528810243.2011658.9050974542546209152@gmail.com>
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-In-Reply-To: <179528810243.2011658.9050974542546209152@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261116155229.318582-2-zihanx@nebusec.ai>
+X-ClientProxiedBy: EXCH-02.secunet.de (10.32.0.172) To EXCH-01.secunet.de
+ (10.32.0.171)
 
-
-
-On 11/22/26 3:32 AM, Kyuwon Cho wrote:
-> nsim_start_peer_tx_queue() wakes the peer's TX queue with the index of
-> the RX queue being polled, and only compares this device's TX queue
-> count with the peer's RX queue count. When the device is relinked to a
-> peer with fewer TX queues while its RX queues still hold traffic from
-> the old peer, the index is past the peer's TX queue array:
+On Mon, Nov 16, 2026 at 03:52:29PM +0000, Zihan Xi wrote:
+> An IPv6 socket can accept an IPv4 connection through a v4-mapped
+> address. Such a socket still receives IPv4 skbs, but espintcp selected
+> the XFRM receive path from the socket family.
 > 
->   BUG: KASAN: slab-out-of-bounds in nsim_poll (include/linux/netdevice.h:3834 drivers/net/netdevsim/netdev.c:60)
->   Read of size 8
->   Call Trace:
->    <IRQ>
->    nsim_poll (drivers/net/netdevsim/netdev.c:409)
->    __napi_poll.constprop.0 (net/core/dev.c:7997)
->    net_rx_action (net/core/dev.c:8217)
+> Use the skb protocol when selecting the receive path so IPv4 packets are
+> not passed to the IPv6 XFRM parser.
 > 
-> Skip the wake-up when the index is not a TX queue of the peer.
-> 
-> Fixes: ff2ac4df58ad ("netdevsim: implement peer queue flow control")
-> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+> Fixes: 26333c37fc28 ("xfrm: add IPv6 support for espintcp")
+> Cc: stable@vger.kernel.org
+> Reported-by: Vega <vega@nebusec.ai>
+> Signed-off-by: Zihan Xi <zihanx@nebusec.ai>
 
-Reviewed-by: Jiayuan Chen <jiayuan.chen@linux.dev>
-
+Applied, thanks a lot!
