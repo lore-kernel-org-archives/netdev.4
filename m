@@ -1,80 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795814143;
-	b=myR+VUDUPSyhDeJQa6a+1S5Uk+c6UcSxaMqu+1naoYaKfHIh7kEXTSswmd40FQ0kR/1i
-	 /p+Ezr2sifi9wCCoBMG1cPfANa7WkNbbRZhpPN4JjrWjOyLdNdugZXxVE8NP43EntBw4L
-	 Yb6HYTe6YGuXD7KjvvHi44cfuPGhefZS/KpjeO0dv8JjKeBI/s9jJhZH4Y16ScKvXwu69
-	 DSqiLMX0fNYZyOp2umcAtx6a5LMxEbOzo60WVmsXRNUv8GZR90o4LE/YN02dA0njtqiSZ
-	 LiXs8xsN2cJyaqPpfQBegf0hBOeW083OSZfiohqukwZ0X2U1fvt/cdhQwLPnqs+zA4Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795814143;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=UjluyBnoXBDetWmY7LL/gAafORAZ0sgQFtuZ/uqzehw=;
-	b=huNP8b6aH2LLQv0tloMnFg2JG0pT9lvc0agAXPI8/EJ5AUCXi+6qBL0vP6PRKeoj+G2j
-	 Lk3NG/fE14KRU7y+XbEkDhfr1OA4eF6GI/0yxBydMOLvbczuOxMpYXTo/KvQH8nROEa5J
-	 kB9xg559K0jXhF/KtcNFfIz/KLDXFWnF3Vg+64QNapeRsxJPvqwiVQR8e6OKe9Db7zIHv
-	 v+s0BdWQldH45ziRSGjN7HDXxY/TJHvkv7Pj9R/f4gTSDZh5XrVmUoYet5YRTgYxAMFBh
-	 PYBay6Bmv/TGV1I3Z5DU5qwwLkT729/ReBN7Wla0AJTwsfXeMCGhVsrRMmaEBt19+fA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ovlt0U+F;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795814510;
+	b=1pfH9gBeHEBSiHTF9SJ4FfN7TOIbbOgEppSRAt7dZzaU4oUf5S6t+v18+BJC3br1Dfx7
+	 wXgl+cPejS5+IXqOIlOFUS8PPA1VXo3642fPHrTCPJAJOtFKu5N8ezU1CagEvytHcgoE1
+	 D6SInQpfAV6svfhZGWM1Jdgi3EAGN+7FLWW4OouXcqvHOIx/xL9J/Vn9aJZsxP+1LORvi
+	 Tr4W+rbgcjm38cz5f8zcVGooCZDT3FK6irtSuP1th2vb7lBK1J1dg0Al7dSgU/FjzVNHc
+	 zQjRo+IDAm4rX4PVe20nK+5JUyMxb32iIcAaL0i5QgpIr8pr/zm8AfKbjTq2Gb6elXQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795814510;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=wctQaa4+oug07SAylojzJ054zlJWMzb1RewZ5KzRtMM=;
+	b=niojBkin54vIMAVLDp2p/xI76JX7M2pHChat0xsAtQTvV8ymyF8dAr9yGGS9vgqZjoUp
+	 GARV2+DErQkAP5YTl2Tcp0jbMoVkvWA++E/2lgFr0tfZsjLzDvXUm80zcRHJWiLRl4xjf
+	 5IqrFtHtxOnZd8D2TF7N0o4cKrvLHbZ+Gs2gL3a6Vb+htOhRu1eIwrGCF0lqJgEuqbXmS
+	 ZP8Dc9IYsSrTktkgdJGOQ99gz/FJ7dMSmSStA2nDesJC2D82k+DJwq7JtAIhpzhsCc0X8
+	 DusiWtbzE7/4bqAHAOFlMjL3eyeC6k352IVYmtCXJj7r/AYhRV/eWo29WkWVqW0hKOg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hRXebOuc;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2018A606A31F;
-	Fri, 27 Nov 2026 21:15:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C04D606A31C;
+	Fri, 27 Nov 2026 21:21:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ovlt0U+F
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795814142;
-	b=JoM/zH/NDvX5Xg0rf1KdsikqevUyD3aIQ9d1YeyDMTlzh/+C+ROPj6LuEpuX0fZubb5W
-	 SyvbT4ANv98UPiFCqHyEEaB3MjdkF8Z1t1VPQR/Ig6i84v3iPjoPjnOeE8flAnDA/fPxf
-	 BWxohMItpp31mFsu9AldRFBZePhTPOklSpMAlvq4YajnzQw9GWqhTaIDT+3HO7VaXGsAW
-	 zpAvAn9f+WdA/Qe9W7sL8E/wVkZiH8GM6bK37p0aTuq2NzElRI2stfQGU3YWM0ODF1Gc0
-	 uXQAYzftPA/FqQNPyXB8ppmLlBwKR4oTDtv5/TYiV4fWSAkKVHJZ99+frh0mdM3zb6Q==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795814142;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=UjluyBnoXBDetWmY7LL/gAafORAZ0sgQFtuZ/uqzehw=;
-	b=1sMBi5Itr6swgZhn4KvMu2Yjld3jt28JUUZBnjRPrmWsksuLLZlPY2y/1AOVgeqO8bqZ
-	 BFeh8VfC2ADLDOoKmsiN+GfTuHs+CQK8W/F0Xx18cxZvsZbVbPegYP+b4HmneqSZSjcQ9
-	 J/aDkrrZZg3rdRMfNBOTPlDlHs70IVVLsySiRDC5Jc1cRB+dM+YuJkC/fjS0zOsjFWbCK
-	 v90IhonK2RQG7vZyeNn3J4xMrOOYx05BwxTcxvpGImInqVHEPOGcazUZJp1yfG5h/HRoO
-	 TGxHDXm73uK3Z6UBohIUTusHMtPQ+aTmRdUo273Mlws1CQF/u8byGXa/DsU5bg0YH0A==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 691951F00899;
-	Fri, 27 Nov 2026 21:15:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hRXebOuc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C866E1F000C1;
+	Fri, 27 Nov 2026 21:21:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795814142;
-	bh=UjluyBnoXBDetWmY7LL/gAafORAZ0sgQFtuZ/uqzehw=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=Ovlt0U+F/lcSviGq28ho+TDv3PGIiW1+8gNQwNi68CgNYGnNdglbjvbLCex5TzJ+8
-	 0fNCXUBiy8cuMkG2650C7agqm+7K5W6MhfIAYRWW4FOGsKqJsB93qWYqieS9D4QISy
-	 j457qOu9bTstiyUBoghruAvgqPxmKsontHrEqQ+Wy9ii3b6Af1A6LBExaGNvFZkKXQ
-	 +3hG0lqAgjvNOps9Y71+Q0O5hME3mSGQtIJf87Rut8Zj3RkaVKmplvJ0/2gS+RB+R1
-	 Vg9FHDPDWzoNiwc0oNH/P3a+/p/jXy7a+RId1tytndluJM81omvlxZRqfM4tewnXOJ
-	 /NT3c4VtOt2ww==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id EF6294DDCF;
-	Fri, 27 Nov 2026 21:15:31 +0000 (UTC)
-From: Dickson Wu via B4 Relay <devnull+dickson.wu.certik.com@kernel.org>
-Subject: [PATCH nf 0/2] netfilter: reject mismatched conntrack template
- protocols
-Date: Fri, 27 Nov 2026 21:09:11 +0000
-Message-Id: <20261127-nf-ctproto2-v1-0-b5383cef8da2@certik.com>
+	s=k20260515; t=1795814510;
+	bh=wctQaa4+oug07SAylojzJ054zlJWMzb1RewZ5KzRtMM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=hRXebOucKI08nPo50le2NMBN0BGP0AOzDoAaNNdAVq/25QRPg/rw23aHbEoViCREm
+	 /NZCQ3uhllGjJK+ZRwnDUjC/ZtK9mMiih/hHP5rRAOzgkgmkhFg3T/EC5lVCo8Qo0W
+	 pq630FIjzLNkW2UHfHSC6rFXS8cmRUtgYXJU5Yehn0kLMV7MuZjmpr78JT6ZHJvSDp
+	 o0FXXLVX9qDdZ6neEI4fd/tDmEMuQ7NTkJb2D0BIxO56sKN8QZB0/ECB0C1+LRI8MC
+	 zU5zv1o103+rmQt5IHgcE7paB8sUha2P4oLZiLf5h06eDI/pfATOxWHJGVgC2U3fvD
+	 0OWuxDUgrGFiA==
+Subject: Re: [PATCH net v2 1/4] net: skbuff: limit folio refcount when copying
+ skb frag references
+From: netdev-bot+sashiko@kernel.org
+To: david@kernel.org
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, sdf.kernel@gmail.com, willemb@google.com, horms@kernel.org,
+ akpm@linux-foundation.org, kas@kernel.org, songliubraving@fb.com,
+ hannes@cmpxchg.org, riel@surriel.com, willy@infradead.org,
+ ncardwell@google.com, kuniyu@google.com, pfalcato@suse.de, cel@kernel.org,
+ jlayton@kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, stable@vger.kernel.org
+Date: Fri, 27 Nov 2026 21:21:48 +0000
+Message-ID: <179581450836.3135.326843222571201832@kernel.org>
+In-Reply-To: <20261126-skb_refcount_overflow-v2-1-a6f600a5634a@kernel.org>
+References: <20261126-skb_refcount_overflow-v2-1-a6f600a5634a@kernel.org>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,74 +67,67 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHfxCWsC/yWMQQrCMBBFr1Jm7UAa0KpXEReZZGIjMimZVITSu
- 5vo8j3+fxsol8QK12GDwu+kKUuD8TCAn508GFNoDNbY0zjaCSWir0vJNVs0R3OmcKHINEF7LIV
- j+vxqN5AI97/TlZ7sa8/0FTllpOLEz10pS6g5v7B72PcvpZGukZMAAAA=
-X-Change-ID: 20261127-nf-ctproto2-0508bd9bfeb7
-To: netfilter-devel@vger.kernel.org
-Cc: Pablo Neira Ayuso <pablo@netfilter.org>, 
- Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>, 
- coreteam@netfilter.org, netdev@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795813751; l=1932;
- i=dickson.wu@certik.com; s=dickson-b4; h=from:subject:message-id;
- bh=i71b4CrHv+7F8+HFRek3oHZywpCTEPpzNL6nhGvS7bs=;
- b=0QGhu63aw7WiHz1z/nQvM94YRULFZEao8KtCxvIQ9FTkEq7AA/mWJNe+8wwsv58CdZU/qPobT
- S+DwaR0rcYdBBF0aUyQ9PWDplR7BNi3bbh/m2b+H7bFe3Rrwl2bIzFC
-X-Developer-Key: i=dickson.wu@certik.com; a=ed25519;
- pk=fxH7FS4FdojeJSGLJzgKdfO51Rvr4EW30yinj2mc1vg=
-X-Endpoint-Received: by B4 Relay for dickson.wu@certik.com/dickson-b4 with
- auth_id=1647
-X-Original-From: Dickson Wu <dickson.wu@certik.com>
-Reply-To: dickson.wu@certik.com
 
-xt_CT under nft_compat can attach a helper or timeout policy selected from
-NFTA_RULE_COMPAT_PROTO to packets of another protocol. The helper mismatch
-also affects act_ct through the common template assignment path.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Reject mismatched helpers and timeout policies when a conntrack copies its
-template state.
+Low priority / nit picks for your consideration:
 
-Tested under UML with KASAN, with the trigger running as uid 1000 in new
-user and network namespaces (namespace-local CAP_NET_ADMIN only):
+- [Low] Concern: this commit converts only pskb_expand_head(),
+  __pskb_copy_fclone(), skb_zerocopy() and pskb_carve_inside_*() to the…
 
-- nft_compat xt_CT with the H.323 RAS helper on TCP: stock panics in
-  mangle_contents(); patched completes; reverted panics again.
-- act_ct with the RAS helper on TCP: stock panics in ras_help() from the
-  receive softirq; patched completes; reverted panics again.
-- xt_CT with an ICMP timeout policy on TCP: stock gives a KASAN
-  slab-out-of-bounds read in nf_conntrack_tcp_packet(); patched keeps the
-  default TCP timeout; reverted reads out of bounds again.
-- Matching-protocol controls still work: UDP H.323, TCP FTP, and ICMP
-  and UDP timeout policies.
+--
 
-W=1 builds are clean. The rule-load checks in xt_CT and nft_ct already
-require an exact protocol match, so valid configurations are unaffected.
-The gap is nft_compat not enforcing its compat protocol per packet, and
-act_ct.
+net: skbuff: limit folio refcount when copying skb frag references
 
-A reproducer is available if it helps.
+This commit adds skb_frag_try_ref() and skb_frags_try_ref(). Both take
+frag page references with try_get_page(), so they refuse a new reference
+when the folio refcount is at its limit. The commit converts
+pskb_expand_head(), __pskb_copy_fclone(), skb_zerocopy() and
+pskb_carve_inside_*() to these helpers, and those functions now fail when
+a reference can't be taken.
 
-This was found and the fix prepared with AI coding tools (OpenAI Codex
-agents, with review by Claude). I went over the analysis and the patch
-before signing off.
+> Let's introduce skb_frag_try_ref() and skb_frags_try_ref(), which use
+> try_get_page(), and use them in pskb_expand_head(), __pskb_copy_fclone(),
+> skb_zerocopy() and pskb_carve_inside_*(). All of these can already fail,
+> and their callers handle that.
 
----
-Dickson Wu (2):
-      netfilter: conntrack: reject helper protocol mismatch
-      netfilter: conntrack: reject timeout protocol mismatch
+[Severity: Low]
+This isn't a bug, but could the commit message mention the frag reference
+sites that still use plain skb_frag_ref() at this point in the series?
 
- net/netfilter/nf_conntrack_core.c   | 10 +++++++---
- net/netfilter/nf_conntrack_helper.c |  2 ++
- 2 files changed, 9 insertions(+), 3 deletions(-)
----
-base-commit: 734bef548a96e8774d6eef5dfa2026c6edc4e80b
-change-id: 20261127-nf-ctproto2-0508bd9bfeb7
+In net/core/skbuff.c, these still take unchecked references:
 
-Best regards,
---  
-Dickson Wu <dickson.wu@certik.com>
+skb_segment():
+    skb_frag_ref(nskb, skb_shinfo(nskb)->nr_frags);
 
+skb_try_coalesce():
+    skb_frag_ref(from, i);
 
+skb_shift():
+    skb_frag_ref(tgt, to);
+
+skb_split_no_header():
+    skb_frag_ref(skb1, k);
+
+Outside skbuff.c, the same applies to tcp_clone_payload() in
+net/ipv4/tcp_output.c, and to iptfs_skb_add_frags() and
+iptfs_consume_frags() in net/xfrm/xfrm_iptfs.c.
+
+The next patch in the series, "net: skbuff: limit folio refcount when
+rearranging skb frags", converts skb_segment(), skb_try_coalesce(),
+skb_shift() and tcp_clone_payload().
+
+That patch also explains why skb_split() is left unchanged. Each split
+allocates a new skb that is charged to the socket, and the references are
+dropped once the data is acked.
+
+The cover letter (merge 25f5c92e1ac0) leaves IP-TFS reassembly out on
+purpose, because it needs one new inner skb per additional reference.
+
+Would a short note saying that the remaining callers are converted, or
+skipped on purpose, in the follow-up patch be worth adding here?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126-skb_refcount_overflow-v2-0-a6f600a5634a%40kernel.org
