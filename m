@@ -1,47 +1,151 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795774492;
-	b=odQCh8l3iyBIASPPdD0gTEawxOroiSjhSYRRUeBkXR2XJMzzbjeqmsaIXuT/Km5kqqIX
-	 NnsvCMh7l6A9S+GJ5WzIJpjdO1/39UoxqxhA5+cdmFuur5tX4S3AU0BAXQw9iZqmZdiln
-	 MIgsa5ZnkrZ9uAHhmwj51YctLuIhia/xsU5PImDM7XTNE5SKUUSzzM+l35a4DxdOKsZro
-	 TaX0M4/GfsT4DmER7gEKG12FAsIMW9yujgdvrLpRNuRSV0vvTiYyGJ9a6e30yjaMZbznL
-	 zw5+LjOVOCiqFuSbvOga1qHJ/9IM0IFSiKQYffEv7xTsLbcDzNmfBFkLBdILtG2Ed0A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795774492;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=gfAz+igUaZQtqJ8U5CAAvNBQ49KsairTBI4/qgGsxOM=;
-	b=BGv/lrJ1Xs3o+au9dOyyAA/Y1PUKWFh7X+jIdZcCXfD/Y6IfyZoHvGyRUqob5qF5p13R
-	 X8CiXY/SPf3YYtMTH74+n3Ax511W8qarPCqVfjZFim8HzVK+8gPI2BCeEWo53trm9GwQz
-	 u/beGWUoF0YWwgrq4/zQ+VoKKd7pp1oFezSdH8A/87r8FwFwSXIpbRsMq5HjZIXz0xg2l
-	 jk4Qg+LxhB3R3s+JeLv97YzP1YvZQvyzHT1yAy4PcRc+n0/wqjo3uCNnbfFBIXxIuPp3P
-	 gcMV5WViKP6+LS7UcEeKX0XnwMZSimHbU8HH9nLCSB3kA9wNGkzgWgjhpYRWzl8F6GQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jk6uF4BV;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.17
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795774575;
+	b=joP0TWFLEgvZ6NF3HtOS8goxVavKSKePmxoHe+42PNXoYVX5fBQmPHdAu6UaxXdPD80W
+	 hH44X6DH3cj9s2VvF4XM0qvOn01PEpl41FdACQJOuhepXBM7BJO1Y5X6X1MGquXWcUl8Q
+	 kOPOMbp1jQoWUgzRWR+mjI8Ory72dwt3WL7JshNZE2CJdF0ml0CVdx2g5X5IVTl8Eg/Ky
+	 UOT151SIkFeeOn0oUdPowLn5vTaVykvNBVeTYovdIJ4nf4r4F64N8aYTrt0+dWLAJtWAS
+	 GOl1Aequ5Uqt64zK+VvQ9WyWBQONXwe/gTVRMPbjoBnbQIJ8lqhVhH9bVOwuB639K+Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795774575;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=RtZ0i5zLy7utxeWYDldraHCZfz/GMktLQsNcQFRLD3c=;
+	b=nVt4lBzJJEU1b1sDi018C3FG+LJu2xZiMkYXr2SO7VMy6/uxG4WD7KMBEitHQbusbWfQ
+	 qFmqRBQ6hWAp3VHI/P1q7YPpsmfqF3OExoWRdwjLrWJjjDR4nASLjducUfnj0U/vxFdjs
+	 fD51klMxGp/3zmcAYotEq92aHVhfontxNn7l+Kw0K8wSKvzbT5r3kQQeX2DLLFrvJtFmI
+	 bjRISJUxvkNUvZWfT5xY8GlpJAi8BnPRYHX5NRBUPyi6WLDbUms+UWOurKAVB4PzFudqs
+	 mdjHdqszGnFpMYDbLIIuT3iV9Dn7mEDAHsJyeuGaw+F9wVgt5H4scL4+pTyHJxveSyg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nxp.com;
+	spf=pass smtp.mailfrom=nxp.com;
+	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=Al49PLRz;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.17
+Received: from DU2PR03CU002.outbound.protection.outlook.com (mail-northeuropeazon11011017.outbound.protection.outlook.com [52.101.65.17])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CD3D60A260C;
-	Fri, 27 Nov 2026 10:14:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D066B606A31E;
+	Fri, 27 Nov 2026 10:16:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D066B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jk6uF4BV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86E951F0089A;
-	Fri, 27 Nov 2026 10:14:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795774491;
-	bh=gfAz+igUaZQtqJ8U5CAAvNBQ49KsairTBI4/qgGsxOM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Jk6uF4BVYxjpa7BcdvmvYO0JVlWJ7Aw+egsP7dUBAgWLZ60e6KchWnkoopl8FLOVJ
-	 GxRJ021z8UCTo+6fv8LCv4iqLRMxFHVEqCNwNTp6dCgG87r6gy0PwbLWwA/Xkd3/4N
-	 DWc2vfR7xkrqVaR0163e6i8NKA3f/eSkVI2kiIFf3XIlEGFK2rJb+4RrBL7XkaYVis
-	 QeNqtXgW257auKS8pXzNeQxa+nXikiid1YHZdL6aLi18uI+6hpHhdyP57N+cLR67ty
-	 sNfQIEZy6f6HUwojT6VaI4ri8G7N6SXk0VDNoeU52NbTR12ejOq5aPGiYaM3hg/Wpt
-	 92vc15IHZ3BxQ==
-Message-ID: <398670d0-809d-4cdc-b03f-80bc3b5faa2a@kernel.org>
-Date: Fri, 27 Nov 2026 11:14:45 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=Al49PLRz
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ty6myeAen9EzQQEtV/BUer85Hgtb0JLiMV8eK52vP2KHI1Zoih+lNIJDEopUQA4f5HwOSveYwLiwy72hNFiu8mq7R3NtnlVNIkSBeR1dPr3TntmihYq1PvSVAuPeobX414blzo5IoiEDoKkdldvLbw/UUveRyFuVOdhpmaTbiD7qWRdVzbchihi3Vs0iiSgJm1EDJ2BFKbqqw42Hrr6X0+FFddqLchebrRmeH4KViEEJgVLg1J13yy4FQDyOKLpASv1tE/93wtb1cTLeEynPr7+i+4tWjpRYvBg3WwAuA57svAa12G70G4dgR0qE1Y1CAP4V0e0p+4uua6QBRZXnGg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RtZ0i5zLy7utxeWYDldraHCZfz/GMktLQsNcQFRLD3c=;
+ b=RExVtx0PGq8/wfyiOvNg094yjGk3oWx/oRix3NKw4Sxs6REVP0VN9FyJLSro/dB76l3g7Xv8hWf1kV3Vy1amMI+KZ3T7CNTQG6+yblRQ8VlC2lmwtMq583pEzEFjBeHoDMptKQYHqsFKGO0m7s6ZhQHdjH1gtRlpz+T14zXa+Weah/m7WvoG0/mipbyLQjjA/83d31Td69gqejr7dXxrbIuqHiFJHYXzeFF+a3iu49SzlwBnaN+8ZKpL9nAHkBCoUNrfUdo9lSGSxB3eXlhViQ7F9JZZIP2NdJn00SgSGMF5KBYEgaAm031uG5oKR1cOMxi13LEhiXIEfYN2D3U6Og==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RtZ0i5zLy7utxeWYDldraHCZfz/GMktLQsNcQFRLD3c=;
+ b=Al49PLRz8rlHVpAlbPK5WIZl4V/vWLeOcRE1NEU9QloWqZd1BD/PwaO3eeWC4/qk0A1BauULN4fhjhSV7ygB5VzCBfAeKljIbVW5eA09/00NEBtB5EIhhCPtgklzBKlO+ihu0MTqGiS2CO8ESo+0Rv9TlZao0S6ObOTHwO8q6zURLEwftTsGFHMMOYVBv9o8RBBTdawec0ndXwPw3g8Qem/ItUQMUYk3k3igC9tgPpWHsvXSQL5MPLCspH+SiqTpD5UhxFM2CjaanFAuacjuoIOWbSP1e1alexTZF/tRbi3OWvRcJzkLIrdRfOYSZSIWFPYQBaYJwKnQK1wqokt6tA==
+Received: from AS4PR04MB9338.eurprd04.prod.outlook.com (2603:10a6:20b:4e6::17)
+ by BESPR04MB12586.eurprd04.prod.outlook.com (2603:10a6:b10:fd::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.10; Fri, 27 Nov
+ 2026 10:16:11 +0000
+Received: from AS4PR04MB9338.eurprd04.prod.outlook.com
+ ([fe80::7c4c:9c56:8552:f680]) by AS4PR04MB9338.eurprd04.prod.outlook.com
+ ([fe80::7c4c:9c56:8552:f680%7]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
+ 10:16:11 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: "Clark Wang (OSS)" <xiaoning.wang@oss.nxp.com>
+CC: Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir Oltean
+	<vladimir.oltean@nxp.com>, "David S . Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Richard Cochran
+	<richardcochran@gmail.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Clark Wang
+	<xiaoning.wang@nxp.com>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, "Daniel Baluta (OSS)"
+	<daniel.baluta@oss.nxp.com>, "frieder.schrempf@kontron.de"
+	<frieder.schrempf@kontron.de>
+Subject: RE: [PATCH net-next V2 2/7] net: enetc: netc-blk-ctrl: factor out
+ common link MII protocol helpers
+Thread-Topic: [PATCH net-next V2 2/7] net: enetc: netc-blk-ctrl: factor out
+ common link MII protocol helpers
+Thread-Index: AQHdflSlfR8FVt8LQEOqhxDdfsnN0rdBsXiA
+Date: Fri, 27 Nov 2026 10:16:11 +0000
+Message-ID:
+ <AS4PR04MB9338537AFBCF3777CCE72B6D88412@AS4PR04MB9338.eurprd04.prod.outlook.com>
+References: <20261127094729.1061755-1-xiaoning.wang@oss.nxp.com>
+ <20261127094729.1061755-3-xiaoning.wang@oss.nxp.com>
+In-Reply-To: <20261127094729.1061755-3-xiaoning.wang@oss.nxp.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS4PR04MB9338:EE_|BESPR04MB12586:EE_
+x-ms-office365-filtering-correlation-id: 412b3dd5-fb68-4f9a-7b7a-08df4c6f761a
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|1800799024|23010399003|7416014|19092799006|366016|376014|38070700021|10067099003|56012099006|22082099003|18002099003|11063799006|4143699003;
+x-microsoft-antispam-message-info:
+ NKexWjJM4DMSyHh/VEHxnqWuvCBsDnLKtxzgfvMJbh9Ky4DbJuSfF6vZ85NQByVhhN/Kcp4rrZxtRWxLS/URAG2jmwjXb/NZkCGA2vUQKmXCnKQOobuCx1S0r0AWx0mxQ0G4314tMItgGJZM+qhB21TejFMdVvHkUtyl8hqRgkRz/Exaxe0Bje6Iah0WExqQtyzaBVdGKzaYHcTlGKPkadpJrT7hJIBVFjrVo0NLSBD7/eh8EwTipSGO7AE9+/aiUY27/Kde3a9JCRDOPK1qwXkdEPqXQmMv720j5vQhbYjBJaFs5NGI/FYjXuL4tfah/fNMC1oVIP+rfF1opHsgp2rypNS8jI1esMMihh/apRZR+sfm/GTaqFk6Jqm/ibvwSvm6e70tl/XdW6pS//xG1i8qF3mlhxU7k6nT2J95mTIngt8cXqvpMEzmKjxk532dEcF8xBXwL8W8N3JqszymPczQTL+VhCwUjIRBWU498gTzrXVTHk8j7bmUzlfPIBiKC8omPhgz1uV7vBlUi4v+sV2csKQOjZwKw8AxWT5LFxtTfmDCsmroLnBccR4F5sv0xjPpvojdJoAPgf3gykiAHwRFH6KAnE4JZc9dsZ4lvt/VVA0964K9MLaC/rzw8CqMAAdnVSHXTTCc3mzL+4In002lW/UHkfZJWkh5fGEvOHltiGBkHjOo2amxiLgc0kESiU79MxK7vzAGXG0Vvi9E8WZrv1fjms3Z22neiVc5a0Y=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9338.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(19092799006)(366016)(376014)(38070700021)(10067099003)(56012099006)(22082099003)(18002099003)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?WuYxnp9DJ9G3l/pyWGKUMBtNKyqrkaDvDBB3itv7/IZYIpb4vK2ZZPXhD+ey?=
+ =?us-ascii?Q?hhtytoiX4YUd/VUyfCUmO4NqWYq3pr9POJUKj//VfpFEejDzchvYMVpPOTDx?=
+ =?us-ascii?Q?dMrmCGkYC9UmFpSeVtvBy6/KqxpDaZ9Noph2twwWXU6Deoi0YpCGkB7LpgdR?=
+ =?us-ascii?Q?k67XmHCqQZNgZN+xl8HltWKeGCJqUJv/1nAarvQmnCeK60A2m7pey9XVQUFO?=
+ =?us-ascii?Q?egFPFS034Xfu8xLnVnoX5MhEetZmNhaDtkZErd+c4Votlo/AqBfGHY5kZisA?=
+ =?us-ascii?Q?Kl2txStcjdMtwv3JRNeltbb2jBwNlF+/YqRshFrOzWk75CmjoSbgSop8/Ppd?=
+ =?us-ascii?Q?x5ZdXGuBwNCD2T7N7SQAXEP9CaCStbLLzDge4df7IKYxch7gMT+leJYOuPPC?=
+ =?us-ascii?Q?LQLuATr2Tz084XncbTjyxMP59knlpmhbxJOUJNP5Td5Gu1XcRuva9Lt76kOy?=
+ =?us-ascii?Q?CqknzCGlhYKbKmlXyp1NfuMTESNc5Dq0WyBW+N95fngmMmAf2hnJxDYkblmS?=
+ =?us-ascii?Q?2aqaQMMAOd+8BBZLuweR48rQYbvFA2EVNabWplEsVU6LZ7Fkta1lHfP/2wvP?=
+ =?us-ascii?Q?URtj3AJJKUJ5KzwKVIDj+Wqrx004VqXx0qAWDkQZBABIHlFopw/7k2qfKV0W?=
+ =?us-ascii?Q?uoWN2EK4eZvArPWZVqmJu8AsDjj8gUDG9+2dMocM6LPJcCFIygD7OP4GYKOW?=
+ =?us-ascii?Q?YSmdgLXrP3KBsJdYsQRXBh/mVImLQ+KVp4sJTkbGkCintkHsOcojcop1PRuA?=
+ =?us-ascii?Q?nUwH6Ot1JMBruw9qChnYQ4r3fI22mYSNGslh7qp5vlK1TvVbJT6m6BOHDe6t?=
+ =?us-ascii?Q?4ddCTU2zFJH2Tz40mxwzKybeEhv7EZou/IB1BGdquoKHbafUyTjAlPpk5gz3?=
+ =?us-ascii?Q?7au6nJr6rpMIV3MbGO7PTMnHK5pl25KcqTLNfRPJkGKdfz/a2QNB/Wcmeij3?=
+ =?us-ascii?Q?A6AJxQ1Q1NUP7Y2hPmZd/x0UmtnOoH4IvqyAdsXggZGwXkLWS9NGZW3Ptrcm?=
+ =?us-ascii?Q?Jt1ISk+U8UIDmf5/oFjiPRt2f64itFnf5X2xBVmoru2eMm2eQZHEbV382PYJ?=
+ =?us-ascii?Q?mnWzuuDg4VQdnrKcF+vLCD/VgJ+hPowEiJRxXeMGz/c51pF7oNnrqrG9qc41?=
+ =?us-ascii?Q?lOP9ELBtGlc2U2V3BICE4qErkRJ1OS4Ti6TS6Qvn2wc97IAvy4TL8WYZRHzD?=
+ =?us-ascii?Q?KG9AHneSnybSaBIY36aH6sV5ATjvNwNkPnRLGqkSCjYI1U5v6XBFXcEJbboq?=
+ =?us-ascii?Q?AECjvMKHlRxkuPhUFiLY9R17u7zrNavS7vQpT07+ZDnfSGef2ssd2iuYTlYm?=
+ =?us-ascii?Q?L+SbHpzxjETzGViL2AJteok6C9ESpg5Xc1AEKTz4m1cbZhvu6Irt72KQ3kdC?=
+ =?us-ascii?Q?M9pkJwEssRDbKirw5FcTF653em9Dycph2f5dEg7AC0b0TdRr2/cUb+1WlaS7?=
+ =?us-ascii?Q?+f+uWOLUQ4ERipMs7A/zyP0LzC2MlxY75qVUtnHh8YYls1KxjiRAAN7Y2aOp?=
+ =?us-ascii?Q?bmF7CBdPtkfFaKf6rg/jgR9iFrw4jHYmYYNSvvw1ZMbdXuY0v8YKiVz9rXJ0?=
+ =?us-ascii?Q?u2+70qF5khPMPcaXNqMLrlEbyihfMiK0svG7/3mCYLjcXkHH1h1v3R6VCur+?=
+ =?us-ascii?Q?C9k00zb/MPkcMRwRm76R7mfzzwgVHQLtR3HjKoJDs38WWzs4kt+HD/uaTeaQ?=
+ =?us-ascii?Q?muJ2vLUGUQ+UWDNA2QiSGsawmDQbDfbSOm8nejQAmxUNxhhR?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,134 +155,45 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH net v4 2/3] net/sched: act_gate: refuse schedule entries
- shorter than 10 us
-Content-Language: fr
-To: Jamal Hadi Salim <jhs@mojatatu.com>
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- netdev@vger.kernel.org, Jiri Pirko <jiri@resnulli.us>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>,
- Simon Horman <horms@kernel.org>, Clark Williams <clrkwllms@kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>, linux-rt-devel@lists.linux.dev,
- Victor Nogueira <victor@mojatatu.com>, Po Liu <Po.Liu@nxp.com>,
- stable@vger.kernel.org, sashiko-bot@kernel.org
-References: <ACT-WEXM.v4.r0.20261124074514@mojatatu.com>
- <ACT-WEXM.v4.r0.20261124074514-2@mojatatu.com>
- <20261124161258.vLyrm8Y4@linutronix.de>
- <CAM0EoMmMio4kotBqbcJmFtf_c3Du=rhfvp+sMiAd0fHKowv6Vg@mail.gmail.com>
- <CAM0EoMkEjxCo6K9k3MZH0U+3na9soMNE0gouddwOTzUYXcEunA@mail.gmail.com>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <CAM0EoMkEjxCo6K9k3MZH0U+3na9soMNE0gouddwOTzUYXcEunA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9338.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 412b3dd5-fb68-4f9a-7b7a-08df4c6f761a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Nov 2026 10:16:11.5839
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: PFFOrcEak6Hl68nBnNZWixeRUsGVh3ZOd6SD+4Hc/iyndCGce/bpEoAXRRHFRpTmBlhrpu84cWJblyBHJbmdzQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BESPR04MB12586
 
-Hi Jamal,
+>  #define IMX95_CFG_LINK_PCS_PROT(a)	(0x8 + (a) * 4)
+> @@ -78,6 +77,9 @@
+>  #define IMX95_ENETC0_BUS_DEVFN		0x0
+>  #define IMX95_ENETC1_BUS_DEVFN		0x40
+>  #define IMX95_ENETC2_BUS_DEVFN		0x80
+> +#define IMX95_ENETC0_LINK		0
+> +#define IMX95_ENETC1_LINK		1
+> +#define IMX95_ENETC2_LINK		2
 
-On 24/11/2026 18:11, Jamal Hadi Salim wrote:
-> On Tue, Nov 24, 2026 at 11:58 AM Jamal Hadi Salim <jhs@mojatatu.com> wrote:
->>
->> On Tue, Nov 24, 2026 at 11:13 AM Sebastian Andrzej Siewior
->> <bigeasy@linutronix.de> wrote:
->>>
->>> On 2026-11-24 09:12:09 [-0500], Jamal Hadi Salim wrote:
->>>> This is a followup of commit a51c328df310 ("net: qos: introduce a gate
->>>> control flow action") as reported by Sashiko.
->>>>
->>>> The issue:
->>>> fill_gate_entry() only rejects an interval of zero, but that interval is
->>>> the period gate_timer_func() re-arms the hrtimer at, and a few
->>>> nanoseconds is below the cost of servicing one expiry: the next is due
->>>> before the current one finishes, so the action holds a CPU in the timer
->>>> softirq for as long as it exists.
->>>
->>> The timer is programmed in the past, fires immediately and hogs the
->>> CPU.
->>>
->>>> On a 2-vCPU guest, entries of 1 us and below hold 86% to 90% of a core,
->>>> 2 us holds 61%, and 3 us holds 22%; from 3.5 us on the cost falls to a
->>>> few percent and it reaches zero by 100 us.
->>>>
->>>> The Fix:
->>>> Require at least 10 us per entry.  An act_gate schedule is not tied to a
->>>> device, so unlike taprio there is no frame time to derive a bound from;
->>>> the bound has to come from the cost of servicing one expiry, with room
->>>> for a kernel that services it slower.
->>>
->>> The 10us sound sane. With enough debug (say kasan, lockdep, …) this
->>> might become tight again.
->>>
->>
->> Agreed. Unfortunately, there is no way to derive a "good value" here
->> (it depends on workload, machine, utilization, etc, etc).
->> poor choice of wording on my part - should probably have said all of
->> what i said above for precisiness...
-> 
-> And now that you bring this up - this should really have been
-> targetting net-next not net.
-> I dont want to resend (unless sashikos find something sinister) - but
-> Jakub/Paolo consider applying this to net-next instead when the time
-> comes.
+It can be simplified as follows:
+#define IMX95_ENETC_LINK(a)			(a)
 
-I'm sorry to say that, but a new version might be needed: it looks like
-the new tests you added in this series are not passing:
+Also, IMX94_ENETC0/1/2_LINK can be refined as follows:
+#define IMX94_ENETC_LINK(a)			(3 + (a))
 
-  https://github.com/p4tc-dev/tc-executor/blob/storage/artifacts/928799/1-tdc-sh/stdout
+>=20
+>  #define IMX94_ENETC0_BUS_DEVFN		0x100
+>  #define IMX94_ENETC1_BUS_DEVFN		0x140
+> @@ -95,8 +97,15 @@
+>  /* Flags for different platforms */
+>  #define NETC_HAS_NETCMIX		BIT(0)
+>=20
+> +struct netc_link {
+> +	u32 bus_devfn;
+> +	u8 link_id;
+> +};
 
-It started there:
+This only applies to ENETC links. Would it be more appropriate to
+name it netc_enetc_link?
 
-  https://netdev.bots.linux.dev/branch_deltas/net-next-2026-11-26--21-00.html
-
-Or is it due to conflicts with other WIP patches or something missing on
-the CI?
-
-pw-bot: cr
-
-Cheers,
-Matt
