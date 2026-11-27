@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795753626;
-	b=gbxtMC0sGYgmKLNOFv8JjmEzrpwd6hjW0FQ3/mhvah488KnKIOthOideQi+0sBd83QmN
-	 T4hvpmWJEDbQXUxz7PYVnVv/+/gXglufx3lnI/yp7/VPKInDxCfenJhXrNnze3nDTC0Cu
-	 jiUMrGmcGWaacQ+f9oR6lB+ciNvee697CRYTKApddtiICreHUOFDXxviFkYd6TbEjr3l4
-	 V6KdIrYI8o5p5Bw4y/tGXfNd61ZwJvn0nH5joJKh2CztF7Ugeae9nT0GROOApRlOxtnTa
-	 wu2ItZlUejm6legV0S+vSYNgXZKvOpoL0DTaD1HaZ1QQxE3TunSCKSDEzq5/pDsoDug==
+	t=1795753622;
+	b=ff7DZ3YL+TOiDaG94/cYv3KGxDsbS+ZMWJLIoYWQXLkbMk7lD2yZSfC+SFFrGanMbkoO
+	 vXffOW9MDFWX6iF2a6Bjpx+yx/Z+vwiFv3o22CXCzahuUdvnI66ru7/yBxQ7VKecf8lt9
+	 U7g9xDg3V5ZsZJhsWiuSKzV0afmuUevA3jiT/6KeeIRxgUULBDZI13TQjouAPLEncc+VZ
+	 dArhHdqnF12HDLD+UIR0ttzLmKdjJdrRO6y0s6CMJGq6gPf0BOyQTUsfW6PCRG4hw06h4
+	 H4aTWDfFwXC23HUrVfH/p6Ml1DrwDQ3E2N/ou5cbzkI4ukAwUphy50j+0EPmdLwurZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795753626;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795753622;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=AnVF3aqWclhab2tDyVjUIAz+dvlD7Ph4asBpLs76sgM=;
-	b=QENIoKmPEJnoEqsM5MCGHR6XsDp3dldxJRHWnRCExv+RigN7gm4MKDNgfPQUQFi6g20K
-	 wGmUs5gZgd0L/pOBdLXg5Dv6tnW1ryih4InW2LKuiPBfUlHZPAsZUmAE6Yfqw7dfMCuPL
-	 H97DAJ2zhJ2i3myXlSHGnqOZ9MfOWJhwpzs4jpDRzzituD9cJfvZ29juPYqnVOKSNv50J
-	 alppnaQ62RWJK8elfZS8/U77QWXKh8nUBkPiGzQ03xxZq9O763TobvajDBm3Opfwt6MQs
-	 VT8cAoOQlnrtoHH5DiZ9RYka2f0DhONwmAi+Zx2k6O8yPqCmKgoPoHA2Hp8o0noG51Q==
+	bh=zJKuJ7vg9PpqIh/0IWbImhEqiaev0DXuAD3r2o7D1ow=;
+	b=FMmrM5i9JtWUeOo5o0uqPq2iYM6Yo9UGY4vNtg3xc1EO5Tx21ryrxOUhKXRcXFCDBDi0
+	 mkgVPO/gQ89EGt9oXhnDx0t2CQiOrukt//gjEagMv0668/a/6km/kXGasI2TsGyGExayO
+	 GdUXgxg4rCovLGp/pCKICoRuaLjTEwePhck+tH0qFz1XbxjbV2U/nddYgCBF25rvGeT79
+	 ifyXRDL8AmKxprhQqq1nIgZRRtGkbApkEvtf0WXNhwCU8qHhDJJmq2p48Hq9eCLuP6yZg
+	 PuwHARggN8g+gntco6VeOhP22qVeLgrjJLxIx6jmxP2/ADEDW+l/4RyL5Xqg5BYRK/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=al1QV3xI;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K8laFION;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B56B2606A330;
-	Fri, 27 Nov 2026 04:27:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD6A9606A32F;
+	Fri, 27 Nov 2026 04:27:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=al1QV3xI
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FDC41F000C1;
-	Fri, 27 Nov 2026 04:27:05 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K8laFION
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8CC21F00893;
+	Fri, 27 Nov 2026 04:27:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795753626;
-	bh=AnVF3aqWclhab2tDyVjUIAz+dvlD7Ph4asBpLs76sgM=;
+	s=k20260515; t=1795753622;
+	bh=zJKuJ7vg9PpqIh/0IWbImhEqiaev0DXuAD3r2o7D1ow=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=al1QV3xIkZ5dqOk1kE1P/ZADOJMFYJz3uJFz6XluEcSo0GwKqC01NMupmEwP6etna
-	 F5hn515ycJSojfAw5IbCK0K/vX+8S8cEYzLlOm001l+6CbmCiXAWiresaFGi34lOsZ
-	 /Q+Lc4dhoWDO+5W4lByJPSCHtjVRQCRj7NwtWXLeG3/d3DVmLOmK+WQI/KCiMR3Ah7
-	 WSYWQrFj+R3c7CNSRt/Fni7EWr61g6BT2ddiVCIrDoWpGPUdSDSDtJL65p+aU0S4EG
-	 lVcizVZm+Xw+TInsiIJiZfhOC65BMhqtlEBY/N2063d4p2XJ1gG276RzO5O/l4aHws
-	 7qNeuUUjVQ/6w==
-Subject: Re: [PATCH net-next v9 10/12] r8152: split r8157_hw_phy_cfg into
- RTL8157 and RTL8159 variants
+	b=K8laFIONL2n0Djtz3VSa3NqwackBnfRkpV5/VRrPB+bv/B5Ln2xWnkf8Ix9lTWBVu
+	 jHuJ04Y7V16fwynInsixFnSQeUxMG+HO6D7sl4Kq1pEtCfSyBDCisYiHxlhGuSzVZn
+	 FQHkYXwmwCRUc8wMCZ4FgyyX8ZApFhMGy4Qymq8UYlmaNc1Hfj70nGGffJ+gxWK5p/
+	 HJM/FmUqUBE6P9xWxw/tlRfJ9e4xwdwksIoUiwPIH/2ccJZfRw5R6JEol251BxJd9Y
+	 G7Rv5Zvq5JOH4xtT25I6ZKr6rCnj31hV2BhD59tXnPIeEDDsH8iw00J8RqL5/pt3rD
+	 trpCx/yN3YtbA==
+Subject: Re: [PATCH net-next v9 02/12] r8152: add rtl8157_unload() for RTL8157
+ and RTL8159
 From: netdev-bot+sashiko@kernel.org
 To: hsu.chih.kai@realtek.com
 Cc: davem@davemloft.net, kuba@kernel.org, netdev@vger.kernel.org,
  nic_swsd@realtek.com, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
  edumazet@google.com, bjorn@mork.no, pabeni@redhat.com, andrew+netdev@lunn.ch,
  mail@birger-koblitz.de
-Date: Fri, 27 Nov 2026 04:27:05 +0000
-Message-ID: <179575362520.3135.17351544520034128631@kernel.org>
-In-Reply-To: <20261126033211.51850-11-nic_swsd@realtek.com>
-References: <20261126033211.51850-11-nic_swsd@realtek.com>
+Date: Fri, 27 Nov 2026 04:27:01 +0000
+Message-ID: <179575362138.3135.2071411045899794230@kernel.org>
+In-Reply-To: <20261126033211.51850-3-nic_swsd@realtek.com>
+References: <20261126033211.51850-3-nic_swsd@realtek.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -71,101 +71,54 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] r8159_hw_phy_cfg() (drivers/net/usb/r8152.c) adds two RTL8159
-  (VER_17_QFN68/QFN100) PHY register writes that neither the code nor…
-- [Low] The commit message says that clearing PLA 0xd3c8 BIT(0) ("Disable
-  bypass_turn_off_clk_in_aldps") "is needed by both chips" and now also…
+- [Low] Commit "r8152: add rtl8157_unload() for RTL8157 and RTL8159" has
+  two Fixes: tags (fd3c7d080df5, ad2a55b63b41), but its only…
 
 --
 
-r8152: split r8157_hw_phy_cfg into RTL8157 and RTL8159 variants
+r8152: add rtl8157_unload() for RTL8157 and RTL8159
 
-This patch splits r8157_hw_phy_cfg() into an RTL8157-only function and a
-new r8159_hw_phy_cfg() for RTL8159 (VER_17_QFN68/QFN100). It also changes
-the RTL8159 EEE, 10M clock divider, 0xa5ea and 0x8ffe programming, and
-moves the 0xd3c8 bypass_turn_off_clk_in_aldps clear into the shared
-prologue so RTL8157 runs it too. Several new RTL8159 PHY tuning parameters
-are added as well.
+This patch gives RTL8157 and RTL8159 their own rtl8157_unload()
+callback. The callback uses r8157_power_cut_en() instead of
+r8153_power_cut_en(). The 0xcf04 Interrupt Mitigation clear moves from
+rtl8153_unload() into the new function.
 
-> diff --git a/drivers/net/usb/r8152.c b/drivers/net/usb/r8152.c
-> index dbbaf06dca20b..2f3d97e2400c3 100644
-> --- a/drivers/net/usb/r8152.c
-> +++ b/drivers/net/usb/r8152.c
-
-[ ... ]
-
-> @@ -8231,11 +8242,14 @@ static void r8157_hw_phy_cfg(struct r8152 *tp)
-
-[ ... ]
-
->  	/* Disable ALDPS force mode */
->  	ocp_reg_clr_bits(tp, 0xa44a, BIT(2));
->  
-> +	/* Disable bypass_turn_off_clk_in_aldps */
-> +	ocp_byte_clr_bits(tp, MCU_TYPE_PLA, 0xd3c8, BIT(0));
-> +
+> RTL8157 and RTL8159 used rtl8153_unload(), which disables power cut
+> with r8153_power_cut_en(). Per the datasheet they need
+> r8157_power_cut_en(), which r8156_init() already calls for them.
 
 [Severity: Low]
-This isn't a bug, but should this patch carry Fixes: tags?
 
-The commit message says the 0xd3c8 BIT(0) clear "is needed by both
-chips". Until now r8157_hw_phy_cfg() has not run it for RTL8157, and the
-RTL8157 support came in with fd3c7d080df5 ("r8152: Add support for the
-RTL8157 hardware").
+This patch carries two Fixes: tags. The only reason given is "Per the
+datasheet they need r8157_power_cut_en()". Could the commit message say
+what goes wrong for users when RTL8157 and RTL8159 use the old
+rtl8153_unload()?
 
-In the same way, the RTL8159 EN_10M_CLKDIV, 0xa5ea and 0x8ffe changes in
-r8159_hw_phy_cfg() correct programming added by ad2a55b63b41 ("r8152: Add
-support for the RTL8159 chip"):
+The unload callback runs from rtl8152_disconnect() on unbind or module
+removal. It also runs from the out1 error path in rtl8152_probe_once().
 
-	ocp_reg_clr_bits(tp, OCP_DOWN_SPEED,
-			 EN_EEE_100 | EN_EEE_1000 | EN_10M_CLKDIV);
-	tp->ups_info._10m_ckdiv = false;
+Where does the problem show up? For example, is it on re-bind, with a
+fallback class driver, or in the device's power state after unbind?
 
-Other "per the datasheet" corrections in this series that target the same
-two commits do carry Fixes: tags. Examples are "r8152: add
-rtl8157_unload() for RTL8157 and RTL8159", "r8152: add
-rtl8157_change_mtu() for RTL8157 and RTL8159" and "r8152: fix
-RTL8156/RTL8156B/RTL8157/RTL8159 up and down settings".
+The commit message also leaves out the register changes. The old path
+cleared both bits in USB_POWER_CUT:
 
-This patch has no tag and doesn't describe a user-visible symptom. That
-makes it hard for stable and distro backporters to tell whether the old
-programming caused real problems or whether this is only a datasheet
-alignment. Could the commit message say which one it is?
+r8153_power_cut_en(tp, false)
+    ocp_word_clr_bits(tp, MCU_TYPE_USB, USB_POWER_CUT,
+                      PWR_EN | PHASE2_EN);
+    ocp_word_clr_bits(tp, MCU_TYPE_USB, USB_MISC_0, PCUT_STATUS);
 
-[ ... ]
+The new path leaves PHASE2_EN unchanged. It also clears USB_MISC_2
+BIT(1), which the old path never touched:
 
-> @@ -8372,22 +8459,35 @@ static void r8157_hw_phy_cfg(struct r8152 *tp)
+r8157_power_cut_en(tp, false)
+    ocp_word_clr_bits(tp, MCU_TYPE_USB, USB_POWER_CUT, PWR_EN);
+    ocp_word_clr_bits(tp, MCU_TYPE_USB, USB_MISC_0, PCUT_STATUS);
+    ocp_byte_clr_bits(tp, MCU_TYPE_USB, USB_MISC_2, BIT(1));
 
-[ ... ]
-
-> +		sram2_clr_bits(tp, 0x83ef, 0x0e00);
-> +
-> +		ocp_reg_w0w1(tp, 0xbf38, 0x01f0, 0x0160);
-> +		ocp_reg_w0w1(tp, 0xbf3a, 0x001f, 0x0014);
-> +		/* shorten CLKS latency */
-> +		ocp_reg_clr_bits(tp, 0xbf28, BIT(14) | BIT(13));
-> +		ocp_reg_clr_bits(tp, 0xbf2c, BIT(15) | BIT(14));
-> +		/* CMP_Timer on MP_Timer=333
-> +		 * GPHY OCP 0xbf28 bit[0] = 0x1
-> +		 * GPHY OCP 0xbf28 bit[6:1] = 0x3
-> +		 * GPHY OCP 0xbf28 bit[12:7] = 0x3
-> +		 */
-> +		ocp_reg_w0w1(tp, 0xbf28, 0x1fff, 0x0187);
-> +		ocp_reg_w0w1(tp, 0xbf2a, 0x3f, 0x03);
-
-[Severity: Low]
-This isn't a bug, but what do the 0xbf38 and 0xbf3a writes in
-r8159_hw_phy_cfg() configure?
-
-They have no comment. None of the new RTL8159 tuning parameters listed in
-the commit message (shorten CLKS latency, CMP_Timer on MP_Timer=333,
-spdchg_pga1_lpf_cap, ENET PLL jitter improvement) seem to cover them.
-
-The CMP_Timer comment also describes only the 0xbf28 bit fields. Nothing
-explains the 0xbf2a write that follows it.
-
-Could these writes get a short comment, and a mention in the commit
-message, so each one can be traced to the datasheet item it implements?
+Could the commit message describe these register differences and the
+user-visible impact? Documentation/process/submitting-patches.rst asks
+for both in fixes.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126033211.51850-1-nic_swsd%40realtek.com
