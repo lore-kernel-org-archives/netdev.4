@@ -1,72 +1,71 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.198.224.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795760902;
-	b=nOe42rtYvpCJODOu+/p1sELhLpzzxnJSsD79ktxtLX5fauflVUSQeL+ANKXTOB/8GfjV
-	 WCWNzMqiGk+6MwflLXygemJqzFRF749Gi+FQRYQuQrR9RPS6qjghoz7QUDgc8TLKepYgS
-	 87c0CVjiwUrXOjjcnBKKo0avCKT/d9/9Veh95QyPF3fAkraa6HmJDCgUgPa6Og+XtM8OH
-	 EmNtVSx2Bzi54dwWYr3LQkWC+i87cMIrrERjC6agpaeZiPAJictJit6KM3AY1BBj+TYWQ
-	 7aZgH5kSR1Fn1ryvCosJqTBF2UH1HBN5qtKRhdon+RRpyE0wsgHiVrAicaX9UymhiNw==
+	t=1795760903;
+	b=0Gc+c76epdtArzCLCuHuaO3C9msCUjbZnJx5r8eDnhs8Sns1IzSWjeJjk5YtoOeaMi05
+	 rJq1cYIkeh4HB0JdITiFcWqEoc0sMRNWQhlh3siiDTlpzZvSlUrf0pbb8OUddX9YC73J+
+	 XtE215g499eio7v5irNPggtOuH1Ih2l4CgzDV8TIpbu/8+iDq4IUxHVkqhc1Cg8vqe5ag
+	 y+SgNNgILT/WEBCbXej+ijX7VfRyl3e8q0YHRWcj8B9a2DOsW1jtoSvnqRNj5WLlu8UOd
+	 BTmGHolwOwJQGhL8TTQqYQtUhfmLXMCaFOM++dgV3CM4v2nFyv4k7wIEovutOpjsB2Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795760902;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795760903;
 	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:
-	 Received:From:Subject:Date:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Spam-Status:
-	 X-Spam-Checker-Version:X-purgate:X-purgate-type:X-purgate-ID;
-	bh=hR1lIsDu53XucOC121gNhnBmLUv3K3O3Iqrvd3qun8s=;
-	b=er7lZn/UForWTjPsV/IprsAVk6CevzvyAjrBjPdksuuYDfhyYemMlrpfGBC3mGgTRZaj
-	 TfWzNEazixx8kO7r8GawLoiZY13A++/rQm1N/WYHJOCcIsh6285FFqGZHBOF2xtgTq4Xx
-	 PiBv0ow1c4rzr4xNcmA1C3gdZ+0xJHYDmvmVqJk2fhk470qWnMbcD43wr9NrPsNd7ukgt
-	 Mf/6C7b9qPSPufpQISMxBcORlMDLn99QzM0Qm/4bPJTmVTY2Q1dIrwbiWNL/HEd4S3gtE
-	 QBqZSJ2flwNMA2BmYs08rAyCOscQc+b6nwkdyk9wg/sDuAljY3SnqzQwqCNEmfqMeGw==
+	 Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-ID:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Spam-Status:
+	 X-Spam-Checker-Version:X-purgate-type:X-purgate-ID:X-purgate;
+	bh=N3MMDPA3sEGyLVW0UrxIXlEJYxRkoAC/NRx5aD+1dXU=;
+	b=vJc9gttR0sJAZS96/Y57ETDtW9IJ6s2eiSt3CjOtyNSDEdCsPZkt93TpglFfxsQstfzR
+	 f4QkJrUyk6tgzHzoXtC+qvPeU8z8Z7gVhL1CLk9Cko7UO624klMlrV6dhz28d+BOiGSRG
+	 9V9/14bQM8Ujq6mnK/BKuys94kovSJkDHqrNfgbLKPhtQAkNkwAniisxTG1i76xp9Tyx5
+	 P7DonIRr0UaIq96TbS9/4asIovUlqguQPrEFT54avumzJvJ4oY6dOJ1c3s9V72mb0WwQT
+	 ENdDvwhxMK/0I+nMuDvnMd2AkJc48UHXES0sTfpFkyrdIPRiE3SjktgEHw5Ysw7+eHA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=dev.tdt.de;
 	spf=pass smtp.mailfrom=dev.tdt.de;
-	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=hA6TvG8h;
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=GVVLrnaL;
 	arc=none smtp.remote-ip=91.198.224.70
 Received: from mxout70.expurgate.net (mxout70.expurgate.net [91.198.224.70])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DD34606A31E;
-	Fri, 27 Nov 2026 06:28:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9DD34606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45101606A321;
+	Fri, 27 Nov 2026 06:28:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45101606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dev.tdt.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.tdt.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=hA6TvG8h
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=GVVLrnaL
 Received: from [194.37.255.9] (helo=mxout.expurgate.net)
 	by relay.expurgate.net with smtp (Exim 4.92)
 	(envelope-from <prvs=68051b93b8=ms@dev.tdt.de>)
-	id 1xWpRN-00179s-52; Fri, 27 Nov 2026 07:28:13 +0100
+	id 1xWpRN-0017A4-DJ; Fri, 27 Nov 2026 07:28:13 +0100
 Received: from [195.243.126.94] (helo=securemail.tdt.de)
 	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <ms@dev.tdt.de>)
-	id 1xWpRL-0022Is-OQ; Fri, 27 Nov 2026 07:28:11 +0100
+	id 1xWpRM-00EYlv-1q; Fri, 27 Nov 2026 07:28:12 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.tdt.de;
 	s=z1-selector1; t=1795760891;
-	bh=hR1lIsDu53XucOC121gNhnBmLUv3K3O3Iqrvd3qun8s=;
-	h=From:Subject:Date:To:Cc:From;
-	b=hA6TvG8hKDtK3jlOWRY+1Xyg3jUZ9ybwwFok/qPvaLDwViug/nqONaT0acecizxa3
-	 iFowpupaWDxZQSfCujBH0maKClcw9Nu/Q8P8VqonEtO5BEQSAF303P5we8utJ+8BeF
-	 e6gyixOk1TcmKmP1XpvJeXoKOq7tb1j9+f1i1ru6+kEJErGdHKVUoYGp90On+7vZum
-	 e5BcXSHWzVR9AWTsm6XBdYrJYNUzN0bs4ZqQZvDuOdNw7q9qpwvUJS/PoNJRDIU/2+
-	 fdjPnxJUN6nIJk976ME/rUj/iLA3mjU9NuHzL4UXJaF0S4nRa66wTQniZ3WBNYQ6eT
-	 bNAB9WHVySUHA==
+	bh=N3MMDPA3sEGyLVW0UrxIXlEJYxRkoAC/NRx5aD+1dXU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=GVVLrnaLrfkpYt0z8bTj/D3D630kyhqSGOQD5U0UEcpQTkW4cMrbVrPlVW5WQcsYi
+	 XTzLWqNSkI04au9je+otOBJE+1s71KJAJwy4dsdISz4gNGKa0A8Hsnv4t12kJWGzBD
+	 WslFm3sEuMPSR1TOgyM9P4y/BPM4zZXPK2ODcR+yEAWcQvIqdjbVfkYZSc9rQJM3p7
+	 HjCzSrYi7dEGMafI7siQ11E4t36qCz98k5h6N0haAM86Lee8V1XY3PcJoI5UTw6fw7
+	 VgXJHePBep6WJoSFk5Jp1OoQ7DQzLqnnq7nMMPkv5MOgAii71dXVjQvu5RgCkA0WXZ
+	 wY2GuzKpB+mTg==
 Received: from securemail.tdt.de (localhost [127.0.0.1])
-	by securemail.tdt.de (Postfix) with ESMTP id 130D1240041;
+	by securemail.tdt.de (Postfix) with ESMTP id 5A5B7240042;
 	Fri, 27 Nov 2026 07:28:11 +0100 (CET)
 Received: from mail.dev.tdt.de (unknown [10.2.4.42])
-	by securemail.tdt.de (Postfix) with ESMTP id E81DC240036;
-	Fri, 27 Nov 2026 07:28:10 +0100 (CET)
+	by securemail.tdt.de (Postfix) with ESMTP id 4CA4E240036;
+	Fri, 27 Nov 2026 07:28:11 +0100 (CET)
 Received: from [127.0.1.1] (unknown [10.2.3.19])
-	by mail.dev.tdt.de (Postfix) with ESMTPSA id 8A5952B0F1;
+	by mail.dev.tdt.de (Postfix) with ESMTPSA id D3C402B137;
 	Fri, 27 Nov 2026 07:28:10 +0100 (CET)
 From: Martin Schiller <ms@dev.tdt.de>
-Subject: [PATCH net v2 0/2] net/x25: don't call lock_sock() from softirq in
+Date: Fri, 27 Nov 2026 07:28:05 +0100 (CET)
+Subject: [PATCH net v2 1/2] net/x25: don't call lock_sock() from softirq in
  x25_kill_by_neigh()
-Date: Fri, 27 Nov 2026 07:28:04 +0100 (CET)
-Message-ID: <20261127-x25-kill-by-neigh-v2-0-c7cdcc9f1320@dev.tdt.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -78,10 +77,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPQiCWsC/x3MQQ5AMBBA0avIrE2iEypcRSzQKRNS0opUxN01l
- m/x/wOBvXCANnvA8yVBdpdAeQbTMriZUUwyUEFaKSoxUoWrbBuONzqWeUEa68Jqo5pGK0jd4dl
- K/J8dOD6hf98PsSd7tWgAAAA=
-X-Change-ID: 20261124-x25-kill-by-neigh-2b70f6d19961
+Message-ID: <20261127-x25-kill-by-neigh-v2-1-c7cdcc9f1320@dev.tdt.de>
+References: <20261127-x25-kill-by-neigh-v2-0-c7cdcc9f1320@dev.tdt.de>
+In-Reply-To: <20261127-x25-kill-by-neigh-v2-0-c7cdcc9f1320@dev.tdt.de>
 To: Martin Schiller <ms@dev.tdt.de>, "David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
@@ -97,96 +95,248 @@ Cc: linux-x25@vger.kernel.org, netdev@vger.kernel.org,
 	syzbot+9faa82ae2e94c5c7d2ef@syzkaller.appspotmail.com,
 	linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795760890; l=3787;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795760890; l=8022;
  i=ms@dev.tdt.de; s=20260220; h=from:subject:message-id;
- bh=v6SgoFrkv+b0LfnHHS4QhUnFOc6lzK1a631nmYR85VA=;
- b=Om0fG895OE7/xfLbdIK0ZCpQ+X8q6rVyWrj7DEiaxuq8Yjqm8nbAKVOUGYHg8TrXbfvK0VGmo
- Fga67G/AEP5BUna6gO22ffGVjK81SQrThs2EYj/X+1MagGpGQMiT9Fw
+ bh=2+W7uLJL1NSBT4yj1AUVcavZUVv5YSQ1YDVZVs3CPjs=;
+ b=VwojJRZWU4eE+LKlHtGmUjRb9OWuGZ91lHI0v3Nk5cY7l5ENEBThsPIVJ6srQIwB2R1mIqb0d
+ 64ly5smttMVD3mlTIEy2rHmv+gBpI8FZ8oJq8fyhsCalU66+MhEQGdn
 X-Developer-Key: i=ms@dev.tdt.de; a=ed25519;
  pk=MAojd7D5IafMnqCYSFC7hY/u/jppX58CLIEhsEsSOYE=
-X-purgate: clean
 X-purgate-type: clean
-X-purgate-ID: 151534::1795760892-5AC14D96-E86CBE01/0/0
+X-purgate-ID: 151534::1795760892-59417D96-FE40B1FA/0/0
+X-purgate: clean
 
-x25_kill_by_neigh() takes lock_sock() on all sockets of a neighbour,
-but it also runs in softirq context when the link layer reports a
-disconnect or the peer restarts the link. syzbot hits this on mainline,
-net, net-next and the LTS trees. A plain "ip link set lapb0 down" with a
-connected peer is enough: LAPB sends a DISC, and the peer clears its
-calls from softirq.
+From: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
 
-Patch 1 is v2 of Nguyen Ngoc Thang's fix [1]. Sockets that are not
-owned are cleared right away under the socket spinlock, owned sockets
-are flagged and cleared from a new release_cb, and NETDEV_DOWN still
-waits for owners. v2 addresses the AI review of v1 [2]: a flagged
-socket no longer matches incoming frames and no longer transmits, so a
-new call on its LCI after a restart reaches the listener, and child
-sockets do not inherit the flag.
+x25_kill_by_neigh() is reached from the receive path when the link layer
+goes away or the peer restarts:
 
-Patch 2 fixes a pre-existing NULL pointer dereference in x25_sendmsg(),
-x25_output() and x25_recvmsg() after they retake the socket lock. The
-same review pointed out the first two, Krystian Kaniewski found the
-x25_recvmsg() case. It is independent of patch 1.
+  net_rx_action()
+    lapbeth_napi_poll()
+      x25_lapb_receive_frame()
+        x25_link_terminated() / x25_link_control()
+          x25_kill_by_neigh()
+            lock_sock()
 
-Deferring the whole cleanup to a workqueue [3][4] also avoids the
-splat, but the restart is then confirmed while the old calls are still
-bound to their LCIs. [5] had the same design as v1. Both have been
-withdrawn in favour of this series.
+lock_sock() may sleep, which is not allowed in softirq context:
 
-Tested in QEMU (single CPU) with lockdep and DEBUG_ATOMIC_SLEEP, using
-two lapbether devices on a veth pair. A sender stalled in x25_sendmsg()
-via userfaultfd keeps the calling socket owned during the link event:
+  BUG: sleeping function called from invalid context at net/core/sock.c:3832
+  in_atomic(): 0, irqs_disabled(): 0, non_block: 0, pid: 29, name: ktimers/1
+  RCU nest depth: 2, expected: 0
+  ...
+   lock_sock_nested+0x56/0x130 net/core/sock.c:3832
+   x25_kill_by_neigh+0x134/0x2a0 net/x25/af_x25.c:1778
+   x25_lapb_receive_frame+0x1b0/0xfb0 net/x25/x25_dev.c:138
 
-                                       unpatched  v1    v2    wq [4]
-  1  link loss, calls idle             splat      ok    ok    ok
-  2  link loss, caller owned           -          FAIL  ok    FAIL
-  3  restart, caller owned, then a
-     CALL REQUEST on the caller's LCI  -          FAIL  ok    FAIL
-  4  ip link set lapb0 down            splat      ok    ok    ok
+Take the socket spinlock instead, the same way the x25 timers and receive
+path already do. If the socket is not owned by user, disconnect it right
+away. If it is, mark it with X25_KILL_FLAG and let a new release_cb do
+the disconnect when the owner releases the socket. This keeps the
+serialization against x25_sendmsg()/x25_recvmsg()/x25_connect() that
+commit 7781607938c8 ("net/x25: Fix null-ptr-deref caused by
+x25_disconnect") added lock_sock() for. Sockets that already have the
+flag set are skipped, so the rescan loop always terminates.
 
-In test 2, the old call brings the link back up (SABM) before it is
-cleared. In test 3, the new call does not reach the listener, and the
-old call sends a DATA packet on the reused LCI.
+NETDEV_DOWN runs in process context and the device may be freed right
+after, so keep waiting for socket owners there as before: a sleeping
+sweep makes sure no socket still uses the neighbour on return.
 
-Tests 2 and 3 were not run unpatched, as that kernel would sleep in
-softirq. v1 was also tested by Thang with the PREEMPT_RT config and the
-C reproducer of [6]; the changes in v2 add no locking.
+Until its owner releases it, a flagged socket still holds the LCI of a
+call that no longer exists, while x25_link_control() may already have
+confirmed the restart and the peer may reuse that LCI. Skip flagged
+sockets in __x25_find_socket(), so that frames for a reused LCI no
+longer end up in the old socket's backlog, and keep flagged sockets from
+transmitting in x25_kick() and x25_write_internal(). The deferred
+x25_disconnect() only changes local state, so the old call is gone on
+the wire before the restart is answered, as it was before.
 
-Changes in v2:
-- skip flagged sockets in __x25_find_socket()
-- no transmission from flagged sockets in x25_kick() and
-  x25_write_internal()
-- clear the flag in x25_make_new()
-- add the current syzbot report
-- new patch 2
+x25_connect() accepts a listening socket, so a listener can carry the
+flag. Clear it in x25_make_new(), which copies the listener's flags.
 
-The changes on top of v1, patch 2 and the tests were prepared with the
-help of an AI assistant (Claude, Anthropic).
-
-[1] https://lore.kernel.org/all/20261001150118.128470-1-ngocthang2710.1999@gmail.com/
-[2] https://lore.kernel.org/all/179121364205.434549.10310203820251738113@kernel.org/
-[3] https://lore.kernel.org/all/tencent_F7C2DC0FA42B5866E5C39A9E70D3C52C2609@qq.com/
-[4] https://lore.kernel.org/all/tencent_8BA4FF587EE5579AB67149C5062618DC7109@qq.com/
-[5] https://lore.kernel.org/all/00f667e3-a158-4fb5-84a3-9ecda4718ce8@mail.kernel.org/
-[6] https://lore.kernel.org/all/6aa7e6d0.4c28b7d0.c1bba.001c.GAE@google.com/
-
+Fixes: 7781607938c8 ("net/x25: Fix null-ptr-deref caused by x25_disconnect")
+Reported-by: syzbot+9faa82ae2e94c5c7d2ef@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=9faa82ae2e94c5c7d2ef
+Reported-by: syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=300375dfd44665f063a6
+Signed-off-by: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
+[ms: hide flagged sockets from __x25_find_socket() and from
+ transmission, clear the flag in x25_make_new(), add the current
+ syzbot report]
+Signed-off-by: Martin Schiller <ms@dev.tdt.de>
 ---
-Martin Schiller (1):
-      net/x25: re-check x25->neighbour after re-acquiring the socket lock
-
-Nguyen Ngoc Thang (1):
-      net/x25: don't call lock_sock() from softirq in x25_kill_by_neigh()
-
  include/net/x25.h  |  1 +
- net/x25/af_x25.c   | 76 +++++++++++++++++++++++++++++++++++++++++++++++++-----
- net/x25/x25_out.c  |  9 ++++++-
- net/x25/x25_subr.c |  4 +++
- 4 files changed, 82 insertions(+), 8 deletions(-)
----
-base-commit: c5de2ce2fccdb7d3b48946179634eaa3d7ce2e7e
-change-id: 20261124-x25-kill-by-neigh-2b70f6d19961
+ net/x25/af_x25.c   | 66 +++++++++++++++++++++++++++++++++++++++++++++++++-----
+ net/x25/x25_out.c  |  3 ++-
+ net/x25/x25_subr.c |  4 ++++
+ 4 files changed, 67 insertions(+), 7 deletions(-)
 
-Best regards,
+diff --git a/include/net/x25.h b/include/net/x25.h
+index 414f3fd99345455dd30f0cc827736fbce61fd99a..ed8ba01fa3cb396f80344a23f4de8d23d5e4a010 100644
+--- a/include/net/x25.h
++++ b/include/net/x25.h
+@@ -118,6 +118,7 @@ enum {
+ #define X25_Q_BIT_FLAG		0
+ #define X25_INTERRUPT_FLAG	1
+ #define X25_ACCPT_APPRV_FLAG	2
++#define X25_KILL_FLAG		3
+ 
+ /**
+  *	struct x25_route - x25 routing entry
+diff --git a/net/x25/af_x25.c b/net/x25/af_x25.c
+index f45c9ec7d2c68354838b1bfa34ea4ca08120dc8d..a5d3a86918a0f4f337af4566dde4b43a907d1b49 100644
+--- a/net/x25/af_x25.c
++++ b/net/x25/af_x25.c
+@@ -200,6 +200,32 @@ static void x25_remove_socket(struct sock *sk)
+ 	write_unlock_bh(&x25_list_lock);
+ }
+ 
++/*
++ * Process context only: wait for owners that x25_kill_by_neigh() deferred,
++ * so no socket still uses nb once the device goes away.
++ */
++static void x25_kill_by_neigh_sync(struct x25_neigh *nb)
++{
++	struct sock *s;
++
++again:
++	write_lock_bh(&x25_list_lock);
++
++	sk_for_each(s, &x25_list) {
++		if (x25_sk(s)->neighbour == nb) {
++			sock_hold(s);
++			write_unlock_bh(&x25_list_lock);
++			lock_sock(s);
++			if (x25_sk(s)->neighbour == nb)
++				x25_disconnect(s, ENETUNREACH, 0, 0);
++			release_sock(s);
++			sock_put(s);
++			goto again;
++		}
++	}
++	write_unlock_bh(&x25_list_lock);
++}
++
+ /*
+  *	Handle device status changes.
+  */
+@@ -222,6 +248,7 @@ static int x25_device_event(struct notifier_block *this, unsigned long event,
+ 			nb = x25_get_neigh(dev);
+ 			if (nb) {
+ 				x25_link_terminated(nb);
++				x25_kill_by_neigh_sync(nb);
+ 				x25_neigh_put(nb);
+ 			}
+ 			x25_route_device_down(dev);
+@@ -311,7 +338,8 @@ static struct sock *__x25_find_socket(unsigned int lci, struct x25_neigh *nb)
+ 	struct sock *s;
+ 
+ 	sk_for_each(s, &x25_list)
+-		if (x25_sk(s)->lci == lci && x25_sk(s)->neighbour == nb) {
++		if (x25_sk(s)->lci == lci && x25_sk(s)->neighbour == nb &&
++		    !test_bit(X25_KILL_FLAG, &x25_sk(s)->flags)) {
+ 			sock_hold(s);
+ 			goto found;
+ 		}
+@@ -492,10 +520,20 @@ static int x25_listen(struct socket *sock, int backlog)
+ 	return rc;
+ }
+ 
++/* Finish a link teardown that hit while the socket was owned by user. */
++static void x25_release_cb(struct sock *sk)
++{
++	struct x25_sock *x25 = x25_sk(sk);
++
++	if (test_and_clear_bit(X25_KILL_FLAG, &x25->flags) && x25->neighbour)
++		x25_disconnect(sk, ENETUNREACH, 0, 0);
++}
++
+ static struct proto x25_proto = {
+ 	.name	  = "X25",
+ 	.owner	  = THIS_MODULE,
+ 	.obj_size = sizeof(struct x25_sock),
++	.release_cb = x25_release_cb,
+ };
+ 
+ static struct sock *x25_alloc_socket(struct net *net, int kern)
+@@ -610,6 +648,7 @@ static struct sock *x25_make_new(struct sock *osk)
+ 	x25->cudmatchlength = ox25->cudmatchlength;
+ 
+ 	clear_bit(X25_INTERRUPT_FLAG, &x25->flags);
++	clear_bit(X25_KILL_FLAG, &x25->flags);
+ 	x25_init_timers(sk);
+ out:
+ 	return sk;
+@@ -1761,6 +1800,23 @@ static struct notifier_block x25_dev_notifier = {
+ 	.notifier_call = x25_device_event,
+ };
+ 
++/* May run in softirq, so lock_sock() is not an option. */
++static void x25_kill_sock(struct sock *sk, struct x25_neigh *nb)
++{
++	struct x25_sock *x25 = x25_sk(sk);
++
++	local_bh_disable();
++	bh_lock_sock(sk);
++	if (x25->neighbour == nb) {
++		if (sock_owned_by_user(sk))
++			set_bit(X25_KILL_FLAG, &x25->flags);
++		else
++			x25_disconnect(sk, ENETUNREACH, 0, 0);
++	}
++	bh_unlock_sock(sk);
++	local_bh_enable();
++}
++
+ void x25_kill_by_neigh(struct x25_neigh *nb)
+ {
+ 	struct sock *s;
+@@ -1769,13 +1825,11 @@ void x25_kill_by_neigh(struct x25_neigh *nb)
+ 	write_lock_bh(&x25_list_lock);
+ 
+ 	sk_for_each(s, &x25_list) {
+-		if (x25_sk(s)->neighbour == nb) {
++		if (x25_sk(s)->neighbour == nb &&
++		    !test_bit(X25_KILL_FLAG, &x25_sk(s)->flags)) {
+ 			sock_hold(s);
+ 			write_unlock_bh(&x25_list_lock);
+-			lock_sock(s);
+-			if (x25_sk(s)->neighbour == nb)
+-				x25_disconnect(s, ENETUNREACH, 0, 0);
+-			release_sock(s);
++			x25_kill_sock(s, nb);
+ 			sock_put(s);
+ 			goto again;
+ 		}
+diff --git a/net/x25/x25_out.c b/net/x25/x25_out.c
+index f8922b0e23a4f17c1f5f74aa24806a35325e92dd..f710d015fcc2ffd6a6922a0c29876bb248125666 100644
+--- a/net/x25/x25_out.c
++++ b/net/x25/x25_out.c
+@@ -140,7 +140,8 @@ void x25_kick(struct sock *sk)
+ 	int modulus;
+ 	struct x25_sock *x25 = x25_sk(sk);
+ 
+-	if (x25->state != X25_STATE_3)
++	if (x25->state != X25_STATE_3 ||
++	    test_bit(X25_KILL_FLAG, &x25->flags))
+ 		return;
+ 
+ 	/*
+diff --git a/net/x25/x25_subr.c b/net/x25/x25_subr.c
+index 159708d9ad20cb2e6db24ead67daf1e9d6258f64..dba3b8eb10b0f21402592fe5775e1670f68ed4ee 100644
+--- a/net/x25/x25_subr.c
++++ b/net/x25/x25_subr.c
+@@ -120,6 +120,10 @@ void x25_write_internal(struct sock *sk, int frametype)
+ 	 */
+ 	int len = X25_MAX_L2_LEN + X25_EXT_MIN_LEN;
+ 
++	/* The call has already been cleared by a link failure or restart */
++	if (test_bit(X25_KILL_FLAG, &x25->flags))
++		return;
++
+ 	/*
+ 	 *	Adjust frame size.
+ 	 */
+
 -- 
-Martin Schiller <ms@dev.tdt.de>
+2.47.3
 
