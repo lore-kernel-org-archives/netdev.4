@@ -1,99 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795790480;
-	b=mpdAU99kbcVIdABPCiOvZb/4WqMQ+CxmBxktQAmJfoBlxteSeDwxo5EIFB9QIR5/UDIn
-	 QP/TWpN4epTuovFHxzMBWEiYeeyg534Op3ViCIKzGKZvZTCd4IfOJMAonC7sfXJmowPNa
-	 Zfz09jL7p6kDtF6/TxdWM2n+uIP2ra9keOHBClzMjEdsFOcubpq0YXFadkOv6cWiqS1tD
-	 iaUgfq6AhNCwedUX9Cl1nj+rrvRNt6Bkh9UHxgKL8H17L+481N0kFMcyhycCNjCdiIcvU
-	 TR8PXB9AJJEhNArSGVPca+z6XnxtOo5avSGdqd8Qay2a0ek0FgF4BjS6tdbQjRBAvRA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790480;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=1xAA2Goyp0+/R7QCDqIjCUY9e99g0trvUh4YZU4vu90=;
-	b=oShObHt7pVaNCVTgRbosk/iKJytRe3z45GpnGeEtHcZD1XXZ91g40WQDqiaQc65IYkmB
-	 rj4vBUH90pukytZOjbRz5AvVX407bw3mlenCCwhqEPAnydcXZH7RlyGEnm9tqMwTQ7YMa
-	 E+A7YAi6fQrBTPGJE7eUMSrEwKIisORSb8E2FZLsa2qA/2Mm3uWwLdWctaqXmHNb0hpkp
-	 Sb99Li/cZY2fDD09xuso+e2GV9jSpq9GRRQ66uEfExXCQmGcef4Y6s4OTanstj8k/MIcr
-	 GTl+UnJM3BsPymx47Gq5hUvx4fIXKHfhnqd1rbI0/mmLwsgjkTH9L0IUFkCzQG97pqw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cloudlinux.com;
-	spf=pass smtp.mailfrom=cloudlinux.com;
-	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=MT2oHMum;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
-Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.254.224.25
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795790874;
+	b=HAUxHxB+mlG7Dh2awJMZwSwSgHhyvxCzrOvM7F+ZwVtGOvfFr2HgXJcm/rZwqJRTbuiE
+	 0MojHZmfRZNF8UI3Y7Z7oZaBb7SKDpiy2EYwt8bokE6vxTNODM2nM9sWVob9Jm9gOye/E
+	 rGEk6B8P5JGHe10T7MZpX6ESkqQ54q5+MN2MFC/uWmukFHTHmivv/vwlkT8X1yo+3Gy29
+	 2Ze4XefBkrYmw5GjuMC+sKeJoQkLTvDAI0VkKCVAZyId5vNJAQm0jUozFeNPnJgsx69BM
+	 xq+YiMaJG8eSmis9EKKv98pGo9IEdm7K5jDR6U3zLvGu5OhYO7GKN4vcCS0qaF8F07A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790874;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 Received:Received:From:To:Cc:In-Reply-To:Subject:Date:Message-ID:
+	 MIME-Version:Content-Transfer-Encoding:X-Mailer:Thread-Index:
+	 Content-Language:X-CMS-MailID:X-Msg-Generator:Content-Type:CMS-TYPE:
+	 X-CPGSPASS:cpgsPolicy:X-CFilter-Loop:X-CMS-RootMailID:References;
+	bh=LigbDYHgFUyhETTkgekQg93P9iKK9kMEZK/QoESy0XE=;
+	b=hsV7nTVXBLth3OAlUFVJANcL4Lch1WjMQgnw74R472hzKHT029gbmRozFNs0+nxgkkeu
+	 QAMfCM7/DubaXP/02YMJxAKBEV6qaqrnmW49I+TmzXwXlJLj2iBf97PqPl5THGMxboyJg
+	 18hoUZxLPwz0N8SJK1cM7VBcKaoT31CTym5jl67lrsqW2K83Q0pJ1jkIBd2lm8x+8I9bC
+	 t86WilTQsQQJECFv5iyuHuKGYumRYamrB4WjDN4Uw110y8dDi77oV0aUlqGO4Jixtgm2Q
+	 ggG44XEEfvX4TiekK+G8v/fffJjSwssE+h3zw4sjT4CbY8FFT/8hee3OigPFOAs6E2w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=sIbjzqZ6;
+	arc=none smtp.remote-ip=203.254.224.25
+Received: from mailout2.samsung.com (mailout2.samsung.com [203.254.224.25])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44A8B606A335
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 14:41:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44A8B606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F6EF606A321
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 14:47:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F6EF606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=MT2oHMum
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c5126505cb3so1069318066b.0
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:41:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795790478; cv=none;
-        d=google.com; s=arc-20260327;
-        b=JhAqWb2a5kqxyaszgxvySn3s1PHGZp3uDxhTjXGRIrgsN3YCZLGYUN/elg11dTEDwc
-         hbXNEEbEADtr5Kz5JdfHDp7jSOp9qogP+SSTNG2pAaXmNPB0EOVOqsC7MOWKzZA1dpYO
-         6uWribmiTVPa1Z0+OTGN1ou2Ev0knnuM8MIToIMzG0hKztMOoaQVxrzlmoNKm53FW16q
-         aLlVRuhS/ek1QWzLjc1W9z6ERzBygmaKXC0MC6tp3GdGkBuhbGspG85sHqdVqmqh7TdT
-         iMw/07RWgDsFnu7Xc6qKdXpkHP3+709pgrtAH8VvZMJAZGPPl76BC0SiFhjBFb5Vd149
-         av9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=1xAA2Goyp0+/R7QCDqIjCUY9e99g0trvUh4YZU4vu90=;
-        fh=ZZxbElWGkLHPLDyBWw54ds2ZYzzfoTd4o6FYj0Mzxro=;
-        b=NslWsXW4L/cZY/TiEQQCZrOY3UN4xg2OM75TWfxhbIxoDy5YQFJsCOKaCeijnsHVE5
-         qpqUh61m85bdOgCCu+1rFAjRrThi9OiddKDHo8IYhMvOr+SvQ1ZRimk5GbCg8tW/jN4b
-         jJaayUiArtbVbzamr0zfm5LwMV8Klwf2uY44go1rmhM6Iv5ufuU85Xtqbig7zFWaXV9J
-         8rxBX7ZaOHKzFlBpmt86QiJua1c2h1H1IVprPmhw9RuQIi3SX0EX8pOWytTM7ydR7Xb8
-         9yhEPJM5+pH8LjmFjdOA0k6CMvoXbhMa2r75oV2bqySp893QDjcNUBO5UbVmD8PK+Pnr
-         Txow==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudlinux.com; s=google; t=1795790478; x=1796395278; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1xAA2Goyp0+/R7QCDqIjCUY9e99g0trvUh4YZU4vu90=;
-        b=MT2oHMumUDYcT1kYlbQvosRHlNXx3xucpGVTGRPcLqH4jA0fgvtsQ/wf2Ps2Onzrwu
-         oxz3MVdxxJinWMhO7BhAU6bP62OQnZE7FevaUCtiiPYGMWVJEyiD/ZoyE4eAdWCgy9X1
-         QN+ULSdNYBbjlwiDwRZNFQa3AjBAzIdtUSZVOWr9aev3PtiAYRTo+GzVjQrJ6KzcjSRx
-         F6kDPFTqq3q7XVG2lsqyo+GsgNCRvqV03JAl/M2fqtspCSgQr6XyZgr5RopoJwrjg1+q
-         jwc97ZqwWBfgxWzCy27SlDP3CpAb+rgPAhWH0pz5SA3+kk2Aa3ou5rx8zLBqcSUM+Yna
-         Rz/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795790478; x=1796395278;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=1xAA2Goyp0+/R7QCDqIjCUY9e99g0trvUh4YZU4vu90=;
-        b=hohbyZu97r3GAXCtJucIpVrK8FgGQhMS7peNKQ+HJvb5E8VBowzUbaGWhW4NR3ocWp
-         AtbeY8U3+q2H/tG/bGooWqVisyF8zkhYUlyTyC24U7Ss2JK43UPks8xBEIBWa1KZ6yK/
-         4LzmRzMDMw+vATUX11w05z5UyfOpJ4kK0mSto5p+3mzWZFz8R9vsiC+KY+zIRMPemkFY
-         IbP2pmR7GpNOhp4Fb4q9jr1DtC/vRPl9CZYcjPoDGa3vGyPZ8hN7ocPu37Wt8HjLesM8
-         cLGnLMogXzXJpaSC1cv/Lww43c3h4UBlT00ts1pHUOgRZnmqPkEC0phMqGTlC1kyesK1
-         4ZYA==
-X-Forwarded-Encrypted: i=1; AL+hErHyg2LmMqEUROPoZ+WW3u9fUrKbg/xdIbgJUlchKj9TQQ0dkp31HfgE8JT+6ykkKRWsaJP+dKA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/2rW0faL76Ei3x0x7DMBPIw34EzFihqF87gw/sLNmp8A8DZsva
-	fOiyvAna2UvUfipG703ZkkHYkc3p+/Xmxqc6VMtxvg/T2qpYGU2qTOxF35s6fJivs0sOWNm3ECw
-	2eBxNMmbqdmvB1I2jRFFc+yQ61/nqp6uQK9KtKKRwuQ==
-X-Gm-Gg: AZFdTZeOtwInEIcCcwP/TrXrzv8NHQ4vJDFoiu+99GEnwTSgy4nOErnTWfWe891Q5M5
-	sVqKB43iU/aYgBKrze6sgv/qyxvIhWAt5EJ534XHHTTHsbxImAy5BlqSpMNQhEbnXDzzbUkAeF2
-	jCC3K4qc//2k30g3BbNLgjtl4iJtuuwJdbM2+kUCozOxH7lXJkrtlUBBeARyJ6EDHXkRM0xK6WJ
-	ttnHyOHodyFljCI8oRVKaTd76qQNa+ZIe8uYuNbsLZ0IdUrqs46sepUWALcju7chbaEln7+IwHc
-	bTwMd/i4yLk5voWoNesQQBoRJblTLYXJwvTRqR1n3Bn0TMN1XHLrKrN6fGRntqcgxDLEZOER+kg
-	Zqwe561m80R5o/7vqpm4jyR0qoWyQ3lZcECM=
-X-Received: by 2002:a17:907:1b0b:b0:c51:e06a:4744 with SMTP id
- a640c23a62f3a-c51e06a478emr187991766b.7.1795790478468; Fri, 27 Nov 2026
- 06:41:18 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=sIbjzqZ6
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20261127144750epoutp029f49d144bfa5f40ee053e11cb902a48b~r7khNaVMv0588305883epoutp02j
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 14:47:50 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20261127144750epoutp029f49d144bfa5f40ee053e11cb902a48b~r7khNaVMv0588305883epoutp02j
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795790870;
+	bh=LigbDYHgFUyhETTkgekQg93P9iKK9kMEZK/QoESy0XE=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=sIbjzqZ641dRkba/PO0L2PZ/V2F+oqYTeIritnuJjc/vA9WhmIQjSJp3l60NRP5tQ
+	 lv3vpu2MBtWR9tyz+7YyytgzzNwodVWAiZOGwirlprkZoWqyaARQqcFclSbHW5wU/Q
+	 OPq/FJ/cvYwDi/yJfwmvMz+Ea3e8MG+YVt4KenJQ=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20261127144749epcas5p49e7591462797aaed3ad3aebe6d3ce918~r7kfprcBC2671426714epcas5p4v;
+	Fri, 27 Nov 2026 14:47:49 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.91]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4jbbqm2VM4z6B9m5; Fri, 27 Nov
+	2026 14:47:48 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20261127144747epcas5p3ea5291d4421b9dd1c7b5bd9f689d7639~r7kd9qO0n2159821598epcas5p3p;
+	Fri, 27 Nov 2026 14:47:47 +0000 (GMT)
+Received: from SRIBCU13LG9P71 (unknown [107.108.208.92]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261127144743epsmtip11a938de5238cc75244ef9229b378d8a2~r7kaaIVkO2293022930epsmtip1S;
+	Fri, 27 Nov 2026 14:47:43 +0000 (GMT)
+From: "Irlanki Sandeep" <irlanki.s@samsung.com>
+To: "'Kuniyuki Iwashima'" <kuniyu@google.com>, <ameryhung@gmail.com>
+Cc: <netdev@vger.kernel.org>, <bpf@vger.kernel.org>, <kuba@kernel.org>,
+	<cpgs@samsung.com>, <edumazet@google.com>, <davem@davemloft.net>,
+	<pabeni@redhat.com>, <ncardwell@google.com>, <ast@kernel.org>,
+	<alexei.starovoitov@gmail.com>, <ameryhung@gmail.com>,
+	<daniel@iogearbox.net>, <andrii@kernel.org>, <corbet@lwn.net>,
+	<linux-kernel@vger.kernel.org>, <lorenzo@google.com>, <maze@google.com>,
+	<sporeba@google.com>, <motomuman@google.com>, <madhan.raj@samsung.com>,
+	<srihari.k@samsung.com>, <g.pokhra@samsung.com>, <r.kumawat@samsung.com>,
+	<raj.kumars@samsung.com>, <ts413.lee@samsung.com>,
+	<ramyashree.s@samsung.com>, <daeil2.hwang@samsung.com>,
+	<sharmasagarika@google.com>, <irlanki.s@samsung.com>
+In-Reply-To: <av8pip2n63ZBofcE@google.com>
+Subject: RE: [PATCH bpf-next v9] bpf: tcp: add ecn_init callback to
+ bpf_tcp_ops for per-connection ECN
+Date: Fri, 27 Nov 2026 20:17:42 +0530
+Message-ID: <000001dd7e7e$448c3000$cda49000$@samsung.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,33 +87,84 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123104236.4179425-1-rmustafin@cloudlinux.com> <179551712630.3135.52212996809224784@kernel.org>
-In-Reply-To: <179551712630.3135.52212996809224784@kernel.org>
-From: Rustam Mustafin <rmustafin@cloudlinux.com>
-Date: Fri, 27 Nov 2026 21:41:07 +0700
-X-Gm-Features: Aa3M54ridbYcbm90XHp9x2LSe6zmQntTNNJ5b4vHfgqbclmUtnKlfUB5zVS6gIA
-Message-ID: <CAG6=z5vW4aPe9f5S_8m73oKvEkxSZySc7tJJo_hbK7F-bL3ZJA@mail.gmail.com>
-Subject: Re: [PATCH ipsec v2] xfrm: use the frame's own socket in the too big checks
-To: netdev-bot+sashiko@kernel.org
-Cc: steffen.klassert@secunet.com, herbert@gondor.apana.org.au, 
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
-	horms@kernel.org, netdev@vger.kernel.org, ipsec@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQLz+NqzmYpujPtDh8x08WfmcH857AK2nUVDAsdHS6ECyy+hMbTSuHvQ
+Content-Language: en-in
+X-CMS-MailID: 20261127144747epcas5p3ea5291d4421b9dd1c7b5bd9f689d7639
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+X-CPGSPASS: Y
+cpgsPolicy: CPGSC10-065,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20261116151200epcas5p4218c26338b3e9580a9e232be400aecc5
+References: <DM6GLQVDXGWL.1ZV7PCL5B2B0K@gmail.com>
+	<CGME20261116151200epcas5p4218c26338b3e9580a9e232be400aecc5@epcas5p4.samsung.com>
+	<20261116151331.500313-1-irlanki.s@samsung.com>
+	<av8pip2n63ZBofcE@google.com>
 
-On Tue, Nov 24, 2026 at 5:45 PM <netdev-bot+sashiko@kernel.org> wrote:
-> Does iptfs_is_too_big() in net/xfrm/xfrm_iptfs.c still have the same
-> mismatch?
+Hi Kuniyuki,
 
-IP-TFS has its own output path, which this patch does not reach. It is
-fixed in a separate patch:
-https://lore.kernel.org/all/20261127142550.66326-1-rmustafin@cloudlinux.com/
+Thanks for the review. v10 is posted as 0/2, 1/2 and 2/2.
 
-> This isn't a bug introduced by this patch, but this branch leads into
-> xfrm6_local_error(), which looks like it can leak kernel heap memory:
+> Why can't ip-rule (or VRF) be used with a per-route attribute ?
 
-It is pre-existing and this patch does not change that path, so I have
-left it for a separate fix.
+Routes and rules select traffic by destination, interface, mark, uid
+range, protocol and port, not by cgroup or application. A uid or mark
+rule can separate apps, but the existing per-route ECN bit
+(RTAX_FEATURE_ECN) only force-enables classic ECN, so selecting AccECN
+would need a new route feature. VRF separates traffic by routing table
+and interface, not by application on the same route.
 
-Br,
-Rustam
+> Also, a route attribute would work with syncookie.
+
+Correct. Syncookie connections do not run the callback, so with this
+series they use the sysctl; the route bit still applies via
+cookie_ecn_ok(). ip-sysctl.rst documents this. An automated review of
+v10 pointed out that the commit message is wrong about syncookies. It
+says no request_sock is created, but a request_sock is allocated; it just
+has no listener, so sk_to_full_sk() returns NULL and the program is
+skipped. v11 will fix the commit message and add a comment at the call
+site. I consider the fallback acceptable, since syncookies only come into
+play under load. If you think the per-connection policy should also cover
+the syncookie path, I'm happy to discuss options.
+
+> This is simple, but one concern would be that we end up adding more
+> single-purpose stateless callbacks during 3WHS, which could be more
+> expensive than stateful solution.
+>
+> For stateful use case w/ per-socket field, rwnd_init() + kfunc would
+> suffice (and we have such a use case).
+
+The cost concern is valid. The callback runs at most once per side per
+handshake, and since v10 on the passive side only for SYNs that request
+ECN.
+
+For the stateful alternative, rwnd_init() + kfunc works on the active
+side, because rwnd_init() runs in tcp_connect_init() before
+tcp_ecn_send_syn(). On the passive side it does not, because
+tcp_ecn_create_request() decides the ECN bits before rwnd_init() runs,
+so a field set there would not affect that SYN-ACK. If your per-socket
+use case is active-side only, rwnd_init() + kfunc is viable for it, and
+we can discuss it as a follow-up.
+
+> nit: reverse xmas tree order
+
+> Please avoid calling it if not needed,
+> !tcp_accecn_syn_requested && !th_ecn
+>
+> also nit: reverse xmas tree
+
+Done in v10. The declarations in tcp_ecn_send_syn() and
+tcp_ecn_create_request() are reordered. tcp_ecn_create_request() now
+returns before calling tcp_ecn_init_bpf() unless the SYN requests AccECN
+or carries ECE+CWR.
+
+> Please split selftest into a separate patch.
+
+Done in v10. The selftests are in their own patch (2/2).
+
+Thanks,
+Sandeep
+
