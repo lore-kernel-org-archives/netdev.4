@@ -1,136 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795766976;
-	b=iczB/2c+6IpqCPlNW1tstIZBkl98MpWMOGOPea0wKA2eOV+oxhqV69aXs1Jan3ZBhA+D
-	 VE+UksHgfmyC+qi1RRKHFbo/2hpHj/eRtvWVPTGiO0cnRCyA54sVMnYJGzb0LM6FI2lFa
-	 7+SzFAGd2w34PA7MsKXBotV0dz9XUicS1lxebueaXOpp6uNfl3waA/qdgeKM5jCfwyiTG
-	 GQ3FxQtIbPsCVVVWa1OrK3tB2LZ5c1aqYkeJHDZYKNWJXZBPY6DIDWpqE8SDhrIYECS1L
-	 SBVoak0AzU82HaJfUUmO69+X0k8EyULxvg4j+uyzMlFsKCRKKJaeADRlY/9DhZ7NE5Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795766976;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=fl9OTnQ0HUwo/Hu/H6RpFvjTqpBEuQGjyomK+35wjN8=;
-	b=2Fuv5TGPuir9Zl2htnePowv3hqNYSB8AhWLcX/QgZ3CpVZX8qWESLW5NRHMb1w2nECqc
-	 UFzCTkR6Xg88YXxe9ab7maQFRrz1k4VqUw0euvSnIBq6rPjsaidB5ZYdB1dchSCF4UC24
-	 4Sn93MTICSuLsLnnA6TfOpNlnes0nOqquojLytHHgGWc+JZli1m2PuqfjDHaNbryq75SU
-	 BCADp4WNE/EVUw+QeAGEkznc9rHo+7ZPbte97sJTz9qdVu5vNE199NWGghK1NI7CPDTDq
-	 rvHRjeN4Q9z6KZyLdBcmnEZ7zXKwwfdh1Af5ot1c/BF160u2rD4/NQ5ypjFAn1vJL1g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=VFpGs6LJ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.54
-Received: from CH5PR02CU005.outbound.protection.outlook.com (mail-northcentralusazon11012054.outbound.protection.outlook.com [40.107.200.54])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.14
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795767033;
+	b=3mf7Dwg+dUSrmPtXF1J2zOB0wzotDaLGUxVKQZivX8Ard/NKDkMtaC75SnA20e0c+BJY
+	 s2ts0oNhTNaAmX+vqdmP3uZLw5b/XpbLMZgKBstm9Mo2x3u+r7TrtRaPBpdGlUE1aDRsr
+	 /N8lZ1qmK2nNyjBk7icN1pz6J2OvY1HjRDVpk02YyI85YKQHH6MNz+eb6P7qW83DJ+9rE
+	 xaoCZDlKgnclRMyUYDy73usJBV1EEV30dJP39Tplinb12gJjuucG0i36tBobGwSFrRcYi
+	 YUAKi5h2wG9RsrQPIEXlcqUBneMg0UJsZzXPElwGXdUDYEPNSbS6CyRvLT6moAcSLTA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795767033;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 From:Subject:To:Cc:References:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
+	 UI-OutboundReport;
+	bh=jCANo1+BjHyU2/B1uMfnq0KTjxBdjgMocVHmrB1ByQY=;
+	b=OJLk7JuV8vUU8FLnAP+t4YoS+Lpl0I/glgz2439NKIFq5VD8FZUs8vTMqZiqwGHF7fiW
+	 CFQ0awPfwExHOmVJS4gxAFSEvmqFvu12JU1bdwdbezQ+lz3QQ+4WQmTx5uO7M64hsZZta
+	 R2ud3i317eMbnyxY+MC30eqiO9LwH4SBzpq6ss0laDtCDcVjDspkKVac6kPzKHdKKnY3G
+	 DC8C3pNZfQhWAiN2abi/nU/r4vgQe/DiqCwB8COI0bjMXzL/FRSDkBGUf3Ky6c9So66YM
+	 0jgVB0QfRi70WYx7ENlVx16IQgx1pLmB7Foq7DjxC4SnvnZjka+HfNvsnrFRktDUTng==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=web.de;
+	spf=pass smtp.mailfrom=web.de;
+	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=i9SOXG0M;
+	arc=none smtp.remote-ip=212.227.15.14
+Received: from mout.web.de (mout.web.de [212.227.15.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CAD0606A31E;
-	Fri, 27 Nov 2026 08:09:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CAD0606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28029606A326
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 08:10:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28029606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=VFpGs6LJ
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=B6at2kTNIjEye7CpN4DO/0xk0ps+JyKqfPczqODa3BdeGq2FIPoK+4kdRf5eSaJpb4QJ6g/762s5oUg85QHn7gKAtg+9hsXWee0WTnWN568XzFd1bQfr5OrIsK/lmftC+MsBAFJYX0mgEYTR03mwVx4uWMLkut7ZAX4ZgC9mEivz9akl63f5ELRHEFianZdyqOiD46wVEAA3mQMg3C4cJQj3nF1eS6gKbMq2oIYmzW/O8/YntzK2WEkdx+p7YZz2muUPV0znepf7b7zKTCQqfoZAUNUqmilsrunUrZOXgpDV0PkG+EwXPgNjeQWn++UUT574KOJzycmb1vwob0X6HA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fl9OTnQ0HUwo/Hu/H6RpFvjTqpBEuQGjyomK+35wjN8=;
- b=cKHsJak6kWY7Psem7ikmpt+IUiQ/8JzZcqodeew0ztfozkry7JgCNsrSfoGv7w2yZLzuYEi/MF7Q0Xtz8XOGrmM/AmPDPSeaHaw2yxEZEti6nt8xFJBs2cKLBY212/X2A4+5g5GFuWDDXCqhu1Cczfy94AbjbO4H2ZlAZPDcijtf6BLKinFrOKQM5oPDNVHFNIVGfcLMpPZ9tXdnyGoM7p4e7l+cz/78g5RZABBe0aCJO/ODVfQnphIDllqTIUFbAlrWTxBCijlg/M9ZpKfCG69+5FUGGTfVP8KXuDPxgezmBK0VEjB3lNPqvfgKT42+noij/mLJfHPgtnCuz7wtpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fl9OTnQ0HUwo/Hu/H6RpFvjTqpBEuQGjyomK+35wjN8=;
- b=VFpGs6LJ2Y8FXB/m9o3BZ7By22Qk8F0Zmxdj2bsCm9NMgNqsNlMK/7cIcuz6kd60iDCjpHeUPQBoTV+fxTq6qnxj17P7E2lkwoh5S1gBat/Z802pfo6xmzGwY4SRCIn072TlFw7k8rJw2Lp6uQmSpYK/YwB0T552bXIW1n1V4F6SV5wgxqsbhlJlWvEjg+UI2w7yRACvGPEg8R27xpGqZEAQt7IjDx0z28JrC3O+8pzNBIf33o6Xp9Pna0umLaPuJH3cfMAFx7nBejApreE4RxSTQ7/G6Hy1Quy+KPzJ7gS/nB+CWk85YxVPsUc3Or8gpkz7KpwLfkk3fEKOrO9wqg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from IA3PR12MB899783.namprd12.prod.outlook.com
- (2603:10b6:208:621::11) by PH0PR12MB8152.namprd12.prod.outlook.com
- (2603:10b6:510:292::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
- 2026 08:09:19 +0000
-Received: from IA3PR12MB899783.namprd12.prod.outlook.com
- ([fe80::63e7:e9f3:6663:c1b0]) by IA3PR12MB899783.namprd12.prod.outlook.com
- ([fe80::63e7:e9f3:6663:c1b0%5]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
- 08:09:19 +0000
-Date: Fri, 27 Nov 2026 16:09:11 +0800
-From: Richard Cheng <icheng@nvidia.com>
-To: "Srivatsa S. Bhat (Microsoft)" <srivatsa@csail.mit.edu>
-Cc: Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	Minchan Kim <minchan@kernel.org>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
-	Jens Axboe <axboe@kernel.dk>, Chanwoo Choi <cw00.choi@samsung.com>, 
-	MyungJoo Ham <myungjoo.ham@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Xu Yilun <yilun.xu@intel.com>, Tom Rix <trix@redhat.com>, 
-	Moritz Fischer <mdf@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Sizhe Liu <liusizhe5@huawei.com>, 
-	Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>, 
-	Will Deacon <will@kernel.org>, Song Liu <song@kernel.org>, Yu Kuai <yukuai@fygo.io>, 
-	Li Nan <magiclinan@didiglobal.com>, Xiao Ni <xiao@kernel.org>, Haren Myneni <haren@linux.ibm.com>, 
-	Rick Lindsley <ricklind@linux.ibm.com>, Nick Child <nnac123@linux.ibm.com>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Marcin Wojtas <marcin.s.wojtas@gmail.com>, 
-	"Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>, 
-	Eugenio =?utf-8?B?UMOpcmV6?= <eperezma@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>, 
-	Dan Williams <djbw@kernel.org>, Vishal Verma <vishal.l.verma@intel.com>, 
-	Dave Jiang <dave.jiang@intel.com>, Alison Schofield <alison.schofield@intel.com>, 
-	Ira Weiny <iweiny@kernel.org>, Shuai Xue <xueshuai@linux.alibaba.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Jonathan Cameron <jic23@kernel.org>, 
-	Jing Zhang <renyu.zj@linux.alibaba.com>, Frank Li <Frank.li@nxp.com>, Xu Yang <xu.yang_2@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Yushan Wang <wangyushan12@huawei.com>, 
-	Jijie Shao <shaojijie@huawei.com>, Gowthami Thiagarajan <gthiagarajan@marvell.com>, 
-	Geetha sowjanya <gakula@marvell.com>, Justin Tee <justin.tee@broadcom.com>, 
-	Paul Ely <paul.ely@broadcom.com>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	"Martin K. Petersen" <mkp@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Steffen Klassert <steffen.klassert@secunet.com>, 
-	Daniel Jordan <daniel.m.jordan@oracle.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Yosry Ahmed <yosry@kernel.org>, Nhat Pham <nphamcs@gmail.com>, 
-	Chengming Zhou <chengming.zhou@linux.dev>, Andrew Morton <akpm@linux-foundation.org>, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-block@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-fpga@vger.kernel.org, coresight@lists.linaro.org, 
-	iommu@lists.linux.dev, linux-raid@vger.kernel.org, netdev@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, virtualization@lists.linux.dev, nvdimm@lists.linux.dev, 
-	linux-perf-users@vger.kernel.org, linux-cxl@vger.kernel.org, imx@lists.linux.dev, 
-	linux-scsi@vger.kernel.org, linux-crypto@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, Prasanna Kumar T S M <ptsm@linux.microsoft.com>, 
-	Saurabh Sengar <ssengar@linux.microsoft.com>
-Subject: Re: [PATCH] cpu/hotplug: Rename cpuhp_remove_multi_state to be
- symmetric with setup
-Message-ID: <awk6TGp9riwDD55i@MWDK4CY14F>
-References: <20261127-fix-rename_cpuhp_remove_multi_state-v1-1-097db4564cbd@csail.mit.edu>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261127-fix-rename_cpuhp_remove_multi_state-v1-1-097db4564cbd@csail.mit.edu>
-X-ClientProxiedBy: SI2PR02CA0033.apcprd02.prod.outlook.com
- (2603:1096:4:195::20) To IA3PR12MB899783.namprd12.prod.outlook.com
- (2603:10b6:208:621::11)
+	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=i9SOXG0M
+DKIM2-Signature:  i=1; m=1; t=1795767030;
+ mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
+ rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
+ d=web.de;
+ s=s29768273:rsa-sha256:ewl2yQ1MSAp+cJwXoc2KYt/BwWRf
+   P0e5m5A/AVYM5JtYNquqlrb1GDC4z0X0OxY6e0EOsy1ps1/5HqNrY1ELFORQd6zWZYQvj4e6B5N
+   TOYxYhzejlWccfDOLcNBhGjYAlm5GgabUTbNeKrlXn1sVeWmbM+T9pdBltJv12HCmStmF6apXKJ
+   pZWAV7MDC2c8+p6MBeb84AA9OZGFnxn/L0Z+b5EBu0uLkqNRlbQNCTsiDP0RglKvTV/2rfoo73H
+   vYjoYis+KDtsY8FnFQTf7YTuZaaFzoow2xRrPrle0wd/oIBnBP8HcV9t1w0YIwtcf9l9xGW54NZ
+   V6UdTgae6jwtxQ==;
+Message-Instance:  m=1;
+ h=sha256:
+   Q2dSPyl8S3uJCiPBOke+XhVfb+KOee3/25uxz9SGfQ0=:
+   jCANo1+BjHyU2/B1uMfnq0KTjxBdjgMocVHmrB1ByQY=,
+  sha512:
+   JVukxLsxWGYkHkuR6c1V+FpTbGxmX0vSJoPWS3yRqhVECOvp166e/V+PAO3+CLvXWzgh/y/PdLViGcgyvrI8ig==:
+   uEv2Grjq5iJKjWb5MKHdyS+jPcdI6hxCScHIDtTQMTmA66CZxp9A+YnECZG3yAykKoJeo/ekRR5VL3u9AIugig==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1795767012; x=1796371812; i=markus.elfring@web.de;
+	bh=jCANo1+BjHyU2/B1uMfnq0KTjxBdjgMocVHmrB1ByQY=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:From:Subject:To:
+	 Cc:References:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=i9SOXG0MTYQwRxRALFunrB1A9aYlIlXPkbwrxnvtPGyAbjssKiN7J360qdZsjv9e
+	 X/w3/ORL+N/MZb+a38n4mH9i8uPyOeUDs+jkszEBNLUzKLfcDsyaTPPF6/UEsbgI5
+	 wztwFdjeuOsSR1OjSh1euXDLDeHfSDCDLsqKGBepS+RmmXUZVHvvtQFdxcZJUwMVl
+	 7MEp7ip/tbb6tDNJ0j7FqR9KFKhqw3r7htATFmwlsOsBJ5Cg21r0KPz27RHTl4ZlG
+	 oAm+QeYFhKAUF8McPIwFUpV7U/zRQJaZmr5rcNm2+gCV0pklFNL5n/ygM8ecDa0mb
+	 EgffnOiUAYI/vkhvWw==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MPrPT-1xtB71259X-00QEmS; Fri, 27
+ Nov 2026 09:10:12 +0100
+Message-ID: <1a5b41a4-0925-4ccd-b04b-2a3f0697821e@web.de>
+Date: Fri, 27 Nov 2026 09:09:54 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -140,995 +80,168 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA3PR12MB899783:EE_|PH0PR12MB8152:EE_
-X-MS-Office365-Filtering-Correlation-Id: 224fbf9d-2a7e-4e25-00ad-08df4c5dbc7c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|5023799004|11063799006|6133799003|261009221227099003|261009223027099003|18002099003|22082099003|10067099003|56012099006|261102123227099003|261028144727099003|261026140227099003|261026121527099003|261021121427099003|261021135927099003|261021123027099003|261022115727099003|261022105027099003|261022075727099003;
-X-Microsoft-Antispam-Message-Info:
-	AxMTX+rLOJfJPhsiWc+BT3/bn6XNgASHPOl+w0CUTYyr7ztXS+/hiObvphHyaCinp7aGbXYtbF7DUBn1qFUWh5t3jbaOnAgxqD8U/utHcxkwOQcOZosFIczKYPhB2LxSnFS8igbAaYSEFF1PYgPVW3naeiAHSIlEUEK5Qd9v1FC/ggHQLekOZ8cfIv45bQBeNeTb6GJFpX0+8Q7Jrt2kQ0paGjHCbuSz5vcvIGFrSm5zDLFg2Ok0wk9T9k9WfTuxsyKgqfUDG134B8R2Bl7EHOoBvmYfnrHIjLjcym7LqmnRn/2hWcZA6fSiB3kxe3vBzg6J/Wm1ii3YN4dSeEH8eL6tfKYBln9zkDuq3cC5If3begfXVpfbFHRV3r0HsHwF+eOofRRWR/1lxCECDFB+l6/mQw7+n4tO1vphyFUJE3rbPMcxyG83xk2Cbp/LmTrBbPhcjXuKwzh6Gsa+Du4Hecb/KxtR9gFyvYMIrD3I88jPcc/RiLVcbK2ww87h4C3t2gTsDhU5IyAmPtQEDZ9FDmNsMkRBwI9ysh7I43yRhik/thsXgCFT1Jn3ASHY19W/2noBFfzhNGKlXVIxmGK9Z8JcxzeSHC8aU4RQHBVOcX1EvYBhv3EQREuiXLZMnQBlYlvNP6Q0c8YeMbMyolj3/XujhN0F4CXzaDZ5/m0HyIU=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA3PR12MB899783.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(5023799004)(11063799006)(6133799003)(261009221227099003)(261009223027099003)(18002099003)(22082099003)(10067099003)(56012099006)(261102123227099003)(261028144727099003)(261026140227099003)(261026121527099003)(261021121427099003)(261021135927099003)(261021123027099003)(261022115727099003)(261022105027099003)(261022075727099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?M9IzqqFKSFoYadXOpEWhEA2W4GIjOQoFG16/xk70fr1VUq2Wx0BfqauciwaO?=
- =?us-ascii?Q?1UEhWuTEQglUJI4nvZkKh7ta6rYkudCYEWMvGCnOHuEOYcHcKziJ3TqbMce/?=
- =?us-ascii?Q?53KG29rHeD3SuJQV54fc1SqseV9ibq8y8ZJoQuDVszyn32lkPeUttOg6yOXE?=
- =?us-ascii?Q?+4mRhNZjfjtUw9UVfPmnuMSrABw2lxomWFAfwFFVmXGrGhF8XtcNJbIkctfZ?=
- =?us-ascii?Q?E6WR8IvbQgZBc11w0IUaTMC9t4V7Rn7epW0JXLLXGttvD9ftccAd/jg0tSup?=
- =?us-ascii?Q?fzlV5SucLlYiEedGJMcxwmGvCINlYgRtxoLPdhzdUI57tlHl+b7PQUb7EcpY?=
- =?us-ascii?Q?lSvF3/R8yH8O1aAd8GUWmCq1V98lf+Bt/bxbXm9hGc5zQBGRt4LHykQua9ww?=
- =?us-ascii?Q?08GALNna+3JDOesp9VkH4izWykY/edK++rFzS4UWFJ9+bF0l9Ljvf2LmwdpS?=
- =?us-ascii?Q?wmSsVynC5cQn63Wi6TqvG+HIk4udNrqglr3dq34FVf9LNpuSD+ipgEWKwG58?=
- =?us-ascii?Q?PjVHntk/r65plH5aCLh1mD8+23g5rKzVF5t2gMJYZT8VA8hW4VvyEr9Y/T9a?=
- =?us-ascii?Q?drYekoHMGC5FC7LdORrpG0cNK+lZLjsmWIYjko7qqnx1u7lnMIbZo+Jnuk6h?=
- =?us-ascii?Q?4a6MNz2PF4s/evA2a68Ak9KusByOXH6efWAJ0vjR3Hw+CUjOE6b6mFay5BbN?=
- =?us-ascii?Q?cb+ZCeH0tc34qVzYdHbPrT0ObgQC/2k0luQtt6/0w0Krj5NNhJrnA++0LPbC?=
- =?us-ascii?Q?2lmev0ZA7pZfhKsfH8I4PCxeudIRHfV67KoVCEijelIo94uMYOG27af9Mg4l?=
- =?us-ascii?Q?FlJjY9n1vc5NYqWozmBpccaAfSiR+tuZBPH2a4iBKpaDj4ePcCaM715GdYsA?=
- =?us-ascii?Q?X4Y8lagfN87qstfm/ZeTQbZef2A/7bNWjPMIhh3E0SS9Kaps7gI2rJY9x9ww?=
- =?us-ascii?Q?V+eew3xncUDloxcPnEKRgMYuqUI1xRcdzmPj4SC+liBonpoxTEeWRIioLwL3?=
- =?us-ascii?Q?b/CRNxZsJI+liMtrsfyL5tFloQ1Rbc4w5k5/iMxeNRET/wv9ERT6U1G+kpO7?=
- =?us-ascii?Q?Y7Cbz1LtWRFgvEbKhCzEZQyPonubr2RbqtyjBDoWC3Cay4xUP485JVqLQYnl?=
- =?us-ascii?Q?cmCUv/rcIGuMpnYgUclj/UKaijeLnwN+Vz5qTDs7acF4d/MQO6KYJVOPC0P3?=
- =?us-ascii?Q?/nbS2CJKz1PK7lMRB+S8T/I5SJ00+YaDsdSGZ1epwy1vgHaYYOp/VCikpCof?=
- =?us-ascii?Q?5aEkuxCWIvMYBdCYQo9K5Ufid+YphCHb9xeb621kIaFnM2kGOrOeuaTr/Vbp?=
- =?us-ascii?Q?WaLpjjAvBUR4ObwpJgqSrGLGSpW6j2rXTdkCONjy9k/nURFOiA1nu6iqeOqN?=
- =?us-ascii?Q?nvuQBDuXURwHVbx/gLU9yXxS8FNczttqsIWywnjd9cc9OmTRHnS4hO2c4Nkd?=
- =?us-ascii?Q?ZR62gBgw4EN574mskrTH0LUo0XVTzTCgm3JjZ8uL0kyHzXChygAgUB9E3Wi0?=
- =?us-ascii?Q?sjDDCnmbUP3JuBkY5pOENE26eo43Z8U/gkBgu7Ns2h5xObmMMqOGmUcbXBp+?=
- =?us-ascii?Q?2b1oFf9JUfTRzdNkaXHRmDdCcEym2aTFjkTThexb73Oy+TLT3VUcvMOYSQHy?=
- =?us-ascii?Q?fyWbEj0Sem96+L82E/Nof1YmXm6FyosfZe/dXVjtOpiP53Brxm0sPD7/Ylk6?=
- =?us-ascii?Q?jcxILYNSsEK9LugtBuqtuVfbAlCeRYaOWG0LxK/2+ajsIFue6nbuXFgLK5Zm?=
- =?us-ascii?Q?y1GqvbVDCQ=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 224fbf9d-2a7e-4e25-00ad-08df4c5dbc7c
-X-MS-Exchange-CrossTenant-AuthSource: IA3PR12MB899783.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 08:09:19.0750
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +AWSsqNl0zVmSWUvGlqI0VHjBTqTC5mdDt9axt088mK5P8X/SbaefspEpTGH0ee2VN6sF5avadOH1W4B1E+SNQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8152
+User-Agent: Mozilla Thunderbird
+From: Markus Elfring <Markus.Elfring@web.de>
+Subject: Re: bcm63xx_enet: Use devm_clk_get_enabled() in two probe functions
+To: Julia Lawall <Julia.Lawall@inria.fr>,
+ Christophe Jaillet <christophe.jaillet@wanadoo.fr>, netdev@vger.kernel.org,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Selam Hemanth <hemanth.selam@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jonas Gorski <jonas.gorski@gmail.com>, Abeni Paolo <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Frank Li <Frank.Li@kernel.org>
+References: <f3de129e-bbee-470d-a1df-e867269522cc@wanadoo.fr>
+ <80E9692C-11F4-42A4-BDCB-E235AA2359AC@inria.fr>
+Content-Language: en-GB, de-DE
+In-Reply-To: <80E9692C-11F4-42A4-BDCB-E235AA2359AC@inria.fr>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:PW0PeXkfiXCUtGbcS9UjEyYt1Lj3bNga+v2nqkT3uN05j+aqWDP
+ gnvjPIvZNJYAYAVUVEVdpRgo51LMkN89JA4ibEa3AgSblyeEZWUdbdRkzwGesrwTn+DO2AU
+ zs4WGVfpy3EoHIX5QT3BzuPuxZ0MQSN3tkEAtu2XUk72RvtBneG/Y607R3OkasOmikHNXL4
+ WuPMlJiAXphdHpj26YcvQ==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:p7HZiJ8+D10=;DpHK/GhSRH+52IXlA4wxvqrydaZ
+ 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
 
-On Fri, Nov 27, 2026 at 01:07:40PM +0800, Srivatsa S. Bhat (Microsoft) wrote:
-> The multi-instance CPU hotplug state setup API is named as
-> cpuhp_setup_state_multi(), whereas the corresponding remove API is
-> currently named as cpuhp_remove_multi_state(). Rename the latter as
-> cpuhp_remove_state_multi() to fix the asymmetry. This also helps
-> maintain consistency in the API names by letting them share a common
-> prefix, i.e., cpuhp_setup/remove_state_*() across all the variants
-> [none|nocalls|nocalls_cpuslocked].
-> 
-> Signed-off-by: Srivatsa S. Bhat (Microsoft) <srivatsa@csail.mit.edu>
+>>> The ungating of the item =E2=80=9Cpriv->phy_clk=E2=80=9D depends on sp=
+ecial condition checks.
+>> This does not answer the question.
+> Furthermore ungating is not a real word.
 
-Hi Srivatsa,
+How will wording preferences evolve further?
+https://en.wiktionary.org/wiki/ungating
 
-Not sure whether this is really needed, it doesn't harm anything,
-but IMHO it doesn't really brings us benefit.
+Under which circumstances will awareness grow for remaining change require=
+ments
+also according to conditional usage of devres programming interfaces?
+https://elixir.bootlin.com/linux/v7.4-rc2/source/drivers/clk/clk.c#L1453-L=
+1471
+https://elixir.bootlin.com/linux/v7.4-rc2/source/drivers/net/ethernet/broa=
+dcom/bcm63xx_enet.c#L1789-L1800
 
-Best regards,
-Richard Cheng.
+See also:
+bcm63xx_enet: use managed functions for clock/ioremap
+2017-10-01
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/=
+drivers/net/ethernet/broadcom/bcm63xx_enet.c?id=3D7e697ce99ceb09538cdc1dfa=
+9ebb3db60236b0a7
 
-> ---
-> Performing the API rename in
-> Documentation/translations/zh_CN/core-api/cpu_hotplug.rst is left as a
-> to-do, as I don't know how to edit that file correctly, and didn't want
-> to mess up the translation in the process. If someone can help do the
-> rename in that file safely, that would be much appreciated!
-> ---
->  Documentation/core-api/cpu_hotplug.rst       | 6 +++---
->  drivers/block/zram/zram_drv.c                | 6 +++---
->  drivers/devfreq/event/rockchip-dfi.c         | 2 +-
->  drivers/fpga/dfl-fme-perf.c                  | 4 ++--
->  drivers/hwtracing/coresight/coresight-trbe.c | 4 ++--
->  drivers/hwtracing/ptt/hisi_ptt.c             | 4 ++--
->  drivers/iommu/iova.c                         | 2 +-
->  drivers/md/raid5.c                           | 4 ++--
->  drivers/net/ethernet/ibm/ibmvnic.c           | 8 ++++----
->  drivers/net/ethernet/marvell/mvneta.c        | 8 ++++----
->  drivers/net/virtio_net.c                     | 8 ++++----
->  drivers/nvdimm/nd_perf.c                     | 6 +++---
->  drivers/perf/alibaba_uncore_drw_pmu.c        | 4 ++--
->  drivers/perf/arm-ccn.c                       | 4 ++--
->  drivers/perf/arm-cmn.c                       | 4 ++--
->  drivers/perf/arm-ni.c                        | 4 ++--
->  drivers/perf/arm_cspmu/arm_cspmu.c           | 2 +-
->  drivers/perf/arm_dmc620_pmu.c                | 4 ++--
->  drivers/perf/arm_dsu_pmu.c                   | 4 ++--
->  drivers/perf/arm_smmuv3_pmu.c                | 4 ++--
->  drivers/perf/arm_spe_pmu.c                   | 4 ++--
->  drivers/perf/cxl_pmu.c                       | 4 ++--
->  drivers/perf/dwc_pcie_pmu.c                  | 4 ++--
->  drivers/perf/fsl_imx8_ddr_perf.c             | 4 ++--
->  drivers/perf/fsl_imx9_ddr_perf.c             | 4 ++--
->  drivers/perf/fujitsu_uncore_pmu.c            | 4 ++--
->  drivers/perf/hisilicon/hisi_pcie_pmu.c       | 4 ++--
->  drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c | 4 ++--
->  drivers/perf/hisilicon/hisi_uncore_pmu.c     | 2 +-
->  drivers/perf/hisilicon/hns3_pmu.c            | 4 ++--
->  drivers/perf/marvell_cn10k_ddr_pmu.c         | 4 ++--
->  drivers/perf/marvell_cn10k_tad_pmu.c         | 4 ++--
->  drivers/perf/marvell_pem_pmu.c               | 4 ++--
->  drivers/perf/nvidia_t410_c2c_pmu.c           | 2 +-
->  drivers/perf/nvidia_t410_cmem_latency_pmu.c  | 2 +-
->  drivers/perf/thunderx2_pmu.c                 | 4 ++--
->  drivers/scsi/lpfc/lpfc_init.c                | 4 ++--
->  include/linux/cpuhotplug.h                   | 4 ++--
->  kernel/padata.c                              | 2 +-
->  kernel/trace/trace.c                         | 2 +-
->  mm/zswap.c                                   | 2 +-
->  41 files changed, 82 insertions(+), 82 deletions(-)
-> 
-> diff --git a/Documentation/core-api/cpu_hotplug.rst b/Documentation/core-api/cpu_hotplug.rst
-> index f8b3f59a3d5f..a387ccb08eef 100644
-> --- a/Documentation/core-api/cpu_hotplug.rst
-> +++ b/Documentation/core-api/cpu_hotplug.rst
-> @@ -471,7 +471,7 @@ To remove a previously set up state, the following functions are provided:
->  * cpuhp_remove_state(state)
->  * cpuhp_remove_state_nocalls(state)
->  * cpuhp_remove_state_nocalls_cpuslocked(state)
-> -* cpuhp_remove_multi_state(state)
-> +* cpuhp_remove_state_multi(state)
->  
->  The @state argument is either a statically allocated state or the state
->  number which was allocated in the dynamic range by cpuhp_setup_state*(). If
-> @@ -481,7 +481,7 @@ available for dynamic allocation again.
->  The functions differ in the way how the installed callbacks are treated:
->  
->    * cpuhp_remove_state_nocalls(), cpuhp_remove_state_nocalls_cpuslocked()
-> -    and cpuhp_remove_multi_state() only remove the callbacks.
-> +    and cpuhp_remove_state_multi() only remove the callbacks.
->  
->    * cpuhp_remove_state() removes the callbacks and invokes the teardown
->      callback (if not NULL) for all online CPUs which have currently a state
-> @@ -611,7 +611,7 @@ ONLINE section for notifications on online and offline operation::
->     ....
->     cpuhp_state_remove_instance(state, &inst2->node);
->     ....
-> -   cpuhp_remove_multi_state(state);
-> +   cpuhp_remove_state_multi(state);
->  
->  
->  Testing of hotplug states
-> diff --git a/drivers/block/zram/zram_drv.c b/drivers/block/zram/zram_drv.c
-> index ab064c84b092..d152c356bd6a 100644
-> --- a/drivers/block/zram/zram_drv.c
-> +++ b/drivers/block/zram/zram_drv.c
-> @@ -3270,7 +3270,7 @@ static void destroy_devices(void)
->  	zram_debugfs_destroy();
->  	idr_destroy(&zram_index_idr);
->  	unregister_blkdev(zram_major, "zram");
-> -	cpuhp_remove_multi_state(CPUHP_ZCOMP_PREPARE);
-> +	cpuhp_remove_state_multi(CPUHP_ZCOMP_PREPARE);
->  }
->  
->  static int __init zram_init(void)
-> @@ -3288,7 +3288,7 @@ static int __init zram_init(void)
->  	ret = class_register(&zram_control_class);
->  	if (ret) {
->  		pr_err("Unable to register zram-control class\n");
-> -		cpuhp_remove_multi_state(CPUHP_ZCOMP_PREPARE);
-> +		cpuhp_remove_state_multi(CPUHP_ZCOMP_PREPARE);
->  		return ret;
->  	}
->  
-> @@ -3297,7 +3297,7 @@ static int __init zram_init(void)
->  	if (zram_major <= 0) {
->  		pr_err("Unable to get major number\n");
->  		class_unregister(&zram_control_class);
-> -		cpuhp_remove_multi_state(CPUHP_ZCOMP_PREPARE);
-> +		cpuhp_remove_state_multi(CPUHP_ZCOMP_PREPARE);
->  		return -EBUSY;
->  	}
->  
-> diff --git a/drivers/devfreq/event/rockchip-dfi.c b/drivers/devfreq/event/rockchip-dfi.c
-> index 16b25779d2f8..137adb1b7d27 100644
-> --- a/drivers/devfreq/event/rockchip-dfi.c
-> +++ b/drivers/devfreq/event/rockchip-dfi.c
-> @@ -614,7 +614,7 @@ static void rockchip_ddr_cpuhp_remove_state(void *data)
->  {
->  	struct rockchip_dfi *dfi = data;
->  
-> -	cpuhp_remove_multi_state(dfi->cpuhp_state);
-> +	cpuhp_remove_state_multi(dfi->cpuhp_state);
->  
->  	rockchip_dfi_disable(dfi);
->  }
-> diff --git a/drivers/fpga/dfl-fme-perf.c b/drivers/fpga/dfl-fme-perf.c
-> index a0e3abc64c9e..9cd5327ceab4 100644
-> --- a/drivers/fpga/dfl-fme-perf.c
-> +++ b/drivers/fpga/dfl-fme-perf.c
-> @@ -998,7 +998,7 @@ static int fme_perf_init(struct platform_device *pdev,
->  pmu_register_err:
->  	cpuhp_state_remove_instance_nocalls(priv->cpuhp_state, &priv->node);
->  cpuhp_instance_err:
-> -	cpuhp_remove_multi_state(priv->cpuhp_state);
-> +	cpuhp_remove_state_multi(priv->cpuhp_state);
->  	return ret;
->  }
->  
-> @@ -1009,7 +1009,7 @@ static void fme_perf_uinit(struct platform_device *pdev,
->  
->  	fme_perf_pmu_unregister(priv);
->  	cpuhp_state_remove_instance_nocalls(priv->cpuhp_state, &priv->node);
-> -	cpuhp_remove_multi_state(priv->cpuhp_state);
-> +	cpuhp_remove_state_multi(priv->cpuhp_state);
->  }
->  
->  const struct dfl_feature_id fme_perf_id_table[] = {
-> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-> index 3fa663c7f026..06d2c5b93f63 100644
-> --- a/drivers/hwtracing/coresight/coresight-trbe.c
-> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-> @@ -1524,7 +1524,7 @@ static int arm_trbe_probe_cpuhp(struct trbe_drvdata *drvdata)
->  
->  	ret = cpuhp_state_add_instance(trbe_online, &drvdata->hotplug_node);
->  	if (ret) {
-> -		cpuhp_remove_multi_state(trbe_online);
-> +		cpuhp_remove_state_multi(trbe_online);
->  		return ret;
->  	}
->  	drvdata->trbe_online = trbe_online;
-> @@ -1534,7 +1534,7 @@ static int arm_trbe_probe_cpuhp(struct trbe_drvdata *drvdata)
->  static void arm_trbe_remove_cpuhp(struct trbe_drvdata *drvdata)
->  {
->  	cpuhp_state_remove_instance(drvdata->trbe_online, &drvdata->hotplug_node);
-> -	cpuhp_remove_multi_state(drvdata->trbe_online);
-> +	cpuhp_remove_state_multi(drvdata->trbe_online);
->  }
->  
->  static int arm_trbe_probe_irq(struct platform_device *pdev,
-> diff --git a/drivers/hwtracing/ptt/hisi_ptt.c b/drivers/hwtracing/ptt/hisi_ptt.c
-> index 6ed65b44a4af..7d7dbc0916c1 100644
-> --- a/drivers/hwtracing/ptt/hisi_ptt.c
-> +++ b/drivers/hwtracing/ptt/hisi_ptt.c
-> @@ -1425,7 +1425,7 @@ static int __init hisi_ptt_init(void)
->  
->  	ret = pci_register_driver(&hisi_ptt_driver);
->  	if (ret)
-> -		cpuhp_remove_multi_state(hisi_ptt_pmu_online);
-> +		cpuhp_remove_state_multi(hisi_ptt_pmu_online);
->  
->  	return ret;
->  }
-> @@ -1434,7 +1434,7 @@ module_init(hisi_ptt_init);
->  static void __exit hisi_ptt_exit(void)
->  {
->  	pci_unregister_driver(&hisi_ptt_driver);
-> -	cpuhp_remove_multi_state(hisi_ptt_pmu_online);
-> +	cpuhp_remove_state_multi(hisi_ptt_pmu_online);
->  }
->  module_exit(hisi_ptt_exit);
->  
-> diff --git a/drivers/iommu/iova.c b/drivers/iommu/iova.c
-> index b710e5ad37e2..266d9ce3a712 100644
-> --- a/drivers/iommu/iova.c
-> +++ b/drivers/iommu/iova.c
-> @@ -998,7 +998,7 @@ void iova_cache_put(void)
->  	}
->  	iova_cache_users--;
->  	if (!iova_cache_users) {
-> -		cpuhp_remove_multi_state(CPUHP_IOMMU_IOVA_DEAD);
-> +		cpuhp_remove_state_multi(CPUHP_IOMMU_IOVA_DEAD);
->  		kmem_cache_destroy(iova_cache);
->  		kmem_cache_destroy(iova_magazine_cache);
->  	}
-> diff --git a/drivers/md/raid5.c b/drivers/md/raid5.c
-> index d52adf81065a..5ffa3583fc11 100644
-> --- a/drivers/md/raid5.c
-> +++ b/drivers/md/raid5.c
-> @@ -9402,7 +9402,7 @@ static int __init raid5_init(void)
->  err_unregister_raid6:
->  	unregister_md_submodule(&raid6_personality.head);
->  err_cpuhp_remove:
-> -	cpuhp_remove_multi_state(CPUHP_MD_RAID5_PREPARE);
-> +	cpuhp_remove_state_multi(CPUHP_MD_RAID5_PREPARE);
->  err_destroy_wq:
->  	destroy_workqueue(raid5_wq);
->  	return ret;
-> @@ -9413,7 +9413,7 @@ static void __exit raid5_exit(void)
->  	unregister_md_submodule(&raid6_personality.head);
->  	unregister_md_submodule(&raid5_personality.head);
->  	unregister_md_submodule(&raid4_personality.head);
-> -	cpuhp_remove_multi_state(CPUHP_MD_RAID5_PREPARE);
-> +	cpuhp_remove_state_multi(CPUHP_MD_RAID5_PREPARE);
->  	destroy_workqueue(raid5_wq);
->  }
->  
-> diff --git a/drivers/net/ethernet/ibm/ibmvnic.c b/drivers/net/ethernet/ibm/ibmvnic.c
-> index 5a510eed335e..73b3fb306333 100644
-> --- a/drivers/net/ethernet/ibm/ibmvnic.c
-> +++ b/drivers/net/ethernet/ibm/ibmvnic.c
-> @@ -6779,9 +6779,9 @@ static int __init ibmvnic_module_init(void)
->  
->  	return 0;
->  err_vio_register:
-> -	cpuhp_remove_multi_state(CPUHP_IBMVNIC_DEAD);
-> +	cpuhp_remove_state_multi(CPUHP_IBMVNIC_DEAD);
->  err_dead:
-> -	cpuhp_remove_multi_state(ibmvnic_online);
-> +	cpuhp_remove_state_multi(ibmvnic_online);
->  out:
->  	return ret;
->  }
-> @@ -6789,8 +6789,8 @@ static int __init ibmvnic_module_init(void)
->  static void __exit ibmvnic_module_exit(void)
->  {
->  	vio_unregister_driver(&ibmvnic_driver);
-> -	cpuhp_remove_multi_state(CPUHP_IBMVNIC_DEAD);
-> -	cpuhp_remove_multi_state(ibmvnic_online);
-> +	cpuhp_remove_state_multi(CPUHP_IBMVNIC_DEAD);
-> +	cpuhp_remove_state_multi(ibmvnic_online);
->  }
->  
->  module_init(ibmvnic_module_init);
-> diff --git a/drivers/net/ethernet/marvell/mvneta.c b/drivers/net/ethernet/marvell/mvneta.c
-> index 915c4c35364a..7f7a090e78b6 100644
-> --- a/drivers/net/ethernet/marvell/mvneta.c
-> +++ b/drivers/net/ethernet/marvell/mvneta.c
-> @@ -5967,9 +5967,9 @@ static int __init mvneta_driver_init(void)
->  	return 0;
->  
->  err:
-> -	cpuhp_remove_multi_state(CPUHP_NET_MVNETA_DEAD);
-> +	cpuhp_remove_state_multi(CPUHP_NET_MVNETA_DEAD);
->  err_dead:
-> -	cpuhp_remove_multi_state(online_hpstate);
-> +	cpuhp_remove_state_multi(online_hpstate);
->  out:
->  	return ret;
->  }
-> @@ -5978,8 +5978,8 @@ module_init(mvneta_driver_init);
->  static void __exit mvneta_driver_exit(void)
->  {
->  	platform_driver_unregister(&mvneta_driver);
-> -	cpuhp_remove_multi_state(CPUHP_NET_MVNETA_DEAD);
-> -	cpuhp_remove_multi_state(online_hpstate);
-> +	cpuhp_remove_state_multi(CPUHP_NET_MVNETA_DEAD);
-> +	cpuhp_remove_state_multi(online_hpstate);
->  }
->  module_exit(mvneta_driver_exit);
->  
-> diff --git a/drivers/net/virtio_net.c b/drivers/net/virtio_net.c
-> index 1cd64f9e12e7..b11f2180de47 100644
-> --- a/drivers/net/virtio_net.c
-> +++ b/drivers/net/virtio_net.c
-> @@ -7354,9 +7354,9 @@ static __init int virtio_net_driver_init(void)
->  		goto err_virtio;
->  	return 0;
->  err_virtio:
-> -	cpuhp_remove_multi_state(CPUHP_VIRT_NET_DEAD);
-> +	cpuhp_remove_state_multi(CPUHP_VIRT_NET_DEAD);
->  err_dead:
-> -	cpuhp_remove_multi_state(virtionet_online);
-> +	cpuhp_remove_state_multi(virtionet_online);
->  out:
->  	return ret;
->  }
-> @@ -7365,8 +7365,8 @@ module_init(virtio_net_driver_init);
->  static __exit void virtio_net_driver_exit(void)
->  {
->  	unregister_virtio_driver(&virtio_net_driver);
-> -	cpuhp_remove_multi_state(CPUHP_VIRT_NET_DEAD);
-> -	cpuhp_remove_multi_state(virtionet_online);
-> +	cpuhp_remove_state_multi(CPUHP_VIRT_NET_DEAD);
-> +	cpuhp_remove_state_multi(virtionet_online);
->  }
->  module_exit(virtio_net_driver_exit);
->  
-> diff --git a/drivers/nvdimm/nd_perf.c b/drivers/nvdimm/nd_perf.c
-> index 9e497cae65b3..aec1f3d71fc4 100644
-> --- a/drivers/nvdimm/nd_perf.c
-> +++ b/drivers/nvdimm/nd_perf.c
-> @@ -245,7 +245,7 @@ static int nvdimm_pmu_cpu_hotplug_init(struct nvdimm_pmu *nd_pmu)
->  	/* Register the pmu instance for cpu hotplug */
->  	rc = cpuhp_state_add_instance_nocalls(nd_pmu->cpuhp_state, &nd_pmu->node);
->  	if (rc) {
-> -		cpuhp_remove_multi_state(nd_pmu->cpuhp_state);
-> +		cpuhp_remove_state_multi(nd_pmu->cpuhp_state);
->  		return rc;
->  	}
->  
-> @@ -253,7 +253,7 @@ static int nvdimm_pmu_cpu_hotplug_init(struct nvdimm_pmu *nd_pmu)
->  	rc = create_cpumask_attr_group(nd_pmu);
->  	if (rc) {
->  		cpuhp_state_remove_instance_nocalls(nd_pmu->cpuhp_state, &nd_pmu->node);
-> -		cpuhp_remove_multi_state(nd_pmu->cpuhp_state);
-> +		cpuhp_remove_state_multi(nd_pmu->cpuhp_state);
->  		return rc;
->  	}
->  
-> @@ -263,7 +263,7 @@ static int nvdimm_pmu_cpu_hotplug_init(struct nvdimm_pmu *nd_pmu)
->  static void nvdimm_pmu_free_hotplug_memory(struct nvdimm_pmu *nd_pmu)
->  {
->  	cpuhp_state_remove_instance_nocalls(nd_pmu->cpuhp_state, &nd_pmu->node);
-> -	cpuhp_remove_multi_state(nd_pmu->cpuhp_state);
-> +	cpuhp_remove_state_multi(nd_pmu->cpuhp_state);
->  
->  	if (nd_pmu->pmu.attr_groups[NVDIMM_PMU_CPUMASK_ATTR])
->  		kfree(nd_pmu->pmu.attr_groups[NVDIMM_PMU_CPUMASK_ATTR]->attrs);
-> diff --git a/drivers/perf/alibaba_uncore_drw_pmu.c b/drivers/perf/alibaba_uncore_drw_pmu.c
-> index c47c6ac170b2..e114330d6ea8 100644
-> --- a/drivers/perf/alibaba_uncore_drw_pmu.c
-> +++ b/drivers/perf/alibaba_uncore_drw_pmu.c
-> @@ -799,7 +799,7 @@ static int __init ali_drw_pmu_init(void)
->  
->  	ret = platform_driver_register(&ali_drw_pmu_driver);
->  	if (ret)
-> -		cpuhp_remove_multi_state(ali_drw_cpuhp_state_num);
-> +		cpuhp_remove_state_multi(ali_drw_cpuhp_state_num);
->  
->  	return ret;
->  }
-> @@ -807,7 +807,7 @@ static int __init ali_drw_pmu_init(void)
->  static void __exit ali_drw_pmu_exit(void)
->  {
->  	platform_driver_unregister(&ali_drw_pmu_driver);
-> -	cpuhp_remove_multi_state(ali_drw_cpuhp_state_num);
-> +	cpuhp_remove_state_multi(ali_drw_cpuhp_state_num);
->  }
->  
->  module_init(ali_drw_pmu_init);
-> diff --git a/drivers/perf/arm-ccn.c b/drivers/perf/arm-ccn.c
-> index 0c69165e0041..86d6edd18c84 100644
-> --- a/drivers/perf/arm-ccn.c
-> +++ b/drivers/perf/arm-ccn.c
-> @@ -1543,14 +1543,14 @@ static int __init arm_ccn_init(void)
->  
->  	ret = platform_driver_register(&arm_ccn_driver);
->  	if (ret)
-> -		cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_CCN_ONLINE);
-> +		cpuhp_remove_state_multi(CPUHP_AP_PERF_ARM_CCN_ONLINE);
->  	return ret;
->  }
->  
->  static void __exit arm_ccn_exit(void)
->  {
->  	platform_driver_unregister(&arm_ccn_driver);
-> -	cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_CCN_ONLINE);
-> +	cpuhp_remove_state_multi(CPUHP_AP_PERF_ARM_CCN_ONLINE);
->  }
->  
->  module_init(arm_ccn_init);
-> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-> index 68a096c1fe6b..787de602b60c 100644
-> --- a/drivers/perf/arm-cmn.c
-> +++ b/drivers/perf/arm-cmn.c
-> @@ -2969,7 +2969,7 @@ static int __init arm_cmn_init(void)
->  
->  	ret = platform_driver_register(&arm_cmn_driver);
->  	if (ret) {
-> -		cpuhp_remove_multi_state(arm_cmn_hp_state);
-> +		cpuhp_remove_state_multi(arm_cmn_hp_state);
->  		debugfs_remove(arm_cmn_debugfs);
->  	}
->  	return ret;
-> @@ -2978,7 +2978,7 @@ static int __init arm_cmn_init(void)
->  static void __exit arm_cmn_exit(void)
->  {
->  	platform_driver_unregister(&arm_cmn_driver);
-> -	cpuhp_remove_multi_state(arm_cmn_hp_state);
-> +	cpuhp_remove_state_multi(arm_cmn_hp_state);
->  	debugfs_remove(arm_cmn_debugfs);
->  }
->  
-> diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
-> index 1f8eecf8ca11..6d3e63ba8ca8 100644
-> --- a/drivers/perf/arm-ni.c
-> +++ b/drivers/perf/arm-ni.c
-> @@ -844,14 +844,14 @@ static int __init arm_ni_init(void)
->  
->  	ret = platform_driver_register(&arm_ni_driver);
->  	if (ret)
-> -		cpuhp_remove_multi_state(arm_ni_hp_state);
-> +		cpuhp_remove_state_multi(arm_ni_hp_state);
->  	return ret;
->  }
->  
->  static void __exit arm_ni_exit(void)
->  {
->  	platform_driver_unregister(&arm_ni_driver);
-> -	cpuhp_remove_multi_state(arm_ni_hp_state);
-> +	cpuhp_remove_state_multi(arm_ni_hp_state);
->  }
->  
->  module_init(arm_ni_init);
-> diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
-> index d0b29213f451..6a43a21f2953 100644
-> --- a/drivers/perf/arm_cspmu/arm_cspmu.c
-> +++ b/drivers/perf/arm_cspmu/arm_cspmu.c
-> @@ -1449,7 +1449,7 @@ static int __init arm_cspmu_init(void)
->  static void __exit arm_cspmu_exit(void)
->  {
->  	platform_driver_unregister(&arm_cspmu_driver);
-> -	cpuhp_remove_multi_state(arm_cspmu_cpuhp_state);
-> +	cpuhp_remove_state_multi(arm_cspmu_cpuhp_state);
->  }
->  
->  int arm_cspmu_impl_register(const struct arm_cspmu_impl_match *impl_match)
-> diff --git a/drivers/perf/arm_dmc620_pmu.c b/drivers/perf/arm_dmc620_pmu.c
-> index 9a7b05b48da0..7c33f09bf236 100644
-> --- a/drivers/perf/arm_dmc620_pmu.c
-> +++ b/drivers/perf/arm_dmc620_pmu.c
-> @@ -765,7 +765,7 @@ static int __init dmc620_pmu_init(void)
->  
->  	ret = platform_driver_register(&dmc620_pmu_driver);
->  	if (ret)
-> -		cpuhp_remove_multi_state(cpuhp_state_num);
-> +		cpuhp_remove_state_multi(cpuhp_state_num);
->  
->  	return ret;
->  }
-> @@ -773,7 +773,7 @@ static int __init dmc620_pmu_init(void)
->  static void __exit dmc620_pmu_exit(void)
->  {
->  	platform_driver_unregister(&dmc620_pmu_driver);
-> -	cpuhp_remove_multi_state(cpuhp_state_num);
-> +	cpuhp_remove_state_multi(cpuhp_state_num);
->  }
->  
->  module_init(dmc620_pmu_init);
-> diff --git a/drivers/perf/arm_dsu_pmu.c b/drivers/perf/arm_dsu_pmu.c
-> index 751bfed944a9..c737e492175a 100644
-> --- a/drivers/perf/arm_dsu_pmu.c
-> +++ b/drivers/perf/arm_dsu_pmu.c
-> @@ -852,7 +852,7 @@ static int __init dsu_pmu_init(void)
->  	dsu_pmu_cpuhp_state = ret;
->  	ret = platform_driver_register(&dsu_pmu_driver);
->  	if (ret)
-> -		cpuhp_remove_multi_state(dsu_pmu_cpuhp_state);
-> +		cpuhp_remove_state_multi(dsu_pmu_cpuhp_state);
->  
->  	return ret;
->  }
-> @@ -860,7 +860,7 @@ static int __init dsu_pmu_init(void)
->  static void __exit dsu_pmu_exit(void)
->  {
->  	platform_driver_unregister(&dsu_pmu_driver);
-> -	cpuhp_remove_multi_state(dsu_pmu_cpuhp_state);
-> +	cpuhp_remove_state_multi(dsu_pmu_cpuhp_state);
->  }
->  
->  module_init(dsu_pmu_init);
-> diff --git a/drivers/perf/arm_smmuv3_pmu.c b/drivers/perf/arm_smmuv3_pmu.c
-> index 97440b6233c6..c328238c215a 100644
-> --- a/drivers/perf/arm_smmuv3_pmu.c
-> +++ b/drivers/perf/arm_smmuv3_pmu.c
-> @@ -1016,7 +1016,7 @@ static int __init arm_smmu_pmu_init(void)
->  
->  	ret = platform_driver_register(&smmu_pmu_driver);
->  	if (ret)
-> -		cpuhp_remove_multi_state(cpuhp_state_num);
-> +		cpuhp_remove_state_multi(cpuhp_state_num);
->  
->  	return ret;
->  }
-> @@ -1025,7 +1025,7 @@ module_init(arm_smmu_pmu_init);
->  static void __exit arm_smmu_pmu_exit(void)
->  {
->  	platform_driver_unregister(&smmu_pmu_driver);
-> -	cpuhp_remove_multi_state(cpuhp_state_num);
-> +	cpuhp_remove_state_multi(cpuhp_state_num);
->  }
->  
->  module_exit(arm_smmu_pmu_exit);
-> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-> index 707778c67dab..30a946fccb94 100644
-> --- a/drivers/perf/arm_spe_pmu.c
-> +++ b/drivers/perf/arm_spe_pmu.c
-> @@ -1442,7 +1442,7 @@ static int __init arm_spe_pmu_init(void)
->  
->  	ret = platform_driver_register(&arm_spe_pmu_driver);
->  	if (ret)
-> -		cpuhp_remove_multi_state(arm_spe_pmu_online);
-> +		cpuhp_remove_state_multi(arm_spe_pmu_online);
->  
->  	return ret;
->  }
-> @@ -1450,7 +1450,7 @@ static int __init arm_spe_pmu_init(void)
->  static void __exit arm_spe_pmu_exit(void)
->  {
->  	platform_driver_unregister(&arm_spe_pmu_driver);
-> -	cpuhp_remove_multi_state(arm_spe_pmu_online);
-> +	cpuhp_remove_state_multi(arm_spe_pmu_online);
->  }
->  
->  module_init(arm_spe_pmu_init);
-> diff --git a/drivers/perf/cxl_pmu.c b/drivers/perf/cxl_pmu.c
-> index ce4097c4f64e..7b354c190d55 100644
-> --- a/drivers/perf/cxl_pmu.c
-> +++ b/drivers/perf/cxl_pmu.c
-> @@ -1138,7 +1138,7 @@ static __init int cxl_pmu_init(void)
->  
->  	rc = cxl_driver_register(&cxl_pmu_driver);
->  	if (rc)
-> -		cpuhp_remove_multi_state(cxl_pmu_cpuhp_state_num);
-> +		cpuhp_remove_state_multi(cxl_pmu_cpuhp_state_num);
->  
->  	return rc;
->  }
-> @@ -1146,7 +1146,7 @@ static __init int cxl_pmu_init(void)
->  static __exit void cxl_pmu_exit(void)
->  {
->  	cxl_driver_unregister(&cxl_pmu_driver);
-> -	cpuhp_remove_multi_state(cxl_pmu_cpuhp_state_num);
-> +	cpuhp_remove_state_multi(cxl_pmu_cpuhp_state_num);
->  }
->  
->  MODULE_DESCRIPTION("CXL Performance Monitor Driver");
-> diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
-> index 039730a3b80d..3b715294e2f5 100644
-> --- a/drivers/perf/dwc_pcie_pmu.c
-> +++ b/drivers/perf/dwc_pcie_pmu.c
-> @@ -928,7 +928,7 @@ static int __init dwc_pcie_pmu_init(void)
->  err_unregister_driver:
->  	platform_driver_unregister(&dwc_pcie_pmu_driver);
->  err_remove_cpuhp:
-> -	cpuhp_remove_multi_state(dwc_pcie_pmu_hp_state);
-> +	cpuhp_remove_state_multi(dwc_pcie_pmu_hp_state);
->  err_cleanup:
->  	dwc_pcie_cleanup_devices();
->  	return ret;
-> @@ -940,7 +940,7 @@ static void __exit dwc_pcie_pmu_exit(void)
->  		bus_unregister_notifier(&pci_bus_type, &dwc_pcie_pmu_nb);
->  	dwc_pcie_cleanup_devices();
->  	platform_driver_unregister(&dwc_pcie_pmu_driver);
-> -	cpuhp_remove_multi_state(dwc_pcie_pmu_hp_state);
-> +	cpuhp_remove_state_multi(dwc_pcie_pmu_hp_state);
->  }
->  
->  module_init(dwc_pcie_pmu_init);
-> diff --git a/drivers/perf/fsl_imx8_ddr_perf.c b/drivers/perf/fsl_imx8_ddr_perf.c
-> index 39b25d70942d..af9319ef2f5c 100644
-> --- a/drivers/perf/fsl_imx8_ddr_perf.c
-> +++ b/drivers/perf/fsl_imx8_ddr_perf.c
-> @@ -877,7 +877,7 @@ static int ddr_perf_probe(struct platform_device *pdev)
->  ddr_perf_err:
->  	cpuhp_state_remove_instance_nocalls(pmu->cpuhp_state, &pmu->node);
->  cpuhp_instance_err:
-> -	cpuhp_remove_multi_state(pmu->cpuhp_state);
-> +	cpuhp_remove_state_multi(pmu->cpuhp_state);
->  idr_free:
->  	ida_free(ida, pmu->id);
->  	dev_warn(&pdev->dev, "i.MX8 DDR Perf PMU failed (%d), disabled\n", ret);
-> @@ -889,7 +889,7 @@ static void ddr_perf_remove(struct platform_device *pdev)
->  	struct ddr_pmu *pmu = platform_get_drvdata(pdev);
->  
->  	cpuhp_state_remove_instance_nocalls(pmu->cpuhp_state, &pmu->node);
-> -	cpuhp_remove_multi_state(pmu->cpuhp_state);
-> +	cpuhp_remove_state_multi(pmu->cpuhp_state);
->  
->  	perf_pmu_unregister(&pmu->pmu);
->  
-> diff --git a/drivers/perf/fsl_imx9_ddr_perf.c b/drivers/perf/fsl_imx9_ddr_perf.c
-> index 739c6567cd68..c09eeb9b6a21 100644
-> --- a/drivers/perf/fsl_imx9_ddr_perf.c
-> +++ b/drivers/perf/fsl_imx9_ddr_perf.c
-> @@ -849,7 +849,7 @@ static int ddr_perf_probe(struct platform_device *pdev)
->  ddr_perf_err:
->  	cpuhp_state_remove_instance_nocalls(pmu->cpuhp_state, &pmu->node);
->  cpuhp_instance_err:
-> -	cpuhp_remove_multi_state(pmu->cpuhp_state);
-> +	cpuhp_remove_state_multi(pmu->cpuhp_state);
->  cpuhp_state_err:
->  format_string_err:
->  	ida_free(&ddr_ida, pmu->id);
-> @@ -862,7 +862,7 @@ static void ddr_perf_remove(struct platform_device *pdev)
->  	struct ddr_pmu *pmu = platform_get_drvdata(pdev);
->  
->  	cpuhp_state_remove_instance_nocalls(pmu->cpuhp_state, &pmu->node);
-> -	cpuhp_remove_multi_state(pmu->cpuhp_state);
-> +	cpuhp_remove_state_multi(pmu->cpuhp_state);
->  
->  	perf_pmu_unregister(&pmu->pmu);
->  
-> diff --git a/drivers/perf/fujitsu_uncore_pmu.c b/drivers/perf/fujitsu_uncore_pmu.c
-> index f6165eb44c07..91ee608a5fd5 100644
-> --- a/drivers/perf/fujitsu_uncore_pmu.c
-> +++ b/drivers/perf/fujitsu_uncore_pmu.c
-> @@ -593,7 +593,7 @@ static int __init fujitsu_uncore_pmu_init(void)
->  
->  	ret = platform_driver_register(&fujitsu_uncore_pmu_driver);
->  	if (ret)
-> -		cpuhp_remove_multi_state(uncore_pmu_cpuhp_state);
-> +		cpuhp_remove_state_multi(uncore_pmu_cpuhp_state);
->  
->  	return ret;
->  }
-> @@ -601,7 +601,7 @@ static int __init fujitsu_uncore_pmu_init(void)
->  static void __exit fujitsu_uncore_pmu_exit(void)
->  {
->  	platform_driver_unregister(&fujitsu_uncore_pmu_driver);
-> -	cpuhp_remove_multi_state(uncore_pmu_cpuhp_state);
-> +	cpuhp_remove_state_multi(uncore_pmu_cpuhp_state);
->  }
->  
->  module_init(fujitsu_uncore_pmu_init);
-> diff --git a/drivers/perf/hisilicon/hisi_pcie_pmu.c b/drivers/perf/hisilicon/hisi_pcie_pmu.c
-> index 2414f222afcd..0c083a45fdd3 100644
-> --- a/drivers/perf/hisilicon/hisi_pcie_pmu.c
-> +++ b/drivers/perf/hisilicon/hisi_pcie_pmu.c
-> @@ -989,7 +989,7 @@ static int __init hisi_pcie_module_init(void)
->  
->  	ret = pci_register_driver(&hisi_pcie_pmu_driver);
->  	if (ret)
-> -		cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_HISI_PCIE_PMU_ONLINE);
-> +		cpuhp_remove_state_multi(CPUHP_AP_PERF_ARM_HISI_PCIE_PMU_ONLINE);
->  
->  	return ret;
->  }
-> @@ -998,7 +998,7 @@ module_init(hisi_pcie_module_init);
->  static void __exit hisi_pcie_module_exit(void)
->  {
->  	pci_unregister_driver(&hisi_pcie_pmu_driver);
-> -	cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_HISI_PCIE_PMU_ONLINE);
-> +	cpuhp_remove_state_multi(CPUHP_AP_PERF_ARM_HISI_PCIE_PMU_ONLINE);
->  }
->  module_exit(hisi_pcie_module_exit);
->  
-> diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-> index 167e369cf74c..78fb005907a2 100644
-> --- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-> +++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-> @@ -952,7 +952,7 @@ static int __init hisi_l3c_pmu_module_init(void)
->  
->  	ret = platform_driver_register(&hisi_l3c_pmu_driver);
->  	if (ret)
-> -		cpuhp_remove_multi_state(hisi_l3c_pmu_cpuhp_state);
-> +		cpuhp_remove_state_multi(hisi_l3c_pmu_cpuhp_state);
->  
->  	return ret;
->  }
-> @@ -961,7 +961,7 @@ module_init(hisi_l3c_pmu_module_init);
->  static void __exit hisi_l3c_pmu_module_exit(void)
->  {
->  	platform_driver_unregister(&hisi_l3c_pmu_driver);
-> -	cpuhp_remove_multi_state(hisi_l3c_pmu_cpuhp_state);
-> +	cpuhp_remove_state_multi(hisi_l3c_pmu_cpuhp_state);
->  }
->  module_exit(hisi_l3c_pmu_module_exit);
->  
-> diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> index 346c87594614..9b7e39404510 100644
-> --- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> +++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> @@ -639,7 +639,7 @@ module_init(hisi_uncore_pmu_init);
->  
->  static void __exit hisi_uncore_pmu_exit(void)
->  {
-> -	cpuhp_remove_multi_state(hisi_uncore_pmu_cpuhp_state);
-> +	cpuhp_remove_state_multi(hisi_uncore_pmu_cpuhp_state);
->  }
->  module_exit(hisi_uncore_pmu_exit);
->  
-> diff --git a/drivers/perf/hisilicon/hns3_pmu.c b/drivers/perf/hisilicon/hns3_pmu.c
-> index 3069257ca79f..70eeae0b07e5 100644
-> --- a/drivers/perf/hisilicon/hns3_pmu.c
-> +++ b/drivers/perf/hisilicon/hns3_pmu.c
-> @@ -1656,7 +1656,7 @@ static int __init hns3_pmu_module_init(void)
->  	ret = pci_register_driver(&hns3_pmu_driver);
->  	if (ret) {
->  		pr_err("failed to register pci driver, ret = %d.\n", ret);
-> -		cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_HNS3_PMU_ONLINE);
-> +		cpuhp_remove_state_multi(CPUHP_AP_PERF_ARM_HNS3_PMU_ONLINE);
->  	}
->  
->  	return ret;
-> @@ -1666,7 +1666,7 @@ module_init(hns3_pmu_module_init);
->  static void __exit hns3_pmu_module_exit(void)
->  {
->  	pci_unregister_driver(&hns3_pmu_driver);
-> -	cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_HNS3_PMU_ONLINE);
-> +	cpuhp_remove_state_multi(CPUHP_AP_PERF_ARM_HNS3_PMU_ONLINE);
->  }
->  module_exit(hns3_pmu_module_exit);
->  
-> diff --git a/drivers/perf/marvell_cn10k_ddr_pmu.c b/drivers/perf/marvell_cn10k_ddr_pmu.c
-> index c699a4545935..5e1187ade225 100644
-> --- a/drivers/perf/marvell_cn10k_ddr_pmu.c
-> +++ b/drivers/perf/marvell_cn10k_ddr_pmu.c
-> @@ -1345,7 +1345,7 @@ static int __init cn10k_ddr_pmu_init(void)
->  
->  	ret = platform_driver_register(&cn10k_ddr_pmu_driver);
->  	if (ret)
-> -		cpuhp_remove_multi_state(
-> +		cpuhp_remove_state_multi(
->  				CPUHP_AP_PERF_ARM_MARVELL_CN10K_DDR_ONLINE);
->  	return ret;
->  }
-> @@ -1353,7 +1353,7 @@ static int __init cn10k_ddr_pmu_init(void)
->  static void __exit cn10k_ddr_pmu_exit(void)
->  {
->  	platform_driver_unregister(&cn10k_ddr_pmu_driver);
-> -	cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_MARVELL_CN10K_DDR_ONLINE);
-> +	cpuhp_remove_state_multi(CPUHP_AP_PERF_ARM_MARVELL_CN10K_DDR_ONLINE);
->  }
->  
->  module_init(cn10k_ddr_pmu_init);
-> diff --git a/drivers/perf/marvell_cn10k_tad_pmu.c b/drivers/perf/marvell_cn10k_tad_pmu.c
-> index 2d64a3351433..46f3cecf46d8 100644
-> --- a/drivers/perf/marvell_cn10k_tad_pmu.c
-> +++ b/drivers/perf/marvell_cn10k_tad_pmu.c
-> @@ -477,7 +477,7 @@ static int __init tad_pmu_init(void)
->  	tad_pmu_cpuhp_state = ret;
->  	ret = platform_driver_register(&tad_pmu_driver);
->  	if (ret)
-> -		cpuhp_remove_multi_state(tad_pmu_cpuhp_state);
-> +		cpuhp_remove_state_multi(tad_pmu_cpuhp_state);
->  
->  	return ret;
->  }
-> @@ -485,7 +485,7 @@ static int __init tad_pmu_init(void)
->  static void __exit tad_pmu_exit(void)
->  {
->  	platform_driver_unregister(&tad_pmu_driver);
-> -	cpuhp_remove_multi_state(tad_pmu_cpuhp_state);
-> +	cpuhp_remove_state_multi(tad_pmu_cpuhp_state);
->  }
->  
->  module_init(tad_pmu_init);
-> diff --git a/drivers/perf/marvell_pem_pmu.c b/drivers/perf/marvell_pem_pmu.c
-> index f72837fa02f9..9b8a34220351 100644
-> --- a/drivers/perf/marvell_pem_pmu.c
-> +++ b/drivers/perf/marvell_pem_pmu.c
-> @@ -407,14 +407,14 @@ static int __init pem_pmu_init(void)
->  
->  	ret = platform_driver_register(&pem_pmu_driver);
->  	if (ret)
-> -		cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_MRVL_PEM_ONLINE);
-> +		cpuhp_remove_state_multi(CPUHP_AP_PERF_ARM_MRVL_PEM_ONLINE);
->  	return ret;
->  }
->  
->  static void __exit pem_pmu_exit(void)
->  {
->  	platform_driver_unregister(&pem_pmu_driver);
-> -	cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_MRVL_PEM_ONLINE);
-> +	cpuhp_remove_state_multi(CPUHP_AP_PERF_ARM_MRVL_PEM_ONLINE);
->  }
->  
->  module_init(pem_pmu_init);
-> diff --git a/drivers/perf/nvidia_t410_c2c_pmu.c b/drivers/perf/nvidia_t410_c2c_pmu.c
-> index 1fc2adeb7195..209e90f76f3c 100644
-> --- a/drivers/perf/nvidia_t410_c2c_pmu.c
-> +++ b/drivers/perf/nvidia_t410_c2c_pmu.c
-> @@ -1040,7 +1040,7 @@ static int __init nv_c2c_pmu_init(void)
->  static void __exit nv_c2c_pmu_exit(void)
->  {
->  	platform_driver_unregister(&nv_c2c_pmu_driver);
-> -	cpuhp_remove_multi_state(nv_c2c_pmu_cpuhp_state);
-> +	cpuhp_remove_state_multi(nv_c2c_pmu_cpuhp_state);
->  }
->  
->  module_init(nv_c2c_pmu_init);
-> diff --git a/drivers/perf/nvidia_t410_cmem_latency_pmu.c b/drivers/perf/nvidia_t410_cmem_latency_pmu.c
-> index f1eff644b0ba..d8c04f47e41b 100644
-> --- a/drivers/perf/nvidia_t410_cmem_latency_pmu.c
-> +++ b/drivers/perf/nvidia_t410_cmem_latency_pmu.c
-> @@ -725,7 +725,7 @@ static int __init cmem_lat_pmu_init(void)
->  static void __exit cmem_lat_pmu_exit(void)
->  {
->  	platform_driver_unregister(&cmem_lat_pmu_driver);
-> -	cpuhp_remove_multi_state(cmem_lat_pmu_cpuhp_state);
-> +	cpuhp_remove_state_multi(cmem_lat_pmu_cpuhp_state);
->  }
->  
->  module_init(cmem_lat_pmu_init);
-> diff --git a/drivers/perf/thunderx2_pmu.c b/drivers/perf/thunderx2_pmu.c
-> index 3cf079c7ff41..08c370bd5fa4 100644
-> --- a/drivers/perf/thunderx2_pmu.c
-> +++ b/drivers/perf/thunderx2_pmu.c
-> @@ -1026,7 +1026,7 @@ static int __init tx2_uncore_driver_init(void)
->  	}
->  	ret = platform_driver_register(&tx2_uncore_driver);
->  	if (ret)
-> -		cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_CAVIUM_TX2_UNCORE_ONLINE);
-> +		cpuhp_remove_state_multi(CPUHP_AP_PERF_ARM_CAVIUM_TX2_UNCORE_ONLINE);
->  
->  	return ret;
->  }
-> @@ -1035,7 +1035,7 @@ module_init(tx2_uncore_driver_init);
->  static void __exit tx2_uncore_driver_exit(void)
->  {
->  	platform_driver_unregister(&tx2_uncore_driver);
-> -	cpuhp_remove_multi_state(CPUHP_AP_PERF_ARM_CAVIUM_TX2_UNCORE_ONLINE);
-> +	cpuhp_remove_state_multi(CPUHP_AP_PERF_ARM_CAVIUM_TX2_UNCORE_ONLINE);
->  }
->  module_exit(tx2_uncore_driver_exit);
->  
-> diff --git a/drivers/scsi/lpfc/lpfc_init.c b/drivers/scsi/lpfc/lpfc_init.c
-> index 6df5f4e7c5d6..39da93377e03 100644
-> --- a/drivers/scsi/lpfc/lpfc_init.c
-> +++ b/drivers/scsi/lpfc/lpfc_init.c
-> @@ -15715,7 +15715,7 @@ lpfc_init(void)
->  	return error;
->  
->  unwind:
-> -	cpuhp_remove_multi_state(lpfc_cpuhp_state);
-> +	cpuhp_remove_state_multi(lpfc_cpuhp_state);
->  cpuhp_failure:
->  	fc_release_transport(lpfc_transport_template);
->  	fc_release_transport(lpfc_vport_transport_template);
-> @@ -15816,7 +15816,7 @@ lpfc_exit(void)
->  {
->  	misc_deregister(&lpfc_mgmt_dev);
->  	pci_unregister_driver(&lpfc_driver);
-> -	cpuhp_remove_multi_state(lpfc_cpuhp_state);
-> +	cpuhp_remove_state_multi(lpfc_cpuhp_state);
->  	fc_release_transport(lpfc_transport_template);
->  	fc_release_transport(lpfc_vport_transport_template);
->  	idr_destroy(&lpfc_hba_index);
-> diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-> index 1b6dba159bb2..c9563bb15e0a 100644
-> --- a/include/linux/cpuhotplug.h
-> +++ b/include/linux/cpuhotplug.h
-> @@ -450,14 +450,14 @@ static inline void cpuhp_remove_state_nocalls_cpuslocked(enum cpuhp_state state)
->  }
->  
->  /**
-> - * cpuhp_remove_multi_state - Remove hotplug multi state callback
-> + * cpuhp_remove_state_multi - Remove hotplug multi state callback
->   * @state:	The state for which the calls are removed
->   *
->   * Removes the callback functions from a multi state. This is the reverse of
->   * cpuhp_setup_state_multi(). All instances should have been removed before
->   * invoking this function.
->   */
-> -static inline void cpuhp_remove_multi_state(enum cpuhp_state state)
-> +static inline void cpuhp_remove_state_multi(enum cpuhp_state state)
->  {
->  	__cpuhp_remove_state(state, false);
->  }
-> diff --git a/kernel/padata.c b/kernel/padata.c
-> index 5a113c667d4c..551c432b506f 100644
-> --- a/kernel/padata.c
-> +++ b/kernel/padata.c
-> @@ -1111,7 +1111,7 @@ void __init padata_init(void)
->  
->  remove_online_state:
->  #ifdef CONFIG_HOTPLUG_CPU
-> -	cpuhp_remove_multi_state(hp_online);
-> +	cpuhp_remove_state_multi(hp_online);
->  err:
->  #endif
->  	pr_warn("padata: initialization failed\n");
-> diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
-> index 65b9d67647e5..8fd2de42efc4 100644
-> --- a/kernel/trace/trace.c
-> +++ b/kernel/trace/trace.c
-> @@ -10073,7 +10073,7 @@ __init static int tracer_alloc_buffers(void)
->  out_free_temp_buffer:
->  	ring_buffer_free(temp_buffer);
->  out_rm_hp_state:
-> -	cpuhp_remove_multi_state(CPUHP_TRACE_RB_PREPARE);
-> +	cpuhp_remove_state_multi(CPUHP_TRACE_RB_PREPARE);
->  out_free_cpumask:
->  	free_cpumask_var(global_trace.tracing_cpumask);
->  out_free_buffer_mask:
-> diff --git a/mm/zswap.c b/mm/zswap.c
-> index ae19e301fced..18eddeb2d69c 100644
-> --- a/mm/zswap.c
-> +++ b/mm/zswap.c
-> @@ -1880,7 +1880,7 @@ static int zswap_setup(void)
->  shrinker_fail:
->  	destroy_workqueue(shrink_wq);
->  shrink_wq_fail:
-> -	cpuhp_remove_multi_state(CPUHP_MM_ZSWP_POOL_PREPARE);
-> +	cpuhp_remove_state_multi(CPUHP_MM_ZSWP_POOL_PREPARE);
->  hp_fail:
->  	kmem_cache_destroy(zswap_entry_cache);
->  cache_fail:
-> 
-> ---
-> base-commit: 9437ee8b6cf607e883b36e44bd755968daaebd48
-> change-id: 20261127-fix-rename_cpuhp_remove_multi_state-b79dac11744e
-> 
-> Regards,
-> Srivatsa
-> 
-> 
+Regards,
+Markus
