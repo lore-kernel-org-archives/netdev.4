@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795776007;
-	b=cXuLBk3Cet61au7Xr4sAXg6ymsC6pBcvHJFfZalT+zJ3DE0KzlV0Tuav0BMwDm3OsdDa
-	 3QIrrrH6eLDdFxi29aNuyMmuGgK7JL6iYrko+JFG85/s9RoycKL6RywOIo7Us6n2b9Q0r
-	 MVr/DLnCawS+oo6FtG8cShAkWTB33IqtjyTY5MD+Y9ersi4oOkNe7H0l5430dVYVnQ2WH
-	 Hmzxk6F9lUuEGe+abhv5U4pjaKpwtWIEicyX+9pwjUaPdAiH09eOxxVrnmAJ1M88IGUso
-	 nY3IEbHt+lLPT+PcXTNT8EiVyyP3mmz5Qjb/T7JYN4RltfSjqUTbCnYfNbJn1c2XDsg==
+	t=1795776010;
+	b=CDe7eNiZbNczIQrlh+n8d10asjBGj/X0yTVaH54hiUBOVuoMI4HNqfUHb0SmLvNOjyyr
+	 xA7hHMYgPBsAQfhQzaQiBuZjgnchV0PQGysBX7p6vtN7mG8I0wlSetd7BkH9U2Util7BF
+	 NSz/wV5NWTaLFTzKRPjinNSqGJnQMs0OIiQe+q8EAEIymUxKtOhr0HBHDDBNnh2+7jbal
+	 HSHTwIzTbFiepkKOlMWZax5J9XVlkso1A3JaTnG2/yMiWiJLHnr6+u1eKYiPlV+eiHdsF
+	 9icoR8ZLL+Ch8o/6bmZ6GulGQXXN1wnViTk3c17gRIBbppUZ/Qqva7zfnF6lcN2b6hw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795776007;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795776010;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=7dqHBm/FTiAyvk5ZYqiwe2yYETVzuAeppZiw/mS/tFw=;
-	b=IDXxwgMjCmrcKur5RRqYp5x7c/8w/AFpGHYDPsfwbxip3Q+jqtP/9HhfwX1nhLmy4up9
-	 Rv3JFHUGMhZh/m022as8VCD6oFq0dP6oxEkh4lnsxjM09cIea8UoodvVd+kcv8nI/s+RF
-	 ZiG8xUUBt+CHnE2hWDK9+GboyYFQTy5oG6qglOapdghWaDyvl/5kcYQqfci8Vl+gi78/d
-	 UU6iy0ukDt08ekyz5xFv0SQnelfzbQU+1CMuvH1+fPSmwRYUXrdIpTml3vH50mzA8b61Q
-	 C1XJSJoDRhVesr0w0Kp4hqGT87/vjeqF5lecdjmCVmJaU8U/qF0o8y/7P3PpDjKNyjQ==
+	bh=ssRt8khlJRmuStv6JKy0P5WWHz74K+gj5ySkQRGlyDY=;
+	b=qQOzg9ViCZqnr9PVUR1B5i/CdTJ8Yikbd3Li2UAp9fr7eCgQdWvKjEPGpUzFrF9AFPE0
+	 VQFGfbXsIsvWI2Y7+HgVB/AmXFLIQJYLMvrhyP+hc8eF6sXFzqjm7YLrZ5ZxzvhZilCc+
+	 8qwIMBubD13XVtCqDSugRyx36rj2ifMFuX4lKOKKvDUniOcymuIYz43vDAUESMEgOb1Or
+	 1Wb8NEEnoEjo2MCTcR69w1CzFbi2/6hPF2rd1P0npL7UQAyq1VBAiu9kinCWxqzNSIhcV
+	 on35WkMgnNy2T5wgSmZBXPJDzmRf9kq17GsB1BEXBK9Sv4H5MIrz4UI50wrCQIeRSTg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b2aXDSzV;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZdrCXOPV;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C563606A326
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 10:40:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BDB4C606A321
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 10:40:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b2aXDSzV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 015A81F00897;
-	Fri, 27 Nov 2026 10:40:07 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZdrCXOPV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BD291F00893;
+	Fri, 27 Nov 2026 10:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795776007;
-	bh=7dqHBm/FTiAyvk5ZYqiwe2yYETVzuAeppZiw/mS/tFw=;
+	s=k20260515; t=1795776010;
+	bh=ssRt8khlJRmuStv6JKy0P5WWHz74K+gj5ySkQRGlyDY=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=b2aXDSzV+z80x7l7HjkCwIkMnKryyUlBGgkj8BB58kU7/J7aOrkqk5kgPF1Zgae94
-	 S6gEaUb2Jf8rG+54LkP3Pvtup/7DIyzvbomsiwIeeiP++fPcHR1yD+5qKpcT8htFSq
-	 wn/zy1Vl2pNla5tFjFyzTsD0RCg99Lb+SfaomoufEacs/n1+1q7Cbu//ZTc9xXnGD0
-	 j7yicXNjwSOE58gkl0EoRnsILBvJtlnbuSS+PAMDIl1wJQrwI7TcEg6ir2dFjI9AdE
-	 H4fM751ZEhLPPV+0702ywQhdqhr1VuvFD6R5ekE6HJ5UXTfbsDVB2tYUntl/5L6v/E
-	 kMXyULfhEWrHA==
+	b=ZdrCXOPVWamWJkHmasLj2LvO/x9zUavmgIuerg5Zci6k1utZ+/Yp+8nY2JTNRmiV5
+	 +CebtXD2q8j/h4xSJcyYhXEVG+TxQ8wbB2IUMamvJfWWBx4wURTqdxDCm9fNR2BJS2
+	 wV29hdbwhp87MfZHe9XdCJLeAPvUGVseZRUvrzxDzc7NPyzi9JHljADfwZWGFqoqEX
+	 IKJ1hvxgREjBGLgQmRoVAT/v35fG+YRKAX58jn0rYmE6ey6H0PMBHFV6X0SftQKmIL
+	 pk4gytMJSH7gDaRE+tOCy+uQ4JZv4wpSfnRwsmWWMHVax4P/GHbDdKJPPW2lJ7IhG+
+	 pP8/zVVFn27Kw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB85C38003C5;
-	Fri, 27 Nov 2026 10:40:06 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 345C338003C5;
+	Fri, 27 Nov 2026 10:40:10 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,42 +54,42 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: sparx5/lan969x: only check the DSM calendar on
- sparx5
+Subject: Re: [PATCH net] net: lan966x: fix disabling timestamping without PTP
+ traps
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179577600550.905521.3058207882449579825.git-patchwork-notify@kernel.org>
-Date: Fri, 27 Nov 2026 10:40:05 +0000
-References: 
- <20261123-lan969x-dsm-calendar-check-v1-1-0891cf3f4259@microchip.com>
-In-Reply-To: 
- <20261123-lan969x-dsm-calendar-check-v1-1-0891cf3f4259@microchip.com>
+ <179577600874.905521.17848243841779986693.git-patchwork-notify@kernel.org>
+Date: Fri, 27 Nov 2026 10:40:08 +0000
+References: <20261123-lan966x-ptp-del-trap-v1-1-3f46ca6072b2@microchip.com>
+In-Reply-To: <20261123-lan966x-ptp-del-trap-v1-1-3f46ca6072b2@microchip.com>
 To: Daniel Machon <daniel.machon@microchip.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, Steen.Hegelund@microchip.com,
- UNGLinuxDriver@microchip.com, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
+Cc: horatiu.vultur@microchip.com, UNGLinuxDriver@microchip.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, richardcochran@gmail.com,
+ netdev@vger.kernel.org
 
 Hello:
 
-This patch was applied to netdev/net.git (main)
+This patch was applied to netdev/net-next.git (main)
 by Paolo Abeni <pabeni@redhat.com>:
 
-On Mon, 23 Nov 2026 16:01:29 +0100 you wrote:
-> sparx5_config_dsm_calendar() calculates the DSM calendar of each taxi
-> and checks it with sparx5_dsm_calendar_check(), which compares the slot
-> distances of each device against data->avg_dist[]. Only
-> sparx5_dsm_calendar_calc() fills in avg_dist[].
+On Mon, 23 Nov 2026 15:53:54 +0100 you wrote:
+> lan966x_ptp_del_trap() looks up a PTP trap rule with vcap_get_rule() and
+> removes the port from it, or deletes the rule when no other port needs
+> it. The traps are removed whenever timestamping is configured with
+> HWTSTAMP_FILTER_NONE.
 > 
-> Before this patch, the check also runs on lan969x, where avg_dist[]
-> stays 0. Any device with two or more slots, e.g. a 10G port sharing a
-> taxi with four 1G ports, fails the check, and the switch fails to probe.
+> Before this patch, every vcap_get_rule() error is returned as -EEXIST,
+> including the -ENOENT for a trap rule that does not exist, so disabling
+> timestamping on a port that has no traps installed fails. This breaks
+> moving the hardware timestamp provider of a port from its PHY to the
+> MAC.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net] net: sparx5/lan969x: only check the DSM calendar on sparx5
-    https://git.kernel.org/netdev/net/c/cc02d3b82669
+  - [net] net: lan966x: fix disabling timestamping without PTP traps
+    https://git.kernel.org/netdev/net-next/c/e20a00eb02ca
 
 You are awesome, thank you!
 -- 
