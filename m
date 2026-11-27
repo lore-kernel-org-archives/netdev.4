@@ -1,54 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.216.20.220
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795744704;
-	b=i/P0C/o2BpPClagDQOBV5cBjSq9QCIYKI/7dMht4DGOiYLrIODBom32ezH2kyNwlcF27
-	 xtY9lpi0TAfG9dnNOA2LoO+EAajvUibRkfsoMgqdlIS/7R6/DFSj0F3RnFkpozPHF6lCj
-	 oXfyZeGSXsu975zlWR8vMjD97u69mEf0VKeAylO1WOB/RT78d/GLO6OYgTFJ0sm0/FPTW
-	 6PHLfOewb/l65mggGTnwgHyvOoVGdzuG3Se7uFBJsWzxfwoxi9PVRG0FkUBMsp9SHKVaB
-	 p6vPvQ6szfsMgJvzDQ+a7glo24yhZDk/QXxssq0xJL/ZLH7jdBb+ZSc9Ce38UUkvCHg==
+	t=1795745182;
+	b=b6TFt4Ya25xObN2wDwqERTcu+RVYjsA9EnyRdlQz7N3lGEkiNXgtU/2XYWXF+EhvYrW+
+	 b3s7pXZoNIj/JCeBh39qit0fKjX0At89OFw5RDPRa6cJch4j+YvgkV/L24hicUsKgf0B7
+	 0xJL2Pr4/AKtMMJWepcouOs7TvUcpDI75cabUcePC7DRTXCV9rom6R6d+jjpHddEbViLV
+	 +zO/aaUCq71C9eQGALkRPvuQH/RJ4OiaLKvBGPeU9pRfd/0eiVZgZqo7Lx7ykuSIaoDT1
+	 /LTktwRQg6wTKxZ8ytpa79n+OlB+VJrBcgxibrcSorrNBS1V5mY4Rvn51AKJPTNggEQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795744704;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=obbyL0zw6mklk/YkTTdAAz/LHAlhh9d3bNFL7FQ9SkE=;
-	b=drYCGsZN04MK7J4cS3Mtd/F+Wr9Rlu0FzXExY6BQ+lY8Xp4TgcNt5Ksxvm8LXz1/1A/g
-	 PZN8lQ7i6kbLxyIZIGrZOtrJmGE3Svhwr3+rnhTqJRI+HEJDconmHV7UEhzI7miwSAGWv
-	 GAhXGdfK6HoBC1h/tLtoWr0hz+IQwD8yYVRb70TRWU2Twkj0T2c/6rgaOysJqwOPmTO8K
-	 9xN44eTfK9UvLPjrj63zVGN2BVmUaMCo1UV2J1RGa/YEuyNgTKnELOywrBVeXz47rdIQn
-	 TDOjCxE8zMiVNi1fAqqBwBwRqNiwkRxNqNBejlpqTnw+AkXh3wGi5sMnbkQ9QHMSaZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795745182;
+	h=DMARC-Filter:Received-SPF:Received:From:To:Cc:Subject:
+	 X-TERRACE-DUMMYSUBJECT:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:X-TERRACE-SPAMMARK:
+	 X-TERRACE-SUPERWHITEIP:X-TERRACE-SID:X-TERRACE-CLASSID;
+	bh=/0mhPj01jYciMNIS3v4D8R62f4Kv27ZLnnjl8phcSXY=;
+	b=2WIaG9/AbQ0cD0gixC+XEfwREUNlAIbYikodifixLgyJTbqSlvpFjDp/BKRr1MsQhjgQ
+	 cZ9ayRCSXBhBh24iNFlWUPm06pNo7c3BTgea48mJmG4/dsDO8msEgUPhtQP5NQ/zyiuXL
+	 23jISfq3OcLy1YaO/WOPeLljvaJU9he9NgO1JHvRnitXO/ysuJH/Q2YaayjYWKuVR6fOq
+	 V9dTwK65GQZw5/HpXRptSap5OIBdQlQg93OQUjYGulDV4gV8sXciGghLTQ32CMOKDd62J
+	 y1D2kW3jj74j+pWN4KpWP0EAJIcsZjRY7CSR6/SGx87yApoZNTimuhTfAmHrO/flK6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=g7GF19eI;
-	arc=none smtp.remote-ip=91.218.175.197
-Received: from mta0.migadu.com (out-197.mta0.migadu.com [91.218.175.197])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=pribit.com;
+	spf=pass smtp.mailfrom=pribit.com;
+	arc=none smtp.remote-ip=35.216.20.220
+Received: from prod-dose-smtp-3.daouoffice.com (prod-dose-smtp-3.daouoffice.com [35.216.20.220])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7E25606A324
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 01:58:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7E25606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=g7GF19eI
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=QjfUiP89GkKSdXn8+nDhgldc3LmrFASytM3T5E1sg0U=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795744701; v=1; x=1796349501;
- b=g7GF19eI/ckIh11/s1z3KQFk2JTVwf0ZgXKG9jTuh+XAcADTrqjwMC+YywkoTw2qw+ZU3tgd
- S9b99OVli5eMX62flPHpknLvCELLLjFsO7OGwsQ/DkkXlLyHwmzMM0RAFsnm0zvulHncOXlXlgL
- MzEJJT1c8/71zYu1GSz04yB8=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 48d9a373175d1383;
-	Fri, 27 Nov 2026 01:58:21 +0000
-X-Mizu-Trace-ID: 48d9a373175d1383
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <95498d18-5267-4153-bc06-7b918f9f469c@linux.dev>
-Date: Fri, 27 Nov 2026 09:58:16 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B51C0606A336;
+	Fri, 27 Nov 2026 02:06:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B51C0606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=pribit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pribit.com
+Received-SPF: SoftFail 
+	client-ip="106.245.249.210" envelope-from="his1415@pribit.com" 
+Received: from [106.245.249.210] ([106.245.249.210]) 
+          by prod-dose-smtp-3.daouoffice.com ([10.37.10.10]) 
+          with ESMTP id 1795745089.365151.140503668266560.prod-dose-smtp-3
+          for <>; 
+          Fri, 27 Nov 2026 11:04:48 +0900 (KST) 
+From: Hong In-su <his1415@pribit.com>
+To: steffen.klassert@secunet.com,
+	herbert@gondor.apana.org.au
+Cc: davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	sd@queasysnail.net,
+	netdev@vger.kernel.org,
+	ipsec@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	his1415@pribit.com
+Subject: [PATCH ipsec-next v3 2/2] xfrm: add ARIA GCM support
+X-TERRACE-DUMMYSUBJECT: Terrace Spam system                                  *
+Date: Fri, 27 Nov 2026 02:04:48 +0000
+Message-ID: <20261127020448.55891-3-his1415@pribit.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261127020448.55891-1-his1415@pribit.com>
+References: <20261127020448.55891-1-his1415@pribit.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,56 +67,76 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2] tcp: fix division by zero in tcp_cong_avoid_ai()
-To: mdshahid03@gmail.com, netdev@vger.kernel.org
-Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com,
- davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org, willemb@google.com
-References: <20261126164150.8838-1-mdshahid03@gmail.com>
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-In-Reply-To: <20261126164150.8838-1-mdshahid03@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-TERRACE-SPAMMARK: NO       (SR:12.67)                     
+  (by Terrace)                                                  
+X-TERRACE-SUPERWHITEIP: pribit_com_packetgoOS
+X-TERRACE-SID: 1795745089.365151.140503668266560.prod-dose-smtp-3
+X-TERRACE-CLASSID: Terrace Spam system                                      
+
+The kernel crypto API already supports rfc4106(gcm(aria)), but XFRM
+does not have the corresponding algorithm descriptors.
+
+Add XFRM AEAD algorithm descriptors for ARIA GCM with 64-bit, 96-bit
+and 128-bit ICV lengths.
+
+Tested with strongSwan using 256-bit ARIA keys and all three
+supported ICV lengths.
+
+Signed-off-by: Hong In-su <his1415@pribit.com>
+---
+ net/xfrm/xfrm_algo.c | 36 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 36 insertions(+)
+
+diff --git a/net/xfrm/xfrm_algo.c b/net/xfrm/xfrm_algo.c
+index 98ef2c48982a..d74f86d4e672 100644
+--- a/net/xfrm/xfrm_algo.c
++++ b/net/xfrm/xfrm_algo.c
+@@ -82,6 +82,42 @@ static struct xfrm_algo_desc aead_list[] = {
+ 		.sadb_alg_maxbits = 256
+ 	}
+ },
++{
++	.name = "rfc4106(gcm(aria))",
++
++	.uinfo = {
++		.aead = {
++			.geniv = "seqiv",
++			.icv_truncbits = 64,
++		}
++	},
++
++	.pfkey_supported = 0,
++},
++{
++	.name = "rfc4106(gcm(aria))",
++
++	.uinfo = {
++		.aead = {
++			.geniv = "seqiv",
++			.icv_truncbits = 96,
++		}
++	},
++
++	.pfkey_supported = 0,
++},
++{
++	.name = "rfc4106(gcm(aria))",
++
++	.uinfo = {
++		.aead = {
++			.geniv = "seqiv",
++			.icv_truncbits = 128,
++		}
++	},
++
++	.pfkey_supported = 0,
++},
+ {
+ 	.name = "rfc4309(ccm(aes))",
+ 
+-- 
+2.43.0
 
 
-
-On 11/27/26 12:41 AM, mdshahid03@gmail.com wrote:
-> From: Mohammad Shahid <mdshahid03@gmail.com>
->
-> The tcp_cong_avoid_ai() function divides tp->snd_cwnd_cnt by
-> the argument w without checking whether w is zero.
->
-> Since w is an unsigned value, the condition tp->snd_cwnd_cnt
->> = w does not prevent division by zero when w is zero.
-> The function is also exposed as BPF kfunc through the bpf-tcp-cc
-> allowlist. The BPF verifier does not enforce a nonzero value for
-> this argument.
->
-> Return early when w is zero to prevent division by zero.
->
-> Fixes: e78aea8b2170 ("bpf: tcp: Put some tcp cong functions in allowlist for bpf-tcp-cc")
-> Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
-
-Reviewed-by: Jiayuan Chen <jiayuan.chen@linux.dev>
-
-
-> ---
->  net/ipv4/tcp_cong.c | 3 +++
->  1 file changed, 3 insertions(+)
->
-> diff --git a/net/ipv4/tcp_cong.c b/net/ipv4/tcp_cong.c
-> index 8e83ef81fc18..f70f49b4b1e7 100644
-> --- a/net/ipv4/tcp_cong.c
-> +++ b/net/ipv4/tcp_cong.c
-> @@ -469,6 +469,9 @@ EXPORT_SYMBOL_GPL(tcp_slow_start);
->   */
->  __bpf_kfunc void tcp_cong_avoid_ai(struct tcp_sock *tp, u32 w, u32 acked)
->  {
-> +	if (unlikely(!w))
-> +		return;
-> +
->  	/* If credits accumulated at a higher w, apply them gently now. */
->  	if (tp->snd_cwnd_cnt >= w) {
->  		tp->snd_cwnd_cnt = 0;
 
