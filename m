@@ -1,101 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.48
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795746674;
-	b=rlgQxaXrBsa2nV1lrRnALqMvMNNJxDcB8H3N1UMSOOx7cEMc1wT0JznDCGKsITkVQLJv
-	 tPLw3HXfKjPaRnaqZNu39oSWFiHD2dSX9mVU2MVcQTNcv0Io3/fuoC+dzu36ksiAYHCcU
-	 AQGgJMHNedtzZab7lgy6mzoKyf5WxH2gAAFttCC0HDt/0fMFWc0mgxvfw+KqCFZ6KxJ5c
-	 2Yb6TZGH/muqYsRxn2hNhAeC1mQuGJLFTUlxhOb/OJZ7NINOfTlflsDI9aZYOOHYdEwrr
-	 IxMt2Q4+hZisJ9EUWxsB2+oXmqg1no+4dWtIsMAaMH/jwNaV/AkD+tSP6YoKMUrwYcg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795746674;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=3mvD5SHJizr8aoJUr14kNfOc0+9+6jccMe+xxh5ocXI=;
-	b=skOjE2oKJnXDgOhktO/URwyYgHsvTY9OaEiSfRrUvmSVFYjABpSuzJe7ZJ4IrfXUgWhG
-	 9dM5xb7YB8fcJbv7veCV6uGvwi3ugqF9KTufBP6JumL19vGvWhRFAb5WG3K/YZSm35peO
-	 w5z8ordJswZWzdv6tZaW/djmI1XjgQfBX2uilMydYNxIUgNU6Red1420Dl/cGrUQkAPnT
-	 DMkCGjRb9J/L5WC8jQUL6qxVWZFgbYvxqsaWZ6QH67Vl0jy61lNY4pm/kgDCCXfJYnt/l
-	 phr1siNs+LcuciDe5pQ4xQDKhn9ihw0DrxiaoTG1K7pe4HbdQMw+KrAuAho8FoC1SsA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qERfAWsJ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.48
-Received: from mail-lf1-f48.google.com (mail-lf1-f48.google.com [209.85.167.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 136F5606A321
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 02:31:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 136F5606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795747221;
+	b=y52OSyBnaiirsFDpUc4exqzUuduB31yxnpA+epLljCcvKUi58w9uFXTtH2Jm93Ergdl2
+	 mLZse80/tOBnppsRteQLBDaRV0mW0Vn2z9ljPkwUZIHjbEhO0O4rAIfyC2gq9J7GQmYwX
+	 qZnZRfjxffzN2QhwUEF3675obSGbREFbFd+KZwUJ5j35lEZjgin/D7Lp5ZvoINoH64z5y
+	 LP4NW5suiSnVqsOQpvREhHFODmti6+FoxKf0Qibzrcw4pupikAqB1GM3Dc3QH0D5bYrb8
+	 qYqok+mA6UG6HXS71GG4CphO64vdNo+GSSE2JtgjReebPqtDh/utIdFN6bVRXG6eQZA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795747221;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=3O++9cFaFQX1xStaQ4AA838XUZsWOaUKNYAROFpPYxk=;
+	b=x12Cw/FjXUTp5zwA6EdzG5ZZ+wZH1Y9fLu4K//a69jh4dR1oVVbrG0cSWPmyj0V4NKRD
+	 OKeJHvfr8DAznG3OveyzHXglr80z+eg2lQRPSn3WKXmb9U2U6xTMqrCqlwHTrZZoN2ahk
+	 fRjWV5KlOPGUt8Pm+6Kqa2XbPobj5PXLlQMWe8sA+uMp/nYgj/t+VZthwmX6iUa1OtUvJ
+	 ibu14C7A6DSeyaxKaQrWyg/VxHCZnJx8/+OFqz/i8j6lsUezc/mWrWDqVvpaibKM9EZRD
+	 urQw8uAXKV5zGHmJ2L/apmZAlDlNFyuYJzQSvmxejdx+qs6BmKhGby7UOtAhbyoecYw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=VoQ1j+Lc;
+	arc=none smtp.remote-ip=111.22.67.137
+Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 24B11606A321
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 02:40:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24B11606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qERfAWsJ
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5c14f7768acso6136597e87.3
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 18:31:13 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795746672; cv=none;
-        d=google.com; s=arc-20260327;
-        b=OuxdKolNzdFzwi/BqcN0XmuhtDd9/Hr7QBKnQdmagIAFDbO/Q+UL58kmGcCDhxyj/e
-         vF0orC1gCZqOKf8m3iJ1R4St43kj5ZcypCzO9Ywl5PdcrwDRZROZQNR80ajDCyv7WDwq
-         fgBhtKELTPqCGnjR5kIzRnEF1pdfHj8BysakUDuY3lTCTEEYsMKvtUsD3vx0dioODJb5
-         R6jWQy8pqTa7qedMnWKglUmpThGFj+BgbC7tQIA7WvaqvyGUDWDlCx1KnSUOCMdHDA3I
-         YyLLJ2Dk1UKygLb/i+tcgSQLIs2l0np+OGr5Zl0Jq2bvkzqKggFdwZ2gUo8HUYVwP0eQ
-         4wog==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=3mvD5SHJizr8aoJUr14kNfOc0+9+6jccMe+xxh5ocXI=;
-        fh=gcFIvIcG7RKY9uXiIAs2XkZBnjSiCnLwcZE5JT7eNuY=;
-        b=qPpYJjG6Jl4ruV7qRrb2RaXXi/AYonr+5H/0zmt+wehTcwnjyFa0ynhMPgMX0iwmRI
-         bjruqW/KBSMg5YMNUYhzN8U8vszizoGxSkWG4PZyNRYnCXY0AqjhvNVXa2kaLfOTqlbQ
-         09ibhBqfgsb436VtokObkwt+xz/PC8uS0u9UpkXo6XaOIeRazvbDOTkrDB4lNycPz7Wn
-         WOpJShBMy/RmFRRF5Xs7zNHIG2EdEl8sLOVKCzAuQ8rUuwZmUrQhxisVIB1JLGdP5nd3
-         qM1p6xKo2F2hsXvjFw16TsVpueM728pRu9YDHgGgdvbEqK/BGGhdjF0gwajSUPdddGfA
-         23Mg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=VoQ1j+Lc
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795746672; x=1796351472; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=3mvD5SHJizr8aoJUr14kNfOc0+9+6jccMe+xxh5ocXI=;
-        b=qERfAWsJLcMKn5W1+KMjLc9CebAaBdsi/1G+woZOLgB3/twU0XYdloPUN2mWvrM0lq
-         ZmjkPHBg6hE4TECOpPUuME67pi/+kIWTh6dKsrrg2kwClDgMCrryU3PA+g2T90pkxul4
-         hulvBnFR65xIfs8Qyt50nkDQB4iBRRfQSVDpJfveyavzGjbuZdHPI/Q5Gx3Pv4qg64pr
-         twJ8niXamQL5zeCiMh0Z0HwTWL19o5A2ey9bCjlwLKyqIEXD0+mzNGfUAQ86estOQGE5
-         wuoacrdvsCesOjmpc4qxx5bixMVTpnUKCsyNl9aIRxasZxnefL3rulkYEJIQHET95FOZ
-         8oNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795746672; x=1796351472;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3mvD5SHJizr8aoJUr14kNfOc0+9+6jccMe+xxh5ocXI=;
-        b=OuylK/DYqecX/FbnxY12P0YXjVK3cjfLE4dWRtOlxsnOIcF3y+Jj1EY5cbokVUWt6Z
-         153z/rBA+6FEhP3uVf2VSyD5SttL0ghHMSYBIWXJXSdRPNxT1MRQhCONhzz4O4U/UaS1
-         DEslHiiOtlnyqVXeYrttPmCyjAAB+H52Fdj3+YbQp6zpNrcoW0p8ZJ4ctQ8LPP+HvrBY
-         EwikdQHUqx9Ao76PnjQilW4gZLOT34Yh8V5Pn26ysR3cHx0rBn6VgKI+NsDERsBSTpe0
-         USxwbsCNVt7my7a1/n+2dGwmDzjNZyWh93HK4z28UX5Hq3vaxdFxJaUw8HBrhghm0VCb
-         bGAA==
-X-Forwarded-Encrypted: i=1; AL+hErFFMHBEUuQhY7SM4Sc++o5Ch+rSvG4YvU7rL/jqNL/+dFzXGn0A3/UXuqDeenS7RXR6ctSV8K8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Ls6XhzoBxmhBRzXizA8IdzPb+8CFkp+eUSvyTiNe1dz/VEnW9
-	+2wsfKhkggJ2VLgQg6zo6X/vzV28ZRumv1ciQP+gz+nY9QHT2lA12cygUAfigbXKzPhaYr4H0aA
-	GbqxmmMEsYMEwYLTN/OuYOfaSOId9990=
-X-Gm-Gg: AZFdTZeqwA1tB20ge9+crwcbFnQuPuDlop/DWdfFgNoK9Cn6D3N+5mHyo0RyyLq1zE8
-	KXyqYzMvHQ7+Uuq98zAAXrW8/A/clwBE+28doIfc+r2Wkyj9304Ai+zTLTkp5yAXAC/4hEEU7tD
-	bVEVMIKV+VpPJJA+OUIsnSbv7Z6d6XQDf4p8flHypiIXWAf6BS0ld90GBMw6MAIiw1RNuOocp7N
-	6Me8kBlw0wQaZhv+uJ3SIXBI93ql8hjifN+sK1blFRaCNB8EI/XMboouqxntG9Znx94+KGoqa7Y
-	YDCmIXUgwGQ/Lma2zehVvCuhKWKvas6KKjN6x0i1soYZpP4AMlHz024qHIFvWVjuyUF1xwodd5W
-	7OcJmtpUQikDPn5O0HVGJDXK2xADGv/01oldZrVdobtF7Abs8cb9B500qRMTYlmqDKhqNy8bLa1
-	AlR0GpcfO8a/YkV6QpMCQxMLS00wAbeKZo78bG/MFLtBt1j9O2pdA=
-X-Received: by 2002:a05:6512:b9d:b0:5c1:4f5e:4b59 with SMTP id
- 2adb3069b0e04-5c1bc844972mr7043793e87.58.1795746672038; Thu, 26 Nov 2026
- 18:31:12 -0800 (PST)
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=VoQ1j+LcGGCNpql5SU2c1GW50pDluITHYJEKGAhh7QuT7sGt3bw0dIAV0cK6LZ35M5Q3j6ZHHwsI8
+	 YHtBowgH7ECrKn2Q5qh1JqpBBHYCj8HsJrUAvviZZeB48ynBdluKyz8bzimArjADSUlQgdbNBYBixQ
+	 nwxIQsa0msJiwYos=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app08-12008 (RichMail) with SMTP id 2ee86b08ed8f205-00cc8;
+	Fri, 27 Nov 2026 10:40:16 +0800 (CST)
+X-RM-TRANSID:2ee86b08ed8f205-00cc8
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from localhost.localdomain (unknown[223.112.32.189])
+	by rmsmtp-syy-appsvr05-12005 (RichMail) with SMTP id 2ee56b08ed8fe63-82ab3;
+	Fri, 27 Nov 2026 10:40:16 +0800 (CST)
+X-RM-TRANSID:2ee56b08ed8fe63-82ab3
+From: Hongyu Guo <guohongyu@cmss.chinamobile.com>
+To: netdev@vger.kernel.org
+Cc: intel-wired-lan@lists.osuosl.org,
+	anthony.l.nguyen@intel.com,
+	przemyslaw.kitszel@intel.com,
+	alan.brady@intel.com,
+	13057616121@163.com
+Subject: Re: [PATCH v2] idpf: fix vport_id used as array index in MAC filter async handler
+Date: Fri, 27 Nov 2026 10:32:46 +0800
+Message-ID: <20261127023246.258100-1-guohongyu@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <179574583226.3135.4850818709708500001@kernel.org>
+References: <179574583226.3135.4850818709708500001@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,50 +72,23 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <179562059260.3381969.13546710565371160648@gmail.com>
-In-Reply-To: <179562059260.3381969.13546710565371160648@gmail.com>
-From: Jason Xing <kerneljasonxing@gmail.com>
-Date: Fri, 27 Nov 2026 10:30:33 +0800
-X-Gm-Features: Aa3M54qQCzHWtPap6VwRTDk3zW_mgnH0uTaijvFXX22zIZb75qUgadyaUbnQ8mk
-Message-ID: <CAL+tcoBzM3owy4tnRWW_ZV+0Tq0R=_GnrigL2Ud=2DhyviUivw@mail.gmail.com>
-Subject: Re: [PATCH net v3] xsk: keep the charged page count when pinning a
- umem fails
-To: Kyuwon Cho <kyuwoncho18@gmail.com>
-Cc: Magnus Karlsson <magnus.karlsson@intel.com>, 
-	Maciej Fijalkowski <maciej.fijalkowski@intel.com>, Stanislav Fomichev <sdf@fomichev.me>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, netdev@vger.kernel.org, 
-	bpf@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 26, 2026 at 10:08=E2=80=AFAM Kyuwon Cho <kyuwoncho18@gmail.com>=
- wrote:
->
-> xdp_umem_reg() charges umem->npgs pages to the user's locked_vm before
-> it pins the umem. When pin_user_pages() pins fewer pages than asked,
-> xdp_umem_pin_pages() overwrites umem->npgs with the pinned count so that
-> xdp_umem_unpin_pages() releases only those, and xdp_umem_unaccount_pages(=
-)
-> then gives back only that many. The rest of the charge is never returned.
->
-> A short pin happens when the tail of the umem area is not mapped. With
-> RLIMIT_MEMLOCK at 16 pages, three registrations of an 8-page area whose
-> last 4 pages are unmapped leave the user able to register only 4 pages,
-> for as long as the user has a process running.
->
-> Unpin the pinned pages directly and leave umem->npgs as charged.
->
-> Fixes: c0c77d8fb787 ("xsk: add user memory registration support sockopt")
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/all/20260421172951.A7052C2BCB5@smtp.kerne=
-l.org/
-> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+The Medium finding is real and already addressed in v2, which was
+posted before this review ran: the handler now returns early when
+IDPF_REMOVE_IN_PROG is set, before it looks up or touches any vport.
 
-LGTM, thanks!
+The Low finding is also correct.  The old code did not just read out
+of bounds: when the device-side id was in range but did not match
+its own slot, it removed the filters from the wrong vport's list,
+and when the id pointed at a slot that was never allocated,
+vport_config[] was NULL and the handler dereferenced it.  v3 will
+add these cases to the changelog.
 
-Reviewed-by: Jason Xing <kerneljasonxing@gmail.com>
+Returning the slot index from the lookup instead of dereferencing
+vport would close the remaining window between the REMOVE_IN_PROG
+check and the vport->idx read.  I can switch to that if preferred.
+
+pw-bot: cr
+
+
