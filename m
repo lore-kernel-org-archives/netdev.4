@@ -1,54 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.155
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.37.255.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795761218;
-	b=NgD8O1MDmdvI9tK4Wl8bD7COki7yxOud+WaEcYukRgo1ZqyIfyAUz33w0zm8m2kXvS1e
-	 kKMMBkn3l0f+TjH/hu81fIoi+yVaQEvHI8Hq0Zmhe1aT0IXsXq8v1Il2SRMaVRQ5dzJqN
-	 UO/7FYSF5Edv3yKzcqUZKJMZLTcZS7xaqK0zDBMDZlxJdpR6MK81w2sY6fJ3h2cuicWhy
-	 ngaIyqydN8aty1+X1NpATjn7vkluDOeNAdJEUhebk8keL3qFH7Ky1nwczonGQ+FbsIG2M
-	 65KQ8B2R6RwFUAnePRy+i85fUyoagYNB32ynRyRB78pmTaB0WhZEEq+/tXopu3g20Tg==
+	t=1795761224;
+	b=5sOEjpo/K4MPJWZmY56nvCsuBBtlPrHK2ygeNh4vPQxGkuW8IFx5RXYj30VFqmz82WVC
+	 DLHn57TmgbnBh6Eg1fvLrC8cX8t/3F7ZDO/u05CkMLrJYbaEvpIKTg2s6nIXtOuymU612
+	 isMQewXJKC9BXI3TbY6HHuun1ZMECAHrl23zcER+dRg/Im9VnmyRPR3Sa49DwWjgoM69J
+	 UgpLhxiSe8URD+JENEQ+f+dPX5hW1/GnR3qcFL2atO64X9tGpYsVhW4x673GaMJnqCXxQ
+	 vcX87gLzznLukHRLfiU4D6nt9sVNYYjCMGeZ8IXakFyzpSBH0mVcm4/Zs0xNXcVb9CQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795761218;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=6LC43k933l8Ek/GrSPWgwkIQo2nW1+6+OwznWt8NdeU=;
-	b=L6Jlk1UDqC8Y+UvbMVGsOtM7PUe3jA2KskgpabOx2RLO8WerGPFsjgDHar47eGGPo7sG
-	 N2H0kxILFci5OjgDpOWYq4gNH9UBd0lnEJNLaymC+Quc4ETWuA7NPp/vy7QJ+AfPUFj7e
-	 aDb/+rgJMg5Rx+qKC+BGs2VutMRPacyrr+7Tl3fcf3Tot4aURvH7ySVl66iS8BIMbDd/U
-	 tvzaM52OGwmkGjUSOqwfh/k6fiw4TG7gZdxSSzxOpEuGt8m87wv4AKs/QpPSF3BDzeOXL
-	 SQrD0Db3yETnlxt4cmqCxLcPFXWFhrF/cyRJ5GtdHJJdE6DYLb/Dq4Zn12CZmHvyp0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795761224;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:
+	 Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Date:
+	 From:To:Cc:Subject:Organization:In-Reply-To:References:Message-ID:
+	 X-Sender:User-Agent:X-Spam-Status:X-Spam-Checker-Version:
+	 X-purgate-type:X-purgate-ID:X-purgate;
+	bh=9ynB3kGZB0AvNuWCZZgmdlEBFs2oh7w13vtkznQ9vGI=;
+	b=x0kX9+1vwG002x+3vkkdhLrwtcCUvbUfmN7vMXfnQsHdfM6C/ppSs+lN6C2GcksViZnW
+	 /ip6bS3FRP+KDg44FQvrdAOLd6sK8QTGtdmtoYGQmT+q0ZxKtEntmkcD+a8zrs1ocMsCE
+	 AmyTsccl5mHvTPc/7quzS8Y1Mxads5fM/AQY5NQRZje7edHVp0VG3rmdV9ygua7sQfAxb
+	 9sNvC6iPuFayWsutXc3UIwJ0xA5SK1nGlRh524neHBMF5ezz/HtY9BU90mj0wdVI+YdBf
+	 f5WrTQGcvSIHeBvT3WIsHhkzsdbZrJBHwCsgeTny/99eizVyCoTA0gDEeNsPvVhHtQQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Pyc4YtWB;
-	arc=none smtp.remote-ip=91.218.175.155
-Received: from mta0.migadu.com (out-155.mta0.migadu.com [91.218.175.155])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=dev.tdt.de;
+	spf=pass smtp.mailfrom=dev.tdt.de;
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=InK+lgxV;
+	arc=none smtp.remote-ip=194.37.255.70
+Received: from mxout70.expurgate.net (mxout70.expurgate.net [194.37.255.70])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36E98606A31E
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:33:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36E98606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94C57606A31C;
+	Fri, 27 Nov 2026 06:33:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94C57606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dev.tdt.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.tdt.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Pyc4YtWB
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Aqo9Gh/z13+vrH5nhABhxwXDDFLj9lawY51vL3ULqrs=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795761215; v=1; x=1796366015;
- b=Pyc4YtWBMb+uDyjRZFohccHRXDcqxjekMGI9XBuOksTtl7RsTdQSl90YeRagfq6ustsfEyj9
- RXxSbMkwBQgQSKiCwi2CDTcdMz72XIz3prRT/9iFhHufQspLXgM2e/yR5BFUF99cVMJIl7Yeejd
- l3jHHduYcvGqugwctNqkEQD4=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id bf87ac2432157dd5;
-	Fri, 27 Nov 2026 06:33:35 +0000
-X-Mizu-Trace-ID: bf87ac2432157dd5
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <bffee809-2992-40eb-97c7-72d919de0aed@linux.dev>
-Date: Fri, 27 Nov 2026 15:33:15 +0900
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=InK+lgxV
+Received: from [194.37.255.9] (helo=mxout.expurgate.net)
+	by relay.expurgate.net with smtp (Exim 4.92)
+	(envelope-from <prvs=68051b93b8=ms@dev.tdt.de>)
+	id 1xWpWS-007kz4-Fi; Fri, 27 Nov 2026 07:33:28 +0100
+Received: from [195.243.126.94] (helo=securemail.tdt.de)
+	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ms@dev.tdt.de>)
+	id 1xWpWR-00CtHy-MM; Fri, 27 Nov 2026 07:33:27 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.tdt.de;
+	s=z1-selector1; t=1795761206;
+	bh=9ynB3kGZB0AvNuWCZZgmdlEBFs2oh7w13vtkznQ9vGI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=InK+lgxVu5DimB1VjEKfyi+FONNl+hYGZN+cmGOdqbOU7MDzjGGNEzxjEMfFL3dHZ
+	 +lfwC0m85R2DPdql6FmZgLhjd0Yb37wxmoazljtrSk2IuvIruqDO2bTFoiNf6Dz8Q1
+	 RGOTeGILEwVCBLplUkhi6hIIT2bFIMaTPcK8Wh8+eDmyPrFv6ZMUQpH32pY35RGynR
+	 7+PAtVSfj2e52C3hrAEHyuO/6nME41ZZp0zZZcQcSmxUYCKl+nRqGqYmuijfNfSzx8
+	 /CCcalsg4sqAEx9EPJfsJxn9mOBURt1vsgFkP2XhMxWFvXxUzu77fFoDAaNRHGCXRS
+	 uRKNu/S5tUrsw==
+Received: from securemail.tdt.de (localhost [127.0.0.1])
+	by securemail.tdt.de (Postfix) with ESMTP id 75647240040;
+	Fri, 27 Nov 2026 07:33:26 +0100 (CET)
+Received: from mail.dev.tdt.de (unknown [10.2.4.42])
+	by securemail.tdt.de (Postfix) with ESMTP id 639C4240036;
+	Fri, 27 Nov 2026 07:33:26 +0100 (CET)
+Received: from mail.dev.tdt.de (localhost [IPv6:::1])
+	by mail.dev.tdt.de (Postfix) with ESMTP id BCF1A2B005;
+	Fri, 27 Nov 2026 07:33:25 +0100 (CET)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,91 +71,44 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v1 0/6] net: avoid stack canaries in TCP/IPv4
- fast paths
-To: David Laight <david.laight.linux@gmail.com>
-Cc: netdev@vger.kernel.org, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- John Fastabend <john.fastabend@gmail.com>,
- Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>, Matthieu Baerts
- <matttbe@kernel.org>, Mat Martineau <martineau@kernel.org>,
- Geliang Tang <geliang@kernel.org>, David Ahern <dsahern@kernel.org>,
- Ido Schimmel <idosch@nvidia.com>, Stanislav Fomichev <sdf@fomichev.me>,
- Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>,
- Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>,
- Phil Sutter <phil@nwl.cc>, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org, mptcp@lists.linux.dev,
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
- Xuanqiang Luo <luoxuanqiang@kylinos.cn>
-References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
- <20261126102058.1fecf50f@pumpkin>
-From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-In-Reply-To: <20261126102058.1fecf50f@pumpkin>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
+Date: Fri, 27 Nov 2026 07:33:25 +0100 (CET)
+From: Martin Schiller <ms@dev.tdt.de>
+To: Felix Hoffmann <f3lix.dev@gmx.de>
+Cc: linux-x25@vger.kernel.org, netdev@vger.kernel.org,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	linux-kernel@vger.kernel.org, Willem de Bruijn <willemb@google.com>
+Subject: Re: [PATCH net v3] net: x25: shut down T20 timer before freeing
+ neighbour
+Organization: TDT AG
+In-Reply-To: <20261125103153.53012-1-f3lix.dev@gmx.de>
+References: <20261125103153.53012-1-f3lix.dev@gmx.de>
+Message-ID: <680c69bd08e0481f7ddb16b64501ed24@dev.tdt.de>
+X-Sender: ms@dev.tdt.de
+User-Agent: Roundcube Webmail/1.3.17
+X-purgate-type: clean
+X-purgate-ID: 151534::1795761208-A2E87872-2EB326DE/0/0
+X-purgate: clean
 
-On 2026/11/26 at 19:20 David Laight wrote:
-> On Tue, 24 Nov 2026 22:06:25 +0900
-> Xuanqiang Luo <xuanqiang.luo@linux.dev> wrote:
-> 
->> From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
->>
->> With CONFIG_STACKPROTECTOR_STRONG=y, a function that has a local array or
->> passes the address of one of its locals to another function needs a stack
->> canary. The canary is set up and checked on every call, also when the
->> local is only used on a path that almost never runs.
->>
->> This series removes the canary from functions of the TCP/IPv4 fast paths,
->> by returning results by value, by using storage that is not on the stack,
->> or by not calling a function that has nothing to do.
->>
->> Patch 1 returns the two mptcp_space() values in a structure, so that
->> __tcp_select_window() no longer needs a canary.
-> 
-> While all (I think) architectures can return a big integer in two
-> registers (dx:ax on x86), not all ABI do the same for small structures.
-> For those architectures returning a struct by value is implemented by
-> passing the address of a hidden on stack structure.
-> So code generation may be worse than passing the values by reference.
-> I can't remember the list of architectures, mostly old ones - but not
-> 32bit x86 because the compiler option was set when regparm=3 was added
-> for 2.6.
-> (Note that this is different from passing small structures by value.)
-> 
-> David
+On Wed, 25 Nov 2026 11:31:53 +0100, Felix Hoffmann wrote:
+> Purge queued frames when the last neighbour reference is dropped.
 
-Hi David,
+Thanks, that addresses the review.
 
-Good point! thanks for bringing that up.
+The AI review of v3 [1] adds that the use-after-free does not even
+need a race: x25_exit() frees the neighbours before the netdev notifier
+is unregistered, so unloading the module while a link is in state 2
+always frees a neighbour with an armed T20 timer, and
+NETDEV_PRE_TYPE_CHANGE also skips x25_link_terminated(). The patch
+covers both, and as it is already Cc'd to stable, I don't think the
+commit message needs a respin for this.
 
-The small-struct-by-value pattern in patches 1 and 4 follows the same
-approach Eric used in commit 7a4cd71fa451 ("net: add
-vlan_get_protocol_offset_inline() helper"), which returns a 2-field
-struct vlan_type_depth to avoid stack canaries in callers.
+The dangling nb->dev the review also mentions is a separate,
+pre-existing issue, which I'll look into separately.
 
-I did note the 8-byte struct ABI distinction you mentioned:
-- On the main 64-bit targets (x86_64, arm64, riscv64, ppc64le, loongarch64)
-   as well as 32-bit x86 (with -mregparm=3 / reg-struct-return), both
-   8-byte structs (struct mptcp_space_info and struct skb_coalesce_res) are
-   returned in registers and the stack canaries are dropped cleanly.
-- On ABIs that return structs (> 4 bytes on 32-bit ARM EABI, or any struct
-   on s390x) via a hidden stack buffer, it indeed falls back to a hidden
-   pointer. Even there, the callers previously passed *two* pointers to
-   locals (&space/&full_space in patch 1, &fragstolen/&delta_truesize in
-   patch 4), so passing one hidden 8-byte return slot should not be worse
-   than before, while keeping the code cleaner and type-safe.
+Acked-by: Martin Schiller <ms@dev.tdt.de>
 
-That said, if maintainers prefer packing the two fields into a u64 so that
-even 32-bit ARM / s390x return them in registers, I'd be happy to change
-patches 1 and 4 to do that in v2.
-
-Thanks,
-Xuanqiang
+[1] https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261125103153.53012-1-f3lix.dev%40gmx.de
