@@ -1,216 +1,139 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795786672;
-	b=oeE0VLzBplnY0qliukCF1CC1dUU7IQBYFfHXSDfNzPAwa5TWxempV2PVix/BjkH1pnL8
-	 KsSnibZrqrPsN1W1U/KVU+inBTDfMCwBggs5oAu/2i6RDLc4SRuHNDZ7gv+8I82TbWDYi
-	 nisyJv7P8pP0HwcmWqvA1wawRf8u453sp0Y+uyFcwOvb0o9CV8GkpR3jh8nSZT5m1Dj4r
-	 PcTvdt+o3RiO7wYiDoQ4mkzQbWlxx9J11CH1000BIfVA6xIBRt+SGOqjCXnv2sGPkyo+P
-	 IhksXInFFYnB9JorsWKJTHsWXPMCEglbN4cKFAjQhOz9a5ZrbL9IueGM/MPtFYnsktQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795786672;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Subject:From:To:Cc:
-	 In-Reply-To:References:Autocrypt:Content-Type:
-	 Content-Transfer-Encoding:Date:MIME-Version:User-Agent:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=W0ycu4cYzKGqn0c93rRpVecOeZUokR6AV8zaxl2sFK0=;
-	b=wIwb8Naw5yrgc8uCtGbYXNBQkTtvvbF1dkECHtYdkzas+scdXZeOeR/GsCw60+Wd8td1
-	 nxVdtO1s4xt76fENW2Pwo18u9FCU21BQz18OwsHb0U3P95p5fLJTJNhnbvjcd7OSJb58f
-	 xqt1wNkSMN+ZIdJjWxvGdHpOcrs6dyoNGWVIJnKqv2r8CuDtG9cIB/7AIPhfNUBm/SuXa
-	 udH1NnEWHjM9C4lVYe7gZn5dlzMPOg1/9uS99Hf/O2PrZxayiKEGdTwFEzJq4xrn1n0H1
-	 9B8Am8eaNUFVTZDjzUry+jVqpWGzgbfEVq8Bz+DYh9smuqXfoL6HyCj6F0IhwcDV/SA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=IcF1LWaT;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795786767;
+	b=Pu3H2gRsu1NDkaTJqZdnIHht6ZRaaOmXawaJo2crQoC8kfrZKEVYcBgRIssq5gMVlidi
+	 AESZbtgIYtG7nOg6bNMeNbe8Z3b8WcYSyD+Dde8n6RTvGswgU8f0DgX2BPKTkWqKV1vq6
+	 DVz7OUiYXXELgaw8sGs9ITbx704+/dSqn7w1UVRDLR2lvrqEUuMAIL4L2unub38WMFBpA
+	 FG5YBZQksjP6G2SHc5wr/H1ijEvYN/77cyKqm7i6mTJk+cOYkbjc5cj7gwRGXDraz3akg
+	 ZEMFufuUej0zu4LlAkKyWEmYoMZa/Qbk3esF2lxFMRTCaFzcBsQSDVLBBw3MIJQHAGg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795786767;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
+	 Subject:To:CC:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=rSGB5r2OqCjgLeGq3byMfsKVgPkMqq4UnQBx6/lxxZ4=;
+	b=bVr7sGcCNTQtf05Poxpm/nY7GxLHk1pFZtAPCChmsJ9mAYRVHKoW0V3XVsCBR/9oy/Ew
+	 ILompxigPbieGa2vlVqfDibk+CQyk9n/r5NKYlbHjMBEYsxeQqNMeKYRu/fFj0JDjzut8
+	 GMRollVFdDnancLIQNeyEew01hylmGodGfS5vJtb7sEEl6AbkUS1XpoQYW3cEKL8ShKEM
+	 s4JfHlXd7xxplJQR9FifxX804O0wADlxC4kgsJrZMcPGjZYgTmB+irvNH379SXlYB3Hwa
+	 BH0UB+tL2502sM/ODgb40684HES5FIfawnd8E6bghEiXjx+hjTBwFeluqvGRPr18kFQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="Hg1fhM8/";
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=Aae6K8WT;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.18
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E66C8606A31E;
-	Fri, 27 Nov 2026 13:37:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E66C8606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E748606A31E
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:39:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E748606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=IcF1LWaT
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARD4asG1532003;
-	Fri, 27 Nov 2026 13:36:29 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=W0ycu4
-	cYzKGqn0c93rRpVecOeZUokR6AV8zaxl2sFK0=; b=IcF1LWaTOaG9LA9h7P09Lv
-	kdlL8vKhHQVosijwofd7C9GKlRlzCvdnd8Zf2wpxOeto77UO5nC13CfhQ7yVRNGf
-	899Fz904lhT93SU/37+JAztYjYoB2mSTptcTWNnnGaqWQc7HC2+eIvM9WGp7qtD8
-	daJwQEyG3WSUbWyOn/PmPN3Svn7ER3ATiPSE6iTiyxKrm3HhXzV4/0YwrFDznSXL
-	Qs7DWGN/jtPkKcmjqNsPmKSlJuy3Aizd5REV2isIxirc7vkuGqiNKtVBkh7u7bzS
-	p97HkAIfBFJ+WQavyLqtbots+wnwtfYksjgiiFHFs4gJQFEAK6HaW/W/aiy3+keg
-	==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g3p14a-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 27 Nov 2026 13:36:28 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6ARCnF903918244;
-	Fri, 27 Nov 2026 13:36:27 GMT
-Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j6x3h29e0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 27 Nov 2026 13:36:27 +0000 (GMT)
-Received: from smtpav04.wdc07v.mail.ibm.com (smtpav04.wdc07v.mail.ibm.com [10.39.53.231])
-	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ARDaQRI25821798
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 27 Nov 2026 13:36:26 GMT
-Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id F094F58050;
-	Fri, 27 Nov 2026 13:36:25 +0000 (GMT)
-Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0FA7058066;
-	Fri, 27 Nov 2026 13:36:16 +0000 (GMT)
-Received: from [9.68.2.134] (unknown [9.68.2.134])
-	by smtpav04.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 27 Nov 2026 13:36:15 +0000 (GMT)
-Message-ID: <1fa553f872490a64b05b8e8bf8027009dc76748b.camel@linux.ibm.com>
-Subject: Re: [PATCH slab/for-next v2 09/14] iommu: specify SLAB_MAY_ACCOUNT
- for slab-backed page table caches
-From: Niklas Schnelle <schnelle@linux.ibm.com>
-To: "Harry Yoo (Meta)" <harry@kernel.org>,
-        Vlastimil Babka
- <vbabka@kernel.org>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Suren
- Baghdasaryan <surenb@google.com>,
-        Johannes Weiner	 <hannes@cmpxchg.org>,
-        Michal Hocko <mhocko@kernel.org>,
-        Shakeel Butt	 <shakeel.butt@linux.dev>,
-        Roman Gushchin <roman.gushchin@linux.dev>
-Cc: Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>,
-        David
- Rientjes <rientjes@google.com>,
-        Muchun Song <muchun.song@linux.dev>, Hao Ge
- <hao.ge@linux.dev>,
-        Pedro Falcato <pfalcato@suse.de>, linux-mm@kvack.org,
-        linux-kernel@vger.kernel.org, kernel-team@meta.com,
-        "Liam R. Howlett"	
- <liam@infradead.org>,
-        Alice Ryhl <aliceryhl@google.com>,
-        Andrew Ballance	
- <andrewjballance@gmail.com>,
-        Matthew Wilcox <willy@infradead.org>, linux-fsdevel@vger.kernel.org,
-        Alexander Viro <viro@zeniv.linux.org.uk>,
-        Christian Brauner	 <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-        "David S.
- Miller"	 <davem@davemloft.net>,
-        Jakub Kicinski <kuba@kernel.org>,
-        Sebastian
- Andrzej Siewior <bigeasy@linutronix.de>,
-        Jiayuan Chen
- <jiayuan.chen@linux.dev>, netdev@vger.kernel.org,
-        Kees Cook
- <kees@kernel.org>, David Hildenbrand <david@kernel.org>,
-        Lorenzo Stoakes
- <ljs@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon
- <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Madhavan
- Srinivasan	 <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin	 <npiggin@gmail.com>,
-        Robin Murphy <robin.murphy@arm.com>,
-        "Joerg Roedel (AMD)"	 <joro@8bytes.org>,
-        Amir Goldstein
- <amir73il@gmail.com>,
-        Casey Schaufler	 <casey@schaufler-ca.com>,
-        Paul Moore
- <paul@paul-moore.com>, James Morris	 <jmorris@namei.org>,
-        "Serge E. Hallyn"
- <serge@hallyn.com>,
-        linux-security-module@vger.kernel.org,
-        Richard
- Weinberger <richard@nod.at>,
-        Anton Ivanov
- <anton.ivanov@cambridgegreys.com>,
-        Johannes Berg
- <johannes@sipsolutions.net>,
-        Eric Dumazet	 <edumazet@kernel.org>,
-        Matthew
- Rosato <mjrosato@linux.ibm.com>,
-        Gerald Schaefer	
- <gerald.schaefer@linux.ibm.com>,
-        Chen-Yu Tsai <wens@kernel.org>,
-        Jernej
- Skrabec	 <jernej.skrabec@gmail.com>,
-        Samuel Holland <samuel@sholland.org>,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        linux-s390@vger.kernel.org, linux-sunxi@lists.linux.dev
-In-Reply-To: <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-9-7c680f02a734@kernel.org>
-References: 
-	<20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-0-7c680f02a734@kernel.org>
-	 <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-9-7c680f02a734@kernel.org>
-Autocrypt: addr=schnelle@linux.ibm.com; prefer-encrypt=mutual;
- keydata=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
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 27 Nov 2026 14:35:15 +0100
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Hg1fhM8/;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=Aae6K8WT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795786767; x=1827322767;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=uSgDnylBFqSvC7/moICTM8UObndLd43JdjoTDxBjEN4=;
+  b=Hg1fhM8/dd+DZ4eMqCgewJzvPz+9dlYZ+FXUSo7c+QIAc3mzbwffkzqX
+   vStXb6U1KYoeIbBu6tYH5GksEoC1LgVUQ0iW6qrNDec32XaZqy34j0SIU
+   DmREcdr9ac9xygXzhMfF8bjvGjfWH/GyejqEplpAfD4brJezmyhLtERP4
+   bRQIpsNBEN2FFY7BKcm0pHXCsND5zlYsFu2Vi3Y/+0t9UDfhkym1Ao/+k
+   u5J9L+yoamY3UuGXBq02pIBSHNmqCzgHCXgoTqCA6DTryGtMelhbWFu68
+   ocL2+3ZqP3zoh3HwqaaTbGOtgPMlPbnRlH1WldwAVqKuqCFIpLzNu27KK
+   Q==;
+X-CSE-ConnectionGUID: VMFcKmlkQTCdYBAT/bz8dQ==
+X-CSE-MsgGUID: PYZHoLd6QUiEsLJSulVg0Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4710307"
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="4710307"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 05:39:26 -0800
+X-CSE-ConnectionGUID: CFzBc3WeTfKkNZlpBMb84g==
+X-CSE-MsgGUID: tJ/XqbcCSFmxE40N5hJGWg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="12638223"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 05:39:25 -0800
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Fri, 27 Nov 2026 05:39:24 -0800
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57 via Frontend Transport; Fri, 27 Nov 2026 05:39:24 -0800
+Received: from BL2PR02CU003.outbound.protection.outlook.com (52.101.52.9) by
+ edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Fri, 27 Nov 2026 05:39:24 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mKfSbXZn+1MwN4JnTi17suJdhsWglkz9awHuSdqKg7gd+oMsd2iRUW/4uU/IAY7FflJmiUVt0Etgf68iQLcTn6DA2uEkiz30o/SWpIJN0zBpudSSxwb9KtRr3fHcn31lVcBRZ+1cEr4XOZ1bPKagQ08WKJYtEpNh+9iVQMRAgAFPxBycxReS88+4w98zpr0/yX8DnNEZH2Jsd2sSzB0L+5xBCXuuSRFm3V/eN5VykdF58RVuLZCYfLTOyzvgFWsRcqVAVOQQKO+PpyyUfnYxxB113Wm0Iy/p2hBf773y0MjwNFKlK+CnnkHje84CnleYYWP1Xth1+2cKtenAZM2/YQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rSGB5r2OqCjgLeGq3byMfsKVgPkMqq4UnQBx6/lxxZ4=;
+ b=vjFX0C7yvQUuylQrmGN2fTkb1PhUo5+XEVIAVRyvOHMq3Ijuv2rSwoY9WR4AvQKppvL4O2jRuqSBHLFXLpiMSEPTubneNnO0wwzxWoSdEQN6wUVN0hWEMdUdUO6OJUA1Bjim59GEV97eR0++hlJAq7NCvQXuNB7bmWjO/z4OLlczZxv5vfgDfKHF3lxWpOZQZMO7mjh23yjlZ1LpLJ1KMQ/in7YoAb6KlGdgDngUgN3EAp1NGmGhaGWCVccF7XXAtCeCa4UrgicxLPFQXoYBKqGbHm7rswYm2pmg+HOH8Osgkp67Fx22cmITNSdBMJeZGTLF0iCgAyiv/c5KdSL0kg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rSGB5r2OqCjgLeGq3byMfsKVgPkMqq4UnQBx6/lxxZ4=;
+ b=Aae6K8WTG/kbBWUj4A8CdfwBl2U7Vb9w/2UtgTcUylMiwUu+FMor+Qs9xz8HCnptzY81cFJbb/yxR3UajYnG7hMny8cSl4zzAZOnfiCMMrOOit4XSsQzftN4j/P65m21KjlelRjM9Pke3iKOajcypewSyH+uZ9iNU3vjA3PTCes=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from LV3PR11MB8508.namprd11.prod.outlook.com (2603:10b6:408:1b4::8)
+ by LY0PR11MB123582.namprd11.prod.outlook.com (2603:10b6:404:226::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.10; Fri, 27 Nov
+ 2026 13:39:21 +0000
+Received: from LV3PR11MB8508.namprd11.prod.outlook.com
+ ([fe80::a1e8:1786:e5d1:8e51]) by LV3PR11MB8508.namprd11.prod.outlook.com
+ ([fe80::a1e8:1786:e5d1:8e51%5]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
+ 13:39:21 +0000
+Message-ID: <e8a1046e-c129-414f-9e90-d165c863c856@intel.com>
+Date: Fri, 27 Nov 2026 14:39:16 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH iwl-next 2/3] ice: share default RSS hash profiles between
+ PFs
+To: Jakub Ramaseuski <jramaseu@redhat.com>, <anthony.l.nguyen@intel.com>,
+	<intel-wired-lan@lists.osuosl.org>
+CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <netdev@vger.kernel.org>
+References: <20261126123114.893916-1-jramaseu@redhat.com>
+ <20261126123114.893916-3-jramaseu@redhat.com>
+From: Przemek Kitszel <przemyslaw.kitszel@intel.com>
+Content-Language: en-US
+In-Reply-To: <20261126123114.893916-3-jramaseu@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: DU7P195CA0001.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:10:54d::15) To LV3PR11MB8508.namprd11.prod.outlook.com
+ (2603:10b6:408:1b4::8)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -220,95 +143,560 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=SoQFe/O0 c=1 sm=1 tr=0 ts=6b09875d cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VwQbUJbxAAAA:8
- a=7CQSdrXTAAAA:8 a=tA7aZXjiAAAA:8 a=VnNF1IyMAAAA:8 a=pGLkceISAAAA:8
- a=FlkJ-zHRAAAA:8 a=JfrnYn6hAAAA:8 a=gLrx2xznCN6jzSyFt2sA:9 a=QEXdDO2ut3YA:10
- a=a-qgeE7W1pNrGK8U0ZQC:22 a=kIIFJ0VLUOy1gFZzwZHL:22 a=rcJ5IfC3ewqtVv14NVGK:22
- a=1CNFftbPRP8L7MoqJWF3:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA1NCBTYWx0ZWRfX67QnvSunKV71
- HB50qh7Ykm+xBP7O1hPayJ9xJlIB9YuBfUaWIXyZ8MBQSYmLH0jy3N+oZJxIJ7NKMS8vDZFS/f2
- 8x1ix6c3/k2uDhUtm2HwCx0pT0xxSfo=
-X-Proofpoint-ORIG-GUID: Y-EQYadcU72fzorIXub_FEkv7kODNBsV
-X-Proofpoint-GUID: eJVHf5ftAeJ4mOGEdO3BAQgbTamhdWOD
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA1NCBTYWx0ZWRfX0x0ZwkM3MvdM
- QooPeztCuxAGIjMooY+m0bM+78gLqn1X9Qk1UYIHG4SRUy1EU9nmjZiySkhV3lh+esJ9jT1+F6z
- f0hJjn1FYsqmXqikMtyadukjxA8yzMLpmAtmQ00kDn899IwvXFaorruIWUUTq9EcT7RkEvMN8cW
- djBveOvdXltHIy5F4KoMBBV+/CV+cqY7/iQ2ML0luo348cteHbXdc/6IPkXH7yyyLmM1r5cluLR
- nG+g4QvRqBgYlC1gKyrIE8Jnt5aG0YWQb9m+tjDF6DRwB/m0WdU0D0XX0JcQjDatsVzGrq4Us8a
- h4/hYzoAwxprzkwn3vdPXghgLPyRvq1bQZloZhXIMUffjL3sj/JWm/TwluErDWG43YnSp27MxRB
- oCaqVX4VAtsm+dRa06Bo+wNoxzuYFlWUP5pjqN9Ped6w2N4lm92lbf/760WtHM4D/k6XEJjbRuL
- bNvG9yhzuyHdmZlfO/Q==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-27_02,2026-11-27_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 spamscore=0 bulkscore=0 adultscore=0
- lowpriorityscore=0 clxscore=1011 malwarescore=0 impostorscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270054
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV3PR11MB8508:EE_|LY0PR11MB123582:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8ca2ef75-e7b2-4675-80a2-08df4c8bd7c3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|11063799006|4143699003|6133799003|261009223027099003|18002099003|22082099003|260925021911599003|260925021311599003|260925022911599003|10067099003|56012099006|261102123227099003|261028144727099003|261026140227099003|261026130827099003|261026135527099003|261026121527099003|261021121427099003|261021135927099003|261021133027099003|261021130227099003|261021123027099003|261022115727099003|261022113327099003|261022105027099003|261022075727099003;
+X-Microsoft-Antispam-Message-Info: JVJAgHeF5oBvyUbdTDNQe/B4dVIzlRwIMayRJ6Sq9Ja5PhnlN1e/Ib+1HUWN9SnGjanBugKE/TRTVbXAgawF33ZI/25X5L/VxRuYs3gJpi5XboA565Dp+4EmmZijNqLpIQy9N3T+5VF8pE/1TraSYEuspaAhGnM6nIAQTSmXLsrrKECef32OIGyvuB5HNbTILRO3s/ncMULlP8LUMOyBQ1v/gbx8zRamPWa0o0+9Fdz5MUj60SadmkxA4+vtFU4Hsk0d19kSTcuV4Y/KjIFP3MTGLcc/M+DjjCR+EWkmL2P6zMKAWjbZB8cGfqYi7eYvM5p1fmafj/l44MTrJkkH4mug+5xpibZNOOe+FRBmuPb3Y/FzqVKC+KUP0y7VIUaIMeEG9AsmRoV/XFoZySjrlHZvKlhnq0/c9lEiJ1pkKoyyNv2xUtpo9PheVvYl2bn5WcejKR488KTFnNEWiQSq4UBpAm92Uevfvfa/jsbwNhqA5YuRGKUh8LccZfsYYhbOtNoqJwIbd5iS7czQhrLDfCK0KnzMtR29nAT0SMJLnoqvJhthfsbQaEuaFsNngwtDtpzAIUjzx1SFf8EoR3ABXr8aq0mGKz1/ILvLmdThpof0oN0c/UrSm07kE5nT02cm8xl83+E6OA1wJlRpSmLgtZw6nIOooa+5YIeE+YFVIHM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR11MB8508.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(11063799006)(4143699003)(6133799003)(261009223027099003)(18002099003)(22082099003)(260925021911599003)(260925021311599003)(260925022911599003)(10067099003)(56012099006)(261102123227099003)(261028144727099003)(261026140227099003)(261026130827099003)(261026135527099003)(261026121527099003)(261021121427099003)(261021135927099003)(261021133027099003)(261021130227099003)(261021123027099003)(261022115727099003)(261022113327099003)(261022105027099003)(261022075727099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eGx3YllYRHFOL1BpTEZ4c3Z1R3BrZ2JJU1pXbEJkTnRQbWhlV09sbThXU3E3?=
+ =?utf-8?B?c29PRlVlSThET3pjelRkOFVoQXJMbGhhdml4d0tGWnlNc0VKSGdQeHIxS3Ir?=
+ =?utf-8?B?YVV4MFFJYUdndTZPOGNVQ0pFSTM3TTFTakEwSDJZQ0tJelVXOFQ4VEJLRUow?=
+ =?utf-8?B?bGdYUk1oYkl3dnhDczRIWGdKSFRSaFBOMmhrS1MvRVUwOEc1R2ROWWpkQWlE?=
+ =?utf-8?B?cFZoNVdnTXNnWnM0UkpoZGMxUVdkOTdMaHdYcEc4YTBna0svdVVLQW80Rk15?=
+ =?utf-8?B?c25jUFQrY0pCbWE4VzBib1Rsbytnbmx0eFBFalNNdzREN2ZPVWZjbTAya2tQ?=
+ =?utf-8?B?bWxpQ1NTaFhJN2lyYzZtUTlhSVBtOTVGYXkrb09NT1NSMGZoeWZaaTNuN2Z2?=
+ =?utf-8?B?dmVXUXVub1VVMFMvZDJZNTh4UHErd0VCVnR3cVkxV0luTU9PR3p3Vi94Tk5Z?=
+ =?utf-8?B?b1NyZytHMVVrTU9hZFpRcFZQMDBuQWNEeTloZGVaT3VGdGJCWGRTaUg0NDhB?=
+ =?utf-8?B?TjNkeTdlYUhKdThlZG5ZOVRxdUc2TVV6TktxN2lnemYzNDVmcGlpZEhJdEY2?=
+ =?utf-8?B?MHQ3NGpaNjJlMjRUZ3ZFbEJwc0pnUGF6NDBLaENCRjdzc3dpeFlWb1lwQ0NB?=
+ =?utf-8?B?dmpTZ0U3TGVoVDd1SzBTTGV4OCtVVVpEQXdpeC91WWU2c3NrZ0doaXFVNk1s?=
+ =?utf-8?B?ZHUwQnFUK0h1d0V2K0dGV1dYR1VFZlVvcGd5SDZ2SEh6SlFqTHpkWnpTdUxi?=
+ =?utf-8?B?SUhKb3V4UDYxd3pOU0czbEpORnVIVER5QStKdWxPcXl5SGhKSEJJT0tFOUVz?=
+ =?utf-8?B?emI3bUZiOEF1WklmVmZmZk5qYUZXQW9rMlh1c256MHhvL1c0cVRTQW5HSGFE?=
+ =?utf-8?B?RG9uNFNwendvTmt1SWY5c01DK0xRT0NHdjhpWmplbnpYMHNITUlzRC9mdTJ3?=
+ =?utf-8?B?ajByU3Rsak5VeFU5VWJuYTRDVWsvNUcrWCtiQTRUY0hOMmxyS0l6UjNzTHJ6?=
+ =?utf-8?B?WXhUa2pUNlJjTUxydTdKYVVpTmZnN1RKY0ZlWDkvS3dmaDROWWgwZFl0TmM2?=
+ =?utf-8?B?SlNhVVNQNEMwMXJodHEzclR5RXgwWGpLdGFtR1VWUVZmVEhvb3cvc1pGYUV4?=
+ =?utf-8?B?UXlOaFpFWmEzWlpzWXMyR1k3SEJXRTkvNTJJQXdwV3pZM01iY2VMcHU0bUtP?=
+ =?utf-8?B?cURrZVM4QXZUdjJsVHVpTjUzcmFlV0djN2dqeUkzUGZJWmNHMklBRHp4dERq?=
+ =?utf-8?B?aUlVS0FxNDdreDk1ODhBUENPZGkzc3Fqc1pmY05XOEc1VlRkZzAyb0taRjdJ?=
+ =?utf-8?B?MVZjcE95cUhUUzJHNVNPTERCZ0ZrZFJMY001Z0VURlRKVlliekRjWkhGanoz?=
+ =?utf-8?B?WVhIMVRlTngvTUJISWFucHMvQ0NqcmZQblhTK0xCbEhLV0RFS2hqYkVpNHln?=
+ =?utf-8?B?MmM1cGdxMzRQenBuaHVjUUlqUVdHY0Q2LzFCSTJlL0hCWCtXOFlVOWJQMEdI?=
+ =?utf-8?B?blovU01nQ3RkN2JIRUtPcVVwN2NzUzFRNVl0bks2OFpROGRlb29uS2JLVjBw?=
+ =?utf-8?B?OW93b1JEYXNKYlVObzNseDFVa0wxK1FEdWV4bVBwRlRZN3VzMUl1K0tXZmpN?=
+ =?utf-8?B?TW05ZzFqbzlSWFNyTk1GTFlPR0c4M2k2OGJmRGUzSU42a2xQc2tNSCs3R3R6?=
+ =?utf-8?B?MGpDNHZ2ZEFVazhCV0pVTGNFNDBOc3lVQ0t1VzBBa0M5dmpwV00vRFJOSGh5?=
+ =?utf-8?B?YWxHMFdsVWJvRWYvRXd0WDMvbzQ3WFVPRGFJdEY3TWFtZW53d3NxdHdNTUZk?=
+ =?utf-8?B?N2tBZWVxb1hPNkJmUVlFVEd4T1JKMlpSRjFacFBTdVVXcHRHSkljY2NZbVh6?=
+ =?utf-8?B?ZkdLQkVwSTEwY0xPWmplck1YSC9qTjlSQmRUOGdxVG81bEVrZUxFdVV4VTdr?=
+ =?utf-8?B?TXZUcUNIVzZRaFRWT244U21pWjQvQ3RrR2NhU29iTVgzZFZ6Z0t4K1c1S3JL?=
+ =?utf-8?B?SHo5K3BrMWtya2hlenhwZGNYSTVvT3JYSjZOeHltNEF6V3VwSTMzd0lNL28v?=
+ =?utf-8?B?dzVlbE55Ny9KN0cyQmg0endUMVN0eS9PR04zU0xnZ3puL2s0YVJSTnk0UDBr?=
+ =?utf-8?B?TUQ5bzVwdW00dnVGaGdKQzZxS1ZGMVpzYkNUVFRLQ256b3pJNmJ4L3hxRHNI?=
+ =?utf-8?B?MU5pRmdVR1poWWlVZFpabUJsbEl4dmw1Rm9JbEJVYWZ5aWdQdVE2S3RONWFn?=
+ =?utf-8?B?T1RlMnB6MTd0d1RSZ0UzVFU4MDRiUFRwYi9VQktvcTV2SUIzV1pvY01abTdN?=
+ =?utf-8?B?NS9LKzRqTkFIU2l0M2NPZkV4Ty9Cdm1oS2RMczBZOGUrTTJkQkw3Q2lrT0VP?=
+ =?utf-8?Q?DowG8tHwpIlWYIkI=3D?=
+X-Exchange-RoutingPolicyChecked: Krl3bFrL0WFAl0o0w+OFrtEgD432fiiY4N9F2JHzX1CugmVPesHhhCEq+XeSUtNxZEclT/lGoEA0xMCJy2YW+yzM5bsHV7r5evWi2Nbpci9xnmq/vbNBpQnLi11NRMOtm3Kx2LCkVaXtFtaAQVTcpRA2YBJGkLonDlk48DkHgGGFmfpt6YWnL9fO3XyEO0U06GUtBK4iNSwnta8CKNyfVRyz4ezVpOSpEKoKPc1mSTJGhYVu3F+WfZOntG15t2+AWKVZsGR9OENcPUhW9H9cOXucH0PML1WlK60mnDMjanoBvEhLpCIJri//FPiyRV9EVWTKpfTbohPWTv+O5+Qe4w==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8ca2ef75-e7b2-4675-80a2-08df4c8bd7c3
+X-MS-Exchange-CrossTenant-AuthSource: LV3PR11MB8508.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 13:39:21.6060
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jUj+IOSkyzwKnKqjEi4ihEfZ9k80S9IprOSjXGq/i1CVVcY7juzPJqJzC/4QbsZPST242z3wpxPeNW5yKWDTsYWIwdCK/4cJgdmDNsnLDdA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LY0PR11MB123582
+X-OriginatorOrg: intel.com
 
-On Wed, 2026-11-25 at 21:37 +0000, Harry Yoo (Meta) wrote:
-> vfio, iommufd and vhost-vdpa call iommu_map() with GFP_KERNEL_ACCOUNT
-> and the gfp is passed down to the drivers' page table allocations.
-> Specify SLAB_MAY_ACCOUNT when the object may be charged to a memcg.
-> __GFP_ACCOUNT without SLAB_MAY_ACCOUNT will not be allowed.
->=20
-> Paths:
->   VFIO_IOMMU_MAP_DMA -> iommu_map(GFP_KERNEL_ACCOUNT)
->     -> s390_iommu_map_pages() -> dma_walk_cpu_trans()
->     -> kmem_cache_alloc(dma_{region,page}_table_cache)
->   iommu_map(GFP_KERNEL_ACCOUNT) -> arm_v7s_map_pages()
->     -> __arm_v7s_alloc_table() -> kmem_cache_zalloc(data->l2_tables)
->   iommu_map(GFP_KERNEL_ACCOUNT) -> sun50i_iommu_map()
->     -> sun50i_dte_get_page_table() -> kmem_cache_zalloc(iommu->pt_pool)
->=20
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Robin Murphy <robin.murphy@arm.com>
-> Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>
-> Cc: Niklas Schnelle <schnelle@linux.ibm.com>
-> Cc: Matthew Rosato <mjrosato@linux.ibm.com>
-> Cc: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
-> Cc: Chen-Yu Tsai <wens@kernel.org>
-> Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
-> Cc: Samuel Holland <samuel@sholland.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: iommu@lists.linux.dev
-> Cc: linux-s390@vger.kernel.org
-> Cc: linux-sunxi@lists.linux.dev
-> Signed-off-by: Harry Yoo (Meta) <harry@kernel.org>
+On 11/26/26 1:31 PM, Jakub Ramaseuski wrote:
+> RSS hash profile IDs are a firmware resource of the whole device: the DDP
+> package defines 128 of them, of which IDs 2-127 can be used by the PFs.
+> Each PF allocates its own IDs, and since
+> commit a6d63bbf2c52 ("ice: Implement RSS settings for GTP using ethtool")
+> its default RSS configuration takes 19 of them. On devices with 8 PFs,
+> like the E830-XXVDA8F, that is 152 IDs: the PFs probed last lose part
+> or all of their default RSS configuration, and RSS configurations requested
+> later, e.g. by VFs, fail:
+> 
+>    ice 0000:6c:00.0: ice_add_rss_cfg failed for VF 0, VSI 2, error:-5
+> 
+> The default configuration is the same on all PFs, and so are the profiles
+> it needs. The package, for E810 and E830 alike, defines the RSS profile
+> IDs as shared resources: firmware lets a PF allocate an ID another PF
+> holds, by allocating that index without ICE_AQC_RES_TYPE_FLAG_IGNORE_INDEX,
+> keeps the ID until its last user frees it, and a PF reset releases the IDs
+> of that PF. What firmware does not provide is a lookup of the ID
+> programmed with an extraction sequence.
+> 
+> Keep a list of the profile IDs shared by the PFs in struct ice_adapter,
+> keyed by extraction sequence. When a PF needs an ID for a default profile,
+> it joins the ID another PF uses for the same extraction sequence, or
+> allocates a new one and adds it to the list. Each PF takes and releases
+> its own firmware reference, through its own admin queue, when its
+> reference count of the profile goes from 0 to 1 and from 1 to 0; the PFs
+> never access the tables of each other.
+> 
+> Only profiles using neither field masks nor symmetric hashing are shared:
+> the GLQF_HMASK registers are split between the PFs, and GLQF_HSYMM is
+> programmed by every user of a profile. Such profiles, including the two
+> GTP-U ones hashing on the QFI field, keep one ID per PF. Raw (parser)
+> profiles program GLQF_HSYMM on their own and never use a shared ID.
+> 
+> A PF leaves the list on reset, devlink reload and remove, as firmware
+> releases its IDs then. CORER, GLOBR and EMPR empty the list: each PF
+> empties it while preparing for the reset, before it can allocate IDs
+> again, so no PF joins an ID the reset freed. A PF that prepares late
+> may drop entries a faster PF made after its rebuild; their IDs stay
+> valid and are freed as usual, only not shared. An ID firmware hands out
+> as a new one drops a stale entry for it. Sharing is off when an
+> ice_adapter can cover more than one device (E825C, devices without a
+> serial number).
+> 
+> While at it, replace the fd_swap parameter of ice_add_prof() with flags.
+> 
+> Measured on an E810-CQDA2 split to 8 PFs (NVM 4.30), with all PFs bound,
+> then one VF created on each PF and "rx-flow-hash {tcp,udp}{4,6} fn" set on
+> it, reading the IDs the PFs hold from firmware:
+> 
+>                 IDs in use     IDs in use after   failed profile ID
+>                 after probe    VFs and ethtool    allocations
+>    before       126            126                70 (30 at probe)
+>    after        33             65                 0
+> 
+> Also checked on an E830-XXVDA8F (8 PFs) with a RHEL 9.6 backport: one VF
+> per PF and "rx-flow-hash {tcp,udp}{4,6} fn" on each, all 32 input set
+> changes succeed with no ice errors.
+> 
+> Fixes: a6d63bbf2c52 ("ice: Implement RSS settings for GTP using ethtool")
+> Signed-off-by: Jakub Ramaseuski <jramaseu@redhat.com>
 > ---
->  drivers/iommu/io-pgtable-arm-v7s.c | 2 +-
->  drivers/iommu/s390-iommu.c         | 4 ++--
->  drivers/iommu/sun50i-iommu.c       | 3 ++-
->  3 files changed, 5 insertions(+), 4 deletions(-)
---- snip ---
-> index a280ad4f63b7..467b97ec18dc 100644
-> --- a/drivers/iommu/s390-iommu.c
-> +++ b/drivers/iommu/s390-iommu.c
-> @@ -198,14 +198,14 @@ static int __init dma_alloc_cpu_table_caches(void)
->  	dma_region_table_cache =3D kmem_cache_create("PCI_DMA_region_tables",
->  						   ZPCI_TABLE_SIZE,
->  						   ZPCI_TABLE_ALIGN,
-> -						   0, NULL);
-> +						   SLAB_MAY_ACCOUNT, NULL);
->  	if (!dma_region_table_cache)
->  		return -ENOMEM;
-> =20
->  	dma_page_table_cache =3D kmem_cache_create("PCI_DMA_page_tables",
->  						 ZPCI_PT_SIZE,
->  						 ZPCI_PT_ALIGN,
-> -						 0, NULL);
-> +						 SLAB_MAY_ACCOUNT, NULL);
->  	if (!dma_page_table_cache) {
->  		kmem_cache_destroy(dma_region_table_cache);
->  		return -ENOMEM;
+>   .../net/ethernet/intel/ice/devlink/devlink.c  |   2 +
+>   drivers/net/ethernet/intel/ice/ice_adapter.c  |  13 +
+>   drivers/net/ethernet/intel/ice/ice_adapter.h  |   7 +
+>   drivers/net/ethernet/intel/ice/ice_ethtool.c  |   2 +-
+>   .../net/ethernet/intel/ice/ice_flex_pipe.c    | 351 +++++++++++++++++-
+>   .../net/ethernet/intel/ice/ice_flex_pipe.h    |   9 +-
+>   .../net/ethernet/intel/ice/ice_flex_type.h    |   1 +
+>   drivers/net/ethernet/intel/ice/ice_flow.c     |  51 ++-
+>   drivers/net/ethernet/intel/ice/ice_flow.h     |   2 +
+>   drivers/net/ethernet/intel/ice/ice_lib.c      |  10 +-
+>   drivers/net/ethernet/intel/ice/ice_main.c     |   5 +
+>   drivers/net/ethernet/intel/ice/virt/rss.c     |   2 +-
+>   12 files changed, 427 insertions(+), 28 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/intel/ice/devlink/devlink.c b/drivers/net/ethernet/intel/ice/devlink/devlink.c
+> index 9851e6140a944..aba28e33eac58 100644
+> --- a/drivers/net/ethernet/intel/ice/devlink/devlink.c
+> +++ b/drivers/net/ethernet/intel/ice/devlink/devlink.c
+> @@ -460,6 +460,7 @@ static void ice_devlink_reinit_down(struct ice_pf *pf)
+>   	ice_vsi_decfg(ice_get_main_vsi(pf));
+>   	rtnl_unlock();
+>   	ice_deinit_pf(pf);
+> +	ice_put_shared_profs(&pf->hw);
+>   	ice_deinit_hw(&pf->hw);
+>   	ice_deinit_dev(pf);
+>   }
+> @@ -1326,6 +1327,7 @@ static int ice_devlink_reinit_up(struct ice_pf *pf)
+>   unroll_dev_init:
+>   	need_dev_deinit = true;
+>   unroll_hw_init:
+> +	ice_put_shared_profs(&pf->hw);
+>   	ice_deinit_hw(&pf->hw);
+>   	if (need_dev_deinit)
+>   		ice_deinit_dev(pf);
+> diff --git a/drivers/net/ethernet/intel/ice/ice_adapter.c b/drivers/net/ethernet/intel/ice/ice_adapter.c
+> index eecad97c084d9..ea21c83155d81 100644
+> --- a/drivers/net/ethernet/intel/ice/ice_adapter.c
+> +++ b/drivers/net/ethernet/intel/ice/ice_adapter.c
+> @@ -53,7 +53,9 @@ static int ice_adapter_init(void *priv, void *init_param)
+>   {
+>   	const struct ice_hw *hw = init_param;
+>   	struct ice_adapter *adapter = priv;
+> +	struct ice_pf *pf = hw->back;
+>   	struct devlink *devlink;
+> +	u64 index;
+>   
+>   	devlink = shd_priv_to_devlink(adapter);
+>   	adapter->devlink = devlink;
+> @@ -84,6 +86,15 @@ static int ice_adapter_init(void *priv, void *init_param)
+>   
+>   	adapter->phc.use_timecounter = ice_adapter_use_timecounter(hw);
+>   
+> +	mutex_init(&adapter->rss_prof_lock);
+> +	INIT_LIST_HEAD(&adapter->rss_profs);
+> +	/* RSS hash profile IDs come from the firmware of a single device.
+> +	 * The NACs of E825C, and devices without a serial number,
 
-Looks good and the explanation makes sense to me. Thanks.
+I would not care about devices w/o DNS - those are strictly "pre-prod",
+and if someone at intel (those should not leave our lab) would have such
+cards, it will be sufficient to just use only one per machine, or to
+program DNS number to some other value.
 
-Reviewed-by: Niklas Schnelle <schnelle@linux.ibm.com> # s390-iommu
+--
+For the 2 NAC mode, it bothers me after working with the code around,
+that it was melted with the "whole device" thing, except its shared
+or not depending on the topic. Would be great to add one more level of
+common abstraction. Of course its not easy given there are multiple
+series in flight that touch the code.
+(this is not an action item for you, just saying that improvement here
+would be much welcomed by me personally)
+
+> +	 * may share one ice_adapter, but not the profile IDs.
+> +	 */
+> +	index = ice_adapter_index(pf->pdev);
+> +	adapter->rss_prof_share = index && !(index & ICE_ADAPTER_FIXED_INDEX);
+> +
+>   	return init_srcu_struct(&adapter->ports.srcu);
+>   }
+>   
+> @@ -92,10 +103,12 @@ static void ice_adapter_fini(void *priv)
+>   	struct ice_adapter *adapter = priv;
+>   
+>   	WARN_ON(!list_empty(&adapter->ports.list));
+> +	WARN_ON(!list_empty(&adapter->rss_profs));
+>   	for (int i = 0; i < ARRAY_SIZE(adapter->cpi_phy_lock); i++)
+>   		mutex_destroy(&adapter->cpi_phy_lock[i]);
+>   	mutex_destroy(&adapter->cgu_synce_lock);
+>   	mutex_destroy(&adapter->rebuild_lock);
+> +	mutex_destroy(&adapter->rss_prof_lock);
+>   
+>   	cleanup_srcu_struct(&adapter->ports.srcu);
+>   	mutex_destroy(&adapter->ps_lock);
+> diff --git a/drivers/net/ethernet/intel/ice/ice_adapter.h b/drivers/net/ethernet/intel/ice/ice_adapter.h
+> index 3778948730ef7..6e2d8b33ce71e 100644
+> --- a/drivers/net/ethernet/intel/ice/ice_adapter.h
+> +++ b/drivers/net/ethernet/intel/ice/ice_adapter.h
+> @@ -101,6 +101,9 @@ struct ice_phc {
+>    * @ctrl_pf: Control PF of the adapter
+>    * @rebuild_lock: serialize PFR recovery across PFs of the same adapter
+>    * @ports: Ports list
+> + * @rss_prof_lock: Mutex protecting @rss_profs
+> + * @rss_profs: RSS hash profile IDs shared by the PFs, see ice_flex_pipe.c
+> + * @rss_prof_share: The PFs may share RSS hash profile IDs
+>    */
+>   struct ice_adapter {
+>   	struct devlink *devlink;
+> @@ -124,6 +127,10 @@ struct ice_adapter {
+>   	struct rw_semaphore ctrl_pf_lock;
+>   	struct ice_pf __rcu *ctrl_pf;
+>   	struct ice_port_list ports;
+> +	/* For access to the list of shared RSS hash profiles */
+> +	struct mutex rss_prof_lock;
+> +	struct list_head rss_profs;
+> +	bool rss_prof_share;
+>   };
+>   
+>   struct ice_adapter *ice_adapter_get(struct pci_dev *pdev);
+> diff --git a/drivers/net/ethernet/intel/ice/ice_ethtool.c b/drivers/net/ethernet/intel/ice/ice_ethtool.c
+> index 4a5e2043447f1..ceba419233a70 100644
+> --- a/drivers/net/ethernet/intel/ice/ice_ethtool.c
+> +++ b/drivers/net/ethernet/intel/ice/ice_ethtool.c
+> @@ -2966,7 +2966,7 @@ ice_set_rxfh_fields(struct net_device *netdev,
+>   	struct ice_netdev_priv *np = netdev_priv(netdev);
+>   	struct ice_vsi *vsi = np->vsi;
+>   	struct ice_pf *pf = vsi->back;
+> -	struct ice_rss_hash_cfg cfg;
+> +	struct ice_rss_hash_cfg cfg = {};
+
+rct
+
+>   	struct device *dev;
+>   	u64 hashed_flds;
+>   	int status;
+> diff --git a/drivers/net/ethernet/intel/ice/ice_flex_pipe.c b/drivers/net/ethernet/intel/ice/ice_flex_pipe.c
+> index 6d619eeaf0190..427ea89aa091a 100644
+> --- a/drivers/net/ethernet/intel/ice/ice_flex_pipe.c
+> +++ b/drivers/net/ethernet/intel/ice/ice_flex_pipe.c
+> @@ -1215,12 +1215,13 @@ ice_prof_has_mask(struct ice_hw *hw, enum ice_block blk, u8 prof, u16 *masks)
+>    * @fv: field vector to search for
+>    * @masks: masks for FV
+>    * @symm: symmetric setting for RSS flows
+> + * @skip_shared: do not return a profile ID shared with other PFs
+>    * @prof_id: receives the profile ID
+>    */
+>   static int
+>   ice_find_prof_id_with_mask(struct ice_hw *hw, enum ice_block blk,
+>   			   struct ice_fv_word *fv, u16 *masks, bool symm,
+> -			   u8 *prof_id)
+> +			   bool skip_shared, u8 *prof_id)
+>   {
+>   	struct ice_es *es = &hw->blk[blk].es;
+>   	u8 i;
+> @@ -1237,6 +1238,9 @@ ice_find_prof_id_with_mask(struct ice_hw *hw, enum ice_block blk,
+>   		if (blk == ICE_BLK_RSS && es->symm[i] != symm)
+>   			continue;
+>   
+> +		if (skip_shared && es->shared[i])
+> +			continue;
+> +
+>   		if (memcmp(&es->t[off], fv, es->fvw * sizeof(*fv)))
+>   			continue;
+>   
+> @@ -1376,6 +1380,324 @@ static int ice_free_prof_id(struct ice_hw *hw, enum ice_block blk, u8 prof_id)
+>   	return ice_free_hw_res(hw, res_type, 1, &tmp_prof_id);
+>   }
+>   
+> +/**
+> + * struct ice_shared_prof - RSS hash profile ID shared by the PFs of an adapter
+> + * @list: entry in the list of shared profiles of the adapter
+> + * @es: extraction sequence the profile ID is programmed with
+> + * @pfs: bitmap of the PFs (by hw->pf_id) holding a reference to the ID
+> + * @prof_id: the profile ID
+> + *
+> + * The DDP package defines the RSS profile IDs as shared resources: firmware
+> + * lets every PF allocate an ID that another PF already holds, keeps the ID
+> + * until its last user frees it, and a PF reset drops the references of that
+> + * PF. Firmware cannot look up the ID programmed with an extraction sequence,
+> + * the adapter keeps a list of these entries for that.
+> + *
+> + * Only profiles without field masks and symmetric hashing are shared, their
+> + * only hardware state is the extraction sequence, which all PFs write the
+> + * same. The GLQF_HMASK registers are split between the PFs, and GLQF_HSYMM is
+> + * programmed by every user of a profile.
+> + */
+> +struct ice_shared_prof {
+> +	struct list_head list;
+> +	struct ice_fv_word es[ICE_MAX_FV_WORDS];
+> +	unsigned long pfs;
+> +	u8 prof_id;
+> +};
+> +
+> +/**
+> + * ice_shared_profs_adapter - get the adapter whose PFs share profile IDs
+> + * @hw: pointer to the HW struct
+> + * @blk: hardware block
+> + *
+> + * Return: the adapter of the PF, if its PFs may share profile IDs of @blk,
+> + * NULL otherwise.
+> + */
+> +static struct ice_adapter *
+> +ice_shared_profs_adapter(struct ice_hw *hw, enum ice_block blk)
+> +{
+> +	struct ice_pf *pf = hw->back;
+> +
+> +	if (blk != ICE_BLK_RSS || !pf->adapter || !pf->adapter->rss_prof_share)
+
+I guess pf->adapter cannot be null
+
+> +		return NULL;
+> +
+> +	return pf->adapter;
+> +}
+> +
+> +/**
+> + * ice_prof_can_share - check if a profile ID may be shared with other PFs
+> + * @hw: pointer to the HW struct
+> + * @blk: hardware block
+> + * @masks: masks for the extraction sequence
+> + * @symm: symmetric setting for RSS profiles
+> + *
+> + * Return: true if the profile uses neither field masks nor symmetric hashing.
+> + */
+> +static bool
+> +ice_prof_can_share(struct ice_hw *hw, enum ice_block blk, u16 *masks,
+> +		   bool symm)
+> +{
+> +	u16 i;
+
+the default type for variable is "int", and loop counters should be
+declared in the loop header
+
+> +
+> +	if (symm)
+> +		return false;
+> +
+> +	if (!masks)
+> +		return true;
+> +
+> +	for (i = 0; i < hw->blk[blk].es.fvw; i++)
+> +		if (masks[i] && masks[i] != 0xFFFF)
+> +			return false;
+> +
+> +	return true;
+> +}
+> +
+> +/**
+> + * ice_find_shared_prof - find the shared profile ID for an extraction sequence
+> + * @adapter: adapter of the PFs sharing the profile IDs
+> + * @es: extraction sequence
+> + * @fvw: number of words in @es
+> + *
+> + * Return: the shared profile, NULL if there is none.
+> + */
+> +static struct ice_shared_prof *
+> +ice_find_shared_prof(struct ice_adapter *adapter, struct ice_fv_word *es,
+> +		     u16 fvw)
+> +{
+> +	struct ice_shared_prof *sp;
+> +
+> +	list_for_each_entry(sp, &adapter->rss_profs, list)
+> +		if (!memcmp(sp->es, es, fvw * sizeof(*es)))
+> +			return sp;
+> +
+> +	return NULL;
+> +}
+> +
+> +/**
+> + * ice_find_shared_prof_id - find a shared profile by its ID
+> + * @adapter: adapter of the PFs sharing the profile IDs
+> + * @prof_id: the profile ID
+> + *
+> + * Return: the shared profile, NULL if there is none.
+> + */
+> +static struct ice_shared_prof *
+> +ice_find_shared_prof_id(struct ice_adapter *adapter, u8 prof_id)
+> +{
+> +	struct ice_shared_prof *sp;
+> +
+> +	list_for_each_entry(sp, &adapter->rss_profs, list)
+> +		if (sp->prof_id == prof_id)
+> +			return sp;
+> +
+> +	return NULL;
+> +}
+> +
+> +/**
+> + * ice_drop_shared_prof - remove a PF from the users of a shared profile ID
+> + * @sp: the shared profile
+> + * @pf_id: the PF
+> + *
+> + * Free the entry when it has no users left.
+> + */
+> +static void ice_drop_shared_prof(struct ice_shared_prof *sp, u8 pf_id)
+> +{
+> +	sp->pfs &= ~BIT(pf_id);
+> +	if (sp->pfs)
+> +		return;
+> +
+> +	list_del(&sp->list);
+> +	kfree(sp);
+> +}
+> +
+> +/**
+> + * ice_join_prof_id - take a reference to a profile ID another PF allocated
+> + * @hw: pointer to the HW struct
+> + * @blk: the block of the profile ID
+> + * @prof_id: the profile ID
+> + *
+> + * Allocate the given profile ID, without ICE_AQC_RES_TYPE_FLAG_IGNORE_INDEX:
+> + * firmware adds the PF to the users of the ID.
+> + *
+> + * Return: 0 on success, negative error code otherwise.
+> + */
+> +static int ice_join_prof_id(struct ice_hw *hw, enum ice_block blk, u8 prof_id)
+> +{
+> +	DEFINE_RAW_FLEX(struct ice_aqc_alloc_free_res_elem, buf, elem, 1);
+> +	u16 res_type, idx;
+> +	int status;
+
+in new code please name the variable "err", not "status"
+
+> +
+> +	if (!ice_prof_id_rsrc_type(blk, &res_type))
+> +		return -EINVAL;
+> +
+> +	buf->num_elems = cpu_to_le16(1);
+> +	buf->res_type = cpu_to_le16(res_type | ICE_AQC_RES_TYPE_FLAG_DEDICATED);
+> +	buf->elem[0].e.sw_resp = cpu_to_le16(prof_id);
+> +
+> +	status = ice_aq_alloc_free_res(hw, buf, __struct_size(buf),
+> +				       ice_aqc_opc_alloc_res);
+> +	if (status)
+> +		return status;
+> +
+> +	idx = le16_to_cpu(buf->elem[0].e.sw_resp);
+> +	if (idx != prof_id) {
+> +		ice_free_hw_res(hw, res_type, 1, &idx);
+> +		return -EIO;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * ice_get_prof_id - get a profile ID for an extraction sequence
+> + * @hw: pointer to the HW struct
+> + * @blk: hardware block
+> + * @es: extraction sequence of the profile
+> + * @masks: masks for @es
+> + * @symm: symmetric setting for RSS profiles
+> + * @flags: ICE_PROF_* flags of the profile
+> + * @prof_id: receives the profile ID
+> + *
+> + * Get a profile ID for @es, which the PF does not have yet. With
+> + * ICE_PROF_SHARED, join the ID another PF of the adapter has for @es, or
+> + * allocate a new one and make it available to the other PFs.
+> + *
+> + * Return: 0 on success, negative error code otherwise.
+> + */
+> +static int
+> +ice_get_prof_id(struct ice_hw *hw, enum ice_block blk, struct ice_fv_word *es,
+> +		u16 *masks, bool symm, u32 flags, u8 *prof_id)
+> +{
+> +	struct ice_adapter *adapter = ice_shared_profs_adapter(hw, blk);
+> +	u16 fvw = hw->blk[blk].es.fvw;
+> +	struct ice_shared_prof *sp;
+> +	bool share;
+> +	int status;
+> +
+> +	if (!adapter)
+> +		return ice_alloc_prof_id(hw, blk, prof_id);
+> +
+> +	share = (flags & ICE_PROF_SHARED) &&
+> +		ice_prof_can_share(hw, blk, masks, symm);
+> +
+> +	guard(mutex)(&adapter->rss_prof_lock);
+
+we ban guard()() in netdev, scoped_guard() is fine
+
+> +
+> +	sp = share ? ice_find_shared_prof(adapter, es, fvw) : NULL;
+> +	if (sp) {
+> +		status = ice_join_prof_id(hw, blk, sp->prof_id);
+> +		if (!status) {
+> +			sp->pfs |= BIT(hw->pf_id);
+> +			hw->blk[blk].es.shared[sp->prof_id] = 1;
+> +			*prof_id = sp->prof_id;
+> +			return 0;
+> +		}
+> +
+> +		ice_debug(hw, ICE_DBG_PKG, "Failed to join profile ID %u, allocating a new one: %d\n",
+> +			  sp->prof_id, status);
+> +		share = false;
+> +	}
+> +
+> +	status = ice_alloc_prof_id(hw, blk, prof_id);
+> +	if (status)
+> +		return status;
+> +
+> +	/* Firmware hands out unused IDs only, an entry for the ID is a stale
+> +	 * one, left from before a reset that cleared the IDs of all PFs.
+> +	 */
+
+should we clear those at reset?
+
+> +	sp = ice_find_shared_prof_id(adapter, *prof_id);
+> +	if (sp) {
+> +		list_del(&sp->list);
+> +		kfree(sp);
+> +	}
+> +
+> +	if (!share)
+> +		return 0;
+> +
+> +	/* without an entry the ID just stays private to the PF */
+
+too many comments - general rule is to avoid (esp. in the AI era),
+it's fine to comment about something that is not inferrable from the
+code, like FW/HW behavior
+
+> +	sp = kzalloc_obj(*sp);
+> +	if (!sp)
+> +		return 0;
+> +
+> +	memcpy(sp->es, es, fvw * sizeof(*es));
+> +	sp->pfs = BIT(hw->pf_id);
+> +	sp->prof_id = *prof_id;
+> +	list_add(&sp->list, &adapter->rss_profs);
+> +	hw->blk[blk].es.shared[*prof_id] = 1;
+> +
+> +	return 0;
+> +}
+
