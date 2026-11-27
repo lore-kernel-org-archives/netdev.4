@@ -1,68 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795763708;
-	b=QImrFqsRFJzL8mwj2FJFY5XjcaZoCryXLrcoHTNZqwG4aYqemyI8sIacYL1Zf9nGD02Y
-	 GUyXS42c4JFSz4asQjlJanP+erLDAMQizJRUkvy2T/E6dlxAujl1y/kEzKqk2BU6q1nqf
-	 PPec5iuez1VUMT0+XE3tqtzIoTUumyudVrV0SE3Sx1Tm3os7h1Y26vGKs993xrnr7pajZ
-	 2YEg0AyDoIkmJJH1ZrzSxMfHOp5mJ1VWTZ2CMxEFaVav+3J+lXSyMSY2GfLV9rucz0H+7
-	 JKoevftbqB6Yfniyia+8zmjeRW8PrqiJ96dBq2W6t+vKhlNlFfsbFBMul8oJKwNNbEg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795763708;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=sdHeVGtyJhV98HK8k0GuhRxGfmBtLYuJT4oh96DWm9U=;
-	b=Z7f4Ew06hwkZcvvxTZ7m3FHoXo2AWNLHg2N8WBLeyna86fCdMs1WeqJ2dwBbq45O2yG+
-	 XG8rIFqf9wcuF0f6f7n64u1Nd6xbuqqFUuUT9jRy/3jdaSRBPMyt8ooehxlzz2sKSvz/i
-	 CNgUUPQCicvc12Y/ZYXlx87KpLTfKOiieAv4Pg6iTooYjmsNVlDWa7Mulv3fgwhYGIs9E
-	 PyZVzU7MgWzwm3JnnqdJu0VQ2X8qGsea/7Gkyr7HJj7Qtn9+qvQ9McxLnjqbpyacYmKaE
-	 hlHeDQiQyIFPBkqq246+I/alh/qaXxpqabWkbTYe0jCrZTstiKTublgGGd9zfkT1TnA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=kVacH+FV;
-	arc=none smtp.remote-ip=111.22.67.151
-Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 91892606A324;
-	Fri, 27 Nov 2026 07:15:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91892606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.54
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795763867;
+	b=Dmq4tmEw7xXgB5QFazrZz4SiE5+ObiGUtxuF3w4Vmyi4q+cxs1WnpUxtXflStkZz4G+3
+	 UGuF4XVYsw5d8UrhhghdEnl2banLNayY10ub15ZM5mO/YEQr1/fkmYjuMGT/TsU8iQsTs
+	 FveFo7IKEh832Q/9ItDr08dDY1JuOG3MvgIW0c76VrYCcI9oXRA0OpSaFBQeGmi929bQm
+	 1aVW/qWYrvffjyFqaJCY1dC5G25DGtnhNxQ6oGnh1Z0sRKcOdHshHX92clqs+WrwMqUHN
+	 yvwaIPgyq4H9UBMDY2JTeHYk44RhgcH7yQiCXdPCQINTvQSC40zUG1YoXIB1EulHDcA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795763867;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=sBfs1qfDj+NHMwewALTWDBF+xyD4zUqTQJbFv+XxnAA=;
+	b=foTf7CBMsAdB6hxHVMhGjDprb2LqY+7kiQmwKcoAuTbJv8uYdGJRf21Iz79Uj+UWUNGB
+	 MBs8qODhm/aXOHSs+0unqhhfV//LtaaIIjfcGmZXgcSOioXPtJey2+ClVOVyxRV9RHPgM
+	 n/YTDMBDwm1cS62pMbe9U2gHVQVxOPW+3IPB1g/4zCrQEEfO8d8K30djXahkUMKh1LesY
+	 3KO8ivuBSYz/zbCB82wieaWYdPux2MS4tCqqrwt0XPUsH4HpwkALvFKrtBmHTbSQE0oJp
+	 QhogGYZbgPj3MSDMo9xB1RmHH8fcYnF2ng2qrHtz7yh4ZpxoOVCu6qirJ1po8CQMzFA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oocRs+XQ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.54
+Received: from mail-oa1-f54.google.com (mail-oa1-f54.google.com [209.85.160.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5FEA606A31C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 07:17:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5FEA606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=kVacH+FV
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oocRs+XQ
+Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-48e94879f02so2496164fac.0
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 23:17:46 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795763866; cv=none;
+        d=google.com; s=arc-20260327;
+        b=OinPuub54oR4709x7OzW8wtp62iTSM5xxqrqPguuEvLOpeyM9gJayS66RX5rVb0Lkp
+         exApgXk0BMjLGa95XT9yeUwS08JXAOwGQV90IdrNyjZ5zQUhaUIEOPyUUWEMPC1P27bT
+         HIigDgfl0CpT5S1Adw3PXs8kOR2t12HOR4oX577x2//j0HfOXYuDgOx8rtj534ASAuFz
+         W9frIQYd0E9cES4RhQkhP1Up94fuLTacJxKNvq2cpmThddyvYN9Wgdj3+Fm7C6sst3Yh
+         GjBivYJJW0ZQe8mR5o339KgB+p2JOaMIeoiMgkY2B16bKISikkgXwdmm8ab3zsifXIMg
+         S6jw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=sBfs1qfDj+NHMwewALTWDBF+xyD4zUqTQJbFv+XxnAA=;
+        fh=ETyMDPt3t0hLL74Rjkpk80XYeQAXRUjJTuQdk2T1NN0=;
+        b=k33SNYAhAsD8VQ0jNAqrbLb5XGV/LncdXUf8xsI1vckFBs3T1Y4A2CfYNTNHVoN2Z7
+         y8T/5Wk9D16T/hpRAs0hJFFmG0Hf9/ERtBRQG93CjFqtY25qrnzflfsQEadurMrYc2Ne
+         1EVnDncnxoW3T3UX6/OmB9bTPcSmTJ/SdL23SxthH2x7FRh6dZEciVbw8B5bcndl/TQh
+         ACcGuZOoG69xOzx7mm6YJt2ffwRk7aqu+0mYaYKjNxGa3pvby0yiHk+Rn4ESERDR2+Xg
+         S/Z+6NedSMiisLFAnxYcJJArnQKiSZBcp4ptdBxrAmPDeUrLhuj+qVdgmAZrd4s4i8ri
+         BLRw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=kVacH+FV8yfpcKk8v/nyGFqL8DYtZHeWDGJJA0MXeowJL612xIt0KD2ncuUAQvgfZPHdNDTjkiL9b
-	 caSoaVzncnM3o+1ImTQmgINmUKTjAJNqsicHqmOlRjkmDdtM9cibdSzHDtaYx9y2904aGNJ3OxNbCU
-	 8HiJldf4zFkOcCyo=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app02-12002 (RichMail) with SMTP id 2ee26b092df60bd-9fa18;
-	Fri, 27 Nov 2026 15:15:02 +0800 (CST)
-X-RM-TRANSID:2ee26b092df60bd-9fa18
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from localhost.localdomain (unknown[10.55.1.72])
-	by rmsmtp-syy-appsvr07-12007 (RichMail) with SMTP id 2ee76b092df40d7-8acc7;
-	Fri, 27 Nov 2026 15:15:02 +0800 (CST)
-X-RM-TRANSID:2ee76b092df40d7-8acc7
-From: tongzhiwei <tongzhiwei@cmss.chinamobile.com>
-To: Jiri Pirko <jiri@resnulli.us>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: tongzhiwei@cmss.chinamobile.com,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Jiri Pirko <jiri@nvidia.com>
-Subject: [PATCH net-next v2] lib: objagg: Fix stats imbalance on hinted-parent error path
-Date: Fri, 27 Nov 2026 15:14:45 +0800
-Message-ID: <20261127071449.551-1-tongzhiwei@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.45.0.windows.1
-In-Reply-To: <20261106095621.143-1-tongzhiwei@cmss.chinamobile.com>
-References: <20261106095621.143-1-tongzhiwei@cmss.chinamobile.com>
+        d=gmail.com; s=20260707; t=1795763866; x=1796368666; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=sBfs1qfDj+NHMwewALTWDBF+xyD4zUqTQJbFv+XxnAA=;
+        b=oocRs+XQom86AYc9F+GSpT5+CcbGoQHTjcwNAEeoOI59tQQ7SG3I+jItQAcOPyRBPM
+         TwVPSXFgIcsfc3RVvvikz7WNa3lLWxUG2PHEA/NtwQU3Iq+rALzDsrlcgOsbxg8EnMoM
+         TFKirg/HJ9StG151IPSoTgYp1hDt4LYK5mWZmGA/mF0GK642TX18u6xndpaVVMW9q1TY
+         KRLjHM+pwd1d/qusT/yIfNLkkPQ0w35Y9D1UBx2UdSdB8KAcI7nSQnKnHDZYMbnayxHK
+         6JNZ22yO6thXpMF2MebdIKB22bCIWjU0wCljv67HCyVOqHYEDnYSpUBXnzr5P7qxzwde
+         G6Cg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795763866; x=1796368666;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sBfs1qfDj+NHMwewALTWDBF+xyD4zUqTQJbFv+XxnAA=;
+        b=unG9IfLXSX58WTvh2/u1CruE71vjIWEpY+5wb8nEEHBCiWp5DgiZYAgGIILbSHiYEa
+         Fsa88JN4RnDwtHtJHNPkMn2MfvfI5QrWD6u5i3az4TeeFM/2C8V0k0l5ZMSKZJUzj1Gp
+         JRf2Udf3AIWVBegy3y0rawKGylCr/hua+HKEU8W9SUKoVZcVXvhlCYYMEBXH63Urb9Jd
+         72yQduVSZRwL+b90bzcyVj03oNHTjZMbGHeWKHvprr4u7x9kJf8Hn5bz8r9/xQBvaM+D
+         yeNy1Y+WnG8+8peb6Z/Z+U2W88RjPcsELIMUD5bPAcyae71pVIFkHNLv291vUKyYDrUt
+         wdCw==
+X-Gm-Message-State: APuU4Z89ZUGbYDdsLtKbXlk7PHbbiEAq1s1QpPmVHiqoW7Cibie3EWwc
+	LRvkLxOm1dhy5/YHTov9xbobYwztKzO8vSf/ANbh1wT/YXgNe+4bbdthSg75aJzeAM4R5+PFa9x
+	KaCIWGL+ccfo1lgLyzOHqwSyZUvIvqa4=
+X-Gm-Gg: AZFdTZdt6QRV8nM9YIXZ/c/b9XXQkOpATdDPusDxtmmueIyc6SrYgXD2SQ+enWmNbpx
+	RmAviQAPM4INJm3ddT4oJOo5BWZLrCMqsmz+k2CLVBn69NX+t9WjF4X+aLKFjme1Bq55Uxehaj6
+	w2D7jTfSaWymik9+pRfKEdziONyj965nFu1gn1kcW753+jr0rf4kDnBchS6AZVfagNt7qRArT8p
+	u/EDRTs7PhxXwBrTRyOfknPrOzgv+jwmT78/hFJsUmiT0yQIvwR/z8OjTAPHM3Uvarhy0VTWooA
+	e9sP2WhEUEF99UL/Sg7kDMQzMzXFu5+HkAIJAwkEHj2Utl2ag5t/L1YcOaAFEWUntRfZxCnUWYD
+	YO9709mMMRirM5VLuS/CrqWSyzz0I6Bya7ejNDJePDcNEo32Syx2FWuSobnGk7FvLc6h7AY4=
+X-Received: by 2002:a05:6808:244e:b0:53c:5052:ea07 with SMTP id
+ 5614622812f47-57a06a105b2mr23575713b6e.5.1795763865546; Thu, 26 Nov 2026
+ 23:17:45 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -72,69 +103,52 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261127070354.550198-1-mmyangfl@gmail.com> <179576327645.3294.112285886879692747@kernel.org>
+In-Reply-To: <179576327645.3294.112285886879692747@kernel.org>
+From: David Yang <mmyangfl@gmail.com>
+Date: Fri, 27 Nov 2026 15:17:09 +0800
+X-Gm-Features: Aa3M54qJYjMk0h_YDrz0gL3uKh4njhTmpI3Hhu8SpudrPXuJO4YNtlv6JT_nGsQ
+Message-ID: <CAAXyoMP-qAtN0fmySFEU9=4WBg1akhoJOSjXkU6Fk2Q8-N5Q6g@mail.gmail.com>
+Subject: Re: [PATCH net-next v2] net: dsa: motorcomm: Unregister the MDIO
+ buses on teardown
+To: netdev-bot+sinfo@kernel.org
+Cc: netdev@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>, 
+	Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Russell King <linux@armlinux.org.uk>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-This issue was discovered by an AI code review agent during static
-inspection of the hinted-parent error path.  It has not been
-triggered or observed at runtime; the analysis was confirmed by
-inspecting the code, pairing __objagg_obj_get() with
-__objagg_obj_put() on the success path.  The fix has not been
-runtime-tested.  Its only build validation is the automated netdev
-build tests run on the v1 submission (identical diff), which passed
-with no new warnings.  The fix and this commit message were
-prepared by the same LLM agent and reviewed by the human submitter.
+On Fri, Nov 27, 2026 at 3:07=E2=80=AFPM <netdev-bot+sinfo@kernel.org> wrote=
+:
+>
+> Hi!
+>
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>
+>  - How the issue was discovered, e.g. hit in production, hit during
+>    development, syzbot report, manual code inspection, LLM or static
+>    analysis tool scan.
+>
+>  - Whether the issue was actually triggered, or is only theoretical
+>    (e.g. found by LLM and not proven at runtime). If it was triggered
+>    please include the symptoms, like the stack trace or kernel messages.
+>
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account.
+>
+> *IMPORTANT*: If you do repost (for other reasons) - please include
+> the relevant info in the cover letter or commit messages.
+> --
+> The evaluation is done by an LLM so it may be wrong, if you think
+> that is the case please reply and explain.
 
-In objagg_obj_init_with_hints(), the parent is obtained via
-__objagg_obj_get() which increments only the refcount without
-touching stats.  The matching release for internal references is
-__objagg_obj_put() (no stats adjustment), as used in the success
-path in objagg_obj_parent_unassign().
+Not a fix, explained in the message.
 
-However, the error cleanup at err_parent_assign calls the public
-objagg_obj_put(), which additionally runs objagg_obj_stats_dec(),
-decrementing user_count and delta_user_count with no prior
-increment.  This corrupts the parent stats, leading to
-under-reporting and potential user_count underflow.
+Sorry, I missed the changelog:
 
-Use __objagg_obj_put() to match the internal __objagg_obj_get().
-
-Fixes: 9069a3817d82 ("lib: objagg: implement optimization hints assembly and use hints for object creation")
-Signed-off-by: tongzhiwei <tongzhiwei@cmss.chinamobile.com>
-Reviewed-by: Jiri Pirko <jiri@nvidia.com>
----
-V1 -> V2:
-- add the net-next tree designation to the subject
-- add the Fixes: tag for the commit that introduced the
-  hinted-parent error path
-- collect the Reviewed-by tag from Jiri Pirko.  Thank you for the
-  review, and sorry for the slow follow-up!  The diff is unchanged,
-  so the tag is carried over as-is
-- replace the "NOTE: this commit is worked by llm completely" line
-  and the "Assisted-by: LLM" trailer with the plain-English
-  discovery and testing statement above, per the "Bug fixes"
-  section of Documentation/process/maintainer-netdev.rst
-- no code changes
-
-v1: https://lore.kernel.org/r/20261106095621.143-1-tongzhiwei@cmss.chinamobile.com/
-
- lib/objagg.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/lib/objagg.c b/lib/objagg.c
-index 23c7105a3f9f..6c4144213eb8 100644
---- a/lib/objagg.c
-+++ b/lib/objagg.c
-@@ -327,7 +327,7 @@ static int objagg_obj_init_with_hints(struct objagg *objagg,
- 	return 0;
- 
- err_parent_assign:
--	objagg_obj_put(objagg, parent);
-+	__objagg_obj_put(objagg, parent);
- 	return err;
- }
- 
--- 
-2.43.0
-
-
-
+v1: https://lore.kernel.org/r/20261126034725.64709-1-mmyangfl@gmail.com
+- fix err path for yt921x_devlink_setup
+- make NULL checks explict
