@@ -1,65 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.254.224.24
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.254.224.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795786195;
-	b=nHndAme6Bz5EsowA/EOmYadKInTVTuWL/jO+54W2tJViItXJbf8WYM/XAt7xv634qD8w
-	 NEXirrppEGFq4ZKjo62GXt9tsOw9DE6iamHFnU7MfMGTNkf2EIi4ka6GaySDIPSl3c5QP
-	 nDx8WJP6sq6eCfW6wSO6im+iGYUTV8F52epbjkOL/M5V3k0FApQUKKOSJIXEUIBaHYSTg
-	 nkhIyv6J60ZT7k5ukrYBshcMW9cuag8Hc5uL3bytaHDzM1Wy+NYFzZbd7rJCB4S+KN6OS
-	 tfT4b9Sjmy9DJ/O4NgYE5KwkmxAu4cFm18iwf8NUTLcwk5Mwf9ZWGCRRJNtWA+dq+Bw==
+	t=1795786203;
+	b=j3z2C/LrRZHH/AeaDVNBrPLwiXvmcLot3dxYEJLzEnY6mbZZ6AYmCsEmMEaH8zOuDpZ9
+	 TcEn5xQA9rPbryszS+XYBIh4+aE3s6amEvEG2XZiX6S/e7TBeT8LEfT/9PJzml4mmGXFH
+	 RWwAIsz60bD/HbHZ3bubOhIYZOR0ZDztUdd19i/xzALZd/JFL0bL+0U1d34n+DGJ20P3Y
+	 1TKkpXhrDd+6ULVREzeDhFLUhxoZ6FsjiBcmffYLjiM4+YICOFmNzG5A9sjAvmjftSgpE
+	 2LVdCCtmyYzytoOEpx2Dv4lvQ2Cwym7ZeKZ1Whtsx3Y9hMkeR8EXpZ6j52L9dys6JMQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795786195;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795786203;
 	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
 	 Received:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
 	 In-Reply-To:MIME-Version:Content-Transfer-Encoding:X-CMS-MailID:
 	 X-Msg-Generator:Content-Type:CMS-TYPE:X-CPGSPASS:cpgsPolicy:
 	 X-CFilter-Loop:X-CMS-RootMailID:References;
-	bh=+e0EnoojV4Ojk5HHoz5ipTGnR/a7RUdVjidQuApwaUY=;
-	b=fr0XCbI7Ay7Fdd8hgRTk8PUo9lfSbocRgjazp0C62wctrfqOpV3FKub5KYDKIj9331Ms
-	 UEc/jJQE1EmxeDxksbPUzT3garL9gwxh+wC9yzuMRYuvHm9suzHTrMm6Je3LMG6MEQs2I
-	 t4/3hrxKU06+xoqYQ4HTJbpbA6V+J5zljH6JnBfanMW1FiDbLXLx7nJjT+miz9Hn05ygu
-	 pWwkzRPyTBjiIRekkJ6B8sZlSTAo8JQ+FYE1IvFcYeGcXmbmG+nuoS1xg8/b6hF8UqJr6
-	 mhY3U+2LT8lTyQcKGsaA0fh718wle3u8tk/DAy1etXxoRewiiP2eIlNKVBb48sKg1sA==
+	bh=bEv+hQm3eXyw3BvNSKGemgO4AzU5CIYlzvjVm8xOefA=;
+	b=1gbCRN+0kauKZZzaXMJpXAF4GssuBUm6ewhhCXbQ48rULTupgpU9D3lZOuXtbMylSckH
+	 /FW5GpoESfDiiHvmW+yKaznNm4rYKjr/HeDDtawBcTs/Q43h0/nSuOjW56Gt5vkDoQrwm
+	 tTz2IOdQDwiah5f/QvDDbX019d6R/Dj2a44KbiWp7Fpb6vi0plU+v/b/7QIqujxMiTwnM
+	 3q74wPXB1fOxlGDqtU3WSTdkjX0bFsRg/RBpXS4NfXiU0C2q1BtipZxJcFEKXeiB4k350
+	 Nqgq4xDR6YLfqt4HFIYMtAsHXQ/fjyler8KAYAlJhgwNZPuuK0pC//W5RvShGfNUiFw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=samsung.com;
 	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=ZPB9N6X8;
-	arc=none smtp.remote-ip=203.254.224.24
-Received: from mailout1.samsung.com (mailout1.samsung.com [203.254.224.24])
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=nO833aR+;
+	arc=none smtp.remote-ip=203.254.224.33
+Received: from mailout3.samsung.com (mailout3.samsung.com [203.254.224.33])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85B99606A31F
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:29:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85B99606A31F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51CFD606A32A
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:30:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51CFD606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=ZPB9N6X8
+	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=nO833aR+
 Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20261127132951epoutp0198d56b85f979448fde09d9b4bfca5599~r6gbGjt9F1502415024epoutp01_
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:29:51 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20261127132951epoutp0198d56b85f979448fde09d9b4bfca5599~r6gbGjt9F1502415024epoutp01_
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20261127133000epoutp03bec8dc0338c7e5acc69b0f8f396cc29b~r6gjq34HE2163621636epoutp03x
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:30:00 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20261127133000epoutp03bec8dc0338c7e5acc69b0f8f396cc29b~r6gjq34HE2163621636epoutp03x
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795786191;
-	bh=+e0EnoojV4Ojk5HHoz5ipTGnR/a7RUdVjidQuApwaUY=;
+	s=mail20170921; t=1795786200;
+	bh=bEv+hQm3eXyw3BvNSKGemgO4AzU5CIYlzvjVm8xOefA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZPB9N6X8ltU7XV/OpPle23jlzArhwfXF/etE2+DHSHKz4OeFCIePspzU9iK7l+KbP
-	 rl5iNFPlXxp2FpdkBGVlKhOJUhrcOe+Q0EkItn0AjeMkmbIoDz7NGIt2TS1g7Jijr/
-	 VSj4l4VTEJk7XOKQP1xaqNX+33c9WBgImRAN1qKY=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20261127132950epcas5p1d554aa812d54077b060f3366c8b5db63~r6gZ-Ahc30558605586epcas5p1f;
-	Fri, 27 Nov 2026 13:29:50 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.91]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4jbZ5n2NGZz2SSKX; Fri, 27 Nov
-	2026 13:29:49 +0000 (GMT)
+	b=nO833aR+gbEcTgvJwE0mi9yV7J8+O+UMw77hvmEg41yNFwqmtmoelK9u4HL49Kqhz
+	 XScA9OBDdhpmeb4JXa1BblDl6n4En+Xt5eh4ySImFNDmx7fwUqPzNSipbNkKrmBIUG
+	 +8vZin8W7Hevtf9Z6msmJuHUIvPwnVlJnHUfZaeY=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20261127132959epcas5p45b577a42def93e663ccc0e0e2766e909~r6gjE7xGl2919529195epcas5p4w;
+	Fri, 27 Nov 2026 13:29:59 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.93]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4jbZ5y447lz3hhT4; Fri, 27 Nov
+	2026 13:29:58 +0000 (GMT)
 Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
 	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20261127132948epcas5p424c1b991bbb4b77880d85cbabba12428~r6gYoc29C2027720277epcas5p4I;
-	Fri, 27 Nov 2026 13:29:48 +0000 (GMT)
+	20261127132957epcas5p4248d663f22ade00f0c45e349365bb3e8~r6ghXNje22027720277epcas5p4W;
+	Fri, 27 Nov 2026 13:29:57 +0000 (GMT)
 Received: from ws2030076956.sa.corp.samsungelectronics.net (unknown
 	[107.99.235.31]) by epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261127132944epsmtip20b32668b4bfed0de5e5833ad3e015229~r6gVGtgwy1701617016epsmtip2n;
-	Fri, 27 Nov 2026 13:29:44 +0000 (GMT)
+	20261127132954epsmtip205472b8d23c7fef3ab60ea87c36f3f18~r6gd10t621688316883epsmtip2O;
+	Fri, 27 Nov 2026 13:29:54 +0000 (GMT)
 From: Irlanki Sandeep <irlanki.s@samsung.com>
 To: kuniyu@google.com
 Cc: alexei.starovoitov@gmail.com, ameryhung@gmail.com, andrii@kernel.org,
@@ -72,12 +72,12 @@ Cc: alexei.starovoitov@gmail.com, ameryhung@gmail.com, andrii@kernel.org,
 	r.kumawat@samsung.com, raj.kumars@samsung.com, ramyashree.s@samsung.com,
 	sharmasagarika@google.com, sporeba@google.com, srihari.k@samsung.com,
 	ts413.lee@samsung.com
-Subject: [PATCH bpf-next v10 1/2] bpf: tcp: add ecn_init callback to
- bpf_tcp_ops for per-connection ECN
-Date: Fri, 27 Nov 2026 19:00:50 +0530
-Message-Id: <20261127133051.2540069-1-irlanki.s@samsung.com>
+Subject: [PATCH bpf-next v10 2/2] selftests/bpf: add selftests for
+ bpf_tcp_ops ecn_init
+Date: Fri, 27 Nov 2026 19:00:51 +0530
+Message-Id: <20261127133051.2540069-2-irlanki.s@samsung.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261127132411.2523201-1-irlanki.s@samsung.com>
+In-Reply-To: <20261127133051.2540069-1-irlanki.s@samsung.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -88,226 +88,344 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261127132948epcas5p424c1b991bbb4b77880d85cbabba12428
+X-CMS-MailID: 20261127132957epcas5p4248d663f22ade00f0c45e349365bb3e8
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 CMS-TYPE: 105P
 X-CPGSPASS: Y
 cpgsPolicy: CPGSC10-065,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20261127132948epcas5p424c1b991bbb4b77880d85cbabba12428
+X-CMS-RootMailID: 20261127132957epcas5p4248d663f22ade00f0c45e349365bb3e8
 References: <20261127132411.2523201-1-irlanki.s@samsung.com>
-	<CGME20261127132948epcas5p424c1b991bbb4b77880d85cbabba12428@epcas5p4.samsung.com>
+	<20261127133051.2540069-1-irlanki.s@samsung.com>
+	<CGME20261127132957epcas5p4248d663f22ade00f0c45e349365bb3e8@epcas5p4.samsung.com>
 
-TCP ECN and Accurate ECN (AccECN) negotiation are currently decided
-globally by the net.ipv4.tcp_ecn sysctl; the per-route knob
-(RTAX_FEATURE_ECN) can only force-enable classic ECN on a path. This
-lacks the granularity required for per-application and per-connection
-ECN policies in multi-application runtimes such as Android.
+Add a bpf_tcp_ops struct_ops selftest for the new ecn_init callback. It
+runs over IPv4 and IPv6 loopback connections. For each case the test sets
+net.ipv4.tcp_ecn, and the BPF program returns the ECN mode for the active
+and the passive side. The seven cases are:
 
-ECN/L4S selection is an application-level property, not only a path
-property: on the exact same route, latency-sensitive applications
-(real-time gaming, interactive video/VoIP, low-latency messaging)
-benefit from negotiating AccECN for low-queuing-delay L4S treatment,
-while bulk background transfers or legacy applications in other
-cgroups prefer classic RFC3168 ECN, or no ECN at all where middlebox
-traversal is a concern. On the passive side, a server may further
-want to decide the ECN mode per peer at handshake time. RTAX_FEATURE_ECN
-cannot select AccECN, and it cannot distinguish applications that share
-one route.
+- BPF enables classic RFC3168 ECN while the sysctl disables ECN.
+- BPF enables AccECN while the sysctl disables ECN.
+- Client requests AccECN, server accepts only classic ECN: negotiation
+  ends at RFC3168.
+- Server BPF refuses ECN while the sysctl allows it.
+- Client BPF returns no ECN while the sysctl allows it.
+- Out-of-range return value (6) falls back to the sysctl.
+- Negative return value falls back to the sysctl.
 
-To support this without adding per-socket state to struct tcp_sock or
-resorting to the legacy sock_ops interface, add an 'ecn_init' callback
-to struct bpf_tcp_ops, following the existing timeout_init()/
-rwnd_init() pattern. The ECN mode is only consulted once per handshake,
-so the kernel queries the BPF program via tcp_ecn_init_bpf() when the
-sysctl value is read: before the SYN is built on active open, and on
-passive open only when the incoming SYN requests ECN (AccECN or
-ECE+CWR), where the program sees the listener and the request_sock and
-can thus decide per peer. The sysctl value is passed to the program as
-the default via bpf_get_retval(); an out-of-range return keeps it. With
-syncookies no request_sock is created, so the program is not invoked and
-the sysctl and route decide as before. No negotiated-mode state is
-stored; the decision taken at handshake time stands for the connection.
-The struct_ops program is attached per-cgroup, giving the per-application
-policy point (containers, Android app sandboxes).
-
-Document the sysctl precedence in ip-sysctl.rst.
+For each case the test checks that ecn_init() runs once on the
+active side. On the passive side it runs once when the SYN requests
+ECN (AccECN or ECE+CWR). If the client's SYN requests neither, the
+kernel skips the call and the test expects no passive invocation.
+When the program runs, bpf_get_retval() must be seeded with the
+sysctl value on that side. The negotiated ECN mode on the client
+and accepted sockets must match the expected value.
 
 Signed-off-by: Irlanki Sandeep <irlanki.s@samsung.com>
 ---
 v9 -> v10:
- - Skip the ecn_init BPF call in tcp_ecn_create_request() for SYNs
-   that neither request AccECN nor carry ECE+CWR (Kuniyuki Iwashima).
- - Sort variable declarations in reverse xmas tree order inside
-   tcp_ecn_send_syn() and tcp_ecn_create_request() (Kuniyuki Iwashima).
+ - Split the selftests into a separate patch
 
- Documentation/networking/ip-sysctl.rst |  8 ++++++++
- include/net/tcp.h                      |  6 ++++++
- include/net/tcp_ecn.h                  | 16 ++++++++++++++--
- net/ipv4/bpf_tcp_ops.c                 | 21 ++++++++++++++++-----
- net/ipv4/tcp_input.c                   | 11 ++++++++---
- 5 files changed, 52 insertions(+), 10 deletions(-)
+ .../bpf/prog_tests/bpf_tcp_ops_ecn.c          | 224 ++++++++++++++++++
+ .../selftests/bpf/progs/bpf_tcp_ops_ecn.c     |  57 +++++
+ 2 files changed, 281 insertions(+)
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/bpf_tcp_ops_ecn.c
+ create mode 100644 tools/testing/selftests/bpf/progs/bpf_tcp_ops_ecn.c
 
-diff --git a/Documentation/networking/ip-sysctl.rst b/Documentation/networking/ip-sysctl.rst
-index f7af0286341c..265746e72942 100644
---- a/Documentation/networking/ip-sysctl.rst
-+++ b/Documentation/networking/ip-sysctl.rst
-@@ -484,6 +484,14 @@ tcp_ecn - INTEGER
- 	5     AccECN               No ECN
- 	===== ==================== ====================
- 
-+	Note that a BPF program implementing the bpf_tcp_ops 'ecn_init'
-+	struct_ops callback, attached to a cgroup, can override this value
-+	per connection for the sockets of that cgroup. The callback sees
-+	this sysctl value as the default via bpf_get_retval(), and any
-+	return value outside the table above falls back to it. Connections
-+	established via syncookies are not seen by the callback and use the
-+	sysctl and route settings instead.
+diff --git a/tools/testing/selftests/bpf/prog_tests/bpf_tcp_ops_ecn.c b/tools/testing/selftests/bpf/prog_tests/bpf_tcp_ops_ecn.c
+new file mode 100644
+index 000000000000..f74791676585
+--- /dev/null
++++ b/tools/testing/selftests/bpf/prog_tests/bpf_tcp_ops_ecn.c
+@@ -0,0 +1,224 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright (c) 2026 Samsung Electronics Co., Ltd. */
 +
- 	Default: 2
- 
- tcp_ecn_option - INTEGER
-diff --git a/include/net/tcp.h b/include/net/tcp.h
-index f7624ab9b420..19fd7652b1c1 100644
---- a/include/net/tcp.h
-+++ b/include/net/tcp.h
-@@ -2971,6 +2971,12 @@ struct bpf_tcp_ops {
- 	 */
- 	int (*rwnd_init)(struct sock *sk, struct request_sock *req);
- 
-+	/* Should return the ECN variant to negotiate in this handshake:
-+	 * one of net.ipv4.tcp_ecn values. bpf_get_retval() has the sysctl.
-+	 * @req as in timeout_init().
-+	 */
-+	int (*ecn_init)(struct sock *sk, struct request_sock *req);
++#include <test_progs.h>
++#include <network_helpers.h>
++#include "cgroup_helpers.h"
++#include "bpf_tcp_ops_ecn.skel.h"
 +
- 	/* Called when an active connection becomes established.
- 	 * @skb is the SYNACK that completed the 3WHS, or NULL for a
- 	 * TCP_REPAIR socket (tcp_finish_connect() with no skb).
-diff --git a/include/net/tcp_ecn.h b/include/net/tcp_ecn.h
-index 865d5c5a7718..4d57b4c75846 100644
---- a/include/net/tcp_ecn.h
-+++ b/include/net/tcp_ecn.h
-@@ -32,6 +32,18 @@ enum tcp_accecn_option {
- 	TCP_ACCECN_OPTION_PERSIST = 3,
- };
- 
-+/* Resolve the effective ECN mode: BPF callback or sysctl fallback */
-+static inline u8 tcp_ecn_init_bpf(struct sock *sk)
++#define CGROUP_PATH	"/bpf_tcp_ops_ecn"
++#define TEST_NETNS	"bpf_tcp_ops_ecn"
++
++/* Must match progs/bpf_tcp_ops_ecn.c */
++#define TCP_ECN_MODE_DISABLED	0x00
++#define TCP_ECN_MODE_RFC3168	0x01
++#define TCP_ECN_MODE_ACCECN	0x10
++
++struct ecn_case {
++	const char *name;
++	int sysctl_ecn;		/* net.ipv4.tcp_ecn in the test netns */
++	int retval_active;	/* ecn_init() return value, active open */
++	int retval_passive;	/* ecn_init() return value, passive open */
++	__u32 mode_client;	/* expected ECN mode on the client socket */
++	__u32 mode_server;	/* expected ECN mode on the accepted socket */
++	bool passive_runs;	/* ecn_init() runs on passive side: SYN requests ECN */
++};
++
++/*
++ * net.ipv4.tcp_ecn / ecn_init() values (enum tcp_ecn_mode): 0 == no ECN,
++ * 1 == accept + request RFC3168 ECN, 3 == accept + request AccECN.
++ */
++static const struct ecn_case ecn_cases[] = {
++	{
++		/* The sysctl disables ECN; BPF negotiates RFC3168 ECN. */
++		.name = "bpf_enables_classic",
++		.passive_runs = true,
++		.sysctl_ecn = 0,
++		.retval_active = 1,
++		.retval_passive = 1,
++		.mode_client = TCP_ECN_MODE_RFC3168,
++		.mode_server = TCP_ECN_MODE_RFC3168,
++	},
++	{
++		/* The sysctl disables ECN; BPF negotiates AccECN. */
++		.name = "bpf_enables_accecn",
++		.passive_runs = true,
++		.sysctl_ecn = 0,
++		.retval_active = 3,
++		.retval_passive = 3,
++		.mode_client = TCP_ECN_MODE_ACCECN,
++		.mode_server = TCP_ECN_MODE_ACCECN,
++	},
++	{
++		/*
++		 * The client requests AccECN but the server only accepts
++		 * RFC3168 ECN (< 3): negotiation degrades to RFC3168.
++		 */
++		.name = "passive_clamps_accecn",
++		.passive_runs = true,
++		.sysctl_ecn = 0,
++		.retval_active = 3,
++		.retval_passive = 1,
++		.mode_client = TCP_ECN_MODE_RFC3168,
++		.mode_server = TCP_ECN_MODE_RFC3168,
++	},
++	{
++		/* The server refuses ECN although the sysctl allows it. */
++		.name = "passive_refuses_ecn",
++		.passive_runs = true,
++		.sysctl_ecn = 1,
++		.retval_active = 3,
++		.retval_passive = 0,
++		.mode_client = TCP_ECN_MODE_DISABLED,
++		.mode_server = TCP_ECN_MODE_DISABLED,
++	},
++	{
++		/*
++		 * The client does not request ECN although the sysctl
++		 * allows it, so there is nothing for the server to accept.
++		 */
++		.name = "active_disables_ecn",
++		.passive_runs = false,
++		.sysctl_ecn = 1,
++		.retval_active = 0,
++		.retval_passive = 3,
++		.mode_client = TCP_ECN_MODE_DISABLED,
++		.mode_server = TCP_ECN_MODE_DISABLED,
++	},
++	{
++		/*
++		 * Return values above TCP_ECN_IN_ACCECN_OUT_NOECN fall back
++		 * to the sysctl on both sides.
++		 */
++		.name = "fallback_above_range",
++		.passive_runs = true,
++		.sysctl_ecn = 1,
++		.retval_active = 6,
++		.retval_passive = 6,
++		.mode_client = TCP_ECN_MODE_RFC3168,
++		.mode_server = TCP_ECN_MODE_RFC3168,
++	},
++	{
++		/* Negative return values fall back to the sysctl too. */
++		.name = "fallback_negative",
++		.passive_runs = true,
++		.sysctl_ecn = 1,
++		.retval_active = -1,
++		.retval_passive = -1,
++		.mode_client = TCP_ECN_MODE_RFC3168,
++		.mode_server = TCP_ECN_MODE_RFC3168,
++	},
++};
++
++/*
++ * Connect over loopback and accept() the child socket, so that
++ * passive_established is guaranteed to have run: the listener is woken
++ * up only after tcp_rcv_state_process() moved the child to established.
++ */
++static void do_ecn_connect(int family)
 +{
-+	u8 tcp_ecn = READ_ONCE(sock_net(sk)->ipv4.sysctl_tcp_ecn);
-+	int ret;
++	const char *addr = family == AF_INET ? "127.0.0.1" : "::1";
++	int server_fd, client_fd, accepted_fd;
 +
-+	ret = bpf_tcp_ops_call_int(ecn_init, tcp_ecn, sk);
-+	if (ret < 0 || ret > TCP_ECN_IN_ACCECN_OUT_NOECN)
-+		return tcp_ecn;
-+	return ret;
-+}
-+
- /* Apply either ECT(0) or ECT(1) based on TCP_CONG_ECT_1_NEGOTIATION flag */
- static inline void INET_ECN_xmit_ect_1_negotiation(struct sock *sk)
- {
-@@ -596,10 +608,10 @@ static inline void tcp_ecn_send_synack(struct sock *sk, struct sk_buff *skb)
- /* Packet ECN state for a SYN.  */
- static inline void tcp_ecn_send_syn(struct sock *sk, struct sk_buff *skb)
- {
--	struct tcp_sock *tp = tcp_sk(sk);
- 	bool bpf_needs_ecn = tcp_bpf_ca_needs_ecn(sk);
-+	u8 tcp_ecn = tcp_ecn_init_bpf(sk);
-+	struct tcp_sock *tp = tcp_sk(sk);
- 	bool use_ecn, use_accecn;
--	u8 tcp_ecn = READ_ONCE(sock_net(sk)->ipv4.sysctl_tcp_ecn);
- 
- 	use_accecn = tcp_ecn == TCP_ECN_IN_ACCECN_OUT_ACCECN ||
- 		     tcp_ca_needs_accecn(sk);
-diff --git a/net/ipv4/bpf_tcp_ops.c b/net/ipv4/bpf_tcp_ops.c
-index 2ba73dd6c52c..785517364f0b 100644
---- a/net/ipv4/bpf_tcp_ops.c
-+++ b/net/ipv4/bpf_tcp_ops.c
-@@ -24,6 +24,14 @@ static int rwnd_init_stub(struct sock *sk, struct request_sock *req__nullable)
- 	return ctx->retval;
- }
- 
-+static int ecn_init_stub(struct sock *sk, struct request_sock *req__nullable)
-+{
-+	struct bpf_tramp_run_ctx *ctx =
-+		container_of(current->bpf_ctx, struct bpf_tramp_run_ctx, run_ctx);
-+
-+	return ctx->retval;
-+}
-+
- static void active_established_stub(struct sock *sk, struct sk_buff *skb__nullable)
- {
- }
-@@ -87,6 +95,7 @@ static void dequeue_rcvq_stub(struct sock *sk)
- static struct bpf_tcp_ops __bpf_tcp_ops = {
- 	.timeout_init = timeout_init_stub,
- 	.rwnd_init = rwnd_init_stub,
-+	.ecn_init = ecn_init_stub,
- 	.active_established = active_established_stub,
- 	.passive_established = passive_established_stub,
- 	.rto = rto_stub,
-@@ -202,10 +211,11 @@ BPF_CALL_0(bpf_tcp_ops_get_retval)
- 	struct bpf_tramp_run_ctx *ctx =
- 		container_of(current->bpf_ctx, struct bpf_tramp_run_ctx, run_ctx);
- 
--	/* bpf_get_retval() is only exposed to timeout_init/rwnd_init, which
--	 * always run via bpf_tcp_ops_call_int(). Its run_ctx carries the int
--	 * return value chained across the bpf_tcp_ops attached to the cgroup
--	 * and is this program's saved_run_ctx.
-+	/* bpf_get_retval() is only exposed to timeout_init, rwnd_init and
-+	 * ecn_init, which always run via bpf_tcp_ops_call_int(). Its
-+	 * run_ctx carries the int return value chained across the
-+	 * bpf_tcp_ops attached to the cgroup and is this program's
-+	 * saved_run_ctx.
- 	 */
- 	if (WARN_ON_ONCE(!ctx->saved_run_ctx))
- 		return 0;
-@@ -258,7 +268,8 @@ get_func_proto(enum bpf_func_id func_id, const struct bpf_prog *prog)
- 		return NULL;
- 	case BPF_FUNC_get_retval:
- 		if (moff == offsetof(struct bpf_tcp_ops, timeout_init) ||
--		    moff == offsetof(struct bpf_tcp_ops, rwnd_init))
-+		    moff == offsetof(struct bpf_tcp_ops, rwnd_init) ||
-+		    moff == offsetof(struct bpf_tcp_ops, ecn_init))
- 			return &bpf_tcp_ops_get_retval_proto;
- 		return NULL;
- 	case BPF_FUNC_reserve_hdr_opt:
-diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-index 46f5c4fafa8d..4554429f5bde 100644
---- a/net/ipv4/tcp_input.c
-+++ b/net/ipv4/tcp_input.c
-@@ -7500,13 +7500,18 @@ static void tcp_ecn_create_request(struct request_sock *req,
- 				   const struct dst_entry *dst)
- {
- 	const struct tcphdr *th = tcp_hdr(skb);
--	const struct net *net = sock_net(listen_sk);
- 	bool th_ecn = th->ece && th->cwr;
- 	bool ect, ecn_ok;
- 	u32 ecn_ok_dst;
-+	u8 tcp_ecn;
-+
-+	if (!tcp_accecn_syn_requested(th) && !th_ecn)
++	server_fd = start_server(family, SOCK_STREAM, addr, 0, 0);
++	if (!ASSERT_GE(server_fd, 0, "start_server"))
 +		return;
 +
-+	tcp_ecn = tcp_ecn_init_bpf((struct sock *)req);
- 
- 	if (tcp_accecn_syn_requested(th) &&
--	    (READ_ONCE(net->ipv4.sysctl_tcp_ecn) >= 3 ||
-+	    (tcp_ecn >= 3 ||
- 	     tcp_ca_needs_accecn(listen_sk))) {
- 		inet_rsk(req)->ecn_ok = 1;
- 		tcp_rsk(req)->accecn_ok = 1;
-@@ -7520,7 +7525,7 @@ static void tcp_ecn_create_request(struct request_sock *req,
- 
- 	ect = !INET_ECN_is_not_ect(TCP_SKB_CB(skb)->ip_dsfield);
- 	ecn_ok_dst = dst_feature(dst, DST_FEATURE_ECN_MASK);
--	ecn_ok = READ_ONCE(net->ipv4.sysctl_tcp_ecn) || ecn_ok_dst;
-+	ecn_ok = tcp_ecn || ecn_ok_dst;
- 
- 	if (((!ect || th->res1 || th->ae) && ecn_ok) ||
- 	    tcp_ca_needs_ecn(listen_sk) ||
++	client_fd = connect_to_fd(server_fd, 0);
++	if (ASSERT_OK_FD(client_fd, "connect_to_fd")) {
++		accepted_fd = accept(server_fd, NULL, NULL);
++		if (ASSERT_OK_FD(accepted_fd, "accept"))
++			close(accepted_fd);
++		close(client_fd);
++	}
++
++	close(server_fd);
++}
++
++static void test_ecn(int cgroup_fd, struct bpf_tcp_ops_ecn *skel, int family)
++{
++	struct bpf_link *link;
++	char buf[128];
++	int i;
++
++	link = bpf_map__attach_cgroup_opts(skel->maps.ecn_ops, cgroup_fd, NULL);
++	if (!ASSERT_OK_PTR(link, "attach_ecn_ops"))
++		return;
++
++	for (i = 0; i < ARRAY_SIZE(ecn_cases); i++) {
++		const struct ecn_case *c = &ecn_cases[i];
++
++		snprintf(buf, sizeof(buf), "%d", c->sysctl_ecn);
++		if (!ASSERT_OK(write_sysctl("/proc/sys/net/ipv4/tcp_ecn", buf),
++			       "write_sysctl_tcp_ecn"))
++			break;
++
++		skel->bss->ecn_retval_active = c->retval_active;
++		skel->bss->ecn_retval_passive = c->retval_passive;
++		skel->bss->ecn_seed_active = -1;
++		skel->bss->ecn_seed_passive = -1;
++		skel->bss->ecn_active_cnt = 0;
++		skel->bss->ecn_passive_cnt = 0;
++		skel->bss->ecn_mode_client = 0xdead;
++		skel->bss->ecn_mode_server = 0xdead;
++
++		do_ecn_connect(family);
++
++		/*
++		 * ecn_init() runs once on the active side. On the passive side it
++		 * runs only if the SYN requested ECN (tcp_ecn_create_request()).
++		 */
++		snprintf(buf, sizeof(buf), "%s: active_cnt", c->name);
++		ASSERT_EQ(skel->bss->ecn_active_cnt, 1, buf);
++		snprintf(buf, sizeof(buf), "%s: passive_cnt", c->name);
++		ASSERT_EQ(skel->bss->ecn_passive_cnt, c->passive_runs ? 1 : 0, buf);
++
++		/* bpf_get_retval() must be seeded with the sysctl value. */
++		snprintf(buf, sizeof(buf), "%s: seed_active", c->name);
++		ASSERT_EQ(skel->bss->ecn_seed_active, c->sysctl_ecn, buf);
++		snprintf(buf, sizeof(buf), "%s: seed_passive", c->name);
++		ASSERT_EQ(skel->bss->ecn_seed_passive,
++			  c->passive_runs ? c->sysctl_ecn : -1, buf);
++
++		snprintf(buf, sizeof(buf), "%s: mode_client", c->name);
++		ASSERT_EQ(skel->bss->ecn_mode_client, c->mode_client, buf);
++		snprintf(buf, sizeof(buf), "%s: mode_server", c->name);
++		ASSERT_EQ(skel->bss->ecn_mode_server, c->mode_server, buf);
++	}
++
++	bpf_link__destroy(link);
++}
++
++static void run_ecn_subtest(int family)
++{
++	struct bpf_tcp_ops_ecn *skel = NULL;
++	struct netns_obj *ns = NULL;
++	int cgroup_fd;
++
++	cgroup_fd = test__join_cgroup(CGROUP_PATH);
++	if (!ASSERT_GE(cgroup_fd, 0, "join_cgroup"))
++		return;
++
++	ns = netns_new(TEST_NETNS, true);
++	if (!ASSERT_OK_PTR(ns, "netns_new"))
++		goto done;
++
++	skel = bpf_tcp_ops_ecn__open_and_load();
++	if (!ASSERT_OK_PTR(skel, "open_and_load"))
++		goto done;
++
++	test_ecn(cgroup_fd, skel, family);
++
++done:
++	bpf_tcp_ops_ecn__destroy(skel);
++	netns_free(ns);
++	close(cgroup_fd);
++}
++
++void test_bpf_tcp_ops_ecn(void)
++{
++	if (test__start_subtest("ipv4"))
++		run_ecn_subtest(AF_INET);
++	if (test__start_subtest("ipv6"))
++		run_ecn_subtest(AF_INET6);
++}
+diff --git a/tools/testing/selftests/bpf/progs/bpf_tcp_ops_ecn.c b/tools/testing/selftests/bpf/progs/bpf_tcp_ops_ecn.c
+new file mode 100644
+index 000000000000..596566148858
+--- /dev/null
++++ b/tools/testing/selftests/bpf/progs/bpf_tcp_ops_ecn.c
+@@ -0,0 +1,57 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright (c) 2026 Samsung Electronics Co., Ltd. */
++
++#include "vmlinux.h"
++#include <bpf/bpf_helpers.h>
++#include <bpf/bpf_tracing.h>
++
++/* TCP_ECN_MODE_* bits of tcp_sock::ecn_flags, from include/net/tcp.h */
++#define TCP_ECN_MODE_RFC3168	0x01
++#define TCP_ECN_MODE_ACCECN	0x10
++#define TCP_ECN_MODE_ANY	(TCP_ECN_MODE_RFC3168 | TCP_ECN_MODE_ACCECN)
++
++int ecn_retval_active;		/* ecn_init() return value, active open */
++int ecn_retval_passive;		/* ecn_init() return value, passive open */
++int ecn_seed_active;		/* bpf_get_retval() seen on active open */
++int ecn_seed_passive;		/* bpf_get_retval() seen on passive open */
++__u32 ecn_active_cnt;
++__u32 ecn_passive_cnt;
++__u32 ecn_mode_client;		/* negotiated ECN mode, client socket */
++__u32 ecn_mode_server;		/* negotiated ECN mode, accepted socket */
++
++SEC("struct_ops")
++int BPF_PROG(ecn_ops_ecn_init, struct sock *sk, struct request_sock *req)
++{
++	if (req) {
++		ecn_passive_cnt++;
++		ecn_seed_passive = bpf_get_retval();
++		return ecn_retval_passive;
++	}
++
++	ecn_active_cnt++;
++	ecn_seed_active = bpf_get_retval();
++	return ecn_retval_active;
++}
++
++SEC("struct_ops")
++void BPF_PROG(ecn_ops_active_established, struct sock *sk,
++	      struct sk_buff *skb)
++{
++	ecn_mode_client = ((struct tcp_sock *)sk)->ecn_flags & TCP_ECN_MODE_ANY;
++}
++
++SEC("struct_ops")
++void BPF_PROG(ecn_ops_passive_established, struct sock *sk,
++	      struct sk_buff *skb)
++{
++	ecn_mode_server = ((struct tcp_sock *)sk)->ecn_flags & TCP_ECN_MODE_ANY;
++}
++
++SEC(".struct_ops.link")
++struct bpf_tcp_ops ecn_ops = {
++	.ecn_init = (void *)ecn_ops_ecn_init,
++	.active_established = (void *)ecn_ops_active_established,
++	.passive_established = (void *)ecn_ops_passive_established,
++};
++
++char _license[] SEC("license") = "GPL";
 -- 
 2.34.1
 
