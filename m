@@ -1,101 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795755498;
-	b=QI93Iejeazkh1xiN2rApq8WjpcIrsE1wvJjki2e3YhpVcTqrKGlTbTPy5KxyI1Cxr5qx
-	 OWub7X17bPae6blLVkLoD12Ug6dcM1gse4bGfdk5mo+g28pf3BNkPdaQILXu9MPSFORSJ
-	 b0F1OY6RkWYFPrdqHRqt/MlpyjFPaq/bRYsFRg4RN6ZQ+PVpj/IvZeObF0eBefTBcIAZd
-	 g1A+QrG9VFvyMjJpSDVAgUgMsv2MAF1mnWSncFCfEKu84A5WucWtTJsxgoowBHYenhRJu
-	 odTFYHnAZ0fP7ft/4gYIxOUDGDzjed0WAg1AeiXZrEKD3B8VCKV8ZHAC56etnSdo1hg==
+	t=1795756763;
+	b=Apji5dtuq1eFxvXX8JgnFeHTlp2/YcpMgH5sWDhPhO3DSFR7KM8jHesBikyWE6q7RkV1
+	 v1iAB6AwGRma7wCPzjGdtAGgkFaksRtipspzfBEAEfE2v2QGT3p9lLYIJtMMetuQp0Mu7
+	 K//XQ9Fu0q7Rm3AAhmxjAVm5kAmVkynfLcdb9VLt4GkEs/MndaRNeOZv5rd5d9uipmaiL
+	 xlOh192nPMaaTpCOlMRtXm7wXe5HoClvu/p70hdZyhE/gB+Eks3f+waHvSEJ1PwzEXQcv
+	 vgpUZis3oCtjC+dIfWhcXX1S7Je8vNW4yC8BACX5i44JAs4SlXy52XozBpyVSfelh0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795755498;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795756763;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=M7vTOR3oemTA1W0hJKqVqhgWngwg5/C2IpV/104sVMI=;
-	b=xpv+ZuNYFb/ytpUfaWWkwIFf4ZW+X08A71z+4QauJecH6EmV4ecw7IEB0YFKMEeOqgB9
-	 c5AuWQTxiNJdVulOLPg9SmjyDLiQS/2xAvk0El0ix43QBB+WlmFK9QSJoePCmHTRdwkjR
-	 qT2iam2GU1s6Fv5XlhYkV04zVR+fl4DrnwSsmRa/SHYXW9bP72PGbKy48FICJmByFWI9Y
-	 mkRVb/FauF5e7I9u1EDt+SKHBYkl+ARtg8Tj5AYrNMjAl/pRn314XYL8rDzVokcA53A27
-	 H/IMtQ4DBm/EyhKpcqbddV5gFC0Mi8GjyjEUr52ISxfEwmGkAn6wXwx+oRAQn8JQZtw==
+	bh=s7zN/holnfSRWzR9Ve4qoAtn/yLgIqCtYRzUZEN6Hog=;
+	b=RgGM52OfZo0Hm6uaJ/IJ+yioM14g3zVXiCHmV6LFZcUOtpRg/5OSp54+SHs5VVM4/Kz/
+	 XKoJT7V0mLymjIrO/aTlPfY+CY0ZOl1OT2gq8TclGC6uBeW83NYdroNFSIZSJtQhZtuSn
+	 1M41/csksafX0yB24O3QWebr22VCAIFkU2TdNKeCBVuoEyoBzMBLD4vci6sZ/3L14G5Fl
+	 6kgN6qY3beswBP7q+kgVqELDbs1eS9QB9PxmAHI5BuxWLdWVDmd9bU8iNTERbgNg/Uh2y
+	 kfVXNr+ZGHwa3OUEbJ/thkJF9NXJ25WgR9kAle8d/1aFYV6nCef8Sut3C3Yn1a5nlww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=egq0a59s;
-	arc=none smtp.remote-ip=209.85.216.41
-Received: from mail-pj1-f41.google.com (mail-pj1-f41.google.com [209.85.216.41])
+	dmarc=pass header.from=nebusec.ai;
+	spf=pass smtp.mailfrom=nebusec.ai;
+	dkim=pass header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=WW1jphLi;
+	arc=none smtp.remote-ip=74.125.82.175
+Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8CBE606A31C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 04:58:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8CBE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 818C4606A31C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:19:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 818C4606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=nebusec.ai
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nebusec.ai
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=egq0a59s
-Received: by mail-pj1-f41.google.com with SMTP id 98e67ed59e1d1-3b413997581so5683783a91.2
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 20:58:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=WW1jphLi
+Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-385c497bf94so7102561eec.1
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 21:19:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795755497; x=1796360297; darn=vger.kernel.org;
+        d=nebusec.ai; s=google; t=1795756761; x=1796361561; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=M7vTOR3oemTA1W0hJKqVqhgWngwg5/C2IpV/104sVMI=;
-        b=egq0a59sOKC+hNlgn9DJt91f1YQF25DaRHQraiur/NltXmKS8MZRSXYKFKrzI0ZH9j
-         MBSuj/hFLnKTo7Vm1nEs7TCOQtmjJf6JF3flABg8LZGf/jRG92FME/2IDw5vvjV+fEHe
-         fo+C7ZZUZWeC260YoAKD6/txowXhpH2vg1hFSJ1lBMqtfO1wWOgbEh63t/OqO6iV7O0I
-         9qK48o3pgZjFOAsG+5uDpOofXWZ4xMqBmzhimV+ZkLEMSSgt7hLtGZXfbPG6CgX9hf7M
-         K69jUs8qlvYczyKNzk/6i1z/qCFF18Em+mh6+ZhzzbpTl6cabrD/Vnp7AvtF5iD6R8eQ
-         3BFw==
+        bh=s7zN/holnfSRWzR9Ve4qoAtn/yLgIqCtYRzUZEN6Hog=;
+        b=WW1jphLirbpb9MeuQf+6RLJ0qp4M/h6w1zvN7PlEApVWsGpkCF13nLQWmp831roIYD
+         lv+GgF7+wAQ2CcGcaFHxWgxvH7Uq1+tRuVrIa3HjGAGTT7I6SAVnjh2A4mKqlP7NbLxQ
+         +ej4NrKlT27BQFgeewMMfqetuMO+akQmjWasFZF9US1386YiRJvm8Jc+qot2QpUusFyx
+         Pe9/X5YgR83dRFDAUtqypak5iZuqtuItkL+4xTlwjqNrn5iP3WISIc+jgmTko1LibhR4
+         7kpGPRveVhlA9Kj7Q40n/y0O8WcMDxg0N0mPjuX9GOp9v6kLOj8NVMHsdpQlQ6uXlk1d
+         AGKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795755497; x=1796360297;
+        d=1e100.net; s=20260707; t=1795756761; x=1796361561;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=M7vTOR3oemTA1W0hJKqVqhgWngwg5/C2IpV/104sVMI=;
-        b=ngSOb3qquDSw9/dSfd/R511cq9236wVHUW7ALYDCMaXkiJZeD99lRMfa7TFbF4sJpV
-         TJkYFY+csKJK0I9+UF/uZ9Fba2te/b6HqLCfPDRjyIAZo/gsyFHvSIMHYMYegVrvME9u
-         ob5+AqhWImZWrG8tG9btwJLDjC5yfgiDZUSHn+vfsSAatQbJCvEwCInjNkC3d12pZJZK
-         ENd2LwK5FTqTXgfZG6rAv2AVjCnUiOB6FF2CwGCXFTi1CEByC9mPy49MJzhPiSHe18Xi
-         anluSOfdww5yAihofOwbkVVZjhH7k81vrkKEYJk4JNpe7Aa5vFLLQtNk/Q3Heq6eG0i+
-         mhHg==
-X-Forwarded-Encrypted: i=1; AL+hErHy2JCaQqvhHvjqO2XbIPMheReLOHuMGdLyA+JIT/Boqf0QibiXqkN4ACJNisilalmn1LGMfLA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8iENyYZdLPKZq5mStDlGHZL7U1H0cmlJPz0puI5f6BvDVfDr/n
-	j2DNSydJmPdPCtxujZCtX2G3v2oo8ZVJk8iGyZmKYpSqBTKTKqK5YPJx
-X-Gm-Gg: AZFdTZfYtuGlPWu1xS9cn5dJak8G5pVf2BPHuW8omzf1sQzC02g8BzPZS/3eL2R5hlX
-	f1mRCpxIkFPOfzJK8zAKnsiMe6bZ2wQ5YRQkcm3K1c4F2Z+fCKipoQD/6tHfZAJ0I4GdWtHi2Dl
-	J/lxsckMkwNi52m8IvNyuzh9dQM1LJPyRqMXTkf5vHi20Dn/j8dcU+3/DV7bmAwDrn7k8BhSbVT
-	TdVZMrH2yvY1gQ+QO1xx3dfE76YgkRSz/LtXEji8gYBhYJnsjjlpTMOVxDEcF4tGqdZ03GmHphB
-	3vyVrdBzHAjFmeh4kpCYiOhSu9ct50CbIIxEeEwExUABNtDqBc/xxj/0x22A7ywc5iwgWcpYG7A
-	XdmztVqxEodMaUoqGKF3PxLRGZa41VMoGJD+oQeNorc9K2GnWFzCZszQplqfXEFI6Zspt9Ltilj
-	8+kX3z+qNLvTulzpYY85rKTbV7fAi174iOFaHvrvNg7wpZROIT0fK+F1gvyZ0JX1yvoUxsnGy0S
-	qYemEuAAgfZ71Z3gRIoXWZWhG9WxbMhIrDD5ftt7qmhI1bCoqDtGhLsgnDeiPhXW10orGwV+ZcD
-	at6Vx+Y1+FYiarvDvcVXPpSKjnjQ8bJUtljreUQR/GYc7OdqfKBrf0AoovFYNOB9a5c=
-X-Received: by 2002:a17:90b:2e8c:b0:3ad:d4aa:8559 with SMTP id 98e67ed59e1d1-3b41c8e105bmr19924654a91.17.1795755497037;
-        Thu, 26 Nov 2026 20:58:17 -0800 (PST)
-Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d96bd3sm39010808a91.12.2026.11.26.20.58.13
+        bh=s7zN/holnfSRWzR9Ve4qoAtn/yLgIqCtYRzUZEN6Hog=;
+        b=VPxhFCMOybk4yo1HrgvXdTP3yArxXtQ6Q8Vak6wABwznsA5Cux7iwA6cToce3jz1i4
+         XPCSRZ2VmH9W/1BbOzY+rv7XGrT4M66D1q59sSBAfNEN7PZGduFSWshSBTJjDugMeA5u
+         zPLTfCAs6AAcHAXxSO3m5tQ9UcS4HuVIbkiX5D4bgjkii0PyDz6O5QQQUSQe/SLENeym
+         vsXb7ULSrrFGabqeY39wdJj84cCHCLipsVbrCrfcaXYku0Ghs6ohpy8h9n9na76a0oPW
+         7iznhc0po6jjSr1C6RT8cHMPNZBLDpwI0EVHu1F/ySgG+ziSQQOZW0bszFRc4mTOxcGd
+         qqHw==
+X-Forwarded-Encrypted: i=1; AL+hErE4WPiUfwv2BPyuBVq+veQRM6EQ+AEHXAQy4y6gIX2+tDgGPfdTmRkhPtzd9n8I1VSjUy7PBHo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9fBAVHkLdxDu/bNbcFSqwqqtFQVf0Bp/3gxLXsody9Mm6JN/Lt
+	2ABX66DxtW+omx6gbjUyaXez/F2KgtDVrm+5GG0r/FVfNSua4FifeICRZMNTwdPiGNQB
+X-Gm-Gg: AZFdTZdb7posNU+2JS+daFGgVE0dHp6Sj6N9Me9nBW62281VcrviCsWmXqbz1Q7W8aX
+	AfivxSqLXmC8FJqXAorwQFRLzM9A3WVmXlbavbZ2mX15U5/mJb8yAK2XSMdvkIdOMvh1AWErPMk
+	395F2PgJwruwTOdMp8ijsiIxflRU6Ix+Qky/U2Dot58e/MznL9eH2ufn0b8hanXghL7zqB67aMl
+	aAciS4H+u+ua+U09OZFUzEEgofneQeVVEItaym7wST2cW3TU1C7wVNy7dlNBNAlLdaYYCZ6UopT
+	/eCHh/i/Z/yxrqqER7sZzfZepenW0lRjzix2dWfKJuZpbZDEkARL1CJlZzeo06YNIytY9UWgORn
+	8HNA+VcyL3ZmM7XdU1n0Xgkm9hAnDJ2lJig1bHFdVldkQlndct6eD/xFUnU505AxcPkgdtnRmSj
+	H6g6FX/aoOuKhVisuSw/oF+XLO/KjfRgf/PS9PP1QtcJXb1ZJoeShgz+4YXXSA8b+GeRFLzCYc5
+	yrJBFlpZN5WP0/9LTf9tUKimlbAXKsL9lpENgQQG4lCTeHc2kdXk40AGgykVwodnNrvWV7q2vzR
+	1aejcTHp/NjogHNY2hH1l6SYjHPr4XLGeeOS/98=
+X-Received: by 2002:a05:7300:ce11:b0:385:774:fb23 with SMTP id 5a478bee46e88-3856e63b5cdmr24851388eec.6.1795756761365;
+        Thu, 26 Nov 2026 21:19:21 -0800 (PST)
+Received: from enjou-Legion-Y7000P-2019 ([174.136.206.51])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd40c5sm82950093eec.10.2026.11.26.21.19.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 20:58:16 -0800 (PST)
-From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Josef Bacik <josef@toxicpanda.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	netdev@vger.kernel.org,
-	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH ipsec v3] net: free the socket policies when sk_clone() fails
-Date: Fri, 27 Nov 2026 13:58:10 +0900
-Message-ID: <179568863376.462699.9896914557163021386@gmail.com>
+        Thu, 26 Nov 2026 21:19:20 -0800 (PST)
+From: Ren Wei <weir@nebusec.ai>
+To: virtualization@lists.linux.dev,
+	netdev@vger.kernel.org
+Cc: sgarzare@redhat.com,
+	bobbyeshleman@meta.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	willemb@google.com,
+	horms@kernel.org,
+	arseny.krasnov@kaspersky.com,
+	vega@nebusec.ai,
+	caoruide123@gmail.com,
+	weir@nebusec.ai
+Subject: [PATCH net 0/2] vsock: preserve receive timeout across partial reads
+Date: Fri, 27 Nov 2026 13:19:12 +0800
+Message-ID: <cover.1795587333.git.caoruide123@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,93 +107,270 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-sk_clone() clones the parent's socket policies with
-xfrm_sk_clone_policy() and then its BPF socket storage with
-bpf_sk_storage_clone(). If either fails once a policy has been cloned,
-the new socket goes to the "free" label, which only clears sk_destruct
-and calls sk_free(), as the socket is still a raw copy of the parent.
-Nothing frees the cloned policies: they stay on the namespace's policy
-list and in its count, and the namespace teardown warns in
-xfrm_policy_fini().
+From: Ruide Cao <caoruide123@gmail.com>
 
-__xfrm_sk_clone_policy() fails that way when cloning the second policy
-fails, with the clone of the first already in the new socket.
-bpf_sk_storage_clone() fails when memory is short or when the copy does
-not fit into net.core.optmem_max.
+Hi Linux kernel maintainers,
 
-Free the policies in a new label at the end of the function. A failed
-filter charge still goes to the old one: xfrm_sk_clone_policy() has not
-run then, and sk_policy[] still holds the parent's pointers.
+We found and validated an issue in net/vmw_vsock/af_vsock.c. The bug
+is reachable by an unprivileged local user who can connect to an
+AF_VSOCK SOCK_STREAM service (the reproducer used VMADDR_CID_LOCAL).
+We've tested it, and it should not affect any other functionality.
 
-Fixes: d188ba86dd07 ("xfrm: add rcu protection to sk->sk_policy[]")
-Fixes: 8f51dfc73bf1 ("bpf: support cloning sk storage on accept()")
-Suggested-by: Jakub Kicinski <kuba@kernel.org>
-Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
----
-v3:
-- Free the policies at the end of sk_clone() instead of in
-  __xfrm_sk_clone_policy(), so there is no unwind loop (Steffen), and a
-  later failure of bpf_sk_storage_clone() is covered too (the AI review
-  Steffen forwarded). This is the unwind Jakub asked for on Josef's
-  patch for the second case:
-  https://lore.kernel.org/all/20261020192044.7c3a58a1@kernel.org/
-- Hence the new subject; nothing in net/xfrm/ changes any more.
-v2: https://lore.kernel.org/all/179540803323.3139700.5340002553684152759@gmail.com/
-v1: https://lore.kernel.org/netdev/179505710269.3511679.8893709762919027206@gmail.com/
+This bug is tracked at: https://bugtracker.nebusec.ai/f/13843
 
-Both cases reproduce as root in a new network namespace with a loopback
-TCP listener that has IP_XFRM_POLICY set in both directions. For the
-first, failslab fails the second clone_policy() (a stack filter on
-__xfrm_sk_clone_policy() and interval 2). For the second, the listener
-also gets an element of a BPF_F_CLONE sk_storage map, and
-net.core.optmem_max is then lowered so that the child's copy cannot be
-charged. Without the patch, the clones are left behind and the
-namespace teardown warns in xfrm_policy_fini(); with it, it does not.
+We will provide detailed information about the bug in this email.
 
-The patch was written with LLM assistance; we reviewed and tested it.
+---- details below ----
 
- net/core/sock.c | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
+Bug details:
 
-diff --git a/net/core/sock.c b/net/core/sock.c
-index 5675053625e6..d291433749d2 100644
---- a/net/core/sock.c
-+++ b/net/core/sock.c
-@@ -2598,19 +2598,20 @@ struct sock *sk_clone(const struct sock *sk, const gfp_t priority,
- 	RCU_INIT_POINTER(newsk->sk_filter, filter);
- 	rcu_read_unlock();
- 
--	if (unlikely(!is_charged || xfrm_sk_clone_policy(newsk, sk))) {
-+	if (unlikely(!is_charged)) {
- 		/* We need to make sure that we don't uncharge the new
- 		 * socket if we couldn't charge it in the first place
- 		 * as otherwise we uncharge the parent's filter.
- 		 */
--		if (!is_charged)
--			RCU_INIT_POINTER(newsk->sk_filter, NULL);
--
-+		RCU_INIT_POINTER(newsk->sk_filter, NULL);
- 		goto free;
- 	}
- 
-+	if (unlikely(xfrm_sk_clone_policy(newsk, sk)))
-+		goto free_policy;
-+
- 	if (bpf_sk_storage_clone(sk, newsk))
--		goto free;
-+		goto free_policy;
- 
- 	/* Clear sk_user_data if parent had the pointer tagged
- 	 * as not suitable for copying when cloning.
-@@ -2638,6 +2639,8 @@ struct sock *sk_clone(const struct sock *sk, const gfp_t priority,
- 		sk_sockets_allocated_inc(newsk);
- out:
- 	return newsk;
-+free_policy:
-+	xfrm_sk_free_policy(newsk);
- free:
- 	/* It is still raw copy of parent, so invalidate
- 	 * destructor and make plain sk_free()
+__vsock_stream_recvmsg() takes the SO_RCVTIMEO value once and passes
+it by value to vsock_connectible_wait_data(). The helper updates only
+its local copy from schedule_timeout() and does not return the
+remaining time. After a partial dequeue below the MSG_WAITALL or
+SO_RCVLOWAT target, the stream receive loop calls the helper again
+with the original full timeout.
+
+A peer that drip-feeds data just inside each interval can therefore
+keep the receive blocked far beyond the configured timeout. This is a
+receive-timeout contract violation, not a memory-safety bug.
+
+The first patch changes vsock_connectible_wait_data() to take the
+timeout by pointer so the remaining budget is preserved across
+partial reads. The seqpacket call site is updated the same way; it
+only waits once. The second patch adds a tools/testing/vsock
+regression for SOCK_STREAM recv(MSG_WAITALL) against a drip-feeding
+peer. The selftest keeps the data socket open until both sides
+confirm.
+
+Reproducer:
+
+As an unprivileged local user, create a connected AF_VSOCK SOCK_STREAM
+pair on VMADDR_CID_LOCAL. On the receiving end, set SO_RCVTIMEO to 1
+second and issue recv(MSG_WAITALL) for 6 bytes. Have the peer send one
+byte every 0.8 seconds. On an unfixed kernel the recv returns 6 bytes
+after about 4.8 seconds instead of failing or returning partial data
+near the 1 second timeout.
+
+We ran the PoC in a 2 GB RAM x86 QEMU environment.
+
+------BEGIN PoC------
+
+#define _GNU_SOURCE
+#include <errno.h>
+#include <linux/vm_sockets.h>
+#include <pthread.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <sys/time.h>
+#include <time.h>
+#include <unistd.h>
+
+#define TOTAL_BYTES 6
+#define SEND_INTERVAL_USEC 800000
+#define RCV_TIMEOUT_SEC 1
+
+struct test_ctx {
+	int listener_fd;
+	unsigned int port;
+};
+
+static void fatal(const char *what)
+{
+	perror(what);
+	exit(1);
+}
+
+static double elapsed_seconds(const struct timespec *start,
+			      const struct timespec *end)
+{
+	time_t sec = end->tv_sec - start->tv_sec;
+	long nsec = end->tv_nsec - start->tv_nsec;
+
+	if (nsec < 0) {
+		sec--;
+		nsec += 1000000000L;
+	}
+
+	return (double)sec + (double)nsec / 1000000000.0;
+}
+
+static void *sender_thread(void *arg)
+{
+	struct test_ctx *ctx = arg;
+	struct sockaddr_vm peer = {
+		.svm_family = AF_VSOCK,
+	};
+	socklen_t peer_len = sizeof(peer);
+	int conn_fd;
+	char ch = 'A';
+	int i;
+
+	conn_fd = accept(ctx->listener_fd, (struct sockaddr *)&peer, &peer_len);
+	if (conn_fd < 0)
+		fatal("accept");
+
+	fprintf(stdout,
+		"sender: accepted peer cid=%u port=%u, sending %d bytes every %.3f s\n",
+		peer.svm_cid, peer.svm_port, TOTAL_BYTES,
+		(double)SEND_INTERVAL_USEC / 1000000.0);
+	fflush(stdout);
+
+	for (i = 0; i < TOTAL_BYTES; i++) {
+		ssize_t n;
+
+		usleep(SEND_INTERVAL_USEC);
+		n = send(conn_fd, &ch, 1, 0);
+		if (n != 1)
+			fatal("send");
+		fprintf(stdout, "sender: sent byte %d at +%.3f s\n", i + 1,
+			(double)(i + 1) * (double)SEND_INTERVAL_USEC / 1000000.0);
+		fflush(stdout);
+		ch++;
+	}
+
+	close(conn_fd);
+	return NULL;
+}
+
+int main(void)
+{
+	struct test_ctx ctx = {
+		.listener_fd = -1,
+	};
+	struct sockaddr_vm addr = {
+		.svm_family = AF_VSOCK,
+		.svm_cid = VMADDR_CID_LOCAL,
+		.svm_port = VMADDR_PORT_ANY,
+	};
+	struct sockaddr_vm bound = {
+		.svm_family = AF_VSOCK,
+	};
+	struct timeval timeout = {
+		.tv_sec = RCV_TIMEOUT_SEC,
+		.tv_usec = 0,
+	};
+	struct timespec start;
+	struct timespec end;
+	socklen_t bound_len = sizeof(bound);
+	pthread_t tid;
+	char buf[TOTAL_BYTES];
+	int client_fd;
+	ssize_t n;
+	double secs;
+	int i;
+
+	ctx.listener_fd = socket(AF_VSOCK, SOCK_STREAM, 0);
+	if (ctx.listener_fd < 0)
+		fatal("socket(listener)");
+
+	if (bind(ctx.listener_fd, (struct sockaddr *)&addr, sizeof(addr)) < 0)
+		fatal("bind(listener)");
+
+	if (getsockname(ctx.listener_fd, (struct sockaddr *)&bound, &bound_len) < 0)
+		fatal("getsockname(listener)");
+
+	ctx.port = bound.svm_port;
+
+	if (listen(ctx.listener_fd, 1) < 0)
+		fatal("listen");
+
+	fprintf(stdout, "listener: cid=%u port=%u\n", VMADDR_CID_LOCAL, ctx.port);
+	fflush(stdout);
+
+	if (pthread_create(&tid, NULL, sender_thread, &ctx) != 0)
+		fatal("pthread_create");
+
+	client_fd = socket(AF_VSOCK, SOCK_STREAM, 0);
+	if (client_fd < 0)
+		fatal("socket(client)");
+
+	if (setsockopt(client_fd, SOL_SOCKET, SO_RCVTIMEO, &timeout,
+		       sizeof(timeout)) < 0)
+		fatal("setsockopt(SO_RCVTIMEO)");
+
+	addr.svm_port = ctx.port;
+	if (connect(client_fd, (struct sockaddr *)&addr, sizeof(addr)) < 0)
+		fatal("connect");
+
+	memset(buf, 0, sizeof(buf));
+	if (clock_gettime(CLOCK_MONOTONIC, &start) != 0)
+		fatal("clock_gettime(start)");
+
+	n = recv(client_fd, buf, sizeof(buf), MSG_WAITALL);
+
+	if (clock_gettime(CLOCK_MONOTONIC, &end) != 0)
+		fatal("clock_gettime(end)");
+
+	secs = elapsed_seconds(&start, &end);
+
+	fprintf(stdout,
+		"client: recv(MSG_WAITALL, %d) returned %zd after %.3f s (timeout=%d s)\n",
+		TOTAL_BYTES, n, secs, RCV_TIMEOUT_SEC);
+	if (n >= 0) {
+		fprintf(stdout, "client: bytes received:");
+		for (i = 0; i < n; i++)
+			fprintf(stdout, " %c", buf[i]);
+		fprintf(stdout, "\n");
+	} else {
+		fprintf(stdout, "client: errno=%d (%s)\n", errno, strerror(errno));
+	}
+
+	if (n == TOTAL_BYTES && secs > 4.0) {
+		fprintf(stdout,
+			"RESULT: bug observed. Finite SO_RCVTIMEO did not cap total wait time.\n");
+	} else if (n > 0 && secs < 2.0) {
+		fprintf(stdout,
+			"RESULT: behavior looks fixed. Partial data returned near the original timeout.\n");
+	} else {
+		fprintf(stdout,
+			"RESULT: inconclusive. Re-check timing, transport availability, or system load.\n");
+	}
+
+	fflush(stdout);
+
+	close(client_fd);
+	pthread_join(tid, NULL);
+	close(ctx.listener_fd);
+	return 0;
+}
+
+------END PoC--------
+
+----BEGIN crash log----
+
+Unprivileged user (test_user, CapEff=0), VMADDR_CID_LOCAL:
+
+listener: cid=1 port=3381025544
+sender: accepted peer cid=1 port=3381025545, sending 6 bytes every 0.800 s
+sender: sent byte 1 at +0.800 s
+sender: sent byte 2 at +1.600 s
+sender: sent byte 3 at +2.400 s
+sender: sent byte 4 at +3.200 s
+sender: sent byte 5 at +4.000 s
+sender: sent byte 6 at +4.800 s
+client: recv(MSG_WAITALL, 6) returned 6 after 4.816 s (timeout=1 s)
+client: bytes received: A B C D E F
+RESULT: bug observed. Finite SO_RCVTIMEO did not cap total wait time.
+
+-----END crash log-----
+
+Best regards,
+Ruide Cao
+
+Ruide Cao (2):
+  vsock: preserve receive timeout across partial reads
+  vsock/test: add stream MSG_WAITALL receive timeout test
+
+ net/vmw_vsock/af_vsock.c         |  14 ++--
+ tools/testing/vsock/vsock_test.c | 112 +++++++++++++++++++++++++++++++
+ 2 files changed, 119 insertions(+), 7 deletions(-)
+
+
+base-commit: cc7fe6e741730fef549e484379281736d32746f0
 -- 
-2.43.0
-
+2.47.3
