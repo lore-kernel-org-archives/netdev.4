@@ -1,56 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.193
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.198.224.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795761469;
-	b=QohUNSQxlI9/QxR5gs0A1lYlgefGMCfmztuddDT9vkblnymqK6TaBiBqnAUhuVCcOElL
-	 cuO8zgRK3XlTPB2nFNAdB6DVFj87WTGmJ3eRR/1zh7mma+8SPTWbDOJz1/n1W2QZzwa6W
-	 pSlt8AXQsX2AINgCDWKXc0Q5/1Ss9HokdjNELR2/RKccyPkHEo1k0N2QFHTAjz40PbbQ/
-	 u36pHoY5iA2FnSg/O/pkZElBCiVRF6nFMMg0/FeWNTNc8BGDDim/yOgPaooejvfTxfH01
-	 SiCsGHFOuctBNUD+5b2fqAYCMuMWH2s1I8vf7t9LEyjkMPoGLsTpqIA7q6Gfok27WLw==
+	t=1795761833;
+	b=vYLY87WHD7IGvf9hx6f+RMYctt4dK5ijGMPbNKUxnH50qb4exfiVSfmLLYAIW1s34E8k
+	 YpDHQ9RHc2xN8uWaAHoFBHNJH3RCedkTIOJN8+c8h8ZBSGGmOxqrQ1jcaqtK0dHhheULT
+	 B/cbuMf/7RnZJQxcPqZ54VGnjRKckIletbcjG6LjT/65M2FvSzDwYHeLNFrLFUNsu+B1R
+	 UyRFd8awWHPjoSfzoIVke7kJOS+ZyGWV4C4l8RWytn8VNk88M7V9tg4di5s4xLmdRRyZi
+	 DREehEe9WFmf6Aqh6vKM/pXuZT8qfdMhNZcl/9niQlEnKDerfc04ehb2xAyAdMFcgOA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795761469;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer;
-	bh=E2wmtb0wcDKKCs321oPWCjIyUWd2kHhLtPftKss7IzM=;
-	b=sh4rhDvbzdCIlHKg9KFMKuLbCzS9M8T228UGu1vyyTBhO8Q0mC1jD2TJvLPIw+Sb6efM
-	 UmHACRW4yvWXp5SFOUJuBqoYT++eYCCQqheFr6OQ/cNaChXiiUcjBJQ34DQd6T3p8O0+D
-	 ZYaeSG3kqUpqpOlt1fk94UmQ7ulPxvwYJ6ul57yEd845wJy5ah+/oLFPtISK7Z+In7613
-	 kARrY2ukBdr9inU0YidVKwc5FkAOgOBFPsMq+Cz4I/dBZ0pvVM1rbtB/XQT/2s2uqwyAY
-	 WhrYMVNZP9G27AQ10167CYNmwx9gTxFLIYJFOk3G1Rxp8N1xmmDyIL2AxQKautYk5Yw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795761833;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:
+	 Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Date:
+	 From:To:Cc:Subject:Organization:In-Reply-To:References:Message-ID:
+	 X-Sender:User-Agent:X-Spam-Status:X-Spam-Checker-Version:X-purgate-ID:
+	 X-purgate-type:X-purgate;
+	bh=Qmr8CnMea5BRjNQuvuiVBUyRp0f079wxoF6k2Pj+JXM=;
+	b=l1imyRpX38krddh8FsNFjqhRZo7qBqGAvdU32mb9x7I8wfKffYPnumk/U+E9Wdcrs6ws
+	 eZYVIN3H4GogYtnpEGIosOjsKRtkDs6TRKyNVePU3VmwINxuY2Qk2OUpqdHbe+TBxDjGD
+	 SnBBkQEWUHNdqL75yqEdDagSkwtnaZl8IQxCKYJy22wZcfdF1UYiI/HdX5dVHGNjOewnN
+	 ny/iEfcvcu4T7F/ApfUwoxlim+SmJmd/ZEPholqrS830YVsYBzU53/2t3os5Gy3tZWifQ
+	 DXWPK9iToOQVnpj1Tq+GwbRDpBaT7rvmaIAUD7K70zgEjKalBpNvWh+bv0FcvbuRE9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=TvhJ11L1;
-	arc=none smtp.remote-ip=95.215.58.193
-Received: from mta1.migadu.com (out-193.mta1.migadu.com [95.215.58.193])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=dev.tdt.de;
+	spf=pass smtp.mailfrom=dev.tdt.de;
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=ApEXhZO6;
+	arc=none smtp.remote-ip=91.198.224.70
+Received: from mxout70.expurgate.net (mxout70.expurgate.net [91.198.224.70])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE2ED606A31E
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:37:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AE2ED606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35500606A31E;
+	Fri, 27 Nov 2026 06:43:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35500606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dev.tdt.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.tdt.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=TvhJ11L1
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=hbTakbmtjSC1ddEG1VRWcdm081coIzduXAdgrdbQ2N8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795761466; v=1; x=1796366266;
- b=TvhJ11L1NYTdAaLzhMpp0g+J72SYeZc8KzWekvqX+2lNy3bsHrs7yNcxJ6mt6yzN0N9Mes1P
- qdFFKkHOMTd2GnO1A77FZ/UG9vicGi+lWNU1OyEYHOp3KbP2+8e/KkgonRAtFII177kMM3nqCY+
- oeWlRXdsMRQMJSNBCSoBAFcg=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 6e902a76121439d6;
-	Fri, 27 Nov 2026 06:37:46 +0000
-X-Mizu-Trace-ID: 6e902a76121439d6
-X-Migadu-Flow: FLOW_OUT
-From: Hangbin Liu <hangbin.liu@linux.dev>
-Date: Fri, 27 Nov 2026 14:37:28 +0800
-Subject: [PATCH net-next v2] bonding: check XDP support before enslaving
- changes state
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=ApEXhZO6
+Received: from [194.37.255.9] (helo=mxout.expurgate.net)
+	by relay.expurgate.net with smtp (Exim 4.92)
+	(envelope-from <prvs=68051b93b8=ms@dev.tdt.de>)
+	id 1xWpgQ-001KgP-R3; Fri, 27 Nov 2026 07:43:46 +0100
+Received: from [195.243.126.94] (helo=securemail.tdt.de)
+	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ms@dev.tdt.de>)
+	id 1xWpgP-001BEM-SA; Fri, 27 Nov 2026 07:43:45 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.tdt.de;
+	s=z1-selector1; t=1795761825;
+	bh=Qmr8CnMea5BRjNQuvuiVBUyRp0f079wxoF6k2Pj+JXM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ApEXhZO6OZJSKMtiljyK8rHIIC3nEeO+0PaM7ljQCF561QKjL9AVs1T2C0RSUYqvP
+	 syDWtUY9xj6y4ScuVBe6OTmIIt8phWEgj4plewFAUhcIlcqjfKXprUONruIAlsmGXz
+	 z/r3XV1DEjOEwUspRq6AtqzQZ0wwTqa0Photx+wjc+76iTngyoQTViY2zBI0bsh2g3
+	 s/izRkefOWxPFotu2G9Cd54qGhjW80L/EJuNcXR9ynYeo1ES348Is4RFV8a+ScEL5b
+	 6mDypNUx65ei827NY1Mk0FHzEW5uGCtRz8cgiIdJ3zfRQCDPlxY+hvXreDvzXH6yas
+	 8nNS3DsmGKU3g==
+Received: from securemail.tdt.de (localhost [127.0.0.1])
+	by securemail.tdt.de (Postfix) with ESMTP id 2D505240041;
+	Fri, 27 Nov 2026 07:43:45 +0100 (CET)
+Received: from mail.dev.tdt.de (unknown [10.2.4.42])
+	by securemail.tdt.de (Postfix) with ESMTP id 098C5240036;
+	Fri, 27 Nov 2026 07:43:45 +0100 (CET)
+Received: from mail.dev.tdt.de (localhost [IPv6:::1])
+	by mail.dev.tdt.de (Postfix) with ESMTP id 838522AFCA;
+	Fri, 27 Nov 2026 07:43:44 +0100 (CET)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -60,165 +71,72 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-bond_xdp_fix-v2-1-1e05818a41ef@kylinos.cn>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/21NSw6CMBC9Cpm1NbQFFFfewxAiMMiomZK2Egjp3
- S24dfXy/is4tIQOLskKFidyZDgSdUigHe78QEFd5KBSVUipMtEY7uq5G+ueZqH7HJsi1xFTiJX
- RYpT3uRswesE4e6h+jvs0T2z9trZlB3Le2GV/nuTe+H8ySSEFFqfyrEuVaZVdX8ub2Lhjy1CFE
- L5dGfHRxQAAAA==
-X-Change-ID: 20261124-bond_xdp_fix-3f5eb6533f50
-To: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
- Jesper Dangaard Brouer <hawk@kernel.org>, 
- John Fastabend <john.fastabend@gmail.com>, 
- Stanislav Fomichev <sdf@fomichev.me>, 
- Nikolay Aleksandrov <razor@blackwall.org>
-Cc: Hangbin Liu <hangbin.liu@linux.dev>, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
- Hangbin Liu <hangbin.liu@linux.dev>
-X-Mailer: b4 0.16.0
+Date: Fri, 27 Nov 2026 07:43:44 +0100 (CET)
+From: Martin Schiller <ms@dev.tdt.de>
+To: netdev-bot+sinfo@kernel.org
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>, Lin Ma <linma@zju.edu.cn>,
+	Duoming Zhou <duoming@zju.edu.cn>,
+	Xiyu Yang <xiyuyang19@fudan.edu.cn>, Xin Tan <tanxin.ctf@gmail.com>,
+	linux-x25@vger.kernel.org, netdev@vger.kernel.org,
+	Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>,
+	Shuai Liu <847807867@qq.com>,
+	Krystian Kaniewski <krystianmkaniewski@gmail.com>,
+	syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com,
+	syzbot+9faa82ae2e94c5c7d2ef@syzkaller.appspotmail.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2 0/2] net/x25: don't call lock_sock() from softirq
+ in x25_kill_by_neigh()
+Organization: TDT AG
+In-Reply-To: <179576123458.3294.15178511049839805716@kernel.org>
+References: <20261127-x25-kill-by-neigh-v2-0-c7cdcc9f1320@dev.tdt.de>
+ <179576123458.3294.15178511049839805716@kernel.org>
+Message-ID: <027c20e8213255a86f182d089390b091@dev.tdt.de>
+X-Sender: ms@dev.tdt.de
+User-Agent: Roundcube Webmail/1.3.17
+X-purgate-ID: 151534::1795761826-3B6D6C46-77C7B7B9/0/0
+X-purgate-type: clean
+X-purgate: clean
 
-From: Hangbin Liu <liuhangbin@kylinos.cn>
+On Fri, 27 Nov 2026 07:33:54 +0100, netdev-bot wrote:
+> - Whether the issue was actually triggered, or is only theoretical
+>   (e.g. found by LLM and not proven at runtime). If it was triggered
+>   please include the symptoms, like the stack trace or kernel messages.
 
-The XDP capability checks in bond_enslave() - ndo_bpf/ndo_xdp_xmit
-presence and whether the slave already runs an XDP program - run only
-after the slave has been opened, linked and published to the
-datapath. On failure the slave may already be bond->curr_active_slave
-or reachable through bond->slave_cnt and the upper device list, so a
-lot of state has to be undone, and bond_xdp_xmit() can observe the
-slave before its capability was ever verified.
+Patch 1 fixes a triggered issue. syzbot hits it with its reproducers,
+see the two reports in the Closes: tags. It also reproduces in QEMU
+with two lapbether devices on a veth pair: when the link goes down
+with a call up, an unpatched kernel with lockdep and
+DEBUG_ATOMIC_SLEEP reports (trimmed):
 
-Move both checks into the validation section at the top of
-bond_enslave(), before the first state change, so a rejected slave
-returns directly with nothing mutated. bond_xdp_set() repeats the
-same two checks for every slave, so factor them into a common
-bond_slave_xdp_check() helper used by both paths.
+  WARNING: inconsistent lock state
+  inconsistent {SOFTIRQ-ON-W} -> {IN-SOFTIRQ-W} usage.
+  x25test/26 [HC0[0]:SC1[1]:HE1:SE0] takes:
+  ffff888000a81218 (sk_lock-AF_X25){+.?.}-{0:0}, at: x25_kill_by_neigh+0x50/0x99
+  ...
+  BUG: sleeping function called from invalid context at net/core/sock.c:3908
+  in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 26, name: x25test
+  Call Trace:
+   <IRQ>
+   ? lock_sock_nested+0x3e/0x6c
+   ? x25_kill_by_neigh+0x50/0x99
+   ? x25_lapb_receive_frame+0x2d9/0x2f7
+   ...
+   ? lapbeth_napi_poll+0x30/0x47
+   ? __napi_poll.constprop.0+0x1f/0x107
+   ? net_rx_action+0x134/0x26c
+   ? handle_softirqs+0x14c/0x2e5
 
-Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
----
-For Sashiko:
+With the series applied, these splats are gone; the tests are
+described in the cover letter.
 
-please ignore the bond's promiscuity/allmulti/ns maddrs leak issue
-when xdp setup failed. It will be addressed in another patch.
-
-please ignore the no unwind for bond_3ad_bind_slave if
-dev_xdp_propagate failed. It will be addressed in another patch.
----
-Changes in v2:
-- move the duplicate checking in bond_xdp_set to the new check function.
-- Move the bond_xdp_xmit() fix in another patch and target to net (sashiko)
-- Link to v1: https://patch.msgid.link/20261124-bond_xdp_fix-v1-1-e67983924324@kylinos.cn
----
- drivers/net/bonding/bond_main.c | 58 ++++++++++++++++++++---------------------
- 1 file changed, 29 insertions(+), 29 deletions(-)
-
-diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
-index de933245b12b..757ab7fa63ee 100644
---- a/drivers/net/bonding/bond_main.c
-+++ b/drivers/net/bonding/bond_main.c
-@@ -1866,6 +1866,26 @@ static void bond_ether_setup(struct net_device *bond_dev)
- 	bond_dev->priv_flags &= ~IFF_TX_SKB_SHARING;
- }
- 
-+static int bond_slave_xdp_check(struct net_device *bond_dev,
-+				struct net_device *slave_dev,
-+				struct netlink_ext_ack *extack)
-+{
-+	if (!slave_dev->netdev_ops->ndo_bpf ||
-+	    !slave_dev->netdev_ops->ndo_xdp_xmit) {
-+		SLAVE_NL_ERR(bond_dev, slave_dev, extack,
-+			     "Slave does not support XDP");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (dev_xdp_has_own_prog(slave_dev)) {
-+		SLAVE_NL_ERR(bond_dev, slave_dev, extack,
-+			     "Slave has XDP program loaded, please unload before enslaving");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	return 0;
-+}
-+
- void bond_xdp_set_features(struct net_device *bond_dev)
- {
- 	struct bonding *bond = netdev_priv(bond_dev);
-@@ -1955,6 +1975,12 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
- 		return -EPERM;
- 	}
- 
-+	if (bond->xdp_prog) {
-+		res = bond_slave_xdp_check(bond_dev, slave_dev, extack);
-+		if (res)
-+			return res;
-+	}
-+
- 	/* set bonding device ether type by slave - bonding netdevices are
- 	 * created with ether_setup, so when the slave type is not ARPHRD_ETHER
- 	 * there is a need to override some of the type dependent attribs/funcs.
-@@ -2318,15 +2344,7 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
- 		unblock_netpoll_tx();
- 	}
- 
--	if (!slave_dev->netdev_ops->ndo_bpf ||
--	    !slave_dev->netdev_ops->ndo_xdp_xmit) {
--		if (bond->xdp_prog) {
--			SLAVE_NL_ERR(bond_dev, slave_dev, extack,
--				     "Slave does not support XDP");
--			res = -EOPNOTSUPP;
--			goto err_dec_slave_cnt;
--		}
--	} else if (bond->xdp_prog) {
-+	if (bond->xdp_prog) {
- 		struct netdev_bpf xdp = {
- 			.command = XDP_SETUP_PROG,
- 			.flags   = 0,
-@@ -2334,13 +2352,6 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
- 			.extack  = extack,
- 		};
- 
--		if (dev_xdp_has_own_prog(slave_dev)) {
--			SLAVE_NL_ERR(bond_dev, slave_dev, extack,
--				     "Slave has XDP program loaded, please unload before enslaving");
--			res = -EOPNOTSUPP;
--			goto err_dec_slave_cnt;
--		}
--
- 		res = dev_xdp_propagate(slave_dev, &xdp);
- 		if (res < 0) {
- 			/* ndo_bpf() sets extack error message */
-@@ -5735,20 +5746,9 @@ static int bond_xdp_set(struct net_device *dev, struct bpf_prog *prog,
- 	bond_for_each_slave(bond, slave, iter) {
- 		struct net_device *slave_dev = slave->dev;
- 
--		if (!slave_dev->netdev_ops->ndo_bpf ||
--		    !slave_dev->netdev_ops->ndo_xdp_xmit) {
--			SLAVE_NL_ERR(dev, slave_dev, extack,
--				     "Slave device does not support XDP");
--			err = -EOPNOTSUPP;
-+		err = bond_slave_xdp_check(dev, slave_dev, extack);
-+		if (err)
- 			goto err;
--		}
--
--		if (dev_xdp_has_own_prog(slave_dev)) {
--			SLAVE_NL_ERR(dev, slave_dev, extack,
--				     "Slave has XDP program loaded, please unload before enslaving");
--			err = -EOPNOTSUPP;
--			goto err;
--		}
- 
- 		err = dev_xdp_propagate(slave_dev, &xdp);
- 		if (err < 0) {
-
----
-base-commit: ccb81d5e317b0ae2cc66ca1c628c0ca907928f94
-change-id: 20261124-bond_xdp_fix-3f5eb6533f50
-
-Best regards,
---  
-Hangbin Liu <liuhangbin@kylinos.cn>
-
+Patch 2 is theoretical. The x25_sendmsg() and x25_output() cases were
+found by the netdev AI review of v1, the x25_recvmsg() case by Krystian
+by code inspection. The window, a CLEAR or a link failure handled in
+softirq while the socket lock is dropped, is narrow, and I have not
+reproduced it at runtime.
