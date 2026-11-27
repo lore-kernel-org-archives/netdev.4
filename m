@@ -1,104 +1,155 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.48
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795756770;
-	b=VG+45FS4Dg6o/PkiOBmJo+ekGf3CNcsUilqm0/AC1eikZIMxeMo+lbXHTjx54WnNLesr
-	 PORdZ6g/mjHIZXWkp1ul2kzs6wnxcYLpXsBvmN+S8G1XPvTcX8j8Wqa81rHHIPCt8ELVn
-	 Pu5bFWL19Lhitw7t7LX0MhvXmLrpraYvtXhcF9XjmSIfkQxX6s3MOvOst5ToCIMv3l7VN
-	 uSXu6euY+dTFQ93I9qawW41L4MCNnh5A5/TAot7mt9m87lULUKhVLf7HDmoDcvD17+eBW
-	 soRj3D8044GFLs2i+xulQCzSOQmvnUY9btv0B8AHdgq/rQHI+XR1gjGqPuCh/A7g8OQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795756770;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=rNWMVT2gHiNq7DFh40B5BMuJHnSTLGiieTCWA+72rZ0=;
-	b=pPs0IMvP6/MAzRtv5XhV8Kdm0/YpPvT0LlKVGCc5ts2uWp8Zyb/oqJYhmmKndmfTNUFn
-	 gtXLMNHfN3Pd7AXCRxHfK379zV9tJG8OSrCXiIHRFqR6v12YBswxEwf1jYZqLFxPj66iB
-	 uPSI6uU41bnMGBAiZPzDbe6xikMM22/424edXMsbtkeu/0RW5WD2cEJHn0dTatyWr6lK9
-	 W6kz5wyr/BnUE+AK3cGvC5dsMsVf6IcC2iqJmqJztMjKO/QcHwqFliZF0G0mDZTXqXXRb
-	 rd2O40wy/VpC2AYxLWu9VPIIC7nVqGNMU0ATKEkleYM1dEwU4rjvK9ktIio/I025v6A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nebusec.ai;
-	spf=pass smtp.mailfrom=nebusec.ai;
-	dkim=pass header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=LczT+37k;
-	arc=none smtp.remote-ip=74.125.82.48
-Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.9
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795757033;
+	b=MM7gRhmVykIPbxHMHZj/u/sxJENgZchm2wEVXlmZxMkRqz7wtSSJYSnamTxFsvbeVTOw
+	 fhj5RWNk9Fi4LcCWqnzb/ohXyw3zHGLen87NjjXy+KY6TtQwNEd8nGLQiESvNo/2o1AvL
+	 U/RCPsyk4E1lHktjpatXE+sXzFvR0/dHlkOdXdGpYv5EOQ29oAGQ6OgfxVOtiIF9nlMbk
+	 Jzrvx+XD1Hsi6UB7cnVoLLKdg4YbKnew4siXM26ynAloiWNLvYW8IQaSjnVC+55vwEgT6
+	 b/Rjce5DBOqYwqZFYgOGC20KHX4ApNQ6c42TaJRga+WHsGVoMSkv7ULxRae6xmDYedw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795757033;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 user-agent:x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=/zqAtfkU/n51gvBXvEZZc8pLCo2U9xBmnyhU2rPbMZ0=;
+	b=VmHwoZwnJOMQrbkqmDMLRKano8gIjM9W4EDxUjtSVzI8mzHYjNpKQOVj9sH14gjlj3ni
+	 R3C1l9P91JtDUkou+TmJLpiXhNfbcnLv4Hzm4QbxzXulZIzzVr18vheyuhxBlLGtyjN85
+	 y2GTa4qLqb1cwuwiIx3J2tLCKfOixof2EbxfeJCssZa1B43JymsXAwbsKVZ8u/fV++1E1
+	 00TuuxT6l9Cu5cQVU7FJ/5M0zuMIh/yUNL5JgemHM+cnBJwTz7tkY9Xss9gb7xpIxz8jZ
+	 EaSqbgiqsRxAi/QTBEvnb4faUWhsSjB+zwJPKu3fsI0XBlDEbx6B9daKxIWsc7W8K6w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=selector1 header.b=U2OWVv0c;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.9
+Received: from CH5PR02CU005.outbound.protection.outlook.com (mail-northcentralusazon11012009.outbound.protection.outlook.com [40.107.200.9])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90617606A324
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:19:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90617606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=nebusec.ai
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nebusec.ai
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0916606A31C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:23:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0916606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=LczT+37k
-Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-1a2af4c8d00so8035340c88.0
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 21:19:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nebusec.ai; s=google; t=1795756769; x=1796361569; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rNWMVT2gHiNq7DFh40B5BMuJHnSTLGiieTCWA+72rZ0=;
-        b=LczT+37kEhKqC00v04Qw/XtDoopSG46P+zrcI0s7xNrWMTqJY+2s+CW0L+nDZGpdhQ
-         IGWWa62Cr0t/nsDs6gsg9UyhymRICF2boGlufPIMKzZm38Ik2p0f3SE6D8w4X24Z5pUx
-         LoA4HgFyz9wxr1JRNG2tpb8iXqoAM/u6LYjcEGxWKlHIThAB+1T6PSUreonM0Wq7rfNp
-         ypWVMKNFiLLgm0I6R7mwgWYo6tPh0xHI6Ksw0fcKDrP9zVRQnNW8CCSyMouaPKdREKju
-         C45EbBlB+hiPPA0mkA6HeOvrdlyKhj3AJtwTygJFEJF8/nkK351vuafShJlhVL7UQYLW
-         uymw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795756769; x=1796361569;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rNWMVT2gHiNq7DFh40B5BMuJHnSTLGiieTCWA+72rZ0=;
-        b=wc8D9sE9m+NJY1A1qIltzm3xdAwLWj2uPOSZzzCc6NRagrJVPEPbLMVX0MCSJ6WaBx
-         /iB+bVXFt5ebS7zsESb6EReOayxY9cI0H6aPoQ8MYPZxIGiW+wEmaOBuWyQJDpqZReLw
-         WwnZ0UxK5ANZNa863PnJ/GfciYs6acAIYWY+nGDsgP/RpgcONuv9Hq8+ykyf7YdO6nmY
-         8NrZx1q8To+9z3XYT0Mx6ilImSnYnNEYDVu7sL+/8jZUULdVQ8NNJooEmWi1OH+1cUX2
-         ax07QER/KPuAiY4h6B8fKgydJEudEhH5yPtjG0jokKEl7kh5RGJ8o+XIINqOryf8qSGh
-         VKxA==
-X-Forwarded-Encrypted: i=1; AL+hErGxkfhgQOXnOxgrxn/d7bAuVMC6qCPPv8/WP8+ylMhNXhxD3QHjFnNJ1z4RuM85RJ9ZWb3a8SE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/uhA2x9P0WpUe5ifVGJShf5zT7vok/7zdeDUvTCD/7fq4L4+r4
-	hPKfToyjtf1eZ9CsbVZdhKQp3NwkTG7SUeImMqROAxS2pHD6PH6VbP/gTK3l6uhs1yPE
-X-Gm-Gg: AZFdTZeKjdF2dIsbOU2nhFMCu+fgQn4++XcNVxwnKUdn1WjjSZsegnEonyQWO+IZRMN
-	Q4Svyca4jNQZN/zH2VltZhbXSDiX+VvNSwy5zaItK9SqmtrbBxZvNnjhZY12pLZcQmfQZcTfiPR
-	beEIJf84cq2kgb6mH13gSIomxW74MNLY1plxQ9fLBLZtTie0rCNOGylvivNvqNhLDDuaKW+DryV
-	qCtNXSGSLbX/Cjau+iK7U+pdfz7XhbAIDhxgt4UH6c6pgpm3WLpB6jvBE+OnKCMApTCnHb+RKLv
-	eDldyQwMN4QsJdSmpodtqFo4K9x2hbEkPo4DdXvVtJbqoNM4jxrY9yN9YqTCE9jy6PwwBpp0kMi
-	sqCGkdY9hZQPMksPnY7nHiwftIN87KSbj7igv1p+NajDoVwwPj4jIW9nfK9j3KsvjAlvGzfc/Ya
-	TMhXed7guFg8NWdjvhPdCWBqQCq4IpBLkuqFykFoyMlcOoHNTad/8egbyImazyIDyrkS7ZMEMei
-	hCMc/qrCqKGtp8WFoINMqCeKJ8EokFblmq7wUKS2aEYuggQ91d2dC8tPlfXy/ekTP1WxP321I0h
-	fK5wA44rcqR7h3bOYM9SnW1rzkJ39GtV4Qd5osQ=
-X-Received: by 2002:a05:7022:b044:10b0:181:73fc:e53 with SMTP id a92af1059eb24-1b5568e7699mr26233910c88.29.1795756769479;
-        Thu, 26 Nov 2026 21:19:29 -0800 (PST)
-Received: from enjou-Legion-Y7000P-2019 ([174.136.206.51])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd40c5sm82950093eec.10.2026.11.26.21.19.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 21:19:29 -0800 (PST)
-From: Ren Wei <weir@nebusec.ai>
-To: virtualization@lists.linux.dev,
-	netdev@vger.kernel.org
-Cc: sgarzare@redhat.com,
-	bobbyeshleman@meta.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	willemb@google.com,
-	horms@kernel.org,
-	arseny.krasnov@kaspersky.com,
-	vega@nebusec.ai,
-	caoruide123@gmail.com,
-	weir@nebusec.ai
-Subject: [PATCH net 2/2] vsock/test: add stream MSG_WAITALL receive timeout test
-Date: Fri, 27 Nov 2026 13:19:14 +0800
-Message-ID: <503c1d5538f5b41f8eda756f5ea4491f0bd44518.1795591531.git.caoruide123@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <cover.1795587333.git.caoruide123@gmail.com>
-References: <cover.1795587333.git.caoruide123@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=selector1 header.b=U2OWVv0c
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=g1Voh7ldVXeeVs6Dke0hZQDATVSnJMUunXKtDaEtI+AHdBUavjQ9lJKaH5Vk6Xp1YFsA9N4l+lYIb++9/1Gjc9+Q7CQW6T066uLjk16CGdKXadvfbuDumxojUkYkOb+tmcIg6Z8snv+QHED4ramGqwYLwG9gJxNuSopBcLNR1oDiUMj3x3mrJIyTwLdsLCH6TOZCOqxqZHZQcAIwB3zS3KK5pR1n6l07TTbB4asOlwlmzkjTtgoXIUunP4lGrIG1ncE0uyqf9LkO08wNNa2eLir/69+Re5H0dBU9cjrcIlsyZowv741F/3ToHRkFj8lxqAL8rHBMTz2hf1MOXdzVRA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/zqAtfkU/n51gvBXvEZZc8pLCo2U9xBmnyhU2rPbMZ0=;
+ b=tdyQDSgqssF9LUPoOqO6zrTR8bRhq7SmB3TmdxKFLWy8JFPdH3j6h5SCY4avK2iUPjkCk2N2r4OVFQ28vcDeR5Y9xEAh/n4hxG4MdpzR6WPsPTwPmvidW+DH1UB9szRmk+IHKatMzarvUZ+0Lcq7pQDw3H0QazEDAcps2yMPZenwcsaXwAszWKEuIw1yVxM9LeEmxwp/FHpQNv0H1Ho3iHKOSr7f8z1YX941bM2CWc0Zx5lRBGxx6nPllLmXhcJ99WiaThNXc6h0LnJuFDBzM4d2NyStRKYw21nbOS2ZkF+vL4evOaeVm3IhOVoSxm+b3lyK5s/ddf1eYcnonkEo/Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=microchip.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/zqAtfkU/n51gvBXvEZZc8pLCo2U9xBmnyhU2rPbMZ0=;
+ b=U2OWVv0ctG0WjS2YCYnQNs1GEPfVDfeNlbkmGOe93zZbQPBO70ThBgtRRqeKY/L/uu8MyxvFXOMKs4R5h/1yzEwOsCalp55io4Rk2tmGegWxUz0NJZY4AmexqDUYjDr/u6MsjXXoy8l7rV/wFtFFd2o39Eu6T9O3mBQ8CTsgkcE9DZlT+CdOsPxuvDzEXY1/SdMUpI85yWWroXaKGInyUDgQIZPCUKTc5b6/BxTLaPlJczX4mzBgqOFFsm7E+b+wNGZBkhMTjpcZ3/L8094s7lIc+rhnbtwcIeUS3cp2YXqKI6krvciUn5kxoCa7ePUUe1HPmKkYOOZ07bwuthwZHw==
+Received: from PH7PR11MB8012.namprd11.prod.outlook.com (2603:10b6:510:24b::7)
+ by DM4PR11MB8180.namprd11.prod.outlook.com (2603:10b6:8:18d::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
+ 2026 05:23:47 +0000
+Received: from PH7PR11MB8012.namprd11.prod.outlook.com
+ ([fe80::71b7:7099:a6b4:4bbf]) by PH7PR11MB8012.namprd11.prod.outlook.com
+ ([fe80::71b7:7099:a6b4:4bbf%4]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
+ 05:23:47 +0000
+From: <Parthiban.Veerasooran@microchip.com>
+To: <netdev-bot+sashiko@kernel.org>
+CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <hkallweit1@gmail.com>,
+	<linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
+	<UNGLinuxDriver@microchip.com>
+Subject: Re: [PATCH net-next RESEND v4 1/4] net: phy: microchip_t1s: fix
+ collision detection on PLCA status change
+Thread-Topic: [PATCH net-next RESEND v4 1/4] net: phy: microchip_t1s: fix
+ collision detection on PLCA status change
+Thread-Index: AQHdfBJLeS4RQTRLUkqgGtNTuXLgWrc+wyCAgAKjrgA=
+Date: Fri, 27 Nov 2026 05:23:47 +0000
+Message-ID: <c40abb19-1d4a-4e46-bb96-8d4cdfef2333@microchip.com>
+References: <20261124124930.485323-2-parthiban.veerasooran@microchip.com>
+ <179561192599.3135.16135249584970983112@kernel.org>
+In-Reply-To: <179561192599.3135.16135249584970983112@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+user-agent: Mozilla Thunderbird
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PH7PR11MB8012:EE_|DM4PR11MB8180:EE_
+x-ms-office365-filtering-correlation-id: fbddb1c0-03d4-4ca4-4a30-08df4c469cd6
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|38070700021|10067099003|56012099006|261026121527099003|261026140227099003|261028144727099003|261022105027099003|261021121427099003|261102123227099003|261009223027099003|22082099003|18002099003|11063799006|4143699003;
+x-microsoft-antispam-message-info:
+ i302eCxRSYQ+80k7VMyb/jFe8UXd/c279bFA5GTQy0QxO4oi+o1xTWAhk11LfciRFepa1Iivg5RQvQ80qBknXNoi2+btlrXyOmZaJcSCzjhM4MsP6Sqp7k+03/fqr3wDDwHm7yJW9d3sX8foGIY1mF2nV8Yuj8En7mtFYcLKGx+uBwQM/SlncdS7XJKsqSualqDrkzNA5ScS66Gs/fBh9AQXIkm+vuaVbO/qDgrp7tW59hX0/QSL4NlZiRsQDTudSoRbcnRRLmWDX9X/Jl08D1KYupFiaknOLHClQpXLQDbWtg1r9/rTP9PZOIxy0QfY1zqU32LmfK4d46oAajneQ+gSTs1bRflX7g3tZ7nrSgF4Kmxyf3C3k+8AvU73Nah1h0WBJRdapY3AYgIeZBnIgzoBtRChh2ZpXLbEpHpZ+rxos/vEucnuc2ZV0MFiTaABNWMEnWVOeyTUz0lnobUJvULWH6tb34Ftyq1gjPqvDIQDoZ1A4CGJ/ygxuuwZf3W2XTsjJ70c5LSr81CORsk7VqQklU2xsk4j2ahSM9ST98y1UmuJrKJQp0JWIFzkOJCQ+N1TheBFG2c3a2av5xzFWdCqRUqpw39WywVniLDQgJWodw6oGybrVytQfSoP757uL25cn9hiyQx8kHGKGX8/NEkA9XCDGIBO+nehwYB2mCE=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR11MB8012.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(38070700021)(10067099003)(56012099006)(261026121527099003)(261026140227099003)(261028144727099003)(261022105027099003)(261021121427099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?utf-8?B?cDlaVS8wMEI1THFhY2Y1RW5Ca3hhbTJoK2kvOWNiSUhTblplQ045UUtXTWlO?=
+ =?utf-8?B?d1laT05wWm90ZmZrTWozUjhld1g0UE1zcXdNRnRCRnVjSHFGWVg1QVdqeXFN?=
+ =?utf-8?B?citEWWc3WllvL05zTHhleE1VRlRlWldvRnNpUThGVDVYb24wZFhxdzR1V3hH?=
+ =?utf-8?B?UGhiT3kzM0V6S0RLV21qcjJ6ZG9Ya0gvVGkzUHpZemNGSS9Mejc1VXg2UlVl?=
+ =?utf-8?B?TzlJaUg2TzJ4Q1I5RStpaTVFTWdKdlVwbjZsS0VxQThLM3RkMmpHZ0FKR2tK?=
+ =?utf-8?B?UUtSSjFpUGZaNkVUdElFaGdaVTJWT3E2WmN3bHFCK2diVXVSNnpGYllzd1Fq?=
+ =?utf-8?B?ZC82NlorcFRFTUVLSkJET01yem9vdVVaOEhmekJLK0N4RThwREFFVmpLd0x3?=
+ =?utf-8?B?VThGNmlEY2VZUEZDR2liSTlRNWM1bitBTllDOXNpRkRIRHpGdkdhK2VrTllS?=
+ =?utf-8?B?U1pKOEZVL1dyRmpYS28yOThhSDEyU1hqNXVDaHpBOU82eGxyemxOcjJhWDRi?=
+ =?utf-8?B?ZVBEanVhRm9KdGczaE1ESWVQZlhoMHhmZ09lZTVEOHdKMXp4dWszZllmZ3NW?=
+ =?utf-8?B?anlkclIyK3ozUWRVVXJ0UDRsRm90czZGRTZJayt3Wm9uYXlsRFhFc2pwSGN5?=
+ =?utf-8?B?ODdoNFhRanlQVmIrdElLWDRiRENPclFKdGl4RlRkaEx5M0g3SzgxNlM2cmhQ?=
+ =?utf-8?B?NVBKYTBoVzFvdVVQM1plQlBDamk1V2RuZmxueXdiUzZmN2JhQmU0Q09KeCt2?=
+ =?utf-8?B?NXNIQWF2RlpIbVFKOXhWTVcxbG9hcW8xVGVoZTBrNktxRUFNT2tIMHh5SzlD?=
+ =?utf-8?B?RE5hcVZnSEFIMEtVUzE5L1VJa2pRNkxjd05wSENKOFY2VWtmZUVhZ210Uzhk?=
+ =?utf-8?B?U3c3K0dRN2Y5S2dLMmNtQUhkWnhoVWZmM1p0SG9iMXFvQkwrZWlYWWZ2YStx?=
+ =?utf-8?B?VCtTRnE2cVRJLzI5aGFJTEpuWUhCTHNWbCsrUks0RFZjbll1cGZoV1pOTWZt?=
+ =?utf-8?B?VXlVSU43azdyS3IwQmxONGlYTkdwNnk3MTZjMkdLeksrZ2NzckVUYVdtaTUx?=
+ =?utf-8?B?cFZpTlE0VXE5TEhHRXpZcTdiTlNHQ3cxT0U2Tjd1eWZHU00zNERtYStLWFlV?=
+ =?utf-8?B?Q3I5R1UvM2JjU0dwZUVEeDV5ZndGR1c3UmdpK0tOTDVBbG9sRmdHcGMxM3R4?=
+ =?utf-8?B?ZEc0dnluTktTYnBpSUdXenlrS05Ua2RhZ0IwSkdwQTM5cXBHTUJQcjB3VVVV?=
+ =?utf-8?B?Q2tlRnhSSzFOb0FpZENsdmdJTEtsUWRDZmVBemhxb3FVeDJzdktDbW16d0tp?=
+ =?utf-8?B?ZjNSalVWbnd0ZWlwVVR1SFNIWjVIMmF2bllJeTkzZFhrbzVDWG5XZGZaYWJl?=
+ =?utf-8?B?UURkQlA1QTZSbjV2dWV5WGdXT0laOTh0Wjgyd1ozS1RNNW81cFNPMGVpUkMx?=
+ =?utf-8?B?U2R5Sm1MbTgvWmZuSUxlUUlVeDBkb25SWkxWb21zckJvS2Vka3U3UVlGaDNl?=
+ =?utf-8?B?cy8vUUpHbndqTVBCakR0b1QxbFh2VVhtaENjMThlakVzbW1NNitrM2pwUG5M?=
+ =?utf-8?B?MGJjSTZkTGxoOGR3RGlJUTNVWk5sUjBSTlJBYnR5c0hEbndmL0pWNThQbDJ6?=
+ =?utf-8?B?UjA1YmpHemI3d2ErQVU1UlNuTHZ4L2dXUDRsYzNJdEV4WVF5OVRqTTBJMGVy?=
+ =?utf-8?B?ZFAvU0lRaVNPckF3ek8zVmRCYU1KYUxjUXkvZHRFOHBwSFB6N0VoSkVHVFRp?=
+ =?utf-8?B?SFdwdURMRHowRnhaV0hwUjdTa0dtL2c4VEhrU1hFcjIwRmVKODJGZnhHWnhy?=
+ =?utf-8?B?NTBvVDdscWpDQ1lSd0ZhSTY2STNTSkJITW4wbVV1YzJ2UFE5bDcrN1RFVWFF?=
+ =?utf-8?B?Q0RKMk9GRG9Od0l1VzFGS0hISnd1cHlSZ0NmVXNWMkhsSndwaDRYMTVTMGdq?=
+ =?utf-8?B?dUJmNmFtcCtBMDRaUnoydFpBZHdNcHlZYWRZaG5lc1hJbnNEUjJvc0FTc1la?=
+ =?utf-8?B?R0ttaVBzSktTcTFQQS9IbGZjclcrUmNMalZ2QXV2SFk1SXd6SXdjUVloUlp1?=
+ =?utf-8?B?THR5eUU2M1dKSWZ1U1lKSnVsOWRwYVlHLzIrZERRRjc5NjN0SWdGOS9ZdC9T?=
+ =?utf-8?B?eW9kMFFBZUFEZU82aXhabUJRcjFGK3NObnhQNFI2eVJxVk5pUkZHWjU4WWFW?=
+ =?utf-8?B?bDhEUm0zcHNCZWNNeUxzVUdWWGw0djhxQmxEVUNzRGFVTmM4bVRRUTZHUkNR?=
+ =?utf-8?B?YnMzaEp1c2pJekRKTzBtVCtTTEVEbUNkeHRNUGhzY1JOdE53bDRZNjlxZ3pR?=
+ =?utf-8?B?NnkvQXJ3c0l4SzhWcENZY3ZrU1ZuelZhZDFEZ0U2Y2h4cVZ4NGZNV3NUWnNJ?=
+ =?utf-8?Q?4XWi/lbkG3529MIA=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <9E7DE9D11BCEA24CA0C2853712F4E8AB@namprd11.prod.outlook.com>
+Content-Transfer-Encoding: base64
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,162 +159,38 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: microchip.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR11MB8012.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fbddb1c0-03d4-4ca4-4a30-08df4c469cd6
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Nov 2026 05:23:47.2087
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: iXuI2HMi4VvtpZy6q6zIgkTPZhSj6gwzC8Lhczt8CD2oFLqM53rYP0sTEd79I+srSa+GOz43rITqHXBLW+v7YJzqXgiv/eMuF2VyylVGjHzGkuNPDqrgZAeeBkptbPo8
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR11MB8180
 
-From: Ruide Cao <caoruide123@gmail.com>
-
-test_seqpacket_timeout covers SOCK_SEQPACKET with SO_RCVTIMEO, but there
-is no SOCK_STREAM test for a cumulative receive timeout across partial
-reads.
-
-Have the peer drip-feed one byte every 0.8s while the client issues
-recv(MSG_WAITALL) with a 1s SO_RCVTIMEO. Without the timeout being
-preserved, the wait budget is restarted after each byte and the recv
-completes after several intervals. With the fix, the call must return
-around the original timeout, either with EAGAIN or with a partial read
-shorter than the MSG_WAITALL request.
-
-Keep the data socket open until both sides confirm: the client writes
-WAITDONE after recv returns, the server finishes sending all six bytes
-and acknowledges, and only then is the socket closed. Failure paths
-complete the same handshake so the server does not hang.
-
-Signed-off-by: Ruide Cao <caoruide123@gmail.com>
-Signed-off-by: Ren Wei <weir@nebusec.ai>
----
- tools/testing/vsock/vsock_test.c | 112 +++++++++++++++++++++++++++++++
- 1 file changed, 112 insertions(+)
-
-diff --git a/tools/testing/vsock/vsock_test.c b/tools/testing/vsock/vsock_test.c
-index 10b9074fb87f..868792f7729c 100644
---- a/tools/testing/vsock/vsock_test.c
-+++ b/tools/testing/vsock/vsock_test.c
-@@ -662,6 +662,113 @@ static void test_seqpacket_timeout_server(const struct test_opts *opts)
- 	close(fd);
- }
- 
-+#define STREAM_RCVTIMEO_DRIP_BYTES	6
-+#define STREAM_RCVTIMEO_DRIP_USEC	800000 /* 0.8s, inside the 1s timeout */
-+
-+/* Keep the data socket open until both sides confirm. The client
-+ * writes WAITDONE when recv() returns, but must not close until the
-+ * server has finished drip-feeding all 6 bytes and acknowledged;
-+ * otherwise later sends hit EPIPE. Failure paths complete the same
-+ * handshake so the server is not left in control_expectln("WAITDONE").
-+ */
-+static void test_stream_timeout_waitall_done(int fd)
-+{
-+	control_writeln("WAITDONE");
-+	control_expectln("SRVDONE");
-+	close(fd);
-+}
-+
-+static void test_stream_timeout_waitall_client(const struct test_opts *opts)
-+{
-+	char buf[STREAM_RCVTIMEO_DRIP_BYTES];
-+	time_t read_enter_ns;
-+	struct timeval tv;
-+	time_t read_ns;
-+	int failed = 0;
-+	ssize_t n;
-+	int fd;
-+
-+	fd = vsock_stream_connect(opts->peer_cid, opts->peer_port);
-+	if (fd < 0) {
-+		perror("connect");
-+		exit(EXIT_FAILURE);
-+	}
-+
-+	tv.tv_sec = RCVTIMEO_TIMEOUT_SEC;
-+	tv.tv_usec = 0;
-+
-+	setsockopt_timeval_check(fd, SOL_SOCKET, SO_RCVTIMEO, tv,
-+				 "setsockopt(SO_RCVTIMEO)");
-+
-+	/* Enter recv() before the peer starts drip-feeding, so the first
-+	 * byte cannot already be queued.
-+	 */
-+	control_writeln("CLNSENT");
-+
-+	read_enter_ns = current_nsec();
-+	n = recv(fd, buf, sizeof(buf), MSG_WAITALL);
-+	read_ns = current_nsec() - read_enter_ns;
-+
-+	/* Unfixed kernels restart the full SO_RCVTIMEO after each partial
-+	 * read, so this recv() returns 6 bytes after ~4.8s. A cumulative
-+	 * 1s timeout returns much sooner; use 2s as the cap so the two
-+	 * outcomes cannot be confused.
-+	 */
-+	if (read_ns >= 2ULL * NSEC_PER_SEC * RCVTIMEO_TIMEOUT_SEC) {
-+		fprintf(stderr,
-+			"recv(MSG_WAITALL) exceeded SO_RCVTIMEO, %lu ns\n",
-+			read_ns);
-+		failed = 1;
-+	}
-+
-+	if (n == sizeof(buf)) {
-+		fprintf(stderr,
-+			"recv(MSG_WAITALL) completed under drip-feed\n");
-+		failed = 1;
-+	}
-+
-+	if (n < 0 && errno != EAGAIN) {
-+		perror("EAGAIN expected");
-+		failed = 1;
-+	}
-+
-+	if (n == 0) {
-+		fprintf(stderr, "unexpected EOF on recv(MSG_WAITALL)\n");
-+		failed = 1;
-+	}
-+
-+	test_stream_timeout_waitall_done(fd);
-+	if (failed)
-+		exit(EXIT_FAILURE);
-+}
-+
-+static void test_stream_timeout_waitall_server(const struct test_opts *opts)
-+{
-+	int fd;
-+	int i;
-+
-+	fd = vsock_stream_accept(VMADDR_CID_ANY, opts->peer_port, NULL);
-+	if (fd < 0) {
-+		perror("accept");
-+		exit(EXIT_FAILURE);
-+	}
-+
-+	control_expectln("CLNSENT");
-+
-+	/* Drip-feed all 6 bytes even after the client times out, so an
-+	 * unfixed kernel still collects a full 6-byte recv and fails.
-+	 * The client keeps the data socket open until SRVDONE.
-+	 */
-+	for (i = 0; i < STREAM_RCVTIMEO_DRIP_BYTES; i++) {
-+		timeout_usleep(STREAM_RCVTIMEO_DRIP_USEC);
-+		send_byte(fd, 1, 0);
-+	}
-+
-+	control_expectln("WAITDONE");
-+	control_writeln("SRVDONE");
-+	close(fd);
-+}
-+
- static void test_seqpacket_bigmsg_client(const struct test_opts *opts)
- {
- 	unsigned long long sock_buf_size;
-@@ -2739,6 +2846,11 @@ static struct test_case test_cases[] = {
- 		.run_client = test_seqpacket_timeout_client,
- 		.run_server = test_seqpacket_timeout_server,
- 	},
-+	{
-+		.name = "SOCK_STREAM MSG_WAITALL timeout",
-+		.run_client = test_stream_timeout_waitall_client,
-+		.run_server = test_stream_timeout_waitall_server,
-+	},
- 	{
- 		.name = "SOCK_SEQPACKET invalid receive buffer",
- 		.run_client = test_seqpacket_invalid_rec_buffer_client,
--- 
-2.47.3
-
+SGksDQoNClRoYW5rcyBmb3IgdGhlIHJldmlldy4NCg0KSeKAmWxsIGxvb2sgaW50byB0aGUgcmVw
+b3J0ZWQgY29tbWVudHMgaW4gYWxsIHRoZSBwYXRjaGVzIGluIHRoaXMgc2VyaWVzIA0KYW5kIGdl
+dCBiYWNrIHdpdGggdGhlIG5lY2Vzc2FyeSB1cGRhdGVzIGFzIHNvb24gYXMgcG9zc2libGUuDQoN
+ClRoYW5rcywNClBhcnRoaWJhbiBWDQoNCk9uIDI1LzExLzI2IDY6MzUgcG0sIG5ldGRldi1ib3Qr
+c2FzaGlrb0BrZXJuZWwub3JnIHdyb3RlOg0KPiBFWFRFUk5BTCBFTUFJTDogRG8gbm90IGNsaWNr
+IGxpbmtzIG9yIG9wZW4gYXR0YWNobWVudHMgdW5sZXNzIHlvdSBrbm93IHRoZSBjb250ZW50IGlz
+IHNhZmUNCj4gDQo+IFRoYW5rIHlvdSBmb3IgeW91ciBjb250cmlidXRpb24hIFNhc2hpa28gQUkg
+cmV2aWV3IGZvdW5kIDIgcG90ZW50aWFsDQo+IGlzc3VlKHMpIHRvIGNvbnNpZGVyLg0KPiANCj4g
+Q3JpdGljYWw6IDAgwrcgSGlnaDogMCDCtyBNZWRpdW06IDEgwrcgTG93OiAxDQo+IA0KPiBJZiB5
+b3UgYmVsaWV2ZSBub25lIG9mIHRoZSBpc3N1ZXMgYXJlIGxlZ2l0aW1hdGUsIHBsZWFzZSByZXBs
+eSB0byBlYWNoDQo+IGlzc3VlIG9mIE1lZGl1bSBzZXZlcml0eSBvciBoaWdoZXIgYW5kIGV4cGxh
+aW4gd2h5IHRoZSBBSSBpcyB3cm9uZy4NCj4gSWYgYW55IG9mIHRoZW0gYXJlIGxlZ2l0aW1hdGUg
+YW5kIHlvdSBwbGFuIHRvIHJlc3BpbiwgcGxlYXNlIGxldCBwYXRjaHdvcmsNCj4ga25vdyBieSBp
+bmNsdWRpbmcgInB3LWJvdDogY3IiIGFzIGEgc2VwYXJhdGUgbGluZSBhdCB0aGUgZW5kIG9mIHlv
+dXIgcmVwbHkNCj4gKG9uZSBzdWNoIHJlcGx5IHBlciBzZXJpZXMgaXMgZW5vdWdoKS4NCj4gDQo+
+IC0gW01lZGl1bV0gbGFuODZ4eF91cGRhdGVfY2RlbigpIGluIGRyaXZlcnMvbmV0L3BoeS9taWNy
+b2NoaXBfdDFzLmMNCj4gICAgZGVjaWRlcyBDREVOIGZyb20gdGhlIHNvZnR3YXJlIGNvcHkgcHJp
+di0+cGxjYV9lbmFibGVkLCBub3QgZnJvbSB0aGXigKYNCj4gLSBbTG93XSBsYW44Nnh4X2NvbmZp
+Z19pbnRyKCkgY2hhbmdlcyBvbmx5IHRoZSBQTENBX1NUU19DSEFOR0VEIChQU1RDKQ0KPiAgICBi
+aXQgb2YgSU1TSzEsIHZpYSBwaHlfY2xlYXJfYml0c19tbWQoKS9waHlfc2V0X2JpdHNfbW1kKCkg
+aW7igKYNCj4gDQo+IA0KPiAtLQ0KPiBTYXNoaWtvIEFJIHJldmlldyDCtyBodHRwczovL25ldGRl
+di1haS5ib3RzLmxpbnV4LmRldi9zYXNoaWtvLyMvcGF0Y2hzZXQvMjAyNjExMjQxMjQ5MzAuNDg1
+MzIzLTEtcGFydGhpYmFuLnZlZXJhc29vcmFuJTQwbWljcm9jaGlwLmNvbQ0KDQo=
