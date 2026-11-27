@@ -1,64 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795818738;
-	b=mAu+JviCZ5H5jKdoWgobbhtxt6WmbYe+hwdunvkjUta0Np3/dwrCO4gpTJjRXqlBMOq1
-	 ayjkQUmQip09XL6s4cdIZlccM/EpNStz2xeZbqkROwZOfYAfRdeyyokljjSvmcP9cL6f7
-	 cFGeGB3yQgiN2hpk4exZBfUVD0JllQE6fJA4R0Y9SouMSvmfQmrlUe+9Fsfy1xzYCuAYE
-	 7+HxxNUGBzXYymlxMig0hOl0at46P40aBdSDhR1VyOxr2lho32HbbmbDniACbthPDDiKd
-	 zwnsfbcEFqEda7UKUg9scHDZ7eM9nyqiaUa7npVStb47inVrGVXly0PiTYXhrXJHqPg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795818738;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Uy3i8hRJJm8f7lYjXs5CtnhHjt88mvlRID2CRQj4Jgs=;
-	b=t1xItxZhBlH+SaPom2nKCHhElpykBAxf6i/pjSP3DXLKycpBt/YBOHd0N8VG98G1DEoy
-	 19lyV4S3tEL8KJjIAjn47ryyECVfVWu8ZYritbk7Wtseb/cetZlG4+Zjb8UBRPS8LWSOP
-	 3GEj2PkZ5Jqz0sQ+HIItZIhuWXGgX1OsvNMO+O6PzgGln52SwrplBuKHwoTYKAKpSl646
-	 BFkxUNwAlANDcfWbwLbwSLfRXzvmtpMHu/CseGwCWUJyZTATeG7lBRY0Rl1yiaM6Xz35K
-	 QxRAdJ6wv24KHTF3MXBhXS7DpswIKlQYZnIUPEcOOTLBsxkfWSYZL64yKlnnVPRjCpg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hm7FCe3H;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795819067;
+	b=tH2RxLi+qByw3a3rRPTUGB5YQDchq1jWVrKFJ3/k+LPMBZ9pIC8/YMo5VYA8Prbif0nD
+	 +EhQfMAolwtM6BaNLxJO7Lf8vlWs1wuMfVFsOnxKnyOyUwSboK51e1zWVaT4VGq9WaIne
+	 d9DHLEPk34JsjtvmyF9VdTEMcrbrXWJ5OzW1ReDl30z4wvMNXq4arRpudk2CDWWDELXzR
+	 eM9BXxYPD2Y63KzkoaKRZy9YUJWC711Op7ChItI7ZO5FeJBZneY+O+Hlfd35Gt/x0fscH
+	 53cfxCsZoqIIoRBMYUa+n66msP2fCOniN3el14/SKQN+jkkzhVwkMTJnwbGgnKG++lA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795819067;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=KwU8LOjtrpYBs21veejOzZaPfblYKFwSoQI945HcW4g=;
+	b=SZw0tddtyutErsfBSae3gZz59sR828JitGN/8TlEZpXJmq1dYbRUOo6qyg53peWOonZA
+	 Av8Tky9zb8Rp0htkEwk6bdBIF/JJT8OKgkmu1fX0OxjSAjjd23miyuGM8HcWuOo/BIjyX
+	 a43XvW08GJX3a6gsOKr9IaBQfOJ+8MSRfMEI8tm7DR/F1jsJV/4qCH/5VVAQ4Yx5tN3Mc
+	 fWBmlRmGIKlfRnuALnnnpS9kyvbLj9iHLRharEwnE08ZoQsTXToNK1vyRftr/xXeGhqLM
+	 8ZNvNH+NfpMokEo8gO60JN2niUTAFu+jbiZU3KSt1akBFrueKq8dxa18bMKUErGPXSQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WV9n+5OI;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4FB9606A31E;
-	Fri, 27 Nov 2026 22:32:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB8A2606A31C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 22:37:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hm7FCe3H
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CD0A1F00924;
-	Fri, 27 Nov 2026 22:32:16 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WV9n+5OI
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795819067;
+	b=cILfTJ11qJxpBHG6JLF2u0d1CDkAT40IdS/WH8muosTfXDAdT+P3wcK1Y/nowl/+0Qwd
+	 SDMnbe9G6Kp0FsD6MXK1qgw+CKZgXXHg5SbGurcuAEDs/V+WSBIY1PVFeWHCCtW3+1tLh
+	 R3OVyJj7YcZQRbAm+AS2FeytX8KRTOasCflF2BaqIvB0xDedgtXP0l9/+Hzr+bLn29FZm
+	 IZZ6OfauIrKZjHlZm9iPiK7M9qY153Iy6FNpLC9UO3AHMx2mt4JxJth7eC6nyQ2H5DrFT
+	 WnpZ0WUNPMrvHezDlncisv47oG14saIIVi3ppbIE8L2pyivDXnxSqHmpr11b3kXv4Mw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795819067;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=KwU8LOjtrpYBs21veejOzZaPfblYKFwSoQI945HcW4g=;
+	b=wi6oPzfOeI1fC/2pdxaxvD/yz/7NhjuK5J7+hlYibIbzrJZ1HOCbUbYxNbgBAPH012VN
+	 cfdTduX1l6zq8P0nUhIipJmkwSjPw8wqPmbYTGbJPmDisDlHgDYyHbLoiFsGdEkH1xSqN
+	 4lq+Tp3sH1leIkDgFNdI8buX97raEZS4ZVI9Q0N5cMp6i4CojjwQYUORbkqEiBuHExSfr
+	 h9JAU5gB8DfcHOlktMSGaaY43k+K3RADzt1GGf8egTkkuteIVguFTUM+p9dK7rMkkTbXK
+	 /pIS+R4U8Y0rRG1+AWRzakr+8ZvhqOSBfQoySa1sUG1YbNK0V9TLLivMHDFdBIiqTxg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 2D8221F000C1;
+	Fri, 27 Nov 2026 22:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795818737;
-	bh=Uy3i8hRJJm8f7lYjXs5CtnhHjt88mvlRID2CRQj4Jgs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=hm7FCe3HTOWDXcyZNYiW66bk/NQGIp82cY6sGUIjnwzSIPwvc8+SsWMk8yUrBAJy9
-	 3psQfYtCglb6p9u7Ur6ex0+TW9+tLeFfQff24prUlRKGVGXmEcHyqBeGpTj65lIdhi
-	 MCL33DwVvkInRjIWwBm71vs9WuH9g0ui8R9XlG+bXu5tGhJc/4ItGt+Frvr0MhQ3Q5
-	 NqtyV9uYSSX/JQIHrFI7TAR1NusU8b/UfUtxHCINTMLy5WZBStGab1y0OjLHHmzgjA
-	 0Avz9vidcz0bvNzoPnU5Mj5VQ/u7DvUnw3iq4u/fTi4GG6OJ4E+Ph3hiNjqQEXFwlw
-	 F7AA9B3WkxSDg==
-Subject: Re: [PATCH net 08/10] net/mlx5e: Validate neighbour events before
- updating IPsec SAs
-From: netdev-bot+sashiko@kernel.org
-To: tariqt@nvidia.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
- willemb@google.com, parri.andrea@gmail.com, borisp@nvidia.com,
- cratiu@nvidia.com, eedmunds@nvidia.com, gal@nvidia.com, jmassar@nvidia.com,
- jianbol@nvidia.com, kuniyu@google.com, leon@kernel.org,
- linux-rdma@vger.kernel.org, mbloch@nvidia.com, phaddad@nvidia.com,
- raeds@nvidia.com, saeedm@nvidia.com, horms@kernel.org,
- sridhar.samudrala@intel.com, steffen.klassert@secunet.com
-Date: Fri, 27 Nov 2026 22:32:15 +0000
-Message-ID: <179581873585.3135.8443874889177753516@kernel.org>
-In-Reply-To: <20261126215614.792598-9-tariqt@nvidia.com>
-References: <20261126215614.792598-9-tariqt@nvidia.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795819067;
+	bh=KwU8LOjtrpYBs21veejOzZaPfblYKFwSoQI945HcW4g=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=WV9n+5OINCrGtk8P0O3Qs5ZvsoIcilLGwbYmvUHpQ1EPdm84/sonUVfKmx663HmzX
+	 tQk2LTQvhonGE0Q4KoXSZNq0xrrivEx8ltiSrYgeKDVxIPk5woPsgPRJCFrWPUrcl2
+	 78r2t7/O4OUcCcRPwTTA8o1rBUbL2hgJCCzuvT52uvxzlNSlLY6BQ3xkzWHSKyE9YP
+	 I9Zrvzq0uAK8E/RSEv06lo/TB18FdFMslYZjaV/2yogKnklDJmpIFS+i9M7k17bfQq
+	 bRpuyt9DzS5wZ1GC1yfwcDgEbUOaL3UdWf0SpIjWD38koqUxOnaxYMyeh9fGYfACv5
+	 42fPx7tvamtjw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id A5B194DE48;
+	Fri, 27 Nov 2026 22:37:44 +0000 (UTC)
+From: Vincent Jardin via B4 Relay <devnull+vjardin.free.fr@kernel.org>
+Date: Fri, 27 Nov 2026 23:37:39 +0100
+Subject: [PATCH iproute2-next 1/3] uapi: add the attributes of the lisp
+ devices
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,174 +83,65 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261127-iproute2-lisp-v1-1-df8ea175bc06@free.fr>
+References: <20261127-iproute2-lisp-v1-0-df8ea175bc06@free.fr>
+In-Reply-To: <20261127-iproute2-lisp-v1-0-df8ea175bc06@free.fr>
+To: David Ahern <dsahern@kernel.org>, 
+ Stephen Hemminger <stephen@networkplumber.org>
+Cc: netdev@vger.kernel.org, Matthieu Baerts <matttbe@kernel.org>, 
+ Vincent Jardin <vjardin@free.fr>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795819063; l=835;
+ i=vjardin@free.fr; s=20260525; h=from:subject:message-id;
+ bh=90Pl+kHygIdW1VdLUKQtrTeLJu8UNvjTfSyw+LojGJA=;
+ b=8NfhLKJZM2eWQhdZ+sX8biCzIKhlUsJZH2N20+GH5fuSf5WUGUOwOB7safB1YlTdIcmD5bSGw
+ hQVeCiHZ/KXBccuKoRq25Dew7rWWq2nt+anonMfL0VqzSf56BCK2ZE0
+X-Developer-Key: i=vjardin@free.fr; a=ed25519;
+ pk=hppgLeFpGpKOi7LNwGEZ4jOYofJCoGd4Jf1ltAabiLw=
+X-Endpoint-Received: by B4 Relay for vjardin@free.fr/20260525 with
+ auth_id=871
+X-Original-From: Vincent Jardin <vjardin@free.fr>
+Reply-To: vjardin@free.fr
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+From: Vincent Jardin <vjardin@free.fr>
 
-Critical: 0 · High: 0 · Medium: 1 (1) · Low: 0 (1)
+Use IFLA_LISP_* from the uAPI header of the kernel
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+See:
+  https://lore.kernel.org/r/20261126-for-upstream-lisp-v1-v1-0-7382a4bcfd9b@free.fr
 
-- [Medium] With nh.ifindex == 0, a foreign neighbour on any device in the
-  same netns can still overwrite the hardware MAC.
+Signed-off-by: Vincent Jardin <vjardin@free.fr>
+---
+ include/uapi/linux/if_link.h | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-Pre-existing issues:
-- [Medium] In the route-resolved branch of mlx5e_ipsec_init_macs(),
-  dst_neigh_lookup() can return an unresolved neighbour with an all-zero…
-- [Low] In this commit, the per-SA MAC buffer work->data->addr has no
-  synchronization.
-
---
-
-net/mlx5e: Validate neighbour events before updating IPsec SAs
-
-The patch stops matching neighbour events against the SA source and
-destination addresses. Instead it saves a snapshot of the resolved nexthop
-(neigh table, ifindex, key) in mlx5e_ipsec_init_macs() and matches events
-against that. The ifindex is saved only when the nexthop device is the SA's
-offload device (xso.dev); otherwise 0 is saved and any device in the netns
-matches.
-
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec.c b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec.c
-> index 4084f8a88695b..cc75fcb0aa152 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec.c
-> @@ -256,6 +256,17 @@ static void mlx5e_ipsec_init_limits(struct mlx5e_ipsec_sa_entry *sa_entry,
->  	attrs->lft.numb_rounds_soft = (u64)n;
->  }
->  
-> +static void mlx5e_ipsec_set_tnl_nh(struct mlx5e_ipsec_sa_entry *sa_entry,
-> +				   struct mlx5_accel_esp_xfrm_attrs *attrs,
-> +				   const struct neigh_table *tbl,
-> +				   const struct net_device *dev,
-> +				   const void *pkey)
-> +{
-> +	attrs->nh.tbl = tbl;
-> +	attrs->nh.ifindex = dev == sa_entry->x->xso.dev ? dev->ifindex : 0;
-
-[Severity: Medium]
-If the nexthop device is not xso.dev, nh.ifindex is saved as 0.
-mlx5e_ipsec_neigh_matches() then treats 0 as "any device":
-
-    (!attrs->nh.ifindex || attrs->nh.ifindex == n->dev->ifindex) &&
-
-In that case, can a foreign neighbour on another device in the same netns
-still overwrite the programmed MAC?
-
-This looks like it always happens in the bonding fallback path.
-bond_ipsec_add_sa() calls:
-
-    real_dev->xfrmdev_ops->xdo_dev_state_add(real_dev, xs, extack);
-
-so mlx5e_xfrm_add_state() sets sa_entry->dev to the slave, while xso.dev is
-the bond. The neigh: and IS_ERR branches of mlx5e_ipsec_init_macs() pass
-that slave netdev, so ifindex 0 is saved. The route branch ends up the same
-way whenever the route's output device is not xso.dev.
-
-For example, a container behind a host-side veth could send an ARP request
-with sip set to the nexthop IP and tip set to a host address.
-arp_process()->neigh_event_ns() then creates a NUD_STALE neighbour on the
-host veth and raises NETEVENT_NEIGH_UPDATE.
-
-The table, the wildcard ifindex and the key all match. neigh_ha_snapshot()
-copies the attacker's MAC, and the worker reprograms the TX dmac or RX smac.
-
-The commit message documents the ifindex 0 trade-off. However, this looks
-like the case it describes as fixed:
-
-  "a foreign neighbour (veth, other netdev or netns) sharing the SA
-   address overwrites the programmed MAC"
-
-The only difference is that the nexthop IP is the target instead of the SA
-IP.
-
-Would a tighter match close this? For example, n->dev could be accepted
-only when it is xso.dev or the nexthop device, instead of using a wildcard.
-
-> +	memcpy(attrs->nh.key, pkey, tbl->key_len);
-> +}
-
-[ ... ]
-
-> @@ -360,6 +372,7 @@ static void mlx5e_ipsec_init_macs(struct mlx5e_ipsec_sa_entry *sa_entry,
->  	if (attrs->dir == XFRM_DEV_OFFLOAD_OUT &&
->  	    is_zero_ether_addr(addr))
->  		neigh_event_send(n, NULL);
-> +	mlx5e_ipsec_set_tnl_nh(sa_entry, attrs, n->tbl, n->dev, n->primary_key);
-
-[Severity: Medium]
-This is a pre-existing issue and was not introduced by this patch. Should
-the route branch of mlx5e_ipsec_init_macs() set attrs->drop while the
-nexthop MAC is still zero?
-
-dst_neigh_lookup() can return an unresolved neighbour whose ha is all
-zeros. For IPv4, the route's neigh_lookup creates one if it is missing.
-This branch already checks for that with is_zero_ether_addr(addr).
-
-The zero address is still copied into attrs->dmac (OUT) or attrs->smac
-(IN), and attrs->drop stays false.
-
-The TX rule adds MLX5_FLOW_CONTEXT_ACTION_DROP only when attrs->drop is
-set. setup_pkt_tunnel_reformat() copies attrs->dmac into the encap header
-as is:
-
-    ether_addr_copy(eth_hdr->h_dest, attrs->dmac);
-
-Until the neighbour resolves and the netevent worker reprograms the rule,
-could encrypted tunnel frames go out with destination MAC
-00:00:00:00:00:00?
-
-The fallback branch sets attrs->drop = true for the same unresolved state.
-So does the IS_ERR case added by "net/mlx5e: Drop IPsec tunnel traffic if
-the neigh cannot be created".
-
-The problem is still there at the end of the series. This patch does make
-the window shorter: gateway events now match, so the rule gets reprogrammed
-once the gateway resolves.
-
->  	dst_release(rt_dst_entry);
->  	neigh_release(n);
->  	return;
-
-[ ... ]
-
-> @@ -988,21 +1018,9 @@ static int mlx5e_ipsec_netevent_event(struct notifier_block *nb,
->  
->  	ipsec = container_of(nb, struct mlx5e_ipsec, netevent_nb);
->  	xa_for_each_marked(&ipsec->sadb, idx, sa_entry, MLX5E_IPSEC_TUNNEL_SA) {
-> -		attrs = &sa_entry->attrs;
-> -
-> -		if (attrs->addrs.family != n->tbl->family)
-> +		if (!mlx5e_ipsec_neigh_matches(sa_entry, n))
->  			continue;
-
-[ ... ]
-
->  		data = sa_entry->work->data;
->  
->  		neigh_ha_snapshot(data->addr, n, sa_entry->dev);
-
-[Severity: Low]
-This isn't a bug introduced by this patch, but nothing synchronizes access
-to data->addr here. mlx5e_ipsec_netevent_event() writes it from the atomic
-netevent chain. mlx5e_ipsec_handle_netdev_event() reads it from the
-workqueue and programs the result into hardware:
-
-    ether_addr_copy(attrs->dmac, data->addr);
-
-Can a worker that is already running read a torn MAC while the notifier
-rewrites the buffer? With the ifindex 0 wildcard, two notifier calls on
-different CPUs could also write the buffer at the same time.
-
-The next patch in the series, "net/mlx5e: Serialize IPsec netevent MAC
-snapshots", appears to fix this. It adds a spinlock_t to struct
-mlx5e_ipsec_netevent_data and takes spin_lock_bh() around
-neigh_ha_snapshot(). The worker then copies data->addr into a local buffer
-under the same lock.
+diff --git a/include/uapi/linux/if_link.h b/include/uapi/linux/if_link.h
+index 7ce01d81..786a16b3 100644
+--- a/include/uapi/linux/if_link.h
++++ b/include/uapi/linux/if_link.h
+@@ -1536,6 +1536,18 @@ enum {
+ 
+ #define IFLA_BAREUDP_MAX (__IFLA_BAREUDP_MAX - 1)
+ 
++/* LISP section */
++enum {
++	IFLA_LISP_UNSPEC,
++	IFLA_LISP_ID,
++	IFLA_LISP_COLLECT_METADATA,
++	IFLA_LISP_LOCAL,
++	IFLA_LISP_LOCAL6,
++	__IFLA_LISP_MAX
++};
++
++#define IFLA_LISP_MAX (__IFLA_LISP_MAX - 1)
++
+ /* PPP section */
+ enum {
+ 	IFLA_PPP_UNSPEC,
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126215614.792598-1-tariqt%40nvidia.com
+2.43.0
+
+
