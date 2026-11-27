@@ -1,98 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795786855;
-	b=zNMFUHdRnN0FLM/R6hO3tizdO4WfJWrdDmKaVmPR/5dkb5stCxV7TrqwMcyH+fkmAfx8
-	 JeoJlc1lUn/fYGWw8G+qfq1zqkZYTR3krELpzJzMsaAfmpMeEsaqeAV0A42+qinZckDKn
-	 wgMFnrnbao9/FMxULY1oCRXdcvRSWIsCzwh4oJjnWnCwK91KWsDLeJsgMoo54366LDYHI
-	 DrlMhEEiKkzxPoyC6kXvDXedZrlVzCNmF0qHJpyXJZEqJQMdv73UUwcDfXsUF12iNHaui
-	 HCMMwIEEotDgM8ZYyjiyqNBERoWTEqjNt6O5y1HhwmcBnKknOxKqLjliTW9Fzj+m1EA==
+	t=1795786862;
+	b=PMPFo+cHUd+i+ubBEZqa4A1VlIxp7BexTfdL2AlXglokkgdo0kueXewQbkoGulRANO4u
+	 ZgdMxAQYbi7LgpF7QlQqrRbDOyBYktTeLAPr+dt4WqsvECChwlikdvmOk4agRZ4hayL+s
+	 zR/FomSsMBDmrYtp16T0A3ROai7Z5FjEmk6LkK9pHh4Db+9t/MGnbKK15TpKX5/gnEHb9
+	 OqroYz62kANoZAJvToupsMXg7cVFtIngN47mThTj3iwko0HWD5ZLItBEwshwu743K5ieS
+	 jw9gbWlREd4nhJ4hTJIrAFS7Dpep41hL9Ge/23HvezC3qp1MlRMIeajo74/c1oZDujg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795786855;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=pdEAarPZNKEUfPhFhzlR8v9qpw9OvFlO1VgxWcD8/G0=;
-	b=c9NUElxAO8LRdyArauYHFFeUjNh78pFvo6fSDow+ma1/TDWWiwGYS/1TeIujFt662WG1
-	 BSOhvssjRKpPKjV9vXYMT2Kb612WYXQfSn0QYWjMukjxUGhkLBsRMEJ2LfzcjnKlCkY5E
-	 Uzcj3ANF0sY4uJseHGy/Urze41uxReM1Asbbn4+E7Z6UPqLJhYxXOsPvw7yVlsg/Ly6xV
-	 qdX9HSfk6dh7KRze2Uk+/B0MZJ1LdFNb2C2fjpv0AxOfZ0Qjw4wQoCGlOqj3copza8PRf
-	 LYCTidRaupLCjDUN0eSQHHb28dQ+jZPu2wTEblH6JJ+ZrJfDlUDrvscd+UqW6ADCynw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795786862;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
+	bh=RQ2WdXBL/KQxSJMQfuZnsD5Z+GcxpOTaD89rYMFmcrw=;
+	b=Wyn9SwEDOEgiY3mD9bEWuvV5/bzt8JA9vABJd+vh372ZtX/5fGFVLMQH32w3VzsXXsP3
+	 aLm1yvT9fWhMr4nVfER5xMdqPyY6NwmvK9THo9fUjJl6Z6iwgo9v2Lnq+mBdh76YBZPih
+	 aE9bJ3W5nwutjeteUaeqlAbgD5hja29VRbRHEoSflEU5/S+zfH/3eUavY+bGm9VKlbDG9
+	 AdFslWOiwOadGgBc9+D8y+FSv2QWw9M9Bktc/i9D6ituXLi8GUenXZndl0rtbJ4nMmVlu
+	 Ww2y9+LsYjyzaMtZdzHLx+OtZZAL1uPuHTCdSAzfeeyy6r+WxqqM4vFLsJE3K7Ah5Uw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aPWTT7UM;
-	arc=none smtp.remote-ip=209.85.210.173
-Received: from mail-pf1-f173.google.com (mail-pf1-f173.google.com [209.85.210.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=NV46KfT7;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99FE0606A329
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:40:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99FE0606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F72C606A32E
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:41:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F72C606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aPWTT7UM
-Received: by mail-pf1-f173.google.com with SMTP id d2e1a72fcca58-8b3577deeb0so3666431b3a.3
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:40:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795786854; x=1796391654; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pdEAarPZNKEUfPhFhzlR8v9qpw9OvFlO1VgxWcD8/G0=;
-        b=aPWTT7UMQOIf5lsZVeOWdCskwAJZO+4/C51339LK0ATtZ/D/z5KWJjHtV0IzyhJC3h
-         HDFRk97heztJV6zVvyO8OMwjNkJb3ryNrVZ202S1X1JAE36oPzrV3dVCRI2uEP2tVVTb
-         cj4HsSP0OUKDRrlQo9DGBS0DysV5pEqshdeerIojoJawkIbGxYiK9ZGFibApzjTmshRI
-         DnWIhjc7E+JyXTHeo/nnnGpIdr1w0ika//Eczy0tgTiDYZ7amv1VtB+bNfLblAQHgdI2
-         GJ6Qow+UCjRVXq91SyKtuRHPxriFYzAK1oYCoyoL2H5kT6GU0CsahDKtxuh/SV5tf9QG
-         3VAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795786854; x=1796391654;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pdEAarPZNKEUfPhFhzlR8v9qpw9OvFlO1VgxWcD8/G0=;
-        b=sczbhEOcRxQHfzpocgcECcpFpAbvk6bCOXyFCkFTB2/nY8Y2SoqtTyUYwS6hpon/Ok
-         YWYSWtYui8SHKt2bbPC/h9zr6eKFFa25XSWMSyOupcyn4CN1R84BFFxTqn0ZnNnUZO4m
-         JmrENjjp33JEPl4LJEcUOqOy4Af4Q+DPlWP3hkHLRUuX2kg9ys/F7iZEXjGHnRKuLzqc
-         gLL9VUnhTM/07x69Yoy8qX51UedPcqSAzl7WxA2JY/rCB4cYo/aALEvsbwQKgTM5Mdyu
-         PCyf1+e9mbe4uElNiMm8ULKxqoNjF2sgAaoti03vIWV+PixBuPk1bxC8BK08xjfOJmLS
-         F9Hg==
-X-Forwarded-Encrypted: i=1; AL+hErH3prdfvmbCHpCKAm+bw3MhVILim5Z3AaGIKUXcFxnAgMQE8jeLCrDkNW7OapuqURIsEfxLGUQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8gZkkSmXGs3mwOvRxwtsXf+u3lSBSKuc9O+RArapisXxkQVwKa
-	YwrR1USf7BDnV0mv3KQDAnt+E6ixGJwC/CFyXSlODQU1KWHIZYAHW+j+
-X-Gm-Gg: AZFdTZfxUiPVizcN95UvIrUhODtk7sRvUlKh4iatMVCIMinW7WNY1Av1kHdJNtJDJnR
-	v8wqtUgx9BuWPCUxbmkHG0Mc7vrxvD7a+ZA1cyuFp3IsQbYJPysu1fMPi8MIGTmdc51ZYxZU4K5
-	5wuVOiwpqr61zxUiT3cfMQ37eXUDEu5ymy4XUMBHq/iGM+tb3hQ4Vdj+jyqL6QqR2pBFoGTut+0
-	d3iRM8HEsXFg7qnKZEV3n3KYWSRs0dr5pGhdzEc3b4FVKAmdmSZi0oZG1+IklJjqPFBW4m5X+aQ
-	MpdbO9UKemu+cEGKLA/KHTqN6KeoLh3fpdnnDSnDlZOnOcSPOzAs1N6VAl90GUZQNcERxwDBJcA
-	Z6Y+leY3ODkagAJfq6zRXKCoY4yfhA4AHRa5e2eb5mna8Z+ZTF48lAN71dvMSgN6qNcVuHwbhyH
-	YH2lsJdUzphbFoqYyFjScmhgTMNOnKwWDOR0TrqGSTz/0KpR8n58vLqTosslbakTGpMLuJrhUTe
-	q90T5/hxgpBos0eeQ9kueSQ4PmoWuZhdlJiM+meCqq5cTBZ5Hwbj53u3kRC+99SjPsXZdJ+miOP
-	LH0CZPpqQ+Zd1WAOlnorcWbq4a9MIJzNkWiXocA6q54YZ3qoo/EbPiiDSzBSNKpl29Za+KyiGeh
-	NGqaZjRoMfbpowWlLizJcNYfltIN/LF8ofeovlYiz9Im15riMO2n/aYZONih4SYde4WebnU76ia
-	tzq5MNO5Lf8R2Ya5/GmjkGTUTrT+iOJh4jHW9fTYk=
-X-Received: by 2002:a05:6a00:928c:b0:8a0:20e0:b131 with SMTP id d2e1a72fcca58-8c87bac50eamr22456811b3a.19.1795786853961;
-        Fri, 27 Nov 2026 05:40:53 -0800 (PST)
-Received: from LAPTOP-3B99V33A (ec2-18-138-229-8.ap-southeast-1.compute.amazonaws.com. [18.138.229.8])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285b60csm12705838b3a.9.2026.11.27.05.40.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 05:40:53 -0800 (PST)
-From: "Bin Luo (University of Electronic Science and Technology of China)" <luob87709@gmail.com>
-To: oe-linux-nfc@lists.linux.dev
-Cc: johan@kernel.org,
-	david@ixit.cz,
-	kuba@kernel.org,
-	netdev@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v5 5/5] nfc: preserve NCI data status error codes
-Date: Fri, 27 Nov 2026 21:40:29 +0800
-Message-ID: <20261127134029.1813-6-luob87709@gmail.com>
-X-Mailer: git-send-email 2.51.0.windows.1
-In-Reply-To: <20261127134029.1813-1-luob87709@gmail.com>
-References: <20261127134029.1813-1-luob87709@gmail.com>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=NV46KfT7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795786860;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RQ2WdXBL/KQxSJMQfuZnsD5Z+GcxpOTaD89rYMFmcrw=;
+	b=NV46KfT7iw26Qkxz96TDyoRbZy2jY4TR04xpaR2ZYpQJwLlUd7e53BIcKqOtsZrp0l6EHC
+	yVowT+JrO58j7AHpvnqqEzrswhBtsECG40Zgprd5S/7PWz9b0Cle4dIOZnoeEyZhhbe0HQ
+	n7lmOrBet/nswEyee8kSg69cPOSM24E=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-481-6k4Mf4LeM0Gx_fwwzbv1uw-1; Fri,
+ 27 Nov 2026 13:40:56 +0000
+X-MC-Unique: 6k4Mf4LeM0Gx_fwwzbv1uw-1
+X-Mimecast-MFC-AGG-ID: 6k4Mf4LeM0Gx_fwwzbv1uw_1795786854
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A75DD1955D8E;
+	Fri, 27 Nov 2026 13:40:53 +0000 (UTC)
+Received: from [100.91.101.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 9BF24180054C;
+	Fri, 27 Nov 2026 13:40:49 +0000 (UTC)
+Message-ID: <099ce5fd-923e-4946-b910-fc8b6c1773d2@redhat.com>
+Date: Fri, 27 Nov 2026 14:40:48 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,50 +71,41 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v5 09/14] dpll: dpllsim: Add support to set
+ frequency on pins
+To: Petr Oros <poros@redhat.com>, netdev@vger.kernel.org
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Shuah Khan <shuah@kernel.org>, Randy Dunlap <rdunlap@infradead.org>,
+ Jani Nikula <jani.nikula@intel.com>,
+ Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+ Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
+ Jiri Pirko <jiri@resnulli.us>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+References: <20261125090522.3777494-1-poros@redhat.com>
+ <20261125090522.3777494-10-poros@redhat.com>
+Content-Language: en-US
+From: Ivan Vecera <ivecera@redhat.com>
+In-Reply-To: <20261125090522.3777494-10-poros@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 
-nci_to_errno() returns negative errno values for nonzero data-status
-bytes. Passing that value to nci_add_rx_data_frag() through a __u8
-parameter truncates the signed errno into an unrelated positive value
-before the completion callback receives it.
+On 11/25/26 10:05, Petr Oros wrote:
+> Add support to set the frequency of input and output pins. The DPLL
+> core validates the requested value against the supported frequency
+> list the pin advertises, so the frequency_set callback only has to
+> store it. The same per type tables that validate the configured
+> frequency at live time serve as the supported list. The configfs
+> attribute is rejected with EBUSY while the device is live, so only the
+> netlink setter changes the frequency of a registered pin and the two
+> cannot race. The frequency set over netlink is kept apart from the
+> configured one, like the priority, so the attribute keeps showing what
+> was configured and every live transition starts from it.
+> 
+> Signed-off-by: Petr Oros<poros@redhat.com>
 
-For userspace AF_NFC raw sockets, this corrupts the reported error: for
-example, an NCI status error mapped to -EBUSY (-16) is truncated to
-240 and negated to SO_ERROR=-240 instead of reporting EBUSY (16).
-
-Keep the error parameter as int so the original errno reaches the
-completion path and userspace unchanged.
-
-Found by static call-chain audit and reproduced under QEMU with
-virtual_ncidev and KASAN/kmemleak.
-
-Fixes: 98ff416f97c5 ("NFC: nci: Add status byte management in case of error.")
-Cc: stable@vger.kernel.org
-Signed-off-by: Bin Luo (University of Electronic Science and Technology of China) <luob87709@gmail.com>
----
- net/nfc/nci/data.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
-
-diff --git a/net/nfc/nci/data.c b/net/nfc/nci/data.c
-index 3bbebb9..4a2326a 100644
---- a/net/nfc/nci/data.c
-+++ b/net/nfc/nci/data.c
-@@ -213,13 +213,11 @@ EXPORT_SYMBOL(nci_send_data);
- 
- static void nci_add_rx_data_frag(struct nci_dev *ndev,
- 				 struct sk_buff *skb,
--				 __u8 pbf, __u8 conn_id, __u8 status)
-+				 __u8 pbf, __u8 conn_id, int err)
- {
- 	int reassembly_len;
--	int err = 0;
- 
--	if (status) {
--		err = status;
-+	if (err) {
- 		kfree_skb(ndev->rx_data_reassembly);
- 		ndev->rx_data_reassembly = NULL;
- 		goto exit;
--- 
-2.51.0.windows.1
+Reviewed-by: Ivan Vecera <ivecera@redhat.com>
 
