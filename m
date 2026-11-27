@@ -1,57 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795774424;
-	b=3dBzxVWkMfr1BhyNTbsqS1aGfHFBUnKUXokgjkjq7GkVBV/8Z4pwdp+XtEb+ybNP5ElF
-	 oT2IBfZC/7GQLxxYKiOLlfPdASRQifpIE4pEUcaIBugtPGO3tGUk0LlpNc8Gxfqte6nE9
-	 z3lF779bi5eHKBEBKJVnGwA31p6sV6zAleUf0tLkwKIf5RDBk2Z+Ow3fdoPFz/cdNUknm
-	 rLYyxooEtkFpXJ707r0N6XembvWL3y0Z372yQuNU8Jun2sWKCi8XN2ihVNfVPOwFu9jS7
-	 DdjG/SKdCvpvfnHn3MLT8aUgC+HUv1LA3a4HXL4du72gEMxXt5hm0/by5D+9PVkyPHQ==
+	t=1795774414;
+	b=xO0Wlmr4/a1CZ5BzejllTQY07Mkx4ES26zy87YW2+oq+RGQb8KyVE7O/edPscyMzfRe5
+	 Phk5DhH96OXK2CoFW1uH5jXCP2Rr/7pvLLIh9JKBZtOC23gow7gm72RsKtV5GquoNtcxO
+	 3FLqFSQqJGLj9ijIsK0O59cFRucwU6DJpI6Ysq3Psku6iB8e289oXiuxELfX+hpcglrGe
+	 QVtZOqDsU+qqp7QazWV0mCq5lTl0CjkXkdOpg1hHOCF5dEOFFpqhNobKFq2GDAUHlHye5
+	 YOThfEdyfllfOccJYYFT2NX15ryLVxGnZG7oiGgGMnHESfELZqfD6YSUueXhI5xELeg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795774424;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795774414;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=3j5RK3itpNq34OmIOuVkOe088Cm5IuS4Nvic86ZYVGc=;
-	b=SnN2pNeuHkHAOX/gX46wsh9UOaktgjxl/z2JGnLpWo0YK8HFqoXKqpm6OM0p0VRHrpmE
-	 Tx4yiQSnjtPFN91355c45r9Tnk5zfN9TeT5DHfgu8yy6MdBksmYisfDTNXzLpjyvvjCI0
-	 14AL7W3TOCI7zskpTDrf7KjUvhafgf+VfhngY+1WocqvbudoUImhOtc/hje1V9+kZ+D9d
-	 kpoOrBx9K+xo9PkHKvf0natj6zoTbpqzmOpogCaOsCGSMdDcMYjLVE/RA2YWQk+qiVR6I
-	 /8E5JirdNGOjJdCdaPlLRGVuavtCMCu1zYQZK7bDx+5yu50BjnzDfoS6ZwGiCRtTpMg==
+	bh=J/+o2ghf5ux5aaFdaB9WRcYKAyPeVbgRfcIWmS+cA/g=;
+	b=PGsjRjH4QOR6GKR/tA9tj6esaZquRIuxjo6XmPyi5t48fL8ZSZXBLMo+whK3y8fdJ3Rf
+	 rC7lpq4e+909T4S0vNeFU/XDu/45Vv7xBdA+XHoNI/uuwon93cD3nw18RbBAZk3jpSu2B
+	 1ZhHQL1AzalZ8xkaE12RtEcwgV5BSbxIipVw1FGeu1dRAWFu/db1jZqGAeM7OOqGrzVE8
+	 hT9/6XHJppud/u8Y9rCsE92g49M86HVHY28OCnEusoBN3/+VljGlHEEwdWlaW35KBRfru
+	 tF+Wg4DlK7/nJD3/CsdmsMWGbBkAfVvc7/EfIRTWZEuHtwodUAhF97IialDoQEdcOyQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fL2Knwde;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fnccmdQ7;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0683C606A690;
-	Fri, 27 Nov 2026 10:13:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 519CA606A32A;
+	Fri, 27 Nov 2026 10:13:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fL2Knwde
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18D651F0182B;
-	Fri, 27 Nov 2026 10:13:43 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fnccmdQ7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43D2F1F0089B;
+	Fri, 27 Nov 2026 10:13:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795774423;
-	bh=3j5RK3itpNq34OmIOuVkOe088Cm5IuS4Nvic86ZYVGc=;
+	s=k20260515; t=1795774413;
+	bh=J/+o2ghf5ux5aaFdaB9WRcYKAyPeVbgRfcIWmS+cA/g=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=fL2KnwdeqDE7lI+V+1UkJQsGOw3SLbctxv8XK1RREyzRIy4ilv3wnwcFlBDtKgiSB
-	 WCsDcrc1o5+r2a/YuBbtisIyW54kBOjHb0Jpwpyg+3cYHPdoDhIYdM+PC4EHhbtknu
-	 V4Qbi4TNQ5N5dzzvriGKZ+lbz/D1DbcnPlMWBRxQ5IVhkPUBEm0tJSBnFkY/SvfmsV
-	 KdQz4RkIlSKn2XjicMAtSdmD0dPOCWH6UMjVq05QgLrgtANaG4CEUOlBI8gQamWQXb
-	 c6N/tcGUyt2WEjWCjF65+xwlM3ZLGQ1t+YWifLa1ijrtguvD27Cy3wprJlLr6ctTNf
-	 PagWX2er7GIlw==
-Subject: Re: [PATCH net v3 10/10] rxrpc: Fix RACK-TLP implementation
+	b=fnccmdQ7V/FSkhqT9PaZZFHTrl72cNElYg8Bf9xCEPIgJR6G5n3I2BV+rg3ocOsun
+	 iLbXtIxNjYcezCCyc1AKeTIHlJFLHnBk4LjvdWPETg5N23TUoW+1v9KpC0gRkkzERr
+	 DYuf+uaGHEsABabgDEuV0JNlvL726zvImCDTKN1tu8ZiBbMZZ62r9T9TlDb+9tbBWN
+	 VO/mH6eAT21bIy+vLXOqvmFyyYwDTnuydgaiK44MSuvJrWJHOwCJNe7qlByyZyGKEW
+	 v2D6+4eIiQjMWRFLsacxlvfmR2zlu/s8BINaLyWK8ZSb1wx+gGyMXSZKyF3r0xrOox
+	 YpORAVWPc9Pzw==
+Subject: Re: [PATCH net v3 04/10] rxrpc: Fix ack parsing to mark reneged ACKs
+ as lost for RACK-TLP
 From: netdev-bot+sashiko@kernel.org
 To: dhowells@redhat.com
 Cc: netdev@vger.kernel.org, marc.dionne@auristor.com, kuba@kernel.org,
  davem@davemloft.net, edumazet@google.com, pabeni@redhat.com, horms@kernel.org,
  linux-afs@lists.infradead.org, linux-kernel@vger.kernel.org,
  jaltman@auristor.com, stable@vger.kernel.org
-Date: Fri, 27 Nov 2026 10:13:42 +0000
-Message-ID: <179577442266.3135.14941327848364859850@kernel.org>
-In-Reply-To: <20261124161302.4044422-11-dhowells@redhat.com>
-References: <20261124161302.4044422-11-dhowells@redhat.com>
-X-sashiko-severity: Medium
+Date: Fri, 27 Nov 2026 10:13:32 +0000
+Message-ID: <179577441282.3135.1227787769894655291@kernel.org>
+In-Reply-To: <20261124161302.4044422-5-dhowells@redhat.com>
+References: <20261124161302.4044422-5-dhowells@redhat.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,10 +65,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 4 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 3
+Critical: 0 · High: 1 · Medium: 1 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -75,249 +76,204 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] rxrpc_update_rack_rto_timer() (net/rxrpc/input_rack.c) never
-  stops the RTO timer once every transmitted DATA packet has been ACK'd.
-- [Low] In the new rxrpc_update_rack_rto_timer()
-  (net/rxrpc/input_rack.c), `rto = ktime_add(earliest,…
-- [Low] The new RTO rearm in rxrpc_input_call_event()
-  (net/rxrpc/call_event.c:456-463) uses `rack_timer_mode == OFF &&…
-- [Low] The new rxrpc_call::cong_in_recovery field is commented "If we're
-  in Fast retransmit recovery", but it stays true after the call leaves…
+- [High] The fix only finds reneged ACKs in txqueues that
+  rxrpc_input_soft_ack_tq() is actually called on.
+- [Medium] Every ACK->NAK flip in the previously reported range now
+  counts as definite loss and is retransmitted at once, with no…
+- [Low] The commit message overstates the bug.
 
 --
 
-rxrpc: Fix RACK-TLP implementation
+rxrpc: Fix ack parsing to mark reneged ACKs as lost for RACK-TLP
 
-This patch fixes several parts of the rxrpc RACK-TLP implementation. It
-moves the recovery flag from rxrpc_ack_summary into rxrpc_call, rearms or
-extends the RTO timer at the end of rxrpc_input_call_event(), and
-initialises the TLP state only on entry to FAST_RETRANSMIT. It also moves
-the segment_xmit_ts reset out of rxrpc_rack_mark_lost() and changes the
-flight_size check in rxrpc_tlp_calc_pto().
+This patch passes the ACK->NAK flip mask (a_to_n) from
+rxrpc_input_soft_ack_tq() into rxrpc_input_rack(). rxrpc_input_rack() now
+calls rxrpc_rack_mark_lost() on each reneged packet before it processes
+the new ACKs. The aim is for RACK-TLP to pick up packets that the peer
+discarded after soft-ACKing them.
 
-> diff --git a/net/rxrpc/call_event.c b/net/rxrpc/call_event.c
-> index 62e15b03c9c2e..2b3bd5355a023 100644
-> --- a/net/rxrpc/call_event.c
-> +++ b/net/rxrpc/call_event.c
+Link: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261020201258.290827-1-dhowells%40redhat.com
 
-[ ... ]
-
-> @@ -448,6 +450,24 @@ bool rxrpc_input_call_event(struct rxrpc_call *call)
->  				       rxrpc_propose_ack_input_data);
->  	}
->  
-> +	/* Need to rearm the RTO timer if we don't start the TLP-PTO
-> +	 * timer [RFC8985 7.3].
-> +	 */
-> +	if (call->rack_timer_mode == RXRPC_CALL_RACKTIMER_OFF &&
-> +	    call->tx_in_flight > 0) {
-> +		ktime_t rto = rxrpc_get_rto_backoff(call, false);
-> +
-> +		call->rack_timer_mode = RXRPC_CALL_RACKTIMER_RTO;
-> +		call->rack_timo_at = ktime_add(ktime_get_real(), rto);
-> +		trace_rxrpc_rack_timer(call, rto, false);
-> +		trace_rxrpc_timer_set(call, rto, rxrpc_timer_trace_rack_rto);
+> If an packet that was ACK'd becomes NAK'd (ie. the peer discarded it), the
+> now-missing packet is not picked up by the RACK-TLP implementation.
 
 [Severity: Low]
-Can tx_in_flight be non-zero here only because of a TLP probe, after the
-Tx phase has already ended?
+Is this description accurate?
 
-The commit message says the RTO is rearmed "if DATA packets have been sent
-but not yet ACK'd". However, tx_in_flight also counts a TLP retransmission
-of a segment that has already been soft-ACK'd:
+Before this patch, rxrpc_input_soft_ack_tq() already stored the new bitmap
+in tq->segment_acked before RACK ran. After that, rxrpc_input_ack() calls
+rxrpc_rack_detect_loss_and_arm_timer().
 
-net/rxrpc/output.c:rxrpc_send_data_packet() {
+rxrpc_rack_detect_loss() takes its candidates from rxrpc_tq_nacks(), which
+is ~segment_acked masked to nr_reported_acks. A reneged packet inside the
+reported range is therefore included:
+
+    unsigned long nacks = rxrpc_tq_nacks(tq);
     ...
-		if (req->tlp_probe && test_bit(ix, &tq->segment_acked)) {
-			...
-			if (!call->tlp_in_flight) {
-				call->tlp_in_flight = true;
-				call->tx_in_flight++;
-			}
-    ...
-}
+    nacks &= ~tq->segment_lost | tq->segment_retransmitted;
 
-Suppose the final ACK then hard-ACKs the whole window. tlp_seq goes
-through the soft ACK to hard ACK branch of rxrpc_rotate_tx_window(), and
-that branch doesn't call rxrpc_tlp_end_probe():
+rxrpc_rack_update() cleared segment_lost when the packet was first
+soft-ACK'd, and segment_xmit_ts still holds the real send time. So
+rxrpc_rack_sent_after() returns true for every reneged packet except two
+kinds:
 
-		} else if (test_bit(ix, &tq->segment_acked)) {
-			/* Soft ACK -> hard ACK. */
-			call->acks_nr_sacks--;
-			trace_rxrpc_rotate(call, tq, summary, seq, rxrpc_rotate_trace_sack);
-		}
+  - the RACK.segment itself
+  - retransmitted packets whose RACK update was skipped
 
-rxrpc_input_ack() then calls rxrpc_end_tx_phase(), which sets
-rack_timer_mode to RXRPC_CALL_RACKTIMER_OFF. It then jumps to send_response
-and skips check_for_tlp_probe, so the probe isn't ended there either.
+All the others were marked lost once xmit_ts + rack_rtt + reo_wnd had
+passed, or the reorder timer was armed for them.
 
-Back in rxrpc_input_call_event(), the mode is OFF and tx_in_flight is 1.
-An RTO therefore gets armed on a call in CLIENT_AWAIT_REPLY or
-CLIENT_RECV_REPLY. When it fires, rxrpc_rack_timer_expired() calls
-rxrpc_congestion_timeout() even though nothing is outstanding.
+The real gap looks narrower than the message says. The patch also changes
+the policy: reneged packets are now marked lost immediately and
+unconditionally, with no reordering window.
 
-rxrpc_tlp_probe_loss() may not clear the probe if rto_us has grown since
-the probe was sent. In that case the mode goes back to OFF with
-tx_in_flight still 1, and this block arms the RTO again.
-
-Could this keep rearming the RTO on a call that has finished transmitting?
-
-[ ... ]
+Since this is Cc'd to stable, could the commit message say what was
+actually being missed, and why skipping the reorder window is intended?
 
 > diff --git a/net/rxrpc/input.c b/net/rxrpc/input.c
-> index 66be37f214105..aa3af5a10c015 100644
+> index bda6e7d77013e..9b02e36264aa4 100644
 > --- a/net/rxrpc/input.c
 > +++ b/net/rxrpc/input.c
 
 [ ... ]
 
-> @@ -97,12 +98,12 @@ static void rxrpc_congestion_management(struct rxrpc_call *call,
->  		call->cong_extra = 0;
->  		call->cong_dup_acks = 0;
->  		summary->need_retransmit = true;
-> -		summary->in_fast_or_rto_recovery = true;
-> +		call->cong_in_recovery = true;
-> +		rxrpc_tlp_init(call);
->  		goto out;
+> @@ -951,8 +951,8 @@ static void rxrpc_input_soft_ack_tq(struct rxrpc_call *call,
+>  		rxrpc_input_soft_rtt(call, summary, tq);
 >  
->  	case RXRPC_CA_FAST_RETRANSMIT:
-> -		rxrpc_tlp_init(call);
-> -		summary->in_fast_or_rto_recovery = true;
-> +		call->cong_in_recovery = true;
->  		if (!summary->new_low_snack) {
->  			if (summary->nr_new_sacks == 0)
->  				call->cong_cwnd += 1;
+>  	new_acks |= n_to_a;
+> -	if (new_acks)
+> -		rxrpc_input_rack(call, summary, tq, new_acks);
+> +	if (new_acks || a_to_n)
+> +		rxrpc_input_rack(call, summary, tq, new_acks, a_to_n);
 
-[Severity: Low]
-Does cong_in_recovery stay true after the call has left recovery?
+[Severity: High]
+Can reneged packets in a txqueue past the end of a shorter SACK table still
+be missed?
 
-The new field is commented "If we're in Fast retransmit recovery". On the
-exit ACK, though, this case sets it to true and then leaves recovery:
+rxrpc_input_soft_acks() only calls rxrpc_input_soft_ack_tq() for txqueues
+that the current nr_acks covers. It calls it once at each full 64-slot
+boundary, and once for the tail only when nr != 0:
 
-		} else {
-			summary->change = rxrpc_cong_progress;
-			call->cong_cwnd = call->cong_ssthresh;
-			if (call->acks_nr_snacks == 0) {
-				summary->exiting_fast_or_rto_recovery = true;
-				goto resume_normality;
-			}
-		}
+    if (nr) {
+        unsigned int nr_reported = seq & RXRPC_TXQ_MASK;
 
-resume_normality moves cong_ca_state to SLOW_START or CONGEST_AVOIDANCE
-but doesn't clear cong_in_recovery.
+        extracted >>= RXRPC_NR_TXQUEUE - nr_reported;
+        ...
+        rxrpc_input_soft_ack_tq(call, summary, tq, extracted, nr_reported,
 
-The flag now outlives the ACK, so a reorder timer that fires before the
-next ACK can still see it:
+Consider this sequence:
 
-rxrpc_rack_timer_expired()
-  rxrpc_rack_detect_loss_and_arm_timer()
-    rxrpc_rack_update_reo_wnd()
+  - an earlier ACK soft-ACKs packets in txqueue N+1
+  - the peer discards them
+  - the peer sends an ACK with the same firstPacket whose table ends
+    inside txqueue N, or exactly on its boundary
 
-Here cong_in_recovery is true while cong_ca_state says recovery is over.
-With !rack_reordering_seen, rack_reo_wnd is set to 0, and a later RTO
-uses that value in rxrpc_rack_mark_losses_on_rto().
+In that case txqueue N+1 is never visited. At runtime, only
+rxrpc_input_soft_ack_tq() writes tq->segment_acked and
+tq->nr_reported_acks. So the stale ACK bits stay set, a_to_n is never
+computed for that txqueue, and the new path in rxrpc_input_rack() never
+runs for it.
 
-The reorder path itself can't declare new losses, because acks_nr_snacks
-is 0 at exit.
+The existing fallbacks work from the same stale bits, so they skip these
+packets too:
 
-Would clearing cong_in_recovery in resume_normality keep the field
-consistent with cong_ca_state and with its comment?
+    rxrpc_tq_nacks():
+        unsigned long nacks = ~tq->segment_acked;
 
-[ ... ]
+    rxrpc_rack_mark_losses_on_rto():
+        unsigned long unacked = ~tq->segment_acked;
 
+As far as I can tell, nothing marks these packets lost until a later ACK's
+table reaches that txqueue again, for example after a TLP probe.
+
+This also differs from the case where the table shrinks inside a single
+txqueue. There, the tail shift zeroes the dropped slots and they get
+marked lost immediately.
+
+The comment in rxrpc_input_soft_acks() says the peer is permitted to drop
+soft-acked packets and that the nack count can go down, so this case is
+expected.
+
+With the in_flight tracking at the end of this series, these packets are
+also removed from tx_in_flight when first soft-ACK'd. If nothing else is in
+flight, the tx_in_flight > 0 RTO rearm in rxrpc_input_call_event() won't
+fire, so no timer may be left to drive recovery.
+
+>  
+>  	if (call->tlp_serial &&
+>  	    rxrpc_seq_in_txq(tq, call->tlp_seq) &&
 > diff --git a/net/rxrpc/input_rack.c b/net/rxrpc/input_rack.c
-> index 240362109a3b3..473046562b0bd 100644
+> index 87084cea88b1a..c4276534f5398 100644
 > --- a/net/rxrpc/input_rack.c
 > +++ b/net/rxrpc/input_rack.c
-
-[ ... ]
-
-> @@ -446,3 +447,50 @@ void rxrpc_rack_timer_expired(struct rxrpc_call *call, ktime_t overran_by)
->  		pr_warn("Unexpected rack timer %u", mode);
->  	}
->  }
+> @@ -130,8 +130,17 @@ void rxrpc_input_rack_one(struct rxrpc_call *call,
+>  void rxrpc_input_rack(struct rxrpc_call *call,
+>  		      struct rxrpc_ack_summary *summary,
+>  		      struct rxrpc_txqueue *tq,
+> -		      unsigned long new_acks)
+> +		      unsigned long new_acks,
+> +		      unsigned long reneged_acks)
+>  {
+> +	/* Packets that got un-ACK'd get marked lost. */
+> +	while (reneged_acks) {
+> +		unsigned int ix = __ffs(reneged_acks);
 > +
-> +/*
-> + * Update the RACK RTO timer after new data is ACK'd.
-> + */
-> +void rxrpc_update_rack_rto_timer(struct rxrpc_call *call)
-> +{
-> +	struct rxrpc_txqueue *tq;
-> +	ktime_t earliest = KTIME_MAX, rto;
-> +
-> +	if (!call->tx_in_flight)
-> +		return;
+> +		__clear_bit(ix, &reneged_acks);
+> +		rxrpc_rack_mark_lost(call, tq, ix);
 
 [Severity: Medium]
-Should the RTO be stopped here when nothing is in flight, instead of
-returning with the old deadline still set?
+Could this mark packets lost that the peer never actually reneged on?
 
-After this early return, rack_timer_mode is still
-RXRPC_CALL_RACKTIMER_RTO and rack_timo_at keeps its old value. The new
-block in rxrpc_input_call_event() can only arm the RTO or move it later,
-so nothing cancels it.
+rxrpc_input_soft_ack_tq() computes a_to_n from any flip within
+old_reported:
 
-Here is one way to reach this:
+    flipped = (tq->segment_acked ^ extracted_acks) & old_reported;
+    if (flipped) {
+        n_to_a = ~tq->segment_acked & flipped; /* Old NAK -> ACK */
+        a_to_n =  tq->segment_acked & flipped; /* Old ACK -> NAK */
 
-1. The RTO is armed when rxrpc_input_call_event() starts, so in_rto is
-   true.
+Two cases seem to produce flips that are not reneging.
 
-2. An ACK hard-ACKs everything that has been transmitted. The last packet
-   hasn't been sent yet, so rxrpc_end_tx_phase() isn't called.
+First, rxrpc_is_ack_valid() accepts an ACK whose firstPacket is unchanged
+and whose previousPacket has regressed, as long as it stays within
+base + tx_winsize:
 
-3. rxrpc_rotate_tx_window() drops tx_in_flight to 0, and
-   RXRPC_CALL_NEW_DATA_ACKED gets set.
+    if (after(prev_pkt, base + call->tx_winsize))
+        return false;
+    return true;
 
-4. Nothing new is queued, so no TLP-PTO replaces the RTO, and this
-   function returns early.
+So a stale ACK that was reordered in the network is fully processed.
+Packets that a newer ACK had soft-ACK'd then show up in a_to_n.
 
-The timer is still rearmed through set(call->rack_timo_at). When it
-fires, rxrpc_rack_timer_expired() calls rxrpc_congestion_timeout():
+Second, for the tail txqueue, rxrpc_input_soft_acks() does:
 
-	set_bit(RXRPC_CALL_RETRANS_TIMEOUT, &call->flags);
-	call->cong_ssthresh = umax(call->tx_in_flight / 2, 2);
-	call->cong_cwnd = 1;
+    extracted >>= RXRPC_NR_TXQUEUE - nr_reported;
 
-This sets cwnd to 1 and ssthresh to 2 even though nothing was lost.
+This zeroes every bit at or above the new nr_reported, but old_reported
+still covers the old, larger nr_reported_acks. When a later ACK has a
+shorter SACK table, each slot that drops off the end counts as an a_to_n
+flip.
 
-RFC 6298 section 5.2, which RFC 8985 uses for the RTO, says to turn off
-the retransmission timer once all outstanding data has been acknowledged.
+Before this patch, in-range flips went through the RACK reorder window
+(rack_rtt + reo_wnd). Slots beyond the new nr_reported were masked out by
+rxrpc_tq_nacks() and left to the RTO.
 
-The new arm-on-OFF code also makes this more likely. It now arms an RTO
-after RTO-driven resends and after the reorder timer fires, where
-previously no timer was set.
+Now rxrpc_rack_mark_lost() is called on all of them, which increments
+tx_nr_lost and sets segment_xmit_ts to UINT_MAX. rxrpc_input_call_event()
+then calls rxrpc_resend(), unless a newer ACK in the same batch reverses
+the flip.
 
-[ ... ]
+This conflicts with the comment above rxrpc_input_soft_acks(), which says
+packets beyond the end of the ACK list are left to the timer because the
+peer may not have processed them yet.
 
-> +	if (earliest != KTIME_MAX) {
-> +		rto = ktime_add(earliest, rxrpc_get_rto_backoff(call, false));
-> +		if (ktime_after(rto, call->rack_timo_at)) {
-> +			call->rack_timer_mode = RXRPC_CALL_RACKTIMER_RTO;
-> +			call->rack_timo_at = rto;
-> +			trace_rxrpc_rack_timer(call, rto, false);
-> +			trace_rxrpc_timer_set(call, rto, rxrpc_timer_trace_rack_rto);
+Is the extra retransmission on reordered or shortened ACKs intended?
 
-[Severity: Low]
-Is rto the right value to pass to these tracepoints?
-
-Here rto is an absolute CLOCK_REALTIME deadline, because earliest comes
-from rxrpc_get_xmit_ts(). Storing it in rack_timo_at is correct. However,
-trace_rxrpc_rack_timer() and trace_rxrpc_timer_set() take a ktime_t delay
-and print it as to=%lld via ktime_to_us().
-
-The other rack_rto trace site added by this patch, in
-rxrpc_input_call_event(), passes a relative rto:
-
-		call->rack_timo_at = ktime_add(ktime_get_real(), rto);
-		trace_rxrpc_rack_timer(call, rto, false);
-		trace_rxrpc_timer_set(call, rto, rxrpc_timer_trace_rack_rto);
-
-Traces from this path will therefore show the wall-clock time since the
-epoch in microseconds, not the time left until the RTO fires.
-
-Should a relative delay be passed here, as the other callers do?
-
-[ ... ]
+> +	}
+> +
+>  	while (new_acks) {
+>  		unsigned int ix = __ffs(new_acks);
+>
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124161302.4044422-1-dhowells%40redhat.com
