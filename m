@@ -1,66 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795791959;
-	b=qCxdgxXCfDdqA4XxFRlNAVMPKEvfelEalRfLKtSBqCHbPrui9DU9qxYRcOTTubfy11zA
-	 jHA1ius6N+3Ps9Ja5KmMvfA8A8eLVnbYylf9cs+5YDvgpz+eShGbAvZFYVy4elHyyxXeo
-	 rmWDn7+Hv++Hf5ynzPE1Yxqc7qUxxpoJJZRTJ45twgrSlq2sSLfbKa+PHwUfMs28jHTcE
-	 cWdqQgkImUVmN+FRKePHyv3U/5tFAcakMG6s+RTUXqz5yPsbv1AK0L5D5xBTo2/Qpvdb5
-	 wihEZ8t3CdWuctgyzNiTs9ilSEEUqltjXC1I8r+oOXyvclfuP0R/kbbnjsI+edEisuw==
+	t=1795791956;
+	b=fxThple0AFlc4eU3YMDdTlT5dVEQ0g3i0Jr6ybOfkqDY6nZrEzi6ltseT9okexUMj6ki
+	 fiFRGr3bdL3djAPhYUXqz1RvGodqhmLnJ4r2Ax6sEEhLfnZUCEVDQkRePTyny8P8ziTGd
+	 GSDT1hqT/RHK7Ivs5WFlIzUwhKFWqn753DEpy6XWSbOTb/U/KY8cEDMSNT85UyL90AvZp
+	 dXkbh6hag0iKKXTPJAiFq5LuEN4Rgue0JAIhTWkLjrsTZml6J/PNcNr/PTAbMZRPSARIS
+	 /8eyyRKhiGNC05ZlWO7WMFdYHLgkhlOUMev+Te1ndCDO73PXZPznGypaP1/05SijvUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795791959;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795791956;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=niZWL1YOknZl4pd7kUK6MH2qn4wkf9xsyRN04DOh9xc=;
-	b=oh5CwaUz5PmRxS6fLHrLXnHD7EjqPgn+6XWtMgGhO6Yzpt71VjzrVhYDlJrh5AIDFbQd
-	 AvmA/PESXgZvN9ojtiH6rMWVsHThBHRd5bChCzohWzFMJlj9Bas3sFqMtmakIZFqMfsE4
-	 c4MtfLQUttIoEzMS+pW648+dhYQR9PsrddABLEkolEEW1Er7eZ0yabilCkb9KIO40xtQT
-	 /as0tOZ+SUJc0UtEnQYVgO6sv8gTwkkXyqePQireSQATVDHf1+d0y1fRER7b9Te8fkykN
-	 0eSPcQx17FJ3hlMVGuOLp5tvsbYiHTT/T8Btwuw6Rvej/XhNXOxDvIHfJbGbV5ddycw==
+	 Content-Transfer-Encoding;
+	bh=CZSeQqNUdSb/J7dqaTTcsr8fJ7L3SL74kNInXfLLbsk=;
+	b=llBk9PBB1yWGHnh2oqYKYj7vA7RemY9RtiePvC1xUSE8Qzm//XbbM9+fzcyKhSzTOYkk
+	 TiaOvvVgubcxSt4IX9KAVJ8HPg+zuCPqOETllgwmXBkccX+iMxIfQVW90k89sBiacu1jo
+	 3kWbcBHS3fSMwNifHMDZ97VmoLtUN9unvaECzk2hpt+RBAJtldqbg7BfUwl8WVCMG5Wpg
+	 tJHekyuaAmT7eP814DZiCFeBipwXFRuGL8hcsJ5ebJq5D4L5zNMOb5iUaJl09hbTSJ3RL
+	 4NOH5aOhV0oq5vzG8menSUqQD6ivXK8n1HYOkIe+/2oh8Ob2Cf1r5N2AZ4Xj5tJBlkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=A53lR3Hu;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hQKMkqvB;
 	arc=none smtp.remote-ip=192.198.163.14
 Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A463B606A327
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 15:05:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A463B606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E749606A323
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 15:05:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E749606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=A53lR3Hu
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hQKMkqvB
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795791958; x=1827327958;
+  t=1795791955; x=1827327955;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=CTXeqMK7ANxxp7vYgMkTudOSVSMKFnjjIP5lQZ7axW0=;
-  b=A53lR3Hukd8w5EYQux7gN7HXLGqR+5z/GmVT0wJlpFv99UT0pMlE7Ufx
-   xOrLptAwvsD7YRejUMLXbG0WwSgVRVQjENFp5SAyCFsK+BmnLVQDc25KE
-   zsT2Jv6m/n0wFUGBqC1X/6iBUxPFuJdAtWA5d/nOZvUNqcARFYUAEtOD/
-   kFW64uRaM7gt5K8y0DaAcEV1y6bpZMxKQHjb4yZQZybX1EkWdQFcbnl01
-   NSaxPSNfYp1vhngD+lh5zrozhkMShQ+7tbyNwyaqLiQLP6hrIwAaQ8bcY
-   XhR5WOsJo6mqXq/iZnVsnb2i3K/0MG7ak/ZSxowNKP1WYxW1i04IcfYbP
-   g==;
-X-CSE-ConnectionGUID: B64Nxc91TcOLsx/nJwg35A==
-X-CSE-MsgGUID: 2rytkRMcTJi0jvoIS8uKVQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4666001"
+  bh=WMH/m36JlyomR2IeIpyo7c29zr0gkWBJXWrPxZvEypE=;
+  b=hQKMkqvBApq66gIBb46ph+Y77kotWwvq+VphQat2sxcnMQB75jw3ExnX
+   pgOertpf5u5cZr1r73fI4D4t8utJBao3ddAxexvq5ehI8eJrr2C2hpvVD
+   1kk4ETcf13aaFzPH7l+qLPIpFmDQWvK6kB2gbEOm6uewAmJob4MKTSaMI
+   ozeBx8EsyuwH2OVsEo3PN2KSZf6twRGfey4GcJWDJ/57danYFEeCsPLS+
+   U0CIXT4uXDnDsPDIFwgYp+uFlzr0I/w5y/s0B8W9X+4doc7RwYLwbrhBp
+   4u5a0Zt0uuYrdXEpqCpJcSWQWBX0tVp0Aqu6agd+YmcY6m+5gU/3ALidN
+   A==;
+X-CSE-ConnectionGUID: 4+jL1JAcSFuDswmgfuXFCw==
+X-CSE-MsgGUID: x3W4JVAdQoiFH8cSXRGEug==
+X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4665968"
 X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
-   d="scan'208";a="4666001"
+   d="scan'208";a="4665968"
 Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 07:05:54 -0800
-X-CSE-ConnectionGUID: bzkoEHm7R3SmI+QllFgYQQ==
-X-CSE-MsgGUID: a7gBqPEKQyS0MRJGMqn20A==
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 07:05:49 -0800
+X-CSE-ConnectionGUID: oKbdoDzWTnm2G4KgPHon7Q==
+X-CSE-MsgGUID: RdbPsOYeTgSfXUoOQ4tDQg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
-   d="scan'208";a="12202660"
+   d="scan'208";a="12202627"
 Received: from boxer.igk.intel.com ([10.102.20.173])
-  by orviesa008.jf.intel.com with ESMTP; 27 Nov 2026 07:05:52 -0800
+  by orviesa008.jf.intel.com with ESMTP; 27 Nov 2026 07:05:47 -0800
 From: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
 To: netdev@vger.kernel.org
 Cc: magnus.karlsson@intel.com,
@@ -71,9 +71,9 @@ Cc: magnus.karlsson@intel.com,
 	kerneljasonxing@gmail.com,
 	bjorn@kernel.org,
 	Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-Subject: [PATCH v6 net-next 03/15] selftests: xsk: size the TX UMEM in HW_SW_MAX_RING_SIZE
-Date: Fri, 27 Nov 2026 16:05:15 +0100
-Message-Id: <20261127150527.1122049-4-maciej.fijalkowski@intel.com>
+Subject: [PATCH v6 net-next 01/15] selftests: xsk: fix the stack overrun in is_adjust_tail_supported()
+Date: Fri, 27 Nov 2026 16:05:13 +0100
+Message-Id: <20261127150527.1122049-2-maciej.fijalkowski@intel.com>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20261127150527.1122049-1-maciej.fijalkowski@intel.com>
 References: <20261127150527.1122049-1-maciej.fijalkowski@intel.com>
@@ -86,80 +86,82 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-HW_SW_MAX_RING_SIZE sizes the RX UMEM and rings for 8k frames, but on
-two NIC ports TX has its own default UMEM of 1k frames and 2k rings.
-The in-flight limit in __send_pkts() then goes negative for a 2k batch,
-so TX never sends and RX times out. Size the TX UMEM like the RX one.
+is_adjust_tail_supported() looks up adjust_value in the .bss map, whose
+value is all of .bss, so bpf_map_lookup_elem() copies 12 bytes into a
+4-byte int on the stack.
 
-The second batch, the HW TX ring size minus 8, does not fit the 8k UMEM
-and XSK TX ring either once the HW TX ring has 8200 descriptors or
-more, as on nfp, octeontx2 and fbnic. Cap it 8 below their size, and
-skip the case on a HW TX ring of 8 descriptors or fewer.
+Read adjust_value through the skeleton instead, and return a bool.
 
-Fixes: c53908b254fc ("selftests/xsk: Add new test case for AF_XDP under max ring sizes")
-Fixes: e4a195e2b95e ("selftests/xsk: Enhance batch size support with dynamic configurations")
-Reviewed-by: Björn Töpel <bjorn@kernel.org>
+Fixes: 4b302092553c ("selftests/xsk: Add tail adjustment tests and support check")
 Signed-off-by: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
 ---
- .../testing/selftests/net/lib/xsk/test_xsk.c  | 25 ++++++++++++++++---
- 1 file changed, 21 insertions(+), 4 deletions(-)
+ .../testing/selftests/net/lib/xsk/test_xsk.c  | 39 ++++---------------
+ 1 file changed, 7 insertions(+), 32 deletions(-)
 
 diff --git a/tools/testing/selftests/net/lib/xsk/test_xsk.c b/tools/testing/selftests/net/lib/xsk/test_xsk.c
-index 73f6e0302ee3..850bbd20c405 100644
+index ca161511f1e5..407c65f7293c 100644
 --- a/tools/testing/selftests/net/lib/xsk/test_xsk.c
 +++ b/tools/testing/selftests/net/lib/xsk/test_xsk.c
-@@ -2482,8 +2482,18 @@ int testapp_hw_sw_min_ring_size(struct test_spec *test)
- int testapp_hw_sw_max_ring_size(struct test_spec *test)
+@@ -791,31 +791,12 @@ static bool is_metadata_correct(struct pkt *pkt, void *buffer, u64 addr)
+ 	return true;
+ }
+ 
+-static int is_adjust_tail_supported(struct xsk_xdp_progs *skel_rx, bool *supported)
++static bool is_adjust_tail_supported(struct xsk_xdp_progs *skel_rx)
  {
- 	u32 max_descs = XSK_RING_PROD__DEFAULT_NUM_DESCS * 4;
-+	u32 batch_size;
- 	int ret;
- 
-+	/* The second step sends batches of min(tx_max_pending, max_descs) - 8
-+	 * descriptors.
-+	 */
-+	if (test->ifobj_tx->hw_ring_size_supp &&
-+	    test->ifobj_tx->ring.tx_max_pending <= 8) {
-+		ksft_print_msg("HW TX ring too small.\n");
-+		return TEST_SKIP;
-+	}
-+
- 	test->set_ring = true;
- 	test->total_steps = 2;
- 	test->ifobj_tx->ring.tx_pending = test->ifobj_tx->ring.tx_max_pending;
-@@ -2491,6 +2501,9 @@ int testapp_hw_sw_max_ring_size(struct test_spec *test)
- 	test->ifobj_rx->xsk->umem->num_frames = max_descs;
- 	test->ifobj_rx->xsk->umem->fill_size = max_descs;
- 	test->ifobj_rx->xsk->umem->comp_size = max_descs;
-+	test->ifobj_tx->xsk->umem->num_frames = max_descs;
-+	test->ifobj_tx->xsk->umem->fill_size = max_descs;
-+	test->ifobj_tx->xsk->umem->comp_size = max_descs;
- 	test->ifobj_tx->xsk->batch_size = XSK_RING_PROD__DEFAULT_NUM_DESCS;
- 	test->ifobj_rx->xsk->batch_size = XSK_RING_PROD__DEFAULT_NUM_DESCS;
- 
-@@ -2498,11 +2511,15 @@ int testapp_hw_sw_max_ring_size(struct test_spec *test)
- 	if (ret)
- 		return ret;
- 
--	/* Set batch_size to 8152 for testing, as the ice HW ignores the 3 lowest bits when
--	 * updating the Rx HW tail register.
-+	/* Keep the batch 8 below the HW TX ring size, as the ice HW ignores
-+	 * the 3 lowest bits when updating the Rx HW tail register. Keep it 8
-+	 * below max_descs, the UMEM and XSK TX ring size, too: __send_pkts()
-+	 * sends only while fewer packets than the UMEM size minus a batch are
-+	 * in flight, and reserves a whole batch in the TX ring.
+-	struct bpf_map *data_map;
+-	int adjust_value = 0;
+-	int key = 0;
+-	int ret;
+-
+-	data_map = bpf_object__find_map_by_name(skel_rx->obj, "xsk_xdp_.bss");
+-	if (!data_map || !bpf_map__is_internal(data_map)) {
+-		ksft_print_msg("Error: could not find bss section of XDP program\n");
+-		return -EINVAL;
+-	}
+-
+-	ret = bpf_map_lookup_elem(bpf_map__fd(data_map), &key, &adjust_value);
+-	if (ret) {
+-		ksft_print_msg("Error: bpf_map_lookup_elem failed with error %d\n", ret);
+-		return ret;
+-	}
+-
+ 	/* Set the 'adjust_value' variable to -EOPNOTSUPP in the XDP program if the adjust_tail
+ 	 * helper is not supported. Skip the adjust_tail test case in this scenario.
  	 */
--	test->ifobj_tx->xsk->batch_size = test->ifobj_tx->ring.tx_max_pending - 8;
--	test->ifobj_rx->xsk->batch_size = test->ifobj_tx->ring.tx_max_pending - 8;
-+	batch_size = min(test->ifobj_tx->ring.tx_max_pending, max_descs) - 8;
-+	test->ifobj_tx->xsk->batch_size = batch_size;
-+	test->ifobj_rx->xsk->batch_size = batch_size;
- 	if (pkt_stream_replace(test, max_descs, MIN_PKT_SIZE)) {
- 		clean_sockets(test, test->ifobj_tx);
- 		clean_sockets(test, test->ifobj_rx);
+-	*supported = adjust_value != -EOPNOTSUPP;
+-
+-	return 0;
++	return skel_rx->bss->adjust_value != -EOPNOTSUPP;
+ }
+ 
+ static bool is_frag_valid(struct xsk_umem_info *umem, u64 addr, u32 len, u32 expected_pkt_nb,
+@@ -1684,18 +1665,12 @@ void *worker_testapp_validate_rx(void *arg)
+ 		err = ifobject->validation_func(ifobject);
+ 
+ 	if (err) {
+-		if (!test->adjust_tail) {
++		if (!test->adjust_tail)
++			test->fail = true;
++		else if (!is_adjust_tail_supported(ifobject->xdp_progs))
++			test->adjust_tail_support = false;
++		else
+ 			test->fail = true;
+-		} else {
+-			bool supported;
+-
+-			if (is_adjust_tail_supported(ifobject->xdp_progs, &supported))
+-				test->fail = true;
+-			else if (!supported)
+-				test->adjust_tail_support = false;
+-			else
+-				test->fail = true;
+-		}
+ 	}
+ 
+ 	pthread_exit(NULL);
 -- 
 2.43.0
 
