@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795749361;
-	b=vibTcjssxX27EYQ1LnVCX9bl3wxEUPh3WPL9OFxfcQoatUL4fGRL8FwasHkA/oBS0PzC
-	 z3x/P2Cgc9eztMKX9tV0jvwZJt4FD6R1+du7fOO7IC5JDEZAGTHpLTMKNjsQUbrweOCwk
-	 vyfUagOCw4QJCVGpLjYN7A6GVyXPAP6dPnAX5wrAcm42Ns0o2qPaBfVCtl1/aAC3uQwFI
-	 USP7erHO9goXXh6j4cwQnP9xS9KpSeA41crs7quVbwJ6nA+zg1e46v/cNKGFd/nB+GVhx
-	 InD486nMFr+spADPtmd+BEEKTDmvx8PtLA9ULR/RO5IhO0Y17EM/Tm6VkD55O9MQH3w==
+	t=1795749357;
+	b=jTpZ3ha09NZ1aGx4/h6KgbwyftKy/Qw9Z3m9D5eAKDmtkq4JQQnv9jd0N3EFAbm5iypC
+	 SmUaZnXq0mu6JECCGyU4KjrmTSAstUq6UjsgPyEdfsaWCci4+K/pEBlVtBy8YAHY/E8aI
+	 rOSpHtW53v7TOcaEvG46Xbfahb3/z1fjqJnVHicObU+QGxIE0l3JScKgIu0F3idY8lvoC
+	 ejAIAGcgSNTYbqGvzX6Z+MdQDAqBwyryfK4K42bLOTmFkIZV0MVhr1lJkpvsTWVjFZ0Te
+	 zHrLzRpCugfjiZQG6OaNlKyOfAKdP6kZKI8vyF4b7DPGx0Smkztdemn3t4agJtie52w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795749361;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795749357;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=AwzPz1C3gIQ9+RIv9+cX+w6Gx9n1MzUYIRfzY2PwQrI=;
-	b=b2rt/5zhkkff0ohQxaeTD3U68mzdxurFPZ0uEiEwi/yGsXO4t8qHcLpLlWn3IoYbT/V2
-	 JfP+3qNvNqTaiUpLIkmbduw5U9KJaMq1TN1h00CDV2CwuxkiIopA9p0clnUuC37zWG6yx
-	 BFMmeN48dsE4iiqIFfGfMCYZIYGFWeHLhGCc8BtzuI5IHcputLm8yd8AYGp8gHjJCl/3p
-	 oozti8gsfEz3xjXuPM5ru4Aivg0f70WW+9BEOT2+PgBtpEfCvDWe7MYXA4T1zQQndYmQO
-	 QyXtskRzNwr/368cmhyvbhJdDlvmDExnlySTuSeFC7lLxjWRQAy3Sli5/AJILutipMw==
+	bh=zacDcZZkB0SgR1IDOo839AuEOBLi4HSRGIYFOfbcasw=;
+	b=LzzX9RuAYGwow5AKqoBCsM06M/4zK9/s6LK/f86Ar8lUm+EVp3OHf2fV86F8zgGJJU/n
+	 a4YGtn1lno2CJrD5raSjJpPNwbyDUZCIaVuS4ykxf+HhEqamsOhvFyy1WrQYspN5RJLU3
+	 RlxaJ1IV2rV/GAHPZUNfO42+GLjk+LboipktiWdO6VHg4xGGOVplu8SZ89E7d9+wVZKTH
+	 xsIgYQYoPdkFQ2BaBnguJgEWLDudmT94xy6kTctURkxa6fWOQ4H2J6xn0DzVSuigFLycu
+	 pIVLDuOCE7UOYsIvcpqCQCawlU/0YsKMKohYLm3WSjjNN6jTdA/Kb7wRiB65wrtQ8eg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IZb4c+sk;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G9LFas5B;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3257606A682;
-	Fri, 27 Nov 2026 03:16:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E69F606A31E;
+	Fri, 27 Nov 2026 03:15:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IZb4c+sk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76D781F008A0;
-	Fri, 27 Nov 2026 03:15:59 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G9LFas5B
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C76301F000C1;
+	Fri, 27 Nov 2026 03:15:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795749360;
-	bh=AwzPz1C3gIQ9+RIv9+cX+w6Gx9n1MzUYIRfzY2PwQrI=;
+	s=k20260515; t=1795749356;
+	bh=zacDcZZkB0SgR1IDOo839AuEOBLi4HSRGIYFOfbcasw=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=IZb4c+skPttETRDu3hXQJ36R6SE9bS2sLQ+V+8YUn+YFT277Ua6/kD1PDXe7WHU9N
-	 o8e5peTXRJfJY8YuzRtg2AkOIAaMS2EfbTzMv60vEwd+WTztjUoNnMYfzQjPdAZLox
-	 n1FUGHemHuhTtcFTQKDCacHeh91Y4CuS1sC6uk4+903HTtGiZKHxKnsXnG09HbqxSi
-	 vpCMgBQQt1pMIoyQetJndUWyJ69GcADm1f8mUNDIHd4w3sOKHhSPsjt3B06o1JhgC9
-	 jFciok/Qx09NBDNdI+AG17j2Vax0Z6jqut2S/52J8EJOqg+WOpMfu9onwfJcXdcSiN
-	 lx//5yXl8Al0Q==
-Subject: Re: [PATCH net 3/3] selftests: bonding: add recovery updelay test for
- broadcast mode
+	b=G9LFas5BPBTw99X+KtzXq0mMuRbxNxAz02QeK3RoHBkOiF2kpU7Dg0FnjIfnf2ZQX
+	 Kb2aBITCjy0rM3SD/A0jvOPgGGXr2RYRbxrTl6OTM07GuLStW5e1pQ4I53DuI/TGw7
+	 lyVJXIr1pE4imG+RMQUK1mi0inPMIxWoGOW0dHmyLOniIj07mUsUcqMkj48jkFj0mO
+	 gz+hAQeYlQBDnlHNCJ4SMAOqSympGqz0+Fxf1Vjk6mePjjDOFu2u3SSFF985nfUroL
+	 lcuAeRbDs0EAMI//uj/PZnijOaZBT5eVLam4hDwKFQffvIPGA4g6gRBjQ5ipHGhxmW
+	 VKoBQplAvELLw==
+Subject: Re: [PATCH net 1/3] Revert "bonding: do not set usable_slaves for
+ broadcast mode"
 From: netdev-bot+sashiko@kernel.org
 To: hangbin.liu@linux.dev
 Cc: jv@jvosburgh.net, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -49,10 +49,10 @@ Cc: jv@jvosburgh.net, andrew+netdev@lunn.ch, davem@davemloft.net,
  tonghao@bamaicloud.com, razor@blackwall.org, shuah@kernel.org,
  jiangjiehua1@huawei.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-kselftest@vger.kernel.org
-Date: Fri, 27 Nov 2026 03:15:59 +0000
-Message-ID: <179574935907.3135.6831461021438057155@kernel.org>
-In-Reply-To: <20261126-bond_broadcast_updelay-v1-3-188e5538d6ca@kylinos.cn>
-References: <20261126-bond_broadcast_updelay-v1-3-188e5538d6ca@kylinos.cn>
+Date: Fri, 27 Nov 2026 03:15:55 +0000
+Message-ID: <179574935536.3135.14725054266290783008@kernel.org>
+In-Reply-To: <20261126-bond_broadcast_updelay-v1-1-188e5538d6ca@kylinos.cn>
+References: <20261126-bond_broadcast_updelay-v1-1-188e5538d6ca@kylinos.cn>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -72,100 +72,109 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] The new mode-3 cases in recovery-updelay.sh pass whether or not
-  the companion fix "bonding: update slave array on link change for…
-- [Low] The commit author is "Hangbin Liu <hangbin.liu@linux.dev>", but
-  the only Signed-off-by is "Hangbin Liu <liuhangbin@kylinos.cn>".
+- [Low] Commit trailer and tagging problems on the revert.
+- [Low] Comments no longer match how broadcast mode uses usable_slaves.
 
 --
 
-selftests: bonding: add recovery updelay test for broadcast mode
+Revert "bonding: do not set usable_slaves for broadcast mode"
 
-This merges the mode 1 and mode 2 recovery updelay selftests into one
-recovery-updelay.sh script. The script now also covers bonding mode 3
-(broadcast), and the Makefile installs the merged script.
+This reverts commit 45fc134bcfad. That commit stopped publishing
+bond->usable_slaves in broadcast mode, so updelay was no longer ignored
+when there were no active slaves. A follow-up patch in the series
+rebuilds the slave array on link changes for broadcast mode.
 
-> Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
-
-[Severity: Low]
-The Author: line is "Hangbin Liu <hangbin.liu@linux.dev>", but the only
-Signed-off-by is "Hangbin Liu <liuhangbin@kylinos.cn>". Won't checkpatch.pl
-report this as a From:/Signed-off-by: email mismatch?
-
-Could a From: line that matches the sign-off identity be added to the body?
-Adding a sign-off from the author address would also work. The other two
-patches in the series appear to have the same mismatch.
+> Revert "bonding: do not set usable_slaves for broadcast mode"
+>
+> This reverts commit 45fc134bcfadde456639c1b1e206e6918d69a553.
 
 [ ... ]
 
-> diff --git a/tools/testing/selftests/drivers/net/bonding/mode-1-recovery-updelay.sh b/tools/testing/selftests/drivers/net/bonding/recovery-updelay.sh
-> similarity index 72%
-> rename from tools/testing/selftests/drivers/net/bonding/mode-1-recovery-updelay.sh
-> rename to tools/testing/selftests/drivers/net/bonding/recovery-updelay.sh
-> index 9d26ab4cad0b3..05edf9915cc0a 100755
-> --- a/tools/testing/selftests/drivers/net/bonding/mode-1-recovery-updelay.sh
-> +++ b/tools/testing/selftests/drivers/net/bonding/recovery-updelay.sh
-> @@ -34,12 +34,11 @@ cleanup()
->  trap cleanup 0 1 2
->  
->  lag_setup_network
-
-[ ... ]
-
-> +
-> +for mode in 1 2 3; do
-> +	for delay in 0 200 500 1000 2000 5000 10000; do
-> +		test_bond_recovery mode "${mode}" miimon 100 updelay "${delay}"
-> +	done
-> +done
+>     Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
 
 [Severity: Low]
-Do the new mode 3 cases pass whether or not the companion fix "bonding:
-update slave array on link change for broadcast mode" is applied?
+The From: address is Hangbin Liu <hangbin.liu@linux.dev>, but the
+Signed-off-by: address is Hangbin Liu <liuhangbin@kylinos.cn>. Checkpatch
+reports this as FROM_SIGN_OFF_MISMATCH. The other two patches in the series
+have the same mismatch.
 
-After the flap, test_bond_recovery() in lag_lib.sh only checks that ping
-works again:
+Should this revert carry a Fixes: tag, or a stable dependency note?
 
-tools/testing/selftests/drivers/net/bonding/lag_lib.sh:test_bond_recovery() {
-    ...
-	slowwait 2 ip netns exec ${CLIENT} ping ${SWITCHIP} -c 2 -W 0.1 &> /dev/null
-    ...
-}
+Commit 45fc134bcfad went in through net with its own Fixes: e0caeb24f538,
+so it has probably reached stable. The follow-up "bonding: update slave
+array on link change for broadcast mode" has Fixes: e0caeb24f538 and says
+it needs this revert first. None of the tags tell stable tooling about
+that ordering.
 
-That covers the case where no slave is usable, so updelay is ignored. The
-companion fix handles the opposite case. There, a stale usable_slaves
-snapshot with count == 0 makes bond_miimon_inspect() set ignore_updelay
-on every pass:
+If only the follow-up is backported, it has no effect. The
+bond_set_slave_arr() from 45fc134bcfad still drops usable_slaves for
+broadcast mode.
 
-drivers/net/bonding/bond_main.c:bond_miimon_inspect() {
-    ...
+If only this revert is backported, the bug that 45fc134bcfad fixed comes
+back: in broadcast mode the stale, empty usable_slaves array makes the
+bond always ignore updelay.
+
+> diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+> index 042d7c75548fa..d6675e87d06b6 100644
+> --- a/drivers/net/bonding/bond_main.c
+> +++ b/drivers/net/bonding/bond_main.c
+> @@ -5140,18 +5140,13 @@ static void bond_set_slave_arr(struct bonding *bond,
+>  {
+>  	struct bond_up_slave *usable, *all;
+>
+> -	all = rtnl_dereference(bond->all_slaves);
+> -	rcu_assign_pointer(bond->all_slaves, all_slaves);
+> -	kfree_rcu(all, rcu);
+> -
+> -	if (BOND_MODE(bond) == BOND_MODE_BROADCAST) {
+> -		kfree_rcu(usable_slaves, rcu);
+> -		return;
+> -	}
+> -
+>  	usable = rtnl_dereference(bond->usable_slaves);
+>  	rcu_assign_pointer(bond->usable_slaves, usable_slaves);
+>  	kfree_rcu(usable, rcu);
+
+[Severity: Low]
+This isn't a bug, but after this revert bond->usable_slaves is published
+for BOND_MODE_BROADCAST too. Should the related comments in bond_main.c be
+updated to match?
+
+The comment above bond_update_slave_arr() still lists only the xmit-hash
+modes:
+
+drivers/net/bonding/bond_main.c:
+/* Build the usable slaves array in control path for modes that use xmit-hash
+ * to determine the slave interface -
+ * (a) BOND_MODE_8023AD
+ * (b) BOND_MODE_XOR
+ * (c) (BOND_MODE_TLB || BOND_MODE_ALB) && tlb_dynamic_lb == 0
+
+The call site in bond_enslave() explains the broadcast case only in terms
+of all_slaves:
+
+	/* broadcast mode uses the all_slaves to loop through slaves. */
+	if (bond_mode_can_use_xmit_hash(bond) ||
+	    BOND_MODE(bond) == BOND_MODE_BROADCAST)
+		bond_update_slave_arr(bond, NULL);
+
+However, bond_miimon_inspect() now relies on the broadcast-mode
+usable_slaves to decide ignore_updelay:
+
+		usable_slaves = rcu_dereference(bond->usable_slaves);
+
 		if (usable_slaves && usable_slaves->count == 0)
 			ignore_updelay = true;
-    ...
-}
 
-Without the fix, this is what happens:
+The rest of the series does not change either comment. Neither comment
+says that broadcast mode must keep usable_slaves current on link changes,
+which the follow-up patch makes a requirement.
 
-- create_bond() enslaves eth0 and eth1 with updelay > 0.
-- bond_enslave() puts both slaves in BOND_LINK_BACK.
-- bond_update_slave_arr() builds usable_slaves with count == 0, because
-  bond_slave_can_tx() requires BOND_LINK_UP.
-
-In broadcast mode nothing rebuilds that array on link change.
-bond_miimon_link_change() has no BOND_MODE_BROADCAST case. The rebuilds in
-bond_open() and the NETDEV_CHANGE handler only run when
-bond_mode_can_use_xmit_hash() is true. So recovery is always immediate,
-and the test still passes.
-
-Could a case be added that checks a slave still waits out updelay while
-another slave is usable? Without one, the companion fix has no test
-coverage. The revert patch says the two patches together "keep
-ignore_updelay correct in both directions", but only one direction is
-tested.
-
-Also, slowwait waits 2 seconds, so the delays from 0 to 1000 ms appear to
-pass even with 45fc134bcfad still applied. Only the 2000 (borderline), 5000
-and 10000 ms cases seem to tell the two behaviours apart.
+> +
+> +	all = rtnl_dereference(bond->all_slaves);
+> +	rcu_assign_pointer(bond->all_slaves, all_slaves);
+> +	kfree_rcu(all, rcu);
+>  }
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126-bond_broadcast_updelay-v1-0-188e5538d6ca%40kylinos.cn
