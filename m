@@ -1,46 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795795072;
-	b=qMsufbrqxGXcif4bMBgbXAVMHpHH0s4WwUAVSU0bD4fU86ZFFpeReZt6oa371aco46pa
-	 PR9KUgO0sdUyl+39kcSVeXpTt8JYQMAXr2rDVutdlyY2KbZFeAkRnSJUEq8cBWqueaU0/
-	 HAyiDuAxnIgepTHrti3KPsVAcWFQ/QnKUzWhlUSsYtntY4zQ5h3I5yi8Wqjqtwv/D1Li+
-	 iTvMZ/Tt4rrdN3AOMgzirtBk9NGtaQaONvUnyHfCrXCvE8HhpSqRlhex1mHbLyy7nNaBW
-	 oUpNmWzzQuj6KS2Vazt6qqUHAxkK6pqWlaXecxT1zTkXyFRqMlD98kw7VbsLqe0xxAw==
+	t=1795795073;
+	b=PeI5VSoFZaU8fUpCJFCVE7HqkUbQ59Hr346Xhx9aBjOxvXMAL9ZJV4KK1a3x6w216KAp
+	 TnK7iUDomFFb2RSiHSX6zoIHnMbYMZzZZ8cDYS3fGpct7pRXIiM/YxAS5aj7ttKwzSuLx
+	 p/mqcKgCh3zcOVdw7RSMYZ6Pp1R5wqjP7oJ1xQk27pUoQRS7J0k4Ur5JoAtfDWx7CccrM
+	 fIvqVWDpVzrcLPuMouWzvF2j4V0B+KsLgwvPnORendvLBAwFc+qkzAfE4EJIcmi9YfHzG
+	 wOQrToY+01jMz4TXnwTfLz0i9B8NE538nbMzRBq1AlV1Xa93tdShtXapvRZT58VQ1QA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795795072;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795795073;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=K6q75vYgcwJtpJbOOJpD4SrFC6bX8iiseg0lw4gxjSo=;
-	b=ArqAeUYd/QVOmAwGaHQvKoJly+1/WRXpikWpk8HX6yUMNYGmXhbizy/vTcjS+vtwHVEj
-	 WNgHyr3ax/qYFB6/3B6yxUxxZ1qjB95a4QIAiRXqIlUVUOIwUIHrvPQPwjncq/P7JIQwW
-	 kuslubhZpa/Jk/RaT3H5htuhdqyUvOvHDp/DuJPUZmEEBbw0dXMwExSS7pYx4Imp1Vm4S
-	 uDu4167dWV4O+Eb5RAwwSe3QQcdEHNzDOxfxGUVIxuhsZcrHoFe26jPxBpVPW24jiNCSt
-	 F9/AhLVm/tRqcYdYbLXRMDjj8mpIS1GHFFlpPlbpnp/C7Hlc3AkpVHDE8c5j7RbI7ag==
+	bh=x6kIKvotnGfyF+LHAJIdpxCafMgTkU1XXwAbkkw4uXo=;
+	b=v6Ge6PT//yGlTYxdEkWXDRA9mLIZ+jIfX/XO6OoBBtR1cvrthqno1czeY7ngQoAN+nR4
+	 Sol6EJ1bMAQUpF2Wrtj5G7oXDHE6VpVBo1jrdFI+knxDV5bO5GnJKw5BiBNG1rNpo7azL
+	 Q/QoV+r4C7L0+4pLmSZjPW5BeYrJXlkXBw3V/4aKHYNguGOxVsmRgZ73aPFphu9a8szFY
+	 mHEFj1bET9MKs8/1ZejN1EdRflp2JKRTYrQQen7+/3AgD5PlgVF7p0QXNpWWL6MtOrwBU
+	 8MxiHhIFOEANzqCs2km70y80B3QaO4gGZ4zdOCzrYwogalGta2ubKgvwPeGg+ICDdRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LoIqQRyB;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iJhd2J6Z;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A56F606A31E;
-	Fri, 27 Nov 2026 15:57:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 857CC606A32D;
+	Fri, 27 Nov 2026 15:57:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LoIqQRyB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F20B71F0089A;
-	Fri, 27 Nov 2026 15:57:50 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iJhd2J6Z
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6222E1F000C1;
+	Fri, 27 Nov 2026 15:57:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795795071;
-	bh=K6q75vYgcwJtpJbOOJpD4SrFC6bX8iiseg0lw4gxjSo=;
+	s=k20260515; t=1795795073;
+	bh=x6kIKvotnGfyF+LHAJIdpxCafMgTkU1XXwAbkkw4uXo=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=LoIqQRyBfa698WOSTCA+56eK/O9LUgmZXzI5folrOq/M+JWs/mhjeaXFbjuP/JfwS
-	 1Is3upfc9XGM70v5EIiGKpAyj5sCAy4eWnr2GKNHD7ytabwKYyrkEsv+xvae/+9pVl
-	 BM4HEHkXiwd/T6R4K4aXceegIKYJ/4drcJfU04GvZzedNrai6zxzzi/XjvCO2r6fO1
-	 nLUzeZFMaNLxOM/aFao8DqR/0gzmmvVOwAcy53e08SCWfQTtnk68wQjhFwhbrzktKs
-	 tZV/vb15VruO7xtpHhoL8ZkPQI6d+REb8LOrCotvRS1qESY8wza2S9eDKNsGNv5Nh0
-	 eoRjbjbGRO/UA==
-Subject: Re: [PATCH v2 02/11] net/xsc: add doorbell and cmdq MMIO accessors
+	b=iJhd2J6ZwGR4TusVgBY5fehf8HVUG98CxVUveO5nCAeCWbBql+Q3YoFrfFKuOhZ2s
+	 e5HRS1Ru2opXqPgVy/E+2dfyi8RWFJWdj6JJfzLUvkKMYs35RdoPbipf3E70+p6gQc
+	 g0+Y9n5VoKpSIEtwTew+SVIzMTDQ5AAGYLWgYwKoI/HgbX+67NVkzPJ2yEYpkA6wvD
+	 kAQnidXH3TJT382YdA5Rk5xuHX5V95kGDymJaX3Y9gKzlUGc1q9u8zueQm/hJnT9xi
+	 FVUO/O5jWoiOInZWwTXBQav9FnqWAW0Tdn3BtvXmdbqpW+dBPhQggrIPGxMwaY8mHh
+	 jSyMjNKlgeJ7Q==
+Subject: Re: [PATCH v2 03/11] net/xsc: add the command queue
 From: netdev-bot+sashiko@kernel.org
 To: tianx@yunsilicon.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -48,11 +48,11 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  huangjunxian6@hisilicon.com, weihg@yunsilicon.com,
  linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
  linux-rdma@vger.kernel.org, kerneljasonxing@gmail.com
-Date: Fri, 27 Nov 2026 15:57:50 +0000
-Message-ID: <179579507051.3135.14726043842081189942@kernel.org>
-In-Reply-To: <20261126145715.70868-3-tianx@yunsilicon.com>
-References: <20261126145715.70868-3-tianx@yunsilicon.com>
-X-sashiko-severity: Medium
+Date: Fri, 27 Nov 2026 15:57:51 +0000
+Message-ID: <179579507193.3135.14971802624950078162@kernel.org>
+In-Reply-To: <20261126145718.70868-4-tianx@yunsilicon.com>
+References: <20261126145718.70868-4-tianx@yunsilicon.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -65,10 +65,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 8 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+Critical: 0 · High: 2 · Medium: 5 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,138 +76,360 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] xsc_arm_cq(xdev, cqn, next_cid, u8 solicited) in
-  drivers/net/ethernet/yunsilicon/xsc/pci/doorbell.c (lines 62-74) puts…
-- [Low] All five doorbell writers in
-  drivers/net/ethernet/yunsilicon/xsc/pci/doorbell.c call a full wmb()…
-- [Low] The new file drivers/net/ethernet/yunsilicon/xsc/pci/doorbell.c
-  calls EXPORT_SYMBOL_GPL() four times (xsc_update_tx_db,…
+- [High] Race on cmd->ent_arr[idx] can leave a live command with a NULL
+  slot, and the polling kthread then dereferences NULL.
+- [High] xsc_cmd_cleanup() frees the request ring (cmd_buf), the response
+  ring (cq_buf), the dma_pool and the mailboxes of timed-out commands…
+- [Medium] One command timeout permanently disables the command
+  interface.
+- [Medium] A timed-out command's xsc_cmd_work_ent and its inb/outb
+  mailboxes can leak permanently.
+- [Medium] xsc_cmd_comp_handler() matches a response to a waiter using
+  only the device-supplied rsp->idx.
+- [Medium] The ring is sized so that a full ring cannot be told apart
+  from an empty one.
+- [Medium] xsc_cmd_cq_polling() learns the expected owner/phase bit from
+  the slot it is about to validate (cmd.c:450-452: `if…
+- [Low] The command-queue poller is one kthread per device, and it polls
+  even when no command is outstanding.
 
 --
 
-net/xsc: add doorbell and cmdq MMIO accessors
+net/xsc: add the command queue
 
-This commit adds doorbell writers for TX/RX queues, CQs and EQs, along
-with cmdq register accessors. They all operate on fixed offsets in the
-device BAR. The helpers are declared in xsc_core.h, and the TX, RX and
-CQ helpers are exported for use by other modules.
+This commit adds the mailbox-based firmware command interface for the xsc
+driver. A single polling kthread collects responses, command status is
+mapped to errno values, and the cmdq version is checked at probe time.
 
-> diff --git a/drivers/net/ethernet/yunsilicon/xsc/pci/doorbell.c b/drivers/net/ethernet/yunsilicon/xsc/pci/doorbell.c
+> diff --git a/drivers/net/ethernet/yunsilicon/xsc/pci/cmd.c b/drivers/net/ethernet/yunsilicon/xsc/pci/cmd.c
 > new file mode 100644
-> index 0000000000000..5bd64be671646
+> index 0000000000000..45dcdb2b47eb0
 > --- /dev/null
-> +++ b/drivers/net/ethernet/yunsilicon/xsc/pci/doorbell.c
-> @@ -0,0 +1,148 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/* Copyright (C) 2024 - 2026, Shanghai Yunsilicon Technology Co., Ltd.
-> + * All rights reserved.
-> + */
-> +
-> +#include <linux/kernel.h>
-> +#include <linux/pci.h>
-> +
-> +#include "common/xsc_core.h"
-> +#include "common/xsc_reg.h"
-
-[Severity: Low]
-This isn't a bug, but should this file include <linux/export.h> directly?
-
-It uses EXPORT_SYMBOL_GPL() for xsc_update_tx_db(), xsc_update_rx_db(),
-xsc_arm_cq() and xsc_update_cq_ci(). With W=2, the
-check_missing_include_linux_export_h check in scripts/misc-check reports
-this for the file:
-
-  EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-
-The file builds today only because export.h is pulled in indirectly.
+> +++ b/drivers/net/ethernet/yunsilicon/xsc/pci/cmd.c
+> @@ -0,0 +1,708 @@
 
 [ ... ]
 
-> +void xsc_update_tx_db(struct xsc_core_device *xdev, u32 sqn, u32 next_pid)
+> +static int xsc_cmd_invoke(struct xsc_core_device *xdev, struct xsc_cmd_msg *in,
+> +			  struct xsc_cmd_msg *out, u8 *status)
 > +{
-> +	u32 db = FIELD_PREP(XSC_TX_DB_DATA0_NEXT_PID_MASK, next_pid) |
-> +		 FIELD_PREP(XSC_TX_DB_DATA0_QP_ID_MASK, sqn);
+
+[ ... ]
+
+> +	ent->token = ent->idx + 1;
+> +	cmd->ent_arr[ent->idx] = ent;
 > +
-> +	/* Make sure that descriptors are written before
-> +	 * updating doorbell record and ringing the doorbell
-> +	 */
-> +	wmb();
+
+[ ... ]
+
+> +	timeout = msecs_to_jiffies(XSC_CMD_TIMEOUT_MSEC);
+> +	if (!wait_for_completion_timeout(&ent->done, timeout)) {
+> +		cmd->cmd_status = XSC_CMD_STATUS_TIMEDOUT;
+> +		pci_err(xdev->pdev, "wait for opcode 0x%x response timeout\n",
+> +			xsc_msg_to_opcode(in));
+> +		/* the entry stays registered for the completion handler */
+> +		return -ETIMEDOUT;
+> +	}
 > +
-> +	writel(db, xdev->bar + TX_DB_FUNC_MEM_ADDR);
+> +	err = ent->ret;
+> +	*status = ent->status;
+> +
+> +	spin_lock_irqsave(&cmd->alloc_lock, flags);
+> +	if (cmd->ent_arr[ent->idx] == ent)
+> +		cmd->ent_arr[ent->idx] = NULL;
+> +	spin_unlock_irqrestore(&cmd->alloc_lock, flags);
+> +	kfree(ent);
+
+[Severity: High]
+Can a live command end up with a NULL slot here?
+
+xsc_cmd_comp_handler() releases the slot bit with xsc_free_ent() before it
+calls complete(). So xsc_alloc_ent() can give the same idx to another caller
+while this waiter still has its pointer in ent_arr[]. find_first_bit()
+always picks the lowest free bit, so reusing the same idx is the normal
+case.
+
+The new owner publishes its entry with the plain
+cmd->ent_arr[ent->idx] = ent store above, outside alloc_lock. That makes
+this compare-and-clear atomic only against other locked accessors:
+
+T1 (old waiter, idx 0)            T2 (new owner of idx 0)
+spin_lock(alloc_lock)
+ent_arr[0] == ent1 -> true
+                                  cmd->ent_arr[0] = ent2;
+ent_arr[0] = NULL
+spin_unlock(alloc_lock)
+
+When T2's response arrives, xsc_cmd_comp_handler() sees bit 0 allocated
+and does this with ent == NULL:
+
+	ent = cmd->ent_arr[idx];
+	memcpy(ent->out->first, rsp->out, sizeof(rsp->out));
+
+Wouldn't that oops the polling kthread? Every later command would then
+time out.
+
+If T2 times out instead, xsc_cmd_cleanup() can no longer reach its entry
+and mailboxes.
+
+The window is narrow. On PREEMPT_RT it is wider, because spinlock_t holders
+can be preempted. In this patch only the serial probe-time version check
+runs. However, the semaphore and bitmap allow 32 concurrent commands, and
+later patches in the series add concurrent xsc_cmd_exec() callers.
+
+> +
+> +	return err;
 > +}
-
-[Severity: Low]
-Is the explicit wmb() needed before writel() here? writel() already
-orders earlier stores to normal and coherent DMA memory before the MMIO
-store:
-
-include/asm-generic/io.h:writel() {
-	...
-	__io_bw();
-	__raw_writel((u32 __force)__cpu_to_le32(value), addr);
-	__io_aw();
-	...
-}
-
-On arm64, __io_bw() is dma_wmb(), so the extra wmb() adds a dsb st to
-every TX doorbell.
-
-xsc_update_rx_db(), xsc_arm_cq(), xsc_update_cq_ci() and
-xsc_update_eq_ci() use the same wmb() plus writel() pattern. Once the
-later "net/xsc: add the transmit path" and "net/xsc: add the receive
-path" patches call these helpers, they are on the hot path.
-xsc_update_cmdq_req_pid() uses a plain writel(), so the barrier usage in
-this file is also inconsistent. The code is unchanged at the end of the
-series.
-
-The comments don't seem to match the code either:
-
-- The TX/RX comments mention "updating doorbell record".
-- xsc_arm_cq() mentions "the doorbell record in host memory".
-- Only a single MMIO word is written, and there is no doorbell record
-  in host memory.
-- xsc_update_cq_ci() and xsc_update_eq_ci() say "make sure val write to
-  memory done", but there is no val variable.
-
-For the CQ/EQ consumer index updates, the intent may be that the
-CQE/EQE loads finish before the device can reuse the entry. wmb() only
-orders stores, so would a different barrier be needed there?
-
-[ ... ]
-
-> +void xsc_arm_cq(struct xsc_core_device *xdev, u32 cqn, u32 next_cid,
-> +		u8 solicited)
+> +
+> +static void xsc_cmd_comp_handler(struct xsc_core_device *xdev, u8 idx,
+> +				 struct xsc_rsp_layout *rsp)
 > +{
-> +	u32 db = FIELD_PREP(XSC_CQ_DB_DATA0_NEXT_CID_MASK, next_cid) |
-> +		 FIELD_PREP(XSC_CQ_DB_DATA0_CQ_ID_MASK, cqn) |
-> +		 FIELD_PREP(XSC_CQ_DB_DATA0_ARM, !!solicited);
+> +	struct xsc_cmd *cmd = xdev->cmd;
+> +	struct xsc_cmd_work_ent *ent;
+> +
+> +	if (idx >= cmd->max_reg_cmds || (cmd->cmd_entry_mask & BIT(idx))) {
+> +		pci_err(xdev->pdev, "idx[%d] exceeds max cmds or has no request\n",
+> +			idx);
+> +		return;
+> +	}
+> +	ent = cmd->ent_arr[idx];
+> +
+> +	memcpy(ent->out->first, rsp->out, sizeof(rsp->out));
 
 [Severity: Medium]
-Is the solicited argument meant to set the bit named
-XSC_CQ_DB_DATA0_ARM?
+Can a stale response be given to the wrong command here?
 
-The peer helper xsc_update_eq_ci() sets XSC_EQ_DB_DATA0_ARM from an arm
-argument. Its callers in eq.c pass 1 to arm the EQ at the end of
-xsc_eq_int() and at EQ creation, and 0 for intermediate CI updates.
+The only matching is on the device-supplied rsp->idx, plus a lockless read
+of cmd_entry_mask. ent_arr[idx] is not checked for NULL.
 
-Later in the series, every caller of xsc_arm_cq() passes 0. The re-arm
-after NAPI completion does this:
+rsp->token is never compared with ent->token, even though xsc_cmd_invoke()
+writes the token into the request:
 
-xsc_cq_notify_hw_rearm()
-    xsc_arm_cq(cq->xdev, cq->xcq.cqn, cq->wq.cc, 0);
+	lay->token = ent->token;
 
-So does the initial arm at CQ creation in net/main.c:
+The token is idx + 1, so even if it were checked it could not tell two uses
+of the same slot apart.
 
-    xsc_arm_cq(pcq->xdev, pcq->xcq.cqn, pcq->wq.cc, 0);
+A late response can come from a command that timed out in this instance,
+or from a request the firmware still holds from a previous driver instance.
+Either one would complete whichever command now owns that idx.
+xsc_cmd_handle_rsp_before_reload() only skips responses that were already
+posted at load time. Allocation starts at bit 0, so the version check is the
+likely victim.
 
-If BIT(31) is the arm enable bit, as the macro name suggests, do the
-CQs ever get armed? Completion interrupts would then stop after the
-first napi_complete_done(), and the RX/TX datapath would stall.
+There is also a duplicate-response case. Suppose the response arrives after
+the idx has been re-allocated, but while ent_arr[idx] still points at the
+previous entry that its waiter is freeing. Could the memcpy() into
+ent->out->first and complete(&ent->done) then write into freed memory?
 
-Another reading is that any write to DB_CQ_FUNC_MEM_ADDR arms the CQ,
-and BIT(31) only selects solicited-only notification. In that case,
-should the macro be renamed so the exported prototype, the
-implementation and the EQ helper agree on what this bit means?
+> +	ent->ret = 0;
+> +	ent->status = ((struct xsc_outbox_hdr *)ent->out->first)->status;
+> +	cmd->retry_cnt = 0;
+> +
+> +	xsc_free_ent(cmd, ent->idx);
+> +	complete(&ent->done);
+> +	up(&cmd->sem);
+> +}
+
+[Severity: Medium]
+Does this leak the timed-out command's xsc_cmd_work_ent and its inb/outb
+mailboxes?
+
+After a timeout, entA stays in cmd->ent_arr[X] and owns both mailboxes
+("the command owns both mailboxes now" in _xsc_cmd_exec()). When the late
+response arrives, this path frees bit X and returns a semaphore permit. It
+does not clear ent_arr[X] or free entA.
+
+The timeout check at the top of _xsc_cmd_exec() is a plain lockless read. A
+caller that already passed it can still get idx X from xsc_alloc_ent(), for
+example one sleeping in xsc_alloc_msg() or blocked in down().
+xsc_cmd_invoke() then overwrites the slot unconditionally:
+
+	cmd->ent_arr[ent->idx] = ent;
+
+That command NULLs the slot when it finishes. From then on, entA, its two
+xsc_cmd_msg chains and their dma_pool blocks are unreachable.
+xsc_cmd_cleanup() cannot free them, and dma_pool_destroy() would report a
+busy pool.
+
+[ ... ]
+
+> +static int xsc_cmd_cq_polling(void *data)
+> +{
+
+[ ... ]
+
+> +		cq_pid = xsc_get_cmdq_rsp_pid(xdev) & XSC_CMDQ_INDEX_MASK;
+> +		if (cmd->cq_cid == cq_pid) {
+> +			usleep_range(1000, 2000);
+> +			continue;
+> +		}
+
+[Severity: Low]
+This isn't a bug, but this loop keeps polling when no command is
+outstanding. Each idle iteration does two non-posted MMIO reads (the error
+status and RSP_PID), then usleep_range(1000, 2000).
+
+That is roughly 500-1000 wakeups and 1000-2000 PCIe reads per second for
+each bound device, for as long as it stays bound. In this patch, commands
+are only issued at probe.
+
+The commit message mentions "a single polling thread" but not this idle
+cost. Could the thread poll only while commands are outstanding, or back
+off when idle?
+
+> +
+> +		rsp = xsc_get_cq_inst(cmd, cmd->cq_cid);
+> +		if (!cmd->ownerbit_learned) {
+> +			cmd->ownerbit_learned = 1;
+> +			cmd->owner_bit = xsc_rsp_owner_bit(rsp);
+> +		}
+> +		if (cmd->owner_bit != xsc_rsp_owner_bit(rsp)) {
+
+[Severity: Medium]
+The expected owner bit is learned from the same slot being validated, so the
+readiness check always passes for the first response. Is that safe?
+
+The "rsp doorbell advanced but buffer not ready" branch suggests RSP_PID can
+become visible before the slot contents. Suppose that happens on the first
+response after init:
+
+- The zeroed cq_buf slot is consumed with rsp->idx == 0 and status 0.
+- The version check completes with a zeroed payload (cmdq_ver == 0), so
+  probe fails.
+- owner_bit is learned as 0.
+
+The queue is never reset, so the hardware phase carries over from earlier
+driver instances. If that phase is 1, every later slot fails the owner
+check. The poller then loops on msleep(20) forever and every command times
+out.
+
+[ ... ]
+
+> +static int _xsc_cmd_exec(struct xsc_core_device *xdev,
+> +			 void *in, unsigned int in_size,
+> +			 void *out, unsigned int out_size)
+> +{
+
+[ ... ]
+
+> +	if (cmd->cmd_status == XSC_CMD_STATUS_TIMEDOUT)
+> +		return -ETIMEDOUT;
+
+[Severity: Medium]
+Is it intended that one timeout disables the command interface for good?
+
+xsc_cmd_invoke() sets cmd->cmd_status = XSC_CMD_STATUS_TIMEDOUT on timeout.
+Nothing outside xsc_cmd_init() ever sets it back to XSC_CMD_STATUS_NORMAL.
+That holds even when the late response arrives and xsc_cmd_comp_handler()
+frees the slot and calls up(&cmd->sem).
+
+After one firmware stall longer than XSC_CMD_TIMEOUT_MSEC, every later
+xsc_cmd_exec() returns -ETIMEDOUT until the device is unbound and rebound.
+Later in the series this covers CQ/QP/EQ create and destroy, MTU, port admin
+status, vport state and event query.
+
+The commit message only says "Event-driven mode is deferred". It does not
+mention that timeouts are terminal.
+
+[ ... ]
+
+> +int xsc_cmd_init(struct xsc_core_device *xdev)
+> +{
+
+[ ... ]
+
+> +	cmd->log_sz = XSC_CMDQ_Q_DEPTH_LOG;
+> +	cmd->log_stride = XSC_CMDQ_ELEMENT_SIZE_LOG;
+> +	cmd->max_reg_cmds = 1 << cmd->log_sz;
+> +	bitmap_fill(&cmd->cmd_entry_mask, cmd->max_reg_cmds);
+> +
+> +	spin_lock_init(&cmd->alloc_lock);
+> +	spin_lock_init(&cmd->doorbell_lock);
+> +	sema_init(&cmd->sem, cmd->max_reg_cmds);
+
+[Severity: Medium]
+With this sizing, can a full response ring be told apart from an empty one?
+
+max_reg_cmds and the semaphore both allow 32 outstanding commands. The
+request and response rings have exactly 32 slots, and indices are compared
+modulo 32 (XSC_CMDQ_INDEX_MASK). A permit is only returned after the poller
+consumes the response.
+
+xsc_cmd_cq_polling() treats cq_cid == cq_pid as empty:
+
+	if (cmd->cq_cid == cq_pid) {
+		usleep_range(1000, 2000);
+		continue;
+	}
+
+Suppose the device posts 32 responses while the poller is in
+usleep_range(). The masked RSP_PID wraps back to cq_cid, so all 32 responses
+are skipped. Every waiter then times out, the XSC_CMD_STATUS_TIMEDOUT latch
+disables the interface, and the owner phase no longer matches the hardware.
+
+The request side has the same issue. xsc_cmd_invoke() never compares cmd_pid
+with the hardware consumer index, so a 32nd unconsumed request also makes
+REQ_PID equal to the consumer index.
+
+The code does not show whether the hardware posts into all 32 slots. Would
+limiting outstanding commands to (1 << log_sz) - 1 avoid this?
+
+[ ... ]
+
+> +void xsc_cmd_cleanup(struct xsc_core_device *xdev)
+> +{
+
+[ ... ]
+
+> +	/* a timed-out command stays registered for a response that may never
+> +	 * come; with the polling thread stopped nothing can touch it anymore
+> +	 */
+> +	for (i = 0; i < cmd->max_reg_cmds; i++) {
+> +		if (!cmd->ent_arr[i])
+> +			continue;
+> +		xsc_free_msg(xdev, cmd->ent_arr[i]->in);
+> +		xsc_free_msg(xdev, cmd->ent_arr[i]->out);
+> +		kfree(cmd->ent_arr[i]);
+> +		cmd->ent_arr[i] = NULL;
+> +	}
+> +
+> +	dma_free_coherent(&xdev->pdev->dev, PAGE_SIZE, cmd->cq_buf, cmd->cq_dma);
+> +	dma_free_coherent(&xdev->pdev->dev, PAGE_SIZE, cmd->cmd_buf, cmd->dma);
+> +	dma_pool_destroy(cmd->pool);
+
+[Severity: High]
+Can the device still DMA into these buffers after they are freed?
+
+With the polling thread stopped, the host will not touch a timed-out entry.
+The device, though, still holds the ring and mailbox addresses. Nothing here
+does any of the following:
+
+- reset the queue
+- clear the CMDQM_HOST_REQ/RSP_BUF_BASE registers
+- drain outstanding commands
+
+Bus mastering is also still enabled, because xsc_pci_fini() only clears it
+afterwards:
+
+	xsc_cmd_cleanup(xdev);
+	pci_iounmap(pdev, xdev->bar);
+	pci_clear_master(pdev);
+
+The xsc_pci_init() unwind uses the same order. The probe path reaches this
+directly when xsc_cmd_version_check() times out and jumps to
+err_cmd_cleanup.
+
+On rebind, pci_set_master() runs before xsc_cmd_init() reprograms the base
+addresses. xsc_cmd_handle_rsp_before_reload() also writes RSP_CID before
+that. A response the firmware still holds could then be written into the
+previous instance's freed, and possibly reused, pages.
+
+The kthread_create() failure path in xsc_cmd_init() has the same problem,
+because the rings were already programmed into the device:
+
+err_free_cq:
+	dma_free_coherent(&xdev->pdev->dev, PAGE_SIZE, cmd->cq_buf, cmd->cq_dma);
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126145711.70868-1-tianx%40yunsilicon.com
