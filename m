@@ -1,49 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795778409;
-	b=R8+PdaNpRz+6Oz1L/B435WNqV9X3aiBJkvo/JTerrnkUTufU02bMLnTMJcqAWGjvsAks
-	 chllo73D365BdoggPb9BPHK6u+zoRCDlR3VuJJ/FyaSj1ltna9W3Ua2sPi80bk1SXdkZ3
-	 dhJWPj/vhTCvCib5+dt6y6Dz4j03zxHWWjNHKg7DJ7lLhwzp78rqiM5SngxKqOOnKHeXZ
-	 WcP7TB6YLR1h8ZLO49E7j+7be0bCYQANImsXWX7coCRrR6tfuhg5F4k9H8jXuFs5dubiE
-	 dhLxaYv/YgaoVhNBGHWx9AFdcOpdO+aeA7fRn3KSYr7eY5EYhn4N+faRj4x3jMZSpVw==
+	t=1795778734;
+	b=lfTaVnJTOZWJ2zrM3vDvq51Az89pLoWe8qYT2FY1mu//+y6tGsCNp5UuX0iDALQG22rP
+	 xW4LnLNAIjp4l4fKBbGQ9YyKMRuqYC3hREx5otYWt4NUeC2IKoO3/SE3CClYnL721/zg2
+	 tE+Whg64j9a+E2YTF1MOFrk3+xiKL6/OwxzPe2BHdQO2i7GqwmP3pYOQzqS98+ZsuWGh0
+	 GXV5hSZDyP3UKY/ZhLcKZnqNpILvnE/y/ny0QtvIZFgMkxjqJWzeg282VNVNHtWPA2ttx
+	 tgDvi837Y/RBJPO74Ugn/B41rr+oPu0lybwmZwUIkrpzFQH0MUbUVXoFHu//GG45ltA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795778409;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=2ETb1QafyRI6/oHfjDrfqCfUkUUni7k0hQ6WfP0vU/8=;
-	b=EfFEIw/icZacO9YsCh5wTJJa+UYSkouMRkuuedcHD9BdJHtfoTw/opmf/EUE8moNEfp/
-	 H6Wpybp2MVZGlukYXRMPDnppE2BDfCcr2eYApsmQP/vbSisecE/nU5tFdfVUFb4bY3E+U
-	 6CHR1EMw9ar8wNGlDQh0CXaKEd9ICVn0vfTtptJwMRITro5PZDPZ7+QA8k+wTB8x/3U7p
-	 gIJtbUQU/OR6/z7eMQN15erg607wDsQ2EzTQBiIssu3ig3pRomoSXeDkZ/mBAvN85uvar
-	 bpavPIp6AT5rRB2HrA1qOKOdBhgSlmebu90Xw9k7EhHK6O/g7Tt7qeX7TQRbGjlP4vg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795778734;
+	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
+	bh=TxFbfNAnKJCCAcmwO2TL4Yw7LV8KogECTrX6wE8zQhI=;
+	b=ugwPxrVTcxYqOiKVeKfjI1tA1nm0RVpXWTpXLOvWuJZ3uvOB3UBOoYCQ6HNg2N/phaw+
+	 B+GQaZZI6XSc86aiIAs9kYyMzjbgMBbgywbgXgn4M3/zxPaK6Q1oRdmw/e6V4GzE6gFvC
+	 PSSGQRvUmnkP2+6IHhCBmpHFuoqJumo87KD1/XJuYwM4HTiq2qeqVRE6dPdrJLjSIiQpg
+	 Be2xt4CeDH5S5mN3YzhioX4GLDvD+dil2/SYXWJ0Yya/A1XUzZV2FwkKqqen2FrCpUJhM
+	 TFmSm5ICFBb6PO05znxqGSHYaHXniEL1xwgeNCULoV2APrA7FP0EaAACE6uFgqK3HFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X3TTtCYE;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=tipi-net.de;
+	spf=pass smtp.mailfrom=tipi-net.de;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=B1g2jspO;
+	arc=none smtp.remote-ip=194.13.80.246
+Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B975606A31C;
-	Fri, 27 Nov 2026 11:20:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D2EE606A31C;
+	Fri, 27 Nov 2026 11:25:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D2EE606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X3TTtCYE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B7A91F000C1;
-	Fri, 27 Nov 2026 11:20:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795778408;
-	bh=2ETb1QafyRI6/oHfjDrfqCfUkUUni7k0hQ6WfP0vU/8=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=X3TTtCYEl/CNkWbszOL2/NTMFsJu73ACHXYum+HEh6WIPYXMg2ynyTzq+I8Cd4qOY
-	 EOzIRa8w69HfAYLkkI22528BwZDYPEZvCdnWgzsrYySdtZSMd9BFPNHFdllshGY7Xl
-	 0v+M0Ox7zmAQ8C610RyONIuZrWe4GrJgdJowCy+mF0zjfRZekmSS44aEeJ2OARFZ+V
-	 fHoygLNWwMA5lI9B0pCf8Q5ocEYgCESOKLWFzT8kIZmq1CeI2Mu18Lp+5kngfoC5XL
-	 pWGMUb9NdIhocvWFxtw0sBuV8KG7ogq2vvaAwBafk4pO7FE/HIyKMfWSfOEalQ1MDA
-	 yBLOwW8BM+bkQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 717AB38003E0;
-	Fri, 27 Nov 2026 11:20:08 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=B1g2jspO
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 90EF4A20CC;
+	Fri, 27 Nov 2026 12:25:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1795778732; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=TxFbfNAnKJCCAcmwO2TL4Yw7LV8KogECTrX6wE8zQhI=;
+	b=B1g2jspOvfRTOjyJER2jJO36/J4oLaDNJWJ/9tT/9GmJ4NSh42/og2PIoze92XzzkR0m8V
+	G4q87TZHnEOc1z7aOJoZocWdIlAPKWusZq6asH+7pDDEHme5AzRLTht56skXPdBSBIOVbn
+	ivQs5HiFfG+Xcl84PTjbPUgxLKoI4mv/HO68gHxSu5knayqSxD9wlK+YWpKi2GnJGir2RM
+	fgVPBrvFhM4NWzxG9CBscahNKbETH9TYYxDjSMa8ttAL9MQUQzO8/s8+mkPYvfjlOlE3pi
+	ojb5Rw/B9trbIhXVpC+f+sk6zoVZX6tYtcz9LmnEBqd45wMKZoIKlyY0cOc5Dg==
+From: Nicolai Buchwitz <nb@tipi-net.de>
+Date: Fri, 27 Nov 2026 12:25:12 +0100
+Subject: [PATCH net-next v10 2/8] net: bcmgenet: allow a continuation
+ descriptor without the alignment pad
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,67 +57,79 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v8 net-next 0/9] net: dsa: netc: add PTP support for NETC
- switch
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179577840725.924205.8910316217595010398.git-patchwork-notify@kernel.org>
-Date: Fri, 27 Nov 2026 11:20:07 +0000
-References: <20261119030534.1892935-1-wei.fang@oss.nxp.com>
-In-Reply-To: <20261119030534.1892935-1-wei.fang@oss.nxp.com>
-To: Wei Fang (OSS) <wei.fang@oss.nxp.com>
-Cc: xiaoning.wang@nxp.com, andrew@lunn.ch, olteanv@gmail.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- richardcochran@gmail.com, linusw@kernel.org, linux@armlinux.org.uk,
- wei.fang@nxp.com, imx@lists.linux.dev, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261127-nb-genet-mtu-nn-v2-v10-2-749c7cc45d97@tipi-net.de>
+References: <20261127-nb-genet-mtu-nn-v2-v10-0-749c7cc45d97@tipi-net.de>
+In-Reply-To: <20261127-nb-genet-mtu-nn-v2-v10-0-749c7cc45d97@tipi-net.de>
+To: Doug Berger <opendmb@gmail.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Nicolai Buchwitz <nb@tipi-net.de>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Florian Fainelli <f.fainelli@gmail.com>, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, 
+ Pierre-Marin Leclercq <pierremarinleclercq88@gmail.com>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 
-Hello:
+A frame longer than the packet ready threshold arrives in several
+descriptors, each with its own status block. Only the first one also
+carries the two alignment bytes. The length check assumes the pad is always
+there, so a continuation holding a single byte looks a byte too short and
+the whole frame is dropped.
 
-This series was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+Account for the pad on the first descriptor only.
 
-On Thu, 19 Nov 2026 11:05:25 +0800 you wrote:
-> From: Wei Fang <wei.fang@nxp.com>
-> 
-> This patch set adds PTP timestamping support to the NETC switch, so that
-> the switch ports can be used for IEEE 1588 PTP synchronization.
-> 
-> The NETC switch has no time registers of its own and instead shares the
-> PTP time of the NETC Timer, which is a separate PCIe function driven by
-> its own driver. The first 3 patches prepare the Timer driver for this
-> role: tidy up its 64-bit register access, drop an ineffective reset, and
-> export netc_timer_get_current_time() so the switch driver can read the
-> current PTP time across the driver boundary in a race-free way.
-> 
-> [...]
+The MTU cannot produce a frame past the threshold yet, so nothing hits this
+today. It is preparation for the larger MTU.
 
-Here is the summary with links:
-  - [v8,net-next,1/9] ptp: netc: use ioread64_lo_hi/iowrite64_lo_hi for 64-bit register access
-    https://git.kernel.org/netdev/net-next/c/1f1bfb52b44b
-  - [v8,net-next,2/9] ptp: netc: remove unnecessary pcie_flr() call in probe
-    https://git.kernel.org/netdev/net-next/c/0dd839917efe
-  - [v8,net-next,3/9] ptp: netc: export netc_timer_get_current_time() for cross-driver use
-    https://git.kernel.org/netdev/net-next/c/9b844ef56d60
-  - [v8,net-next,4/9] net: dsa: netc: tie setup resources and reset to DSA setup/teardown
-    https://git.kernel.org/netdev/net-next/c/f320f1e55e65
-  - [v8,net-next,5/9] net: dsa: netc: use entry ID instead of pointer to track host flood rule
-    https://git.kernel.org/netdev/net-next/c/bc6680acf83a
-  - [v8,net-next,6/9] net: dsa: netc: check return value of ntmp_ipft_delete_entry()
-    https://git.kernel.org/netdev/net-next/c/585b422eaa71
-  - [v8,net-next,7/9] net: dsa: netc: enable ingress port filtering lookup by default
-    https://git.kernel.org/netdev/net-next/c/26b51309ef3d
-  - [v8,net-next,8/9] net: dsa: netc: add PTP two-step timestamping support
-    https://git.kernel.org/netdev/net-next/c/d2c3f304034e
-  - [v8,net-next,9/9] net: dsa: netc: add PTP one-step timestamping support
-    https://git.kernel.org/netdev/net-next/c/8b5aba6d328e
+Tested-by: Pierre-Marin Leclercq <pierremarinleclercq88@gmail.com>
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
+---
+ drivers/net/ethernet/broadcom/genet/bcmgenet.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-You are awesome, thank you!
+diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+index 7e78db243442..67296eb22a5c 100644
+--- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
++++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+@@ -53,7 +53,8 @@
+ 
+ /* Page pool RX buffer layout:
+  * RSB(64) + pad(2) | frame data | skb_shared_info
+- * The HW writes the 64B RSB + 2B alignment padding before the frame.
++ * The HW writes the 64B RSB before every descriptor of a frame. Only the
++ * first one also gets the 2B alignment padding.
+  */
+ #define GENET_RSB_PAD		(sizeof(struct status_64) + 2)
+ 
+@@ -2358,6 +2359,7 @@ static unsigned int bcmgenet_desc_rx(struct bcmgenet_rx_ring *ring,
+ 		unsigned int rx_offset, rx_size;
+ 		struct status_64 *status;
+ 		struct page *rx_page;
++		unsigned int min_len;
+ 		void *hard_start;
+ 		__be16 rx_csum;
+ 
+@@ -2394,8 +2396,12 @@ static unsigned int bcmgenet_desc_rx(struct bcmgenet_rx_ring *ring,
+ 			  __func__, p_index, ring->c_index,
+ 			  ring->read_ptr, dma_length_status);
+ 
++		/* Only the first descriptor carries the alignment pad */
++		min_len = dma_flag & DMA_SOP ? GENET_RSB_PAD
++					     : sizeof(struct status_64);
++
+ 		/* Reject lengths that would underflow the SKB build path. */
+-		if (unlikely(len > RX_BUF_LENGTH || len < GENET_RSB_PAD)) {
++		if (unlikely(len > RX_BUF_LENGTH || len < min_len)) {
+ 			netif_err(priv, rx_status, dev,
+ 				  "invalid packet length %d\n", len);
+ 			BCMGENET_STATS64_INC(stats, length_errors);
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.53.0
 
