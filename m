@@ -1,97 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795807391;
-	b=QFKzzFV1hM8/8fn4sPOsBgVisunB7Nu/kh5vkChkykjtXHNZNQZNvVb///c9RE+92saL
-	 Su1F0/HISS5Myee66PUBxS1fckdNEv4KKeYT3EAkqNfJy163i7ADGEzuKUFwk2mulfOOO
-	 I58U3PtNfK9a0gVQZSsxOZgOuLeRnwqFSeSXNvj8fPzaI8Uup+lbyZqoonrxDpEv7NOEE
-	 GT/2gDzL9kc/6YGQgyvu93GXh/aCfC4Gpo8Yhx82ICq+r1gjiX33rsx7P6yzA7Aa7FGij
-	 Y/vJ4IveFp6ZvweFuZff6MOyPt26R48YFKpwuvchUmgeIko267hc/H6+XTh1X11apXA==
+	t=1795807392;
+	b=jTnz6RD3Pv2KJrKxU1TuYtqdnPWqXHCk9CgsxtnOgygjEachTpd7jfDx25ukF3tgyxU3
+	 I1Ksf2zxKOsWPkfiAHElmsrMRcn0YrPMsmjjlxrhrKalxa+KR4Gh00VstWbR5JHSLI287
+	 jEhlfCSzwbrBW2DZqdU/7dD4KKvqWMUyY896EpYjRlpmgGC8PXJI4wTyoMAxgJv49DheG
+	 38mI19U1mtK+XRa276zWrIOKTMw/uVHDNSXFEUbXF/p6yJOWOacDyH/cwISkUInh18Df6
+	 gGjWEiKMxLEjrgZVVrQkgxQ62e75zRLwUu5rS6aJ1D0eCnxx7viGiIDndPrOy8ZjBDw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795807391;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795807392;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=hAfjzrAnWOvVhSH7jNkmz4JMPLTz15NAUJ6Sxn4cWNA=;
-	b=tG8ORvedkbcD9ifTDDCnTnaLg/eDkkNMCbzPXh+6QwTwAjlD30RQ1cOtrhB3hpx17jiI
-	 +jnZVq84sfv+MDgSumFrNK71JApp9s5E+34wynCjxcKk/iVnMG+sUrUIu4vfsO3YFNqmr
-	 ftFcC0zhriIC7tfuq3BqrObP9rmmASnra5J6agMddJkJCCLOieW256PTsDzXxG+2meieP
-	 rIbKaYIoreGqgqDWzULpsrk3p5eQYScs4peeiD+GfQJOGNpCWOLg2wSahy7ygl8oXx4MY
-	 rIhshRv6LEOi3vIaXw4e0tIZeQ/Utx8RzX5sQYUHZf1IBFoP+UyrUYGH4LK4ziMetog==
+	bh=A4hZZP69a2mG/B96CPqpSoZpjIm5ZpYqEQJvtKTyt7o=;
+	b=O71jBW0fEV/Mctv8E05Rtdrnwk+yj+OuGFrLBHuuVMFFxeKceE9+QSsQKVhkEtfrte0n
+	 XtD0sk0yPttSW+P1T774xu6iQgcsHGnA6iCPkz+4NxHPmIaBoe6Ahm5bfjpZ+w8QYUojY
+	 J5rkuTwhVc0bCZ0ZLM0/Y2S2nVvHA68y5vk9Dyy6dg6LXSjplhxexqElfRUyVQo/Ptg4O
+	 BSjEQZH8dlnFYy+DzocMFJAhjKMbpJsdT5fpOqySubJqLvuJTZ3eNlxZ0fGgfOVpMCyvb
+	 XTkEmsDUhOH6yYSqzS+tB6vLhKpO/frxondkDorsBqjiEhpcljJWA/U93fIX+L7/ltg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OQjU8dlt;
-	arc=none smtp.remote-ip=74.125.82.43
-Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oBdIipQ1;
+	arc=none smtp.remote-ip=74.125.82.48
+Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB47C606A6BB
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 19:23:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB47C606A6BB
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F965606A33D
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 19:23:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F965606A33D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OQjU8dlt
-Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-14394530ec6so2576916c88.1
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 11:23:10 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oBdIipQ1
+Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-1a3c08d6928so12569651c88.0
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 11:23:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795807390; x=1796412190; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795807391; x=1796412191; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=hAfjzrAnWOvVhSH7jNkmz4JMPLTz15NAUJ6Sxn4cWNA=;
-        b=OQjU8dlt0JxjaPDMoT3DI9wTP3dsJC5PX2aV8qMk9fORyqvle1Uxc06rUB0aty96EZ
-         kRLYdGeqX+xT9oeNSzPMp19Z5BVZNq3jZiBGT+zc3VMLDMua6vIzilxmHHMT5kB6iPVY
-         aI2lw3UeklvuGd1enWo1wyaK6vfOMTEJtvzBJWOR8KoNAMr8zcDCzwq/7CcgW9iDn0Dz
-         QxaGP1pIqLEXPUwzy29V3fekLpJ/jX8hxNYR5+1/YFEJFb1hHR093D4/IPTJKXzO5wvq
-         sORdstKrvaVdiD4B4mqR0TPbjJnzPd7a+3NH+240E/1i1mbsYKehiDzx1FlXZAhUfK0T
-         UNgw==
+        bh=A4hZZP69a2mG/B96CPqpSoZpjIm5ZpYqEQJvtKTyt7o=;
+        b=oBdIipQ1IKgszwg2+P40lacqzAeZlQ8WihfbZUIC0RypBN1iXk5fkIXkL89MZ8v7ve
+         aA04RU7F8wyyakrdL2AjFVHnxnTKccFcMTVEmNNR25Cm3wNumnbltHM492c/TioGx79+
+         zubbUmvpYQ5yG6XIKzdp0TORT/suQP1yUJgm7jYCNv9LH8y9RROwM9ehLUFbsTDROUSq
+         hXsqzRPNkXPj0DQnqWLPxxl9MZ8AVnDBhMGDG5MBPjirwPKtaIKbFPqM+R0R5xUeAaGG
+         YHP9swNPn272GCwCUZi5z7A3Q1DGVP4T7j438LnNwwdg+ajnDBv1AhlmWfp7PLlzyF8A
+         dcnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795807390; x=1796412190;
+        d=1e100.net; s=20260707; t=1795807391; x=1796412191;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hAfjzrAnWOvVhSH7jNkmz4JMPLTz15NAUJ6Sxn4cWNA=;
-        b=CW+kgkocAMvv+hhO+OCsEF8Xm1zgNdvg0vu2a00XsMWuX1SNxZgIM2P9NbD7OiwqH8
-         15mkbEvPt7bSjOV6QGf7TKZ9zD0I1XkeasRaKmLwKe1WXJZyND2abFS3TsALHbeXYAJl
-         dphXCk6kOPkoVPof4QAis7dhzf1ZBg1vQfhSjqm1WFsRNy1ZGjSlDGAfUz95o+qI+gIj
-         2PZ2a8PKyywxKy6MgRKRgEd5zM5eVXheuEcI1x4RVNnvEZmkl4xQjtTpizuqOaotoi7S
-         t+VR4SRClwPvb5dUeUoRLWWhJjhEbDWaUCctCnAVLOqbFnAXgMl6lmil7Mn+HiTjIhqv
-         yUyw==
-X-Gm-Message-State: APuU4Z+TCt3zrrrD/PKcpfruUEgwoDvPVgTo95zb2BmSuQ/1HCGyOpSt
-	WjDdBaBKaW66I2bImJq0ViX8+6SXnAG3AoA0+2otTnc5k7XVxUapa/sQPgUUng2uhug=
-X-Gm-Gg: AZFdTZdteztaCiReeP3qZLX2PGJQEQMQrZOPM1eb7HzLqVU8AubEKtKkocvAv9eprCD
-	qiFuPn44lJ5KBYjsCwMEPgPvNgiM5ssXyuCmojbS/tILwx2AOdVEK7HmhqObAGEx4f/8pdRU8W3
-	d9+jFW4OjIrGcBRvs6Dojj79L/VK/1IGeF1bLNa/oxe102eb8w5mrkiOb3yrY79oZdIWwPXP5Pn
-	RbrNz5+86BaMhQI32OEKhl6f5JUoEgXyXAEYzx+j82Vk3zBzck5KpFY2wxhxf3X2N17rg+neJ+V
-	mo3qLDYlrmtjA7XG4Mirb0/cxTkDFVGYcZ2qvwXVvHdc5ZCPEVTRXMi35ZPV9Lj3Icf6pvWMlSl
-	7mYadvbZ0poLIT9SQQGqWZcI0Gnk6qcQTFZ3gcGWfrKPNlKSAD6tVURNmjYpv/dH6rtPuOEuhVH
-	uyu8zOmTtQWf80Ntm7q5+CQQrjpRlrvcDhqTEqqs8UIakv0T+HgYcLBsVA0/vRNiappckZLM7vW
-	6J0cw+2WMqk1KImWy3u/Fs4fGvm9GCm0vwk88L8F+TPXJMDOMU2SNwxEs8l0eueohxu+2DSUIV0
-	sj9LbC7vT8hP2Irn9uefxGZEjC2hhlo73aJhMTeOSVoXgO4XUxhtFph/z+hDqvQzCvmPkc6KIqf
-	OYu/FcitC6nGzvMSQI5wU8LousYuNTB1uMDvNjDDqOA+PB+RakTUbZqQWfIaH+BbyyMcTC7PylP
-	1b6FgSB+8=
-X-Received: by 2002:a05:7022:e886:b0:1ac:2f6d:e1c6 with SMTP id a92af1059eb24-1b5568a4f42mr32400786c88.6.1795807389923;
-        Fri, 27 Nov 2026 11:23:09 -0800 (PST)
+        bh=A4hZZP69a2mG/B96CPqpSoZpjIm5ZpYqEQJvtKTyt7o=;
+        b=Gp3lC1TyhWzsDht949ZrsdNIxLEwuyRQoLxKCdebn+RKoL0I7e5TgqsYRBvQjQKv9q
+         MZBbFuvMvp1NG1vIfFwsBylQ8LWvlRAWZeC5IRsQmpavNbXznlQ3aUMbbE8F6TzpyZg8
+         vHbjnw+c9EEuU9uj53zzznvVh9enVwpq2iwMyJYxTvWeGnTgwYmgt+XxIe8utan/JcYi
+         9AeSVphQtBOVcmiCyeep5OjzN1kU+2yM8KNPbfkl+NPD1Hahn6FS6+KFgjaPAbLE6hmZ
+         +y7vQ7VQYp2uTdBBoGiFd3fkwrjDJ3HDEBofV4rxfmFlR8mvyCHhl+UINHIenLERc66M
+         vViw==
+X-Gm-Message-State: APuU4Z/EqikYADSbeTR1odzt6A3uiqVW93MBsTfH7biz3H48L/LS1rAv
+	5ZUvi898IhgSgnr+lXQFM2PE9pd1tTdEcBky8FTvWOpfN3G7mbNJ+MLSXUDfgRieft4=
+X-Gm-Gg: AZFdTZebD6S7RNdFGsFLENOm6/coswl6XCcFdjjtPq2UB/bsBsaP7Ao50XirENCAv5D
+	RlAvWwrt1mMeuP5BHDPQLhSfFMtjiWfIGGsHP77FQ9h+rG9JBd3x/RTe153RycljKc8k+sz19hU
+	Xavn+UsTgt9dm0TKk302PtPCnki9TmI2qe/GojcASNyoBJN9SZUZkQ5h3L63wRhbCs/HWZZ4GHv
+	kfz+XKK79swbxiA+FuciTYGDDBINN/p7U5jSVEel8YQJELiVxBKnafdXq9AgGbLyY8FjAnNAZDX
+	PGXEhES7CKTrQzn4VJE2yVCa+rItzNa+w3VHeFvHyry64/L/7PUN4NcXaJny6VLZ1sfY7gDWRS+
+	EmiFb/M9tffFfFcjlAD/UACcbNWA2bp1mjNltDZjRo36icnkmraUKoPgdFMr6GaunkwpReCUFjv
+	No694DcbAEgy5yR7ykNwKg66pqaK+9yYfGkNxw/2zR12IEOQlwBRpLVny1snepFkB4f+YH1XQPv
+	yfENnEzgseLGl+n7CtVchsAjVdxhherxch+XaRhyP32y83nOuD6+VX1zXTgKkKzgJi7GrygYLEx
+	TbKRLH41WNYmJHz/zHmKM646RLwvR/fRYICj/hHC+eAusQkdFjL0eaQ3fG7YUR1YV5piJGP/Bxq
+	cYvZ9V82+oB8hq6iLcKYxgofBkdnn2sumqb5rQ8M7/m+sjwuP853AXvyhD9RWrw==
+X-Received: by 2002:a05:7022:1583:b0:1b4:fa58:9d3 with SMTP id a92af1059eb24-1b5568ac1e3mr24987638c88.24.1795807391075;
+        Fri, 27 Nov 2026 11:23:11 -0800 (PST)
 Received: from Mac.net (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm97005883c88.9.2026.11.27.11.23.08
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm97005883c88.9.2026.11.27.11.23.10
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 27 Nov 2026 11:23:09 -0800 (PST)
+        Fri, 27 Nov 2026 11:23:10 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
 To: netdev@vger.kernel.org
 Cc: andrew+netdev@lunn.ch,
+	arkadiusz.kubalewski@intel.com,
 	davem@davemloft.net,
 	edumazet@kernel.org,
-	jonathan.lemon@gmail.com,
+	jiri@resnulli.us,
 	kuba@kernel.org,
 	pabeni@redhat.com,
 	richardcochran@gmail.com,
 	vadim.fedorenko@linux.dev
-Subject: [PATCH net v7 4/7] ptp: ocp: recover SMA direction from both enable bits on bind
-Date: Fri, 27 Nov 2026 11:22:59 -0800
-Message-ID: <20261127-timecard-driver-v7-4-ahmadexp@gmail.com>
+Subject: [PATCH net v7 5/7] ptp: ocp: report disabled SMA inputs as zero Hz
+Date: Fri, 27 Nov 2026 11:23:00 -0800
+Message-ID: <20261127-timecard-driver-v7-5-ahmadexp@gmail.com>
 In-Reply-To: <20261127-timecard-driver-v7-0-ahmadexp@gmail.com>
 References: <20261127-timecard-driver-v7-0-ahmadexp@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
@@ -105,58 +105,36 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-An IN: None request clears the input register. On bind, interpreting
-a clear input enable bit as an enabled output (SMA1/SMA2) loses the
-disabled state that is already represented by the register pair.
+A disabled SMA input has a cleared hardware selector. On FB and ADVA
+the cleared selector also encodes enabled 10 MHz when accompanied by
+the enable bit. Once that bit is masked in DPLL readback, the disabled
+input can be reported as already configured for 10 MHz. DPLL can then
+skip the set callback, leaving the input disabled.
 
-For configurable FB and ADVA connectors, use both enable bits. An
-enabled input or output selects the corresponding direction. If
-both are clear, report the disabled connector as IN: None. Keep
-the existing per-connector default if both bits are set, and leave
-fixed-direction hardware unchanged. Probe does not rewrite the mux.
+Use the connector's disabled state to report a nominal frequency of
+zero. Keep enabled input and output reporting unchanged.
 
-Developed with coding-assistant support using v6 review feedback.
+Developed with coding-assistant support during review and validation.
 
-Fixes: b2c4f0ac53f3 ("ptp: ocp: Add ability to disable input selectors.")
-Link: https://lore.kernel.org/r/179579808276.3135.5382400825629748441@kernel.org
+Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
 Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
 ---
- drivers/ptp/ptp_ocp.c | 21 +++++++++++++++------
- 1 file changed, 15 insertions(+), 6 deletions(-)
+ drivers/ptp/ptp_ocp.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-index 3781f6582b7b..6cf060d3b1a1 100644
+index 6cf060d3b1a1..9500fb2635a9 100644
 --- a/drivers/ptp/ptp_ocp.c
 +++ b/drivers/ptp/ptp_ocp.c
-@@ -2926,13 +2926,22 @@ ptp_ocp_sma_fb_init(struct ptp_ocp *bp)
- 		for (i = 0; i < OCP_SMA_NUM; i++)
- 			bp->sma[i].fixed_dir = true;
- 	} else {
--		reg = ioread32(&bp->sma_map1->gpio1);
--		bp->sma[0].mode = reg & BIT(15) ? SMA_MODE_IN : SMA_MODE_OUT;
--		bp->sma[1].mode = reg & BIT(31) ? SMA_MODE_IN : SMA_MODE_OUT;
-+		u32 inputs[] = { ioread32(&bp->sma_map1->gpio1),
-+				 ioread32(&bp->sma_map2->gpio1) };
-+		u32 outputs[] = { reg, ioread32(&bp->sma_map1->gpio2) };
- 
--		reg = ioread32(&bp->sma_map1->gpio2);
--		bp->sma[2].mode = reg & BIT(15) ? SMA_MODE_OUT : SMA_MODE_IN;
--		bp->sma[3].mode = reg & BIT(31) ? SMA_MODE_OUT : SMA_MODE_IN;
-+		for (i = 0; i < OCP_SMA_NUM; i++) {
-+			u32 mask = SMA_ENABLE << (16 * (i & 1));
-+			bool input = inputs[i / 2] & mask;
-+			bool output = outputs[i / 2] & mask;
-+
-+			bp->sma[i].disabled = !input && !output;
-+			/* If both are active, retain this connector's default. */
-+			if (!output)
-+				bp->sma[i].mode = SMA_MODE_IN;
-+			else if (!input)
-+				bp->sma[i].mode = SMA_MODE_OUT;
-+		}
- 	}
- }
- 
+@@ -5941,6 +5941,8 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
+ 	guard(mutex)(&bp->sma_lock);
+ 	val = bp->sma_op->get(bp, sma_nr + 1);
+ 	val &= SMA_SELECT_MASK;
++	if (sma->mode == SMA_MODE_IN && sma->disabled)
++		val = SMA_DISABLE;
+ 	tbl = bp->sma_op->tbl[sma->mode];
+ 	for (i = 0; tbl[i].name; i++)
+ 		if (val == tbl[i].value) {
 -- 
 2.54.0 (Apple Git-157)
 
