@@ -1,110 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.198.224.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795760856;
-	b=W8zYeDxgcRLutgBpbc9v+EfYZCrjHqmJqXewX47PSNms7rOrj2yLmM7hh2nPmgAFs8EG
-	 LmTBtKJ+SsUh96TUfZU44F/Du9v/3zwYvK+PO1U262CWIiyqqdSzZTi/O9AKQ1VHzB3TW
-	 x0IC74SHp0RH4h/1J9Z37Wmc6yPCbzUnrquhb4PNodAJks+sSw/QWsqJEQkOqJyKUY2kY
-	 /+zCl5Y/DLuZj6I8jxWsp2YoJYL7XJ/Y1QPNqZOZs/+6YSu8OMyYiPxj6JU7iy2Q8bfIP
-	 PlrwfWjm0pqXCDg1FzlzImQ+q/L0b/jfUEN+mbuCIEggDuk9COhGmKl9BERUZIVEklg==
+	t=1795760902;
+	b=nOe42rtYvpCJODOu+/p1sELhLpzzxnJSsD79ktxtLX5fauflVUSQeL+ANKXTOB/8GfjV
+	 WCWNzMqiGk+6MwflLXygemJqzFRF749Gi+FQRYQuQrR9RPS6qjghoz7QUDgc8TLKepYgS
+	 87c0CVjiwUrXOjjcnBKKo0avCKT/d9/9Veh95QyPF3fAkraa6HmJDCgUgPa6Og+XtM8OH
+	 EmNtVSx2Bzi54dwWYr3LQkWC+i87cMIrrERjC6agpaeZiPAJictJit6KM3AY1BBj+TYWQ
+	 7aZgH5kSR1Fn1ryvCosJqTBF2UH1HBN5qtKRhdon+RRpyE0wsgHiVrAicaX9UymhiNw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795760856;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=dMJvqq139olJaZVoTthnrd3VudVqIEoTi32eu7L85vk=;
-	b=0YUjpHplo4jmKkzkC4Aak/Cj8XGwZ7yqdWbJugajdMeHpYOMG4FYf9Bova723ES+WAjp
-	 NL217HhLc4TgO4f8VHQ45IkbGsVZv1drlvCnkP4+QzKCShdA3xIarVveyaO733ulvqk7j
-	 vL6X5vnnuZ+uae0jdnPW35kyLZNhW5jFPr7LIdiTvLyWH/NuI4ovyaMNYxwn4MCWZqc6D
-	 HLtiN7dT4trk3eawIne3FFp0f8p14tp6z3x99mDmIQZryESn6fB6bQRXzn364r5d+GOfc
-	 y4nhTm5ykVfxeMw/i3Lv2UGZ4aB4XXMX4yoi9R5pq6sw9btynFxHtKy8MfkEZEbY+mw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795760902;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:
+	 Received:From:Subject:Date:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Spam-Status:
+	 X-Spam-Checker-Version:X-purgate:X-purgate-type:X-purgate-ID;
+	bh=hR1lIsDu53XucOC121gNhnBmLUv3K3O3Iqrvd3qun8s=;
+	b=er7lZn/UForWTjPsV/IprsAVk6CevzvyAjrBjPdksuuYDfhyYemMlrpfGBC3mGgTRZaj
+	 TfWzNEazixx8kO7r8GawLoiZY13A++/rQm1N/WYHJOCcIsh6285FFqGZHBOF2xtgTq4Xx
+	 PiBv0ow1c4rzr4xNcmA1C3gdZ+0xJHYDmvmVqJk2fhk470qWnMbcD43wr9NrPsNd7ukgt
+	 Mf/6C7b9qPSPufpQISMxBcORlMDLn99QzM0Qm/4bPJTmVTY2Q1dIrwbiWNL/HEd4S3gtE
+	 QBqZSJ2flwNMA2BmYs08rAyCOscQc+b6nwkdyk9wg/sDuAljY3SnqzQwqCNEmfqMeGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mTn8h6p1;
-	arc=none smtp.remote-ip=209.85.216.54
-Received: from mail-pj1-f54.google.com (mail-pj1-f54.google.com [209.85.216.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=dev.tdt.de;
+	spf=pass smtp.mailfrom=dev.tdt.de;
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=hA6TvG8h;
+	arc=none smtp.remote-ip=91.198.224.70
+Received: from mxout70.expurgate.net (mxout70.expurgate.net [91.198.224.70])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AA78606A31C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:27:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6AA78606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DD34606A31E;
+	Fri, 27 Nov 2026 06:28:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9DD34606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dev.tdt.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.tdt.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mTn8h6p1
-Received: by mail-pj1-f54.google.com with SMTP id 98e67ed59e1d1-3ac78f4c10bso3613394a91.1
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 22:27:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795760855; x=1796365655; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dMJvqq139olJaZVoTthnrd3VudVqIEoTi32eu7L85vk=;
-        b=mTn8h6p13SKa/wUu13ouUEsw52B0VfZzLsexFVVleMzh30DFCaojNJSRLCgKj8sgUB
-         xdsUPjADznWmpPq5LFtSiInSYE0iBg88pvEcO5MVqqVtZvdlIVJu/wuhAbnnaEjBep6D
-         C4n9ZIASf7SYBVpL9gASmKHwwfjMYk1DEI4/LqwSftsQ3LKwowEI8PJPNY+/2Jh6C5WR
-         eQTImZ0NkT0aCnT8WmzY/WbGjymdi9YPknhKFmqxBY+Q/b0r6WaFHIuYKfX3hG9Fq6Ep
-         pKeO2n3SsEdovCJ/2vbmZQd7gc5GDIAJiS+scV3SiVRnBY1VzI92iD89FELpaAxDMT3E
-         5nrA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795760855; x=1796365655;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dMJvqq139olJaZVoTthnrd3VudVqIEoTi32eu7L85vk=;
-        b=cPgFj5vQdhXlAh6CFcdLM0cHmarLK84rMnF6T96QeL++YPS2K2t0rpEY/lICtfzIit
-         UwS96eqbbX0tVm5Wv6ti68RdiRTVs/wE3U5g0NTnmjd6uFa4ue5zGZuskM6wnVf9Z1ba
-         TbCbcKeffDb6E9d+xW2n9EvWaqyAslWWJBOTZoF9bUGtDfiFML6J9MrtsJwejm5X6CSl
-         592pVwPXSS2aPy1GvZnqU02Wdow4ySww+kVX6w1p8YxD3tuejaYD1YEpHWaSDtqgtLZl
-         I/1II8aI49abECW9AwvQFKCOkTp4ejUeZewsQJqpolioYyiY5yU2fS9i9M0Peq4Rqyo5
-         o3gw==
-X-Forwarded-Encrypted: i=1; AL+hErGBnrBkQItmawfeL5Kt4+y7W3BC0jIXYsX40feVEL0Pq+bMCvgtTBXhLlX1Cf0OZW2GIzXV8NI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/nUbGDHCqy6peNZZOcyNHeyOplvBSVDi0gR+DO5PYZZmPfe3kZ
-	0mktVanXXaChOb62VEq9QcYkpeninggETgmy0pHI+Ni4Cz8PvPurDo/IIXrqsVle3hY=
-X-Gm-Gg: AZFdTZcBXaAMgYJdmncf4t7bM0VfDGamqwi6xsyZUZt8fEVeUM4zAkb/VNph/SDsnnR
-	V+ArhJIz1f918X+QEr81fBX3pUMXhmMcY7gIvhGJs8pniTOtJlWrTgOXBQ+T5MAGlE3NN22ibwA
-	el1iWlT53uEkXFpZ5iVbiKUWOtKiP9X9frdk4xyJecK1Rltqmvp94E4YDyuMJEVFiNBL8UdRoIH
-	oURdJgDuZwDL59a2R7ivS1j6FgGPwZEmxzzpp6FZaObBFguMO20B4Edo2U8esBoX+PgWcjyTO/2
-	kTdQI1rDK4ym3z0SNF98Erbenw8ij/VF7ADvMZcDUBVr3q8h2YpF88OLz6s68V3PTw5E4rHbUL1
-	bqHJyPTMCV+7dmGpB3jhGPC5gYnL8B3qhiH30e8sLI3uK15OAkbLG6mhhOSIaO8cjmu9BEac5dB
-	AvjiEEFBTgfBJpZVv/FqBwrmgbhjqWvLrO6m5wLMK+UOngmsYet9bxG+8UiJeoPM+cyva1K9X0a
-	memKa5P2kr61F5/GdtgUdrB0GnQJt/9tRUJWTcQwDAVAVscToCzaMM7zauXmebRHfwX7NiLIVEB
-	+zSkgLb5sJZp5AhytpiXJWiWteLG
-X-Received: by 2002:a17:90b:2cce:b0:3b0:9a1b:b709 with SMTP id 98e67ed59e1d1-3b41c95f64dmr23981506a91.54.1795760854355;
-        Thu, 26 Nov 2026 22:27:34 -0800 (PST)
-Received: from dbg-srv ([111.194.74.218])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b82e624sm15986522a91.4.2026.11.26.22.27.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 22:27:34 -0800 (PST)
-From: Jia Jia <physicalmtea@gmail.com>
-To: Stefano Garzarella <sgarzare@redhat.com>,
-	Bobby Eshleman <bobbyeshleman@gmail.com>
-Cc: "Michael S . Tsirkin" <mst@redhat.com>,
-	Jason Wang <jasowangio@gmail.com>,
-	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	Stefan Hajnoczi <stefanha@redhat.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	virtualization@lists.linux.dev,
-	kvm@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org
-Subject: [PATCH net-next v6 2/2] vsock/virtio: amortize RX socket locking for stream packets
-Date: Fri, 27 Nov 2026 06:27:00 +0000
-Message-ID: <20261127062700.29387-3-physicalmtea@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261127062700.29387-1-physicalmtea@gmail.com>
-References: <20261127062700.29387-1-physicalmtea@gmail.com>
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=hA6TvG8h
+Received: from [194.37.255.9] (helo=mxout.expurgate.net)
+	by relay.expurgate.net with smtp (Exim 4.92)
+	(envelope-from <prvs=68051b93b8=ms@dev.tdt.de>)
+	id 1xWpRN-00179s-52; Fri, 27 Nov 2026 07:28:13 +0100
+Received: from [195.243.126.94] (helo=securemail.tdt.de)
+	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ms@dev.tdt.de>)
+	id 1xWpRL-0022Is-OQ; Fri, 27 Nov 2026 07:28:11 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.tdt.de;
+	s=z1-selector1; t=1795760891;
+	bh=hR1lIsDu53XucOC121gNhnBmLUv3K3O3Iqrvd3qun8s=;
+	h=From:Subject:Date:To:Cc:From;
+	b=hA6TvG8hKDtK3jlOWRY+1Xyg3jUZ9ybwwFok/qPvaLDwViug/nqONaT0acecizxa3
+	 iFowpupaWDxZQSfCujBH0maKClcw9Nu/Q8P8VqonEtO5BEQSAF303P5we8utJ+8BeF
+	 e6gyixOk1TcmKmP1XpvJeXoKOq7tb1j9+f1i1ru6+kEJErGdHKVUoYGp90On+7vZum
+	 e5BcXSHWzVR9AWTsm6XBdYrJYNUzN0bs4ZqQZvDuOdNw7q9qpwvUJS/PoNJRDIU/2+
+	 fdjPnxJUN6nIJk976ME/rUj/iLA3mjU9NuHzL4UXJaF0S4nRa66wTQniZ3WBNYQ6eT
+	 bNAB9WHVySUHA==
+Received: from securemail.tdt.de (localhost [127.0.0.1])
+	by securemail.tdt.de (Postfix) with ESMTP id 130D1240041;
+	Fri, 27 Nov 2026 07:28:11 +0100 (CET)
+Received: from mail.dev.tdt.de (unknown [10.2.4.42])
+	by securemail.tdt.de (Postfix) with ESMTP id E81DC240036;
+	Fri, 27 Nov 2026 07:28:10 +0100 (CET)
+Received: from [127.0.1.1] (unknown [10.2.3.19])
+	by mail.dev.tdt.de (Postfix) with ESMTPSA id 8A5952B0F1;
+	Fri, 27 Nov 2026 07:28:10 +0100 (CET)
+From: Martin Schiller <ms@dev.tdt.de>
+Subject: [PATCH net v2 0/2] net/x25: don't call lock_sock() from softirq in
+ x25_kill_by_neigh()
+Date: Fri, 27 Nov 2026 07:28:04 +0100 (CET)
+Message-ID: <20261127-x25-kill-by-neigh-v2-0-c7cdcc9f1320@dev.tdt.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -114,562 +76,117 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPQiCWsC/x3MQQ5AMBBA0avIrE2iEypcRSzQKRNS0opUxN01l
+ m/x/wOBvXCANnvA8yVBdpdAeQbTMriZUUwyUEFaKSoxUoWrbBuONzqWeUEa68Jqo5pGK0jd4dl
+ K/J8dOD6hf98PsSd7tWgAAAA=
+X-Change-ID: 20261124-x25-kill-by-neigh-2b70f6d19961
+To: Martin Schiller <ms@dev.tdt.de>, "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>, Lin Ma <linma@zju.edu.cn>,
+	Duoming Zhou <duoming@zju.edu.cn>,
+	Xiyu Yang <xiyuyang19@fudan.edu.cn>, Xin Tan <tanxin.ctf@gmail.com>
+Cc: linux-x25@vger.kernel.org, netdev@vger.kernel.org,
+	Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>,
+	Shuai Liu <847807867@qq.com>,
+	Krystian Kaniewski <krystianmkaniewski@gmail.com>,
+	syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com,
+	syzbot+9faa82ae2e94c5c7d2ef@syzkaller.appspotmail.com,
+	linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795760890; l=3787;
+ i=ms@dev.tdt.de; s=20260220; h=from:subject:message-id;
+ bh=v6SgoFrkv+b0LfnHHS4QhUnFOc6lzK1a631nmYR85VA=;
+ b=Om0fG895OE7/xfLbdIK0ZCpQ+X8q6rVyWrj7DEiaxuq8Yjqm8nbAKVOUGYHg8TrXbfvK0VGmo
+ Fga67G/AEP5BUna6gO22ffGVjK81SQrThs2EYj/X+1MagGpGQMiT9Fw
+X-Developer-Key: i=ms@dev.tdt.de; a=ed25519;
+ pk=MAojd7D5IafMnqCYSFC7hY/u/jppX58CLIEhsEsSOYE=
+X-purgate: clean
+X-purgate-type: clean
+X-purgate-ID: 151534::1795760892-5AC14D96-E86CBE01/0/0
 
-The virtio-vsock RX worker looks up a socket and takes its lock for every
-packet. Retain the connected lookup reference and socket lock across a
-bounded run of STREAM/RW packets for one established native socket.
+x25_kill_by_neigh() takes lock_sock() on all sockets of a neighbour,
+but it also runs in softirq context when the link layer reports a
+disconnect or the peer restarts the link. syzbot hits this on mainline,
+net, net-next and the LTS trees. A plain "ip link set lapb0 down" with a
+connected peer is enough: LAPB sends a DISC, and the peer clears its
+calls from softirq.
 
-Reuse the locked socket while packets match the same flow. Finish the
-batch on a malformed packet, flow change, non-RW traffic, or a change to
-the socket state, transport, protocol, sockmap state, or receive buffer
-limits. A connected lookup miss falls back to the existing receive path,
-which can still find a bound socket.
+Patch 1 is v2 of Nguyen Ngoc Thang's fix [1]. Sockets that are not
+owned are cleared right away under the socket spinlock, owned sockets
+are flagged and cleared from a new release_cb, and NETDEV_DOWN still
+waits for owners. v2 addresses the AI review of v1 [2]: a flagged
+socket no longer matches incoming frames and no longer transmits, so a
+new call on its LCI after a restart reaches the listener, and child
+sockets do not inherit the flag.
 
-Limit an uninterrupted socket-lock ownership interval to 64 packets and
-64 KiB of payload. The payload limit is one
-VIRTIO_VSOCK_MAX_PKT_BUF_SIZE. Small or zero-length packets still incur
-per-packet work, so an independent packet limit is needed. The 64-packet
-limit uses VHOST_NET_BATCH as a reference; it is a policy choice rather
-than a protocol limit.
+Patch 2 fixes a pre-existing NULL pointer dereference in x25_sendmsg(),
+x25_output() and x25_recvmsg() after they retake the socket lock. The
+same review pointed out the first two, Krystian Kaniewski found the
+x25_recvmsg() case. It is independent of patch 1.
 
-Beyond these limits, a larger batch would only further amortize socket
-lookup and lock/unlock operations, while virtqueue work, validation,
-tracing, skb ownership, credit update, and queueing remain per-packet. I
-therefore expect diminishing returns while the uninterrupted socket-lock
-interval continues to grow, but I have not measured larger limits yet.
+Deferring the whole cleanup to a workqueue [3][4] also avoids the
+splat, but the restart is then confirmed while the old calls are still
+bound to their LCIs. [5] had the same design as v1. Both have been
+withdrawn in favour of this series.
 
-Only the guest virtio RX worker is changed. The benchmark exercises the
-host-sender-to-guest-receiver direction, where this worker is on the
-receive path. I have not measured the corresponding worker and socket-lock
-overhead in vhost-vsock or vsock_loopback, and they use different worker
-and locking models. Leave those paths unchanged pending separate policy
-and validation. I plan to evaluate vhost-vsock separately as follow-up
-work.
+Tested in QEMU (single CPU) with lockdep and DEBUG_ATOMIC_SLEEP, using
+two lapbether devices on a veth pair. A sender stalled in x25_sendmsg()
+via userfaultfd keeps the calling socket owned during the link event:
 
-Performance:
+                                       unpatched  v1    v2    wq [4]
+  1  link loss, calls idle             splat      ok    ok    ok
+  2  link loss, caller owned           -          FAIL  ok    FAIL
+  3  restart, caller owned, then a
+     CALL REQUEST on the caller's LCI  -          FAIL  ok    FAIL
+  4  ip link set lapb0 down            splat      ok    ok    ok
 
-These results cover both patches in this series.
+In test 2, the old call brings the link back up (SABM) before it is
+cleared. In test 3, the new call does not reach the listener, and the
+old call sends a DATA packet on the reused LCI.
 
-Tested on a single-stream vsock connection (one Guest receiver thread on
-CPU0, virtio-vsock IRQ on Guest CPU1, fresh QEMU Guest per state, with 16
-accepted, balanced AB/BA pairs per payload). The host uses vhost-vsock.
+Tests 2 and 3 were not run unpatched, as that kernel would sleep in
+softirq. v1 was also tested by Thang with the PREEMPT_RT config and the
+C reproducer of [6]; the changes in v2 add no locking.
 
-For throughput, vsock_perf runs on the host as the
-sender, with a custom single-threaded Guest receiver pinned to Guest CPU0
-using blocking recv(). The table uses a 64K buffer. The virtio-vsock
-IRQ/RX worker is pinned to Guest CPU1. To normalize run times across
-payloads into a bounded, deterministic window and avoid long runs being
-skewed by host background noise or virtualization scheduling jitter,
-transfer sizes scale proportionally with the request size (64B/64M,
-256B/256M, etc.), capped at 2G for 4K-64K. The custom receiver keeps the
-recv() size and count explicit; vsock_perf's receiver uses poll()+read().
+Changes in v2:
+- skip flagged sockets in __x25_find_socket()
+- no transmission from flagged sockets in x25_kick() and
+  x25_write_internal()
+- clear the flag in x25_make_new()
+- add the current syzbot report
+- new patch 2
 
-End-to-end RX throughput
-(64K Guest recv() size, SO_RCVLOWAT=1; Gbit/s):
+The changes on top of v1, patch 2 and the tests were prepared with the
+help of an AI assistant (Claude, Anthropic).
 
-  payload  baseline RX  series RX  throughput change (95% CI)
-           (Gbit/s)     (Gbit/s)
-  64B          0.1212      0.2555  +110.81% [+106.99%, +114.70%]
-  256B         0.5551      1.0212  +83.95% [+79.94%, +88.06%]
-  512B         1.0568      1.8761  +77.53% [+73.02%, +82.15%]
-  1K           1.9260      3.1453  +63.31% [+58.58%, +68.17%]
-  4K           3.5175      6.3239  +79.78% [+72.79%, +87.06%]
-  8K           4.1183      5.6867  +38.08% [+31.06%, +45.48%]
-  16K          5.0155      6.8346  +36.27% [+31.12%, +41.62%]
-  64K          5.0541      5.8403  +15.56% [+11.12%, +20.17%]
+[1] https://lore.kernel.org/all/20261001150118.128470-1-ngocthang2710.1999@gmail.com/
+[2] https://lore.kernel.org/all/179121364205.434549.10310203820251738113@kernel.org/
+[3] https://lore.kernel.org/all/tencent_F7C2DC0FA42B5866E5C39A9E70D3C52C2609@qq.com/
+[4] https://lore.kernel.org/all/tencent_8BA4FF587EE5579AB67149C5062618DC7109@qq.com/
+[5] https://lore.kernel.org/all/00f667e3-a158-4fb5-84a3-9ecda4718ce8@mail.kernel.org/
+[6] https://lore.kernel.org/all/6aa7e6d0.4c28b7d0.c1bba.001c.GAE@google.com/
 
-Fixed-syscall stress test
-(receiver recv() size = sender write size; Gbit/s):
-
-  payload  baseline RX  series RX  throughput change (95% CI)
-           (Gbit/s)     (Gbit/s)
-  64B          0.1435      0.2750  +91.60% [+82.19%, +101.50%]
-       recv() calls (baseline/series): 1048577/1048577
-  256B         0.4218      0.9659  +129.00% [+110.65%, +148.95%]
-       recv() calls (baseline/series): 1048577/1048577
-  512B         0.8062      1.6979  +110.60% [+94.49%, +128.04%]
-       recv() calls (baseline/series): 1048577/1048577
-  1K           1.5116      2.9585  +95.72% [+85.22%, +106.82%]
-       recv() calls (baseline/series): 1048577/1048577
-  4K           2.9234      6.3365  +116.75% [+110.78%, +122.89%]
-       recv() calls (baseline/series): 538537/525565
-  8K           4.0430      7.1193  +76.09% [+69.04%, +83.44%]
-       recv() calls (baseline/series): 276901/264412
-  16K          4.9182      7.7688  +57.96% [+54.40%, +61.60%]
-       recv() calls (baseline/series): 147674/132088
-  64K          5.6683      7.1636  +26.38% [+20.49%, +32.56%]
-       recv() calls (baseline/series): 50615/33343
-
-Signed-off-by: Jia Jia <physicalmtea@gmail.com>
 ---
- include/linux/virtio_vsock.h                  |  23 ++
- .../events/vsock_virtio_transport_common.h    |  40 +--
- net/vmw_vsock/virtio_transport.c              |   7 +-
- net/vmw_vsock/virtio_transport_common.c       | 268 +++++++++++++++++-
- 4 files changed, 297 insertions(+), 41 deletions(-)
+Martin Schiller (1):
+      net/x25: re-check x25->neighbour after re-acquiring the socket lock
 
-diff --git a/include/linux/virtio_vsock.h b/include/linux/virtio_vsock.h
-index f91704731057e..748633aa0cc81 100644
---- a/include/linux/virtio_vsock.h
-+++ b/include/linux/virtio_vsock.h
-@@ -282,6 +282,29 @@ void virtio_transport_destruct(struct vsock_sock *vsk);
- 
- void virtio_transport_recv_pkt(struct virtio_transport *t,
- 			       struct sk_buff *skb, struct net *net);
-+
-+/*
-+ * Initialize a batch to zero before use. A non-empty batch owns @sk's socket
-+ * lock and the reference returned by vsock_find_connected_socket_net(). The
-+ * caller retains both until it calls virtio_transport_rx_batch_finish(). An
-+ * empty batch owns neither.
-+ */
-+struct virtio_transport_rx_batch {
-+	struct sock *sk;
-+	unsigned int pkts;
-+	size_t bytes;
-+};
-+
-+static inline bool
-+virtio_transport_rx_batch_empty(const struct virtio_transport_rx_batch *batch)
-+{
-+	return !batch->sk;
-+}
-+
-+void virtio_transport_recv_pkt_batch(struct virtio_transport *t,
-+				     struct sk_buff *skb, struct net *net,
-+				     struct virtio_transport_rx_batch *batch);
-+void virtio_transport_rx_batch_finish(struct virtio_transport_rx_batch *batch);
- void virtio_transport_inc_tx_pkt(struct virtio_vsock_sock *vvs, struct sk_buff *skb);
- u32 virtio_transport_get_credit(struct virtio_vsock_sock *vvs, u32 wanted);
- void virtio_transport_put_credit(struct virtio_vsock_sock *vvs, u32 credit);
-diff --git a/include/trace/events/vsock_virtio_transport_common.h b/include/trace/events/vsock_virtio_transport_common.h
-index f1ebe36787c3d..53a4c9ec47dae 100644
---- a/include/trace/events/vsock_virtio_transport_common.h
-+++ b/include/trace/events/vsock_virtio_transport_common.h
-@@ -88,24 +88,12 @@ TRACE_EVENT(virtio_transport_alloc_pkt,
- 
- TRACE_EVENT(virtio_transport_recv_pkt,
- 	TP_PROTO(
--		 __u32 src_cid, __u32 src_port,
--		 __u32 dst_cid, __u32 dst_port,
--		 __u32 len,
--		 __u16 type,
--		 __u16 op,
--		 __u32 flags,
--		 __u32 buf_alloc,
--		 __u32 fwd_cnt
-+		 const struct virtio_vsock_hdr *hdr,
-+		 const struct sockaddr_vm *src,
-+		 const struct sockaddr_vm *dst
- 	),
- 	TP_ARGS(
--		src_cid, src_port,
--		dst_cid, dst_port,
--		len,
--		type,
--		op,
--		flags,
--		buf_alloc,
--		fwd_cnt
-+		hdr, src, dst
- 	),
- 	TP_STRUCT__entry(
- 		__field(__u32, src_cid)
-@@ -120,16 +108,16 @@ TRACE_EVENT(virtio_transport_recv_pkt,
- 		__field(__u32, fwd_cnt)
- 	),
- 	TP_fast_assign(
--		__entry->src_cid = src_cid;
--		__entry->src_port = src_port;
--		__entry->dst_cid = dst_cid;
--		__entry->dst_port = dst_port;
--		__entry->len = len;
--		__entry->type = type;
--		__entry->op = op;
--		__entry->flags = flags;
--		__entry->buf_alloc = buf_alloc;
--		__entry->fwd_cnt = fwd_cnt;
-+		__entry->src_cid = src->svm_cid;
-+		__entry->src_port = src->svm_port;
-+		__entry->dst_cid = dst->svm_cid;
-+		__entry->dst_port = dst->svm_port;
-+		__entry->len = le32_to_cpu(hdr->len);
-+		__entry->type = le16_to_cpu(hdr->type);
-+		__entry->op = le16_to_cpu(hdr->op);
-+		__entry->flags = le32_to_cpu(hdr->flags);
-+		__entry->buf_alloc = le32_to_cpu(hdr->buf_alloc);
-+		__entry->fwd_cnt = le32_to_cpu(hdr->fwd_cnt);
- 	),
- 	TP_printk("%u:%u -> %u:%u len=%u type=%s op=%s flags=%#x "
- 		  "buf_alloc=%u fwd_cnt=%u",
-diff --git a/net/vmw_vsock/virtio_transport.c b/net/vmw_vsock/virtio_transport.c
-index 4f9aa9c4c3aa5..9af85712bd387 100644
---- a/net/vmw_vsock/virtio_transport.c
-+++ b/net/vmw_vsock/virtio_transport.c
-@@ -633,6 +633,7 @@ static void virtio_transport_rx_work(struct work_struct *work)
- {
- 	struct virtio_vsock *vsock =
- 		container_of(work, struct virtio_vsock, rx_work);
-+	struct virtio_transport_rx_batch batch = {};
- 	struct virtqueue *vq;
- 
- 	mutex_lock(&vsock->rx_lock);
-@@ -666,6 +667,7 @@ static void virtio_transport_rx_work(struct work_struct *work)
- 			/* Drop short/long packets */
- 			if (unlikely(len < sizeof(*hdr) ||
- 				     len > virtio_vsock_skb_len(skb))) {
-+				virtio_transport_rx_batch_finish(&batch);
- 				kfree_skb(skb);
- 				continue;
- 			}
-@@ -673,6 +675,7 @@ static void virtio_transport_rx_work(struct work_struct *work)
- 			hdr = virtio_vsock_hdr(skb);
- 			payload_len = le32_to_cpu(hdr->len);
- 			if (unlikely(payload_len > len - sizeof(*hdr))) {
-+				virtio_transport_rx_batch_finish(&batch);
- 				kfree_skb(skb);
- 				continue;
- 			}
-@@ -685,11 +688,13 @@ static void virtio_transport_rx_work(struct work_struct *work)
- 			/* Force virtio-transport into global mode since it
- 			 * does not yet support local-mode namespacing.
- 			 */
--			virtio_transport_recv_pkt(&virtio_transport, skb, NULL);
-+			virtio_transport_recv_pkt_batch(&virtio_transport, skb,
-+							NULL, &batch);
- 		}
- 	} while (!virtqueue_enable_cb(vq));
- 
- out:
-+	virtio_transport_rx_batch_finish(&batch);
- 	if (vsock->rx_buf_nr < vsock->rx_buf_max_nr / 2)
- 		virtio_vsock_rx_fill(vsock);
- out_nofill:
-diff --git a/net/vmw_vsock/virtio_transport_common.c b/net/vmw_vsock/virtio_transport_common.c
-index bebf63115b263..34d6864917bc9 100644
---- a/net/vmw_vsock/virtio_transport_common.c
-+++ b/net/vmw_vsock/virtio_transport_common.c
-@@ -33,6 +33,15 @@
- #define MAX_COLLAPSE_LEN \
- 	SKB_MAX_ORDER(VIRTIO_VSOCK_SKB_HEADROOM, PAGE_ALLOC_COSTLY_ORDER)
- 
-+/*
-+ * Bound the interval that an RX worker owns a socket lock. One maximum packet
-+ * buffer (64 KiB) bounds payload in one uninterrupted ownership interval.
-+ * Small and zero-length packets need a packet limit to bound per-packet work;
-+ * the 64-packet policy uses VHOST_NET_BATCH as a reference.
-+ */
-+#define VIRTIO_TRANSPORT_RX_BATCH_MAX_PKTS	64
-+#define VIRTIO_TRANSPORT_RX_BATCH_MAX_BYTES	VIRTIO_VSOCK_MAX_PKT_BUF_SIZE
-+
- static void virtio_transport_cancel_close_work(struct vsock_sock *vsk,
- 					       bool cancel_timeout);
- static s64 virtio_transport_has_space(struct virtio_vsock_sock *vvs);
-@@ -1787,10 +1796,70 @@ virtio_transport_find_socket(struct sockaddr_vm *src,
- 	return sk;
- }
- 
-+static bool
-+virtio_transport_recv_pkt_set_owner(struct sk_buff *skb, struct sock *sk)
-+{
-+	if (skb_set_owner_sk_safe(skb, sk))
-+		return true;
-+
-+	WARN_ONCE(1, "receiving vsock socket has sk_refcnt == 0\n");
-+	return false;
-+}
-+
-+static bool
-+virtio_transport_sock_has_psock(const struct sock *sk)
-+{
-+	return (uintptr_t)rcu_access_pointer(__sk_user_data(sk)) &
-+	       SK_USER_DATA_PSOCK;
-+}
-+
-+/* The caller holds sk's socket lock. */
-+static bool
-+virtio_transport_rx_batch_can_continue(struct virtio_transport *t,
-+				       struct sock *sk, u32 len)
-+{
-+	struct virtio_vsock_sock *vvs;
-+	struct vsock_sock *vsk;
-+
-+	vsk = vsock_sk(sk);
-+	vvs = vsk->trans;
-+
-+	/*
-+	 * Keep a connected lookup reference only for the native, established
-+	 * STREAM path. Sockets outside ESTABLISHED can change table membership;
-+	 * a completed or reassigned socket must resume the per-packet path.
-+	 */
-+	if (sk->sk_state != TCP_ESTABLISHED ||
-+	    sk->sk_type != SOCK_STREAM ||
-+	    sock_flag(sk, SOCK_DONE) ||
-+	    vsk->transport != &t->transport || !vvs)
-+		return false;
-+
-+	return (u64)vvs->buf_used + len <= vvs->buf_alloc;
-+}
-+
-+/* The caller holds sk's socket lock. */
-+static bool
-+virtio_transport_rx_batch_can_receive(struct virtio_transport *t,
-+				      struct sock *sk, u32 len)
-+{
-+	if (!virtio_transport_rx_batch_can_continue(t, sk, len))
-+		return false;
-+
-+	/*
-+	 * Sockmap can replace sk_prot and publish a psock without the socket lock.
-+	 * Check both at each packet boundary; a boundary that sees a replacement
-+	 * returns to the existing per-packet path.
-+	 */
-+	return READ_ONCE(sk->sk_prot) == sk->sk_prot_creator &&
-+	       !virtio_transport_sock_has_psock(sk);
-+}
-+
- /*
-- * The caller holds sk's socket lock.
-+ * The caller holds sk's socket lock. Return false if socket/source validation
-+ * rejects the packet.
-  */
--static void
-+static bool
- virtio_transport_recv_pkt_locked(struct virtio_transport *t,
- 				 struct sk_buff *skb, struct sock *sk,
- 				 struct net *net)
-@@ -1813,7 +1882,7 @@ virtio_transport_recv_pkt_locked(struct virtio_transport *t,
- 	     !vsock_check_source(vsk, &t->transport, &src))) {
- 		(void)virtio_transport_reset_no_sock(t, skb, net);
- 		kfree_skb(skb);
--		return;
-+		return false;
- 	}
- 
- 	space_available = virtio_transport_space_update(sk, skb);
-@@ -1846,6 +1915,8 @@ virtio_transport_recv_pkt_locked(struct virtio_transport *t,
- 		kfree_skb(skb);
- 		break;
- 	}
-+
-+	return true;
- }
- 
- /* We are under the virtio-vsock's vsock->rx_lock or vhost-vsock's vq->mutex
-@@ -1863,14 +1934,7 @@ void virtio_transport_recv_pkt(struct virtio_transport *t,
- 	vsock_addr_init(&dst, le64_to_cpu(hdr->dst_cid),
- 			le32_to_cpu(hdr->dst_port));
- 
--	trace_virtio_transport_recv_pkt(src.svm_cid, src.svm_port,
--					dst.svm_cid, dst.svm_port,
--					le32_to_cpu(hdr->len),
--					le16_to_cpu(hdr->type),
--					le16_to_cpu(hdr->op),
--					le32_to_cpu(hdr->flags),
--					le32_to_cpu(hdr->buf_alloc),
--					le32_to_cpu(hdr->fwd_cnt));
-+	trace_virtio_transport_recv_pkt(hdr, &src, &dst);
- 
- 	if (!virtio_transport_valid_type(le16_to_cpu(hdr->type))) {
- 		(void)virtio_transport_reset_no_sock(t, skb, net);
-@@ -1892,10 +1956,8 @@ void virtio_transport_recv_pkt(struct virtio_transport *t,
- 		goto free_pkt;
- 	}
- 
--	if (!skb_set_owner_sk_safe(skb, sk)) {
--		WARN_ONCE(1, "receiving vsock socket has sk_refcnt == 0\n");
-+	if (!virtio_transport_recv_pkt_set_owner(skb, sk))
- 		goto free_pkt;
--	}
- 
- 	lock_sock(sk);
- 	virtio_transport_recv_pkt_locked(t, skb, sk, net);
-@@ -1912,6 +1974,184 @@ void virtio_transport_recv_pkt(struct virtio_transport *t,
- }
- EXPORT_SYMBOL_GPL(virtio_transport_recv_pkt);
- 
-+/*
-+ * Release an active RX batch. A non-empty batch holds the socket lock and the
-+ * reference returned by vsock_find_connected_socket_net(). An empty batch
-+ * holds neither.
-+ */
-+void virtio_transport_rx_batch_finish(struct virtio_transport_rx_batch *batch)
-+{
-+	struct sock *sk = batch->sk;
-+
-+	batch->sk = NULL;
-+	batch->pkts = 0;
-+	batch->bytes = 0;
-+
-+	if (!sk)
-+		return;
-+
-+	release_sock(sk);
-+	sock_put(sk);
-+}
-+EXPORT_SYMBOL_GPL(virtio_transport_rx_batch_finish);
-+
-+static bool
-+virtio_transport_rx_batch_matches(const struct virtio_transport_rx_batch *batch,
-+				  const struct sockaddr_vm *src,
-+				  const struct sockaddr_vm *dst,
-+				  struct net *net)
-+{
-+	struct vsock_sock *vsk = vsock_sk(batch->sk);
-+
-+	/* The connected table is keyed by peer address and local port. */
-+	return vsock_addr_equals_addr(src, &vsk->remote_addr) &&
-+	       dst->svm_port == vsk->local_addr.svm_port &&
-+	       vsock_net_check_mode(sock_net(batch->sk), net);
-+}
-+
-+static bool
-+virtio_transport_rx_batch_can_add(const struct virtio_transport_rx_batch *batch,
-+				  u32 len)
-+{
-+	if (batch->pkts >= VIRTIO_TRANSPORT_RX_BATCH_MAX_PKTS ||
-+	    batch->bytes >= VIRTIO_TRANSPORT_RX_BATCH_MAX_BYTES)
-+		return false;
-+
-+	return len <= VIRTIO_TRANSPORT_RX_BATCH_MAX_BYTES - batch->bytes;
-+}
-+
-+static void
-+virtio_transport_rx_batch_account(struct virtio_transport_rx_batch *batch,
-+				  u32 len)
-+{
-+	batch->pkts++;
-+	batch->bytes += len;
-+}
-+
-+static void
-+virtio_transport_rx_batch_process(struct virtio_transport *t,
-+				  struct sk_buff *skb, struct net *net,
-+				  struct virtio_transport_rx_batch *batch,
-+				  const struct sockaddr_vm *src,
-+				  const struct sockaddr_vm *dst)
-+{
-+	struct virtio_vsock_hdr *hdr = virtio_vsock_hdr(skb);
-+	u32 len;
-+
-+	len = le32_to_cpu(hdr->len);
-+	trace_virtio_transport_recv_pkt(hdr, src, dst);
-+
-+	if (!virtio_transport_recv_pkt_set_owner(skb, batch->sk)) {
-+		virtio_transport_rx_batch_finish(batch);
-+		kfree_skb(skb);
-+		return;
-+	}
-+
-+	if (!virtio_transport_recv_pkt_locked(t, skb, batch->sk, net) ||
-+	    !virtio_transport_rx_batch_can_continue(t, batch->sk, 0)) {
-+		virtio_transport_rx_batch_finish(batch);
-+		return;
-+	}
-+
-+	virtio_transport_rx_batch_account(batch, len);
-+	if (!virtio_transport_rx_batch_can_add(batch, 0))
-+		virtio_transport_rx_batch_finish(batch);
-+}
-+
-+void virtio_transport_recv_pkt_batch(struct virtio_transport *t,
-+				     struct sk_buff *skb, struct net *net,
-+				     struct virtio_transport_rx_batch *batch)
-+{
-+	struct virtio_vsock_hdr *hdr = virtio_vsock_hdr(skb);
-+	struct sockaddr_vm src, dst;
-+	struct sock *sk;
-+	u32 len;
-+
-+	/*
-+	 * Batch only STREAM data packets. Control packets can change connection
-+	 * state or send a reply. Keep SEQPACKET on its existing path: its EOM/EOR
-+	 * record-boundary semantics have not been separately evaluated for batching.
-+	 */
-+	if (le16_to_cpu(hdr->type) != VIRTIO_VSOCK_TYPE_STREAM ||
-+	    le16_to_cpu(hdr->op) != VIRTIO_VSOCK_OP_RW) {
-+		virtio_transport_rx_batch_finish(batch);
-+		goto recv_pkt;
-+	}
-+
-+	len = le32_to_cpu(hdr->len);
-+	vsock_addr_init(&src, le64_to_cpu(hdr->src_cid),
-+			le32_to_cpu(hdr->src_port));
-+	vsock_addr_init(&dst, le64_to_cpu(hdr->dst_cid),
-+			le32_to_cpu(hdr->dst_port));
-+
-+	if (!virtio_transport_rx_batch_empty(batch)) {
-+		/* A post-processing check cannot bound a packet already admitted. */
-+		if (!virtio_transport_rx_batch_can_add(batch, len) ||
-+		    !virtio_transport_rx_batch_matches(batch, &src, &dst, net)) {
-+			virtio_transport_rx_batch_finish(batch);
-+		} else if (!virtio_transport_rx_batch_can_receive(t, batch->sk,
-+							   len)) {
-+			virtio_transport_rx_batch_finish(batch);
-+			goto recv_pkt;
-+		}
-+	}
-+
-+	if (!virtio_transport_rx_batch_empty(batch)) {
-+		virtio_transport_rx_batch_process(t, skb, net, batch, &src, &dst);
-+		return;
-+	}
-+
-+	/*
-+	 * A packet larger than the byte cap must take the regular path. Starting a
-+	 * one-packet batch would already exceed the bound on socket-lock ownership.
-+	 */
-+	if (!virtio_transport_rx_batch_can_add(batch, len))
-+		goto recv_pkt;
-+
-+	sk = vsock_find_connected_socket_net(&src, &dst, net);
-+	if (!sk) {
-+		/*
-+		 * A connected lookup miss can still match a bound socket in
-+		 * virtio_transport_recv_pkt().
-+		 */
-+		goto recv_pkt;
-+	}
-+
-+	if (virtio_transport_get_type(sk) != le16_to_cpu(hdr->type)) {
-+		/* Let the regular receive path send the type-mismatch reset. */
-+		sock_put(sk);
-+		goto recv_pkt;
-+	}
-+
-+	lock_sock(sk);
-+	if (!virtio_transport_rx_batch_can_receive(t, sk, len)) {
-+		/* State or receive-buffer failures keep the regular lookup path. */
-+		if (!virtio_transport_rx_batch_can_continue(t, sk, len)) {
-+			release_sock(sk);
-+			sock_put(sk);
-+			goto recv_pkt;
-+		}
-+
-+		trace_virtio_transport_recv_pkt(hdr, &src, &dst);
-+		if (virtio_transport_recv_pkt_set_owner(skb, sk))
-+			virtio_transport_recv_pkt_locked(t, skb, sk, net);
-+		else
-+			kfree_skb(skb);
-+
-+		release_sock(sk);
-+		sock_put(sk);
-+		return;
-+	}
-+
-+	batch->sk = sk;
-+	virtio_transport_rx_batch_process(t, skb, net, batch, &src, &dst);
-+	return;
-+
-+recv_pkt:
-+	virtio_transport_recv_pkt(t, skb, net);
-+}
-+EXPORT_SYMBOL_GPL(virtio_transport_recv_pkt_batch);
-+
- /* Remove skbs found in a queue that have a vsk that matches.
-  *
-  * Each skb is freed.
+Nguyen Ngoc Thang (1):
+      net/x25: don't call lock_sock() from softirq in x25_kill_by_neigh()
+
+ include/net/x25.h  |  1 +
+ net/x25/af_x25.c   | 76 +++++++++++++++++++++++++++++++++++++++++++++++++-----
+ net/x25/x25_out.c  |  9 ++++++-
+ net/x25/x25_subr.c |  4 +++
+ 4 files changed, 82 insertions(+), 8 deletions(-)
+---
+base-commit: c5de2ce2fccdb7d3b48946179634eaa3d7ce2e7e
+change-id: 20261124-x25-kill-by-neigh-2b70f6d19961
+
+Best regards,
 -- 
-2.53.0
+Martin Schiller <ms@dev.tdt.de>
 
