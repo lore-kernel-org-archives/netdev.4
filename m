@@ -1,60 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795780274;
-	b=SoMgAkmwhxOUwuDx4GWWp6Fsj9TT618pSGOBQEpK1x5XZ+UJRQPbzJemddXj/e6cld3M
-	 3XUQ1WSB7dQPSuy2UrHWMCna+3i2x3MwgFUyOWZbCkqI3Te71BJlyz+UNuHh5pZYPtjK/
-	 vGcpR/bVvgdZugDA0gV9ykmX7ii3x4hCAfZee9f9KnyHbTfwyfufyfyHALIzTiT15AcCq
-	 2d1SsiUdR/RT8Hf1qwMTLFobkYADBET1YV60Sen2GorQSaauMZHNmN40iHUqidpP8sYFT
-	 SUGvplGZrLS9kPubFMAIgmhuduDkgP4gYD8PdaKrQoDcMjumSGWs2ykf85uwv63GU9A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795780274;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Nj5x8f2MidPFHQLaGNfVfn7ivOiV5eX2uxIqRjmXdro=;
-	b=0OdTVDSqg8m35hj5zwa7zd45pVFdNGIMW7ViLarHda22GsLAAnxyoxIGKS8shvMR2RvT
-	 XWjG35+vfZdQdj1GtKOE6PHaxKPMYlUN9QyxKWm5ROGAjvJX/gJiBPe1/3XetsCGVGxeC
-	 +LJd3gZez3nm/yeT99ZusPxDs7kU52riFH8AD0wV4PHCY/RFBfYPgtVCPE4D7O90JR7U4
-	 XWwYqJ4KyNQD0IsoLUfa7dAzdbk7huktSUUu76MR0LNmHOuZhx971WwAwgGUG2Kg50ilR
-	 YZzq6PSaKW13eN2RnlQgq/13+Pz+pACBEd1UQzOS/dEJ3J2Z2a0sZCp7X5M6zlca9IA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hc9Ja7ld;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795780378;
+	b=Kl2mPlR6iJpscemD1HbjNf8U3h2aejbUnCdOiR+QO7uwKjnYAgXr3rmIE6hJm0f4ioVm
+	 /WHFaUlL9YvuIVHllJzNCRhMJDLXD8Ss5iid2lPJWXV0MdD9fyWwAG9UalkrLdXqJYLep
+	 2rCjbUiqQs/bGyQURVecwX/e7GAlY7um7o7YxSjQHx7MpvyAHiET7eEcqKWsQErE5abt3
+	 i04SBa7tvJI3TQD9c2hF9jsJfklJDd+WwiTTOSCE0QzAWapDX21voM0rNzLHmQ9/B9hRx
+	 kqdIyLy/uLRn9ufBGdmUA2XMs+QALFegEBgMRlRZxivwYAGk3gQbgNxW+v4VpmziMsA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795780378;
+	h=Received:DKIM-Signature:Received:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:From:Date:Subject:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=JddT4YCXJALZheazH3GcWB4TD8aaVQg2brgZZlEPjqg=;
+	b=iTA7LhhFarCS+x5A/S+OYFGNOoDoTZR+u0XBTCLe+G3H65jt+wXOu01q8PgN0mW2L+ly
+	 Fo7ATxlm1FHSB/lOs6PynlAyD8B7j3HmiJA6vnby5F8RC6SsjEzEzr+UFtrbwBoQ6bDgr
+	 1iIN4P6eWuWcP7UTzkavaS73KVTcGrOSAXLPUTxIWw8RpGxDC+GGtZLKYWXfI7jOPEKso
+	 qjYnFgmcTvcM8zYzgfG7yt36UVIBZlXjQfrzUTNBPIqU2l0jwT1oD7pSxuigJYnPPirrD
+	 GO9jXxvahc/P+Z/E1YVyRXUmFFYFKq0qZYAPXIFHcly+tIbpINwC+eHr/EqS1+okNsg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cn0BUh6J;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDF92606A31F
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 11:51:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C9A7606A31C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 11:52:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hc9Ja7ld
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 733DC1F00897;
-	Fri, 27 Nov 2026 11:51:13 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cn0BUh6J
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795780378;
+	b=GnSltqnNeSHtTHB943xhvf03jkqk5zefpJmYnoeMPNqveRo2H2RHvR4YyWa77FKuOQh3
+	 0dWV0yOvjbf24lwtMVtA71WuJ+3hFRLAObewBzv5LjJuir4Ijn9Ls2C7DJyMgcO0b5HfT
+	 i2l4DRoXHz38VTYbpjvc5OT21cUQMUMQPL6g4shvl5Jlz9WTiLlZosMd3V+gx6QNXOyU1
+	 YqOsJDg4akdnmbN1a3wH3GAgNaexJhkRzhgkf36YuQ+mAqpAqXEyPbnab1FZ7DdyGYAZx
+	 0pl719THnW366oL/ndsjMCmQn6Oy4TOp8RbgoYgOYlB4WZBtpTEsOUh/4Xvfwv/8CBw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795780378;
+	h=DKIM-Signature:Received:MIME-Version:Content-Type:Message-Id:
+	 X-B4-Tracking:X-Change-ID:From:Date:Subject:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=JddT4YCXJALZheazH3GcWB4TD8aaVQg2brgZZlEPjqg=;
+	b=mCd+8j8V5NZkFJkKBfbfcLGDOxDbX5WlzeGXQ9+JkLZoL1qm4lnOgXFD26lYaLEoJrLJ
+	 2hW+pwNyP662nNUC7NeOYHs4d2DlkLZPVx1k7awGLrdYYR/Kmm8F/jo2WCQx83srgHSBR
+	 A5eX0+087kMvw5ZVC5Je0Fgy9qLspccuhHX+N3Ec7Z3pkaCrjy1Bw17FzJz80+1t37TtQ
+	 zOejBbqrgkpmXyQKhOFDZymQ1Lzm4pKshS4set+imMDeNJB9woXIsO9F21uZHj5eiw1Mv
+	 zlnes+3JjfcP7MjQvHK6JUhM7P0jaqb5FhzUj0olOSCJqL8SW99VZU0JdCIdryv6Lyg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id E95531F00893;
+	Fri, 27 Nov 2026 11:52:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795780274;
-	bh=Nj5x8f2MidPFHQLaGNfVfn7ivOiV5eX2uxIqRjmXdro=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=hc9Ja7ldN4qcbiClmDiKzY9ydC16vSoDkyz2xiAfwumKjDbnMXMbYDKF2tWDaUUgU
-	 xWU2qfBdmXhTfVBdemxl33+2+P5ENxC1YQdEVPnc1PswmcPebynkdGxZDO3JGI6+kk
-	 44tPH/KNga2QOxTcZNBo4sYHIx7M0BjcIGK0W4QpBItxO5pY5grSO7FKlpr9jGR52h
-	 6nPoTkh+CuK+kqGjtCZ91021Ue/LQZZU1QtOc1/OaSTyUtWmspPwt/PTVvyUX8jUwn
-	 Ze+GeD6SQtwmXD7ROT1Fg0pWtze3CU5K7tTbLcIrMkMHqXUvKIvbqGL5UmYNu1Vil9
-	 y4z0gcY9mvpYg==
-Subject:
- Re: [PATCH net 3/3] net: hix5hd2_gmac: keep TX/RX queues alive across a close
-From: netdev-bot+sashiko@kernel.org
-To: mmyangfl@gmail.com
-Cc: netdev@vger.kernel.org, shenjian15@huawei.com, shaojijie@huawei.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, zhangfei.gao@linaro.org,
- lidongpo@hisilicon.com
-Date: Fri, 27 Nov 2026 11:51:12 +0000
-Message-ID: <179578027297.3135.9721280568327994414@kernel.org>
-In-Reply-To: <20261126110310.344521-4-mmyangfl@gmail.com>
-References: <20261126110310.344521-4-mmyangfl@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795780378;
+	bh=JddT4YCXJALZheazH3GcWB4TD8aaVQg2brgZZlEPjqg=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=cn0BUh6Jy17Vh9TN8InwdNGNsEyTpEw/82k8IwO3ouDV4HnbMnPTJr4fb0LePmXMl
+	 cvkWIXSUPCxrKhQV0FOiAitOGgahNAZAZb2Ran7/JZwwMRz7qy7lUwkrADi/dVcCyr
+	 KmqwKh5M9XKz/2u3Lv21SsVcxqpLkVyNVrRqM4P3gbwegwMPpLZI+KizEgbgI74osq
+	 a26GvWJQ0t1cukcnB2IREQt3yraSCKdMA+vo0pv6X3VEv5YP0TwoAIlfp9yhLjV+wi
+	 RBUsL5vb4DBQtR5vObmDBmXg3P+GGSruV21HtCLwBSHZwVFMfKPfw2hbnLHSNZgRnc
+	 UE6QiuZdiiQlg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 698FB4B776;
+	Fri, 27 Nov 2026 11:52:55 +0000 (UTC)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,204 +79,115 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261127-ktls-close-c-v1-1-1470bb718a8d@certik.com>
+X-B4-Tracking: v=1; b=H4sIAKltCWsC/yWMywrCMBBFf6XM2gETJAV/RVzkMbGjIZFMFKH03
+ 5vY5T3cc1YQqkwC12mFSl8WLrkPdZrALzY/CDn0DfqsjVJ6xldLgj4VIfRoQoiGzCW4OUJX3pU
+ i//65G2RqcD+gfNyTfBuhcXO2267a7JeBhHJopSQcHLZtB/iYhj+VAAAA
+X-Change-ID: 20261127-ktls-close-c-6ddf6e64db7f
+From: Dickson Wu via B4 Relay <devnull+dickson.wu.certik.com@kernel.org>
+Date: Fri, 27 Nov 2026 10:08:46 +0000
+Subject: [PATCH net] tls: use non-blocking sends in tx_work_handler
+To: netdev@vger.kernel.org
+Cc: John Fastabend <john.fastabend@gmail.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Sabrina Dubroca <sd@queasysnail.net>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>, 
+ Simon Horman <horms@kernel.org>, Vakul Garg <vakul.garg@nxp.com>, 
+ Jiayuan Chen <jiayuan.chen@linux.dev>, 
+ syzbot+ca1345cca66556f3d79b@syzkaller.appspotmail.com, security@kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795780009; l=3769;
+ i=dickson.wu@certik.com; s=dickson-b4; h=from:subject:message-id;
+ bh=+PhrH4oc7Z2Y18ZJgTa1CjrkTC4OCH1ulidgJIEbwDM=;
+ b=7r5ZdlysBbZ0RSpAe6vNMdUIAUPHfdPuscSnFlM6LXpKr/iQBNiHQSspFDmpbRAbufN5XZnxi
+ Q5rkD6ZMA+GArl6FTWR30ETGj1vq0YE7IXmHt+kNjeqHRl+QDvprBh/
+X-Developer-Key: i=dickson.wu@certik.com; a=ed25519;
+ pk=fxH7FS4FdojeJSGLJzgKdfO51Rvr4EW30yinj2mc1vg=
+X-Endpoint-Received: by B4 Relay for dickson.wu@certik.com/dickson-b4 with
+ auth_id=1647
+X-Original-From: Dickson Wu <dickson.wu@certik.com>
+Reply-To: dickson.wu@certik.com
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+From: Dickson Wu <dickson.wu@certik.com>
 
-Critical: 0 · High: 2 · Medium: 1 · Low: 0
+tx_work_handler() calls tls_tx_records(sk, -1), so each record is
+pushed with the flags of the sendmsg() call that created it. When a
+blocking send returns early (signal or SO_SNDTIMEO) and leaves a
+partially sent record, the work handler pushes the rest with blocking
+flags. If the peer keeps its window closed, the worker sleeps in
+sk_stream_wait_memory() with no timeout. tls_sk_proto_close() then
+waits for it in disable_delayed_work_sync(), so the closing task sits
+in D state and ignores SIGKILL.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Each such socket holds a system_wq worker. With the tls module loaded,
+an unprivileged local user can occupy all events workers on a CPU this
+way (1024 on a one-CPU test guest), which stalls
+schedule_on_each_cpu() callers.
 
-- [High] The fix is incomplete.
-- [High] net: hix5hd2_gmac: TX/RX queue stall on reopen in
-  hix5hd2_net_open()
-- [Medium] hix5hd2_net_close() no longer frees tx_skb[] or rx_skb[].
+Pass MSG_DONTWAIT from the work handler. On -EAGAIN the record stays on
+tx_list and tls_sw_write_space() schedules the work again when TCP has
+room. The close path does not change: tls_sw_release_resources_tx()
+still calls tls_tx_records(sk, -1) from process context, so data
+queued before close() is still flushed with the socket's own blocking
+semantics and the FIN follows it. The worker no longer applies the
+saved per-record flags, such as MSG_MORE or MSG_NOSIGNAL, which belong
+to a sendmsg() call that has already returned.
 
---
+Jiayuan Chen proposed the same approach earlier with a new extra_flags
+argument to tls_tx_records() (Link below). This version needs no new
+argument, and the close flush that review of that patch focused on is
+unchanged.
 
-net: hix5hd2_gmac: keep TX/RX queues alive across a close
+Reported-by: syzbot+ca1345cca66556f3d79b@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=ca1345cca66556f3d79b
+Link: https://lore.kernel.org/netdev/20260227063231.168520-1-jiayuan.chen@linux.dev/
+Fixes: a42055e8d2c3 ("net/tls: Add support for async encryption of records for performance")
+Signed-off-by: Dickson Wu <dickson.wu@certik.com>
+---
+Tested on x86_64 UML with KASAN at v7.4-rc4 (9437ee8b6cf6), as uid 1000
+with no capabilities or namespaces, over loopback:
+- Interrupted 256 KiB send, peer reads 1 KiB and stops, then close():
+  stock and reverted, the closer stays in D state 33 s after SIGKILL
+  with the worker in sk_stream_wait_memory(). Patched, the closer is in
+  S state in the normal close flush and SIGKILL ends it within 3 s.
+- 1900 kTLS pairs, each with a partial send after a 20 ms SO_SNDTIMEO:
+  stock and reverted, 1024 busy events workers and a
+  /proc/sys/vm/stat_refresh write over 10 s. Patched, 0 busy workers
+  and 11 ms.
+- Patched controls: an immediate close after an interrupted send
+  delivered and decrypted all 32768 accepted bytes. With the sender
+  idle (no further send, no close) after the worker got -EAGAIN, the
+  next write_space rescheduled it and a slow reader still got all
+  32768 bytes. An uninterrupted send delivered all 262144 bytes, and
+  plain TCP is unchanged.
+- No KASAN, BUG or WARNING in any run. The patch applies unchanged to
+  6.1.y, 6.6.y, 6.12.y and 6.18.y.
 
-This patch stops hix5hd2_net_close() from freeing the TX/RX buffers. The
-release moves into hix5hd2_destroy_hw_desc_queue(), so buffers are only
-freed when the device goes away. It also drops netdev_reset_queue() from
-hix5hd2_net_open() and destroys the hardware queues before the SG queue
-in the probe error path and in hix5hd2_dev_remove().
+A reproducer is available if it helps.
 
-> diff --git a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-> index 0d4701d1e1731..0df31a2ec3ad8 100644
-> --- a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-> +++ b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
+This was found and the fix prepared with AI coding tools (OpenAI Codex
+agents, with review by Claude). I went over the analysis, the earlier
+thread and the patch before signing off.
 
-[ ... ]
+ net/tls/tls_sw.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> @@ -878,7 +877,9 @@ static int hix5hd2_net_close(struct net_device *dev)
->  	hix5hd2_irq_disable(priv);
->  	napi_disable(&priv->napi);
->  	netif_stop_queue(dev);
-> -	hix5hd2_free_dma_desc_rings(priv);
-> +	/* the buffers stay owned across the close; both rings are released
-> +	 * with the queues when the device goes away
-> +	 */
-
-[Severity: High]
-Now that the rings and BQL state carry across a close, can the
-interface come back up with TX and RX stuck?
-
-hix5hd2_net_close() only disables the port, the interrupts and NAPI.
-It does not call hix5hd2_xmit_reclaim() and does not drain RX_BQ. Any
-descriptors that completed into TX_RQ or RX_BQ after the last poll
-therefore stay there, and their skbs stay in tx_skb[] and rx_skb[].
-
-On the next open, hix5hd2_hw_init() does:
-
-	writel_relaxed(~0, priv->base + RAW_PMU_INT);
-
-That discards the pending TX_RQ_IN_INT and RX_BQ_IN_INT bits, and
-their timeout variants, for those completions. hix5hd2_net_open()
-then neither reclaims nor schedules NAPI; it only enables the
-interrupts. hix5hd2_poll() is only reached from hix5hd2_interrupt(),
-so nothing looks at TX_RQ or RX_BQ until the hardware raises a fresh
-interrupt.
-
-On the TX side, suppose netdev_sent_queue() hit the BQL limit before
-the close. Then __QUEUE_STATE_STACK_XOFF is still set.
-netif_start_queue() only clears __QUEUE_STATE_DRV_XOFF. With
-netdev_reset_queue() gone, the only thing that clears STACK_XOFF is
-netdev_completed_queue() in hix5hd2_xmit_reclaim().
-
-The same happens if the ring was full. Every hix5hd2_net_xmit() call
-finds priv->tx_skb[pos] occupied and stops the queue again. If all of
-those frames had already moved to TX_RQ, nothing is left in TX_BQ to
-raise a new completion, so the queue would stay stopped.
-
-On the RX side, suppose RX_FQ had been fully consumed into RX_BQ.
-Every rx_skb[] slot is then populated, so hix5hd2_rx_refill() breaks
-on the first one. The hardware has no free buffers to receive into
-and no reason to raise another RX interrupt.
-
-Recovery is affected too. dev_watchdog() would call
-hix5hd2_net_timeout(), but hix5hd2_tx_timeout_task() only does
-dev_close() followed by dev_open(). That now repeats the same
-sequence without reclaiming anything or resetting BQL. Before this
-patch, the cycle at least freed tx_skb[] and reset the BQL state.
-
-Does the hardware re-raise the TX_RQ/RX_BQ timeout interrupts for
-entries already sitting in those queues after RAW_PMU_INT is cleared?
-If not, should hix5hd2_net_open() process the leftover completions
-itself? One option would be a napi_schedule() once after
-napi_enable() and hix5hd2_irq_enable(), so that the BQL accounting
-and the rings are reconciled on reopen.
-
-[Severity: Medium]
-With the free removed from here, what releases TX skbs that were queued
-before "ip link set down" and not yet reclaimed, if the interface stays
-down?
-
-They now seem to stay in tx_skb[] until one of two things happens. Either
-a later open lets the hardware complete them and hix5hd2_xmit_reclaim()
-runs, or the device is removed and hix5hd2_destroy_hw_desc_queue() frees
-them.
-
-While they are held, each skb keeps its sk_wmem_alloc charge, so a closed
-socket cannot finish __sk_destruct(). The socket's netns reference is also
-kept, so a netns whose sockets sent through this device just before the
-down cannot be torn down. MSG_ZEROCOPY skbs would keep their user pages
-pinned, and their completion notifications would never arrive.
-
-Close only clears PORT_EN and DESC_WR_RD_ENA. Would hix5hd2_port_enable()
-on the next open then transmit the frames queued before the down? That
-could happen long after a MAC address or configuration change made while
-the interface was down.
-
-The same applies to RX buffers already completed into RX_BQ before the
-close. hix5hd2_rx() would deliver them to the stack after the reopen.
-
-The commit message says the buffers are kept "until the device goes away"
-and describes the BQL effect, but it does not mention these side effects.
-Could they be described and weighed against the alternatives?
-
-[ ... ]
-
-> @@ -990,6 +991,9 @@ static void hix5hd2_destroy_hw_desc_queue(struct hix5hd2_priv *priv)
->  {
->  	int i;
->  
-> +	/* the buffers survive a close: release them with the rings */
-> +	hix5hd2_free_dma_desc_rings(priv);
-> +
->  	for (i = 0; i < QUEUE_NUMS; i++) {
->  		if (priv->pool[i].desc) {
->  			dma_free_coherent(priv->dev, priv->pool[i].size,
-
-[Severity: High]
-Doesn't this still free the RX/TX buffers and rings while the block holds
-prefetched descriptors, only now on remove instead of on close?
-
-The remove path looks like this:
-
-hix5hd2_dev_remove()
-  unregister_netdev()
-    hix5hd2_net_close()             /* port disable, irq off, clocks off */
-  hix5hd2_destroy_hw_desc_queue()
-    hix5hd2_free_dma_desc_rings()   /* unmap and free rx_skb[]/tx_skb[] */
-    dma_free_coherent()             /* all four rings */
-
-hix5hd2_net_close() writes no queue pointer register. The commit message
-also says neither available reset can quiesce the block. So the queue
-state inside the MAC appears to survive this free.
-
-On a re-probe (sysfs unbind/bind or rmmod/insmod), the only thing that
-could clear that state is hix5hd2_mac_core_reset():
-
-static inline void hix5hd2_mac_core_reset(struct hix5hd2_priv *priv)
-{
-	if (!priv->mac_core_rst)
-		return;
-	...
-}
-
-The gmac0/gmac1 nodes in arch/arm/boot/dts/hisilicon/hisi-x5hd2.dtsi have
-no resets property. devm_reset_control_get(dev, "mac_core") therefore
-fails and mac_core_rst is NULL on the SoC this patch targets.
-
-The next open then runs three steps:
-
-- hix5hd2_hw_init() rewrites only the depth and start addresses.
-- hix5hd2_rx_refill() fills CIRC_SPACE() slots computed from the stale
-  RX_FQ_WR_ADDR and RX_FQ_RD_ADDR values.
-- hix5hd2_port_enable() restarts descriptor processing.
-
-Under the hardware model in the commit message, would the block then use
-the previous binding's prefetched descriptors and DMA into RX buffers that
-were freed at remove? The rest of the hardware FQ entries would sit in a
-freshly zeroed ring with buff_addr 0.
-
-After that, completions would land on slots where the newly allocated,
-zeroed rx_skb[]/tx_skb[] entries are NULL:
-
-hix5hd2_rx() {
-	...
-		skb = priv->rx_skb[pos];
-		if (unlikely(!skb)) {
-			netdev_err(dev, "inconsistent rx_skb\n");
-			break;
-		}
-	...
-}
-
-hix5hd2_xmit_reclaim() does the same for tx_skb[]. Both loops break
-without advancing RX_BQ_RD_ADDR or TX_RQ_RD_ADDR. Can RX and TX stall
-permanently at this point? After this patch the TX timeout close/open no
-longer touches the rings, so it does not look like it can recover.
-
-Is a quiesce or a reset at probe needed before this free, so the fix also
-covers the remove and re-probe path?
-
-[ ... ]
-
+diff --git a/net/tls/tls_sw.c b/net/tls/tls_sw.c
+index 226e0f176..16dcd134e 100644
+--- a/net/tls/tls_sw.c
++++ b/net/tls/tls_sw.c
+@@ -2428,7 +2428,7 @@ static void tx_work_handler(struct work_struct *work)
+ 
+ 	if (mutex_trylock(&tls_ctx->tx_lock)) {
+ 		lock_sock(sk);
+-		tls_tx_records(sk, -1);
++		tls_tx_records(sk, MSG_DONTWAIT);
+ 		release_sock(sk);
+ 		mutex_unlock(&tls_ctx->tx_lock);
+ 	} else if (!test_and_set_bit(BIT_TX_SCHEDULED, &ctx->tx_bitmask)) {
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126110310.344521-1-mmyangfl%40gmail.com
+2.43.0
+
+
