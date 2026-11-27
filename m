@@ -1,49 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795803415;
-	b=A3fYj2DqPov1i+5eB4WGUiJXOnh8bc8JWqpZ0r+DgsCtbZ0mLQFDt74RPdofXGmtr0QC
-	 QMgGMTLwur5YG721P9+sp520TZlLuHOO5/xigf3+N4ItMg5esyQS3qkwo4X9kNIK/8V0a
-	 jlDKfopEZaIl5bm3NyI+eyOQ7EQDRbeE1w0MNJ6frsYbfAimIbZ9kxXrTSp/Q5C5X9xHq
-	 lLX1Vi6ZgUNPWPnJWk2sW02IidllxmJMrQwEHQaWWFg9FsUXlFnT253nU4xnz0pNzc1zp
-	 csu7TBS0tnomg1eihKpTxH0kj3oWEOWbi5TnBrSir3Qjo/9YQW6xEhFkzVxtZ5d3neQ==
+	t=1795804001;
+	b=vynwhFlgUOvP9g6Ym6aH29W7UGYNupqQsA0bftl+dS810RJFFqrc2lXGCJWONEfmxKlf
+	 6utqcUmmK6xfZWFPL1fJtV5sOscMVnUH81cexxc7LUT/cvJYbX35P88sxTnlvhjP+QcBF
+	 zCXPkhkm05oN8jR/XFAHBfMGTJryNMvcMIYJCUTd0G50jjuDwWGEUpo7IGfvZOWK6qbB8
+	 erzkVDPrUMDTfah7EYKzKIzZbxtbo9orHtr225qIi6f754lV6A3Nz4WAExSVYdXm0Mu0Y
+	 WEdZZeRCgo9FPFeAGZEc+jcMMsXuXEJfJe8Nol6290eCl5xmXULiR1kzWlaFDD5GPbQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795803415;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:From:Subject:To:Cc:References:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=IRquHP6+JpDcME/70XQJzwgPUGu0D6NcBC9+C049/lA=;
-	b=VeT3rgIbo5gZMtI+onSUDrUwXrhQJdqM8N0dEkSPJPUOJUuuDQduyGcDCkx9IVAy2DFw
-	 fp2+3n047rZjgYxJxotmTwpMxHeVdQGHujpx30NUHWNaji8cKM/xT1EZA+5YJSdUywLeC
-	 Ej/he5XjlptvpaWRACnzYlsalMCFaaOAlSuHpqFdMXSJRqI7UStpbfM+kB+m6QnUaPFTj
-	 LbDOhGlHPu4fOCCWO7jCgKM/u0zTB1+kl4Ep0Mnq9BkYIDD7aXnyRV/YFpGCcQAGd3H0U
-	 ocVmKkPRpMdcpglhXu4dUFMtHK2mIjrxhHCVfKOJRSNU4efZGHNkaw9cmPxyVSDKq8w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795804001;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=W0M+QFiTzI1lqSuBhwE3o3ta8tLlW62Sj46FgVterKM=;
+	b=n5tJ/2gdHtD+gpQfg2Fo1gbQc0qe9pkHTEiNxcwiVKdXC5siUDIdN8ALfSfXmfEXodBU
+	 sqXxwSDHHEKW4nMlLA3J0AKADUT4MMeK2BCzpAxK/F8VNDERjRh7si3tM/1OQU024OJSJ
+	 UG9G9V/hr71NdzUdWjo8X+Xn5bfXLBwiGoY0wWpW1y+Yoc7JCSaEL6x+cdKiSlA/tRJUR
+	 FIxBXaVIprCbdAIYe0v9puTmjtbWpRKSFM01mgJd5Mh/ZIHmoa0JfAGx/Snmny/pEpjWA
+	 Yd5uGfA6AUVsvb3VAXiaifihwjRU4VxQwCDibQo/TlJLZAxGt34MGzn0u3RDR+tJqQg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Cyrj0nr+;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id D3DF6606A324;
-	Fri, 27 Nov 2026 18:16:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3DF6606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EC9047bD;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1266F606A31C;
+	Fri, 27 Nov 2026 18:26:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Cyrj0nr+
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 699331575;
-	Fri, 27 Nov 2026 10:16:51 -0800 (PST)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4CC783F86C;
-	Fri, 27 Nov 2026 10:16:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795803414; bh=6imln1W2Yy1aPN/smnTpJTPts3LNPdp2Py2G8tyPdSw=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=Cyrj0nr+Aawpo4a9zscl6bwOk0Ckq97a90PJDU6Zc5xrVZ/I3+WGA1BXAgrX+o+iB
-	 9D8+slEkc9p2uO0X7wiZF90OZfeY5xl+tPiJX6++jX9vm1PUww2Ws4dWeR+33FPyfQ
-	 RC1U0HfsJvGpo10Uyw8MvP8t+ubp08BZ5OSdJgEA=
-Message-ID: <03b2548c-e451-408e-b5df-a5dec8c290f8@arm.com>
-Date: Fri, 27 Nov 2026 18:16:48 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EC9047bD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35D841F00893;
+	Fri, 27 Nov 2026 18:26:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795804000;
+	bh=W0M+QFiTzI1lqSuBhwE3o3ta8tLlW62Sj46FgVterKM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=EC9047bD+sQV8PSueArN4PdFl1CigIoYZqMNZOZ8esJ47hsF/C/thblxYiNanNwHf
+	 aXnkUOPZ3UJ/0EzGM9kxRgfWkYHRrXrbGBfMZTYu0xGDmH6HTSPhWT3ORUNUCPaSna
+	 GZ1GW5o5j009HpDjF0gue4RW3P47CYE8pjiLK7INLdNUVAjN4gHo2OCTFBpdJaNQij
+	 LIHvYjSkm3iqcEkP9lGw7nGN/zKqr7GIRjAGPAag/WNLsF70x/uvaO/bnbdxwRPHbV
+	 Q0gLY0WaHxWJS4G7ihiLVKtHeOcPWPfUy3plXP75YesnfAhuFhcUJISMsP7G3QyKbI
+	 xy5OsXf5rcodA==
+Subject: Re: [PATCH net v7 1/2] vxlan: reset the remote's dst cache when
+ snooping moves a MAC
+From: netdev-bot+sashiko@kernel.org
+To: ilskdw@gmail.com
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ kuniyu@google.com, mschiffer@universe-factory.net, nicolas.dichtel@6wind.com,
+ shuah@kernel.org, linux-kselftest@vger.kernel.org
+Date: Fri, 27 Nov 2026 18:26:39 +0000
+Message-ID: <179580399973.3135.12029769847251459361@kernel.org>
+In-Reply-To: <20261126182329.91058-2-ilskdw@gmail.com>
+References: <20261126182329.91058-2-ilskdw@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,123 +64,136 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Robin Murphy <robin.murphy@arm.com>
-Subject: Re: [PATCH 4/9] soc: rockchip: grf: Assign the StreamIDs of the
- RK3588 PHP SMMU masters
-To: aiyengar1990@gmail.com, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- David Wu <david.wu@rock-chips.com>, Damien Le Moal <dlemoal@kernel.org>,
- Niklas Cassel <cassel@kernel.org>, Serge Semin <fancer.lancer@gmail.com>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-ide@vger.kernel.org,
- Pranjal Shrivastava <praan@google.com>, Will Deacon <will@kernel.org>,
- iommu@lists.linux.dev, Shawn Lin <shawn.lin@rock-chips.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>
-References: <20261113-mmu600-php-v1-0-231196049a3b@gmail.com>
- <20261113-mmu600-php-v1-4-231196049a3b@gmail.com>
-Content-Language: en-GB
-In-Reply-To: <20261113-mmu600-php-v1-4-231196049a3b@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-On 13/11/2026 4:38 pm, Arun Iyengar via B4 Relay wrote:
-> From: Arun Iyengar <aiyengar1990@gmail.com>
-> 
-> The StreamIDs of the six masters behind the RK3588 PHP SMMU come from
-> PHP GRF registers that reset to 0 and are never programmed, so the SMMU
-> can not tell the masters apart.
-> 
-> Assign StreamIDs 1-6 on both AXI channels. 0 stays unused, so a master
-> that loses its ID is aborted instead of using another device's tables.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Urgh... could you at least hide this in U-Boot and have that inject the 
-corresponding "iommus" entries into the DTB it's passing, similar to 
-what the NXP Layerscape platforms do for their "iommu-map" generation?
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-StreamIDs are really not meant to be programmable, and even if they are 
-then that is not supposed to be exposed to OSes. The Arm Base System 
-Architecture[1] explicitly calls this out:
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-   R_ITS_DEV_9: The relationships between a device, its StreamID and
-   its DeviceID are considered static by OS or hypervisor software. If
-   the mapping is not fixed by hardware, the relationship between a
-   StreamID and a DeviceID must not change after system initialization,
-   and OS drivers must not be required to set it up.
+- [Medium] The patch closes the deterministic case: a snooped migration
+  now resets the cached route.
 
-Even just in practical terms, how is this going to work if someone boots 
-a new kernel with an older DT or vice-versa, and one set of hard-coded 
-values then fails to correspond to the other?
+--
 
-Thanks,
-Robin.
+vxlan: reset the remote's dst cache when snooping moves a MAC
 
-[1] https://support.arm.com/documentation/den0094/latest/
+When vxlan_snoop() sees a known MAC arrive from a different remote, this
+commit now resets the remote's dst_cache, updates remote_ifindex and
+clears offloaded, matching what vxlan_fdb_replace() does. The early
+return compares remote_ifindex only for IPv6 link-local sources. The
+update runs under vxlan->hash_lock, and the entry is checked again once
+the lock is held.
 
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
-> ---
->   drivers/soc/rockchip/grf.c | 37 +++++++++++++++++++++++++++++++++++++
->   1 file changed, 37 insertions(+)
-> 
-> diff --git a/drivers/soc/rockchip/grf.c b/drivers/soc/rockchip/grf.c
-> index b459607c118a..3f0f82a2119f 100644
-> --- a/drivers/soc/rockchip/grf.c
-> +++ b/drivers/soc/rockchip/grf.c
-> @@ -168,6 +168,40 @@ static const struct rockchip_grf_info rk3588_sysgrf __initconst = {
->   	.num_values = ARRAY_SIZE(rk3588_defaults),
->   };
->   
-> +/* PHP SMMU StreamIDs: bits 15:0, no write-enable mask */
-> +#define RK3588_PHP_GRF_GMAC0_SID_AW	0x0074
-> +#define RK3588_PHP_GRF_GMAC1_SID_AW	0x007c
-> +#define RK3588_PHP_GRF_SATA0_SID_AW	0x0084
-> +#define RK3588_PHP_GRF_SATA1_SID_AW	0x008c
-> +#define RK3588_PHP_GRF_SATA2_SID_AW	0x0094
-> +#define RK3588_PHP_GRF_GMAC0_SID_AR	0x009c
-> +#define RK3588_PHP_GRF_GMAC1_SID_AR	0x00a4
-> +#define RK3588_PHP_GRF_SATA0_SID_AR	0x00ac
-> +#define RK3588_PHP_GRF_SATA1_SID_AR	0x00b4
-> +#define RK3588_PHP_GRF_SATA2_SID_AR	0x00bc
-> +#define RK3588_PHP_GRF_USB3OTG2_SID_AR	0x00c4
-> +#define RK3588_PHP_GRF_USB3OTG2_SID_AW	0x00cc
+> diff --git a/drivers/net/vxlan/vxlan_core.c b/drivers/net/vxlan/vxlan_core.c
+> index d11028b374721..584d56d03b1c7 100644
+> --- a/drivers/net/vxlan/vxlan_core.c
+> +++ b/drivers/net/vxlan/vxlan_core.c
+> @@ -1434,6 +1434,67 @@ static int vxlan_fdb_get(struct sk_buff *skb,
+
+[ ... ]
+
+> +static enum skb_drop_reason vxlan_snoop_move(struct net_device *dev,
+> +					     struct vxlan_fdb *f,
+> +					     const u8 *src_mac,
+> +					     union vxlan_addr *src_ip,
+> +					     u32 ifindex)
+> +{
+
+[ ... ]
+
+> +	rdst = first_remote_rcu(f);
+> +	if (net_ratelimit())
+> +		netdev_info(dev,
+> +			    "%pM migrated from %pIS to %pIS\n",
+> +			    src_mac, &rdst->remote_ip.sa, &src_ip->sa);
 > +
-> +static const struct rockchip_grf_value rk3588_defaults_php_grf[] __initconst = {
-> +	{ "gmac0 write streamid", RK3588_PHP_GRF_GMAC0_SID_AW, 1 },
-> +	{ "gmac0 read streamid", RK3588_PHP_GRF_GMAC0_SID_AR, 1 },
-> +	{ "gmac1 write streamid", RK3588_PHP_GRF_GMAC1_SID_AW, 2 },
-> +	{ "gmac1 read streamid", RK3588_PHP_GRF_GMAC1_SID_AR, 2 },
-> +	{ "sata0 write streamid", RK3588_PHP_GRF_SATA0_SID_AW, 3 },
-> +	{ "sata0 read streamid", RK3588_PHP_GRF_SATA0_SID_AR, 3 },
-> +	{ "sata1 write streamid", RK3588_PHP_GRF_SATA1_SID_AW, 4 },
-> +	{ "sata1 read streamid", RK3588_PHP_GRF_SATA1_SID_AR, 4 },
-> +	{ "sata2 write streamid", RK3588_PHP_GRF_SATA2_SID_AW, 5 },
-> +	{ "sata2 read streamid", RK3588_PHP_GRF_SATA2_SID_AR, 5 },
-> +	{ "usb3otg2 write streamid", RK3588_PHP_GRF_USB3OTG2_SID_AW, 6 },
-> +	{ "usb3otg2 read streamid", RK3588_PHP_GRF_USB3OTG2_SID_AR, 6 },
-> +};
-> +
-> +static const struct rockchip_grf_info rk3588_phpgrf __initconst = {
-> +	.values = rk3588_defaults_php_grf,
-> +	.num_values = ARRAY_SIZE(rk3588_defaults_php_grf),
-> +};
-> +
->   static const struct of_device_id rockchip_grf_dt_match[] __initconst = {
->   	{
->   		.compatible = "rockchip,rk3036-grf",
-> @@ -202,6 +236,9 @@ static const struct of_device_id rockchip_grf_dt_match[] __initconst = {
->   	}, {
->   		.compatible = "rockchip,rk3576-ioc-grf",
->   		.data = (void *)&rk3576_iocgrf,
-> +	}, {
-> +		.compatible = "rockchip,rk3588-php-grf",
-> +		.data = (void *)&rk3588_phpgrf,
->   	}, {
->   		.compatible = "rockchip,rk3588-sys-grf",
->   		.data = (void *)&rk3588_sysgrf,
-> 
+> +	dst_cache_reset(&rdst->dst_cache);
+> +	rdst->remote_ip = *src_ip;
+> +	rdst->remote_ifindex = ifindex;
+> +	rdst->offloaded = false;
 
+[Severity: Medium]
+This fixes the deterministic case. Can a route for the previous remote
+still end up in the cache after the migration, though?
+
+hash_lock only serializes the writers. The TX path in vxlan_xmit_one()
+reads the route key locklessly with plain loads, well before the cache
+lookup:
+
+drivers/net/vxlan/vxlan_core.c:vxlan_xmit_one() {
+    ...
+	ifindex = rdst->remote_ifindex;
+
+	if (addr_family == AF_INET) {
+		key.u.ipv4.src = cfg->saddr.sin.sin_addr.s_addr;
+		key.u.ipv4.dst = rdst->remote_ip.sin.sin_addr.s_addr;
+    ...
+}
+
+Then udp_tunnel_dst_lookup()->dst_cache_get_ip4() runs, and on a miss
+dst_cache_per_cpu_get() stamps refresh_ts before the route lookup
+happens:
+
+net/core/dst_cache.c:dst_cache_per_cpu_get() {
+    ...
+fail:
+	idst->refresh_ts = jiffies;
+	return NULL;
+}
+
+Here is a possible interleaving:
+
+CPU1 (TX)                          CPU2 (snoop)
+vxlan_xmit_one()
+  reads old remote_ifindex,
+  old remote_ip into key
+                                   vxlan_snoop_move()
+                                     dst_cache_reset()  /* reset_ts = J0 */
+                                     rdst->remote_ip = *src_ip;
+                                     rdst->remote_ifindex = ifindex;
+  /* jiffies moves to J0 + 1 */
+  dst_cache_get_ip4()
+    old entry rejected
+    refresh_ts = J0 + 1
+  route lookup with the old key
+  dst_cache_set_ip4()
+
+After this, every later lookup on CPU1 passes the
+time_after(refresh_ts, reset_ts) check. That CPU keeps using the route
+for the old remote while rdst->remote_ip holds the new address.
+
+That gives the same next-hop mismatch or blackhole the commit message
+describes. It lasts until the cache is reset again or the route goes
+obsolete. Later packets from the new remote take the early return in
+vxlan_snoop_should_move(), so nothing on the snoop path repairs it.
+
+The same window also seems to allow a torn read of the 16-byte IPv6
+remote_ip while the plain struct store is in progress.
+
+Storing the fields first and resetting afterwards would not help, since
+a TX that read the key before the store can still miss in a later
+jiffy. vxlan_fdb_replace() uses the same reset-then-store order, so the
+netlink path has this window too:
+
+	dst_cache_reset(&rd->dst_cache);
+	rd->remote_ip = *ip;
+
+Would closing it fully need a different invalidation scheme? For
+example, the rdst could be replaced under RCU, or a generation check
+could be added.
+
+> +	vxlan_fdb_notify(vxlan, f, rdst, RTM_NEWNEIGH, true, NULL);
+> +
+> +	return SKB_NOT_DROPPED_YET;
+> +}
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126182329.91058-1-ilskdw%40gmail.com
