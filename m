@@ -1,98 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.174
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795777525;
-	b=RAkgF9QHjYEMT34J4uT27QRlDJNbl6rNGyf94GEELJEH2JCW2wJj28JowyX/oxi6uZSN
-	 zOkpte993sFMbRMTzU5p0bFJ40byf2uFxdnKw5SVdL4Y02F5TspIpZDYfgQgJJY+2y8yG
-	 9sIG5M7uvZcz2Gst3QJ4ENdVpsolM2kNtAs8N0PLDUPU/CYo+Ow9BKsqeY8HVS4m2RkjU
-	 bXKiEsxx5cMD0JQ1g9YUEseH7sKIDCMsNIOMhDqIfrAM5zYTrXTAA2KukNMMkqCX/xs8V
-	 vLAGiY2yulSd6ZIdGYtttfulE5foQAcT/pvFZW4XzDwJOHmcHtOCis0a02cp1JfE2kw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795777525;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.51
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795777589;
+	b=3BG/A1boDJJz7bocFYHPD+2n7JeTytb+5GQ1RMsU1lIx4b9srOdJdnwELBhKjRTpIVxK
+	 S9TTF2CeMW0IP73Vr9KUvE3NVIB97P4jPHnIoK121ySp+xJn7Vim1avc7NEyVwfL6NeXn
+	 YZX/AMAXYu7Sd2g9mzOs+hZvx/rT7wm1f/FtUZfi4ro/edSSk9RYpu0ys32jOmBF2UYno
+	 OWCxVT3CZMFRUai7cMyD0R4GCpZZDdaJSSi9eFccC9rz3aaJYRM2QHUW/cnpIuLDqF02i
+	 17v7kTbllBQxNPF2wJfZhmLCaEUqVC9WnfHEfYWDxGWjTpGRf0r72esNchLHFAzExlw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777589;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=U9ANJ3B6+URyp8PWUZ9qIzc4cW2GM4LcDUwic8AgW+c=;
-	b=q+5YMv/tvKyh9jjV5gVWgMBI2smfAdPrh6u+59HfYfD/n2pRYtwNwO2CC6pvfJSySsKC
-	 2iOqgYNXGWeUS+RlTvCjIims3NfHwt81OV4eSSXQa9177ptk3bH9rvO8nolQGsowVdl5U
-	 8Bp4u9K+9ywL5wYhxk4wVCgY5aiPpPkg3Rq6aIJMro+vIpBAWFLBH3zrI4b+nXLSu2dyX
-	 J4mPyO0KHgi9dT8U3E9EtxYr+h6ByFnxdUMsmGPaN4Wdxcuvp1ZMy+SWgOE5FhDgdfSru
-	 sLFvOFitnXtSr4OJLjHWcu2JYFQizLK1xwJhx1hDpq1F5nqvoF49V+RppbSu6Z5e8Lw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=wkennington.com;
-	spf=none smtp.mailfrom=wkennington.com;
-	dkim=pass header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=eqeVT47p;
-	arc=none smtp.remote-ip=209.85.215.174
-Received: from mail-pg1-f174.google.com (mail-pg1-f174.google.com [209.85.215.174])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=fToPkxbMj9aSaNlXle3+uip1YFsu1M15ibYNmnEXT0I=;
+	b=sPwAKt6ZCY+gf12TGMRNijjnfM1MjUGRIxIwV+66aRA7vU11gMY13VVaIrXU2DOxbOoj
+	 UCPbN9uDL/nSiBkam+q4w/xcsRKtlhfcVk7k8IsVObCVpPhl69+0oZBDJ1RtMHBu6Sf8P
+	 7zZpwClsQ0XFWDRnpZYPJqeLnTR2ULQf83DGsyfR7moAdHf74kIa4xns5CbkLvaWnoHq0
+	 C0rUYbSxV3p6cv3SW0E8khyrJ42Yj8akT90m98g9h2mcgge8RFAn5H873yYaVfBz1rfA3
+	 81X2kQG3IUiMyN/S1iZ0zwFS/Ehx/f+uTB7Wk5gh4Arzk6FnlhfoBUIfHjoTcUQcThA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rkrVYxrp;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.51
+Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0204606A31E
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 11:05:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0204606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=wkennington.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=wkennington.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD5EF606A321
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 11:06:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD5EF606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=eqeVT47p
-Received: by mail-pg1-f174.google.com with SMTP id 41be03b00d2f7-cdac6d19ddaso3261829a12.2
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 03:05:24 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rkrVYxrp
+Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-497614c95f0so4539295f8f.1
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 03:06:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795777587; cv=none;
+        d=google.com; s=arc-20260327;
+        b=XBnzZmdyi02I308WN7wPYgglxNqXEYTAX2NFwHG3xtRZsl1aXQPNhridyskQL80ENS
+         VfPo4C03pWAm/3bs7s39GWKkaPc3Pv1YUjUZBwlxCykn+O8uacF5on4U4eYh77UFWqy+
+         S9PmkOA495PAS369MOqXreA8ZIkNwjzaRPDzFK9sxy6DtTsT7rUCcE2IjsdBDFnt8QbG
+         OxuORdersMMz0mdKTKkENHiTMw0oeHLxBhDFDhoOPoVJWJ4ga6GXWDqzyt6NBdxUEr+n
+         6BpQu09jVHZ2Na40trdZBqT3tBg70CGinbJrUH3gJC1kmdtCEHyS5ira9cRdDi8+Lb8g
+         fiww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=fToPkxbMj9aSaNlXle3+uip1YFsu1M15ibYNmnEXT0I=;
+        fh=+23g3vf60oUyacKR/bvbGjGF0KAeU1/CGurAkh9uYF8=;
+        b=n+tY4OSJZ3AfHG8c2NHlBMdPnWKCxCXrGzi2qt9Y8uvMjsw2zq9m5Bp2QHWyTqXj84
+         dd0KXYFfpzbpBt4p7Ci37C/6alOTRuda2oNADfnnkWjyBRidogpsaOR3pXY02O0y0vpJ
+         t3yCqnwgXX5IwWEpCI8FuH4IGVG2yd3DOxFWWatkaknzDpnP81S8hAt+8HnL7sEz2OD8
+         3QJoe2LXJGVnlqXnzS/8LMNABNjR5FofCnBfIrq8kNr/c/W1iTVX9yNH9wn1Ywll0p/R
+         /qRcakAr5nnd5gCzjZvXOhYYeyzzDvY0p/KsjvyFHNFZOXKEQt3Hj4G9Mb6sWLhZXLge
+         wskQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=wkennington-com.20260707.gappssmtp.com; s=20260707; t=1795777524; x=1796382324; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=U9ANJ3B6+URyp8PWUZ9qIzc4cW2GM4LcDUwic8AgW+c=;
-        b=eqeVT47pJpbojwUSkka7lRiGS7EKd7+nSow9IiGOrxs/BnWNagVHsdo3bsVJ/1UTXj
-         X6j1AtWOoBQdgX5JHb+WZWkVsvIEGTH+JTwfHsoCof3wZMitsBLcq/XwcpGt72jN6QHc
-         c1x3GpyI9qUlOVMV8bXWZ0YQ6OBKAZF1Rb62++h8AMmSr50VKSERLfpCB2IouGn4pZcr
-         BUpoWon/eA7/yWrJKdhlyVu1O0LSELrgdhhT/t+ASoq8CeoUr+vu+iqDsyljLZ6R9rY6
-         O7GM2CbeFVgWN9W5bhPotOYu93reY9sVItY8HBIhtDXdWVK0+4EzEJkxaz04pr3riehp
-         BpSw==
+        d=gmail.com; s=20260707; t=1795777587; x=1796382387; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=fToPkxbMj9aSaNlXle3+uip1YFsu1M15ibYNmnEXT0I=;
+        b=rkrVYxrpyr6/dh7sRTJLaa5glCFAB0n4LiqyraEE+upHdJyoSNnkWWXzmwTynMHMlr
+         kJCwTRIkCFkbnznpr7AF19V+hNm7d6LZ3QyNVLpWEgpcLt7EAQSJjjWGX/eFkrNbJ5B3
+         RJcj7wls5qrJiQdlFy9p12hIFKNNmvk8hHdZ9yEo35o/XmKoAjCZskw6hr5KCJN0rltQ
+         654/7ZzJlz6PpipiZRHyGdA3dT5HiPvukRj/2vpKGQwZRcjaUMhY3lNanXSMF17dg0K5
+         iK6UfuOJe7hKVLTLeYctw5vIh3R+BfDDKHKwh6fhdv2z1o2/SSboFZtUHKU0fIXOAJ5L
+         RGdA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795777524; x=1796382324;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=U9ANJ3B6+URyp8PWUZ9qIzc4cW2GM4LcDUwic8AgW+c=;
-        b=hmHTqhd1c2xqCl4MVM7Mhr3DAcCs42FYxQ0tFqAt+x69NY0pqRrlX0IznrRr4i4M3i
-         eAC4TCFSsN4dGFXUGjzAz0ML9wASu8YjzjlmFQOFEMQTgk7+Nae9hZhPYhooHpL57sTp
-         754O8F0yN38+dScPcGnaBoDyYUMvcW2THr04fktbOTMVXVDbjiVQsiefT+rO7uaVmHZG
-         vSJx1+Ivgfbf1/OkNWBqaatvGFfPPSZsZzaMVBOZU+We7Z3UaakPl7Pu2qg6KRWWE8vs
-         9x/HTMUQvDldRcMy91aJA0RMBnwFHhu7mrkOnVN/Wmo5HARSGUoUi+xNZ8ZlbJsnP1wS
-         lAVQ==
-X-Forwarded-Encrypted: i=1; AL+hErGCbj4jYtvt1ctE5eYk5uXzRdcoEhsE7IcVsfSfxhFSXbRr9ScMqqaQum2Xi34hYVb+g6C3Gf8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8z46wlTyjbX4/Gdw+7ZhwC+tbnALac7x4iVoxW/bud++Pmc2Oz
-	us2WRGBYKQFz5SoTDqnFCZGVwcM28Rtfwg/u627igpejwA6KbJRF90/gWjgZ4gVqwOY=
-X-Gm-Gg: AZFdTZef3cVpq0gIayATZi4bun/ZBtQFFV+1Ht5FIgbZwCjS6k+MtFu4WtMRsEESa7R
-	SICr0q1MBnK8zjJ/glnC7ROY73lqRqy5GaV9oJzOFES00x9Bcmmyg3q3TgCQc1zVx942bVwES82
-	UEaMm/SvJoUKSQkGlzl6g30Twxw2zjbgub7xlSdLi5+97J6sABxtzfXKTC1BoKQIxeW7VaxuYp7
-	Q7HNm9Ck+GCse9pN2Db4egdDZ4EPCnsGWAwKzYJ8c0WCI9l2jx9R9aqSHJUq/WekDuYoXLDU47+
-	jBE9YVaIu6AAL5TycbcKNoklFv6QsiJ3xRZAmpVgJQ8VmtUhvkezWS5/6jZpnZrk6SI5MkS6h3v
-	xfinX8p9h6+vJdbmklhLvNE7h36OBX6YJ9yDRJLZXA+4kE+5S1+xkF8ELAOWyCNhRhN/00JTWnz
-	c57SL8vmiD9w3/eBVFIGppUMPS0g2O7QqlKx8shljEGk4JJMSzCTVrPqwkDqtwtFfbJwGhs97zm
-	fA2xxGsOvVGRdPtLGRJLJ4GZs1vfM7GLq7H7lV0F0bTGo+4ovNzrT/6hyD1MMGL0OXNIxEZhW+n
-	VVMSGzjt7bbNHtCUDsaIIOJfWTtAQoLU8x6O8H/7Jk98EaWTI4tqCSCzXP+JTFmPq34xjv3aVlW
-	o++bqWQ4bdxYATAjQJ10TVaEROVOR821cQUI=
-X-Received: by 2002:a05:6a20:3d07:b0:3e1:89d6:ba1 with SMTP id adf61e73a8af0-401493a748cmr33033618637.3.1795777523884;
-        Fri, 27 Nov 2026 03:05:23 -0800 (PST)
-Received: from wak.c.googlers.com.com (246.21.127.34.bc.googleusercontent.com. [34.127.21.246])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cea7c38sm12857789a12.2.2026.11.27.03.05.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 03:05:23 -0800 (PST)
-From: "William A. Kennington III" <william@wkennington.com>
-To: Oliver Neukum <oliver@neukum.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: linux-usb@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	"William A. Kennington III" <william@wkennington.com>
-Subject: [PATCH net v2] net: usb: cdc_ncm: send the NTB once another datagram would not fit
-Date: Fri, 27 Nov 2026 11:05:21 +0000
-Message-ID: <20261127110521.1235409-1-william@wkennington.com>
-X-Mailer: git-send-email 2.56.0.567.gdb80ae8cd5-goog
+        d=1e100.net; s=20260707; t=1795777587; x=1796382387;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fToPkxbMj9aSaNlXle3+uip1YFsu1M15ibYNmnEXT0I=;
+        b=0wgNiz4AX8G/nhUMxrR+jIrJAv3OaZW0f4LXAh2uL99B7BYqC6l3hQkBhRDGURTPj2
+         UpRbE0rQCRuPF9DPBAhS0Z9yCiVTcT2MiN4h0IWyFqIUvqy6ptIxineLoLw4cLLraAyM
+         K5l7q3IYx2KPRNLldrLIPihsOWNabfBlNFhBkPsvZVRuxWN8u5Vc/3PZJDgsRMs5z8vi
+         Jy6eqhSjtWynXlaZzdO2pMG9nQFL8essFRWf1PjZDYw50wP8j4/e0+dsZ3FfXI8Ldcv1
+         2zTbRF63+Tpa5uRsO+hrOsqTQdhOsASMfiCnD4xrXd4mHeDoIJ8o4yI2hf01Rj4GprYP
+         A1Qg==
+X-Forwarded-Encrypted: i=1; AL+hErGEcxOaXgz3i5S/7pCWq77BEpYbz/nYPn9h0akOPb1XbC7EVtMsbzcAiuTjVsL5Nu+K2ptRjLU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z86KyZOTXcLbuNpD9aAdSk5Ogf4D4frxebiSb19xgcv5ToKmR7G
+	kmODlcKnSOgiev1iEOxtu3qiZ5KgbYm4H5qd7Wav7sVkeGbCM+vUCPROn/pFw/h85Ex10gJjpzM
+	k6IluRKvmAaieOyFUkPmVxPFKNv57yQE=
+X-Gm-Gg: AZFdTZeTjdllfKSJE4/K/kO+3d+ek5XcLx6alS1xjFfAZiNMiLtyEe4+3X8BSo02tr2
+	UljXPUpaTqOM1MGpDp54/FvRxJWq3HtS36ZaM3V/x0eTIhFKrFXCqskrJfl5F0tn2vQPrAMbglr
+	pAR1A0xSb+TfJA15UWPFiiCDWtcdyNCIUEa9kiPVsz8sPDe0oeRq6Iw+CzNXe+ra4C+DylZi2a6
+	dmK/WMEpxXJO0RoFwNXNrxfGeGlNo3k6m+vR+1iwxMnB4ceKUoSnc/g/geph8p6ss9PJoxuXy8O
+	LtdYeQRGjL1txlygi+RUsRyaX5aFngPD9w3BuzZerc7lRXTCGcPXWCo8HibiUoP2OLiOEmMxdwf
+	xX/ypzwK6ItJX6eMXuUXhpNCrT7Ae1Ot1Q0RuQ5CrLhknKHPgnJJM6BFzgNQ6qROI6lS236S0w1
+	FsFh+8qw60GJNZKLY=
+X-Received: by 2002:a05:6000:2c0a:b0:498:1a65:50ce with SMTP id
+ ffacd0b85a97d-4abb1ab5d1amr49890261f8f.22.1795777586741; Fri, 27 Nov 2026
+ 03:06:26 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,105 +105,178 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261124-l2tp-mcast-perm-v2-1-416741ccb334@gmail.com> <179560071114.3135.2532610269837690017@kernel.org>
+In-Reply-To: <179560071114.3135.2532610269837690017@kernel.org>
+From: Wong Steve <shyckless@gmail.com>
+Date: Fri, 27 Nov 2026 19:06:14 +0800
+X-Gm-Features: Aa3M54r9ImwZqH3PCd9cqwA8bx32ywqI8RPbWq3ryZMfNd1j07-JJ4T5cm48oIo
+Message-ID: <CA+X8SdgnHtcNSCNQD9GJi7=X9pQihA1z0U48TagYohCFzpbM0A@mail.gmail.com>
+Subject: Re: [PATCH net v2] l2tp: require CAP_NET_ADMIN to join the l2tp
+ multicast group
+To: netdev-bot+sashiko@kernel.org
+Cc: pabeni@redhat.com, kuba@kernel.org, davem@davemloft.net, 
+	edumazet@kernel.org, netdev@vger.kernel.org, maoyixie.tju@gmail.com, 
+	anilkaushikwireless@gmail.com, stephen@networkplumber.org, 
+	linux-kernel@vger.kernel.org, horms@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Observed on BMCs in real use communicating with a USB NCM gadget over an
-EHCI host controller, where bulk TCP traffic caused steady tx_dropped
-growth and retransmits. Tracing the link with kprobes and the kfree_skb
-tracepoint during iperf3 TCP runs confirmed that every drop came from
-cdc_ncm_txpath_bh() calling usbnet_start_xmit(NULL, ...) into a stopped
-TX queue.
+> Can an unprivileged user also control when that registration happens? If
+> so, the leak is still reachable as long as this patch is applied
+> without [1].
 
-cdc_ncm_fill_tx_frame() only learns that an NTB is full when it is given
-a datagram that no longer fits. It then hands the NTB to usbnet and
-parks that datagram in tx_rem_skb for the next NTB. If the stack sends
-nothing more, only the TX timer is left to send it.
+Yes. Where l2tp_netlink is a module that is not loaded yet, an
+unprivileged user can join the free genl group IDs and then trigger the
+load with CTRL_CMD_GETFAMILY, which calls request_module() for the
+"l2tp" family alias. So the pre-registration case can be reached on
+demand, not only by joining early by chance. The commit message
+understates that.
 
-With 16 KiB NTBs usbnet allows 5 TX URBs in flight at high speed. When
-the NTB that was just handed over is the fifth, usbnet stops the TX
-queue. The timer then builds an NTB for the parked datagram and calls
-usbnet_start_xmit(NULL, ...) directly, bypassing the qdisc. Since commit
-ad70411a978d ("usbnet: fix kernel crash after disconnect")
-usbnet_start_xmit() frees what it is given while the queue is stopped,
-so the datagram is lost and counted in tx_dropped. A bulk TCP sender
-hits this several times per second.
+> Should [1] also be merged with or before this patch, and be listed as a
+> hard dependency for the stable backports?
 
-Send the NTB as soon as another datagram of the interface MTU, with a
-VLAN tag, would not fit, provided no datagram is still parked in
-tx_rem_skb. Nothing is parked on that path, so cdc_ncm holds no
-datagram when usbnet stops the queue for a full TX queue, and the timer
-has nothing to flush into it. An NTB also no longer waits for the next
-datagram to arrive before it is sent.
+The two patches are independent. This one stops unprivileged sockets
+from joining the l2tp group once the family is registered, and does
+that on its own. [1] (now "genetlink: Reject joining multicast groups
+no family owns", v8) closes the pre-registration case for every family
+that uses GENL_MCAST_CAP_*, including gtp. Neither patch depends on the
+other to build or work, and the order does not matter, but a backport
+needs both to close both cases.
 
-tx_rem_skb is still used when a datagram needs a new NDP that does not
-fit, as with several MBIM sessions.
+If the maintainers want it, I can send a v3 that only changes the
+commit message: say that an unprivileged user can trigger the module
+load, and that stable backports should take [1] as well. Otherwise I'll
+leave v2 as it is.
 
-The cost is that an NTB is closed while it could still take a datagram
-smaller than the MTU. With 16 KiB NTBs and a 1500 byte MTU this does
-not change the 10 full size frames per NTB.
+Thanks,
+Suyuan
 
-Tested on an NPCM730 BMC (EHCI host, Linux 7.3.6 with BQL and fq_codel)
-running 30 s iperf3 IPv6 TCP streams to an NCM gadget, same board
-before and after:
-
-                        tx_dropped  Mbit/s (before -> after)
-  1 stream,  fwd        106 -> 0    119.8 -> 141.0
-  4 streams, fwd        128 -> 0    164.3 -> 172.4
-  1 stream,  bidir       51 -> 0     39.5/118.3 -> 73.0/107.7
-  4 streams, bidir       62 -> 0     36.7/150.3 -> 78.0/130.2
-  4 streams, MSS 512     81 -> 0    129.2 -> 152.8
-
-Fixes: ad70411a978d ("usbnet: fix kernel crash after disconnect")
-Signed-off-by: William A. Kennington III <william@wkennington.com>
----
-v2:
-  - Replace the timer re-arm polling from v1 with closing the NTB as
-    soon as another full-MTU (plus VLAN) datagram would not fit, so no
-    datagram is parked in tx_rem_skb when usbnet stops the TX queue.
-  - Add real-hardware discovery/trace validation and same-board Linux
-    7.3.6 (with BQL and fq_codel) test results. Mainline usbnet BQL
-    still hits these drops because DQL's limit exceeds the 5-URB
-    (80 KiB) TX ring cap.
-v1: https://lore.kernel.org/r/20261118034122.315979-1-william@wkennington.com
-
- drivers/net/usb/cdc_ncm.c | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
-
-diff --git a/drivers/net/usb/cdc_ncm.c b/drivers/net/usb/cdc_ncm.c
-index e92dc7f011ea..7fbce4846a04 100644
---- a/drivers/net/usb/cdc_ncm.c
-+++ b/drivers/net/usb/cdc_ncm.c
-@@ -43,6 +43,7 @@
- #include <linux/ctype.h>
- #include <linux/etherdevice.h>
- #include <linux/ethtool.h>
-+#include <linux/if_vlan.h>
- #include <linux/kstrtox.h>
- #include <linux/workqueue.h>
- #include <linux/mii.h>
-@@ -1369,6 +1370,22 @@ cdc_ncm_fill_tx_frame(struct usbnet *dev, struct sk_buff *skb, __le32 sign)
- 			ctx->tx_reason_ndp_full++;	/* count reason for transmitting */
- 			break;
- 		}
-+
-+		/* Send now if another full size datagram would not fit.
-+		 * Accepting one more would park it in tx_rem_skb after
-+		 * this NTB has been handed to usbnet. If that NTB fills
-+		 * the TX queue, usbnet stops the queue and drops the NTB
-+		 * the timer builds for the parked datagram.
-+		 */
-+		if (!ctx->tx_rem_skb && n + 1 < ctx->tx_max_datagrams &&
-+		    skb_out->len + ctx->tx_modulus + ctx->tx_remainder +
-+		    READ_ONCE(dev->net->mtu) + cdc_ncm_eth_hlen(dev) +
-+		    VLAN_HLEN + delayed_ndp_size > ctx->tx_curr_size) {
-+			ready2send = 1;
-+			ctx->tx_reason_ntb_full++;	/* count reason for transmitting */
-+			n++;
-+			break;
-+		}
- 	}
- 
- 	/* free up any dangling skb */
--- 
-2.56.1.839.g22a8290db9-goog
-
+<netdev-bot+sashiko@kernel.org> =E4=BA=8E2026=E5=B9=B411=E6=9C=8825=E6=97=
+=A5=E5=91=A8=E4=B8=89 17:58=E5=86=99=E9=81=93=EF=BC=9A
+>
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] On its own, this patch does not stop an unprivileged local
+>   user from receiving l2tp tunnel and session notifications, including=E2=
+=80=A6
+>
+> --
+>
+> l2tp: require CAP_NET_ADMIN to join the l2tp multicast group
+>
+> This patch marks the l2tp generic netlink multicast group with
+> GENL_MCAST_CAP_NET_ADMIN. After this, genl_bind() requires CAP_NET_ADMIN
+> in the user namespace that owns the network namespace before a socket can
+> join the group. Tunnel and session notifications, including L2TPv3
+> cookies, then no longer reach unprivileged listeners that join after the
+> family is registered.
+>
+> Link: https://lore.kernel.org/all/20261123155503.2497063-1-anilkaushikwir=
+eless@gmail.com/ [1]
+>
+> > diff --git a/net/l2tp/l2tp_netlink.c b/net/l2tp/l2tp_netlink.c
+> > index a07009d4cb009..c442e953df66a 100644
+> > --- a/net/l2tp/l2tp_netlink.c
+> > +++ b/net/l2tp/l2tp_netlink.c
+> > @@ -31,6 +31,7 @@ static struct genl_family l2tp_nl_family;
+> >  static const struct genl_multicast_group l2tp_multicast_group[] =3D {
+> >       {
+> >               .name =3D L2TP_GENL_MCGROUP,
+> > +             .flags =3D GENL_MCAST_CAP_NET_ADMIN,
+>
+> [Severity: Medium]
+> The commit message says the pre-registration case remains open, and gives
+> this example:
+>
+>   "A socket that joins the ID before the l2tp family is registered, for
+>   example before l2tp_netlink is loaded, keeps getting the notifications.=
+"
+>
+> Can an unprivileged user also control when that registration happens? If
+> so, the leak is still reachable as long as this patch is applied
+> without [1].
+>
+> The new flag is only checked in genl_bind(), and only when a registered
+> family owns the requested group ID:
+>
+> net/netlink/genetlink.c:genl_bind() {
+>     ...
+>                 i =3D group - family->mcgrp_offset;
+>                 if (i < 0 || i >=3D family->n_mcgrps)
+>                         continue;
+>     ...
+> }
+>
+> For an ID that no family owns, ret stays 0 and the join succeeds.
+>
+> netlink_setsockopt(NETLINK_ADD_MEMBERSHIP) checks only
+> NL_CFG_F_NONROOT_RECV, which genetlink sets, and that val - 1 is below
+> nlk->ngroups. So any free bit in the genl group bitmap can be joined
+> without a capability.
+>
+> When l2tp_netlink registers, genl_allocate_reserve_groups() picks a free
+> bit with find_first_zero_bit(), and genl_validate_assign_mc_groups()
+> assigns it:
+>
+>         family->mcgrp_offset =3D first_id;
+>
+> On this path __netlink_clear_multicast_users() is never called. It is
+> only called from genl_unregister_mc_groups(), so existing subscribers
+> keep their membership.
+>
+> CTRL_CMD_GETFAMILY has no admin permission flag. For an unknown name,
+> ctrl_getfamily() loads the module:
+>
+> net/netlink/genetlink.c:ctrl_getfamily() {
+>     ...
+>                 if (res =3D=3D NULL) {
+>                         genl_unlock();
+>                         up_read(&cb_lock);
+>                         request_module("net-pf-%d-proto-%d-family-%s",
+>                                        PF_NETLINK, NETLINK_GENERIC, name)=
+;
+>     ...
+> }
+>
+> l2tp_netlink declares MODULE_ALIAS_GENL_FAMILY("l2tp"), so this sequence
+> looks possible:
+>
+>   unprivileged user:
+>     NETLINK_ADD_MEMBERSHIP on every free genl group ID
+>       genl_bind() returns 0 (no owner)
+>     CTRL_CMD_GETFAMILY name=3D"l2tp"
+>       ctrl_getfamily()->request_module()
+>         l2tp_nl_init() registers the family on a bit already joined
+>
+>   root:
+>     creates an L2TPv3 tunnel and session with cookies
+>       l2tp_session_notify()->genlmsg_multicast_netns()
+>
+> The message is built by l2tp_nl_session_send(), which includes
+> L2TP_ATTR_COOKIE and L2TP_ATTR_PEER_COOKIE. It reaches the unprivileged
+> socket, and membership is never checked again.
+>
+> Since the case here can be triggered on demand on any system with module
+> autoloading where l2tp_netlink is not loaded yet, should the commit
+> message say that an unprivileged user can trigger the load? Should [1]
+> also be merged with or before this patch, and be listed as a hard
+> dependency for the stable backports?
+>
+> >       },
+> >  };
+> >
+>
+> --
+> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
+set/20261124-l2tp-mcast-perm-v2-1-416741ccb334%40gmail.com
