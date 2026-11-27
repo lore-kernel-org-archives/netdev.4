@@ -1,76 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795767179;
-	b=jq8y/xxt7VDQWp8D+Fg2epP5+L8JsEk6BhTY8qY5CVfAEpmvseiJqwTdLCgC2HM4c83/
-	 l94YxTUsuN5eTZlL4boBryTfCO8za3zzwE5OCNkkR2L9qbAu0QaWV3exupggxMAq7Hqwy
-	 CKgvJJh63p/KtIxwqC8/pv7gh/d245UsCPnfPig2ut/wK1o9xJm7gUNL1o3QzO8PiyAnX
-	 4pJuliQZHd3WM9MXJkuqEFWsrLkWIlOu+m+IkcX8ZzH5Vo1oUHUFqkqiBpQgSZSCNvfwV
-	 dGu4cLmOMJ1mLZ6O68RWhe43EXl9g0HAG/j7GknDuFKHcMfNmdyRA2MQacJKJ6aBx2A==
+	t=1795767317;
+	b=admiL+L0bXndqBmqqvjehsR1DyphfmZjDEXE7+guP/bAMPdmN2YV9InArZV0JgWbZcNy
+	 kMOLuKEqL8/6baWKV/MPz2fnucUOVLzRJhgS1LGqaHt1Lld/5moJ6AARDcfI9DQ0fBDUe
+	 EXFFsTVH+OcLCuuDS7y2ctA0i81cQXSfZxNaYUQYJ4A2OiA6hBgnCe4X8+uoN59/9dKI6
+	 ENjncZ3m2M+9G25MHD7+kDzrByI8vVwk0aw9OtAmLX1zWytAqVVqjThpINk803P+uTF8r
+	 +O0AasXL4WFtBPS6Q+3d9qizrTUYzo56pxEq61/x6ST988h8c0dX9d+roQSS1Gx0Chg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795767179;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=9MFhWi7IbmvhrDxZZVScTf+1m5bSxYIGWr3sJZad2Lk=;
-	b=3zD/H+tZjCKlogg3mTIHGPUEm9o9Se4pe5SQu7vG4NISOBj3TLso4ifRb/3uY9cLtVjw
-	 /Z5DNzmzYSM2maBnOK3vSyEhON72+qKO6uDuy8jryRdClcMcvCiAbmpGECLvBHmsuErBE
-	 uegDc3z/iwKE2FLuIW8XputhUo08qp9wu0QWgAJys0VHHvL5Y9GxnN7KRMWW0dxyGIvNE
-	 yj0vp+9MhOnjC45rwYCnEOxAuoiiTeqkxV609duJOuhfO7y2eNbX0w8V79lbP6+k3aE17
-	 jGvcTwq2GTXe9wWLrd/9JyggTIKdcz6Wo32tbqKz+HoSASt+oK1CVEZCE0VoLrb6cHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795767317;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=hNVKbbcb0rH2k0oNa/+8nHEpScggSuU/akAN9eg5SSc=;
+	b=4PnJdk1loxjlgEaMUsorOe1rh4nVk0lyL6U/yuRpAyDjQYBol/y2aNiDa4/TCGrjiDZ3
+	 1axLkhpxIgvbGGZV9C1nrdbEFLE6jv3FMwtJLBqCY0Bz3Nq/KbQ47vv7fpi4aO/6O79hk
+	 ZC/ziU245wZ7KUu/ng4FbTYy53PeJYpfags9y0T+pFV/mmxYe5fstb+PacAJHNNuTZWvx
+	 vFfzVGBBv/v+Zey2aKZHKE58+PYeDdrImXEzxeEicTro5kcd4RPfi03MCWh8q8RL8F3jM
+	 rHtg1KsdKKo2//mfPp+vHfeN8EyQhFDa8LbSoiDXNXyx7gFRiXobkC3D4Wgx78ZfXcw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=tJ96nRPO;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=SCW3PHbS;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g8IVcIrK;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4235B606A321
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 08:12:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4235B606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2938C606A329;
+	Fri, 27 Nov 2026 08:15:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=tJ96nRPO;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=SCW3PHbS
-Date: Fri, 27 Nov 2026 09:12:54 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795767176;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9MFhWi7IbmvhrDxZZVScTf+1m5bSxYIGWr3sJZad2Lk=;
-	b=tJ96nRPOyotZg60hBswYaDjux4XF2jkUVAzi8gqzo8INL0eNNTDlmuoyB55P+/sgEY0iza
-	6AdFQKIWQxGnlC/y0v2aetRi00YSw+u075psC+JYePb4sj6eRPZOHWF7HYQ2B4ZkZFXRiy
-	CZ/0FXNEtjAJojmUPfylN1sJvwLO9+KQlGvhV4OVtTt8KsfDe+WPE0bRjV9trc1rAa370D
-	vkJx8VtKS3PqshnbkYQpxLsiiui8M/k42QT+ybHnZ99Mvwr4bHPwgH4a0jmJK40fEz2Lgf
-	R2YrHTuT+e2XqNloybe5YTMft+MyQn0jAfCL9GbzIOE3JCSZv9YhMeV8P+REVw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795767176;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9MFhWi7IbmvhrDxZZVScTf+1m5bSxYIGWr3sJZad2Lk=;
-	b=SCW3PHbSF89caxdwmfpSz9+7t6HurWsg2r+z/AH4dlsY9ce0Umve9CT7NuM/xRjdROvBeV
-	MF1CNag6M3CCoeAQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, j-rameshbabu@ti.com, andrew+netdev@lunn.ch,
-	danishanwar@ti.com, d-qiu@ti.com, davem@davemloft.net,
-	fmaurer@redhat.com, kuba@kernel.org, neelima@ti.com,
-	pabeni@redhat.com, praneeth@ti.com, pratheesh@ti.com,
-	richardcochran@gmail.com, horms@kernel.org, vigneshr@ti.com,
-	willemdebruijn.kernel@gmail.com, daniel.machon@microchip.com,
-	edumazet@kernel.org
-Subject: Re: [PATCH net-next v12 8/8] selftests: hsr: Add test for the inline
- PTP header on HSR
-Message-ID: <20261127081254.HlnpJH-F@linutronix.de>
-References: <20261125-hsr_ptp-v12-8-9ddd2a73cb90@linutronix.de>
- <179570404248.3135.7481792168822818977@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g8IVcIrK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B66D81F00897;
+	Fri, 27 Nov 2026 08:15:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795767316;
+	bh=hNVKbbcb0rH2k0oNa/+8nHEpScggSuU/akAN9eg5SSc=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=g8IVcIrK8zL3DCRDYGPavDfosidzrXPu1WfuHPY0y+37wVOUTGRCX6lYKdpxweFLf
+	 naI+ayemB9VY2dCVZVBa0sgf8axH4ArGQS5aRbHfnz6A7wXgPkVkFD9br5jkkFV7ht
+	 q1GMN55wAAcaCM6Ww1TgX4K8/TDIIdT3/G+L9O3ThdoU0q9vL6yFCR47mgnHCdwEj0
+	 UPFcLLBMN2tmUuAEiFloEvwgtb0lipav6SffofREdzJj74KqyzEHGzoZMNpxjFim4t
+	 U7JRzPyw2DP/z9N9fqTKuc11cc9TOGIiNqonvW0RNgB4qoXScIN43cgDWe/KUr1YIL
+	 t0z2enrllYzWg==
+Subject: Re: [PATCH net] ipv6: advance the serial after rebalancing in
+ fib6_ifup and fib6_ifdown
+From: netdev-bot+sashiko@kernel.org
+To: ralf@mandelbit.com
+Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ willemb@google.com, horms@kernel.org, sharmasagarika@google.com,
+ kuniyu@google.com, yanxia@cmss.chinamobile.com, linux-kernel@vger.kernel.org
+Date: Fri, 27 Nov 2026 08:15:15 +0000
+Message-ID: <179576731529.3135.10238815120466881443@kernel.org>
+In-Reply-To: <20261126081353.55240-1-ralf@mandelbit.com>
+References: <20261126081353.55240-1-ralf@mandelbit.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -80,40 +64,124 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <179570404248.3135.7481792168822818977@kernel.org>
 
-On 2026-11-26 14:40:42 [+0000], netdev-bot+sashiko@kernel.org wrote:
-> Low priority / nit picks for your consideration:
-=E2=80=A6
-> > +ns1=3D"none"
-> > +ns2=3D"none"
-> > +ns3=3D"none"
-> > +
-> > +setup_ns ns1 ns2 ns3
-> > +setup_hsr_interfaces 1
-> > +run_ptp_hdr_tests
-> > +
-> > +exit $ret
->=20
-> [Severity: Low]
-> Do these presets stop setup_ns() from working as intended? In
-> tools/testing/selftests/net/lib.sh, setup_ns() only generates a unique
-> name such as ns1-XXXXXX when the named variable is empty. If the
-> variable already holds a value, it calls cleanup_ns() on that value and
-> then runs ip netns add with the same value.
->=20
-> ns1, ns2 and ns3 all hold "none" here. The first iteration creates a
-> namespace literally named none. The second and third iterations delete
-> and recreate that same namespace, and all three variables are left as
-> "none".
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Urgh. So I was asked to remove the used-but-not-initialized warnings for
-ns1,2,3 above which I did. The test passed so I assumed it does the
-right thing. Now after reading this, I double checked and see those are
-named "none". The device names are different so it does not fail.
-Any suggestions?
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-Sebastian
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] Moving fib6_update_sernum()/fib6_update_sernum_upto_root()
+  after rt6_multipath_rebalance() in fib6_ifup() and fib6_ifdown() makes…
+
+--
+
+ipv6: advance the serial after rebalancing in fib6_ifup and fib6_ifdown
+
+This patch moves the fn_sernum update in fib6_ifup() and fib6_ifdown() so
+it happens after rt6_multipath_rebalance(). The new serial is then
+published only after the ECMP upper bounds it describes. The fully ordered
+atomic_try_cmpxchg() in fib6_new_sernum() orders the rebalance before the
+serial store.
+
+Link: https://lore.kernel.org/netdev/cover.1795642432.git.dahern@nvidia.com/
+
+> diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+> index 1b2dcc066e198..194432f1fd66b 100644
+> --- a/net/ipv6/route.c
+> +++ b/net/ipv6/route.c
+
+[ ... ]
+
+> @@ -5015,8 +5015,8 @@ static int fib6_ifdown(struct fib6_info *rt, void *p_arg)
+>  			}
+>  			rt6_multipath_nh_flags_set(rt, dev, RTNH_F_DEAD |
+>  						   RTNH_F_LINKDOWN);
+> -			fib6_update_sernum(net, rt);
+>  			rt6_multipath_rebalance(rt);
+> +			fib6_update_sernum(net, rt);
+>  		}
+>  		return -2;
+
+[Severity: Medium]
+
+Does this reorder close the race, or does it only make the window smaller?
+
+Some multipath routes do not use nexthop objects (rt->nh == NULL). For
+those, ip6_rt_pcpu_alloc() leaves pcpu_rt->sernum at 0:
+
+net/ipv6/route.c:ip6_rt_pcpu_alloc() {
+    ...
+	if (f6i->nh)
+		pcpu_rt->sernum = rt_genid_ipv6(dev_net(dev));
+    ...
+}
+
+The cookie therefore comes from fn->fn_sernum through
+rt6_get_cookie()->fib6_get_cookie_safe(). It is read only after the lookup
+has finished, for example in ip6_dst_store():
+
+	np->dst_cookie = rt6_get_cookie(dst_rt6_info(dst));
+
+inet6_sk_rx_dst_set(), udp6_sk_rx_dst_set() and xfrm6_fill_dst() also read
+the cookie after the dst has been selected.
+
+Before that, the lookup reads the nexthop state without the lock, in
+fib6_select_path() and in rt6_score_route():
+
+	if (hash <= atomic_read(&first->fib6_nh->fib_nh_upper_bound)) {
+
+So the reader reads upper_bound and flags first, then fn_sernum. With this
+patch the writer stores flags and upper_bound, issues a full barrier, then
+stores fn_sernum. That order only pairs with a reader that reads the
+serial first.
+
+The smp_rmb() in fib6_get_cookie_safe() comes after the fn_sernum read.
+It cannot order the earlier upper bound reads.
+
+Can this interleaving still happen?
+
+CPU0 (connect())            CPU1 (fib6_ifdown(), NETDEV_DOWN)
+fib6_select_path()
+  selects sibling A with
+  old upper bounds/flags
+                            rt6_multipath_nh_flags_set()
+                              A |= RTNH_F_DEAD | RTNH_F_LINKDOWN
+                            rt6_multipath_rebalance()
+                            fib6_update_sernum()
+                              fn_sernum = N + 1
+ip6_dst_store()
+  np->dst_cookie = N + 1
+
+Later, ip6_dst_check()->rt6_dst_from_check()->fib6_check() compares N + 1
+with N + 1. It accepts the cached dst for the dead nexthop A.
+
+The NETDEV_CHANGE path in fib6_ifdown() has the same ordering. So does
+fib6_ifup() with fib6_update_sernum_upto_root().
+
+The commit message says:
+
+  The cached dst then passes dst_check although it was selected
+  from the old state, until the next relevant change.
+
+That outcome looks reachable whenever a lookup overlaps both writes. The
+patch only removes the case where the whole lookup falls between the
+serial bump and the rebalance.
+
+A full fix seems to need the reader to sample the generation before the
+lookup. The separately proposed "ipv6: validate cached dsts against the
+netns route generation" series does that.
+
+This patch carries Fixes: tags and may be backported without that series.
+Could the commit message say that the patch narrows the window rather
+than closes it?
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126081353.55240-1-ralf%40mandelbit.com
