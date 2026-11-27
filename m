@@ -1,61 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.62
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795798090;
-	b=iMFGUdjWvlt1sMaebrn4xNcbCxtmb2jiivcdqT64vdcqbg5rgaw8zoUFS2w9Ennr4SHX
-	 1m5dIDnl2qeXXLfH+DkiKmEJ8m3XoHLeY1OOVGbsZFId20eJt48l7C6nCnj3q+OmO/lA3
-	 joLwfwOmtuRXDOwqQwFBO8ay9gj5e+7YITrHc320EERrY/jj2J1bwrQ0jfGWE05B+H1ir
-	 vLsdp1Qi0yZk3wvc5U1cMUcG2R6mJ4/B1U6uqUD4QbWO3EIjlOHCkBWxs7C+DgRIOCSSb
-	 emT5pRv80WBKIWu8IJZJ9vCCknCDzPnRgrhmeO9x0GLHoGnKqqqWDCX7Na6AEobrPqg==
+	t=1795798121;
+	b=sFLkjI/eJPNpL2JWFd37zFmgKJ5xeGGzm1Lew8vUZGww2gBJNUDABDtVQD3ByMwX0DTs
+	 J+noVj4WVQ7qvHfjswgYA1e/BhiLrLGAgRfQJ4OZgtxk5qS+5tExHQB3q/pIMfUgiTcUx
+	 nHjeKlYW0JD28LMjeRc2ftXWGHGg8YGFAW0MIF61QDtcqNEImQkVXtGrXlDfUxBxfgHvf
+	 gx6u9Gde9Myw2kJcXQ1sOZuJPiKBb/cTPt25Il7s9R3u5nBjMXGu5wCqsTDhjDyFQJ5Kz
+	 YKbcZ/idyTu1euxd4HKYQMfxKPACUS2wxkDwhSVLz88cdKGM2dDfk6VrQOwWb4+08kA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795798090;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=8Ke+lb+1/p0hY589hNN4tsTtbrPsUQfS/DCt9JyRMhk=;
-	b=5HaapmoEv2qUijOjf3s1kLSyyp20GaDbPh861AvPXEfsuJY6u/RTptxy21FK3MbcXASz
-	 Qj0Kc9lTo1nwSlJIcrRJUXdWIYfSAdSPkYTR5tRL1f5u9U9FhHGUyXuDpGsis+WgZO7G2
-	 dp4FF8OBHVPycSIQdU/XNl/QNoh2Noh6hGZrHBz1SrJqEd9gOfv99Y2v3tS5hrr9eB8mv
-	 CtLZYqAD+SEasvew9r90VSfxo41Wp5XI1RyNF26oQKpQVM8hbjxXf3c/Eyk4hBSrm2qJ5
-	 YKJNQrFwCH7N4uS3D9H4kz1IHsawTQeeq+//rKKi/ne5mzakqAdcRJm1xyGWfh3la/Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795798121;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
+	bh=d25kI2cFp4xOJkScEkzgccIm4TbZYpw7NLHWsddR/kE=;
+	b=cX/ohKWxTfadvGP6GllsYqVedY0ogPBzI5z29qFZ2BISibRG6JXTWT7cgBsqh11o8w2W
+	 alJhUMm3zfkYKkVkDGxNXq9sjvKOSl9rjfKDcjgiXATw9h3cNOfsunifobVKaUS7Dk+1L
+	 SYl9HeCXbgHYNoNxdirybPZ8nm8S6nJiOn45quZ1oTMwPt2RPuqc74p1kgJEsepiSFPQi
+	 5EsJaUSxNOZPVYo2Hz51tUOYHw65sbN76aF6+pLmgnweZIcm/20onqwb+1AEGUPrFjXK4
+	 4GtslK4MDlc4qr1xNGk35t60aeaw2fbWn2Cr/sCJQA42oRH3/KPuY9qqWZEG4G5patg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=o2hNAAq2;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=z+TEEMJe;
+	arc=none smtp.remote-ip=195.10.208.62
+Received: from mout-b-202.mailbox.org (mout-b-202.mailbox.org [195.10.208.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3CF060A2609;
-	Fri, 27 Nov 2026 16:48:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D24A2606A31E;
+	Fri, 27 Nov 2026 16:48:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D24A2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=o2hNAAq2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 996CC1F00939;
-	Fri, 27 Nov 2026 16:48:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795798089;
-	bh=8Ke+lb+1/p0hY589hNN4tsTtbrPsUQfS/DCt9JyRMhk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=o2hNAAq2196yAnzTH4O21oHqlz/sFA/C4h66bdw9rV1WygWFvv3hTMokfm9Yzj0Qf
-	 mrMoKSEcuxrAJJZnQn6F6g8WsTAbd3AsFLhssBMLO3/X+fHrdbvbka2zajFB134oGr
-	 srqX11J7zFmdnnpyMrk783cGA89sCmvLQ10pmsCdqE9jWjdRjXu9gVETaA9FVkZFoG
-	 t/GHla8toozFAKGMJlYS2X23fHKmtWS7LlCgL854DFfdcZmp6QXVEJ9lgXz1LjwLd9
-	 FcvAcDAwzz27CcNFFBikI8oCSqEYRCjS+ctiPC4o3p/E4zFM+CFNxOHdjRrOhh2Sci
-	 vGeGSl4M6xj6A==
-Subject:
- Re: [PATCH net v6 8/8] ptp: ocp: defer timestamp shutdown to clock unregister
-From: netdev-bot+sashiko@kernel.org
-To: ahmadexp@gmail.com
-Cc: netdev@vger.kernel.org, richardcochran@gmail.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- vladimir.oltean@nxp.com, vadim.fedorenko@linux.dev, andrew@lunn.ch,
- linux-kernel@vger.kernel.org, arkadiusz.kubalewski@intel.com,
- jiri@resnulli.us, jonathan.lemon@gmail.com
-Date: Fri, 27 Nov 2026 16:48:08 +0000
-Message-ID: <179579808820.3135.11076556680747243483@kernel.org>
-In-Reply-To: <20261126-timecard-driver-v6-8-ahmadexp@gmail.com>
-References: <20261126-timecard-driver-v6-8-ahmadexp@gmail.com>
-X-sashiko-severity: Critical
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=z+TEEMJe
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-202.mailbox.org (Postfix) with ESMTPS id 4jbfW919kdzKnG2;
+	Fri, 27 Nov 2026 17:48:37 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795798117;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=d25kI2cFp4xOJkScEkzgccIm4TbZYpw7NLHWsddR/kE=;
+	b=z+TEEMJe370krGxLXqeIfGFgbxevwFAmJQgFHg9Zix7qyCkOjDUP95T3H8dqOO9tI1EbZq
+	GlFtk9Sp6n6QVTgfnGkqFCMD7EP72EgqaZ6lTyKRc2KuqonmsuJWvKPH//e8bNFgflK/m3
+	XIh2Tdb1i0mFMK8q8zh7Mt3bK6U4F4MBWolu5cRWLD7OLaUj81gQfakEVSNUuqD2cAdAhU
+	9hbroWgj0jb1/pOxC3gWkjy6UnMof6DwgFipw2kT4WEGwDCMI583x6c/3m7HDINvPRgm0/
+	apPQmulx51CztwBLl6TGKPV8qgNnERE+RStjg3ZIQXFDa5O7qppERiup+lJhYw==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
+From: Ralf Lici <ralf@mandelbit.com>
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Nicolas Dichtel <nicolas.dichtel@6wind.com>,
+	netdev@vger.kernel.org,
+	ipsec@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH ipsec v2 2/2] selftests: net: add a test for xfrm policy removal
+Date: Fri, 27 Nov 2026 17:48:21 +0100
+Message-ID: <467acfb25f93252b01f9f096037ae248b8826a56.1795797791.git.ralf@mandelbit.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <cover.1795797791.git.ralf@mandelbit.com>
+References: <cover.1795797791.git.ralf@mandelbit.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,196 +84,263 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jbfW919kdzKnG2
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Check that a connected UDP socket that cached its route through an allow
+policy stops sending in plaintext once that policy is deleted, deleted
+by index, expires or is flushed.
 
-Critical: 1 · High: 1 · Medium: 1 · Low: 0
+Signed-off-by: Ralf Lici <ralf@mandelbit.com>
+---
+ tools/testing/selftests/net/Makefile          |   1 +
+ tools/testing/selftests/net/config            |   1 +
+ .../selftests/net/xfrm_policy_removal.sh      | 212 ++++++++++++++++++
+ 3 files changed, 214 insertions(+)
+ create mode 100755 tools/testing/selftests/net/xfrm_policy_removal.sh
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Critical] In ptp_ocp_detach() (drivers/ptp/ptp_ocp.c), the patch
-  removes the explicit ptp_ocp_ts_enable(bp->ts0..ts4, 0, false) and…
-- [High] Removing ptp_ocp_ts_enable(bp->pps, ~0, false) from
-  ptp_ocp_detach() leaves the core's PTP_CLK_REQ_PPS request as the only…
-- [Medium] The commit is not self-contained but has a Fixes: tag for
-  627366c51145 ("ptp: ocp: fix resource freeing order").
-
---
-
-ptp: ocp: defer timestamp shutdown to clock unregister
-
-This patch removes the explicit ptp_ocp_ts_enable() calls for ts0..ts4 and
-pps from ptp_ocp_detach(). It relies on the PTP core unregister path to
-disable the timestamp channels once the user interfaces are gone. The
-commit message says it depends on a separate PTP core teardown series.
-
-Link: https://lore.kernel.org/r/179548551283.3135.17206659598806657887@kernel.org
-
-> This driver patch depends on the separate PTP core teardown series.
-
-[ ... ]
-
-> Fixes: 627366c51145 ("ptp: ocp: fix resource freeing order")
-
-[Severity: Medium]
-Which series does this refer to? The only Link: tag points to a single
-lore message, not a patch series. There is also no commit ID or stable
-dependency note for the prerequisite.
-
-In this tree, ptp_disable_all_events() and ptp_clock_unregister() do not
-seem to contain the core change this patch relies on.
-
-The Fixes: target 627366c51145 is the commit that added the early-disable
-block being removed here. Because of the Fixes: tag, could stable tooling
-pick up this patch without the core series? That would bring the
-timestamp IRQ regression described below into stable kernels.
-
-Could the prerequisite be named explicitly, or this patch be sent as part
-of the core series?
-
-> diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-> index 0405188951768..27cf3ab3327c4 100644
-> --- a/drivers/ptp/ptp_ocp.c
-> +++ b/drivers/ptp/ptp_ocp.c
-> @@ -5768,19 +5768,6 @@ ptp_ocp_detach(struct ptp_ocp *bp)
->  	ptp_ocp_detach_sysfs(bp);
->  	ptp_ocp_attr_group_del(bp);
->  	timer_delete_sync(&bp->watchdog);
-> -	/* Disable interrupts on all timestampers */
-> -	if (bp->ts0)
-> -		ptp_ocp_ts_enable(bp->ts0, 0, false);
-> -	if (bp->ts1)
-> -		ptp_ocp_ts_enable(bp->ts1, 0, false);
-> -	if (bp->ts2)
-> -		ptp_ocp_ts_enable(bp->ts2, 0, false);
-> -	if (bp->ts3)
-> -		ptp_ocp_ts_enable(bp->ts3, 0, false);
-> -	if (bp->ts4)
-> -		ptp_ocp_ts_enable(bp->ts4, 0, false);
-
-[Severity: Critical]
-Does ptp_disable_all_events() in this tree actually disable these
-channels? It only handles pins whose function is PTP_PF_EXTTS, plus one
-PPS request:
-
-drivers/ptp/ptp_chardev.c:ptp_disable_all_events() {
-    ...
-	for (i = 0; i < info->n_pins; i++)
-		if (info->pin_config[i].func == PTP_PF_EXTTS)
-			ptp_disable_pinfunc(info, info->pin_config[i].func,
-					    info->pin_config[i].chan);
-
-	/* Disable the PPS event if the driver has PPS support */
-	if (info->pps) {
-		struct ptp_clock_request req = { .type = PTP_CLK_REQ_PPS };
-		info->enable(info, &req, 0);
-	}
-    ...
-}
-
-ptp_ocp has n_ext_ts = 6 but only 4 pins. ptp_ocp_set_pins() allocates
-the pins zeroed, so by default they are all PTP_PF_NONE.
-
-EXTTS channels can be enabled by index with no pin assigned. Both
-ptp_extts_request() (PTP_EXTTS_REQUEST) and extts_enable_store() do this,
-and nothing disables the channel when the fd is closed.
-
-For bp->pps, the core request becomes
-ptp_ocp_ts_enable(bp->pps, OCP_REQ_PPS, false). If OCP_REQ_TIMESTAMP
-(EXTTS index 5) is also set, pps_req_map stays non-zero. The "no state
-change" shortcut then returns early and the PPS/TS5 timestamper stays
-armed.
-
-In all of these cases the interrupt is still unmasked and requested when
-ptp_clock_unregister() does its final put_device(). That put runs
-ptp_clock_release():
-
-drivers/ptp/ptp_clock.c:ptp_clock_release() {
-    ...
-	bitmap_free(tsevq->mask);
-	kfree(tsevq);
-	debugfs_remove(ptp->debugfs_root);
-	xa_erase(&ptp_clocks_map, ptp->index);
-	kfree(ptp);
-}
-
-bp->ptp is not cleared. The IRQ is only disabled and freed later, one
-source at a time, in ptp_ocp_unregister_ext():
-
-	ext->info->enable(ext, ~0, false);
-	pci_free_irq(ext->bp->pdev, ext->irq_vec, ext);
-
-Can a timestamp interrupt in that window write to freed memory?
-
-ptp_ocp_ts_irq()
-    ptp_clock_event(ext->bp->ptp, &ev)     /* PTP_CLOCK_EXTTS */
-        spin_lock_irqsave(&ptp->tsevqs_lock, flags);
-        list_for_each_entry(tsevq, &ptp->tsevqs, qlist)
-            enqueue_external_timestamp(tsevq, event);
-
-One way to hit this: enable a channel with "echo '0 1' > extts_enable",
-feed a 1PPS signal on the input, then unbind or remove the device.
-
-This seems to reopen the use-after-free that 627366c51145 ("ptp: ocp: fix
-resource freeing order") closed.
-
-> -	if (bp->pps)
-> -		ptp_ocp_ts_enable(bp->pps, ~0, false);
->  	if (bp->ptp)
->  		ptp_clock_unregister(bp->ptp);
-
-[Severity: High]
-With this call gone, is an in-flight PPS interrupt still drained before
-pps_unregister_source()?
-
-The only teardown disable left for the PPS event is the core's
-PTP_CLK_REQ_PPS request. It goes through
-ptp_ocp_enable()->ptp_ocp_ts_enable(bp->pps, OCP_REQ_PPS, false).
-
-If OCP_REQ_TIMESTAMP is also set in pps_req_map, the map stays non-zero.
-The function then returns before the intr_mask write and before
-synchronize_irq():
-
-drivers/ptp/ptp_ocp.c:ptp_ocp_ts_enable() {
-    ...
-		/* if no state change, just return */
-		if ((!!old_map ^ !!bp->pps_req_map) == 0)
-			return 0;
-    ...
-}
-
-A ptp_ocp_ts_irq() already running on another CPU may have seen
-OCP_REQ_PPS set. pps_req_map is a plain field, written under pincfg_mux
-and read without a lock in hardirq context:
-
-drivers/ptp/ptp_ocp.c:ptp_ocp_ts_irq() {
-    ...
-		if (ext->bp->pps_req_map & OCP_REQ_PPS) {
-			ev.type = PTP_CLOCK_PPS;
-			ptp_clock_event(ext->bp->ptp, &ev);
-		}
-    ...
-}
-
-Meanwhile ptp_clock_unregister() continues:
-
-	ptp_disable_all_events(ptp);
-	...
-	if (ptp->pps_source)
-		pps_unregister_source(ptp->pps_source);
-
-Could pps_event(ptp->pps_source, ...) still be running in that handler
-when pps_unregister_source() tears down and frees the pps_device?
-
-Before this patch, the req = ~0 call always set pps_req_map to 0. The
-source was masked and synchronize_irq() ran before ptp_clock_unregister().
-
->  	kfree(bp->ptp_info.pin_config);
-
+diff --git a/tools/testing/selftests/net/Makefile b/tools/testing/selftests/net/Makefile
+index 9180b9bec515..bdc31252a6fc 100644
+--- a/tools/testing/selftests/net/Makefile
++++ b/tools/testing/selftests/net/Makefile
+@@ -136,6 +136,7 @@ TEST_PROGS := \
+ 	vrf_route_leaking.sh \
+ 	vrf_strict_mode_test.sh \
+ 	xfrm_policy.sh \
++	xfrm_policy_removal.sh \
+ 	xfrm_state.sh \
+ # end of TEST_PROGS
+ 
+diff --git a/tools/testing/selftests/net/config b/tools/testing/selftests/net/config
+index d4416f8bdcfd..d5d289089059 100644
+--- a/tools/testing/selftests/net/config
++++ b/tools/testing/selftests/net/config
+@@ -18,6 +18,7 @@ CONFIG_DUMMY=y
+ CONFIG_GENEVE=m
+ CONFIG_GTP=m
+ CONFIG_IFB=y
++CONFIG_INET6_ESP=y
+ CONFIG_INET_DIAG=y
+ CONFIG_INET_ESP=y
+ CONFIG_INET_ESP_OFFLOAD=y
+diff --git a/tools/testing/selftests/net/xfrm_policy_removal.sh b/tools/testing/selftests/net/xfrm_policy_removal.sh
+new file mode 100755
+index 000000000000..a5cd38091483
+--- /dev/null
++++ b/tools/testing/selftests/net/xfrm_policy_removal.sh
+@@ -0,0 +1,212 @@
++#!/bin/bash
++# SPDX-License-Identifier: GPL-2.0
++#
++# Test that removing an xfrm policy invalidates the routes that sockets
++# cached while it was in place.
++#
++# An allow policy without templates exempts UDP to one port from an ESP
++# policy with a lower priority. A connected UDP socket sends a datagram
++# through the allow policy, caching a plain route, then the allow policy is
++# deleted, deleted by index, expires or is flushed, and the socket sends
++# again. The datagrams sent after the removal must be encrypted, as counted
++# by the SA. For the flush, the output default is block instead of the ESP
++# policy, so these sends must fail.
++
++source lib.sh
++
++NS=""
++SRC=""
++DST=""
++PORT=5002
++COUNT=10
++KEY=0x0102030405060708090a0b0c0d0e0f1011121314
++
++cleanup() {
++	stop_sender
++	cleanup_all_ns
++}
++
++trap cleanup EXIT
++
++# setup creates the namespace, a dummy device with the IPv$1 sender
++# address and the state and policies for removal $2.
++setup() {
++	local family=$1
++	local mode=$2
++	local plen=24
++	local limit=()
++
++	SRC=10.0.0.1
++	DST=10.0.0.2
++	if [ "$family" = 6 ]; then
++		SRC=2001:db8::1
++		DST=2001:db8::2
++		plen=64
++	fi
++
++	setup_ns NS || return "$ksft_skip"
++	# The datagrams only need to leave the sender: a dummy device drops
++	# them and needs no neighbour resolution for the peer.
++	ip -n "$NS" link add dummy0 type dummy || return "$ksft_skip"
++	# No link-local address: adding its routes would advance the route
++	# generation and hide a missing invalidation.
++	ip -n "$NS" link set dummy0 addrgenmode none
++	ip -n "$NS" link set dummy0 up
++	ip -n "$NS" addr add "$SRC/$plen" dev dummy0 nodad
++
++	# The SA that the ESP policy requires. Its packet counter tells
++	# which datagrams were encrypted.
++	ip -n "$NS" xfrm state add src "$SRC" dst "$DST" proto esp spi 0x1000 \
++		reqid 1 mode transport aead 'rfc4106(gcm(aes))' "$KEY" 128 ||
++		return "$ksft_skip"
++	if [ "$mode" = flush ]; then
++		# A flush also removes the ESP policy, so rely on the output
++		# default instead.
++		ip -n "$NS" xfrm policy setdefault in accept fwd accept \
++			out block || return "$ksft_skip"
++	else
++		ip -n "$NS" xfrm policy add src "$SRC" dst "$DST" dir out \
++			priority 100 tmpl src "$SRC" dst "$DST" proto esp \
++			reqid 1 mode transport
++	fi
++	# The allow policy, which takes precedence for the test port.
++	if [ "$mode" = expire ]; then
++		limit=(limit time-hard 1)
++	fi
++	ip -n "$NS" xfrm policy add src "$SRC" dst "$DST" proto udp \
++		dport "$PORT" dir out priority 10 action allow "${limit[@]}"
++}
++
++# sender runs in the namespace and keeps one UDP socket connected to
++# $1 port $2, so that the route it caches survives across the removal.
++# For each count it reads, it sends that many datagrams and prints how
++# many sends failed.
++# shellcheck disable=SC2329 # run in the namespace through declare -f
++sender() {
++	local fails
++	local n
++	local i
++
++	exec 3>"/dev/udp/$1/$2" || exit 1
++	while read -r n; do
++		fails=0
++		for ((i = 0; i < n; i++)); do
++			echo >&3 2>/dev/null || fails=$((fails + 1))
++		done
++		echo "$fails"
++	done
++}
++
++start_sender() {
++	coproc SENDER {
++		ip netns exec "$NS" bash -c \
++			"$(declare -f sender); sender $DST $PORT"
++	}
++}
++
++stop_sender() {
++	if [ -n "$SENDER_PID" ]; then
++		kill "$SENDER_PID" 2>/dev/null
++		wait "$SENDER_PID" 2>/dev/null
++	fi
++}
++
++send_datagrams() {
++	local fails
++
++	# Ask the sender for $1 datagrams
++	echo "$1" >&"${SENDER[1]}" || return 1
++	# and print how many of its sends failed.
++	read -r -t 5 fails <&"${SENDER[0]}" || return 1
++	echo "$fails"
++}
++
++# sa_packets prints the number of packets that the SA has encrypted.
++sa_packets() {
++	ip -n "$NS" -s xfrm state |
++		sed -nE 's/^\s*[0-9]+\(bytes\), ([0-9]+)\(packets\)$/\1/p'
++}
++
++# allow_policy_gone succeeds once the allow policy is no longer installed.
++allow_policy_gone() {
++	! ip -n "$NS" xfrm policy list dir out | grep -q "dport $PORT"
++}
++
++remove_allow_policy() {
++	local mode=$1
++	local index
++
++	case $mode in
++	delete)
++		ip -n "$NS" xfrm policy delete src "$SRC" dst "$DST" \
++			proto udp dport "$PORT" dir out
++		;;
++	index)
++		index=$(ip -n "$NS" -s xfrm policy list dir out |
++			grep -A1 "dport $PORT" |
++			sed -nE 's/.* index ([0-9]+) .*/\1/p')
++		ip -n "$NS" xfrm policy delete dir out index "$index"
++		;;
++	expire)
++		slowwait 5 allow_policy_gone
++		;;
++	flush)
++		ip -n "$NS" xfrm policy flush
++		;;
++	esac
++	allow_policy_gone
++}
++
++run_test() {
++	local family=$1
++	local mode=$2
++	local name="IPv$family: send after $3"
++	local plain
++	local fails
++	local sent
++	local esp
++
++	RET=0
++
++	if ! setup "$family" "$mode"; then
++		log_test_skip "$name"
++		cleanup_all_ns
++		return
++	fi
++
++	start_sender
++	if ! fails=$(send_datagrams 1) || [ "$fails" != 0 ]; then
++		log_test_skip "$name" "connected UDP socket not usable"
++		cleanup
++		return
++	fi
++	esp=$(sa_packets)
++	check_err "$esp" "the allow policy did not apply"
++
++	remove_allow_policy "$mode"
++	check_err $? "the allow policy was not removed"
++
++	fails=$(send_datagrams "$COUNT")
++	check_err $? "the sender did not answer"
++	if [ "$mode" = flush ]; then
++		sent=$((COUNT - fails))
++		check_err "$sent" "$sent of $COUNT datagrams not blocked"
++	else
++		plain=$((COUNT - fails - $(sa_packets) + esp))
++		check_err "$fails" "$fails of $COUNT sends failed"
++		check_err "$plain" \
++			"$plain of $COUNT datagrams sent in plaintext"
++	fi
++
++	log_test "$name"
++	cleanup
++}
++
++for family in 4 6; do
++	run_test "$family" delete "policy deletion"
++	run_test "$family" index "policy deletion by index"
++	run_test "$family" expire "policy expiry"
++	run_test "$family" flush "policy flush"
++done
++
++exit "$EXIT_STATUS"
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126-timecard-driver-v6-0-ahmadexp%40gmail.com
+2.56.0
+
