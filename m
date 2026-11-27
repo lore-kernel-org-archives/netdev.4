@@ -1,55 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.77.101.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795736438;
-	b=qV08a7+cbOIB1fPzwSSxOBvr4B50Z1xt8a40FvI7V/KsxhHo2UBleAelK238uUriWjyX
-	 1KQmeGUEZUUzkLuc9eMWoPEvzidws7+MILPVLyFnHzs/gC2s//g7N0YwfBtEO89fDipAE
-	 o92waLraBm+m68XWCodrcEjNVYRYjglH2Fg5DvxO1smFyUsVJumiP1gMXHKqOexBfrzym
-	 8RcJRufZ1ubGFvU9ca7eFzuhbaq/sLpfltxi7NG4QARddXZ3mznA199nN/JKPte9cjSP1
-	 1NucNr7FfE1kkHgVbx3rxDL+z7QqjKHasFZp3jOmYDxcbYCDTAY+KfYwoGned4jw2kA==
+	t=1795738609;
+	b=pGSbyv0PUMLDPG53O2D+ww4wGq9x37lox1IUYa9SWoD5iC+EnKQxgx7/m+2bOWpQSUwK
+	 NoVJRE/dQqNRNUO9fpgYgAdvL8xFseut7Zm3fWhv7byatsZuYV9zzYkojJ1HEBlm+KukE
+	 1QPnP3kWj1vCH73cYZtB+PvB+QV8Cg/jogz/4JnjMNx3drax9tGOZxShWdHCW7CAgmJjV
+	 hCEbVlgMt6jeE5vIcXsScFSSxoUA9ikt/vQ5iFE0FwJdi3k7U5IYu7DDECM7shZrdHD76
+	 5GoyGJOFDU3LnyljucBGFAgQOc5U8ndI4YkFxQ6JRbOyX1mK6UqH52tIW4oKZ/fgHyA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795736438;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-WP-MailID:
-	 X-WP-AV:X-WP-SPAM;
-	bh=lZwxZV1uIHEBkCO+m1WjoKlS1XOvxjEn/seCm8IYvwA=;
-	b=H9FmOd2Dc1YuIdw1dM0YDWIK+UqZsZx8q8avdnymwirVsKkvsX5Fi1Cxlx1MbN8lT2Qj
-	 EVltAttvZNUnG2TD+vux0ZtVPbvBsOO0jO06biLPaBHidv0Snc5y3d/mNCDv3yTm9lWyP
-	 AdeRo903uoAEuKXDtY2lAPZYxVXUnNx+7ugmXg3c2+JkBE/Vz0KBxc4joAGFS8kX8mtuc
-	 9sxmrrZzuInqvJLNHIoXivTn331Up8CdHRVMmKUDmfegZDe1ktp6xKdf8nmTgez5qnQou
-	 2sFzNed0YPLXtTbj0fz38lmxKAZtAddy5H7A77WMuWJ7BZRNXPiH3orC4ictIS+VQAw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795738609;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=DaucjX7EGKxhjPytfA6PE6Q1xmcvizrq4bihC56pvSM=;
+	b=ivOXMOd02twXQxvwngJmE/bArrdXt022rgL5nd1K0ybhjjGCX0oXY6k0LJsEQnvwkFEo
+	 2EhyCIW86d6bCUUaJgzQ9xcyBCY9wkoGdftkS/SHhtDFkvXenTd8A1of61iTPXBg8H4Hw
+	 VLVZZWZAx5QL0o69dbRZn4NeVBM2J7Ji68td2Z8A0NbBpww9pzKhlnqVkhIR2fmusTKBN
+	 Rp6no+k6mnjDosMWRhCvUFxeCYKiUT8GYBsl3oFvjigsmlE3LMbsIt9gE62R43VtUxsxW
+	 +zXEIE/23XBctJy4au1DVgnQmzQxVuZLN0PLbUYRsbHq4ZXNkKz7MKooiIYYuj4548Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=wp.pl;
-	spf=pass smtp.mailfrom=wp.pl;
-	dkim=pass header.d=wp.pl header.i=@wp.pl header.a=rsa-sha256 header.s=s20261001 header.b=EJ9udazr;
-	arc=none smtp.remote-ip=212.77.101.12
-Received: from mx4.wp.pl (mx4.wp.pl [212.77.101.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lwLIWbsQ;
+	arc=none smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77BF9606A31C
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 23:40:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77BF9606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=wp.pl
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wp.pl
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D3D9606A323
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 00:16:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D3D9606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=wp.pl header.i=@wp.pl header.a=rsa-sha256 header.s=s20261001 header.b=EJ9udazr
-Received: (wp-smtpd smtp.wp.pl 11459 invoked from network); 27 Nov 2026 00:40:28 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=s20261001;
-          t=1795736428; bh=lZwxZV1uIHEBkCO+m1WjoKlS1XOvxjEn/seCm8IYvwA=;
-          h=Subject:To:Cc:From;
-          b=EJ9udazrYZTsYIh7qI+TQji1zZxYnKwfAbGoY7GddQ51LOMWxSpQCxfw+VP+aeIxN
-           7nLFaI3R+mF+gpdsvZvjhLB08s6nwGZVUqJMO0kOr0rDxfZP8RKVIOeM4okWRQl9dK
-           6blRj19pOfr6W+wH+VL6fkoOLzj4OooBuT+h6dknfnCIETZKc9VQZkauhiYl0h9gO4
-           j/T6hQ3mkYcLB7zYcqepZbcCevAQgmHhmyvMGiV5YX7Pfl/gH633EAADDbHHAHj8U4
-           y1tvVyTwJ1KDg9z4GvfNbQ5vbQTRDxTVHCeuKv6Kz3xkoYNPVRJBNUK3znuaTdmI6a
-           FQfux92Hdts5g==
-Received: from [192.168.3.224] (83.5.167.37.ipv4.supernova.orange.pl [83.5.167.37])
-          (envelope-sender <olek2@wp.pl>)
-          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
-          for <netdev-bot+sashiko@kernel.org>; 27 Nov 2026 00:40:28 +0100
-Message-ID: <a42801b3-9a4e-4adb-942a-0010d7f3f8bd@wp.pl>
-Date: Fri, 27 Nov 2026 00:40:28 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lwLIWbsQ
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb9d8e8e90so46687795e9.3
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 16:16:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795738607; x=1796343407; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=DaucjX7EGKxhjPytfA6PE6Q1xmcvizrq4bihC56pvSM=;
+        b=lwLIWbsQhHcHN3CDna52sVsq9gSO9DJklq6bzGLe3Els2E42gC4pjSTwi8CBXWLj69
+         Y6xmDtc6vsito++1VpPJRTsurb0wgyvDhyMIg+LD/l26p52SEGOkBsnM4H/sadwjMOqP
+         yqZVtUrGQauUYqpHZDGlRuUHH2sCLzuOyxWAaDjFw2nfdIdTw3taHA64sqf7Z8bP4d13
+         8Z/U3f1HmgsK3yj/WRRhDbndUus2MBgUPvB2KPMI6ZVKHsF+COYApylXIc+drZgLM/Bk
+         Ed4rW/K8emw3n7dCq2ap1AUGQmklHOyJbD33q+73qeC/NDNq5fnm2CwdYHjz+hEdCPim
+         22Qg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795738607; x=1796343407;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=DaucjX7EGKxhjPytfA6PE6Q1xmcvizrq4bihC56pvSM=;
+        b=lnH2Moe+uJIm9Hgmpa/9OHdXAc1yOlBoOqBvtqQtGz5QJWy9YA9MOHDu8sMTKsRnPH
+         fhbmZUAEjtJ2RPZhc5NSxZngcoq6vtzkRT7ao8Xuh2IozSKnfPxuZSazJH67teVsA9hP
+         n10fxq9IUkpl+Km5b2GxezDi5+f0D6PTRI3cQlhqOjwagwVtYYJ8U6dF1vFo8UQeiOMy
+         p+UlO61WzOQ9MJadVEhJRVfbTONzaOsZscRaK3/RHO8NJQpH2IQ0JhSgdm4FkF3S6hof
+         LvoLEcBGjBv2SZIS7mQIWxylke9CePA2ZGlMFqc/NHWkN1Mu/GV4uqJCN/po78ueXBKQ
+         G0Cg==
+X-Forwarded-Encrypted: i=1; AL+hErFWXx7It24ntCe+0YIIW4Yy91aV0RkpgeKfI3OyYii4fDdotjmC2jPKukEvCP7Qz0ThUEAxJX8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+zY4lIRmfA0YUIv/lUtI2j7ExmVwkMD1nfTbvXTBV2tfmAgB9w
+	cpuOJZMD84wWldtvTV6r1+sYJQ8Gxy0CKgTDjoGYM62LzFB5wQHv+6g=
+X-Gm-Gg: AZFdTZdV8Pj0HqAg65HmfVKSK3phLcoyFw8DNdbojANnTW86noA1rQ7OYLf3PiZ1Q8H
+	22XUWe2wxDcA1pFkxjryyjH18/RMjZhMltyyIgdaGNcYxOhib21tpjzdIfxlWEl+fc7UJjPN8R0
+	FYxCfCVJRKFsMT/OACTXMvgs9etwxu0m3CfSgOe3gc4iaEtmyaAgWkXBst3COTBI8TESsKuayxQ
+	1jXHFIB8+qIqDDQs09lWqcmIYGBL0N08u6S1BRIzV7o7heOlulwy7cr9C0FRHOHPS0AdltfRAFM
+	rztoGavQGs4c+ZFrxqJi8SAqmboQsfl1CFUrxCwJpU4uf5ZokcFGP8HeZ9d3D7YQJMzT/ld5NMr
+	RIYqnHohxw4seN+uH5KUTS3rwwofCbAxD/9xQDZ+WBdJX8iUWEmweUSU4rDkl8F2hxazFcywmvT
+	elFpaaNvV3NV35Rb+jserL/Qw+lpQ4h5xpa550W62p8GeU51mK+WkljEzufYakjxpEYZrBGJeL5
+	UKapM2xj8C9pJ59B7lUlJf7xq7rwxId9la7YxIffvdOha8cv7Ng3yfiq595pxAro3so/iKkQXim
+	F7RPSplDQ/uHkBs=
+X-Received: by 2002:a05:600c:3f0a:b0:4a5:75d2:c104 with SMTP id 5b1f17b1804b1-4bb8880cde7mr439388735e9.22.1795738606729;
+        Thu, 26 Nov 2026 16:16:46 -0800 (PST)
+Received: from localhost.localdomain ([2001:41d0:303:db6b::])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906d6a13sm356650865e9.3.2026.11.26.16.16.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 16:16:46 -0800 (PST)
+From: Tristan Madani <tristmd@gmail.com>
+To: Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>
+Cc: Phil Sutter <phil@nwl.cc>,
+	Christian Brauner <brauner@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	coreteam@netfilter.org,
+	netfilter-devel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Tristan Madani <tristan@talencesecurity.com>
+Subject: [PATCH v2 nf 0/5] netfilter: pin file with get_file_active before reading f_cred
+Date: Fri, 27 Nov 2026 00:16:32 +0000
+Message-ID: <20261127001637.1026589-1-tristmd@gmail.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,194 +106,46 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v4] net: phy: marvell: add support for PHY LEDs
- polarity modes
-To: netdev-bot+sashiko@kernel.org
-Cc: skyline@mail.ru, andrew@lunn.ch, hkallweit1@gmail.com,
- linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org
-References: <20261124202054.1070702-1-olek2@wp.pl>
- <179561838748.3135.16328846882228728224@kernel.org>
-Content-Language: pl
-From: Aleksander Jan Bajkowski <olek2@wp.pl>
-In-Reply-To: <179561838748.3135.16328846882228728224@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-WP-MailID: 114b3b3c2d16d1ceb8924f2ff06d6aae
-X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 000000A [UYNE]                               
 
-Hi,
+From: Tristan Madani <tristan@talencesecurity.com>
 
-On 25/11/2026 15:53, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
->
-> Critical: 0 · High: 0 · Medium: 2 · Low: 0
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
->
-> - [Medium] In drivers/net/phy/marvell.c, m88e1318_led_polarity_set()
->    treats @modes as a complete description of the LED polarity.
-> - [Medium] In drivers/net/phy/marvell.c, page 3 register 0x11 (LED
->    polarity) is written only once, from of_phy_led() during phy_probe(),…
->
-> --
->
-> net: phy: marvell: add support for PHY LEDs polarity modes
->
-> This patch adds a led_polarity_set callback for the 88E1116R, 88E1318 and
-> 88E1510 PHYs. The callback programs the per-LED active-high and
-> high-impedance bits in the LED polarity register (page 3, register 0x11).
->
->> diff --git a/drivers/net/phy/marvell.c b/drivers/net/phy/marvell.c
->> index 87f66dfa92dda..00ce215bb71ba 100644
->> --- a/drivers/net/phy/marvell.c
->> +++ b/drivers/net/phy/marvell.c
-> [ ... ]
->
->> @@ -3638,6 +3643,36 @@ static int m88e1318_led_hw_control_get(struct phy_device *phydev, u8 index,
->>   	return marvell_get_led_rules(index, rules, mode);
->>   }
->>   
->> +static int m88e1318_led_polarity_set(struct phy_device *phydev, int index,
->> +				     unsigned long modes)
->> +{
->> +	u16 val = 0;
->> +	u32 mode;
->> +
->> +	if (index >= M88E1318S_MAX_LEDS)
->> +		return -EINVAL;
->> +
->> +	for_each_set_bit(mode, &modes, __PHY_LED_MODES_NUM) {
->> +		switch (mode) {
->> +		case PHY_LED_ACTIVE_LOW:
->> +			break;
->> +		case PHY_LED_ACTIVE_HIGH:
->> +			val |= MII_88E1318S_PHY_LED_POL_ACT_HIGH(index);
->> +			break;
->> +		case PHY_LED_INACTIVE_HIGH_IMPEDANCE:
->> +			val |= MII_88E1318S_PHY_LED_POL_HIGH_IMP(index);
->> +			break;
->> +		default:
->> +			return -EINVAL;
->> +		}
->> +	}
->> +
->> +	return phy_modify_paged(phydev, MII_MARVELL_LED_PAGE,
->> +				MII_88E1318S_PHY_LED_POL,
->> +				MII_88E1318S_PHY_LED_POL_ACT_HIGH(index) |
->> +				MII_88E1318S_PHY_LED_POL_HIGH_IMP(index), val);
-> [Severity: Medium]
-> What happens here when the DT LED node only has inactive-high-impedance?
+Five netfilter callsites read file->f_cred through the
+sk->sk_socket->file chain under RCU without pinning the file reference.
+Since commit 0ede61d8589c ("file: convert to SLAB_TYPESAFE_BY_RCU"),
+the file slab slot can be freed and reallocated within an RCU grace
+period, so these readers may observe stale credential data from a
+recycled file object.
 
-In this case, the active state is set to low (default after a reset) and
-inactive state is set to tristate. User must clearly specify the 
-polarization
-expected in the active state. Also note that if the user specified no 
-parameters
-at all, the previous state is preserved.
->
-> of_phy_led() sets each mode bit on its own and calls ->led_polarity_set()
-> whenever modes is non-zero:
->
-> drivers/net/phy/phy_device.c:of_phy_led() {
->      ...
-> 	if (of_property_read_bool(led, "inactive-high-impedance"))
-> 		set_bit(PHY_LED_INACTIVE_HIGH_IMPEDANCE, &modes);
->      ...
-> 	if (modes) {
-> 		...
-> 		err = phydev->drv->led_polarity_set(phydev, index, modes);
->      ...
-> }
->
-> In that case val holds only HIGH_IMP(index), but the mask always includes
-> ACT_HIGH(index). The on-state polarity is then forced to active-low, and
-> the reset or bootloader value is lost.
->
-> The binding in Documentation/devicetree/bindings/leds/common.yaml describes
-> inactive-high-impedance only as the off state ("Set LED to high-impedance
-> mode to turn the LED OFF"). The on state has its own active-high and
-> active-low properties.
->
-> Other implementers of this op that pick a default when neither property
-> is given choose active-high:
->
-> - dp83867_led_polarity_set() ("Default active high")
-> - as21xxx
-> - an8801r_led_polarity_set()
-> - an7581_phy_led_polarity_set()
-> - qca808x
->
-> gpy, xway and aqr reject any request that doesn't explicitly ask for
-> active-low or active-high.
->
-> On a board with an active-high LED and only inactive-high-impedance in the
-> DT, wouldn't the LED end up as "on = drive low, off = tristate" and never
-> light?
->
-> The reverse also happens: active-high or active-low on its own clears any
-> tristate-off setting already in the register.
+This series pins the file with get_file_active() before reading f_cred
+and releases it with fput() afterwards, matching the pattern used by
+the recently merged cls_flow fix (commit 59cf9e6f48e5a).
 
-I think that's okay. By default, we enable push-pull output. User must
-explicitly specify that they intend to use the tristate output in the
-inactive state.
+Changes in v2:
+ - Switch from get_file_rcu() to get_file_active() per API change
+   (get_file_rcu was removed; get_file_active is the current API)
+ - Reference merged cls_flow fix (59cf9e6f48e5a) which uses the
+   same pattern for the same bug class
 
->
-> Could ACT_HIGH(index) be touched only when active-high or active-low is
-> explicitly present in modes? Otherwise, could it be documented that an
-> unspecified on-state polarity means active-low?
-I don't know what the preferred behavior is if the user doesn't provide
-complete information describing the LED. If the user provides only some
-of the information, we set the remaining settings to their defaults
-(active-low, push-pull). I'll change that if the idea is actually 
-different.
-> [Severity: Medium]
-> Is this polarity setting lost after a PHY hardware reset?
->
-> This is the only place register 0x11 is written. It runs once, from
-> of_phy_led() during phy_probe(), and the requested modes are not saved in
-> struct marvell_priv.
->
-> On boards with a reset GPIO or reset controller, an ndo_stop/ndo_open
-> cycle in MAC drivers that connect the PHY on open goes through:
->
-> phy_disconnect()->phy_detach()
->      phy_device_reset(phydev, 1);
->
-> phy_attach_direct()->phy_init_hw()
->      phy_device_reset(phydev, 0);
->      ...
->      phydev->drv->config_init(phydev);
->
-> marvell_config_init()->marvell_config_led() rewrites only the LED function
-> register (16), plus the optional marvell,reg-init values. Nothing writes
-> the polarity register again. of_phy_led() is not re-run either, because
-> the LED classdevs stay registered.
->
-> After the first ifdown/ifup, wouldn't an active-high LED be inverted, and
-> an inactive-high-impedance LED be driven again when off?
->
-> aqr107_config_init() saves the polarity and reapplies it ("Restore LED
-> polarity state after reset"). qca808x does the same with
-> priv->led_polarity_mode in config_init.
->
-> The v3 changelog had "Restore polarity settings after hardware reset", and
-> the v4 changelog says "Throw out restiring polarity setting after hardware
-> reset". The commit message gives no reason for dropping it and does not
-> mention the limitation.
->
-> Could the restore be brought back, or the reason and limitation be added
-> to the commit message?
+Tristan Madani (5):
+  netfilter: xt_owner: pin file with get_file_active before reading
+    f_cred
+  netfilter: nft_meta: pin file with get_file_active before reading
+    f_cred
+  netfilter: nfnetlink_log: pin file with get_file_active before reading
+    f_cred
+  netfilter: nfnetlink_queue: pin file with get_file_active before
+    reading f_cred
+  netfilter: nf_log_syslog: pin file with get_file_active before reading
+    f_cred
 
-No upstream DTS is affected by this concern. We may return to this topic
-once someone adds an dts upstream that requires such a modification.
+ net/netfilter/nf_log_syslog.c   | 28 +++++++++++++-------------
+ net/netfilter/nfnetlink_log.c   | 35 ++++++++++++++++-----------------
+ net/netfilter/nfnetlink_queue.c | 35 ++++++++++++++++-----------------
+ net/netfilter/nft_meta.c        | 16 +++++++--------
+ net/netfilter/xt_owner.c        | 27 ++++++++++++++-----------
+ 5 files changed, 72 insertions(+), 69 deletions(-)
 
-Best regards,
-Aleksander
+-- 
+2.47.3
+
