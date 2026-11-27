@@ -1,60 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795770468;
-	b=ySVbMMcI+OJFnfZVAiURn9sTNefkvClZwizG0UtEKKc2GvXKUBlAIUaHXqXt4R60Y1T0
-	 /AAWqoAgrJ3fSpBktZoD4RSBpsdVd+TR1UDjEo5mtwiaDhuDMXqnfKKdG1hWx3dpPKhX5
-	 0FHk8ZB9ojcI8tdvZOgTrJeSd4YCi5mLZrJv6ahw2Cdcq57fTZVHi0WbGBi5Z5iHYz8tq
-	 3fAdTC9O5IBJWoMhVmRoa0RcFEgmdqSB9naFjonUZBCONQ9MYRxh9JDS9kM7zgf1H/OfN
-	 KJGRVsScqMOmlYhI9vPntLYjRbWSllfUYI0dVE+yjM0KKJYwFApuxg93tWxvHgVVhMQ==
+	t=1795770699;
+	b=tv398TNTjrSolFD/avJPHgs4DFcCdDD3zCrkfcSaXscY23zjjmIQ5HqbNhGvrp2nvAqa
+	 HbbgyK3WMe42iQY1HArRwg1KHdNm/u5JAsy+zIJvJF0CVfIclWr40tYczqQivE6LZF7Jx
+	 TLDWkiH6hP+Qpv6x4bsUXh4pjpfqgVgF0X7edoDd0So25HbGGrrkRKLNYuQEbLRpnSDQ/
+	 +Q+5aMx2P+GQabpIaco4v9cojXG4/iODEI25bNFBNmKj5AjbSxRbCMaweXHHarxde3gvT
+	 OKBclxHbjY8qY/ZC2tBq1bGcX1vLmWMEiCjp6BwAuvXR8701gRN/Pct2nSI1gPI5e9Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795770468;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=zRRThROE+AkCpaWtAXNlWMUc7xhN0txdUiuzXhQ3xC8=;
-	b=DRgKnkz6VJ4WBopA7eX7BJFAb6ZNIsn0cZFxvJjraPXOhZbFg6HLOeap4dEkEnmdOTsz
-	 bGRPwA/XUTvk71lKiAQ6HzlbQMaCKcXQY2rgxLyjvKU3jrtAQJqnNsfCH4F6l5cGlsmC9
-	 4bXpwuczgSdf6FLnzpo7f5JkAIP2sdBphZle3ExWVFyENA6zfSUfA6lEHFW7tFGlQNneL
-	 rOJ9c8xFT7T1DboPHcedqZnQyyI/uhaV64WTzb1SFWVp0/qRgmzhs+//W+3S0b4H8rx9s
-	 tHthHgdTqR1L0pkr80tjjX/UxppIfpCHtyDRdu+gQxqyV5ehurFmJlLHekEVODgJhfQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795770699;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=aGmL05K1LldZsg+2x8czLa8BN0q4ZrDwGHvyThvJoes=;
+	b=z4ZEb0Y037X8N2YcL1HJakyS+g/28Nm9wHyjzn6N/z6A7KKF21UFc1oB6TzrHvtEnPiR
+	 QJjBp1AXcZpbT96zyqmlkAT0oiPFwUp1uP2Nj4SwL2ClHHEI8Mz+P2n7aGdBQ9InifKHg
+	 QZ7DF/K06toG5+9DF6WAHIWrWGLXqifuACGy7R1fJKGHRiCvsQUIKQPx3KZS8kWMrwOVH
+	 A3U0MM1JyMvbYr+8Max3FKsMKr7Wgs+Hg0Kj2XMwoF0kGPy3VgX+h47Uw6FSrx5nxadLe
+	 eqpKK/c6u7DlKPWd9it9UlAoDa2EFHje/CgSBpBk4Md1qsPHKrs55y4m4sVnNrYAvUA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LGdXxNR5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MrYdXZqm;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=aaYgahXg;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 687A8606A326
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 09:07:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B1BF606A31C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 09:11:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B1BF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LGdXxNR5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1ACF1F0093B;
-	Fri, 27 Nov 2026 09:07:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795770468;
-	bh=zRRThROE+AkCpaWtAXNlWMUc7xhN0txdUiuzXhQ3xC8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=LGdXxNR5IrNwalxdLm1JNv2QZyBEoaEu+kVCl/ujSHegbkBzII/PvUuCq8gfw/RbW
-	 /hmsQ55yzIKwyIQp4pZzAx/A7mOm1ShLRnR/ktg44gmzRltvdVlGcY+dqtdGzBouSp
-	 rEghCIerahPJXSXIN32Ipfr4zHrlM4p2A8qdJDjm78pgmomjaU1jU5Sq+9aA4qWKJQ
-	 LmKDGI8pta6kuaPPXnWI7rJ41gDsdiYSdxfhTY6s0y1e/mAqKAPyNQSYICFLOhwD5E
-	 foUB0+4voRWSANOPsvwHfTfbjSPxIseDsOVMkqbKnqsZ3+Ba8AGRP4ywq65kg/Yd/o
-	 NFfaHqj0ADFRg==
-Subject: Re: [PATCH net v2] net: avoid clobbering active cork flowi union on
- datagram connect
-From: netdev-bot+sashiko@kernel.org
-To: dmnk@google.com
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, kuniyu@google.com, horms@kernel.org,
- willemdebruijn.kernel@gmail.com, netdev@vger.kernel.org,
- dmnk+artist@google.com
-Date: Fri, 27 Nov 2026 09:07:47 +0000
-Message-ID: <179577046722.3135.9189478439176832766@kernel.org>
-In-Reply-To: <20261124180604.73257-1-dmnk@google.com>
-References: <20261124180604.73257-1-dmnk@google.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MrYdXZqm;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=aaYgahXg
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795770698;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=aGmL05K1LldZsg+2x8czLa8BN0q4ZrDwGHvyThvJoes=;
+	b=MrYdXZqmEk4QvPE/e48yFSA7ctljCh1SIjyHtCs5eKJ3zDyCoCmLfzGZJxSxSVcJ5kXU6p
+	QlcMoozScSktCEb2T02JhfZdFwp3GiRtW3O7jBn90bBMH1nP3GlT2/2PDxZutS2PjMqAeE
+	A8aMLBQFItvjLbm1gBIztsaJM12w6CQ=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-540-l-AiwYPQPaucl8k9bD_7jQ-1; Fri, 27 Nov 2026 09:11:36 +0000
+X-MC-Unique: l-AiwYPQPaucl8k9bD_7jQ-1
+X-Mimecast-MFC-AGG-ID: l-AiwYPQPaucl8k9bD_7jQ_1795770695
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-4a370217dcfso7052008f8f.1
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 01:11:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795770695; x=1796375495; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aGmL05K1LldZsg+2x8czLa8BN0q4ZrDwGHvyThvJoes=;
+        b=aaYgahXgyowRrU4Ja7LPQOfUElQvzN6OOekafaXbRdJlOsS24aEXbeqSJkUutl3Siq
+         EN7IcsTEroI2UVidRf2ka+h1Y8cSW8QK/IUYdsAuSzbHC0Zx+3iDCyma4JBvgznO6nAq
+         8l+NhGnjXivrE4wKS77WTUClHwpTbqFdYGdXOm+ROrNo/G8khfQNFp6WMIcZJKrTrhgv
+         6iJhqgTonXqFI/sG9gtfYAF78sbyNx9TvVlbHT6VPqbDTKjpVXcxEdRwG4zsntmyYmpk
+         uTEMUTjaUeSt6vHMYzNNytVBlstjUuSZ5Ib7oW1jzQWQIg7QrJeI5Xz14sna2GoW1yOA
+         fr2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795770695; x=1796375495;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=aGmL05K1LldZsg+2x8czLa8BN0q4ZrDwGHvyThvJoes=;
+        b=ra3V7rdchG3A57mIgtSUjLP8LaF3bqARxVK+WX4n/WwxYN/Hg0KhwDLKngUQnltXiJ
+         oQVXjQEPtQLWoKVgHw9D4XwOVxsA5HncUIGk0/qm1LoRxMrlxXJtzW/74Nh3NSAccZcq
+         zz/O3wXNVaYU3rpiAqelSdTkH9bXkwhhJxo74foaKYXneBIbOgdtA+hG87Zk9d7wNbTf
+         mFQ13bnpViijfvJi0PoJ9rHFQaQr/RBV9SXOHrFp2A22sF8FXzX4WJWpk6BooDvZA1qU
+         2nWV0Ko//6ctMwFy6QA1ifY1088O74NFez8QFUJ05Mosq9YiwJy/NWwSISC87bwqPuOX
+         rDyw==
+X-Gm-Message-State: APuU4Z8mwtaQKL2ZMdprBdtNT+OflGgukE4XdYaHbsPGjIPwyEU2NWfQ
+	PlvcvvGigRjB57xwtTasvLPLjxJVz2t9o2uAQAXSjkDZlvrbV73WGCS5/qPhQ4C+wG1GXo3zQHA
+	tJ//n5DJqIGpRr0F5NUu4mbusfqEupdR4jZhlT7DZsu9rUvGucOUgbslsTQ==
+X-Gm-Gg: AZFdTZdGBuVEMvxtytK1IYiHv2hee1nrnrSWatJF6oNeMxSvnHMPVH4baki08viYjUp
+	Vi3aZaYzngEFkwli7fJlWrzV1/OIDmSZuX42SvkfWuR11C7lam7QvBClhPBJeak8pAPQQDlfr1g
+	rPFMPcNjnZbnIe9ldIX8r/BKabjSS6+VLCIFkbIvb+0t7SBNP8AzAqw0a4DRxHwUuQmZy59ctg+
+	KFoaT9f+9bskUVdu4fqHdgXMgpdUeIwEzqw2mZZ2Mvxl3qxMM/wGi4qzfoRji4xFE2cRen6cOC9
+	DL90RiaY/G3kbGr2jgbM5Wlwh4cGRNxdbIEQwflxOB0GiTYX036p/MzeynOQTXOl64LXI0CuCqD
+	U36USxPc4r3iXJy+0eu8RGhzZYTrGs/z58NSVYUwqG3tNQvSRFO3V2zku8pl2NW9JcQ89ecbM49
+	GG04yFHE35DrsEEpE3ammTbmuXulP6ySjcBjJcg6knTGpB
+X-Received: by 2002:a5d:5f4f:0:b0:4a7:35af:c83c with SMTP id ffacd0b85a97d-4abb3e21218mr45862909f8f.43.1795770695002;
+        Fri, 27 Nov 2026 01:11:35 -0800 (PST)
+X-Received: by 2002:a5d:5f4f:0:b0:4a7:35af:c83c with SMTP id ffacd0b85a97d-4abb3e21218mr45862867f8f.43.1795770694547;
+        Fri, 27 Nov 2026 01:11:34 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989b3sm45914248f8f.51.2026.11.27.01.11.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 01:11:34 -0800 (PST)
+Message-ID: <16d457c9-ff01-4ecb-9b50-1daa2be6a255@redhat.com>
+Date: Fri, 27 Nov 2026 10:11:33 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,373 +111,50 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: lan966x: fix disabling timestamping without PTP
+ traps
+To: Daniel Machon <daniel.machon@microchip.com>,
+ Horatiu Vultur <horatiu.vultur@microchip.com>, UNGLinuxDriver@microchip.com,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Richard Cochran <richardcochran@gmail.com>
+Cc: netdev@vger.kernel.org
+References: <20261123-lan966x-ptp-del-trap-v1-1-3f46ca6072b2@microchip.com>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20261123-lan966x-ptp-del-trap-v1-1-3f46ca6072b2@microchip.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+
+On 11/23/26 15:53, Daniel Machon wrote:
+> lan966x_ptp_del_trap() looks up a PTP trap rule with vcap_get_rule() and
+> removes the port from it, or deletes the rule when no other port needs
+> it. The traps are removed whenever timestamping is configured with
+> HWTSTAMP_FILTER_NONE.
+> 
+> Before this patch, every vcap_get_rule() error is returned as -EEXIST,
+> including the -ENOENT for a trap rule that does not exist, so disabling
+> timestamping on a port that has no traps installed fails. This breaks
+> moving the hardware timestamp provider of a port from its PHY to the
+> MAC.
+> 
+> Return 0 for -ENOENT, as there is nothing to remove. Pass any other
+> error from vcap_get_rule() on, as the rule may still be installed with
+> this port in its ingress port mask.
+> 
+> Triggered during test development, without kernel modifications, on a
+> lan9668 board whose LAN8814 PHYs are the default timestamp provider:
+> "ethtool --set-hwtimestamp-cfg <port> index <switch PHC> qualifier
+> precise" failed with "File exists". With the fix the same command moves
+> the provider to the MAC.
+> 
+> Fixes: 72df3489fb10 ("net: lan966x: Add ptp trap rules")
+> Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+IMHO this is borderline for net at this point of the cycle. Any strong
+objection to move this one to net-next?
+
+Thanks,
+
+Paolo
 
-Thank you for your contribution! Sashiko AI review found 5 potential
-issue(s) to consider.
-
-Critical: 0 · High: 2 · Medium: 2 · Low: 1
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] udp_sendmsg()'s connected fast path does not take the socket
-  lock, and it still sends with whatever is stored in the shared…
-- [High] Finishing an IPv4 cork on an AF_INET6 UDP socket connected to a
-  native IPv6 peer only calls sk_dst_reset() (include/net/udp.h:429-432).
-- [Medium] For non-UDP datagram sockets, __ip4_datagram_connect_corked()
-  (net/ipv4/datagram.c) and ip6_datagram_dst_update_corked()…
-- [Medium] L2TP UDP-encap transmit still uses the user tunnel socket's
-  inet->cork.fl as its working flow while the user has frames corked.
-- [Low] The comment "Throw away all pending data and cancel the corking.
-
---
-
-net: avoid clobbering active cork flowi union on datagram connect
-
-This commit makes datagram connect() use stack-allocated flow keys when
-frames are corked on sk_write_queue, so the active inet->cork.fl union
-is not overwritten. When a UDP cork completes on a connected socket, it
-also restores the connected flow into inet->cork.fl. In the
-cross-family and non-UDP cases it resets sk_dst_cache instead.
-
-> diff --git a/include/net/udp.h b/include/net/udp.h
-> index 5bc25dcf25fba..cee5ebd1edec8 100644
-> --- a/include/net/udp.h
-> +++ b/include/net/udp.h
-> @@ -417,6 +417,27 @@ INDIRECT_CALLABLE_DECLARE(int udp_recvmsg(struct sock *sk, struct msghdr *msg,
->  					  size_t len, int flags));
->  void udp_splice_eof(struct socket *sock);
->  int udp_push_pending_frames(struct sock *sk);
-> +static inline void udp_cork_restore_connected(struct sock *sk)
-> +{
-> +	struct inet_sock *inet = inet_sk(sk);
-> +	struct flowi4 *fl4 = &inet->cork.fl.u.ip4;
-> +
-> +	if (sk->sk_state != TCP_ESTABLISHED)
-> +		return;
-> +
-> +#if IS_ENABLED(CONFIG_IPV6)
-> +	if (sk->sk_family == AF_INET6 &&
-> +	    !ipv6_addr_v4mapped(&sk->sk_v6_daddr)) {
-> +		sk_dst_reset(sk);
-> +		return;
-> +	}
-
-[Severity: High]
-
-Suppose an IPv4 cork completes on an AF_INET6 socket that is connected
-to a native IPv6 peer. This branch only drops the dst. Is
-inet->cork.fl.u.ip6 ever rebuilt in that case?
-
-udp_sendmsg() wrote the corked IPv4 addresses and ports over the first
-bytes of cork.fl.u.ip6.daddr:
-
-    fl4 = &inet->cork.fl.u.ip4;
-    fl4->daddr = daddr;
-    fl4->saddr = saddr;
-    fl4->fl4_dport = dport;
-
-udp_v6_cork_restore_connected() does not run here either, because
-udp_v6_push_pending_frames() returns early:
-
-    if (up->pending == AF_INET)
-        return udp_push_pending_frames(sk);
-
-udp_v6_flush_pending_frames() likewise goes to
-udp_flush_pending_frames().
-
-The next connected native IPv6 send fills the cache again from its
-stack flow:
-
-udpv6_sendmsg()
-  ip6_sk_dst_lookup_flow()
-    ip6_sk_dst_store_flow(sk, dst_clone(dst), fl6)
-
-After that, an L2TP-over-UDPv6 transmit goes through
-l2tp_xmit_core()->l2tp_xmit_queue()->inet6_csk_xmit(). Because
-__sk_dst_check() now succeeds, inet6_csk_route_socket() is skipped and
-ip6_xmit() builds hdr->daddr from the stale cork.fl.u.ip6.
-
-That would keep sending the tunnel's data packets to a corrupted IPv6
-destination until the dst is invalidated or the socket reconnects. It
-also seems to contradict the commit message's statement that L2TP
-encapsulation never reuses the corked flow.
-
-Should this branch rebuild the flow, for example with
-ip6_datagram_flow_key_init(), rather than only calling sk_dst_reset()?
-
-> +#endif
-> +	WRITE_ONCE(fl4->daddr, READ_ONCE(inet->inet_daddr));
-> +	WRITE_ONCE(fl4->saddr, inet->inet_saddr);
-> +	WRITE_ONCE(fl4->fl4_dport, inet->inet_dport);
-> +	WRITE_ONCE(fl4->fl4_sport, inet->inet_sport);
-> +}
-
-[Severity: High]
-
-Can this restore protect the lockless connected fast path in
-udp_sendmsg()? That path checks pending once without the lock and then
-reads the shared cork union:
-
-udp_sendmsg() {
-    ...
-    fl4 = &inet->cork.fl.u.ip4;
-    if (READ_ONCE(up->pending)) {
-        ...
-    }
-    ...
-    if (connected)
-        rt = dst_rtable(sk_dst_check(sk, 0));
-
-    if (!rt) {
-        ...
-        fl4 = &fl4_stack;
-        ...
-    }
-    ...
-    saddr = fl4->saddr;
-    if (!ipc.addr)
-        daddr = ipc.addr = fl4->daddr;
-
-    /* Lockless fast path for the non-corking case. */
-    if (!corkreq) {
-        ...
-        skb = ip_make_skb(sk, fl4, ...);
-        ...
-            err = udp_send_skb(skb, fl4, &cork);
-    ...
-}
-
-Other threads on the same socket write the union under lock_sock().
-The writers are the IPv4 cork setup in udp_sendmsg(), the
-"inet->cork.fl.u.ip6 = *fl6" copy in ip6_append_data(), and this
-restore.
-
-The restore only runs after a cork ends. Nothing orders it against the
-READ_ONCE(up->pending) check, so a sender that has already passed that
-check keeps reading the live union.
-
-On a dual-stack AF_INET6 socket connected to a v4-mapped peer, this
-sequence looks possible:
-
-thread C: holds an IPv4 cork and uncorks it under lock_sock()
-
-thread A: send()
-  udpv6_sendmsg() sees pending == AF_INET
-    udp_sendmsg() with msg_name == NULL
-      waits in lock_sock(), sees pending == 0 once C is done,
-      releases the lock and takes the connected fast path with the
-      cached IPv4 dst
-
-thread B: sendto(native IPv6 X, MSG_MORE), with IPV6_PKTINFO naming a
-          native local source so ip6_dst_lookup_tail() accepts it
-  udpv6_sendmsg()->ip6_append_data()
-    inet->cork.fl.u.ip6 = *fl6;
-
-thread A:
-  ip_make_skb()->ip_copy_addrs() and udp_send_skb() read
-  fl4.saddr = X[0..3], fl4.daddr = X[4..7], dport = X[8..9]
-
-That sends an IPv4 packet with a source and destination the user chose,
-over the connected peer's route and without CAP_NET_RAW. This is the
-same result the commit message sets out to prevent.
-
-The race was there before this patch. However, the v2 notes say the
-restore keeps "udp_sendmsg()'s lockless fast path ... from sending with
-the corked flow".
-
-Would it be more robust for the lockless path to stop reading cork.fl,
-for example by building the tuple from inet_daddr, inet_dport and
-inet_saddr?
-
-> +
->  void udp_flush_pending_frames(struct sock *sk);
->  int udp_cmsg_send(struct sock *sk, struct msghdr *msg, u16 *gso_size);
->  void udp4_hwcsum(struct sk_buff *skb, __be32 src, __be32 dst);
-> diff --git a/net/ipv4/datagram.c b/net/ipv4/datagram.c
-> index 7d25519a6cdd3..987676251db48 100644
-> --- a/net/ipv4/datagram.c
-> +++ b/net/ipv4/datagram.c
-
-[ ... ]
-
-> @@ -82,6 +81,29 @@ int __ip4_datagram_connect(struct sock *sk, struct sockaddr_unsized *uaddr, int
->  out:
->  	return err;
->  }
-> +
-> +static noinline_for_stack int
-> +__ip4_datagram_connect_corked(struct sock *sk, struct sockaddr_unsized *uaddr,
-> +			      int addr_len)
-> +{
-> +	struct flowi4 fl4;
-> +	int err;
-> +
-> +	err = ____ip4_datagram_connect(sk, uaddr, addr_len, &fl4);
-> +	if (!err && !sk_is_udp(sk))
-> +		sk_dst_reset(sk);
-> +	return err;
-> +}
-
-[Severity: Medium]
-
-For UDP sockets, this leaves the new dst in sk_dst_cache, but
-inet->cork.fl keeps the corked flow until the cork completes. Can L2TP
-send data with the corked tuple during that window?
-
-l2tp_xmit_core() only checks sock_owned_by_user(), which is false
-between corked sendmsg() calls. It then does:
-
-    ret = l2tp_xmit_queue(tunnel, skb, &inet->cork.fl);
-
-With a cached dst, __ip_queue_xmit() goes straight to
-ip_copy_addrs(iph, fl4) on cork.fl.u.ip4, and inet6_csk_xmit() calls
-ip6_xmit() with cork.fl.u.ip6. The L2TP data packets would be built
-from the corked tuple and sent over the newly connected route.
-
-ip6_datagram_dst_update_corked() has the same window for UDPv6 tunnel
-sockets. There, ip6_sk_dst_store_flow() caches the new dst while
-cork.fl.u.ip6 keeps the corked flow.
-
-In the cross-family case, the IPv4 saddr and daddr would come from the
-corked IPv6 destination's bytes. That case is an AF_INET6 tunnel socket
-with an IPv6 cork to X, followed by connect() to a v4-mapped peer.
-
-Before this patch, a corked connect() wrote the connected flow into
-cork.fl, so this particular window looks new.
-
-A related problem already existed before this patch. A route miss
-during any active cork makes __ip_queue_xmit() or
-inet6_csk_route_socket() rewrite the active cork flow in place. Also,
-with a valid cached dst, a sendto(other, MSG_MORE) cork sends L2TP data
-to "other".
-
-The v2 notes say the patch keeps L2TP encapsulation "from sending with
-the corked flow". Isn't that only true once the cork has finished?
-
-> +
-> +int __ip4_datagram_connect(struct sock *sk, struct sockaddr_unsized *uaddr,
-> +			   int addr_len)
-> +{
-> +	if (unlikely(!skb_queue_empty(&sk->sk_write_queue)))
-> +		return __ip4_datagram_connect_corked(sk, uaddr, addr_len);
-> +
-> +	return ____ip4_datagram_connect(sk, uaddr, addr_len,
-> +					&inet_sk(sk)->cork.fl.u.ip4);
-> +}
->  EXPORT_SYMBOL(__ip4_datagram_connect);
-
-[ ... ]
-
-> diff --git a/net/ipv6/datagram.c b/net/ipv6/datagram.c
-> index ff7a7ffbf9833..d423988350848 100644
-> --- a/net/ipv6/datagram.c
-> +++ b/net/ipv6/datagram.c
-
-[ ... ]
-
-> @@ -119,6 +117,29 @@ int ip6_datagram_dst_update(struct sock *sk, bool fix_sk_saddr)
->  	return err;
->  }
->  
-> +static noinline_for_stack int
-> +ip6_datagram_dst_update_corked(struct sock *sk, bool fix_sk_saddr)
-> +{
-> +	struct in6_addr final;
-> +	struct flowi6 fl6;
-> +	int err;
-> +
-> +	err = __ip6_datagram_dst_update(sk, fix_sk_saddr, &fl6, &final);
-> +	if (!err && !sk_is_udp(sk))
-> +		sk_dst_reset(sk);
-> +	return err;
-> +}
-
-[Severity: Medium]
-
-For non-UDP sockets, does this reset only postpone the clobber on an
-L2TP IP-encap tunnel socket (l2tp_ip6, IPPROTO_L2TP)?
-
-l2tp_ip6_sendmsg() corks through ip6_append_data(). That stores the
-flow in inet->cork.fl.u.ip6, and l2tp_ip6_push_pending_frames() uses it
-at uncork time.
-
-Consider a connect() that runs while frames are queued:
-
-l2tp_ip6_connect()
-  __ip6_datagram_connect()
-    ip6_datagram_dst_update()
-      ip6_datagram_dst_update_corked()
-        sk_dst_reset()
-
-For a v4-mapped peer, which l2tp_ip6_connect() allows, the path goes
-through __ip4_datagram_connect_corked() instead. In both cases the next
-kernel L2TP data transmit calls l2tp_xmit_core()->l2tp_xmit_queue()
-with &inet->cork.fl.
-
-With no cached dst, inet6_csk_xmit() calls inet6_csk_route_socket() on
-&cork.fl.u.ip6, which does:
-
-    memset(fl6, 0, sizeof(*fl6));
-    fl6->flowi6_proto = sk->sk_protocol;
-    fl6->daddr = sk->sk_v6_daddr;
-
-In the v4-mapped case, __ip_queue_xmit() calls inet_sk_init_flowi4()
-and ip_route_output_flow() on the overlapping fl4.
-
-On uncork, wouldn't the queued IPv6 frames be finished from the
-rewritten flow? They would go to the newly connected peer, or, in the
-v4-mapped case, to a destination built from aliased IPv4 bytes.
-
-> +
-> +int ip6_datagram_dst_update(struct sock *sk, bool fix_sk_saddr)
-> +{
-> +	if (unlikely(!skb_queue_empty(&sk->sk_write_queue)))
-> +		return ip6_datagram_dst_update_corked(sk, fix_sk_saddr);
-> +
-> +	return __ip6_datagram_dst_update(sk, fix_sk_saddr,
-> +					 &inet_sk(sk)->cork.fl.u.ip6,
-> +					 &inet6_sk(sk)->final);
-> +}
-> +
->  void ip6_datagram_release_cb(struct sock *sk)
->  {
->  	struct dst_entry *dst;
-> diff --git a/net/ipv6/udp.c b/net/ipv6/udp.c
-> index a6886a0432f97..344071574122c 100644
-> --- a/net/ipv6/udp.c
-> +++ b/net/ipv6/udp.c
-> @@ -1267,6 +1267,17 @@ void udp_v6_early_demux(struct sk_buff *skb)
->  /*
->   * Throw away all pending data and cancel the corking. Socket is locked.
->   */
-> +static void udp_v6_cork_restore_connected(struct sock *sk)
-> +{
-
-[Severity: Low]
-
-This isn't a bug, but the "Throw away all pending data and cancel the
-corking" comment now sits above udp_v6_cork_restore_connected()
-instead of udp_v6_flush_pending_frames(). Should the new helper go
-above the comment, as net/ipv4/udp.c still has it?
-
-> +	if (sk->sk_state != TCP_ESTABLISHED)
-> +		return;
-> +
-> +	if (ipv6_addr_v4mapped(&sk->sk_v6_daddr))
-> +		udp_cork_restore_connected(sk);
-> +	else
-> +		ip6_datagram_flow_key_init(&inet_sk(sk)->cork.fl.u.ip6, sk);
-> +}
-> +
->  static void udp_v6_flush_pending_frames(struct sock *sk)
->  {
->  	struct udp_sock *up = udp_sk(sk);
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124180604.73257-1-dmnk%40google.com
