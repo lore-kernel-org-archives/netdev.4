@@ -1,79 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795762085;
-	b=puXr58865Wi1mc53+uChCkT+Vn+s+7zxwHNiuhGSjKjuKRwwMZeVJEEXWyI5hVPBdatV
-	 kDydu/Np84CE+EEnU+IiNreq7qNN+HzHu2yaWpZjYGR0EvZj3tLrquRWKYKt8cQAquBmS
-	 z9Lzqq8CAUF5Qa5zDtZU9s78b2y9ew/03vudQfYMASIxZQJyT9MSOXS+bEckGp04lle8z
-	 BDty8ksWj799nodvSsAx72KiiN26ovAc0P4ot3XKt6DtyKpVaMOOtsZXzP4aNZwnSl0cM
-	 SoY+19xJNkfQ0gnRJqKcyvcI8bgmmb3XplMFDjG0yNEvjSTgqTYXbIO3DIaVp1yO4rw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795762085;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=mnRsxiP5CDXvJyBOhMK61M5i51SmpFcieZV2SE2HJd8=;
-	b=NfLF06u1bYn8KIQJyDMWZZbblSi2+zCB/y+I6m0ieGyx1G0kbKJ63fUWoky6ClcXKvqY
-	 hBtm/5asyvw2vVj3KfiO7R48oDjQ/29187500Mj29maJBZmWRn4ukPEmNTrFGJxGLAcH2
-	 SnFBGk1ySbtBH+NsZkIOLdUJu2LS4Y6HwnExr8FnIoQW1FCYcV+UxwaIxJ78u/MeZZ6Fa
-	 QwS+W80JOBiYCcjke1MTG5a80Vj5KxtoBwqVuSSnJ+R6Ec90UM46rEju0YtEGrbJrkKJy
-	 sY6fj/SU58QN/OYwBef9+DcYKYRgcObzF95LGJusmUjVZGRMvuXa7pyRrMsd2NBGcNA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IHkYorXc;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795762137;
+	b=5k1GJHj3sNt8fNHEzLT3DELNa5Sg06BTYnuEVgDuELvhZC7GlJ+n+HzbceSPFAvm1nyO
+	 vv3qZJLLnaTyHEKaHIQTpsKLU+6IrCN/IUBu/Qq4XGB6quWTyUuJ9GPa2ZqY+VM0KNQTd
+	 le7xvSUTmtlQ77+ElFWjIKNKxoVyOEGBZCseBIwyhYyw6hHvHW7zbQKVUp2aycYGBbFj5
+	 wQnH2R45Fp8VCf7AH76ofaMQ6+T7ZabK/jQT1u+MmN3DZZuI9Zoel05kHzG7Y6hzJHo/q
+	 eNbvOFIi99vwiKLIWOcsJPT/46iMVyUN3MuY6tXX9NM6Q5rvHgp/v5lb+otV3GktT6w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795762137;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=k3ZjfG+N7wLxnkU0L9mIF5scwPyKE57TaPHdl1fG3LE=;
+	b=256/FVenBfyE3D2zuiFod6BUL2EXUYi1A5pPI4qo0DieTU829EVHngak7luqutPAy+V6
+	 R2faj3E2X96IOxjT+O0LHL9olFAUAA7Y3dP2UAd7HpCQkr07aovgBv4DpA9/qE2yq5Dq+
+	 /EqeIbIfzfax2MUKyG4Z0wmH4WTDDdyqsBJreJbNc3Cdokam/YJbxaPXMtMn6StUhyvgG
+	 C3YUZ3MB8CXAn8yz1CHVMeo5837Rr2Cm3SUqwfyu2knh3jOmNsj3LunAt1X+qM43xBNlG
+	 97pZtOxrKr2xdAWi4Ug+RV3JbKyQa0LGMxsq4EXEuDt33J4oB2Ca/45qNIJ0qs6nYUQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YjYqE8zI;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CEF9606A31C;
-	Fri, 27 Nov 2026 06:48:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 954B9606A31E
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:48:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IHkYorXc
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795762085;
-	b=MUAu9nOJz156un4yaQ2/E7rcrUplGOhsndUSDxRXxxHJnl0S0Xaez4iuw7cEcSiUSpyw
-	 HH+3OhUKiYI5fBCRYmjYUZsWNO01/7SMjD/NISIcEUGL7ZbM8Lc6CCXDJKNEmfTLGiZji
-	 vMuAX0TWoNF04apAItg5N1Ba3WQbJHoWMhc2s9YC9vnrybtzL+dogRlw2898m0hB8NXLe
-	 JjFBQGcA6QURAzdWVh0e90CrPcY+/gZ8QXkaMejYMMTkMGptifBUmEY6kGK5VC5F5HLUP
-	 cd5M5txmm+L2LJnji+2R06jxv38ODsDENbIU75v03oDggBJYHfKnDdUX3oaPfJCPDAg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795762085;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=mnRsxiP5CDXvJyBOhMK61M5i51SmpFcieZV2SE2HJd8=;
-	b=nxqxp2h6PkwSSGR6b+J6OHdbr9F63OAIaQxfBqTDzA+JR7tIfsnkF7fT3y7AKF/24Hgg
-	 oAepvDLyBGXNT2jy0aQf4itei1ooN97BGIhKbgmJ5mW90mJfAn7MTD1dTujOblNGyNILJ
-	 CxIZVeaAQywwpwMjPo4bo5JsV1gmLxzF5BeU8fxFZQiCMoC0qN0A1Zwc0xKYQzmqIiFU7
-	 i93TpmOWJKueyxWM78d5BIy04O+zWzko8ZjtBFILBkBKVLNc92RubQYRVv5Q7c/G8b2Sc
-	 oxDzLgZu7KtDocCnrK2HD9S2sqXtgOTjcLtWEqPzZLpBtQleGl2GSXWua4a9ZaDme4Q==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 827A21F0089F;
-	Fri, 27 Nov 2026 06:47:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YjYqE8zI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B8BE1F0089A;
+	Fri, 27 Nov 2026 06:48:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795762085;
-	bh=mnRsxiP5CDXvJyBOhMK61M5i51SmpFcieZV2SE2HJd8=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=IHkYorXc7nz0LBJdg4GIznzuGYcFTJBN29Mn3zR+c6Vc5EPcnFseXAnbeCeVd3uBj
-	 aIN8ggjKQ6MWwpbL25udG2HTEMo1yVO9fZAhAf7K3QpnZdyRI04nBM8aHf658+hBau
-	 zqr1oMMdqKf+HAlNe4V/bOoVoKbHmN0PAU4vPBxxT3QQBwSPIYhs8htKKo7HOkYFAv
-	 eKjIRXhK5dXYc5ZLgYWW1dMxvjcHmt3i1osUIoWd6QZJOnvnJHenTKFspI+ZhjdVEg
-	 w9G1oReVqNw2/+8FCPv1vX6WwYXJI0kdtd3M0acfL5W4Y7KxDqRiHp4fBUh/4nXFjJ
-	 7xs+fRBDkFbAQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id AB83D4B5F5;
-	Fri, 27 Nov 2026 06:47:48 +0000 (UTC)
-From: Dickson Wu via B4 Relay <devnull+dickson.wu.certik.com@kernel.org>
-Date: Fri, 27 Nov 2026 06:37:47 +0000
-Subject: [PATCH 6.6.y] rds: tcp: unregister sysctl before tearing down
- listen socket
+	s=k20260515; t=1795762136;
+	bh=k3ZjfG+N7wLxnkU0L9mIF5scwPyKE57TaPHdl1fG3LE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=YjYqE8zIJv5HytNH9iuX5BCv+xn14+URyl1MZBY8yLWaR5TOGFQqDMTyLt40Uhp3S
+	 q9QfxuMhPRgqvMFk5ugOQ/niFInPv07sEzUfP82wHA5PabZW+s6akNNYmSNNDS/NdA
+	 fwqMMHGnk4fEhxJ75R/xBoIaMzato6+/GYK7gL6NfF6VhJGVQDl15jz7CY24l1rxkN
+	 HV2xlEFgjkxzIPyFCM/iy/ddNSVdgZWr9DeWWaLwXm9lgYf7MaAKe5lkTIgq+d6wZR
+	 AvpBehpYsvjrDgpGyB2A/B20f+j8eRFDTg38Q0AfpARvwRZk51nGB8oMhERWUeAA+J
+	 ApC2DP7Nx1YBA==
+Subject: Re: [PATCH net] ipv4: reject header length beyond linear data in
+ ip_do_fragment()
+From: netdev-bot+sashiko@kernel.org
+To: ljp1205831794@gmail.com
+Cc: dsahern@kernel.org, idosch@nvidia.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ netdev@vger.kernel.org, jiapenglin@tencent.com, corvus@tencent.com
+Date: Fri, 27 Nov 2026 06:48:55 +0000
+Message-ID: <179576213561.3135.12039000289688373845@kernel.org>
+In-Reply-To: <20261126064445.57665-1-ljp1205831794@gmail.com>
+References: <20261126064445.57665-1-ljp1205831794@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,107 +63,196 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-so5-rds-66-v1-1-1abb4e9ce92b@certik.com>
-X-B4-Tracking: v=1; b=H4sIADolCWsC/0WNSw7CMAxEr1J5jUsTwKhcBXWRj6FBKEFxqUBV7
- 04CC5bzNPNmAeEcWODULJB5DhJSLEFtGnCjiVfG4EsG3WlSSh9R0gGzFyTC3rne7vZkvO+gDB6
- ZL+H1lZ2BWmrfMPywPO2N3VRFtWiNMNpsohsrEo5+SumOlW//B7CuH844CQqgAAAA
-X-Change-ID: 20261127-so5-rds-66-9cc9b346add0
-To: stable@vger.kernel.org
-Cc: Cen Zhang <blbllhy@gmail.com>, netdev@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795761466; l=2888;
- i=dickson.wu@certik.com; s=dickson-b4; h=from:subject:message-id;
- bh=eX75dksd+0Eq/c6Duq5vPiGvUbIGB0rYF3qmdTVxvX8=;
- b=BLV0tpHTjpwxzWlawloS8nPZzByn15w+p/yUa9RcglQDfGguxqgH0yPyz2x/FuI4GXYh4kywc
- i71OQrCJHG1DgqyX9MeUJZbA9yS1hu1Jxn6eIGtXSHNxfo6V+R8TIqX
-X-Developer-Key: i=dickson.wu@certik.com; a=ed25519;
- pk=fxH7FS4FdojeJSGLJzgKdfO51Rvr4EW30yinj2mc1vg=
-X-Endpoint-Received: by B4 Relay for dickson.wu@certik.com/dickson-b4 with
- auth_id=1647
-X-Original-From: Dickson Wu <dickson.wu@certik.com>
-Reply-To: dickson.wu@certik.com
 
-From: "Cen Zhang (Microsoft)" <blbllhy@gmail.com>
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-commit 167e54c703ccd4fa028feb568b0d1002020cff86 upstream.
+Critical: 0 · High: 1 · Medium: 1 · Low: 2
 
-rds_tcp_exit_net() frees the per-netns RDS TCP listen socket via
-rds_tcp_kill_sock() before unregistering the per-netns sysctl table.  Since
-rds_tcp_skbuf_handler() derives the netns from
-rtn->rds_tcp_listen_sock->sk, a concurrent sysctl write can race with
-netns teardown and dereference the freed socket/sk.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-KASAN reports the race as:
+- [High] ipv4: ip_do_fragment() uses iph->ihl before validating
+  skb_headlen() and hlen
+- [Medium] The new guard in ip_do_fragment()
+  (net/ipv4/ip_output.c:787-791) measures against the wrong base.
+- [Low] The commit message understates the impact.
+- [Low] The trailers misuse tags and drop attribution.
 
-  BUG: KASAN: slab-use-after-free in rds_tcp_skbuf_handler+0x2aa/0x2e0
-  rds_tcp_skbuf_handler              net/rds/tcp.c:721
-  proc_sys_call_handler              fs/proc/proc_sysctl.c
-  vfs_write                          fs/read_write.c
-  __x64_sys_pwrite64                 fs/read_write.c
+--
 
-Fix this by unregistering the RDS TCP sysctl table before calling
-rds_tcp_kill_sock().  unregister_net_sysctl_table() prevents new sysctl
-handlers from starting and waits for in-flight handlers to finish, so
-the listen socket can then be released safely. The fix was tested
-against the linked reproducer.
+ipv4: reject header length beyond linear data in ip_do_fragment()
 
-Fixes: 7f5611cbc487 ("rds: sysctl: rds_tcp_{rcv,snd}buf: avoid using current->nsproxy")
-Reported-by: AutonomousCodeSecurity@microsoft.com
-Link: https://lore.kernel.org/all/20260719203718.9680-1-blbllhy@gmail.com
-Reviewed-by: Allison Henderson <achender@kernel.org>
-Signed-off-by: Cen Zhang (Microsoft) <blbllhy@gmail.com>
-Link: https://patch.msgid.link/20260719210357.10179-1-blbllhy@gmail.com
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
-Signed-off-by: Dickson Wu <dickson.wu@certik.com>
----
-6.12.y and newer already have this fix.
+This commit moves the hlen computation in ip_do_fragment() earlier. It
+adds a check that rejects the packet with -EINVAL when the IPv4 header
+length is below 20 bytes or larger than skb_headlen(). The goal is to stop
+the BUG() in ip_frag_next(), which the Open vSwitch fragmentation path can
+reach with PUSH_MPLS + TRUNC + MRU.
 
-Tested on v6.6.163:
-- x86_64 allmodconfig W=1 build of net/rds/tcp.o, base vs patched, no
-  new warnings
-- under QEMU/KVM, base and patched: loaded rds_tcp, read both TCP buffer
-  sysctls in a new network namespace and tore the namespace down with
-  no warnings in dmesg. I didn't run a race test.
+Closes: https://lore.kernel.org/netdev/20260922030310.8684-3-habte.yibelo@gmail.com/
 
-The backport and the test runs were prepared with AI coding tools
-(OpenAI Codex agents, with review by Claude). I went over the result
-before signing off.
+> request (user+network namespace, PUSH_MPLS x4 + TRUNC + MRU) into a
+> deterministic kernel panic under a KASAN build:
 
-net/rds/tcp.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
----
- net/rds/tcp.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+[Severity: Low]
+Is "under a KASAN build" accurate? The BUG() in ip_frag_next() does not
+depend on any condition:
 
-diff --git a/net/rds/tcp.c b/net/rds/tcp.c
-index 80d0e4c5b6aa..76cdea73a906 100644
---- a/net/rds/tcp.c
-+++ b/net/rds/tcp.c
-@@ -711,13 +711,13 @@ static void __net_exit rds_tcp_exit_net(struct net *net)
- {
- 	struct rds_tcp_net *rtn = net_generic(net, rds_tcp_netid);
- 
--	rds_tcp_kill_sock(net);
--
- 	if (rtn->rds_tcp_sysctl)
- 		unregister_net_sysctl_table(rtn->rds_tcp_sysctl);
- 
- 	if (net != &init_net)
- 		kfree(rtn->ctl_table);
-+
-+	rds_tcp_kill_sock(net);
- }
- 
- static struct pernet_operations rds_tcp_net_ops = {
+	if (skb_copy_bits(skb, state->ptr, skb_transport_header(skb2), len))
+		BUG();
 
----
-base-commit: e2bb30811e063ce0db964484357973b855b06572
-change-id: 20261127-so5-rds-66-9cc9b346add0
+The quoted trace ends with "Fatal exception in interrupt", so it fires
+with BH disabled. That means it would panic on any kernel config, not only
+on KASAN builds.
 
-Best regards,
---  
-Dickson Wu <dickson.wu@certik.com>
+The message also leaves out an earlier step. Before that BUG(),
+skb_copy_from_linear_data(skb, ..., hlen) in ip_frag_next() reads hlen
+bytes from a linear area that is shorter than hlen, so it reads past
+skb->tail.
 
+Could the description be updated to reflect both points?
 
+> Closes: https://lore.kernel.org/netdev/20260922030310.8684-3-habte.yibelo@gmail.com/
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+> Reported-by: TencentOS Corvus AI <corvus@tencent.com>
+> Signed-off-by: Lin Jiapeng <jiapenglin@tencent.com>
+
+[Severity: Low]
+The Closes: link points at Paulos Yibelo's pending [PATCH net v6 2/2],
+not at a bug report. Reported-by: should also be followed by a Closes:
+link to that report, but here it is followed directly by Signed-off-by:.
+
+This patch resubmits the hlen half of that series. The overlap is only
+mentioned in the note below the --- line, and that note is dropped when
+the patch is applied, so git history will not credit Paulos Yibelo.
+
+For comparison, the companion commit 6785011f8b16 has
+"Reported-by: Paulos Yibelo" and a Closes: link to his posting.
+
+Should this patch credit Paulos Yibelo with Reported-by:, Suggested-by:
+or Co-developed-by:? Or should it be coordinated with the pending series
+instead?
+
+> diff --git a/net/ipv4/ip_output.c b/net/ipv4/ip_output.c
+> index d42d776af273e..d5ea596724d7b 100644
+> --- a/net/ipv4/ip_output.c
+> +++ b/net/ipv4/ip_output.c
+> @@ -784,6 +784,11 @@ int ip_do_fragment(struct net *net, struct sock *sk, struct sk_buff *skb,
+>  	 */
+>  
+>  	iph = ip_hdr(skb);
+> +	hlen = iph->ihl * 4;
+> +	if (unlikely(hlen < sizeof(*iph) || hlen > skb_headlen(skb))) {
+
+[Severity: High]
+The commit message says the header length is validated before any use
+of hlen, but the CHECKSUM_PARTIAL block above still runs first.
+ip_check_csum_start() uses ip_hdrlen(skb), which is the same value as
+iph->ihl * 4. skb_checksum_help() then runs on a header that has not
+been validated yet.
+
+In the OVS TRUNC + prepare_frag() case from the changelog, a
+CHECKSUM_PARTIAL skb keeps its original csum_start, because
+pskb_trim() does not touch ip_summed. If csum_start was at or past
+network_header + hlen, ip_check_csum_start() returns 0, and
+skb_checksum_help() is reached with skb_checksum_start_offset(skb) >=
+skb_headlen(skb). That path calls skb_dump() and WARN_ONCE("offset
+(%d) >= skb_headlen() (%u)"). With panic_on_warn, the same reproducer
+still takes the machine down before the new check can reject the
+packet.
+
+The opposite case is also open. With iph->ihl < 5, ip_hdrlen() can be
+0, so a csum_start equal to the network header passes
+ip_check_csum_start(). skb_checksum_help() then stores the folded
+checksum inside the IPv4 header itself, possibly over version/ihl,
+before hlen < sizeof(*iph) is ever checked.
+
+Separately, iph->ihl is dereferenced before anything checks
+skb_headlen(skb) >= sizeof(*iph). If TRUNC leaves only the 30 bytes of
+Ethernet + MPLS and prepare_frag() pulls all of them, skb_headlen() is
+0 and ip_hdr(skb) points at skb->tail. The new check still rejects the
+packet, but only after reading a stale or uninitialized byte past the
+tail, which KMSAN would flag.
+
+Would it make sense to do the validation ahead of the CHECKSUM_PARTIAL
+block and to check skb_headlen(skb) >= sizeof(*iph) before reading
+ihl? iph = ip_hdr(skb) would then need to be re-read after
+skb_checksum_help(), since that call can reallocate skb->head.
+
+[Severity: Medium]
+Is skb_headlen() the right bound here? iph comes from
+skb_network_header(), but skb_headlen() counts from skb->data. The check
+only holds when skb_network_offset(skb) is zero, and nothing here enforces
+that.
+
+The Open vSwitch caller named in the commit message does not seem to
+guarantee a zero offset. In do_output(), TRUNC only trims down to the MAC
+header length (ETH_HLEN). The MPLS labels are not included in that floor:
+
+net/openvswitch/actions.c:do_output() {
+    ...
+		if (unlikely(cutlen < skb->len))
+			pskb_trim(skb, max(cutlen, ovs_mac_header_len(key)));
+    ...
+}
+
+ovs_fragment() then moves the network header to the inner network header.
+With four MPLS labels it ends up at offset 30, which the MAX_L2_LEN check
+still allows:
+
+	if (eth_p_mpls(skb->protocol)) {
+		orig_network_offset = skb_network_offset(skb);
+		skb->network_header = skb->inner_network_header;
+	}
+
+prepare_frag() then ignores the return value of skb_pull():
+
+	memset(IPCB(skb), 0, sizeof(struct inet_skb_parm));
+	skb_pull(skb, hlen);
+
+Take skb->len == 29. skb_pull(skb, 30) returns NULL and leaves skb->data
+where it was. ip_hdr(skb) then points 30 bytes past skb->data, which is
+past skb->tail.
+
+Now add an MRU of 28 and an output vport with hard_header_len 0. A
+TUN-mode tun device qualifies, since tun_net_initialize() sets
+dev->hard_header_len = 0. do_output() still calls ovs_fragment() because
+29 > 28 + 0.
+
+If the stale byte after the tail holds ihl == 5, then hlen = 20, which is
+not above skb_headlen() = 29. The new check passes, and so does the
+mtu < hlen + 8 check. A longer original packet sent before TRUNC can
+control that stale byte.
+
+>From there, ip_frag_init() reads iph->frag_off from beyond the tail.
+ip_frag_next() copies the header from skb->data rather than from the
+network header:
+
+	skb_copy_from_linear_data(skb, skb_network_header(skb2), state->hlen);
+
+As a result, every emitted fragment carries Ethernet/MPLS bytes as its
+IPv4 header, and the stale frag_off bits end up in its frag_off field.
+
+The BUG() in ip_frag_next() no longer looks reachable, because
+hlen <= skb_headlen() keeps state->left and skb_copy_bits() in range.
+However, in this case the network offset plus hlen is 50 against a
+headlen of 29, and the packet is still not rejected.
+
+Would checking skb_network_offset(skb) + hlen against skb_headlen(skb),
+or requiring a zero network offset, cover this case? Another option would
+be for prepare_frag() to handle the skb_pull() failure.
+
+> +		err = -EINVAL;
+> +		goto fail;
+> +	}
+>  
+>  	mtu = ip_skb_dst_mtu(sk, skb);
+>  	if (IPCB(skb)->frag_max_size && IPCB(skb)->frag_max_size < mtu)
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126064445.57665-1-ljp1205831794%40gmail.com
