@@ -1,85 +1,139 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.74.67.63
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795773723;
-	b=LFCv7v0qQmvzsSFU5acA3mXuNCfh6FroFOYA3Vto4aJlnK3OetWTwCZoJZ6iFwZbP1bR
-	 xPywLmRVvHsD4+Hm7lFeca3h7q7Ks9Pwg+ZO8/+3uQo/zBbSwr+wV/Ops9ClHiI7QbXOa
-	 mVUcEo/tae5zb0d+/8pRtW3Sm43r3wkyKllm20tvvYQb1eBGvZW4rP6wLPROV42kFSzGY
-	 Nanl+bufD5OedpsacS3l8YAO0uF5Rj9+miPyA8yvD1wsdxAZGZfgKsXjyKD16MUcsXuXe
-	 jvM6EI2dufGqTOju9FTXCI3piEXtHjPkSTSgqMNUi2J8VtpdtswVkEx8t1zs7VTGvjw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795773723;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 DKIM-Signature;
-	bh=/f+dIXrZDME1HzzTlAG04proZNX5+hxrBwLcvRGWskU=;
-	b=I+8NvqMTe2rDmB08z2HT9aM6bsfBNnCIeRl7Wo/HJ2fbITLGiY9IPp4QFIl1YfmxbLtI
-	 NJ7+y2tsuH4pAruEViCe+WTpVCvpmYDysKoTWUuZtOyLKbQhyXp17ob3dK8xzq9+zqh2U
-	 AZSaxGL4ghYV53yOsaAWfcaerjHBEaflkbv3SaJyHayU7M3EeXF4n8KW9TEZCjNXf02AR
-	 gBeLJ+QrF8p7cuhSi48GSIQhwrQCkCQOf1sfpmWpeK1QLEZfGCwATq6oF4bCqSie+/i5B
-	 4v5rD301MnGITrytx3b2ch0L+fbNMzGg5COoTGu9fniyQsKy2okSxUSucgUfOXlVLHQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=poczta.fm;
-	spf=pass smtp.mailfrom=poczta.fm;
-	dkim=pass header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=dvpxZnrM;
-	arc=none smtp.remote-ip=217.74.67.63
-Received: from smtpo63.interia.pl (smtpo63.interia.pl [217.74.67.63])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.19
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795774039;
+	b=2f8MkC+3pKWTAexdc7PMbOAYAoOTF6si+x/MCnoOzg2U+OlQvkXxpbG4FrCAOS2f6LVm
+	 /ppRQt41xCOu+q0L05zgsn6km/j6UmOVk2r/9g4CLuEbvfWFQz0QLKiQOP/qNxxdGJ0zo
+	 V9Mqe+EVB9jeec7VueaxG4Rv1j4F/RADTCDKI+YwG1xbctweAUGHOdjw+Gf6JzOKTv0am
+	 TBUGjZPzddsylZMVXrI649DIp6FNSk9pPNZlE2FVuNAErDAQ8szS6ZeRh9EzDXsMVaPgh
+	 DT72XEQydsCW0GPm+LGz/f7BlIMqYb2jQQJzRLp0/7WHVCBSPHEvHfY/ZpH+6WLztYg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795774039;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
+	 Subject:To:CC:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=BH43gHMOue8kgOs02cKRrM4c92afWaWF2raSnTjV2LM=;
+	b=tqbBKQ/H+xa0UgLoTmzfcv/sN4Tief8Z4MEi24vi9TLWoVVHMNNWybVgvYL7G1YOmfiP
+	 aAFCNt0p3Hb8/HijWIaoxjRl4klvPmBbZsziqi2GIOEsu6PMpk4rOQZeRTNByq9A2/PZC
+	 iNPA65Uf6oQdajZC+sTh2vHT7G6d72haZtcYA5puMRw3umaCrurD7lGmwaxLkaWt2j7Z1
+	 nPRxVPVLr3qL44DOyer7CxbziQ9BxgesJ7zujuHPpdVJf4gff27h1EZ3HNUAX1vtOkSSX
+	 w1VKe2ptxl8vV4uzPQVzkwB6r5ABcHI5T1bnYi11SrFjyq8PBniAtzLEj9VhGArR+zw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=b5Km7ixM;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=EFpLkNlT;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.19
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FFF7606A324
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 10:02:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FFF7606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=poczta.fm
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=poczta.fm
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BD92606A31C;
+	Fri, 27 Nov 2026 10:07:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4BD92606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=dvpxZnrM
-Received: from localhost (unknown [80.68.231.31])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by poczta.interia.pl (INTERIA.PL) with ESMTPSA;
-	Fri, 27 Nov 2026 11:01:57 +0100 (CET)
-From: Slawomir Stepien <sst@poczta.fm>
-To: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>
-Cc: bpf@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Jiayuan Chen <jiayuan.chen@linux.dev>,
-	Dudu Lu <phx0fer@gmail.com>,
-	Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
-	Tianyi Gao <tianyi@cloudflare.com>,
-	Octavian Purdila <tavip@google.com>,
-	=?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org,
-	Slawomir Stepien <sst@poczta.fm>
-Subject: [PATCH net v9 6/6] selftests/bpf: Grow test_run and generic XDP frags after a test run
-Date: Fri, 27 Nov 2026 11:01:32 +0100
-Message-ID: <20261127100132.1977890-7-sst@poczta.fm>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261127100132.1977890-1-sst@poczta.fm>
-References: <20261127100132.1977890-1-sst@poczta.fm>
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=b5Km7ixM;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=EFpLkNlT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795774039; x=1827310039;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=DnThIrOn4J2BXC/64ZyJIpDFnx/+ha93czLT4AlbAy4=;
+  b=b5Km7ixMN4zN5avjIhDgRJmjtZUuEeMdpdsaucilzfrh+7C6tji65P3F
+   kj885A2K8j0Qe+0lzDKqPgTZKLc8E6yxj++TLje9khK5ZeQcCiJLPrfts
+   ZjOP7whAlmVcXfr7QYLp0VqT8vBXuSSa+S8LIG2jfPnaKeZ+UeSS+ASt/
+   Jr5AySod7YD62ZYkVFVDXdAbigQ1P5PccITjWpArXusWOh/iZ834EnzaU
+   wfvDhjc3AyrRrBzYdQbt+OHPImcDHqVHKELJySlGFe93lTCxlqcYk+HxO
+   YHeTci1PUErMydNJ3381EuI4CLLInYYF72iRBDHkPhon2E8slJzouHA9A
+   g==;
+X-CSE-ConnectionGUID: zquCJ3XdSX+Z4WVaR4uM3Q==
+X-CSE-MsgGUID: p+3kA7PORUmhyo8LJJEcwg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4701246"
+X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
+   d="scan'208";a="4701246"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 02:07:17 -0800
+X-CSE-ConnectionGUID: 887V5x7YSZiqeW8PLpNdVQ==
+X-CSE-MsgGUID: 2in11+xMShOmSBMdcxJZpw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
+   d="scan'208";a="12250933"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by orviesa005.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 02:07:17 -0800
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Fri, 27 Nov 2026 02:04:52 -0800
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57 via Frontend Transport; Fri, 27 Nov 2026 02:04:52 -0800
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (40.93.194.25)
+ by edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Fri, 27 Nov 2026 02:04:52 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sTiTWeivUsvPCTZCCMs2S7tmCchnTiZSulq0kjLZjDoAi+DV2r9RP23vP7aeKl0Wa3YNAB0m8DArnSbW40w0J/DqHguqxo5lfprF6uklcfSEUwQdcUD4NlbzSv9QioDWPBee/+ALUfrefJUK7qPvjcHOzjmmEZXFuBw4LySdNORH8FF9Udt0S6dydM0bAyFy7x1Ou+PQhP7GmywvD2Wuz2CWbAmAIZ/qC3nNqQ+cKJPzZtTQk5uuRxQHs+LAaPn0nfi61hAfHtBWXbZfeUwm13TY+f61t20Zdshk/o6W21ZmtsaMDD2Jcl3kaQlnEuGaQ7NToJSl2tb4PV5SYXWQfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BH43gHMOue8kgOs02cKRrM4c92afWaWF2raSnTjV2LM=;
+ b=ab7qhK7rH3T83ukh042XvX1zrgng3B+kwOUwdBm64pw73RMQHzSsC5z+UvgDG5XcbjywY4qpy36wQe8mdQUBGftY5NDrbpjmIlzAZS23M9bbxiJZqjCkMsEN/VEQEF+pma4YI6pg1P3mLtnKNCXxms3pl+amBrfgAJVd0KW0Hfv3EZE3qvajYWeDnsUQTePCbDC1+FN75uvSPKkRUQbdgEhsCVujlPV3b76y/2p2VX7kKaLqt7vCeX/jvmsGVhLPdLGyaX93iO22SwRsqWqXIoiyIT/Lj5uiuVWSMB0kUgmhomJ1FpFCCKeIOCeqKBDSY7M6HoFypbMjEwgOzlHkiA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BH43gHMOue8kgOs02cKRrM4c92afWaWF2raSnTjV2LM=;
+ b=EFpLkNlTL4ZvmYUtEZI/7IU+wqFa9Jmco58zQ3X7dOjz5XiFhkBUx5gFQsPTfvuHsigbzzRdAxpU1DrBFx6o8cT6DREjVdqVrphBNnkzMvd4VIKvAYMrihcmPq5GDGFwBVMREg/BQmS1nYlUraTy+8fYSVBPP4GRxB9RgpZfY6g=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from LV3PR11MB8508.namprd11.prod.outlook.com (2603:10b6:408:1b4::8)
+ by IA1PR11MB6122.namprd11.prod.outlook.com (2603:10b6:208:3ee::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
+ 2026 10:04:44 +0000
+Received: from LV3PR11MB8508.namprd11.prod.outlook.com
+ ([fe80::a1e8:1786:e5d1:8e51]) by LV3PR11MB8508.namprd11.prod.outlook.com
+ ([fe80::a1e8:1786:e5d1:8e51%5]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
+ 10:04:44 +0000
+Message-ID: <66f02676-a5ce-4e5d-9bda-26e23fe91418@intel.com>
+Date: Fri, 27 Nov 2026 11:04:39 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH iwl-net] ice: Do not free a preallocated node in
+ ice_sched_add_node()
+To: Yuqiang Sun <izaiahsun@gmail.com>, <anthony.l.nguyen@intel.com>
+CC: <m.wilczynski@samsung.com>, <andrew+netdev@lunn.ch>,
+	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <intel-wired-lan@lists.osuosl.org>,
+	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20261119055731.55798-1-izaiahsun@gmail.com>
+From: Przemek Kitszel <przemyslaw.kitszel@intel.com>
+Content-Language: en-US
+In-Reply-To: <20261119055731.55798-1-izaiahsun@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: DUZPR01CA0207.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b6::9) To LV3PR11MB8508.namprd11.prod.outlook.com
+ (2603:10b6:408:1b4::8)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -89,227 +143,120 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=poczta.fm; s=dk;
-	t=1795773720; bh=/f+dIXrZDME1HzzTlAG04proZNX5+hxrBwLcvRGWskU=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=dvpxZnrMvl70aWoArprhjd2f5oBIu0n75QQMSFhBOZSFKAp/CBYsq2iy/zyLx1lkA
-	 uEHXsNuYGd5fvggpTr4cKJi+svYKbWN7897eXzpt+Ih7AxjQ+b7JNmGKtzDjfQ+Rcx
-	 wPV+7792xEC8j7PBV1sBAolRwstjzdaamM8x3cuA=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV3PR11MB8508:EE_|IA1PR11MB6122:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5bf5b06d-3881-45b4-86fb-08df4c6ddc57
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|23010399003|10067099003|56012099006|261026121527099003|261026140227099003|261028144727099003|261022105027099003|261022075727099003|261021123027099003|261021121427099003|261102123227099003|261009223027099003|22082099003|18002099003|11063799006;
+X-Microsoft-Antispam-Message-Info: KUeudCpUTMUuy0w/4aK8h/C5aVecYOZMyIYZs+1IBcAO53aDZwIos6B3ioO8gqO5JI3z6Wzc6ojF0VwOfMlDxzHQKKhzzyzDMdszJOqZLgDiFaZgWX0gzBTHsjLJ3PdWmq56r9LvJGegGSyTNLEOYK9BU0eYhAUWpItu91FDNNBXZSAV1K1vY5PpkAwCqD9p3/aGvgyVfaiHC5BMcDACeaLWQ2ubJmvUkHPlNy/oQi7/x6FTeG/DG9ucuBdexW8O94HGiM6r6pwvivtwSKRfcWlQZAyh438NbXZ0KgcUxfEkybtLRyS8dHlMbVjtC6fg386yt55LXT+2IOstYV5lvZsG/j/Dh6SZoPqAFJWYlkJMQWhVMg+oLs+cl6PFMaGof9Sl2cks892vlxI4S+1UnwJvyr47xeAkVA9Z/ZTwU9NFTlDXvpoPEF+7l7HfLzZSkePe32NEw9nrDZhpEy4x766AbFOmto59kq4G0qrYxgM0QDGnaU8OiN2ijqwOf8+V2QNBZVOMP3+4La4EDyT/oVGc4uRNkZ1twIcuTXE1B7WRnb28jEqlsEypEmjE+zD9ectXZ/7Me4zpeIqGCnHg9BKxWnHp13Rbp9rPA2Y77j/+EWqgEgoLP7zs9EkHBBw7ljZGiXUvc3A58pPE9GgNyXjsGk7hxdoMQap8bSwWM+c=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR11MB8508.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(23010399003)(10067099003)(56012099006)(261026121527099003)(261026140227099003)(261028144727099003)(261022105027099003)(261022075727099003)(261021123027099003)(261021121427099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?R0VDREFSRWJEYktuczRrRzM4TTdaOGhudkNiSWgvNUxiSXpiU2VmL0VySkwx?=
+ =?utf-8?B?WkJjZHRRRWc2N0VCdjF2Z0tMYkl2dXNEZ3J4NGM2dVpLNU4zTjRocU82T2N1?=
+ =?utf-8?B?L2xWQ0xtK1lWYVhOZElKNkRDN2xVVThReWQ0VnJRdjFGcWRPTHg3aFExMHlK?=
+ =?utf-8?B?Tkx2MHBKbUVZamU4TVlnMnRYb2hBSDRtRkNvdUtJSE9TWlZ3a2YxSytCeHhN?=
+ =?utf-8?B?U2YyNnpOcmY2Szl3U2ZCUmxzdzBlOWdTU2xOYjhSSnUySDQzMm9PRmdpdHdJ?=
+ =?utf-8?B?THQxRXFCMXRVU1M1Y3pKK1NLYWl3MjFvR1NSNTRaanZaZ1F5K29RcDB6bFBj?=
+ =?utf-8?B?eURWV2dvOENSNDFDbXp6M2JHK1VqNytkOG0yaHBqQnNBWW5Qa3I5N0FIZ0xW?=
+ =?utf-8?B?Z1VmOVY0c3RYOUlxVDAvVCt0Ukh3UXJkN2UrRnE0YVdLVFJpUE84OWFUc1BT?=
+ =?utf-8?B?RU1sL09Hd3ByRElNTllRSVZGakt0aXVid1EyN2Znb3ZZV0F0b0dkZHlsV0Zi?=
+ =?utf-8?B?ZmllZEN2QzF2dmRYQklxbitZSDl1dExtSmJUOTJiSHQ3aStvSE9xVmNTa0dR?=
+ =?utf-8?B?SC95TlZMZkhQOHVuODBPUDFGdGNzbWVzTmk5eUJWK01RdUhKbG5ldW1ZaGV1?=
+ =?utf-8?B?RktYdmFCUXRtbHErdUMwajlqODVyanIrOHlKY3BvUFNhWHhzQkJsTFNSbmNl?=
+ =?utf-8?B?Qmt3NmFmREsrQjV1YTRqRG9GYkowbUQwR3BhVW9WVENkd3ROWWVxS0p1ZlZ6?=
+ =?utf-8?B?amxQK2RqNi9zZldnclp3RW5PcVYrWlJsOEsxaWVjL3RIcDQxeWczdU9GWXQ3?=
+ =?utf-8?B?YVI4c0g5WkFhRDdUendQcVVKS1JVaWRmZ21mRlVLNjhmNTQxU3FWYVVyN2tk?=
+ =?utf-8?B?cDJmYlluR2d5OHZuc1BDZXgyZThHQzVYWG5uUW1LZTZVWU5QcUIyWW90UVFt?=
+ =?utf-8?B?eHpzR3MrTFRMc2ZaNkV5QmVxR0xDeDcwUE00dmRPck5QVjdQOXhJdy9RUWlx?=
+ =?utf-8?B?YmhLRTlDV2tWZEs2WjAwaER6cUdvUGRDR0tyVkhBVmJGYlJWMjQ2cXgvZzZy?=
+ =?utf-8?B?ZU0vNGtmbGpvbUtXODZZRHh1UklCdFZxVjNkWitxOFBXRVdIRkZ5MHI1M0xF?=
+ =?utf-8?B?QzhCVkVJaWpzVThNbHFnSTRRU2xIeTJMU3MxSnArVUloODdFbmM2aWhvOXlN?=
+ =?utf-8?B?cjc4Z0ZrSGtQQzBkNEo1MGNtQVFkR1ZnU0pOaXA3MmN3OHdneWVjWmppT0l5?=
+ =?utf-8?B?OUtyNkQvRDFLSk1SdUREMXlaUDBIRlQ5MWhqWURjRzVZNEJ2clFMTTBZMzZC?=
+ =?utf-8?B?YUxlUlllbm5IdEFtVnkwNEZwUkNMdWcyUFV1TXdad1hsWUljaWhBRFBzQ2hv?=
+ =?utf-8?B?TGZIWENqQjRNOTV1c0h5S2F1U3VabHRpU3R0eHlVWWhGZHBjZU5wNEJ1UkJV?=
+ =?utf-8?B?Q251MkhhcXhlNkx0WFJWNkhxR0JiZzFrTjA2UWxUVHBjMCtjU0lHUnMreXVI?=
+ =?utf-8?B?OHIvVDgyOHhGVXlobE94WldPRll3MXVyem9wNHE0OS9PdWhmR3ZXVzFHeStZ?=
+ =?utf-8?B?WkVMYm5HOEZPcmFaaERtWWxnR0xjWXBhN2F2N1RtREltTDF2L1hyckExcGcz?=
+ =?utf-8?B?MVhIOE83TjkwTEZsWVljajV5dHRnWDgrWTkzc244N082L05uaVNBQlo1dndE?=
+ =?utf-8?B?ZFliREt2bTJSYmkvbk9vWXY2VVViZG16SDRYQmJMRkFPN1JiblJwNGlWTWNR?=
+ =?utf-8?B?M2tYdG96NHlJZnlKRmRmek0yTW1Sby9tSFBGV1VvRlVqY29ab3RxdWVDQXNZ?=
+ =?utf-8?B?MU1GWld0VWM1d3hjaFU4QVJDVTlUdWR3Skp1YlhTTjk1Mm1qZWxzaWhZanFD?=
+ =?utf-8?B?ejIzdEcwWDBjdWJoendyMklNMHZzTnJIMWxDZUZXb3krZnJmM25aV3FCanlI?=
+ =?utf-8?B?d3lOQy9rWjZUeVZMRjZOUEVvenQrWTdhN0NLaTEvODh0bzZQSkZpVkY1N09W?=
+ =?utf-8?B?WElzdlVRbEVPL1BaVFRMcmZFRHg3eVF4REF4RHBuSnYxVWxSRUJlWGNlSHpS?=
+ =?utf-8?B?M1RkcjEweVhCakUrTUVNcTRYZVpoV0wwOUQzMEZPYUZiZUFFNXJVcExIdzFw?=
+ =?utf-8?B?L2VoZUtJNFB3RWErMXdOakdXbzRIQk5TYnJ2Z0hPWW9UejU2Y3VwVEwzbC9D?=
+ =?utf-8?B?bHdTY1J5ZHV3WVNZNkVGVyt2MlBvQTE1Qnc2UzM3WU0xeXpYZVZ0SEJ6Rmlu?=
+ =?utf-8?B?SHZ6dVl6SFN3bzlrTUtzYmdFK0xueUFQRlF6OXFGaC9Ua1Z1SmhEM3ZDUWtH?=
+ =?utf-8?B?Q2Y5RGVOWXp2QThpZ3hTd2VXVzJxcXpEcC91ZEg4WjhLTHZ6d1REYUtRM1pE?=
+ =?utf-8?Q?03scWLR5YmuON6Lg=3D?=
+X-Exchange-RoutingPolicyChecked: INBHHwHmAnvL5z5FPNVCf4ccugpfMbunX77hM65lblw+ODNKqJt1sjRwws79iu17n+DuT0tmH7VV6WpbRpax3zjDXkc99Sw5LI7taHpjdab6T1Lk7d9DG42Ql3TKgonOS/0e/dHM4/3q100znCiQTB2DQwKGO7UgQZPXZnwHDNX4X1lT6VPRpnZ0R0cgbmFWJQa8pGrGKgp+Y7LHSgXS4qzIo3RgYHOkRYy4hLpgxk76UBwnt1xP95tZOmty2gv6J0BLFiEf6wRoGLW8zkzAlKcXdMZU8cVH/cIoqS9v5ovhZBeulUirym+THheoKMCcpLe05/uB7NxJHJtRtCuVFg==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5bf5b06d-3881-45b4-86fb-08df4c6ddc57
+X-MS-Exchange-CrossTenant-AuthSource: LV3PR11MB8508.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 10:04:44.3964
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7cMBX0Vsrg4E9g/GHBVIDS3KFLFhgu25GVxIEO6KW4jh5LaDUvV7ZgpVA27Sm2joISYJDtIq9rXGenOkdVLhCogoWm+OGPFe+Gj/bBb49ZA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB6122
+X-OriginatorOrg: intel.com
 
-Add two xdp_adjust_tail subtests for frag_size of the rxq info a
-program runs with:
+On 11/19/26 6:57 AM, Yuqiang Sun wrote:
+> ice_devlink_rate_node_new() allocates a scheduler node and stores it in
+> the devlink rate as priv. When the parent is set, ice_devlink_set_parent()
+> passes it to ice_sched_add_node() as prealloc_node. If allocating
+> node->children fails, ice_sched_add_node() frees the node with
+> devm_kfree(), but priv still points to it, and later rate operations
+> (setting tx_max or tx_share, or setting the parent again) use the freed
+> node.
 
-- xdp_adjust_frags_tail_grow_ingress_ifindex grows the last frag of a
-  9000 byte test_run packet with ingress_ifindex set to a veth device.
-  test_run allocates PAGE_SIZE frags, so the grow must succeed.
+nit: commit msg is too verbose
 
-- xdp_adjust_frags_tail_grow_lo_after_test_run does a test run, then
-  sends a UDP packet a bit larger than a page over lo with a generic XDP
-  frags program attached, or is skipped with 64K pages. Generic XDP
-  copies the packet into a page_pool head page and a frag, which can be
-  a part of a page, so growing the frag must fail with -EOPNOTSUPP. The
-  program asks for more than any tailroom, so nothing is written even
-  when the grow is allowed.
+> 
+> Only free the node when ice_sched_add_node() allocated it.
+> 
+> Fixes: bdf96d965a20 ("ice: Add an option to pre-allocate memory for ice_sched_node")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yuqiang Sun <izaiahsun@gmail.com>
 
-Signed-off-by: Slawomir Stepien <sst@poczta.fm>
----
- .../bpf/prog_tests/xdp_adjust_tail.c          | 137 ++++++++++++++++++
- .../test_xdp_adjust_frags_tail_grow_lo.c      |  25 ++++
- 2 files changed, 162 insertions(+)
- create mode 100644 tools/testing/selftests/bpf/progs/test_xdp_adjust_frags_tail_grow_lo.c
+Thank you for the patch, and props for resolving Michal email to his
+current company :)
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c b/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c
-index 43264347e7d7..c7c803fd9241 100644
---- a/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c
-+++ b/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c
-@@ -1,6 +1,10 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <test_progs.h>
- #include <network_helpers.h>
-+#include <linux/if_link.h>
-+#include <net/if.h>
-+#include "test_xdp_adjust_frags_tail_grow_lo.skel.h"
-+#include "test_xdp_adjust_tail_grow.skel.h"
- 
- static void test_xdp_adjust_tail_shrink(void)
- {
-@@ -355,6 +359,135 @@ static void test_xdp_adjust_frags_tail_grow_64k(void)
- 	bpf_object__close(obj);
- }
- 
-+/*
-+ * test_run allocates PAGE_SIZE frags, so a program may grow the last one up
-+ * to the end of its page, also when ingress_ifindex picks the rxq info of
-+ * another device.
-+ */
-+static void test_xdp_adjust_frags_tail_grow_ingress_ifindex(void)
-+{
-+	struct xdp_md ctx = { .data_end = 9000 };
-+	struct test_xdp_adjust_tail_grow *skel;
-+	struct netns_obj *ns = NULL;
-+	int err, ifindex, prog_fd;
-+	__u8 *buf = NULL;
-+	LIBBPF_OPTS(bpf_test_run_opts, topts,
-+		.ctx_in = &ctx,
-+		.ctx_size_in = sizeof(ctx),
-+	);
-+
-+	if (getpagesize() != 4096) {
-+		test__skip();
-+		return;
-+	}
-+
-+	skel = test_xdp_adjust_tail_grow__open_and_load();
-+	if (!ASSERT_OK_PTR(skel, "skel open_and_load"))
-+		return;
-+
-+	ns = netns_new("xdp_adjust_tail_ns", true);
-+	if (!ASSERT_OK_PTR(ns, "netns_new"))
-+		goto out;
-+
-+	SYS(out, "ip link add veth_xat0 type veth peer name veth_xat1");
-+	ifindex = if_nametoindex("veth_xat0");
-+	if (!ASSERT_GT(ifindex, 0, "veth ifindex"))
-+		goto out;
-+	ctx.ingress_ifindex = ifindex;
-+
-+	buf = malloc(16384);
-+	if (!ASSERT_OK_PTR(buf, "alloc buf 16Kb"))
-+		goto out;
-+	memset(buf, 1, 16384);
-+
-+	/* Test case add 10 bytes to last frag */
-+	topts.data_in = buf;
-+	topts.data_out = buf;
-+	topts.data_size_in = 9000;
-+	topts.data_size_out = 16384;
-+	prog_fd = bpf_program__fd(skel->progs._xdp_adjust_tail_grow);
-+	err = bpf_prog_test_run_opts(prog_fd, &topts);
-+
-+	ASSERT_OK(err, "9Kb+10b");
-+	ASSERT_EQ(topts.retval, XDP_TX, "9Kb+10b retval");
-+	ASSERT_EQ(topts.data_size_out, 9000 + 10, "9Kb+10b size");
-+out:
-+	free(buf);
-+	netns_free(ns);
-+	test_xdp_adjust_tail_grow__destroy(skel);
-+}
-+
-+/*
-+ * The frags generic XDP gets from skb_pp_cow_data() can be parts of a
-+ * page_pool page, so its rxq info must not allow growing them. test_run
-+ * must not change that for lo.
-+ */
-+static void test_xdp_adjust_frags_tail_grow_lo_after_test_run(void)
-+{
-+	struct sockaddr_in addr = {
-+		.sin_family = AF_INET,
-+		.sin_addr.s_addr = htonl(INADDR_LOOPBACK),
-+		.sin_port = htons(9),
-+	};
-+	struct test_xdp_adjust_frags_tail_grow_lo *skel;
-+	struct netns_obj *ns = NULL;
-+	static char payload[60000];
-+	int fd = -1, lo, i, len, prog_fd;
-+	LIBBPF_OPTS(bpf_test_run_opts, topts,
-+		.data_in = &pkt_v4,
-+		.data_size_in = sizeof(pkt_v4),
-+		.repeat = 1,
-+	);
-+
-+	/* larger than the head generic XDP copies the packet into */
-+	len = getpagesize() + 500;
-+	if (len > (int)sizeof(payload)) {
-+		test__skip();
-+		return;
-+	}
-+
-+	skel = test_xdp_adjust_frags_tail_grow_lo__open_and_load();
-+	if (!ASSERT_OK_PTR(skel, "skel open_and_load"))
-+		return;
-+
-+	ns = netns_new("xdp_adjust_tail_ns", true);
-+	if (!ASSERT_OK_PTR(ns, "netns_new"))
-+		goto out;
-+
-+	SYS(out, "ip link set dev lo up");
-+	lo = if_nametoindex("lo");
-+	if (!ASSERT_GT(lo, 0, "lo ifindex"))
-+		goto out;
-+
-+	/* a test run in this netns, before generic XDP sees a packet on lo */
-+	prog_fd = bpf_program__fd(skel->progs.xdp_grow_frags);
-+	ASSERT_OK(bpf_prog_test_run_opts(prog_fd, &topts), "test_run");
-+
-+	if (!ASSERT_OK(bpf_xdp_attach(lo, prog_fd, XDP_FLAGS_SKB_MODE, NULL),
-+		       "attach generic XDP"))
-+		goto out;
-+
-+	/*
-+	 * a linear skb with little headroom: generic XDP copies it into a
-+	 * page_pool head page and a frag
-+	 */
-+	fd = socket(AF_INET, SOCK_DGRAM, 0);
-+	if (ASSERT_GE(fd, 0, "socket"))
-+		ASSERT_EQ(sendto(fd, payload, len, 0, (struct sockaddr *)&addr,
-+				 sizeof(addr)), len, "sendto");
-+	for (i = 0; i < 100 && skel->data->grow_ret == 1; i++)
-+		usleep(10000);
-+	bpf_xdp_detach(lo, XDP_FLAGS_SKB_MODE, NULL);
-+
-+	if (ASSERT_TRUE(skel->data->grow_ret != 1, "xdp prog saw frags"))
-+		ASSERT_EQ(skel->data->grow_ret, -EOPNOTSUPP, "grow frag on lo");
-+out:
-+	if (fd >= 0)
-+		close(fd);
-+	netns_free(ns);
-+	test_xdp_adjust_frags_tail_grow_lo__destroy(skel);
-+}
-+
- void test_xdp_adjust_tail(void)
- {
- 	int page_size = getpagesize();
-@@ -373,4 +506,8 @@ void test_xdp_adjust_tail(void)
- 		else
- 			test_xdp_adjust_frags_tail_grow_4k();
- 	}
-+	if (test__start_subtest("xdp_adjust_frags_tail_grow_ingress_ifindex"))
-+		test_xdp_adjust_frags_tail_grow_ingress_ifindex();
-+	if (test__start_subtest("xdp_adjust_frags_tail_grow_lo_after_test_run"))
-+		test_xdp_adjust_frags_tail_grow_lo_after_test_run();
- }
-diff --git a/tools/testing/selftests/bpf/progs/test_xdp_adjust_frags_tail_grow_lo.c b/tools/testing/selftests/bpf/progs/test_xdp_adjust_frags_tail_grow_lo.c
-new file mode 100644
-index 000000000000..207346b14ad8
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/test_xdp_adjust_frags_tail_grow_lo.c
-@@ -0,0 +1,25 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <linux/bpf.h>
-+#include <bpf/bpf_helpers.h>
-+
-+/* 1 until the program saw a packet with frags */
-+int grow_ret = 1;
-+
-+SEC("xdp.frags")
-+int xdp_grow_frags(struct xdp_md *xdp)
-+{
-+	void *data_end = (void *)(long)xdp->data_end;
-+	void *data = (void *)(long)xdp->data;
-+
-+	if (grow_ret != 1 || bpf_xdp_get_buff_len(xdp) <= data_end - data)
-+		return XDP_PASS;
-+
-+	/*
-+	 * More than the tailroom of any frag, so nothing is written: the
-+	 * result only tells if frag_size of the rxq allows a grow at all.
-+	 */
-+	grow_ret = bpf_xdp_adjust_tail(xdp, 0x10000);
-+	return XDP_PASS;
-+}
-+
-+char _license[] SEC("license") = "GPL";
--- 
-2.56.0
+> ---
+> 
+> Notes:
+>      Bug was found by kbound, an internal static analysis prototype.
+>      The fix was written with the help of Claude Opus 5.5.
+>      
+>      Compile-tested only (x86_64 and arm64 allmodconfig, W=1, sparse): I do
+>      not have E800 hardware.
+> 
+>   drivers/net/ethernet/intel/ice/ice_sched.c | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/intel/ice/ice_sched.c b/drivers/net/ethernet/intel/ice/ice_sched.c
+> index a5c7a4e1ceba..dba6cc912b7b 100644
+> --- a/drivers/net/ethernet/intel/ice/ice_sched.c
+> +++ b/drivers/net/ethernet/intel/ice/ice_sched.c
+> @@ -210,7 +210,8 @@ ice_sched_add_node(struct ice_port_info *pi, u8 layer,
+>   						   *node->children,
+>   						   hw->max_children[layer]);
+>   		if (!node->children) {
+> -			devm_kfree(ice_hw_to_dev(hw), node);
+> +			if (!prealloc_node)
+
+this is correct in machine-code way, and shortest possible C code, but
+semantically wrong
+the condition should be `if (node != prealloc_node)`
+
+> +				devm_kfree(ice_hw_to_dev(hw), node);
+>   			return -ENOMEM;
+>   		}
+>   	}
+> 
+> base-commit: 6055ab4d82e42de89871db03045b568ed706ef50
 
