@@ -1,80 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789462;
-	b=lhv7QRGcVUFyxfQLygJGDbpvi9yKbHB/CxT/47yNDWteBBuDNjSsX8Rp25QOnJBu4aXJ
-	 agqbOvEt58IuKLZs4MINg+sntksIDFmfVDh01AfZFMr+QRhhYrCo2XRWMCXlXaYmPr5Kn
-	 qZMQsamLHWuI4O6tqbArFqFBLyBFfD2NEczvrB2m0VKSHqRWxHsfsqmyJfrN5TFZXryyI
-	 xJN1KL5arnf/0zMERzWqwurcsRI8n4ozFVlU8vjdtbJ+kSbD6+4D5Q/GyW/7+1Zb+4Un0
-	 u6vYTG7cKQX244azgAZrYGKeOWOxTm62NAjExgbqT12TpAicHKIOAnkvfSlzOU1ZSFA==
+	t=1795789510;
+	b=I8s22yMKndBpNXZ2md8Rk8+MkCdbksguJUEZnekfgPcK3Od+9kQyBCmr24Tmn6izdJ7e
+	 DVQA5RjisVzjT1MMK3iVOpEdtrQTa7EIHaD1baYNd4IpT5u+Fp6RICGGamtZ7aHWssKg6
+	 hwrGiIuzGYBw4Q2W3ncbtLqkbBFlKDV4JL7H/Ock0BtN77pNY4abQZQ9ofukZjdEWXZ58
+	 WFMgrESAVpcg6Fyf7lUZOeWtnlJnj3tqwsCZ/AZqGP0qmfPlWSVnOiBq410dUV3htkHP5
+	 RO6/Y7ByJez6uuuTroD5P/jZK2c0kk4qgWcxizqepRrLUvp86ap0jlOZwgw58EyQLpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789462;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
-	b=TQ3GVVAse96Zvj6V7KUiNZCKQ2wZNqbJyI/5ZfB6em0EqBrMwMNCJuGNyASNk9FpK3NY
-	 cGJJtxibS0VDBJrTF8WJWqp+RmVzenafKoP8enC+xE7Tgp3Uinvk5NXcW/0+WvKuvBG3x
-	 i1GV/gIY82OwqPjGjAwxsx0h7tIY6lfYMTRxOCLC1Twzj7a4BgHlNHW4Uh4fm/0bEfZee
-	 WMFWqL8Qc6zqfv6jzjwTIjWDeYAzPRPbE6QmfhMl4gKhXd3NgooaEXqiESQBKfjoeuxXf
-	 KZEUrpbXV5m4bLvqqLy998gktt8onpyCvwlbgR1Q8l7Ck4R/pFxfcIk20Fv2DVz9Bqg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789510;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
+	 From:To:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=o5YMEpyPVMRHq3R3jE/xM+ZLo97uZzcZNi23LeKuoHA=;
+	b=mj9EtvWS3Ow/aZvN319iz78THo4O/k9I1rmU+S5bwfbNuvuB3m3ef57QIRLN7lLzF0hi
+	 KXerHhTSdH/QW6ntX6eelOCKf3uAKfd/UpZKpNRMFsF2pjnyNWOjv5umliPs3EDpNEOjM
+	 FhHIkB4mc8UHCCtBU55NFIxGteaFnT/PA6kndwrDXwDmg2ijSXmLdlZXZPiZS2OTGKxe+
+	 LgW5KSMDGNG67w2SW+jmKKeFOhGcu3XIDYnwPoy4imQe069FT5Qkrnr5QX6mmReM+v/rt
+	 fbEIb1x8i68m4bHwO6WBkLzvG6iHr1bcHQy2XRcR7bM1R9IofnP6IMLiJYAsMDAt6sA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="JiSaHsN/";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=QIryK6YP;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90CA4606A689;
-	Fri, 27 Nov 2026 14:24:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA3C1606A329
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 14:25:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA3C1606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JiSaHsN/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6389C1F00934;
-	Fri, 27 Nov 2026 14:24:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795789462;
-	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=JiSaHsN/eSaFadoc5tJ5VpXhzsvdCL87P+2sY3nhUY+cxtvQ88EyBcTq5fEP8Aw7F
-	 4vqC+aJOYByatEIRgQoADHOEfgTfQCjZ0wwKW3t/Z1Us+yb0Hmg4yf63LNY9og8WeV
-	 FuJ0ll92LJW0f//eDjv0hmdIceQRUtyXwxrD4mse/tfrhaDuJWDPXFAFTQy5ApqlMJ
-	 jxW/4yJ0rh8s/EIfYop/r0Uom2+Goi5WNdYoxoG2e/xqUYBy0UEMcXPp7NGSqcU1AY
-	 mMnSgGTjD/+FQ3sN+1sUFINBNvtR5sV7EniSzic+IXxVQch7GUA6SHPE+LRfXdb2Ke
-	 2xc7ddc9edrWw==
-From: netdev-bot+sinfo@kernel.org
-To: =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>
-Cc: Magnus Karlsson <magnus.karlsson@intel.com>,
- Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
- Alexander Lobakin <aleksander.lobakin@intel.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Willem de Bruijn <willemb@google.com>, Andrii Nakryiko <andrii@kernel.org>,
- Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>, Shuah Khan <shuah@kernel.org>,
- netdev@vger.kernel.org, bpf@vger.kernel.org, Simon Horman <horms@kernel.org>,
- Stanislav Fomichev <sdf@fomichev.me>, Martin KaFai Lau <martin.lau@linux.dev>,
- Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
- Jiri Olsa <jolsa@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>,
- Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Larysa Zaremba <larysa.zaremba@intel.com>,
- Tushar Vyavahare <tushar.vyavahare@intel.com>,
- Jason Xing <kerneljasonxing@gmail.com>,
- Bastien Curutchet <bastien.curutchet@bootlin.com>,
- Colin Ian King <colin.i.king@gmail.com>, intel-wired-lan@lists.osuosl.org,
- linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net 0/3] xsk: Keep the shared info of zero-copy buffers in
- kernel memory
-Date: Fri, 27 Nov 2026 14:24:19 +0000
-Message-ID: <179578945993.3294.13218544631013207467@kernel.org>
-In-Reply-To: <20261127142131.3527737-1-bjorn@kernel.org>
-References: <20261127142131.3527737-1-bjorn@kernel.org>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=QIryK6YP
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 9D5D34E417CA;
+	Fri, 27 Nov 2026 14:25:08 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 71B156049C;
+	Fri, 27 Nov 2026 14:25:08 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 37EF711E69006;
+	Fri, 27 Nov 2026 15:24:58 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795789504; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=o5YMEpyPVMRHq3R3jE/xM+ZLo97uZzcZNi23LeKuoHA=;
+	b=QIryK6YPTIgydwV4pC7EccY920APC/caDdInW75e99di7b5N5q6nalwfbeM6A54FBoZAur
+	+lgMtkrmsr5ahz1MVU53wRcfR2doH80Y968uVo608aDISbm003902nqDVEs2S7N3fOZMnU
+	OOmFkapoF0wwZLh4KEL/OK1xeK1YbY0DKetBHBNvXiqLPXbf0ysfizLCjFbvOnPsb0zP9i
+	dzpFw/D15adauAkNOV8RZ/TDr86lNw3BtvO3wss0HXWP5KMk45AKwyg4NJdbIZrL6uUZx4
+	RrKIvEXMKcOtCrbsXfVmhLF1D6Gg5BAxynVUybydS+p7vsqItDTRCxm9Zj9wZg==
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,23 +58,48 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 27 Nov 2026 15:24:58 +0100
+Message-Id: <DN628YQ8UFG4.PF85CG1FNM2@bootlin.com>
+Cc: "Vladimir Oltean" <olteanv@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, "Eric Dumazet" <edumazet@kernel.org>, "Jakub
+ Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Frank Li" <Frank.Li@nxp.com>, "Jerry
+ Ray" <jerry.ray@microchip.com>, <netdev@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Bo Mellberg"
+ <bo.mellberg@se.com>, "Pascal Eberhard" <pascal.eberhard@se.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Miquel Raynal"
+ <miquel.raynal@bootlin.com>
+Subject: Re: [PATCH net-next 0/3] net: dsa: lan9303: add LED mode
+ configuration
+From: "Paul Louvel" <paul.louvel@bootlin.com>
+To: "Andrew Lunn" <andrew@lunn.ch>, "Paul Louvel" <paul.louvel@bootlin.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261126-lan9303-leds-v1-0-a96731317859@bootlin.com>
+ <a96f239a-09f0-4899-b5e4-1cac4013b3c5@lunn.ch>
+In-Reply-To: <a96f239a-09f0-4899-b5e4-1cac4013b3c5@lunn.ch>
+X-Last-TLS-Session-Version: TLSv1.3
 
-Hi!
+On Thu Nov 26, 2026 at 3:52 PM CET, Andrew Lunn wrote:
+>
+> Sorry, but NACK.
+>
+> Please use /sys/class/leds, with the ledtrigger-netdev, and offloading
+> to the hardware.
+>
+> 	Andrew
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Understood.
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+I will send patch #1 separately also.
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+Thanks.
+Best regards,
+--=20
+Paul Louvel, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
