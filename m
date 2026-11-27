@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795807393;
-	b=xn9rPHMYgxN8v8bUvvEiyF+F//2hNZ7sVsQ3MpYqCSxiKZaURxWENfKG8T8hQHsE7GKA
-	 4bD5R6vQ9UMcc0AQhn2z+1b0x5VqAyGgX0jyyywuiXtm9Pef33z4UXzoOYPtLEC5G3EHN
-	 gp7+HRQl6nyNxK7pEJjGP2/AVL31zVMwML1mPT0Vf9RV+9+Qn21zF3u24Jce4w2pfgsZN
-	 2d6EjBFrXtdefz78LiBf/eoN6GuWuVICvakbAckPoOI0YoE9tYhAIK4TtMB4Ti3Nd+w4X
-	 89EtU4i8QUxYqEDlHiVf2XMMUHGxiss2aoiw8uksIvTWMPkbRiYO6haynVQLOHIA/+g==
+	t=1795807394;
+	b=m3OwJuINJ87os1+fBp5Gn1YRXWBwsZnraIxMpj3KnRe5vixWHNoeHjUo/zm2DC80ZdMe
+	 Rs/eTl4WB7AkS4Tc0Q92D8/ae1pLP54L9VABS54RzJDUED368c/0nFXXBplE6eiTuqMla
+	 pFnnUpIK69MR87Nx5sNgvw9sD/pOBdjRplJVEzNyJSq6eEhzKURoqVPVNuF7PFM2/3pVV
+	 9WMooabPdOGKv8T8yucKXUzLujoQHPo9u+tiyNkFpIskPEbTvKkjEvZ1zMa2jXiN0XSEx
+	 g0il+bb5endjGS7p57a1gcDhSLXJH6Q7oYwkAT8dmKSlbY7iHyIkTzpywxWD218JD7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795807393;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795807394;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=FvDZsPZIMldoIHRfHKe1+LHmIGavYopNLG72UQarEiA=;
-	b=zZ8jFUEhz2IfUZ0aA0vyvBzkev2kFZHMjzezBp8rdT89MESAGEOsw3JdAlLTXuGkByEY
-	 UOHyXcsuc1W+rEXmUkoC4VW3z/f7cKKAqr4mAbRFPtkuJwnPnOHYHTT0zwJclYbjcTBiy
-	 b3iIZoKagx/i2qj9ZGjuc8H3rjmkjpvoQYaX3vLhJo5RaYA+hTzxE2x6w6X7F73w/huc7
-	 z3ieSOOSSmmGmlZHDv1lcZtvR0nvZnFXopDzI7b19DhT+FOfUT1+hkNJgHqCMdQM96IbT
-	 QxNSX7oG9bdA5Gu2PiAu8ZaxeygExoNo5AJANqauU2QgGYXrmOk+w+3t/zRpQ5UfE0g==
+	bh=JHtyg2ycX00R7q/QFCBLLC/oriNJBfx7ZXkiqzOr38M=;
+	b=4HlsxDrJ0LJn5aYNfOXWgj0wYZvutC8SiQfvtA4dTkeScdjJVW4gWFacKBfLh5f9G2Tp
+	 ljS1FuoMj3tmEeAAwWaBhZCOVcKO6Kl5KYA+A7lSeTcYQ06FkQvy9fUT2xDXymjU8dX47
+	 I5otDZcmisZinbCjfa3ep5lsU3uoEvlglk9gmedA9lDh4BmaFq9LyopR/9t23c1Sd/jwO
+	 PhP0y9LE/ghqGnD3toSEl3p91VnksvyEag65cld9xUmTn+6htdFw3i8xGXcVI9EOCudCu
+	 6+GEwOsR8WRZLdwhQFFAu2uoX7cgZfhGuIR8qNqLfQNlhTsqn/mF74AYbNRkP7+tOOg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BDqS6RFJ;
-	arc=none smtp.remote-ip=74.125.82.180
-Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wklAGA32;
+	arc=none smtp.remote-ip=74.125.82.44
+Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14FDA606A32A
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 19:23:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14FDA606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 738D260A2606
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 19:23:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 738D260A2606
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BDqS6RFJ
-Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-385d8a00598so13034583eec.1
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 11:23:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wklAGA32
+Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1a3c08d6928so12569704c88.0
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 11:23:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795807392; x=1796412192; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795807393; x=1796412193; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=FvDZsPZIMldoIHRfHKe1+LHmIGavYopNLG72UQarEiA=;
-        b=BDqS6RFJGM4NhUstZ7Gem94i5ca6da8Zi2t9OHSPPzeafcYz0o4F8K099ikAuz7Ivc
-         Fr1ZL4deWN05QrUusmedCFJs4CJAKnpLbnF3qYdcLgD9cXNvLtkJdcfUSxs9umuDQOLC
-         VHEOXGAjhGVZcgjGo4OSwn8F2J3dElixVpcJpz6k/IHlYIUoO+hMrhV0eR9k0KG/lwaw
-         T+dLr0JwK1KxYcXuMPZqghfL5JsYobbD/CzhNz7/B9MTp0OVSy0iynWZugtLtYg23jG8
-         tOLtU3NxmwSxOu7yn7LCor/nSMeGSW/h+mg/RAG9YRLCwbEv9j2q6mSzLFqyfEzvYanU
-         zSiQ==
+        bh=JHtyg2ycX00R7q/QFCBLLC/oriNJBfx7ZXkiqzOr38M=;
+        b=wklAGA32wZ8AscOolDlMW5DzhIYKrOBdp8lqtBJN3ph0HCvDXkSI/zhTnKMqSl6OWp
+         kP3+98gPm9PZFFHll5pvd6DcRv1i+VLsxma7TVUYwH4XrdmKH6z4onHm8UmOTxnLKxwd
+         VvilCs/DhYJhzPyqXjYcWLSHHiB9z7b7qJxyxTaZ52koWMEAJ70HVNBbcl6wNca9Cg2R
+         tX7CVIDbBu0GY12wZD5KL+YunltXMD0AdFEhS+CzrNopxQLPyiY8e7QNFthQoChhMKij
+         E6I6g7vhWy0Krd/pyOeIiIqEuioYZfdBQDxUZgiYOkGF0bGTCgC8NyPHAjuvVzTc0lkz
+         lrIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795807392; x=1796412192;
+        d=1e100.net; s=20260707; t=1795807393; x=1796412193;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FvDZsPZIMldoIHRfHKe1+LHmIGavYopNLG72UQarEiA=;
-        b=OmdfLn1WHI0JC2I1ZZuc8AZyYDnjsBEPdFkOoHDG9KnKs0AFMM0IhhlAjmgbgOQ+mU
-         MXFTTd1aC++KzC8YlRuOgYIS7K+cMVsgrBFrIV7MHqbNnU1jaaLtAHHAcP0R1n2XdoVk
-         lp1ZHZG2zfuF3r6miMv30kiwcn4AOYCxT8bI5F996yS/mLGVQG1gjJ46m6/T8BYk6ui4
-         Q+ZViFR4BxAk8i+HY2vW9Kx9vj/IhO9j68UecGeRuAsT92OmwggGudJo8yrQymmdGITV
-         V1vNfAbZUrLw5RICkhh5N4JaBdQ25Qz7c7cMkQp5nMOnWu7KBSDphkPbjYj9aQWR6KjW
-         aeNw==
-X-Gm-Message-State: APuU4Z/YFhT2r91gHbCuu8uHGUI+XJ1xKTpGTm3v5LlTrDp7LYact2Iq
-	vh9VZZehQw54igmRCqXE6WKCEHjr/2jPVCMztVO80BM3nP1pUz/WbnBC11m3jVENrVw=
-X-Gm-Gg: AZFdTZf/eiWc3UsqxBO91FjRFQ0QIb/oCXm/V0DxAu0KAxhgea9puMMUtw5wNwdYVrx
-	8Ep2cYLA2QWWzt7lk/hMXIMDBj8qvKY0m/eQOPrpxe8N/nRMHC4fLazSVBgkC+4MVxk+Fw9PGVj
-	735n0V6W5inQZKiFkU7Spld2228gQXi/rfBpObwODZnF1kV7tPILXgfDTZO7bROkEoCCcMBtMJ4
-	SsK72AuV3ExxCWlIzaMSp6wejwnvZ14YMVTkF1dhk+9Ym7ehGTrVGHEV9S+a98rdZTz5WaJza+r
-	ofRr7b3jBUacU2OQMNu4RKgaw9rFKR9a8CxodPIs2x+VKzm4RzvUU0368NmIvIB2wtXUG2/NoVO
-	/UwvmvQTHrezTS80S1eefsg1WFnjvzORCG2+MXinQXrnQO12Mgx2XPJnRmnjhel9FgWnbW/FIpy
-	ntmbn6X4Hy3gOSTeFhsky+Gs1xo6cM2mTUhjLPt8dYnd0B1EnJwIPg1hy3OPqImC3oVHrKzJPRN
-	pmsEl/IKMx8umnpaXwLHh++dF48dVFSs6csk7TGyq4Etx+dO8vERKUtew8LGBuzKRehEQk+0hGg
-	svDSg/36A5mVeRPRxRCbIuxgxncS8Amm/Aq16UAdIGRAB5Qmmd4pCH7Jnj+wjpQtv4V6ksE2TFV
-	hbSRMm2ysCfiEdSCFwLll7gknR/qNFv9vMORV6GZnADruB4nQrzj5JDTJ9/CsUkI=
-X-Received: by 2002:a05:7022:b058:10b0:1b5:330f:6209 with SMTP id a92af1059eb24-1b5568a32damr24510690c88.20.1795807392202;
-        Fri, 27 Nov 2026 11:23:12 -0800 (PST)
+        bh=JHtyg2ycX00R7q/QFCBLLC/oriNJBfx7ZXkiqzOr38M=;
+        b=wdHOlshAiGkS5sI4YznGrkgWw9EKbFG0tbIRYc4SgASndMGUx88nYxpkhMBzF7Nmjn
+         PJzZ3b+wT7azc8lzyouNkAKw2kSCnhhQERJbz6axl0/TkJ7AoJWL9mdkyeY8rbfbf57P
+         8BNa36XEQXaSwxpT1FYQwvs1qivmaBnWQqfsTtbBIwintrxwtwD/dv2rSlMGoU0EkubZ
+         15CIWcV1SpMrxAVUJqfFcvh7c4+RWdsfb/AuLlTHkwprgVba54QEUGbUBN/DsbC2UJ0p
+         8IdlhsaQTK1zyI0cFulcLT2ojc+zbQpS8luVW/BayvLCKJSNv5IxIHzbt7WogXZQZzFD
+         Aw/A==
+X-Gm-Message-State: APuU4Z+J8Wcs8Kz1P20RMMxpGVYg2l3/I7ltwZmQFcz32gGV9pve3pPE
+	LZV9JtQkLE28fi9JtD8X1/QmKZG6UFk7si7rj/VBjbaaXGnfXufoNg7XRyqUjUz1Ffw=
+X-Gm-Gg: AZFdTZfgZdqnIsHO1SJ74DDnW3Iiec1uwZrz/KykDMf/hM6x/AuxfHpJWI0u6jVK/Hr
+	nlkWgGmhwTiBURm/17Fodp78PXDHdaJ+xN5cK9yxlHCHtNB8Mz9waVOezEdXtEtiYlW+5marb70
+	eVttv6Z0gKJ36M1bbuGhJ0ICSv08I6dbIb0oKzlUn7yCTMEvOO74fFcOQEiDgzgI86jWC7J3O5c
+	Y3NSNszWQE1JDuY8aSagGb9n5bgPkER56zBwbCmPUEpBX1S6kg+nQ4iFLH9MDpbgexh5Ozn9CFA
+	sYzsCa7NRKa66+HXwTAXB9EhmFXf48yj2Njj+sRpczcS9vj3ScuxDmBabCXLPoyKJK2/hVEqtHV
+	/5ups3DM1xccwefDbiEwNBqO75AKbetm23gqEf0FgknI21SRD3StH8vJkcBhi8ErUa6A2lYl9ZL
+	Rt2ivnzvvFBi+y8U696ipNQdGA18qdowq7LD28Xe6wQnNYamE6b7vkssJygM6q5r9JaUoPlVlZV
+	/ilC1atnvz6H09/PqlIVewSbHfFRHd7PFEs/DHKdolNnnc7mJ29gDgCS/HOSLXBZWd8eLVGiHZq
+	zut+eqPmuTKQ0c3p7+wTjZtvVfj4JDqxRyQ6MqyMpKe1noogfWGWUoPKzku2c/VERgbm+QyHB9c
+	RDui+ZiIZWmzp8oPyw4rsaWD60Obp4vhF+paDrHyykn+koVSnryp6sZrM9f5inw==
+X-Received: by 2002:a05:7022:ea8d:b0:1ae:59d6:91d7 with SMTP id a92af1059eb24-1b5568eebafmr23005799c88.40.1795807393508;
+        Fri, 27 Nov 2026 11:23:13 -0800 (PST)
 Received: from Mac.net (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm97005883c88.9.2026.11.27.11.23.11
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm97005883c88.9.2026.11.27.11.23.12
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 27 Nov 2026 11:23:11 -0800 (PST)
+        Fri, 27 Nov 2026 11:23:13 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
 To: netdev@vger.kernel.org
 Cc: andrew+netdev@lunn.ch,
@@ -86,12 +86,13 @@ Cc: andrew+netdev@lunn.ch,
 	edumazet@kernel.org,
 	jiri@resnulli.us,
 	kuba@kernel.org,
+	milena.olech@intel.com,
 	pabeni@redhat.com,
 	richardcochran@gmail.com,
 	vadim.fedorenko@linux.dev
-Subject: [PATCH net v7 6/7] ptp: ocp: correct the DCF output frequency
-Date: Fri, 27 Nov 2026 11:23:01 -0800
-Message-ID: <20261127-timecard-driver-v7-6-ahmadexp@gmail.com>
+Subject: [PATCH net v7 7/7] ptp: ocp: match ART DPLL frequencies to selectors
+Date: Fri, 27 Nov 2026 11:23:02 -0800
+Message-ID: <20261127-timecard-driver-v7-7-ahmadexp@gmail.com>
 In-Reply-To: <20261127-timecard-driver-v7-0-ahmadexp@gmail.com>
 References: <20261127-timecard-driver-v7-0-ahmadexp@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
@@ -105,34 +106,57 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The output table uses 77000 Hz for DCF, while the input table and DPLL
-capability list use 77500 Hz. An output request for the advertised
-frequency fails and reads report an unsupported nominal frequency.
+The ART input selector named 10Mhz is recorded as 1 MHz although the
+pin advertises 10 MHz. ART also advertises IRIG-B and DCF77 through
+the generic capability list, but has no selectors for them.
 
-Use 77500 Hz for the DCF output selector.
+Use 10 MHz in the ART input table. Advertise only 1 PPS and 10 MHz on
+ART connectors so DPLL validation matches the available selectors.
 
 Developed with coding-assistant support during review and validation.
 
 Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
-Reviewed-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
 Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
 ---
- drivers/ptp/ptp_ocp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/ptp/ptp_ocp.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-index 9500fb2635a9..8e898d929105 100644
+index 8e898d929105..3bdd6e8959fd 100644
 --- a/drivers/ptp/ptp_ocp.c
 +++ b/drivers/ptp/ptp_ocp.c
-@@ -1374,7 +1374,7 @@ static const struct ocp_selector ptp_ocp_sma_out[] = {
- 	{ .name = "GNSS1",	.value = 0x0004,  .frequency = 1 },
- 	{ .name = "GNSS2",	.value = 0x0008,  .frequency = 1 },
- 	{ .name = "IRIG",	.value = 0x0010,  .frequency = 10000 },
--	{ .name = "DCF",	.value = 0x0020,  .frequency = 77000 },
-+	{ .name = "DCF",	.value = 0x0020,  .frequency = 77500 },
- 	{ .name = "GEN1",	.value = 0x0040 },
- 	{ .name = "GEN2",	.value = 0x0080 },
- 	{ .name = "GEN3",	.value = 0x0100 },
+@@ -299,6 +299,11 @@ static struct dpll_pin_frequency ptp_ocp_sma_freq[] = {
+ 	DPLL_PIN_FREQUENCY_DCF77,
+ };
+ 
++static struct dpll_pin_frequency ptp_ocp_art_sma_freq[] = {
++	DPLL_PIN_FREQUENCY_1PPS,
++	DPLL_PIN_FREQUENCY_10MHZ,
++};
++
+ struct ptp_ocp_sma_connector {
+ 	enum	ptp_ocp_sma_mode mode;
+ 	bool	fixed_fcn;
+@@ -1386,7 +1391,7 @@ static const struct ocp_selector ptp_ocp_sma_out[] = {
+ 
+ static const struct ocp_selector ptp_ocp_art_sma_in[] = {
+ 	{ .name = "PPS1",	.value = 0x0001,  .frequency = 1 },
+-	{ .name = "10Mhz",	.value = 0x0008,  .frequency = 1000000 },
++	{ .name = "10Mhz",	.value = 0x0008,  .frequency = 10000000 },
+ 	{ }
+ };
+ 
+@@ -3140,8 +3145,8 @@ ptp_ocp_art_sma_init(struct ptp_ocp *bp)
+ 		.board_label = NULL,
+ 		.type = DPLL_PIN_TYPE_EXT,
+ 		.capabilities = 0,
+-		.freq_supported_num = ARRAY_SIZE(ptp_ocp_sma_freq),
+-		.freq_supported = ptp_ocp_sma_freq,
++		.freq_supported_num = ARRAY_SIZE(ptp_ocp_art_sma_freq),
++		.freq_supported = ptp_ocp_art_sma_freq,
+ 
+ 	};
+ 	u32 reg;
 -- 
 2.54.0 (Apple Git-157)
 
