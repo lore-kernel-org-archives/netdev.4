@@ -1,53 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795778734;
-	b=CsY77lplM2sChxFkCWc5E4O4IU4MfZZRJtMKw6i6D/M+fIKzpxpb8Nq7jkoWEOlKsfun
-	 1NvTI2aN2MoTWdZ4osRUaGyJL/hZuA9+heWjHyn6Nv2BJ6tAYn9XA3B4LsLYwu95VC5Pq
-	 0c+oEKhLAL3/SZTpfNUaxsL2t6D5pqGv9QWzZZss5NdrOrz8rS80bYcvpOW1xO92jmolx
-	 EeAOWoxPEuZyWG+iR4yyXZWyLKsraTI3KciWMOC2By5+ip0RLI8bzIHEnApTVuJhjL2dy
-	 IRDE6g4X3awGo77ZNXodGQTiS/4KjV/MiGOZdCCwjaypvjkzZEsM8eW2UwrY8o9pw7A==
+	t=1795778735;
+	b=ulvFP0hX9t/n/+cbFvdeH30qboHHl+GzJN1zpeMc5icNYiup2d1Ns5MpJukQ8rspWAQc
+	 jITtLJivpidEPs7WPHs0YEsBY/Y8rEs1EooEsAgMWHgv5Fn/DagR+tD+ZlLErtNFVUUGo
+	 Si/CLPG/Gw7rwMBYvPLiTVevXfGsNxTrA+B/RZcRVnv5+HgRiDff1aWsDt7UxnJfjZG93
+	 sPum+asL0aXqV6a5uJzy0YRAcy99lDgmsFlV/q1sjikqDRExpsTucb6T71LEZM7IMLP4X
+	 IHUEqNcrn1/Htkj2WNKaQLk21DktRxl05YYrujuWQsPXXpyj+wjZfnsjBeqoSXS7ScA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795778734;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795778735;
 	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
 	 In-Reply-To:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
-	bh=iAaGm1U3BHBOCgwYrgu/PMwiUGitcdVQyuG4eTo+c0o=;
-	b=j8MU0l/fG/5P8b0wy8rtssX1e7wYDo1nogYJSCmmw5oYDBBPQtkXU2rsHr8BKLoVeool
-	 IM+0tMlSWFczAvTAwtRZB+AykusXxAOoN8rkv1AziaApOPe/tL5xmCWOShLMoQxZqtH0x
-	 i8pfJ+z28Fy9uQ7Pdxijn3YDKiUyjlZbzBPYuj2IGvN7gUUJ8u72Go9ttzia+WgK22W4t
-	 PbSJnsKm1jVLrIUP+EMTUYzjFOsecIQLt5pIbqW5tmygkUNiZz0jVzLsB+7lyJBr2xz6o
-	 yVEbu397H+a5UhZHY+cu6U7xPxKwmPHO7psr92mmIGv5X4WKxhrk+J7lxhml51Id55Q==
+	bh=jZwk8lPLGTAnuCrXapHQwXk3vZd5cBJY13irGJMYN08=;
+	b=ZT3IujsL+S8fHSiIhN/UcXl0lh7wHZZnUCo+vuZVDY+aMlfxNAlDganywlpqkPGdOrFP
+	 mqkbt+JcdI6UeyNa+e+5ypLV4d6srXaXGOVDO9wNcEIgrdJ3bOw5SJJfGyIrtqAcoyDbf
+	 urEES9e4LO6XdeyENQ9gjtH0WaibTxfOTatuJcnIKAZi/6o7CJmc/qiRhgI55Bc9zaFW1
+	 EH0pZWrhy49hkj2sTpMWsgPrNPO31dCLDvH3JxhK/cRrXTtuqu+1GYXtRzXyDOsY6GA67
+	 JC/E9PIe/XiI1Hur68vzP5C1xBg/Q21XpRZMdWpIgXmQMwfkDqnLEl1/skqSry7IBBA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=tipi-net.de;
 	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=e4Y9VPsW;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=DCDgy+yD;
 	arc=none smtp.remote-ip=194.13.80.246
 Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53446606A321;
-	Fri, 27 Nov 2026 11:25:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53446606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 192CB606A335;
+	Fri, 27 Nov 2026 11:25:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 192CB606A335
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=e4Y9VPsW
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 345C8A24BD;
+	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=DCDgy+yD
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C5113A3764;
 	Fri, 27 Nov 2026 12:25:32 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795778732; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795778733; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=iAaGm1U3BHBOCgwYrgu/PMwiUGitcdVQyuG4eTo+c0o=;
-	b=e4Y9VPsWf6z15CPjAMl3T8YcFNBpGLykvDTHT/kh2n0lZSZEtXqfAudFLUpIeNAdGseOMR
-	XvAY5prZNEBLTeCGKsjCn/vgS30PbphN9NqEEkbIqY3eR07Qje6kzYG+ZbvCIDR90ppcGN
-	xtnZaJTGzujk9TZcZTOiAy2nUvHu2jHJvjaJbSexPKL+XSnpmJfjmMAvVXTAgWAAj8AgbC
-	DP0XK00XkvUpWnXx2TaZTFVlO0P/DRjEDtUPsPuVwGUHQoHnhyKZIRZuiH8BkZpcrCby++
-	omnAombQDzmuoB/h416Uet4slKHuqV8FL6hoekk2zDzo7KqaVLB03sK+O7jiLA==
+	bh=jZwk8lPLGTAnuCrXapHQwXk3vZd5cBJY13irGJMYN08=;
+	b=DCDgy+yDDd42IqeCf4eVW1eiKoNsRCCfTkui23vjwRvwWChYXd6pQDv9O7k++Venlit7vf
+	44auw9rujlP0i2iXrDpS1a2zr72uDmF2WL9HZHW+SO2T3WlaDeMaW0GdBobN8u1aiL8oSo
+	vylqHQcZomNtpAt92TtMGLIlqyKcYjxNzOVp3qZQw5eBKgu3HDxuUgJzLenMb26kQzT5gl
+	JK0I3yBylSwClB4ScqH2+LpieIIc/EgYd/LIaz4a4vhUkSxiiwvLpz3Py75dH05UaK92Nb
+	w3thQdRSle5IS3YcQLkHTu6gcTINytgksl8T/rt6m6ppfNUIAjhPi0cel4+1nQ==
 From: Nicolai Buchwitz <nb@tipi-net.de>
-Date: Fri, 27 Nov 2026 12:25:13 +0100
-Subject: [PATCH net-next v10 3/8] net: bcmgenet: rename ENET_MAX_MTU_SIZE
- to ENET_MAX_FRAME_LEN
+Date: Fri, 27 Nov 2026 12:25:14 +0100
+Subject: [PATCH net-next v10 4/8] net: bcmgenet: derive the receive buffer
+ length from the MTU
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,7 +59,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261127-nb-genet-mtu-nn-v2-v10-3-749c7cc45d97@tipi-net.de>
+Message-Id: <20261127-nb-genet-mtu-nn-v2-v10-4-749c7cc45d97@tipi-net.de>
 References: <20261127-nb-genet-mtu-nn-v2-v10-0-749c7cc45d97@tipi-net.de>
 In-Reply-To: <20261127-nb-genet-mtu-nn-v2-v10-0-749c7cc45d97@tipi-net.de>
 To: Doug Berger <opendmb@gmail.com>, 
@@ -70,64 +70,267 @@ To: Doug Berger <opendmb@gmail.com>,
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
 Cc: Florian Fainelli <f.fainelli@gmail.com>, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org
+ linux-kernel@vger.kernel.org, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 
-ENET_MAX_MTU_SIZE holds a frame length, not an MTU. Both users program it
-into hardware that expects a frame length. The name is wrong once the MTU
-is no longer fixed at ETH_DATA_LEN.
+The receive buffer length is a fixed 2048 bytes. The packet ready
+thresholds keep whatever value the reset left. Neither follows the MTU.
 
-No functional change.
+Compute the receive threshold from the MTU and program it into RBUF. The
+buffer length follows from it, with the status block on top. The MTU is
+still fixed at ETH_DATA_LEN, so the threshold comes out at 0x80, the value
+a v5 holds out of reset, and the buffer only grows by the status block the
+hardware already wrote. Derive UMAC_MAX_FRAME_LEN and the flow period from
+the MTU too, with a floor at ETH_DATA_LEN so a lower MTU does not stop the
+MAC accepting a standard frame.
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+Suggested-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
 ---
- drivers/net/ethernet/broadcom/genet/bcmgenet.c | 4 ++--
- drivers/net/ethernet/broadcom/genet/bcmgenet.h | 7 +++----
- 2 files changed, 5 insertions(+), 6 deletions(-)
+ drivers/net/ethernet/broadcom/genet/bcmgenet.c | 91 +++++++++++++++++++++-----
+ drivers/net/ethernet/broadcom/genet/bcmgenet.h | 18 ++++-
+ 2 files changed, 91 insertions(+), 18 deletions(-)
 
 diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-index 67296eb22a5c..5c050331da69 100644
+index 5c050331da69..15b7c8a52520 100644
 --- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
 +++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-@@ -2669,7 +2669,7 @@ static void init_umac(struct bcmgenet_priv *priv)
+@@ -48,18 +48,42 @@
+ #define GENET_Q0_TX_BD_CNT	\
+ 	(TOTAL_DESC - priv->hw_params->tx_queues * priv->hw_params->tx_bds_per_q)
+ 
+-#define RX_BUF_LENGTH		2048
+ #define SKB_ALIGNMENT		32
+ 
++/* The transmit descriptors carry their own lengths, so this is unused and
++ * keeps the reset value.
++ */
++#define TX_RING_BUF_SIZE	2048
++
++/* Once the threshold is reached RBUF hands a frame to the receive DMA and
++ * TBUF hands one to the MAC. Both registers are 8 bit in units of 16 bytes
++ * and want a multiple of the 256 byte burst size, so 0xf0 is the largest
++ * usable value.
++ */
++#define ENET_THLD_UNIT		16
++#define ENET_THLD_BURST		256
++#define ENET_THLD_DEFAULT	0x80
++#define ENET_THLD_MAX		0xf0
++
+ /* Page pool RX buffer layout:
+  * RSB(64) + pad(2) | frame data | skb_shared_info
+  * The HW writes the 64B RSB before every descriptor of a frame. Only the
+  * first one also gets the 2B alignment padding.
+  */
+-#define GENET_RSB_PAD		(sizeof(struct status_64) + 2)
++#define GENET_RBUF_ALIGN	2
++#define GENET_RSB_PAD		(sizeof(struct status_64) + GENET_RBUF_ALIGN)
+ 
+-/* RX buffer plus the skb_shared_info napi_build_skb() places behind it */
+-#define GENET_RX_BUF_SIZE	SKB_HEAD_ALIGN(RX_BUF_LENGTH)
++/* A descriptor never spans more than one page, which also holds
++ * skb_shared_info behind the frame, so on 4K pages the page bounds the
++ * threshold before the register does. Larger pages fit several descriptors.
++ */
++#define ENET_SHINFO_LEN		SKB_DATA_ALIGN(sizeof(struct skb_shared_info))
++#define ENET_THLD_PAGE_LEN	round_down(PAGE_SIZE - ENET_SHINFO_LEN - \
++					   sizeof(struct status_64), \
++					   ENET_THLD_BURST)
++#define ENET_THLD_MAX_LEN	min_t(unsigned int, \
++				      ENET_THLD_MAX * ENET_THLD_UNIT, \
++				      ENET_THLD_PAGE_LEN)
+ 
+ /* Tx/Rx DMA register offset, skip 256 descriptors */
+ #define WORDS_PER_BD(p)		(p->hw_params->words_per_bd)
+@@ -2282,7 +2306,7 @@ static int bcmgenet_rx_refill(struct bcmgenet_rx_ring *ring,
+ 			      struct enet_cb *cb)
+ {
+ 	struct bcmgenet_priv *priv = ring->priv;
+-	unsigned int size = GENET_RX_BUF_SIZE;
++	unsigned int size = SKB_HEAD_ALIGN(priv->rx_buf_len);
+ 	unsigned int offset;
+ 	dma_addr_t mapping;
+ 	struct page *page;
+@@ -2297,7 +2321,7 @@ static int bcmgenet_rx_refill(struct bcmgenet_rx_ring *ring,
+ 
+ 	/* page_pool handles DMA mapping via PP_FLAG_DMA_MAP */
+ 	mapping = page_pool_get_dma_addr(page) + offset;
+-	dma_sync_single_for_device(&priv->pdev->dev, mapping, RX_BUF_LENGTH,
++	dma_sync_single_for_device(&priv->pdev->dev, mapping, priv->rx_buf_len,
+ 				   DMA_FROM_DEVICE);
+ 
+ 	cb->rx_page = page;
+@@ -2376,10 +2400,10 @@ static unsigned int bcmgenet_desc_rx(struct bcmgenet_rx_ring *ring,
+ 		}
+ 
+ 		/* Sync the full buffer; the HW may have written anywhere
+-		 * up to RX_BUF_LENGTH.
++		 * up to priv->rx_buf_len.
+ 		 */
+ 		page_pool_dma_sync_for_cpu(ring->page_pool, rx_page, rx_offset,
+-					   RX_BUF_LENGTH);
++					   priv->rx_buf_len);
+ 
+ 		hard_start = page_address(rx_page) + rx_offset;
+ 		status = (struct status_64 *)hard_start;
+@@ -2401,7 +2425,7 @@ static unsigned int bcmgenet_desc_rx(struct bcmgenet_rx_ring *ring,
+ 					     : sizeof(struct status_64);
+ 
+ 		/* Reject lengths that would underflow the SKB build path. */
+-		if (unlikely(len > RX_BUF_LENGTH || len < min_len)) {
++		if (unlikely(len > priv->rx_buf_len || len < min_len)) {
+ 			netif_err(priv, rx_status, dev,
+ 				  "invalid packet length %d\n", len);
+ 			BCMGENET_STATS64_INC(stats, length_errors);
+@@ -2653,6 +2677,41 @@ static void bcmgenet_link_intr_enable(struct bcmgenet_priv *priv)
+ 	bcmgenet_intrl2_0_writel(priv, int0_enable, INTRL2_CPU_MASK_CLEAR);
+ }
+ 
++/* Receive threshold in register units. Covers the alignment bytes and the
++ * frame, but not the status block, which the hardware adds on top.
++ */
++static unsigned int bcmgenet_pkt_rdy_thld(unsigned int mtu)
++{
++	unsigned int len = GENET_RBUF_ALIGN + mtu + ETH_HLEN + VLAN_HLEN;
++
++	len = round_up(len, ENET_THLD_BURST) / ENET_THLD_UNIT;
++
++	/* Keep the reset default for the common MTUs */
++	return clamp_t(unsigned int, len, ENET_THLD_DEFAULT,
++		       ENET_THLD_MAX_LEN / ENET_THLD_UNIT);
++}
++
++/* A buffer has to hold everything the threshold lets the hardware deliver */
++static unsigned int bcmgenet_rx_buf_len(unsigned int mtu)
++{
++	return sizeof(struct status_64) +
++	       bcmgenet_pkt_rdy_thld(mtu) * ENET_THLD_UNIT;
++}
++
++/* Call with the MAC disabled */
++static void bcmgenet_set_mtu_regs(struct bcmgenet_priv *priv, unsigned int mtu)
++{
++	u32 thld = bcmgenet_pkt_rdy_thld(mtu);
++
++	bcmgenet_umac_writel(priv, ENET_MAC_FRAME_LEN(mtu), UMAC_MAX_FRAME_LEN);
++
++	/* GENET v1 maps other registers at these offsets */
++	if (GENET_IS_V1(priv))
++		return;
++
++	bcmgenet_rbuf_writel(priv, thld, RBUF_PKT_RDY_THLD);
++}
++
+ static void init_umac(struct bcmgenet_priv *priv)
+ {
+ 	struct device *kdev = &priv->pdev->dev;
+@@ -2669,7 +2728,7 @@ static void init_umac(struct bcmgenet_priv *priv)
  			     UMAC_MIB_CTRL);
  	bcmgenet_umac_writel(priv, 0, UMAC_MIB_CTRL);
  
--	bcmgenet_umac_writel(priv, ENET_MAX_MTU_SIZE, UMAC_MAX_FRAME_LEN);
-+	bcmgenet_umac_writel(priv, ENET_MAX_FRAME_LEN, UMAC_MAX_FRAME_LEN);
+-	bcmgenet_umac_writel(priv, ENET_MAX_FRAME_LEN, UMAC_MAX_FRAME_LEN);
++	bcmgenet_set_mtu_regs(priv, priv->dev->mtu);
  
  	/* init tx registers, enable TSB */
  	reg = bcmgenet_tbuf_ctrl_get(priv);
-@@ -2780,7 +2780,7 @@ static void bcmgenet_init_tx_ring(struct bcmgenet_priv *priv,
+@@ -2780,7 +2839,7 @@ static void bcmgenet_init_tx_ring(struct bcmgenet_priv *priv,
  
  	/* Set flow period for ring != 0 */
  	if (index)
--		flow_period_val = ENET_MAX_MTU_SIZE << 16;
-+		flow_period_val = ENET_MAX_FRAME_LEN << 16;
+-		flow_period_val = ENET_MAX_FRAME_LEN << 16;
++		flow_period_val = ENET_MAC_FRAME_LEN(priv->dev->mtu) << 16;
  
  	bcmgenet_tdma_ring_writel(priv, index, 0, TDMA_PROD_INDEX);
  	bcmgenet_tdma_ring_writel(priv, index, 0, TDMA_CONS_INDEX);
+@@ -2791,7 +2850,7 @@ static void bcmgenet_init_tx_ring(struct bcmgenet_priv *priv,
+ 				  TDMA_FLOW_PERIOD);
+ 	bcmgenet_tdma_ring_writel(priv, index,
+ 				  ((size << DMA_RING_SIZE_SHIFT) |
+-				   RX_BUF_LENGTH), DMA_RING_BUF_SIZE);
++				   TX_RING_BUF_SIZE), DMA_RING_BUF_SIZE);
+ 
+ 	/* Set start and end address, read and write pointers */
+ 	bcmgenet_tdma_ring_writel(priv, index, start_ptr * words_per_bd,
+@@ -2810,8 +2869,9 @@ static void bcmgenet_init_tx_ring(struct bcmgenet_priv *priv,
+ static int bcmgenet_rx_ring_create_pool(struct bcmgenet_priv *priv,
+ 					struct bcmgenet_rx_ring *ring)
+ {
+-	/* Buffers share a page. bcmgenet_rx_refill() syncs each one for the
+-	 * device, PP_FLAG_DMA_SYNC_DEV would sync the whole page.
++	/* Buffers may share a page, depending on PAGE_SIZE and the MTU.
++	 * bcmgenet_rx_refill() syncs each one for the device,
++	 * PP_FLAG_DMA_SYNC_DEV would sync the whole page.
+ 	 */
+ 	struct page_pool_params pp_params = {
+ 		.order = 0,
+@@ -2876,7 +2936,7 @@ static int bcmgenet_init_rx_ring(struct bcmgenet_priv *priv,
+ 	bcmgenet_rdma_ring_writel(priv, index, 0, RDMA_CONS_INDEX);
+ 	bcmgenet_rdma_ring_writel(priv, index,
+ 				  ((size << DMA_RING_SIZE_SHIFT) |
+-				   RX_BUF_LENGTH), DMA_RING_BUF_SIZE);
++				   priv->rx_buf_len), DMA_RING_BUF_SIZE);
+ 	bcmgenet_rdma_ring_writel(priv, index,
+ 				  (DMA_FC_THRESH_LO <<
+ 				   DMA_XOFF_THRESHOLD_SHIFT) |
+@@ -4156,6 +4216,7 @@ static int bcmgenet_probe(struct platform_device *pdev)
+ 	/* Mii wait queue */
+ 	init_waitqueue_head(&priv->wq);
+ 	bcmgenet_hfb_init(priv);
++	priv->rx_buf_len = bcmgenet_rx_buf_len(dev->mtu);
+ 	INIT_WORK(&priv->bcmgenet_irq_work, bcmgenet_irq_task);
+ 
+ 	priv->clk_wol = devm_clk_get_optional(&priv->pdev->dev, "enet-wol");
 diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.h b/drivers/net/ethernet/broadcom/genet/bcmgenet.h
-index 6ab3f7347555..afaccb769933 100644
+index afaccb769933..b40e56872132 100644
 --- a/drivers/net/ethernet/broadcom/genet/bcmgenet.h
 +++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.h
-@@ -28,12 +28,11 @@
- /* which ring is descriptor based */
- #define DESC_INDEX				16
- 
--/* Body(1500) + EH_SIZE(14) + VLANTAG(4) + BRCMTAG(6) + FCS(4) = 1528.
-- * 1536 is multiple of 256 bytes
-- */
+@@ -31,9 +31,17 @@
  #define ENET_BRCM_TAG_LEN	6
  #define ENET_PAD		8
--#define ENET_MAX_MTU_SIZE	(ETH_DATA_LEN + ETH_HLEN + VLAN_HLEN + \
+ 
+-/* Longest frame the MAC must accept for the default MTU */
+-#define ENET_MAX_FRAME_LEN	(ETH_DATA_LEN + ETH_HLEN + VLAN_HLEN + \
+-				 ENET_BRCM_TAG_LEN + ETH_FCS_LEN + ENET_PAD)
++/* Longest frame the MAC must accept for a given MTU. ENET_PAD is slack the
++ * driver has always carried, it rounded the default up to 1536 from 1528.
++ */
++#define ENET_FRAME_OVERHEAD	(ETH_HLEN + VLAN_HLEN + ENET_BRCM_TAG_LEN + \
++				 ETH_FCS_LEN + ENET_PAD)
++#define ENET_MAX_FRAME_LEN(mtu)	((mtu) + ENET_FRAME_OVERHEAD)
 +
-+/* Longest frame the MAC must accept for the default MTU */
-+#define ENET_MAX_FRAME_LEN	(ETH_DATA_LEN + ETH_HLEN + VLAN_HLEN + \
- 				 ENET_BRCM_TAG_LEN + ETH_FCS_LEN + ENET_PAD)
++/* The MAC keeps accepting a standard frame below the default MTU */
++#define ENET_MAC_FRAME_LEN(mtu)	ENET_MAX_FRAME_LEN(max_t(unsigned int, (mtu), \
++							ETH_DATA_LEN))
++
  #define DMA_MAX_BURST_LENGTH    0x10
+ 
+ /* misc. configuration */
+@@ -218,6 +226,8 @@ struct bcmgenet_rx_stats64 {
+ #define  RBUF_ALIGN_2B			(1 << 1)
+ #define  RBUF_BAD_DIS			(1 << 2)
+ 
++#define RBUF_PKT_RDY_THLD		0x08
++
+ #define RBUF_STATUS			0x0C
+ #define  RBUF_STATUS_WOL		(1 << 0)
+ #define  RBUF_STATUS_MPD_INTR_ACTIVE	(1 << 1)
+@@ -248,6 +258,7 @@ struct bcmgenet_rx_stats64 {
+ #define TBUF_CTRL			0x00
+ #define  TBUF_64B_EN			(1 << 0)
+ #define TBUF_BP_MC			0x0C
++#define TBUF_PKT_RDY_THLD		0x10
+ #define TBUF_ENERGY_CTRL		0x14
+ #define  TBUF_EEE_EN			(1 << 0)
+ #define  TBUF_PM_EN			(1 << 1)
+@@ -614,6 +625,7 @@ struct bcmgenet_priv {
+ 	void __iomem *rx_bds;
+ 	struct enet_cb *rx_cbs;
+ 	unsigned int num_rx_bds;
++	unsigned int rx_buf_len;
+ 	struct bcmgenet_rxnfc_rule rxnfc_rules[MAX_NUM_OF_FS_RULES];
+ 	struct list_head rxnfc_list;
  
 
 -- 
