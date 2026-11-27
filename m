@@ -1,66 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795771460;
-	b=Q3TbwUtuBvfldPxDsc2/AmH4UjthUSEXY72TY1xcMgkPPLg1SYomkS9YD8VINreNGkHo
-	 mmtfUaRtuiLQyVBMkEMuzpD/W+4BiamypOSFrkPH7ODa3QemZUatrmnZxCzHgh3JEHsLC
-	 fEaILmM/A4u1Vqb06tGWmqQxK3vOrLojy9+lqNtzDmWoLnZdg3Ej9Av/TB2M/h2eVEjYC
-	 EYGS8m6w9Yu4XsvyZgMHrXtsTqxZGYV9nf5rVZAhfrPsAjuYx1VdhmHKswtzKmPCsVZvG
-	 KuvdMISWrZP9EB2y7+xseZmjlLiqTmlP2FVHCxw4x9LHBJVAmUKRToM8JSBafWopv1A==
+	t=1795771495;
+	b=4gC4wPhO9Z1YNWgmfSVeun+MgWl+VpdWvNfgKSiO3rYJqAmC5Isblvsks0TFC/mzuK+2
+	 0IBGWT9ubCV58LZ0JRt3UHfgxLi9UX9B9cbiQDuIJpw7D/W8XipHobiuY7n0LeIvnvt0X
+	 hOMfrzQ6LtN6ME44K97pxFSuNhaQvqIdY9nsCsf+UJmoCC5hVAdK22VorO+QKYmROc3Ie
+	 Cnw712pOvyjI3RFHXoJeDWV4ZPy4NOhDbVB5jvhBL4AX+kyEcfkLvyGo9DjNVkLH1zz6z
+	 4rBaTp7lGbxzr7YeGDvObJcgZuaJuuPaKrZ7Hl4tYuEorcWbGTGxsaKC077me5veXcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771460;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=mB51IxuF3LEr3pFiFZdoQIrJE8RPv845/UwJgfZGhcw=;
-	b=GKwCOGksKO46CdY42ucs8ww1CMvibYzer4HA+vyzHA5FyrnTloqP6veFyKw7q7iaAKes
-	 PhBIfOEYgsAET5Kt/Wi16FYt6VH9TFQ6ellpqc7Howu23aP5VwpzBsF/SqEm+rdRI6PMm
-	 xp6wQBRo6OsQOza5Bk/LNhzTwN92HAjLal3nhSHDoCqQDaMurukRxF3c/lsuifaOET8Gu
-	 6kxL0tD6k+NCO1WWQDSsZTQPnH7Qa4sTZKUYXsxolriwU1kynZ9Uhnm3oYuRRfaalTGpX
-	 p8tXAOkeqxz2VUY48tJJsADIjpFuHoLw+lauzaVk3cmqqMN2MtrVorhKR4nPfrt7cGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795771495;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
+	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy;
+	bh=ffjaXrQgekHgaiAXYlHWxAd1hg/vdm54u7R2y3uB1e8=;
+	b=mty0H+aKDcmbIhQSHdI3qZ+SKhBNRyVOvgOlO5LL37T70Jxe3xqW+s81Z8elEpm7hl8P
+	 7Gy+qUaK9V7OzJ9nOwzsxfNfsjHbA1CeKXhcc5B2EbYhRklmT9ZYejKvEbOmrpgUo0JMv
+	 AtoU908+Pg4qE8hfip+/So/At+ACmuG1yxu/hDTrYqtY69qoupZIACh6jqAhKV1CUftW/
+	 f2W5eCEEe7G4irhIdKXyeDO1QF+EWl5NaWaRAhzhGLGhTYolFnlrUXz4F//KoNyeT9qCZ
+	 2WlsiBSUkANdp3Iqzsw8UTbS4mwlfU+UIGZs7u3iX/OT/81b576SvxdFiAR3rU2vc5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=126.com;
-	spf=pass smtp.mailfrom=126.com;
-	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=eCZ9w4Q4;
-	arc=none smtp.remote-ip=220.197.31.7
-Received: from m16.mail.126.com (m16.mail.126.com [220.197.31.7])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=secunet.com;
+	spf=pass smtp.mailfrom=secunet.com;
+	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=GtuuVy1j;
+	arc=none smtp.remote-ip=62.96.220.36
+Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABF26606A321;
-	Fri, 27 Nov 2026 09:24:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABF26606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B00CF606A321;
+	Fri, 27 Nov 2026 09:24:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B00CF606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=eCZ9w4Q4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=mB
-	51IxuF3LEr3pFiFZdoQIrJE8RPv845/UwJgfZGhcw=; b=eCZ9w4Q4yAwCLuoOQo
-	OktOi8JQdVVOBEK8ms4GE1D3eP2ixfJAySfD+iur68jbRfyCAsIg9AMhvtsqohFV
-	5PW/gUQ3SaBHVarn452zARO5nrECPX+x+E3cIf5FnUg0jyHGMlv76aPM0QVurZs2
-	eRQKJmWBBrNBEu195QlXTcGrg=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wD3NzAPTAlrktpmEA--.64683S3;
-	Fri, 27 Nov 2026 17:23:29 +0800 (CST)
-From: Linkui Xiao <xiaolinkui@126.com>
-To: Paul Moore <paul@paul-moore.com>,
-	netdev@vger.kernel.org
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	James Morris <jmorris@namei.org>,
-	linux-security-module@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Linkui Xiao <xiaolinkui@kylinos.cn>
-Subject: [PATCH net] netlabel: fix duplicate IPv4 entries in the staticlist dump
-Date: Fri, 27 Nov 2026 17:23:25 +0800
-Message-Id: <20261127092325.3563681-2-xiaolinkui@126.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261127092325.3563681-1-xiaolinkui@126.com>
-References: <20261127092325.3563681-1-xiaolinkui@126.com>
+	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=GtuuVy1j
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.secunet.com (Postfix) with ESMTP id 5E1FC208A6;
+	Fri, 27 Nov 2026 10:24:53 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from mx1.secunet.com ([127.0.0.1])
+ by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id UrWwbOnHPHgB; Fri, 27 Nov 2026 10:24:52 +0100 (CET)
+Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.secunet.com (Postfix) with ESMTPS id D500120894;
+	Fri, 27 Nov 2026 10:24:52 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com D500120894
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
+	s=202301; t=1795771492;
+	bh=ffjaXrQgekHgaiAXYlHWxAd1hg/vdm54u7R2y3uB1e8=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
+	b=GtuuVy1jYqkTjFISKIRbvwGvu4BScdqaj10HE6PHMbaUe02lCFRgQzaoo2cZFlDdX
+	 lypl3Y3ZJ6oybq1sp5bBH3/UkZv40suipixwn3ZPLWRzl0OMYz9fJx9W7qebpH8Q2D
+	 V3eY+TP8StHFO645IWuEN8DY0WrvuUBWNaxrVvThK0hpZgICoE7YxYIjGCxRpBsIRt
+	 J+mi0H4/603PexmVaTH+VSyGM24npjUtrYIPX4Du/4eu06mD1cN2o4jtTBj7NLhfWe
+	 QfhWV0PaOosm8Yam9GrBMfSV72gA/tvYKVi5SO2Fqh+A58A7+ZF7qkcpNTRVTW+jNv
+	 CF/VHq0iOz4tg==
+Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 27 Nov
+ 2026 10:24:52 +0100
+Received: (nullmailer pid 3468826 invoked by uid 1000);
+	Fri, 27 Nov 2026 09:24:52 -0000
+Date: Fri, 27 Nov 2026 10:24:51 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: Andrii Tereshchenko <opensource@andrii.net>
+CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+	<horms@kernel.org>, Dmitry Safonov <0x7f454c46@gmail.com>, Sabrina Dubroca
+	<sd@queasysnail.net>, <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>
+Subject: Re: [PATCH ipsec] xfrm/compat: pass on the translated length of a
+ socket policy
+Message-ID: <awlMY_jXPtnF8D2W@gauss4>
+References: <5249741d-fa84-4d54-bf77-45f48dbbb169@mid.andrii.net>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,76 +84,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3NzAPTAlrktpmEA--.64683S3
-X-Coremail-Antispam: 1Uf129KBjvJXoWxXFy8WFykXF1xGF1kGFWDtwb_yoW5Jw13pF
-	W5J398JF1vqrWrXa93Jr1kurWjya1DGFy7C3WIk3y0yrnxJryaqFy8KrW2qF98uFy8JrZ0
-	qrW5Zws8Ww4kWrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j1Hq7UUUUU=
-X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBlBE0C2sJTBHXKwAA35
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <5249741d-fa84-4d54-bf77-45f48dbbb169@mid.andrii.net>
+X-ClientProxiedBy: EXCH-02.secunet.de (10.32.0.172) To EXCH-01.secunet.de
+ (10.32.0.171)
 
-From: Linkui Xiao <xiaolinkui@kylinos.cn>
+On Mon, Nov 23, 2026 at 07:29:46PM -0800, Andrii Tereshchenko wrote:
+> xfrm_user_policy() compiles a 32-bit task's translated socket policy
+> with the untranslated length, 4 bytes short, so the policy loses its
+> last template: an ESP-required socket policy then sends in clear
+> text. Have the translator return the translated length.
+> 
+> Made with an AI coding assistant, reviewed by the submitter.
+> 
+> Fixes: 96392ee5a13b ("xfrm/compat: Translate 32-bit user_policy from sockptr")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
 
-netlbl_unlabel_staticlist() keeps its dump progress in cb->args[]: the
-bucket, the offset of the interface in that bucket, and the IPv4 and IPv6
-offsets in that interface.  It clears iter_addr4 once the whole IPv4 list
-of an interface has been walked, so if the skb fills up while the IPv6
-list of the same interface is being dumped, cb->args[2] is saved as zero.
-The next round resumes on that interface and dumps its IPv4 entries a
-second time, which shows up as duplicated lines in "netlbl_unlabel -l".
-
-This needs an interface that carries both IPv4 and IPv6 static entries and
-a configuration large enough for the dump to span more than one netlink
-message, but once it does the duplication is reproducible on every dump.
-
-Clear both address counters when an interface is started instead of when
-it is finished.  The skip counters still have to be cleared only after
-their own list has been walked in full, otherwise the offset saved for the
-interface where the previous dump stopped would also be applied to the
-interfaces that follow it.
-
-netlbl_unlabel_staticlistdef() dumps a single interface and never resets
-these counters, so it is not affected.
-
-Fixes: 866358ec331f ("netlabel: fix our progress tracking in netlbl_unlabel_staticlist()")
-Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
----
- net/netlabel/netlabel_unlabeled.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
-
-diff --git a/net/netlabel/netlabel_unlabeled.c b/net/netlabel/netlabel_unlabeled.c
-index d73c27b0c9d0..a5ebb8872946 100644
---- a/net/netlabel/netlabel_unlabeled.c
-+++ b/net/netlabel/netlabel_unlabeled.c
-@@ -1171,6 +1171,12 @@ static int netlbl_unlabel_staticlist(struct sk_buff *skb,
- 			if (!iface->valid ||
- 			    iter_chain++ < skip_chain)
- 				continue;
-+			/* Restart the address counters for this interface, the
-+			 * skip counters stay until their own list has been
-+			 * walked in full.
-+			 */
-+			iter_addr4 = 0;
-+			iter_addr6 = 0;
- 			netlbl_af4list_foreach_rcu(addr4,
- 						   &iface->addr4_list) {
- 				if (iter_addr4++ < skip_addr4)
-@@ -1186,7 +1192,6 @@ static int netlbl_unlabel_staticlist(struct sk_buff *skb,
- 					goto unlabel_staticlist_return;
- 				}
- 			}
--			iter_addr4 = 0;
- 			skip_addr4 = 0;
- #if IS_ENABLED(CONFIG_IPV6)
- 			netlbl_af6list_foreach_rcu(addr6,
-@@ -1204,7 +1209,6 @@ static int netlbl_unlabel_staticlist(struct sk_buff *skb,
- 					goto unlabel_staticlist_return;
- 				}
- 			}
--			iter_addr6 = 0;
- 			skip_addr6 = 0;
- #endif /* IPv6 */
- 		}
--- 
-2.25.1
-
+Applied, thanks a lot!
