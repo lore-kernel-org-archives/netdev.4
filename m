@@ -1,83 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.254.224.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795786203;
-	b=j3z2C/LrRZHH/AeaDVNBrPLwiXvmcLot3dxYEJLzEnY6mbZZ6AYmCsEmMEaH8zOuDpZ9
-	 TcEn5xQA9rPbryszS+XYBIh4+aE3s6amEvEG2XZiX6S/e7TBeT8LEfT/9PJzml4mmGXFH
-	 RWwAIsz60bD/HbHZ3bubOhIYZOR0ZDztUdd19i/xzALZd/JFL0bL+0U1d34n+DGJ20P3Y
-	 1TKkpXhrDd+6ULVREzeDhFLUhxoZ6FsjiBcmffYLjiM4+YICOFmNzG5A9sjAvmjftSgpE
-	 2LVdCCtmyYzytoOEpx2Dv4lvQ2Cwym7ZeKZ1Whtsx3Y9hMkeR8EXpZ6j52L9dys6JMQ==
+	t=1795786209;
+	b=0rz6LE2s79VDze5jKhedlnPEE42/GfX0FU8fqXI9FNtK04Q3NKQ+Je9ullMuLe8k3uqR
+	 DoHl81xR0sP5AqN+4l5KOPwJPkk/OAfhUQGD1AA+b5UsUYqJdXLv+mQzN4EmTWHu37Xw9
+	 gWR2XyzpCbmOpARNd7N76+HRZ08XDYyLIFFR9b/nYLq5G1x+kggzmTILeyPl9Y45pPiKQ
+	 xtSMnh08uerPE+dXj3laQkGvQnhKHIQ5IQEAJ/Q+pb1klI48JIe01udLWlEHzM0s3xm/T
+	 uuTzyZxbZE6cwl7349CTtCkRey4lS7qSnSuQVTpx1KQexJffSsWIfpPfIG6jHB6+bzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795786203;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
-	 In-Reply-To:MIME-Version:Content-Transfer-Encoding:X-CMS-MailID:
-	 X-Msg-Generator:Content-Type:CMS-TYPE:X-CPGSPASS:cpgsPolicy:
-	 X-CFilter-Loop:X-CMS-RootMailID:References;
-	bh=bEv+hQm3eXyw3BvNSKGemgO4AzU5CIYlzvjVm8xOefA=;
-	b=1gbCRN+0kauKZZzaXMJpXAF4GssuBUm6ewhhCXbQ48rULTupgpU9D3lZOuXtbMylSckH
-	 /FW5GpoESfDiiHvmW+yKaznNm4rYKjr/HeDDtawBcTs/Q43h0/nSuOjW56Gt5vkDoQrwm
-	 tTz2IOdQDwiah5f/QvDDbX019d6R/Dj2a44KbiWp7Fpb6vi0plU+v/b/7QIqujxMiTwnM
-	 3q74wPXB1fOxlGDqtU3WSTdkjX0bFsRg/RBpXS4NfXiU0C2q1BtipZxJcFEKXeiB4k350
-	 Nqgq4xDR6YLfqt4HFIYMtAsHXQ/fjyler8KAYAlJhgwNZPuuK0pC//W5RvShGfNUiFw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795786209;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=gT1wk/EW5UkWtNt1mV/GP2JY7Jq05n1STN8XjDBmi1A=;
+	b=zwHsB20Rs2lzaNhLqL4rue/MTyhOOhkltSeSrxOOZjoa5UDbAPvFIkRyn8g2GGfvuVU5
+	 clrflwemPgj4HNnGvLZoyhqaZNox0fxFUzvjW1PIklyEvghqsRYr24C3ro942F/Drky9h
+	 5oQ5lR287DLEx+NtYYnko5nXR1PIF6a2Buc89EY2/qDFLwH76eq/Qz82GJzXjBoc+987s
+	 YE1xiNchdV2awYyPPTXvE8HkGhEZnBrjNLINkyNs35894DQHotXmY+/cmL9DvwmRToLBB
+	 0iH/OwmQebBdVRnXMK/cyS1mp4fCjIFAASdhtL7ubE2TVt0BL11QU7Y0Uu6Z8cLfyEw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=nO833aR+;
-	arc=none smtp.remote-ip=203.254.224.33
-Received: from mailout3.samsung.com (mailout3.samsung.com [203.254.224.33])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=owqBHRlN;
+	arc=none smtp.remote-ip=209.85.218.54
+Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com [209.85.218.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51CFD606A32A
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:30:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51CFD606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C572606A321
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:30:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C572606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=nO833aR+
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20261127133000epoutp03bec8dc0338c7e5acc69b0f8f396cc29b~r6gjq34HE2163621636epoutp03x
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:30:00 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20261127133000epoutp03bec8dc0338c7e5acc69b0f8f396cc29b~r6gjq34HE2163621636epoutp03x
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795786200;
-	bh=bEv+hQm3eXyw3BvNSKGemgO4AzU5CIYlzvjVm8xOefA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nO833aR+gbEcTgvJwE0mi9yV7J8+O+UMw77hvmEg41yNFwqmtmoelK9u4HL49Kqhz
-	 XScA9OBDdhpmeb4JXa1BblDl6n4En+Xt5eh4ySImFNDmx7fwUqPzNSipbNkKrmBIUG
-	 +8vZin8W7Hevtf9Z6msmJuHUIvPwnVlJnHUfZaeY=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20261127132959epcas5p45b577a42def93e663ccc0e0e2766e909~r6gjE7xGl2919529195epcas5p4w;
-	Fri, 27 Nov 2026 13:29:59 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.93]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4jbZ5y447lz3hhT4; Fri, 27 Nov
-	2026 13:29:58 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20261127132957epcas5p4248d663f22ade00f0c45e349365bb3e8~r6ghXNje22027720277epcas5p4W;
-	Fri, 27 Nov 2026 13:29:57 +0000 (GMT)
-Received: from ws2030076956.sa.corp.samsungelectronics.net (unknown
-	[107.99.235.31]) by epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261127132954epsmtip205472b8d23c7fef3ab60ea87c36f3f18~r6gd10t621688316883epsmtip2O;
-	Fri, 27 Nov 2026 13:29:54 +0000 (GMT)
-From: Irlanki Sandeep <irlanki.s@samsung.com>
-To: kuniyu@google.com
-Cc: alexei.starovoitov@gmail.com, ameryhung@gmail.com, andrii@kernel.org,
-	ast@kernel.org, bpf@vger.kernel.org, corbet@lwn.net, cpgs@samsung.com,
-	daeil2.hwang@samsung.com, daniel@iogearbox.net, davem@davemloft.net,
-	edumazet@google.com, g.pokhra@samsung.com, irlanki.s@samsung.com,
-	kuba@kernel.org, linux-kernel@vger.kernel.org, lorenzo@google.com,
-	madhan.raj@samsung.com, maze@google.com, motomuman@google.com,
-	ncardwell@google.com, netdev@vger.kernel.org, pabeni@redhat.com,
-	r.kumawat@samsung.com, raj.kumars@samsung.com, ramyashree.s@samsung.com,
-	sharmasagarika@google.com, sporeba@google.com, srihari.k@samsung.com,
-	ts413.lee@samsung.com
-Subject: [PATCH bpf-next v10 2/2] selftests/bpf: add selftests for
- bpf_tcp_ops ecn_init
-Date: Fri, 27 Nov 2026 19:00:51 +0530
-Message-Id: <20261127133051.2540069-2-irlanki.s@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261127133051.2540069-1-irlanki.s@samsung.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=owqBHRlN
+Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c515369b627so876098566b.1
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:30:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795786207; x=1796391007; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gT1wk/EW5UkWtNt1mV/GP2JY7Jq05n1STN8XjDBmi1A=;
+        b=owqBHRlNX9brkGoupsEPjMJ/YOe5lVhkLo/R9Ape0agdoJUGcj2ExyeUSwfMGX6Nz7
+         2LcQYtu76kPD6ODzJ9getFml9dOdz0wAtt4C6kyFLCFZfnNxe7TBtqmfLGPp1+TmNqlp
+         r9uTNr+YwKSZjooyoTs21f/DgEdf4sfO2HH8YxcE5wxQu/GEZqn5LKb5SBYzTu05RMtK
+         DQaAvJZxNIBy9+RNQkCGjKhViN3qcXR0xyae8Lf/aZBGPTnNJO/ZOP+uRgpp+9+03pDG
+         UldGb+IJjEnxlgD+WRjhz+0W+/1s1e4okaKkYWl2eOOozREzVNMC6Af2Xflu2mbRgzJK
+         +iYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795786207; x=1796391007;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=gT1wk/EW5UkWtNt1mV/GP2JY7Jq05n1STN8XjDBmi1A=;
+        b=K7CuJsynikg32H+IchKizaJp+jhArfEB6BDj8WyEwutocWAbieGHwx1Ns0S2wAKbmx
+         eZU5WsfshcMXTDhZ7jdbQeFqi+F/B0IDb3S0Y5+Y6d2jGRXI3xcMzCCwoopJ+Aj6DuNh
+         TCGkStP1D2tgpz2dM7ZF7NIjnpnKiKxpe9PuyvDRRfrut3GUdjPkkBz3WaspwE+xTUjT
+         tLXb6dlnZLsIV5BEkjtEl7BdzrildJmItoCzL3Sya5QKoBaHZ2zLF/FUnWmversZYOdg
+         l7o83ibgo40Y2iLRR5jfl1EAEakepgciCJjMLWlkakMPTN2NbPKWjp4soiEhi03Y81Yb
+         13IA==
+X-Forwarded-Encrypted: i=1; AL+hErF8yL/lI2dClaLduoOCFsVobXS9UwX42gcT5E1UOTShWsEMBDZeNTXovtpfAKUbYet1iOMgLdY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/5ljqITZGcTx6LPf0GLt/9Te2NRrKXlRBVZpqOq4HA6g9qJP/I
+	addSXdlJJl/7CXAc8aUrHkhdOcmIF5Jq1B0QbMEf6LjzcMb8Rj3dKkxB1o0vZqSaeq5xcQ==
+X-Gm-Gg: AZFdTZdkR8z2zIK/c5UP/v2Zqnduf2gdpcx7KFjh58wEkd8wWrGZm6xbsUDCrg4aQDS
+	9Gvf9ZBGOVlGjd3KhTCEa6S9WTfJi8Acj6xUq0DJyyScRq1Hc3wPF4wnMZ88AMe2MR2v2RV2dvd
+	gC1quHscpjS33rJtVoigbIUoOfNLV32/6N50qh2jz0jrK1cYBkOSL41ILek14Hk+thtUrazf6hs
+	1DpQMKSZAwZ/PDR3AmfDONmui8qpKE1ev+LsuOnfqTbrqSC8wZb86JbWLdjtrrH4s7nYLcL5c9g
+	e5tMX7G6dLlxpM6JHAotUe2X/vN4X40OV82UnrVD6OGolikWSs0ipsvu7GzufoH1wf5GTyitupL
+	d9VDGlbe2j+7K5sOYNR0m/jtIeHLJImEijdD0x4qJj4TdxmZ7kTFuvqiyltUNn852mTqTIJEIqc
+	ypaNnNw+zAiE2RdnoNKXO5BgVCD+P4ZCpP2HboZbnAoKEUjBomx59L3H2ii81W7LevIrSxKJNvq
+	LUfwL2sjeJ8itYRu6bFbO01NZ1zv7J4zbeaeuAZb+NwjaYhI4MahYs1WVObfY9PV58q6/GG5/CD
+	IPxxPZ8a9CTAeDP+Kh1Gx4HrvnUkkhDWYX06cU1G6ft0rXbc0qJ0oFQx9SDQ+OTjHLm9Hu2CAbl
+	VDfiTHuhan+3tkVoAEMAYDgQxJryeQoJ36MTmAoPbUv+6yGPfWajKBuwNDZv8DBG2iMBpztgwmJ
+	5FWwGe5wkxHrPqnLpAUNrBZSTl9CFxzJb5ZCF5pl09EGhOIbYlitVXwjSLT9+2waU=
+X-Received: by 2002:a17:907:a890:b0:c51:24a3:fdcd with SMTP id a640c23a62f3a-c513aace71fmr2108908266b.17.1795786207212;
+        Fri, 27 Nov 2026 05:30:07 -0800 (PST)
+Received: from [192.168.100.100] (87-205-15-91.static.ip.netia.com.pl. [87.205.15.91])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc2455sm859101866b.57.2026.11.27.05.30.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 05:30:06 -0800 (PST)
+Message-ID: <5ad2c46b-4ed9-4689-950f-93753fa1586e@gmail.com>
+Date: Fri, 27 Nov 2026 14:30:05 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -87,345 +94,63 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261127132957epcas5p4248d663f22ade00f0c45e349365bb3e8
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-X-CPGSPASS: Y
-cpgsPolicy: CPGSC10-065,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20261127132957epcas5p4248d663f22ade00f0c45e349365bb3e8
-References: <20261127132411.2523201-1-irlanki.s@samsung.com>
-	<20261127133051.2540069-1-irlanki.s@samsung.com>
-	<CGME20261127132957epcas5p4248d663f22ade00f0c45e349365bb3e8@epcas5p4.samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2 0/2] net/x25: don't call lock_sock() from softirq
+ in x25_kill_by_neigh()
+To: Martin Schiller <ms@dev.tdt.de>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>,
+ Simon Horman <horms@kernel.org>, Lin Ma <linma@zju.edu.cn>,
+ Duoming Zhou <duoming@zju.edu.cn>, Xiyu Yang <xiyuyang19@fudan.edu.cn>,
+ Xin Tan <tanxin.ctf@gmail.com>
+Cc: linux-x25@vger.kernel.org, netdev@vger.kernel.org,
+ Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>,
+ Shuai Liu <847807867@qq.com>,
+ syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com,
+ syzbot+9faa82ae2e94c5c7d2ef@syzkaller.appspotmail.com,
+ linux-kernel@vger.kernel.org
+References: <20261127-x25-kill-by-neigh-v2-0-c7cdcc9f1320@dev.tdt.de>
+Content-Language: en-US
+From: Krystian Kaniewski <krystianmkaniewski@gmail.com>
+In-Reply-To: <20261127-x25-kill-by-neigh-v2-0-c7cdcc9f1320@dev.tdt.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Add a bpf_tcp_ops struct_ops selftest for the new ecn_init callback. It
-runs over IPv4 and IPv6 loopback connections. For each case the test sets
-net.ipv4.tcp_ecn, and the BPF program returns the ECN mode for the active
-and the passive side. The seven cases are:
+Hi Martin,
 
-- BPF enables classic RFC3168 ECN while the sysctl disables ECN.
-- BPF enables AccECN while the sysctl disables ECN.
-- Client requests AccECN, server accepts only classic ECN: negotiation
-  ends at RFC3168.
-- Server BPF refuses ECN while the sysctl allows it.
-- Client BPF returns no ECN while the sysctl allows it.
-- Out-of-range return value (6) falls back to the sysctl.
-- Negative return value falls back to the sysctl.
+I tested v2 on net c5de2ce2fccd in QEMU with the syzbot config of
+300375dfd44665f063a6. The syz reproducer of that report and both
+reproducers of 9faa82ae2e94c5c7d2ef hit the splats without the series
+and run clean with it. Link loss, restart and NETDEV_DOWN with idle and
+owned calls are clean too, and your tests 2 and 3 pass. The same holds
+with the PREEMPT_RT config of 9faa82ae2e94c5c7d2ef.
 
-For each case the test checks that ecn_init() runs once on the
-active side. On the passive side it runs once when the SYN requests
-ECN (AccECN or ECE+CWR). If the client's SYN requests neither, the
-kernel skips the call and the test expects no passive invocation.
-When the program runs, bpf_get_retval() must be seeded with the
-sysctl value on that side. The negotiated ECN mode on the client
-and accepted sockets must match the expected value.
+On the question of the netdev bot: patch 2 fixes a bug that can be hit
+at runtime, the x25_recvmsg() case included. The window is narrow, but
+a test can hold it open. A second thread owns the socket, stalled in a
+userfaultfd copy, while sendmsg() or recvmsg() waits with the lock
+dropped, and a CLEAR REQUEST from the peer goes to the backlog. For
+x25_sendmsg() and x25_output() an RR in the backlog first frees the
+send buffer, and the sender runs at SCHED_FIFO on the owner's CPU, so
+it gets its skb before the CLEAR REQUEST is processed. For
+x25_recvmsg() the CLEAR REQUEST follows a short DATA packet and the
+first fragment of a longer message, and the receive buffer is small,
+so the fragment sets X25_COND_OWN_RX_BUSY and x25_disconnect() purges
+it again. Without patch 2 all three end in a NULL pointer dereference
+(trimmed):
 
-Signed-off-by: Irlanki Sandeep <irlanki.s@samsung.com>
----
-v9 -> v10:
- - Split the selftests into a separate patch
+  KASAN: null-ptr-deref in range [0x0000000000000018-0x000000000000001f]
+  RIP: 0010:x25_sendmsg+0x8b2/0x1580
+  Call Trace:
+   __sys_sendto+0x48a/0x4e0
+   __x64_sys_sendto+0xe0/0x1c0
+   do_syscall_64+0x125/0x7a0
 
- .../bpf/prog_tests/bpf_tcp_ops_ecn.c          | 224 ++++++++++++++++++
- .../selftests/bpf/progs/bpf_tcp_ops_ecn.c     |  57 +++++
- 2 files changed, 281 insertions(+)
- create mode 100644 tools/testing/selftests/bpf/prog_tests/bpf_tcp_ops_ecn.c
- create mode 100644 tools/testing/selftests/bpf/progs/bpf_tcp_ops_ecn.c
+The other two stop in x25_output+0x51f, called from x25_sendmsg(), and
+in x25_write_internal+0x26f, called from x25_check_rbuf() in
+x25_recvmsg(). With the series send() returns ENOTCONN and recv()
+returns the data. I can send the test program if it helps.
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/bpf_tcp_ops_ecn.c b/tools/testing/selftests/bpf/prog_tests/bpf_tcp_ops_ecn.c
-new file mode 100644
-index 000000000000..f74791676585
---- /dev/null
-+++ b/tools/testing/selftests/bpf/prog_tests/bpf_tcp_ops_ecn.c
-@@ -0,0 +1,224 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2026 Samsung Electronics Co., Ltd. */
-+
-+#include <test_progs.h>
-+#include <network_helpers.h>
-+#include "cgroup_helpers.h"
-+#include "bpf_tcp_ops_ecn.skel.h"
-+
-+#define CGROUP_PATH	"/bpf_tcp_ops_ecn"
-+#define TEST_NETNS	"bpf_tcp_ops_ecn"
-+
-+/* Must match progs/bpf_tcp_ops_ecn.c */
-+#define TCP_ECN_MODE_DISABLED	0x00
-+#define TCP_ECN_MODE_RFC3168	0x01
-+#define TCP_ECN_MODE_ACCECN	0x10
-+
-+struct ecn_case {
-+	const char *name;
-+	int sysctl_ecn;		/* net.ipv4.tcp_ecn in the test netns */
-+	int retval_active;	/* ecn_init() return value, active open */
-+	int retval_passive;	/* ecn_init() return value, passive open */
-+	__u32 mode_client;	/* expected ECN mode on the client socket */
-+	__u32 mode_server;	/* expected ECN mode on the accepted socket */
-+	bool passive_runs;	/* ecn_init() runs on passive side: SYN requests ECN */
-+};
-+
-+/*
-+ * net.ipv4.tcp_ecn / ecn_init() values (enum tcp_ecn_mode): 0 == no ECN,
-+ * 1 == accept + request RFC3168 ECN, 3 == accept + request AccECN.
-+ */
-+static const struct ecn_case ecn_cases[] = {
-+	{
-+		/* The sysctl disables ECN; BPF negotiates RFC3168 ECN. */
-+		.name = "bpf_enables_classic",
-+		.passive_runs = true,
-+		.sysctl_ecn = 0,
-+		.retval_active = 1,
-+		.retval_passive = 1,
-+		.mode_client = TCP_ECN_MODE_RFC3168,
-+		.mode_server = TCP_ECN_MODE_RFC3168,
-+	},
-+	{
-+		/* The sysctl disables ECN; BPF negotiates AccECN. */
-+		.name = "bpf_enables_accecn",
-+		.passive_runs = true,
-+		.sysctl_ecn = 0,
-+		.retval_active = 3,
-+		.retval_passive = 3,
-+		.mode_client = TCP_ECN_MODE_ACCECN,
-+		.mode_server = TCP_ECN_MODE_ACCECN,
-+	},
-+	{
-+		/*
-+		 * The client requests AccECN but the server only accepts
-+		 * RFC3168 ECN (< 3): negotiation degrades to RFC3168.
-+		 */
-+		.name = "passive_clamps_accecn",
-+		.passive_runs = true,
-+		.sysctl_ecn = 0,
-+		.retval_active = 3,
-+		.retval_passive = 1,
-+		.mode_client = TCP_ECN_MODE_RFC3168,
-+		.mode_server = TCP_ECN_MODE_RFC3168,
-+	},
-+	{
-+		/* The server refuses ECN although the sysctl allows it. */
-+		.name = "passive_refuses_ecn",
-+		.passive_runs = true,
-+		.sysctl_ecn = 1,
-+		.retval_active = 3,
-+		.retval_passive = 0,
-+		.mode_client = TCP_ECN_MODE_DISABLED,
-+		.mode_server = TCP_ECN_MODE_DISABLED,
-+	},
-+	{
-+		/*
-+		 * The client does not request ECN although the sysctl
-+		 * allows it, so there is nothing for the server to accept.
-+		 */
-+		.name = "active_disables_ecn",
-+		.passive_runs = false,
-+		.sysctl_ecn = 1,
-+		.retval_active = 0,
-+		.retval_passive = 3,
-+		.mode_client = TCP_ECN_MODE_DISABLED,
-+		.mode_server = TCP_ECN_MODE_DISABLED,
-+	},
-+	{
-+		/*
-+		 * Return values above TCP_ECN_IN_ACCECN_OUT_NOECN fall back
-+		 * to the sysctl on both sides.
-+		 */
-+		.name = "fallback_above_range",
-+		.passive_runs = true,
-+		.sysctl_ecn = 1,
-+		.retval_active = 6,
-+		.retval_passive = 6,
-+		.mode_client = TCP_ECN_MODE_RFC3168,
-+		.mode_server = TCP_ECN_MODE_RFC3168,
-+	},
-+	{
-+		/* Negative return values fall back to the sysctl too. */
-+		.name = "fallback_negative",
-+		.passive_runs = true,
-+		.sysctl_ecn = 1,
-+		.retval_active = -1,
-+		.retval_passive = -1,
-+		.mode_client = TCP_ECN_MODE_RFC3168,
-+		.mode_server = TCP_ECN_MODE_RFC3168,
-+	},
-+};
-+
-+/*
-+ * Connect over loopback and accept() the child socket, so that
-+ * passive_established is guaranteed to have run: the listener is woken
-+ * up only after tcp_rcv_state_process() moved the child to established.
-+ */
-+static void do_ecn_connect(int family)
-+{
-+	const char *addr = family == AF_INET ? "127.0.0.1" : "::1";
-+	int server_fd, client_fd, accepted_fd;
-+
-+	server_fd = start_server(family, SOCK_STREAM, addr, 0, 0);
-+	if (!ASSERT_GE(server_fd, 0, "start_server"))
-+		return;
-+
-+	client_fd = connect_to_fd(server_fd, 0);
-+	if (ASSERT_OK_FD(client_fd, "connect_to_fd")) {
-+		accepted_fd = accept(server_fd, NULL, NULL);
-+		if (ASSERT_OK_FD(accepted_fd, "accept"))
-+			close(accepted_fd);
-+		close(client_fd);
-+	}
-+
-+	close(server_fd);
-+}
-+
-+static void test_ecn(int cgroup_fd, struct bpf_tcp_ops_ecn *skel, int family)
-+{
-+	struct bpf_link *link;
-+	char buf[128];
-+	int i;
-+
-+	link = bpf_map__attach_cgroup_opts(skel->maps.ecn_ops, cgroup_fd, NULL);
-+	if (!ASSERT_OK_PTR(link, "attach_ecn_ops"))
-+		return;
-+
-+	for (i = 0; i < ARRAY_SIZE(ecn_cases); i++) {
-+		const struct ecn_case *c = &ecn_cases[i];
-+
-+		snprintf(buf, sizeof(buf), "%d", c->sysctl_ecn);
-+		if (!ASSERT_OK(write_sysctl("/proc/sys/net/ipv4/tcp_ecn", buf),
-+			       "write_sysctl_tcp_ecn"))
-+			break;
-+
-+		skel->bss->ecn_retval_active = c->retval_active;
-+		skel->bss->ecn_retval_passive = c->retval_passive;
-+		skel->bss->ecn_seed_active = -1;
-+		skel->bss->ecn_seed_passive = -1;
-+		skel->bss->ecn_active_cnt = 0;
-+		skel->bss->ecn_passive_cnt = 0;
-+		skel->bss->ecn_mode_client = 0xdead;
-+		skel->bss->ecn_mode_server = 0xdead;
-+
-+		do_ecn_connect(family);
-+
-+		/*
-+		 * ecn_init() runs once on the active side. On the passive side it
-+		 * runs only if the SYN requested ECN (tcp_ecn_create_request()).
-+		 */
-+		snprintf(buf, sizeof(buf), "%s: active_cnt", c->name);
-+		ASSERT_EQ(skel->bss->ecn_active_cnt, 1, buf);
-+		snprintf(buf, sizeof(buf), "%s: passive_cnt", c->name);
-+		ASSERT_EQ(skel->bss->ecn_passive_cnt, c->passive_runs ? 1 : 0, buf);
-+
-+		/* bpf_get_retval() must be seeded with the sysctl value. */
-+		snprintf(buf, sizeof(buf), "%s: seed_active", c->name);
-+		ASSERT_EQ(skel->bss->ecn_seed_active, c->sysctl_ecn, buf);
-+		snprintf(buf, sizeof(buf), "%s: seed_passive", c->name);
-+		ASSERT_EQ(skel->bss->ecn_seed_passive,
-+			  c->passive_runs ? c->sysctl_ecn : -1, buf);
-+
-+		snprintf(buf, sizeof(buf), "%s: mode_client", c->name);
-+		ASSERT_EQ(skel->bss->ecn_mode_client, c->mode_client, buf);
-+		snprintf(buf, sizeof(buf), "%s: mode_server", c->name);
-+		ASSERT_EQ(skel->bss->ecn_mode_server, c->mode_server, buf);
-+	}
-+
-+	bpf_link__destroy(link);
-+}
-+
-+static void run_ecn_subtest(int family)
-+{
-+	struct bpf_tcp_ops_ecn *skel = NULL;
-+	struct netns_obj *ns = NULL;
-+	int cgroup_fd;
-+
-+	cgroup_fd = test__join_cgroup(CGROUP_PATH);
-+	if (!ASSERT_GE(cgroup_fd, 0, "join_cgroup"))
-+		return;
-+
-+	ns = netns_new(TEST_NETNS, true);
-+	if (!ASSERT_OK_PTR(ns, "netns_new"))
-+		goto done;
-+
-+	skel = bpf_tcp_ops_ecn__open_and_load();
-+	if (!ASSERT_OK_PTR(skel, "open_and_load"))
-+		goto done;
-+
-+	test_ecn(cgroup_fd, skel, family);
-+
-+done:
-+	bpf_tcp_ops_ecn__destroy(skel);
-+	netns_free(ns);
-+	close(cgroup_fd);
-+}
-+
-+void test_bpf_tcp_ops_ecn(void)
-+{
-+	if (test__start_subtest("ipv4"))
-+		run_ecn_subtest(AF_INET);
-+	if (test__start_subtest("ipv6"))
-+		run_ecn_subtest(AF_INET6);
-+}
-diff --git a/tools/testing/selftests/bpf/progs/bpf_tcp_ops_ecn.c b/tools/testing/selftests/bpf/progs/bpf_tcp_ops_ecn.c
-new file mode 100644
-index 000000000000..596566148858
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/bpf_tcp_ops_ecn.c
-@@ -0,0 +1,57 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2026 Samsung Electronics Co., Ltd. */
-+
-+#include "vmlinux.h"
-+#include <bpf/bpf_helpers.h>
-+#include <bpf/bpf_tracing.h>
-+
-+/* TCP_ECN_MODE_* bits of tcp_sock::ecn_flags, from include/net/tcp.h */
-+#define TCP_ECN_MODE_RFC3168	0x01
-+#define TCP_ECN_MODE_ACCECN	0x10
-+#define TCP_ECN_MODE_ANY	(TCP_ECN_MODE_RFC3168 | TCP_ECN_MODE_ACCECN)
-+
-+int ecn_retval_active;		/* ecn_init() return value, active open */
-+int ecn_retval_passive;		/* ecn_init() return value, passive open */
-+int ecn_seed_active;		/* bpf_get_retval() seen on active open */
-+int ecn_seed_passive;		/* bpf_get_retval() seen on passive open */
-+__u32 ecn_active_cnt;
-+__u32 ecn_passive_cnt;
-+__u32 ecn_mode_client;		/* negotiated ECN mode, client socket */
-+__u32 ecn_mode_server;		/* negotiated ECN mode, accepted socket */
-+
-+SEC("struct_ops")
-+int BPF_PROG(ecn_ops_ecn_init, struct sock *sk, struct request_sock *req)
-+{
-+	if (req) {
-+		ecn_passive_cnt++;
-+		ecn_seed_passive = bpf_get_retval();
-+		return ecn_retval_passive;
-+	}
-+
-+	ecn_active_cnt++;
-+	ecn_seed_active = bpf_get_retval();
-+	return ecn_retval_active;
-+}
-+
-+SEC("struct_ops")
-+void BPF_PROG(ecn_ops_active_established, struct sock *sk,
-+	      struct sk_buff *skb)
-+{
-+	ecn_mode_client = ((struct tcp_sock *)sk)->ecn_flags & TCP_ECN_MODE_ANY;
-+}
-+
-+SEC("struct_ops")
-+void BPF_PROG(ecn_ops_passive_established, struct sock *sk,
-+	      struct sk_buff *skb)
-+{
-+	ecn_mode_server = ((struct tcp_sock *)sk)->ecn_flags & TCP_ECN_MODE_ANY;
-+}
-+
-+SEC(".struct_ops.link")
-+struct bpf_tcp_ops ecn_ops = {
-+	.ecn_init = (void *)ecn_ops_ecn_init,
-+	.active_established = (void *)ecn_ops_active_established,
-+	.passive_established = (void *)ecn_ops_passive_established,
-+};
-+
-+char _license[] SEC("license") = "GPL";
+Tested-by: Krystian Kaniewski <krystianmkaniewski@gmail.com>
 -- 
-2.34.1
-
+Krystian Kaniewski
