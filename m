@@ -1,58 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795747309;
-	b=UmOMK7j1OZg4W1Mz4Xlwyenx2JaSyexQCDceiJeZ0YGzS5HbtSnQHA43NfyeXvCTIF+n
-	 PLsALQWTVoBBmIFC/epZkfRIxFz+mTW66uDLtKjIoax/H2AsRoeDio8veCli86nRVea48
-	 B23mzSCUsVvgqPjw4p/Sf2TS4SRvrF36ZB9DsHG7K1xDrDmVecPIoDIlLN2YoYI6vkKzM
-	 jL0QWMhKg0LvoqdUn5WdCwtMsRUFWOIVgmny4l//sJYovbUuNczsZDS3dafGQYY7G3Iar
-	 9nkVbD4v9S3WupXVlCn8RPLyz2PSuegTQdK+UVGLL0gWTRlVw+fVkD7ZI+hTa3Ts+bA==
+	t=1795748421;
+	b=msGSr9FRmHfCA9DML1OXHmbS8oglLSHXY348CLN0yyv+64QNKCiOc+bbY6F7qPio2LWn
+	 s80eeRKmUyKkQp7qR8PS+ZMdzv0JptqbMrLrwAx6D+W90w27KY8gA1r7RD4MQ3DNzERP/
+	 gPEhsjIJ4awFUmnaZRCQHTE02vumqpbyF2HzWeEN/y8AgMs/O0fm9icJ6OJJgqbeRBdtH
+	 2x5GrXFakHn9pyTJR6CttQXJxf3Oe8PiOvcQi1MgKAPGlmDqQYkkShbvPemlf53bR518l
+	 SXxTCUwvPMvbtIDBhJmEIxek50lDNWrwvqt2BH5tjS7JnDvFRiEkDb/dkkZ4VHkQNaA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795747309;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795748421;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=VAR2rz8eXDLkPjCKjfmnvh48//s9d1yIgXhNth07Doc=;
-	b=vcdtmrobslrD114mM0wB0/o/sAuj9jA7tpAaluqtQrI/yGyz4ixoQTbCuwxjLqfDSGM7
-	 7V8YoGRK2eJGnUOAUlCNg7X4qaZYsfigTGVvHOlaBk9KhHvzOqFPAMdWL3fe6z+f6SMuX
-	 vIq4Z9E9fBYKA+NGO01ciNUkqXASzfHB5jeclevGBc/IYyweASMRTgEW8l/Kgu+QEXIq4
-	 0QpSJ+u8K2GOAKXu6JXP8lQWixwxr8KHu2Z7Jiwd0u1BQ/Lta+TBeQ7lbMVTHC4yLpDM6
-	 kSgLFMJzXv/XjdCQo03Fp9AA7+92Y5796g94jVGYvW/7XAH+uBbC5PglAJCZ/w7utZA==
+	bh=hMApwIg4ccUL/UyqPXsHiMrSMPM8gjtRIzIDGfh+Ylw=;
+	b=G14OD9E1Gsi99XHmptPWygEo9hQO2fNIbMrfny1DGttyQAuQtFJsMw+03/fpgq5CUecN
+	 vG0uMysqeItUNopg5aaDgtB62UVskBf27GB1t+5KJ49tzm4rE2hH5joyTq9IrdOaZ8S0V
+	 r85ZcfM0PeZHi98elk/7nClUIMoNrjah9bBUeJ+GX757dtKFMU0OyAWEQZJY2pgoiA19a
+	 ne/0SsGKWpML7pVSmueh8oQloBWnG6LWNWqu33r0IH/w5xO22JzEhySOwwjOdAQrbOmvH
+	 QlWMATm3v8qp0JHL3Ce84vP754iNCnUJQ6fkc9XXRVcnxgTXs0fN2im9rHzimleZFsw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c0fyoVmX;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OSBOBqUn;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35A6E606A31E;
-	Fri, 27 Nov 2026 02:41:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 533CC606A326;
+	Fri, 27 Nov 2026 03:00:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c0fyoVmX
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AE131F000C1;
-	Fri, 27 Nov 2026 02:41:48 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OSBOBqUn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D96591F00923;
+	Fri, 27 Nov 2026 03:00:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795747308;
-	bh=VAR2rz8eXDLkPjCKjfmnvh48//s9d1yIgXhNth07Doc=;
+	s=k20260515; t=1795748420;
+	bh=hMApwIg4ccUL/UyqPXsHiMrSMPM8gjtRIzIDGfh+Ylw=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=c0fyoVmXK60ROx38e7J/XKeMSPpRHy+ayOjW/uc+Rzp0silZ0W0jW/ycmbFx9DRSu
-	 RpCFRNZ0hKJkVSaqnTJJboOnqQRUrCHa1n3pNkYN/HBUJf2RkeOTOcKuyoIzY4fFJn
-	 FXKUN33u8uUXeSiGe8Od+RRHCH58DCWtpP7wWmHy8L7zV1zAHfwqNc1oVrXp0RQMxL
-	 xSzkSTCsMZZB7QYZs7DbAczm9y5qUc6iKBJCye2u2l/CW564qmPIFs2wjPEIw4v/Nw
-	 YC6cvMosL/kOgoP/f8XTIIBq85UvDT+O6/iN03xh0S87ytisuJJtlsj0btHqh//yuR
-	 Ob9aktQN50ipg==
-Subject:
- Re: [PATCH v2] net: ethtool: do not call get_regs() for zero-length dumps
+	b=OSBOBqUnHLedRCtaXJ4p+M5VYiukJ1PwKjgjrRm27IPZRLuHkbhyfPhbzJLkqw+gJ
+	 Hx0e0zAc1sjObOQZdnmfR6NTkQd0z5woiyo2OC6FCRlkxC8n4xrcZsDi/F3yvKA5Pk
+	 gUwU6N9Sz3geZgEL6KgFJSodeN9x/GMvR0vQJWwljCsy/cHZ//DHgc8t6sARH6mQxt
+	 mL1NdIZdFxojBVL7B9gD7CPZjqOWTyoHHH6kKR3xd7Hyevbc+3MziD9weIITwrdZ6P
+	 7gcU+ZBh3bdZT6EOcQtcuDL9ukBvaWeBlKuPI27pE+PvT4pierYLMaYr0WxB8mcMvp
+	 5O/6M7Pindvfw==
+Subject: Re: [PATCH net-next v14 02/15] net: dsa: realtek: rtl8365mb: add chip
+ family infrastructure
 From: netdev-bot+sashiko@kernel.org
-To: 25031212351@stu.xidian.edu.cn
-Cc: andrew@lunn.ch, kuba@kernel.org, davem@davemloft.net, edumazet@kernel.org,
- pabeni@redhat.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, horms@kernel.org, byu@xidian.edu.cn,
- wencheng@xidian.edu.cn
-Date: Fri, 27 Nov 2026 02:41:47 +0000
-Message-ID: <179574730769.3135.6060942775562840087@kernel.org>
-In-Reply-To: <20261126015239.6038-1-25031212351@stu.xidian.edu.cn>
-References: <20261126015239.6038-1-25031212351@stu.xidian.edu.cn>
-X-sashiko-severity: Medium
+To: namiltd@yahoo.com
+Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
+ fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev,
+ o.rempel@pengutronix.de
+Date: Fri, 27 Nov 2026 03:00:19 +0000
+Message-ID: <179574841941.3135.14226342893059359025@kernel.org>
+In-Reply-To: <b2f42e59-b629-47dc-a61a-d87580516fdc@yahoo.com>
+References: <b2f42e59-b629-47dc-a61a-d87580516fdc@yahoo.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -65,149 +68,69 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] In ethtool_get_regs() (net/ethtool/ioctl.c), the new `if
-  (!regs.len) return 0;` check runs before `ops->get_regs_len()` and its…
-- [Low] In ethtool_get_regs() (net/ethtool/ioctl.c), ETHTOOL_GREGS with
-  regs.len == 0 now returns success without calling ops->get_regs() and…
+- [Low] This patch removes the kernel-doc entries '@jam_table: chip-
+  specific initialization jam table' and '@jam_size: size of the chip's…
 
 --
 
-net: ethtool: do not call get_regs() for zero-length dumps
+net: dsa: realtek: rtl8365mb: add chip family infrastructure
 
-This patch adds an early return to ethtool_get_regs() when the
-user-supplied regs.len is zero, so the driver's get_regs() is no longer
-called for a zero-length dump. The goal is to stop drivers such as mcs7830
-from issuing zero-length USB control transfers on the receive pipe. Those
-transfers trip a WARN in usb_submit_urb().
+This patch adds enum rtl8365mb_family and struct rtl8365mb_family_info,
+which hold the data shared by all chips of one family (the family id and
+the init jam table). struct rtl8365mb_chip_info now points to a
+family_info instance, and all existing chips use RTL8365MB_FAMILY_C.
+rtl8365mb_get_family_info() and rtl8365mb_is_d() are declared in a new
+rtl8365mb.h.
 
-> diff --git a/net/ethtool/ioctl.c b/net/ethtool/ioctl.c
-> index 80b7930b3fe0d..e8af861ee5de3 100644
-> --- a/net/ethtool/ioctl.c
-> +++ b/net/ethtool/ioctl.c
-> @@ -1779,6 +1779,10 @@ static int ethtool_get_regs(struct net_device *dev, char __user *useraddr)
->  	if (copy_from_user(&regs, useraddr, sizeof(regs)))
->  		return -EFAULT;
->  
-> +	/* A zero-length dump has nothing to fill in. */
-> +	if (!regs.len)
-> +		return 0;
+> diff --git a/drivers/net/dsa/realtek/rtl8365mb.h b/drivers/net/dsa/realtek/rtl8365mb.h
+> new file mode 100644
+> index 0000000000000..7b0c7109378c6
+> --- /dev/null
+> +++ b/drivers/net/dsa/realtek/rtl8365mb.h
+
+[ ... ]
+
+> +struct rtl8365mb_jam_tbl_entry;
 > +
->  	reglen = ops->get_regs_len(dev);
->  	if (reglen <= 0)
->  		return reglen;
-
-[Severity: Medium]
-Can this early return hide errors from get_regs_len()?
-
-The new check runs before ops->get_regs_len(). So when regs.len is 0, a
-negative return such as -EOPNOTSUPP is never passed back. The ioctl
-reports success and copies nothing back.
-
-A GREGS request with len == 0 is what a normal ethtool -d sends when
-get_regs_len() fails. That happens because ethtool_get_drvinfo() only sets
-regdump_len for positive values:
-
-net/ethtool/ioctl.c:ethtool_get_drvinfo() {
-    ...
-	if (ops->get_regs_len) {
-		int ret = ops->get_regs_len(dev);
-
-		if (ret > 0)
-			rsp->info.regdump_len = ret;
-	}
-    ...
-}
-
-Userspace then sees regdump_len == 0 and sends ETHTOOL_GREGS with
-regs.len == 0.
-
-There are two in-tree examples. DSA user ports always install
-dsa_user_get_regs(), so the !ops->get_regs check does not catch them, but:
-
-net/dsa/user.c:dsa_user_get_regs_len() {
-    ...
-	if (ds->ops->get_regs_len)
-		return ds->ops->get_regs_len(ds, dp->index);
-
-	return -EOPNOTSUPP;
-}
-
-And hns3:
-
-drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c:hns3_get_regs_len() {
-    ...
-	if (!h->ae_algo->ops->get_regs_len)
-		return -EOPNOTSUPP;
-
-	return h->ae_algo->ops->get_regs_len(h);
-}
-
-Before this patch, ethtool -d on these devices printed an error such as
-"Cannot get register dump: Operation not supported". With this patch,
-ethtool -d appears to succeed with an empty dump.
-
-In the standard ethtool flow, this seems to undo the error reporting that
-commit f9fc54d313fa ("ethtool: check the return value of get_regs_len")
-added for hns3. The commit message does not mention this.
-
-Would moving the zero-length check after the "if (reglen <= 0) return
-reglen;" check keep the error codes? It would still avoid calling
-get_regs() with len == 0.
+> +struct rtl8365mb_family_info {
+> +	enum rtl8365mb_family family;
+> +	const struct rtl8365mb_jam_tbl_entry *jam_table;
+> +	size_t jam_size;
+> +};
 
 [Severity: Low]
-For drivers whose get_regs_len() returns a positive value, does this
-change what a len == 0 query returns in regs.version?
+This isn't a bug, but should struct rtl8365mb_family_info have a
+kernel-doc block?
 
-Before this patch, such a request skipped the clamp and set reglen to 0.
-It then called ops->get_regs() and copied the ethtool_regs header back.
-For example, mcs7830 fills in the version:
+The patch removes these lines from the struct rtl8365mb_chip_info
+kernel-doc in rtl8365mb_main.c:
 
-drivers/net/usb/mcs7830.c:mcs7830_get_regs() {
-    ...
-	regs->version = mcs7830_get_rev(dev);
-	mcs7830_get_reg(dev, 0, regs->len, data);
-}
+ * @jam_table: chip-specific initialization jam table
+ * @jam_size: size of the chip's jam table
 
-Now the ioctl returns success without calling get_regs() and without
-copying the header back. regs.version keeps whatever userspace passed in.
+The jam_table and jam_size fields themselves move unchanged into
+struct rtl8365mb_family_info. That struct has no kernel-doc, and the new
+family member isn't documented either. struct rtl8365mb_extint and
+struct rtl8365mb_chip_info in the same driver still document every
+member.
 
-The uAPI kernel-doc for struct ethtool_regs in
-include/uapi/linux/ethtool.h still describes @version as driver-specific
-output.
+The struct has no /** marker, so kernel-doc won't warn about it. Later
+patches in the series add about 18 more members to this struct
+(ext_config_forcemode, vlan_4k_read/write, vlan_port_get_pvid,
+l2_entry_size, the l2_*_to_* converters and the qos_* hooks), and none of
+them are documented by the end of the series.
 
-Stock ethtool sends len = regdump_len, so it is not affected. This only
-affects callers that send len == 0 to read the version alone.
+Could a kernel-doc block be added here that keeps the removed @jam_table
+and @jam_size descriptions, describes @family, and covers the members
+added later in the series?
 
-The commit message says:
-
-    A zero-length dump cannot return any data, so there is nothing for the
-    driver to do.
-
-and:
-
-    Zero-length register dumps used to be issued so that drivers which only
-    report a revision ID could fill regs->version.  Those drivers return
-    zero from get_regs_len(), and the core has returned early for them
-    since commit f9fc54d313fa ("ethtool: check the return value of
-    get_regs_len").
-
-That covers the case where get_regs_len() returns 0. It does not cover
-the reglen > 0 case that this patch changes.
-
-Should the commit message or the uAPI documentation describe this change?
-Alternatively, should a len == 0 request fail instead of reporting success
-with the header left unfilled?
+[ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126015239.6038-1-25031212351%40stu.xidian.edu.cn
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/874b29a3-f47f-4bf2-a0f6-2f9fea712f4c%40yahoo.com
