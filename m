@@ -1,100 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.181
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795782574;
-	b=totmD34UUAyLafze2VuJRTnue8SurfIC+SufbQ8eNGMtR0Szko0yEJgDrj0X1HQr9Cp0
-	 3aGmCCg/DdeBg6UGt5sl/h7vzZIl4peboImScTkR2RN73yghsx4CwqGcelf0NYysql8zI
-	 N4cCoH4xWiDtckPsyb3U3srJQX0Ilf5qW8s6oABN6a66Nq9USK0IeuPxePcQKD1eqEc5D
-	 bqkrk92oe9fW+n4xjAseGZx0kh00B0P98fh86A9hMOnOSYHNWU0eCl2HsyG3rcJ77ZqWM
-	 EeNotOZcBIttfR0xPmpov0ntnMGPj/V2WWc429UhHZ71YznZWPO9NiQxtJOKu5D88kA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795782574;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.174
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795782890;
+	b=YEHtjNZ8aQ+XTKeoKEC/9aTjMWGUPYqOTDOJKE6SNTdziQM4xp6CJnJ8knuxBLStq/En
+	 h7O/Qt6v1IzrzJQ2A0DE2bTJYkroRTR28/ZcIOF6+0MrUzDfcySHqzOBrPjm/ADR2jB7k
+	 HoGfTXBhc++a8an8Xd8dVJ7uvyzhxcSU8sn5RhldKAQLWtNxpnV4yUJmubt643istmeY7
+	 IrIFtxDpqB4sjVG7JSOHxA3SIY4kzc8O9TULANQ6SLZMBQKt9UnDpk+9zoQ9HqPbLljii
+	 5kme2jptkQFkoyRsuNcD86s3f9NK6nED1SRh1AAyBL1sZDaZYLiamZQ6cpka1y6vXBg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795782890;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=gXf5stEDIYuDZVQjUcNyW733hx6qDRKNZoyJXoBIROc=;
-	b=cdmc/zbM5tRuZgdRaHVXBMhufzsDgWp3b4ZmGKInMVnUozgBVXgZUIjHuDE0SmO80eeM
-	 Rb50cjhWLZM1UfQtvNGM0k0/9fJtRQO84m9fOyO6Ux1M2LZSej1WWpR/mt5UwdAJa/2Hh
-	 +dm7NDIiIJwiJmvLRT6s5KGy9pucpikdhqOxr5WEgZpm4dIM8GFGcpivPlaaiEsnmA+Wq
-	 gW34OlfgAEP25kFkuKkL6C3dKA75APZ67ETBcHIcr6kk5LFWp3BvMkVLta/ropPdvseaM
-	 extk/rzd5BYbQwjkng/+81NUxzYSQPZtf3Wl40q2S/TJM3x1+j68sPhhcM2UHPB6mmw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=IDtGKepm;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.181
-Received: from mail-qt1-f181.google.com (mail-qt1-f181.google.com [209.85.160.181])
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key;
+	bh=ReptZUc4V2l1GFcHM1MI8g5CyAssfcev0pq0Ob8If/Y=;
+	b=Qz3+bNhrh7OjL929wu2Nr+HOg77AIoD2tb316KfyQWUapCHqHlJDeYLqGtwVcLdHFiPE
+	 04RpVaZWzNnKXhgM/KcwKrB226AimHCdys9mfiLV+56uHnEX34CZ2oUY9DTyPbUD211F8
+	 nUCALKa6kQxvdCftD0kE1wl5EyxNxff58bhhcL2fUuPOgr2B6DtLJUlURcT8xdgZ2IrDi
+	 sKI7j10dWrsi9+Wl8ax5IWZd2v6tErFrP+EpiQsNzLQJ01zw8xvLn6knLRTKaw15/49Np
+	 kbVXsIzFUklCOLBRBuXTe8cQC3csuh7+OonRHNCaAq1gtyJvjYaqrXynAl2ITZw5dYg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=let742wp;
+	arc=none smtp.remote-ip=209.85.210.174
+Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5785A606A321
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 12:29:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5785A606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4B18606A334
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 12:34:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4B18606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=IDtGKepm
-Received: by mail-qt1-f181.google.com with SMTP id d75a77b69052e-55be673e029so1832101cf.1
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 04:29:29 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795782568; cv=none;
-        d=google.com; s=arc-20260327;
-        b=BA9ZYdt2egw2vZFmbt3oBYUjCrOFqinEsRs+GkwSa3zEGLncGyiyUpsBEYmYHdzNPa
-         R/tfZ4z0PDbNLMRwidWIiwNdBF76eLR7rZDCmAuJtKl1/ryylhi9V06sp0EnceJceT1F
-         UuVoFlQ0Go3MVNQd5Gm9Gn6lQFc83PXeuLKZJej1hJ9olvw+i1jPIYEbVEmfPNxHTSPY
-         g1hBO+DaU2PZCnTxy9ruOLeONrdxTQhmCAvECZ4NLJGsLC2oFliJVCbwJZFBuY1s5SGq
-         mCs3MuaCDkCRUGCz6ELkQuEM4MsEoyXVpdQbh5TnYd752hxmR2oYPyUUzRzOYh7HVFHX
-         FX4A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=gXf5stEDIYuDZVQjUcNyW733hx6qDRKNZoyJXoBIROc=;
-        fh=+hf9eU4L4MDsppBRHBkwL/uVJenOdUa9s4CYR4gCcsg=;
-        b=Jg8xB525GGKWNOj5pbYR+c+5SaHI4x9hR51Qnh0Xe3reEMz5nZxBnJ+xMPkSc5ANK/
-         0MAPvApaQ9EDjSadCd8eJhvVN2jWLU+YnVRgybLQsbnvfRLBzV5tB/qmVL8r+9/Jtq9j
-         YmMR7Tg+Y56NNzCjwYnRFxewcnQJK/BE47VS7hBP2G9KBGHFGWGB4c5yb0oEF01wRcrE
-         dvehA4lVNfnjxbIOwFkBd/yG0PfXSea5MBXXmVUJd46eGyHEfRoOsQvHiHNwbryrXrru
-         gxRcR0r5Gz818u+99AOXovUrEStSkAaEu/erJY25R2ytZap3UoafTv88CpQmL9ZOosce
-         78Aw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=let742wp
+Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8a0880a46e7so4804364b3a.1
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 04:34:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795782568; x=1796387368; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=gXf5stEDIYuDZVQjUcNyW733hx6qDRKNZoyJXoBIROc=;
-        b=IDtGKepmhQShYR7D/olwV/obTk+1pmvySEjMhbDi/ma/1i93QiS/JtjUrgxBSMhQ0k
-         JL+ilsf6MgB7rL0RhzqkxVfHwpWehnk7Fk4Q747FAHE3PcGDe+yn84ff6jYRMPlMbx0e
-         QokdEvRzq0preycHEpMBQ2Lohvx+Zw/uSsx2DMrkiT1qcSSKYLtRImSCVnyuzNksYALX
-         NtWTa/1okzanV5FHK0NJqjKm441asfoZ8MYagjrt+QkZuqm+fqNCuiCSxrGhrELhPKIE
-         fk/8Dwyrnu3Us/ZvtQsa36mEXHtFs/36/ZYUVzpvU3JIUzDhbiIDtqOBlvidXDxzNxSY
-         eJ7w==
+        d=gmail.com; s=20260707; t=1795782889; x=1796387689; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=ReptZUc4V2l1GFcHM1MI8g5CyAssfcev0pq0Ob8If/Y=;
+        b=let742wpcDgfOnXcOMM6MOkFvcK4OUFW9yT6bndSU8zBSrh9m7EhLYaiwV39Lo5cLW
+         s0cw/VzzmIMaLlDx40tuBl+yyLn3kksCD+3R/i84dQB6zGPrJZGJvmaqDbTquNx6iASa
+         g+8We2W/+CLce6bmDrD6Egn+6wQm06HlxD918jHwzmzOBDhH5b2rPvJu39YEMFy3DcE5
+         lB4828IVsz48grxLR+D15tK6FFVnITUmA2TGbcxx0/DOVwp9dSdcLmWtkNuGP+jsxwVz
+         kSVry0FvW9uiSl+VJmjiF39Er2oZHhS+yJced9qCyyovZNL6ZPHfGLCfm1oIO5sm3HEj
+         KBhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795782568; x=1796387368;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gXf5stEDIYuDZVQjUcNyW733hx6qDRKNZoyJXoBIROc=;
-        b=tV9i48+q3jfF/IcaJvgofZRBkuoGf1Lv5FRAJp+9Ey5FesUdgeRWiwAONwcGS3qtge
-         1EjeGu9Ur+JqqkfcdKPt6eqSqx03JGSsBTPewR9gb3VOih6xs4oSYirRkw0VAFB69A59
-         AcOrOmXerQxmJCo392VgzTChyJTm36iQdt79piRVhjvLoVGLtyuSM54Yz200WLn1+sQJ
-         wV604RnzreTUs678Rx+HEWqm+Ga9CE6MhBR5GwfVQhV49sIf8See2ZEnDvjfM0SlcXds
-         Sm3TKrYYecxs5VDaxb8S+ADd6HvZ5lgUd1YdhiNq++lSZAU8/C/tAXEaFA0gsdb0gDcN
-         xr/w==
-X-Forwarded-Encrypted: i=1; AL+hErGV2Y97K8xIy58F3K7GCmwohUnOuqj4DYtid+gmP4DWLmUtZZd6lE7MWMcU1M//4oFSFTG4mY8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9wKyLy/P7qNINOvP2fuF1FAlaLHpgf1Qe1Y9pF+G553ZrDXvrX
-	jPTH7y6W+iAdf6XCS2kql0XWHp4Cd37xhYkHceYMUeI7Vhou+K4iFqFkG7VO8sRo2N3PrWAOJUw
-	3NchRFihwwfwFWqvmsftGZiDPkS3R23bXJkIhndW4
-X-Gm-Gg: AZFdTZdzDu/6LzSPATDcORCIBS3g5PRblISfRHjFsf2h4Stum6UrzhrBguy/7IfzOwr
-	moTCLHK9aRvN3/Z128copl87WE+Z48tpKiawvFznvfKEimkHfQoqXEi4wnlM2smi6jFPcYUeiwE
-	2w/p+CZ1dKwk0MOX7MNpBQmaWyGHHjdRCTqZvPSBUt9PWqdSNPQIj0zfYr6lrnXjiuH59jA5csm
-	t2BHie4P+dU9dlfmrj4I89M2WM0V9ZG66++QsAwLBjM/aBBY96eLapdAPkI8u7vxi4UnRF2uFRg
-	ck9C5m6Jc5pd/BTKHkhkMS4NHk6AgMikSoetilp0MvqnRfkP+D4xJZzDiSR00c2HKA6+vJcul3H
-	evD4F53beb/KlNiNly+bl8CEBxVmjIFDN5IHuzw==
-X-Received: by 2002:a05:622a:a14:b0:536:6ae9:f55f with SMTP id
- d75a77b69052e-55d8900bdcfmr34062041cf.7.1795782567558; Fri, 27 Nov 2026
- 04:29:27 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795782889; x=1796387689;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=ReptZUc4V2l1GFcHM1MI8g5CyAssfcev0pq0Ob8If/Y=;
+        b=A9hiOFfkfLiTDd+kpRlGDviYUym+mGBBe+KabUVh2/myLtmYaltGZ9TgzTNlEcmzNB
+         M8TMBt49yb2ri2Od0Mw1Mc5V9Pz08XOZ3yLBINWRjvN2cZdC7KviQtYkkyDP080hi8h4
+         ppCeW4OoeUl/RLKbrgayhdCBhs/wxRE21+V5U/gAvZpntmYSEpEmuqPeWJusUrIfwS28
+         a5wAnZoZADgeIeucdcwhg8RZgcGP+mUDCn5WrF+ZHTCGgFVkDfyAa4X1SBoQO/RqnizL
+         TAiPMp9aFJtY6FrCPzm4yJa7/ANFcdB+0trRT8/xW/iYx9npd/kLE1sS9BXcHvX5tWU+
+         abjg==
+X-Gm-Message-State: APuU4Z+bKVn9TsAW9RDDLtG7jidvE4MlI+8Kz7Ov0UhaepDjITIxnCnI
+	nVL2kd+kpQWwe8xDkSTIrzYbEqbnYyW1f8h+p4eYkjVcDMNVq4FAn+H9
+X-Gm-Gg: AZFdTZeU9RhPMDsg/qJQUVN5pZZj6R9ANlWnfl9Lin7Imz8rIZjg61zmyjW4JHc5hoC
+	omAfaB0Xsynne8XibAN4mdUYmAlLYV1hGfciZqs7HAJz1p6C42BZPAkW9lDQ3+JT6wzL3GkZJ9e
+	9uz+NScr9CHsI8FFSKPTzbiZs4FH1Xf3icXmYEGZ6+mKyDM83KdLD3sVyhJQgtQJjZF+MQUA2Di
+	1ZbHHtYd4XocFENf3oS6pT+EcnLbyif2DGmTpFYrs6wPqx7mg8LEA7XlAnhJyDnYb8GR3G0J+cw
+	Xwmq34zbf+1xZTOXU6oZh8HBHxAuMqr/a14uGw3T2y9ZWEnZD887yCQUgihmRyQYQAND12M/FZi
+	kW1+tz9ypHJs9oGTz1HyNj01EwV8ttrp4B3BADhAQd5JaRVwquDpwlsNS3WImbVdAA+k7RA7UJw
+	bKnXgNoDG9ETVslFhB6IW22jlCmy/DWLuILpp45nABeHSBDR7G0p4nXrch3H5YYqiNh8TzWJE8g
+	I8DFb1FPxpRaCfTi2HyG1ho49jDJBV4TJ25z3uyaavGr+9Wgd6oevIzNL/fPosnlon6UtTdmyKP
+	h1a3S+JbeRzEg72fjC5hzeKK6qK21pPa11QnGAMdv5Wm6P0D8dAAV3LYlq5GzVX1
+X-Received: by 2002:a05:6a00:4a89:b0:8bd:5539:5984 with SMTP id d2e1a72fcca58-8c7dd9d6834mr12527922b3a.25.1795782889218;
+        Fri, 27 Nov 2026 04:34:49 -0800 (PST)
+Received: from [192.168.1.102] (59-127-145-64.hinet-ip.hinet.net. [59.127.145.64])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872951febsm12282669b3a.14.2026.11.27.04.34.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 04:34:48 -0800 (PST)
+From: Zhi-Jun You <hujy652@gmail.com>
+Date: Fri, 27 Nov 2026 20:34:35 +0800
+Subject: [PATCH net v2] net: ethernet: mtk_wed: fix double free in
+ mtk_wed_rx_reset
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,139 +91,102 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261109182533.3594984-1-lrizzo@google.com> <20261120010655.467825-1-lrizzo@google.com>
- <20261120135013.GO3115493@ziepe.ca> <CAMOZA0LmZ9PFzxLcc1SuS8piFyZu6P=vX_qR2jy-3QRUoNCUKA@mail.gmail.com>
- <1f10002ea9ee16a17087bd06e4a1685a973fdf6e.camel@linux.ibm.com>
- <CAMP57yVZx=s-JXHfQfd_ouv2jV6MMsJXpxVLkQQHG=7qfFVJfA@mail.gmail.com> <d42bd9452d00a0b2a5b7d6652d556c9fc8d2c830.camel@linux.ibm.com>
-In-Reply-To: <d42bd9452d00a0b2a5b7d6652d556c9fc8d2c830.camel@linux.ibm.com>
-From: Luigi Rizzo <lrizzo@google.com>
-Date: Fri, 27 Nov 2026 13:28:50 +0100
-X-Gm-Features: Aa3M54o01jhZM9dCQYVFb8_-yMQWCkVYamRB04RwDLjyCo_Cf-5r3I24fRo_Jr4
-Message-ID: <CAMOZA0JMZ8wUrV08YznFUH7AkmyqXcNdzfd26KsoTtzqt69SVA@mail.gmail.com>
-Subject: Re: [RFC PATCH v3 00/25] PISA: Pre-mapped IOVA Superpage Allocator
- for DMA and CoCo
-To: Niklas Schnelle <schnelle@linux.ibm.com>
-Cc: Naman Gulati <namangulati@google.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
-	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Vlastimil Babka <vbabka@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Jens Axboe <axboe@kernel.dk>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Luigi Rizzo <rizzo.unipi@gmail.com>, 
-	Lorenzo Stoakes <ljs@kernel.org>, "Liam R . Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
-	Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, Harry Yoo <harry@kernel.org>, 
-	Christoph Lameter <cl@gentwo.org>, David Rientjes <rientjes@google.com>, 
-	Roman Gushchin <roman.gushchin@linux.dev>, Hao Li <hao.li@linux.dev>, 
-	Matthew Wilcox <willy@infradead.org>, Jan Kara <jack@suse.cz>, Jann Horn <jannh@google.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Simon Horman <horms@kernel.org>, Jesper Dangaard Brouer <hawk@kernel.org>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Willem de Bruijn <willemb@google.com>, 
-	Kuniyuki Iwashima <kuniyu@google.com>, Joshua Washington <joshwash@google.com>, 
-	Harshitha Ramamurthy <hramamurthy@google.com>, Alexander Lobakin <aleksander.lobakin@intel.com>, 
-	Christoph Hellwig <hch@lst.de>, Dragos Tatulea <dtatulea@nvidia.com>, Pranjal Shrivastava <praan@google.com>, 
-	Mostafa Saleh <smostafa@google.com>, Randy Dunlap <rdunlap@infradead.org>, linux-mm@kvack.org, 
-	iommu@lists.linux.dev, netdev@vger.kernel.org, linux-block@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, driver-core@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-api@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261127-doublefree-v2-1-c0c6d3da3b52@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5XOTQ6CMBAF4KuQWVvTKT9GV97DsChlCjVATVuIh
+ nB3aXXh1uWbzPtmVvDkDHm4ZCs4Wow3dtqDOGSgejl1xEy7ZxBcVIhYstbOzUDaETFV5LIirjg
+ WZ9gLD0faPBN2g4kC1J+hn5s7qRCZuKadHVnoHckfmRdfmSV6QYaMtCxFLqoTF/rajdIMR2XHS
+ PTGB+te6esF072/mXrbtjesSyyO/wAAAA==
+X-Change-ID: 20261115-doublefree-c43a6e0c0149
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sujuan Chen <sujuan.chen@mediatek.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Sashiko <sashiko-bot@kernel.org>, stable@vger.kernel.org, 
+ Zhi-Jun You <hujy652@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795782889; l=2322;
+ i=hujy652@gmail.com; s=20261123; h=from:subject:message-id;
+ bh=RN2yLGJnyx5H7no7hudUjpQ4FMkUtmVh8Gq3EY48fGk=;
+ b=9t/lmpz6QbAGKctOeVKWPpQPH1bvAJ5wQ4FMZxDbEoDdPv7wfjAmeh/TzUHRRG4+C+FIxuuW/
+ AXqZ1kH9OjwDPoXIVJy8IAzDz/DB3X1yxqZZj1aEH1raasz9PmVXmWm
+X-Developer-Key: i=hujy652@gmail.com; a=ed25519;
+ pk=MXiVj6rTyQLjK+RN0A0WiriSkqHj/WJPKnbDVaSWdgU=
 
-Catching up on a few comments:
+mtk_wed_free_rx_buffer already calls mtk_wed_hwrro_free_buffer but
+mtk_wed_rx_reset calls both subsequently. This would cause double free
+because dma_free_coherent doesn't set freed desc to NULL.
 
-On Thu, Nov 26, 2026 at 9:46=E2=80=AFPM Niklas Schnelle <schnelle@linux.ibm=
-.com> wrote:
->
-> On Mon, 2026-11-23 at 09:50 -0800, Naman Gulati wrote:
-> > On Mon, Nov 23, 2026 at 2:10=E2=80=AFAM Niklas Schnelle <schnelle@linux=
-.ibm.com> wrote:
-...
-> > > I think that approach would also align with Jason's idea to keep thin=
-gs
-> > > within the network stack and to work with the tools we have until the=
-ir
-> > > limits become very clear.
-> >
-> > Hi Niklas,
-> >
-> > I have been working on this idea exactly - extending the network
-> > page-pool with a memory provider that allocates large pages, splitting
-> > them into N smaller pages that all share a single IOMMU entry. I
-> > breifly shared my approach in the v1 PMD series [1]. I'm readying a
-> > short RFC to share shortly, would appreciate your feedback.
-> >
-> >
-> > [1] https://lore.kernel.org/netdev/CAMP57yWvHO0pWCR3-9q1gtwVe8WV4Y6i69t=
-rmw+BJRVYf3JB1g@mail.gmail.com/
-> >
->
-> Hi Naman,
->
-> This does look more contained, but I'd say you should still go simpler
-> and fewer steps per series. Some thoughts:
-...
-> - This is still a LOT of churn, my gut says much of the benefit should
-> be possible with much less churn. It's really too much to follow but a
-> cursory look makes me feel like there is duplication between rx and tx,
-> which is weird since for the pre-mapping they should be quite similar.
-> There also seems to be very little integration with the existing page
-> pool, rather it seems to set up a parallel mechanism for the pre-mapped
-> buffers. Really in a first step I think we "just" want to use a more
-> efficient DMA mapping and contiguous memory chunks for the page pool
-> and also keep the page pool API unchanged as much as possible.
+Fix this by setting dev->rx_buf_ring.desc, dev->hw_rro.page and
+dev->hw_rro.desc to NULL after freeing so the NULL check can work.
 
-The implementations seem large because they expose limitations
-in the current kernel code (or our understanding of it;
-but the proof is in the pudding). Networking for one, since you
-mention it: the tx path allocates memory in many places without any
-hint on how the memory will be used (loopback or device with IOMMU ?
-cleartext or encrypted?).
+Also remove the duplicated mtk_wed_hwrro_free_buffer call.
 
-If we limit to the easy parts (e.g. just network RX) we may avoid
-some churn but we will not resolve the problems arising
-from reasonably strict IOMMU deployments on large systems:
-- IOTLB thrashing (network traffic uses separate PTEs for
-  rx buffers, rx headers, tx_buffers, tx headers). Rx buffers
-  are only 25..50% of the total. See [1] for some data.
-- per-buffer VM exits on overcommitted VMs (same problem as above)
-- IOMMU unmap serialization (with strict DMA, I measured over 10us under lo=
-ad)
-- swiotlb copy cost (on tx and a backlogged queue, most of the copies
-  happen on the TX softirq handler).
+hwrro path is compile tested only because I don't own v3 hardware.
 
-Also we will not be able to see what is lacking in the current kernel
-code to address all the above.
+Fixes: 1543b8ff02f0 ("net: ethernet: mtk_wed: add wed 3.0 reset support")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Link: https://sashiko.dev/#/map/216156
+Cc: stable@vger.kernel.org
+Signed-off-by: Zhi-Jun You <hujy652@gmail.com>
+---
+Changes in v2:
+- set dev->rx_buf_ring.desc, dev->hw_rro.page and dev->hw_rro.desc
+  to NULL after freeing
+- update commit message
+- link to v1: https://patch.msgid.link/20261104-double-free-v1-1-efa52326702f@gmail.com
+---
+Hi Lorenzo, sorry I decided to update this patch instead of adding
+another patch.
+Hope this is okay.
+---
+ drivers/net/ethernet/mediatek/mtk_wed.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-What I wanted to do with my series (Request-For-Comment, for a reason)
-was to identify the components we presumably need (meaning: implement,
-or figure out where they already exist and actually do what we need)
-and get an idea of how intrusive the changes would be.
+diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
+index 0bae25247798..0f215dd3d2d4 100644
+--- a/drivers/net/ethernet/mediatek/mtk_wed.c
++++ b/drivers/net/ethernet/mediatek/mtk_wed.c
+@@ -880,9 +880,11 @@ mtk_wed_hwrro_free_buffer(struct mtk_wed_device *dev)
+ 
+ 	dma_free_coherent(dev->hw->dev, dev->hw_rro.size * sizeof(*desc),
+ 			  desc, dev->hw_rro.desc_phys);
++	dev->hw_rro.desc = NULL;
+ 
+ free_pagelist:
+ 	kfree(page_list);
++	dev->hw_rro.pages = NULL;
+ }
+ 
+ static void
+@@ -896,6 +898,7 @@ mtk_wed_free_rx_buffer(struct mtk_wed_device *dev)
+ 	dev->wlan.release_rx_buf(dev);
+ 	dma_free_coherent(dev->hw->dev, dev->rx_buf_ring.size * sizeof(*desc),
+ 			  desc, dev->rx_buf_ring.desc_phys);
++	dev->rx_buf_ring.desc = NULL;
+ 
+ 	mtk_wed_hwrro_free_buffer(dev);
+ }
+@@ -1722,7 +1725,6 @@ mtk_wed_rx_reset(struct mtk_wed_device *dev)
+ 				   false);
+ 	}
+ 	mtk_wed_free_rx_buffer(dev);
+-	mtk_wed_hwrro_free_buffer(dev);
+ 
+ 	return 0;
+ }
 
-Then it is completely fair to say that the goal is not worth the effort
-and should not be pursued, or to take the low-hanging fruits out of it.
+---
+base-commit: 28a371228d4eb4857cc31eeb1a0d7d01e9c3ea2f
+change-id: 20261115-doublefree-c43a6e0c0149
 
-cheers
-luigi
+Best regards,
+--  
+Zhi-Jun You <hujy652@gmail.com>
 
-[1] Here is an experiment with a system using bidirectional TCP
-traffic on multiple NICs, where IOTLB thrashing becomes a bottleneck.
-Below is how total throughput (TCP payload TX+RX across all NICs)
-changes using 2MB mappings for different regions.
-We really need to cover them all to recover the performance
-of identity mode
-
-Use of 2MB mappings         total TCP throughput Gbps
------------------------------------------------------
-none                                  440
-rings                                 572
-rx_buf rings                          577
-rx_buf tx_hdr                         572
-rx_buf tx_buf                         649
-rx_buf rx_hdr                         674
-rx_buf rx_hdr tx_buf                  716
-rx_buf tx_buf tx_hdr                  734
-rx_buf rx_hdr tx_buf tx_hdr rings     744
-identity mode                         744
-------------------------------------------------------
