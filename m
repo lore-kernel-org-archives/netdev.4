@@ -1,61 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795790395;
-	b=bnvlcFUNjpGKpvAeFgOKcptg85KuX0C7I9X4+qGsraVskpR0EFxLNrysFWHUjEslfUDB
-	 lQ0GgP5W/Le25HBsJxe3RGC4qcIllXg+d/9xqD/TZh9wQ72eP+7DtWlW+pi7nn6Kn2xdK
-	 p0vxyyw0EyF3FYiriB3Ga2ooDUlVhv2QwTnXl5RlaKu1Y7xiIK7C6LxiZRkJC3HiIGFuC
-	 Mqyzsld3BsS8Uf8PbH9BdgNhNF2TRp4X/2JFEu2IgayImnXjCLy/muJudwtHKF+vppmSN
-	 fxaP4+EFMfwZiq1nEY4sc0CZ/6UrLbR/dwUedrcHGhsdabxVFDUI6drDeA2nUctX6Jw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795790395;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=1sCQt7HDjifh4aiw+nYVCV7iBn2z6OiSzOpr48Lt6pM=;
-	b=NG4DRPEKM0zgtZ6h0Cvr0bIy4C6PXFfkTj5ulG3dNRupiFUBoldWWdWYOG+50xY0+LIj
-	 vQw1IAXUfA2vrua4c9F/k2xYFGVC1Jks9XMrwELSGAwbwRgdoPdqtPMrhO4tIr1MFvSwd
-	 bC7++4uqWlYi3Sjm4BTCCRTPwAy5wl+1dhSZk0bxPVLFJwrIz1+lmPPrAJnG+db2ZT+Rt
-	 OVi2/OP/TgL/gwlxYIeIP/CyuBK1P/30DQ7oUHv56I2XSw9meKPidjcCQRCLm83aZjcaV
-	 Hxj971WUy6ddUTO8YtKQRJSSDfflfw7kodJwnRNfalZtJdLHAgQPp7sNNO1Ke/sCPYA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=Mnzf8YyL;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795790480;
+	b=mpdAU99kbcVIdABPCiOvZb/4WqMQ+CxmBxktQAmJfoBlxteSeDwxo5EIFB9QIR5/UDIn
+	 QP/TWpN4epTuovFHxzMBWEiYeeyg534Op3ViCIKzGKZvZTCd4IfOJMAonC7sfXJmowPNa
+	 Zfz09jL7p6kDtF6/TxdWM2n+uIP2ra9keOHBClzMjEdsFOcubpq0YXFadkOv6cWiqS1tD
+	 iaUgfq6AhNCwedUX9Cl1nj+rrvRNt6Bkh9UHxgKL8H17L+481N0kFMcyhycCNjCdiIcvU
+	 TR8PXB9AJJEhNArSGVPca+z6XnxtOo5avSGdqd8Qay2a0ek0FgF4BjS6tdbQjRBAvRA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795790480;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=1xAA2Goyp0+/R7QCDqIjCUY9e99g0trvUh4YZU4vu90=;
+	b=oShObHt7pVaNCVTgRbosk/iKJytRe3z45GpnGeEtHcZD1XXZ91g40WQDqiaQc65IYkmB
+	 rj4vBUH90pukytZOjbRz5AvVX407bw3mlenCCwhqEPAnydcXZH7RlyGEnm9tqMwTQ7YMa
+	 E+A7YAi6fQrBTPGJE7eUMSrEwKIisORSb8E2FZLsa2qA/2Mm3uWwLdWctaqXmHNb0hpkp
+	 Sb99Li/cZY2fDD09xuso+e2GV9jSpq9GRRQ66uEfExXCQmGcef4Y6s4OTanstj8k/MIcr
+	 GTl+UnJM3BsPymx47Gq5hUvx4fIXKHfhnqd1rbI0/mmLwsgjkTH9L0IUFkCzQG97pqw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=cloudlinux.com;
+	spf=pass smtp.mailfrom=cloudlinux.com;
+	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=MT2oHMum;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
+Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1072D606A31E
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 14:39:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1072D606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44A8B606A335
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 14:41:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44A8B606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=Mnzf8YyL
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=1sCQt7HDjifh4aiw+nYVCV7iBn2z6OiSzOpr48Lt6pM=; b=Mnzf8YyL8c0dNhW/raFwBq7Giq
-	yYvqQ0d8xoCnQ060PWvVKWS9VqA7wIx9QlZqgwjqYCv6Cw6fv2vFHr9nTF/w+8iSOVQSOqQMj5NUW
-	PEZQSGCROheUceyugqBtp2C+f/Q37GUXwQFlg67S1ZCds3eb9TSZzvlh9SjWKovTbidQ=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xWx72-001oO2-8C; Fri, 27 Nov 2026 15:39:44 +0100
-Date: Fri, 27 Nov 2026 15:39:44 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: David Yang <mmyangfl@gmail.com>
-Cc: netdev@vger.kernel.org, Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>
-Subject: Re: [PATCH net-next v2] net: dsa: motorcomm: Unregister the MDIO
- buses on teardown
-Message-ID: <8057f9ed-c517-4280-a40f-d575e04c6b75@lunn.ch>
-References: <20261127070354.550198-1-mmyangfl@gmail.com>
+	dkim=pass (2048-bit key) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=MT2oHMum
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c5126505cb3so1069318066b.0
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:41:20 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795790478; cv=none;
+        d=google.com; s=arc-20260327;
+        b=JhAqWb2a5kqxyaszgxvySn3s1PHGZp3uDxhTjXGRIrgsN3YCZLGYUN/elg11dTEDwc
+         hbXNEEbEADtr5Kz5JdfHDp7jSOp9qogP+SSTNG2pAaXmNPB0EOVOqsC7MOWKzZA1dpYO
+         6uWribmiTVPa1Z0+OTGN1ou2Ev0knnuM8MIToIMzG0hKztMOoaQVxrzlmoNKm53FW16q
+         aLlVRuhS/ek1QWzLjc1W9z6ERzBygmaKXC0MC6tp3GdGkBuhbGspG85sHqdVqmqh7TdT
+         iMw/07RWgDsFnu7Xc6qKdXpkHP3+709pgrtAH8VvZMJAZGPPl76BC0SiFhjBFb5Vd149
+         av9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=1xAA2Goyp0+/R7QCDqIjCUY9e99g0trvUh4YZU4vu90=;
+        fh=ZZxbElWGkLHPLDyBWw54ds2ZYzzfoTd4o6FYj0Mzxro=;
+        b=NslWsXW4L/cZY/TiEQQCZrOY3UN4xg2OM75TWfxhbIxoDy5YQFJsCOKaCeijnsHVE5
+         qpqUh61m85bdOgCCu+1rFAjRrThi9OiddKDHo8IYhMvOr+SvQ1ZRimk5GbCg8tW/jN4b
+         jJaayUiArtbVbzamr0zfm5LwMV8Klwf2uY44go1rmhM6Iv5ufuU85Xtqbig7zFWaXV9J
+         8rxBX7ZaOHKzFlBpmt86QiJua1c2h1H1IVprPmhw9RuQIi3SX0EX8pOWytTM7ydR7Xb8
+         9yhEPJM5+pH8LjmFjdOA0k6CMvoXbhMa2r75oV2bqySp893QDjcNUBO5UbVmD8PK+Pnr
+         Txow==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cloudlinux.com; s=google; t=1795790478; x=1796395278; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1xAA2Goyp0+/R7QCDqIjCUY9e99g0trvUh4YZU4vu90=;
+        b=MT2oHMumUDYcT1kYlbQvosRHlNXx3xucpGVTGRPcLqH4jA0fgvtsQ/wf2Ps2Onzrwu
+         oxz3MVdxxJinWMhO7BhAU6bP62OQnZE7FevaUCtiiPYGMWVJEyiD/ZoyE4eAdWCgy9X1
+         QN+ULSdNYBbjlwiDwRZNFQa3AjBAzIdtUSZVOWr9aev3PtiAYRTo+GzVjQrJ6KzcjSRx
+         F6kDPFTqq3q7XVG2lsqyo+GsgNCRvqV03JAl/M2fqtspCSgQr6XyZgr5RopoJwrjg1+q
+         jwc97ZqwWBfgxWzCy27SlDP3CpAb+rgPAhWH0pz5SA3+kk2Aa3ou5rx8zLBqcSUM+Yna
+         Rz/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795790478; x=1796395278;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=1xAA2Goyp0+/R7QCDqIjCUY9e99g0trvUh4YZU4vu90=;
+        b=hohbyZu97r3GAXCtJucIpVrK8FgGQhMS7peNKQ+HJvb5E8VBowzUbaGWhW4NR3ocWp
+         AtbeY8U3+q2H/tG/bGooWqVisyF8zkhYUlyTyC24U7Ss2JK43UPks8xBEIBWa1KZ6yK/
+         4LzmRzMDMw+vATUX11w05z5UyfOpJ4kK0mSto5p+3mzWZFz8R9vsiC+KY+zIRMPemkFY
+         IbP2pmR7GpNOhp4Fb4q9jr1DtC/vRPl9CZYcjPoDGa3vGyPZ8hN7ocPu37Wt8HjLesM8
+         cLGnLMogXzXJpaSC1cv/Lww43c3h4UBlT00ts1pHUOgRZnmqPkEC0phMqGTlC1kyesK1
+         4ZYA==
+X-Forwarded-Encrypted: i=1; AL+hErHyg2LmMqEUROPoZ+WW3u9fUrKbg/xdIbgJUlchKj9TQQ0dkp31HfgE8JT+6ykkKRWsaJP+dKA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/2rW0faL76Ei3x0x7DMBPIw34EzFihqF87gw/sLNmp8A8DZsva
+	fOiyvAna2UvUfipG703ZkkHYkc3p+/Xmxqc6VMtxvg/T2qpYGU2qTOxF35s6fJivs0sOWNm3ECw
+	2eBxNMmbqdmvB1I2jRFFc+yQ61/nqp6uQK9KtKKRwuQ==
+X-Gm-Gg: AZFdTZeOtwInEIcCcwP/TrXrzv8NHQ4vJDFoiu+99GEnwTSgy4nOErnTWfWe891Q5M5
+	sVqKB43iU/aYgBKrze6sgv/qyxvIhWAt5EJ534XHHTTHsbxImAy5BlqSpMNQhEbnXDzzbUkAeF2
+	jCC3K4qc//2k30g3BbNLgjtl4iJtuuwJdbM2+kUCozOxH7lXJkrtlUBBeARyJ6EDHXkRM0xK6WJ
+	ttnHyOHodyFljCI8oRVKaTd76qQNa+ZIe8uYuNbsLZ0IdUrqs46sepUWALcju7chbaEln7+IwHc
+	bTwMd/i4yLk5voWoNesQQBoRJblTLYXJwvTRqR1n3Bn0TMN1XHLrKrN6fGRntqcgxDLEZOER+kg
+	Zqwe561m80R5o/7vqpm4jyR0qoWyQ3lZcECM=
+X-Received: by 2002:a17:907:1b0b:b0:c51:e06a:4744 with SMTP id
+ a640c23a62f3a-c51e06a478emr187991766b.7.1795790478468; Fri, 27 Nov 2026
+ 06:41:18 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,26 +103,33 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261127070354.550198-1-mmyangfl@gmail.com>
+References: <20261123104236.4179425-1-rmustafin@cloudlinux.com> <179551712630.3135.52212996809224784@kernel.org>
+In-Reply-To: <179551712630.3135.52212996809224784@kernel.org>
+From: Rustam Mustafin <rmustafin@cloudlinux.com>
+Date: Fri, 27 Nov 2026 21:41:07 +0700
+X-Gm-Features: Aa3M54ridbYcbm90XHp9x2LSe6zmQntTNNJ5b4vHfgqbclmUtnKlfUB5zVS6gIA
+Message-ID: <CAG6=z5vW4aPe9f5S_8m73oKvEkxSZySc7tJJo_hbK7F-bL3ZJA@mail.gmail.com>
+Subject: Re: [PATCH ipsec v2] xfrm: use the frame's own socket in the too big checks
+To: netdev-bot+sashiko@kernel.org
+Cc: steffen.klassert@secunet.com, herbert@gondor.apana.org.au, 
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
+	horms@kernel.org, netdev@vger.kernel.org, ipsec@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Fri, Nov 27, 2026 at 03:03:52PM +0800, David Yang wrote:
-> .setup() can run again within one registration: removing another switch
-> from the tree tears the whole tree down, and re-probing sets every
-> member switch up again.
-> 
-> Since our MDIO buses are registered in .setup() and not released in
-> .teardown(), the second registration then collides with the bus that is
-> still registered (same name under the same parent) and fails in
-> __mdiobus_register(), so the whole tree setup fails.
-> 
-> Register the buses manually and free them in .teardown().
-> 
-> Not carrying a fix tag since there are no multi-chip yt921x users.
-> 
-> Signed-off-by: David Yang <mmyangfl@gmail.com>
+On Tue, Nov 24, 2026 at 5:45 PM <netdev-bot+sashiko@kernel.org> wrote:
+> Does iptfs_is_too_big() in net/xfrm/xfrm_iptfs.c still have the same
+> mismatch?
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+IP-TFS has its own output path, which this patch does not reach. It is
+fixed in a separate patch:
+https://lore.kernel.org/all/20261127142550.66326-1-rmustafin@cloudlinux.com/
 
-    Andrew
+> This isn't a bug introduced by this patch, but this branch leads into
+> xfrm6_local_error(), which looks like it can leak kernel heap memory:
+
+It is pre-existing and this patch does not change that path, so I have
+left it for a separate fix.
+
+Br,
+Rustam
