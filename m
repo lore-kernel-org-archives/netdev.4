@@ -1,55 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795747221;
-	b=y52OSyBnaiirsFDpUc4exqzUuduB31yxnpA+epLljCcvKUi58w9uFXTtH2Jm93Ergdl2
-	 mLZse80/tOBnppsRteQLBDaRV0mW0Vn2z9ljPkwUZIHjbEhO0O4rAIfyC2gq9J7GQmYwX
-	 qZnZRfjxffzN2QhwUEF3675obSGbREFbFd+KZwUJ5j35lEZjgin/D7Lp5ZvoINoH64z5y
-	 LP4NW5suiSnVqsOQpvREhHFODmti6+FoxKf0Qibzrcw4pupikAqB1GM3Dc3QH0D5bYrb8
-	 qYqok+mA6UG6HXS71GG4CphO64vdNo+GSSE2JtgjReebPqtDh/utIdFN6bVRXG6eQZA==
+	t=1795747277;
+	b=Yq+B4+XJquaVMknF4GTlqCSjudUhDJKpYjGpjbcUmcPjfHB4oqrWFVi7I2yx9tqviimJ
+	 3Tktb2bMgtKhlO3VgywFRo6CMtiA0yrynWeqIjGeRt0JV3YEzk6iYOJ4W295XvuknlAhc
+	 Nn9hUnsfvxm/IAFUEoRU5g02S/sGBwqXzRVFy1lDuIvCrQaCCq6qjHPToN3u3vsywWRY7
+	 h/9WduW9ZkQZ3PGYrxfoj5qsVsuFw7ySOiCiqC9fF5tqWa3geOT6/SKSPRVLBGZ1N7vFe
+	 MzZFvXLb3d7GCX+fhBiWkmGh4tnY1H7zJDWhFFlVSUEjUIKYWnAjIAHOVsagINaw+9w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795747221;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795747277;
 	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
 	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
 	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
 	bh=3O++9cFaFQX1xStaQ4AA838XUZsWOaUKNYAROFpPYxk=;
-	b=x12Cw/FjXUTp5zwA6EdzG5ZZ+wZH1Y9fLu4K//a69jh4dR1oVVbrG0cSWPmyj0V4NKRD
-	 OKeJHvfr8DAznG3OveyzHXglr80z+eg2lQRPSn3WKXmb9U2U6xTMqrCqlwHTrZZoN2ahk
-	 fRjWV5KlOPGUt8Pm+6Kqa2XbPobj5PXLlQMWe8sA+uMp/nYgj/t+VZthwmX6iUa1OtUvJ
-	 ibu14C7A6DSeyaxKaQrWyg/VxHCZnJx8/+OFqz/i8j6lsUezc/mWrWDqVvpaibKM9EZRD
-	 urQw8uAXKV5zGHmJ2L/apmZAlDlNFyuYJzQSvmxejdx+qs6BmKhGby7UOtAhbyoecYw==
+	b=HmAFoDnCcI3RrwR40tfZUXda+M8y0ByPvNitXb0wd+qeilgVpSPmDkYPe3MOmF0JaniE
+	 ObVC9l/Vv2fIy+3nX3uZNRKZky1/7EGNv3QGiGU8uvUEU2GYDH0+XHHaHn/VxvN+xW9jo
+	 oTVJqPmnX/WEjzM2DBiqWHcfLG6yaEMATIQR80lK3bqlCeX/NqcAuv6OhA5UVNO/jV1se
+	 r7BTngjh61pVlzWJse8vY6q1co7uKolK1i7jpVH0//MBDkPXEc7EAZtZ+Iostlw6E4/Mh
+	 KrRWJvvfBtXnhC+RVEromRxdYVvnkEk6Jiw/Hy7bROLCTmPuDTYgl2RmJYKz7G/Yn2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=cmss.chinamobile.com;
 	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=VoQ1j+Lc;
-	arc=none smtp.remote-ip=111.22.67.137
-Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 24B11606A321
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 02:40:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24B11606A321
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=jsoFFDGC;
+	arc=none smtp.remote-ip=111.22.67.151
+Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 1005A606A31C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 02:41:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1005A606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=VoQ1j+Lc
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=jsoFFDGC
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=cmss.chinamobile.com; s=default; l=0;
 	h=from:subject:message-id:to:cc:mime-version;
 	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=VoQ1j+LcGGCNpql5SU2c1GW50pDluITHYJEKGAhh7QuT7sGt3bw0dIAV0cK6LZ35M5Q3j6ZHHwsI8
-	 YHtBowgH7ECrKn2Q5qh1JqpBBHYCj8HsJrUAvviZZeB48ynBdluKyz8bzimArjADSUlQgdbNBYBixQ
-	 nwxIQsa0msJiwYos=
+	b=jsoFFDGCXuxkmfLAwLMHFDBwaWTuD7F+kDtUIUkXYCGf/1NyHQm88N2ZoESxjT2ZzArqBNlP29dmt
+	 e/RfLcNs3Nb27Jp8h9K95h//rRYeVZ8qnE6VaFtcJQiR1b+i67f/cbi9las4vyb0Z3O5uhN6kmQU3X
+	 3PLEwz0dcQTd61og=
 X-RM-TagInfo: emlType=0                                       
 X-RM-SPAM-FLAG:00000000
 Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app08-12008 (RichMail) with SMTP id 2ee86b08ed8f205-00cc8;
-	Fri, 27 Nov 2026 10:40:16 +0800 (CST)
-X-RM-TRANSID:2ee86b08ed8f205-00cc8
+	by rmmx-syy-dmz-app02-12002 (RichMail) with SMTP id 2ee26b08edc9799-9d0d7;
+	Fri, 27 Nov 2026 10:41:13 +0800 (CST)
+X-RM-TRANSID:2ee26b08edc9799-9d0d7
 X-RM-TagInfo: emlType=0                                       
 X-RM-SPAM-FLAG:00000000
 Received:from localhost.localdomain (unknown[223.112.32.189])
-	by rmsmtp-syy-appsvr05-12005 (RichMail) with SMTP id 2ee56b08ed8fe63-82ab3;
-	Fri, 27 Nov 2026 10:40:16 +0800 (CST)
-X-RM-TRANSID:2ee56b08ed8fe63-82ab3
+	by rmsmtp-syy-appsvr03-12003 (RichMail) with SMTP id 2ee36b08edc8228-0b34c;
+	Fri, 27 Nov 2026 10:41:13 +0800 (CST)
+X-RM-TRANSID:2ee36b08edc8228-0b34c
 From: Hongyu Guo <guohongyu@cmss.chinamobile.com>
 To: netdev@vger.kernel.org
 Cc: intel-wired-lan@lists.osuosl.org,
@@ -58,8 +58,8 @@ Cc: intel-wired-lan@lists.osuosl.org,
 	alan.brady@intel.com,
 	13057616121@163.com
 Subject: Re: [PATCH v2] idpf: fix vport_id used as array index in MAC filter async handler
-Date: Fri, 27 Nov 2026 10:32:46 +0800
-Message-ID: <20261127023246.258100-1-guohongyu@cmss.chinamobile.com>
+Date: Fri, 27 Nov 2026 10:33:58 +0800
+Message-ID: <20261127023358.258140-1-guohongyu@cmss.chinamobile.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <179574583226.3135.4850818709708500001@kernel.org>
 References: <179574583226.3135.4850818709708500001@kernel.org>
