@@ -1,49 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795822808;
-	b=CGyjhd6VGjOYpdjZo0G8AwHhN4niwTJ7IP+WOTlBVR3wUH9j3U8jZ7Nj3S38XNVzDRZC
-	 bq4Xeb2VDv15Ckk6rKbKrr2Wm98w2BYN2nmrl+oWUkfK0LlqVxDaYDoZz43i67btdJbcm
-	 KrTnxM+nO91TYlVnGHPYREO70xGiy5f7rIj/u5bfUq+MoWHSuElGTfIo4qymhxusI1Ych
-	 bsfMuQTqw8UDyHt9OUWc8aKnsNsOi/dyJh/AIlZt/gXgrsimC15VHzYUTgjoVTw3nKjar
-	 bud2m8+HkVI0Tb18DTBs947LJ0lsdslx3Fvdiz/oaEhwcXktKK05/nJfpFVo+Utgakw==
+	t=1795823469;
+	b=oUXW3Nwy0d0H0k4AJZB1aHyU8kpgCi6RG2t9us18suG/R93yAiSI0z38noeiIv/CdcX5
+	 6iF9aid+C5h1UGtt5PiP065BDCwk797Vw5aB/cwgT80QyKz/xy1/2BwjXM32lIpODdENn
+	 Syc+XrkJIy41hSNuU+vlHzLHLF08UHMtxfb6NVHgzTvuY6yUdlnUrvZI/vydq+Xq0hPiW
+	 jIURCvTo/lK5Zw9PmetET7WpJqT7UJjTrdZNBJ5g7gobzhNtmD8dLGMAZ7hGgV46SRB8y
+	 NeDmfjPucWxZg4FIIug8+JApFKhCiBHBkFzrtvaBCIxliZdqFBnvgA2MlgXuH2VzBdg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795822808;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=Fo12o+uIQqF1uYYvqYc1dxJIvtGt4oQoEvFL3ArBouM=;
-	b=1oR7fUfP+woVdiIHSDMA4GgwZi9PS/vpLwR/F3w5/6CmQLnetd7TQj8Dnmo+ZiKXOdpV
-	 tyo1ceuW1+7UXZDMT1QTdDA8Iw6h5hejA58iNQG/BoIDRNf1O4okDVUdDlDiILKaamcEs
-	 FrmK5N2eD/jBxtvXx8YoeohHu6G/azi0Mh7UP10ydrwC840ENaHkxwMf//PmP3F2Q3b9+
-	 /4wAoZnxM9GNMtLbDULaPXEi4Fs8aqmoKtQIyAWVcvAbyBigIsp9boiEvsmPMgmslNVqo
-	 eb5OhHE/UajgtF8yH1IsdnmjWVViM5Tmelp1qXoxuNCM8WSg6oG8pbUu+A8+yEfFnUA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795823469;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=KVOmWfdqIYfeqYTgBunQD6m9OZ3k3UGq1oiUDE8grf0=;
+	b=yfGIUTL7OVRICb4hdqk8NO1mIcAQvw26CSMCDMhrtn5IxSruqwuHKEvCDYobuygqulJM
+	 okPtsBOMKiEiB4F6/ihOXJx97iL7z/1foVNV8KK451zQrfRGQkYAcE6nUFtjgEmRez34y
+	 RV+SGyM6rv647AQlkq8lBfjOAWCBF9b5IbjifZyoTlaQ0ruXjK/S8qqq6ZT1KejbwbUGY
+	 8QULZBZX9FhTcnTEgNk5JNlVPMEJjE//bjwkaoU0ikSduG6LGSFtaGatITRZJpA1EnFu4
+	 X+nfiHiUW8XLRwh9cLBumW9M58DYdKV9+a3XWtSjJs7IvG1LowQ2w77st+ggIQn4UNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S4QPhqrD;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XsRBJCk3;
+	arc=none smtp.remote-ip=209.85.214.170
+Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com [209.85.214.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1735D606A31C;
-	Fri, 27 Nov 2026 23:40:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB67E606A31E
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 23:51:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB67E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S4QPhqrD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B5441F00897;
-	Fri, 27 Nov 2026 23:40:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795822807;
-	bh=Fo12o+uIQqF1uYYvqYc1dxJIvtGt4oQoEvFL3ArBouM=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=S4QPhqrDhQt+2s51pN3bsdyfTxJiZounSsIcqCBTw2SZJrUUaiF8F0o9mXgCQacRC
-	 UvxfU1MI33/jVyKvNv3QFcRe0tjcC4nNGFpmSQSjnSXHNIpzCeJ9Je9ZXR7StemSwy
-	 Lolf7Incm27oVr2YozZghwxWpPK9IafphGruigqZ/SfopXY8fC51N6H3eJNKJf6SyJ
-	 eAxt0/Kny2O+OoaNQnjVWKyQMqNnExOPOSx6gEcVG1AlDEWedK4QliBpvokMGHAYIl
-	 k/pUH/BauaVcWLdEgX4aUdSO5GqL9H5dz6V7eZHtzLfIX1/EWS5UiX6eBKml4uBVIE
-	 Mn/XUa0KbnALw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 2120F3927068;
-	Fri, 27 Nov 2026 23:40:07 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XsRBJCk3
+Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2f052ae3c86so46772195ad.1
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 15:51:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795823468; x=1796428268; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=KVOmWfdqIYfeqYTgBunQD6m9OZ3k3UGq1oiUDE8grf0=;
+        b=XsRBJCk3h37CLoNuGVplS9B3qcgNJLLmLUTqVwgmIkFkQhQglYtGNLfv3eAz6mMA8s
+         IktkZErgR3mttJlLafpvgr8BqNKTdB5oYd8fn+76KRDjakGh/n4qJVwh4/nQxuG5kV0J
+         l9XD4U7jXCtd+NPd9XbC65XqToOMCS5dDqyM+QGwuQX+v1WqNsTor7gtOT+yx9xp7tJU
+         esjjwnrovNs+/J5O8oS6rh7r3VFuCWgn1y/vPY9Ip3dpV4zBgjqQGs2egNPqhyouKdLH
+         wTedX2UL0RmoB9g6lwn0gSQUH1LWWyQThd3Ji9lsOotG0h17iWKzimw9hmz9LQHkCigN
+         7k3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795823468; x=1796428268;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=KVOmWfdqIYfeqYTgBunQD6m9OZ3k3UGq1oiUDE8grf0=;
+        b=FkafzTAlJ361B6CB9KW+STaU3bksfmSCV6RZau9H7YkDvAJ9SkmXYX75YneJqRGdKX
+         ui3KnKwfWkSMZo3I0+XyUnwTj1Wh/WidtjS3BZS9cOz31yJhvxJ+rdGnH7/K7r1Z7C7e
+         t/tgdJ28LAjXGBv62hF+omf8Wc26R6gOy7e6GZeHxtkuAGXKmhfa6mWPlwUt/uDZJdTI
+         fLcr5sUblDx99AkrtSwUHuIdWAcnON+GYq1Ddj4z3RgLsVCv86DhIDvYvXSeynHi/KLT
+         xAa/o16iztcjOEVXpJTvpTQT6N4LheE+BpLrhZutn3c67ykF3FQqpNFmsCZ7G9d43WSy
+         +ubw==
+X-Forwarded-Encrypted: i=1; AL+hErGmgnrtfABVZcVO/Hq2NViRko7YbEbOl3mptxrH8sgzkOnkj76nF2h1Yu+lJJgWmYAKH5k+gZA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/L4VdWqUwFXjNBvbVPzESKziAoExxX842vR1Kl0GqBAs3Flhjm
+	IMUxij++YPGig8+XQ4FrZAPM2x444qiwuIBEKOkMTY1/zEoz4b7k+WRV
+X-Gm-Gg: AZFdTZfSXmScThG/W9qdpAfnOjt7bMFFLiX4emL+dYfAuB2UdbYykOL0HbbYdicX/Ly
+	q2uanGxventWLCHA1Q+48ltLWuCJ5vSp/2tm0kpuoZKZFxxAtrbAip6IhLO3tSrkd9TvW/Krqd+
+	gOeSR7xJJV+X9wNvNhgYn7mtgORhmfg7zVbQW3vS9oGAmqgTREtvGEMHjbvhuARB6aWdccocpQo
+	Ag/hO/XeinuOkn1kyGVsSnlBteUVsSWRhtLtAgOr1b4XdKFNu8us5UlX8ItG1j/NGfJOlcwrdJE
+	aBVM8s3IBBs5h/o5l0ts6khvEfW7J0zIqz6EKfmB5vmLijkVePSPzGLu1XhYSWvSbHcaWrl6R52
+	jz3A7bFP7h+lNz43ACHR0DlfdXt7f3xZhMyNOvKpt1ShVHi3Oz6Ni3qGCwYqA6NLPajON7YpQwW
+	5W+ymRbZ/Uv24abc7oiN+nRI7wli4mvmRTVbGpGUOZLiupxRwf9SERPj1RWWQtphAM4CyZEh+hF
+	6BEIOT5i+ty/1YmXq8Uzm8aYeEBxfyZhS9QTjSerktr3R42fARe+HjEIBkbH7ReOilo1WUuPSWw
+	pTWoMu1AdeIZV/a5y531bTqMEykdTZjgEIldnNqhTlhG+UqtuRglqF3VuCT9VeL5sERoLoGNbcw
+	6mfl753xLxxTNMVGYgekv0LZ/Q3NXq9DoIg==
+X-Received: by 2002:a17:903:230d:b0:2ed:29a5:7828 with SMTP id d9443c01a7336-2f03f1770c7mr274805035ad.11.1795823467843;
+        Fri, 27 Nov 2026 15:51:07 -0800 (PST)
+Received: from localhost ([153.61.198.244])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1215e2sm128158155ad.63.2026.11.27.15.51.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Nov 2026 15:51:07 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -52,58 +88,51 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH bpf-next v3 0/4] bpf: Fix 8-byte alignment of map values
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179582280600.1728472.1333720099674873788.git-patchwork-notify@kernel.org>
-Date: Fri, 27 Nov 2026 23:40:06 +0000
-References: <20261126194347.42466-1-tphilipp@gmail.com>
-In-Reply-To: <20261126194347.42466-1-tphilipp@gmail.com>
-To: Tobias Philipp <tphilipp@gmail.com>
-Cc: bpf@vger.kernel.org, ast@kernel.org, daniel@iogearbox.net,
- andrii@kernel.org, martin.lau@linux.dev, eddyz87@gmail.com, memxor@gmail.com,
- song@kernel.org, yonghong.song@linux.dev, jolsa@kernel.org,
- john.fastabend@gmail.com, sdf@fomichev.me, emil@etsalapatis.com,
- ihor.solodrai@linux.dev, hawk@kernel.org, davem@davemloft.net,
- kuba@kernel.org, shuah@kernel.org, nbd@nbd.name, hacks@slashdirt.org,
- stijn@linux-ipv6.be, daniel@zonque.org, netdev@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 27 Nov 2026 23:51:07 +0000
+Message-Id: <DN6EAFMXZAIA.F3ZIJ8N3OJ3N@gmail.com>
+Cc: "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>, "Linux Next
+ Mailing List" <linux-next@vger.kernel.org>
+Subject: Re: linux-next: manual merge of the bpf-next tree with the bpf tree
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Mark Brown" <broonie@kernel.org>, "Kumar Kartikeya Dwivedi"
+ <memxor@gmail.com>, "Eduard Zingerman" <eddyz87@gmail.com>, "Daniel
+ Borkmann" <daniel@iogearbox.net>, "Alexei Starovoitov" <ast@kernel.org>,
+ "Andrii Nakryiko" <andrii@kernel.org>, "bpf" <bpf@vger.kernel.org>,
+ "Networking" <netdev@vger.kernel.org>
+X-Mailer: aerc 0.20.1-355-gf870624f6c37
+References: <awmn-8pxvHphS_xZ@sirena.org.uk>
+In-Reply-To: <awmn-8pxvHphS_xZ@sirena.org.uk>
 
-Hello:
+On Fri Nov 27, 2026 at 3:55 PM UTC, Mark Brown wrote:
+> Hi all,
+>
+> Today's linux-next merge of the bpf-next tree got a conflict in:
+>
+>   kernel/bpf/verifier.c
+>
+> between commit:
+>
+>   02d3452bdd80c ("bpf: Set the run context for async callbacks")
+>
+> from the bpf tree and commit:
+>
+>   d83c595d9480e ("bpf: Put a barrier where no mask fits")
+>
+> from the bpf-next tree.
+>
+> I fixed it up (see below) and can carry the fix as necessary. This
+> is now fixed as far as linux-next is concerned, but any non trivial
+> conflicts should be mentioned to your upstream maintainer when your tree
+> is submitted for merging.  You may also want to consider cooperating
+> with the maintainer of the conflicting tree to minimise any particularly
+> complex conflicts.
 
-This series was applied to bpf/bpf-next.git (master)
-by Alexei Starovoitov <ast@kernel.org>:
-
-On Thu, 26 Nov 2026 20:43:43 +0100 you wrote:
-> The verifier checks the alignment of BPF_DW atomics and 64-bit
-> load-acquire/store-release on PTR_TO_MAP_VALUE only against the offset
-> within the value. It assumes that the value itself is 8-byte aligned.
-> That does not hold for all map types. Address of the value mod 8, as
-> measured on bpf-next (see Testing below):
-> 
->                                     64-bit    32-bit
->   lpm_trie, key_size 8 (IPv4)          4         0 (by accident)
->   lpm_trie, key_size 20 (IPv6)         0         4
->   hash, rhash (BPF_F_NO_PREALLOC)      0         4
->   devmap, devmap_hash                  4         4 (harmless, see patch 3)
-> 
-> [...]
-
-Here is the summary with links:
-  - [bpf-next,v3,1/4] bpf: Fix alignment of memory allocator objects on 32-bit archs
-    https://git.kernel.org/bpf/bpf-next/c/41fb3a63e447
-  - [bpf-next,v3,2/4] bpf: Align lpm_trie map values to 8 bytes
-    https://git.kernel.org/bpf/bpf-next/c/6856b42055e0
-  - [bpf-next,v3,3/4] bpf: Align devmap values to 8 bytes
-    https://git.kernel.org/bpf/bpf-next/c/7846bd82a424
-  - [bpf-next,v3,4/4] selftests/bpf: Check that map values are 8-byte aligned
-    https://git.kernel.org/bpf/bpf-next/c/63c1713b2a00
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+The resolution looks correct. Sorry for the trouble.
+We're seeing more and more conflicts between bpf and bpf-next,
+since the verifier in bpf-next is completely different.
+We'll try to sync bpf/bpf-next trees faster,
+so you don't have to deal with this non-trivial conflicts.
 
