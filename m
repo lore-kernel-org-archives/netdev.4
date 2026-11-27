@@ -1,76 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.61
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795777627;
-	b=ChRlcX4h6Xxy0tkvuqX3BXl51LdrwVm/vJST6VcW1uRpjOsmOrcfVeuEBjm1M2eaRadt
-	 7YCYMNVqFDi8YnuxiG8UkmB8+tcz9xvTBah5iL5awhPzJyYkr+1cfGst8Dy4me34yAh00
-	 wmJZQNafNS0RYj8Q/cb7og6pANIArjG631Kjp4c7uiCObANXtEzNEJ0CjK6T1pN+HxtZh
-	 Y27y8+IwtsyyL4Seje4zeqHuMsE6fCfy4d+cKzMKP+TjUrP8KbpeWFjqxxROkn4EzulBh
-	 mhRFeJtn7qEraYYcWxA1VZLlCT3v6MuuRtxo5ldXn41WxQOq3D7EdQdN6JQ0Fj27xAQ==
+	t=1795777816;
+	b=EIv0cKUn0DfsB5jW97PJL/nrqhAeRb1IyNs866C2oSzv1sNSKc+uMUiHvtaoHZBdQsvv
+	 m/J+ZQEbCjtRbw1ow+xKR3cnZCTJ25SGBhXPZM8tVK+azeqWXA4kfcW1u8DHc3iYtMZI6
+	 uP6ngsp66llO6XnEnuIejtTVEt7RE84gksLeszIrS7nfVqjCeYBSwZij/fTrDuEUDV0vT
+	 pFqEexaq8rB2uSiggoafW+5FZuAz4O/xp7eRUgCAxe7qhpf/+u+Ll/WhUc3iAnNNm9+Pa
+	 ELqNombI5YRRimRSv5wee5uZDypiVynGJKva90unzzjyTNX3/1CkjW/r66uMJbQ7zKw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795777627;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=IaAGvVZSUGuwADfUv992bo35OT3PSqEu09cIol8cwOg=;
-	b=2rlO7YhVKV9S9Yq1NAIWe1seTM56kHV173AFEDU2UfGsoUDmWjxscfiyr5qeZSu4fN6w
-	 tVjqYyqy2PgfbY9snI6PtWloFxCmYqJ0bGCi/HKBWqP3dvvU1gclkb7l23Qi2nOUwDrYq
-	 w4oAXI0vZLdt6QWiq/te/6ypGjgVgTKarw0lSNzSdgnwKjTwF+pgj8WjfCqWeyjqU7I/X
-	 5D4OINnVozD09B+edWRbD0E3r5+qZsdcrwN8amCdYfJw4yaiK4HJ4Is56CYeERnSdvVcc
-	 IaZoHfrQvHgqFmszMrauk3HLfnGNMfxi4KaGAwOrXYw3LHrm9ZEeDB2sGqKmcRu0pgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777816;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=yAseJCXCkp3H58r0OVANX+f+65Cd2MGF7drdzRohz2Q=;
+	b=uyDqR56rOsxYDLxKJaj6gcv5gUXfsvD7xadWSjUlgw1hQF4sDkRxrzKjajUrsazzyrBa
+	 x7NS6LenqhkfDB1S890wx1tQnn2SWPCaT8VuWFvyKwIuPxnHsgyfGpDnMMAwDAYKxbmaD
+	 QvCxxiF/4KKcoBSwSAknGe2ae/GmNo+i9nWtRq+42ts2T9mJqt2SarcMGJOf80hr/1u5X
+	 Ul0Msp3zxQ4mB7Wiql6w39lb1gQNgNZpbwZTs/fWa+laZmmvct6Q+sv/Qcp+UupxYOBMC
+	 F3ZLjp2Zl5eVtygdO26jXlVupQxQ97fun6qgKXhlOSH/22H92stwiR5wJtVdNsptCRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mandelbit.com;
-	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=Nl3ws4T8;
-	arc=none smtp.remote-ip=195.10.208.61
-Received: from mout-b-201.mailbox.org (mout-b-201.mailbox.org [195.10.208.61])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="fol/RnZ8";
+	arc=none smtp.remote-ip=91.218.175.197
+Received: from mta0.migadu.com (out-197.mta0.migadu.com [91.218.175.197])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 578FF606A31C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 11:07:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 578FF606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68A95606A31E
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 11:10:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68A95606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=Nl3ws4T8
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-201.mailbox.org (Postfix) with ESMTPS id 4jbVwp5G48zLlRn;
-	Fri, 27 Nov 2026 12:06:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795777619;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IaAGvVZSUGuwADfUv992bo35OT3PSqEu09cIol8cwOg=;
-	b=Nl3ws4T8ioQLHBO6KkwOJxPSHKQumvaMzwowDk2OIhPSLALvTXOmC4GH6/k+xZC34tzoLv
-	Ax00Dv2FD4jT/1niJcDa97XT58W/1jFxgmViAs8nffiwFfp1tWYQzuASbYCanSoLYg7o6V
-	kSilTMTyOFeY/RU/3ml+sKpUdfYKG/sHxtgd1C+dX4EWmvJPnClQNhfGxyV5tC/KbQLP93
-	8T1fV8M1TN2a7j3Og7aS9cfAu96vUsaDamoZSKLFQeBDSpjjGgivMr9zHxVplqSDvsGido
-	ZXc3/PnrcZadV2qheGNDKXv8xYDbyL/bEwXhHGGidX63It26rc53aBuzJIpbUQ==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
-From: Ralf Lici <ralf@mandelbit.com>
-To: David Ahern <dsahern@kernel.org>
-Cc: netdev@vger.kernel.org,
-	idosch@nvidia.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	ja@ssi.bg,
-	David Ahern <dahern@nvidia.com>
-Subject: Re: [PATCH net-next v2 13/13] selftests: net: ipvs: check a PMTU learned after the DR route was cached
-Date: Fri, 27 Nov 2026 12:06:35 +0100
-Message-ID: <20261127110636.359609-1-ralf@mandelbit.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <54d8eada69c6793d4761274f9c2878c0d284fe8b.1795642478.git.dahern@nvidia.com>
-References: <cover.1795642478.git.dahern@nvidia.com> <54d8eada69c6793d4761274f9c2878c0d284fe8b.1795642478.git.dahern@nvidia.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=fol/RnZ8
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=N8t62i7CUa3ZOxo+eFaX+w6ClZWF5P21IBj52O6aWrk=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795777813; v=1; x=1796382613;
+ b=fol/RnZ89WCvUSpAU6PfS78nQ0M3jY1AjQrzR/Yqis7ROkFafxSIGY5IVaUVSpNQkmuEeazH
+ VaEBMCa4jPqnwwsm/VLAbhRDmCcSyX+5hWg/VDisrezhFYS3J1ARRtDQ2gsVpuYoyzEP3vxDwvU
+ F3dmmwP+yB6OI4ubsKihcE3s=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id b147367c39aa5312;
+	Fri, 27 Nov 2026 11:10:10 +0000
+X-Mizu-Trace-ID: b147367c39aa5312
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <da0323dd-441a-46a6-ad9a-39def5fc08dc@linux.dev>
+Date: Fri, 27 Nov 2026 19:10:01 +0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -80,14 +58,124 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jbVwp5G48zLlRn
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 10/10] tcp: do not pass a BPF reqsk to an MPTCP
+ listener
+To: "Matthieu Baerts (NGI0)" <matttbe@kernel.org>,
+ Eric Dumazet <edumazet@kernel.org>, "David S. Miller" <davem@davemloft.net>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>,
+ Mat Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>,
+ Christoph Paasch <cpaasch@openai.com>, Florian Westphal <fw@strlen.de>
+Cc: netdev@vger.kernel.org, mptcp@lists.linux.dev,
+ Davide Caratti <dcaratti@redhat.com>, Chris Mason <mason@kernel.org>,
+ stable@vger.kernel.org, Neal Cardwell <ncardwell@google.com>,
+ Kuniyuki Iwashima <kuniyu@google.com>, Martin KaFai Lau <kafai@fb.com>,
+ Daniel Borkmann <daniel@iogearbox.net>, Alexei Starovoitov <ast@kernel.org>,
+ Martin KaFai Lau <martin.lau@kernel.org>, bpf@vger.kernel.org
+References: <20261123-net-mptcp-misc-fixes-7-4-rc5-v1-0-278042217e8d@kernel.org>
+ <20261123-net-mptcp-misc-fixes-7-4-rc5-v1-10-278042217e8d@kernel.org>
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+In-Reply-To: <20261123-net-mptcp-misc-fixes-7-4-rc5-v1-10-278042217e8d@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-FYI, this patch replies to <cover.1795642478.git.dahern@nvidia.com>
-rather than to the cover of the series,
-<cover.1795642432.git.dahern@nvidia.com>, so it is not threaded with
-00-12.
 
--- 
-Ralf Lici
-Mandelbit Srl
+
+On 11/23/26 9:24 PM, Matthieu Baerts (NGI0) wrote:
+> From: Chris Mason <mason@kernel.org>
+> 
+> A slab-out-of-bounds write and a panic can occur if a tc BPF program
+> that validates SYN cookies assigns an ACK to a TCP listener, and the ACK
+> then goes to an MPTCP listener of the same SO_REUSEPORT group.
+> 
+> bpf_sk_assign_tcp_reqsk() attaches a plain TCP request sock to the skb,
+> and returns -EINVAL if the program passes in an MPTCP listener. But
+> inet_steal_sock() and inet6_steal_sock() select a listener again from
+> the SO_REUSEPORT group of the listener that was passed in, and the
+> result can be an MPTCP listener. cookie_bpf_check() then passes the
+> request sock to mptcp_subflow_init_cookie_req(), which writes to members
+> of the larger struct mptcp_subflow_request_sock, so the writes can land
+> in the next object of the slab.
+> 
+> The fix used here is to drop the segment in cookie_bpf_check() if the
+> listener is an MPTCP listener. The connection then fails, instead of
+> corrupting the memory.
+> 
+> This issue has been found with the help of an LLM, and reproduced in a
+> VM, with the reproducer shared with the original version of this patch:
+> a tc BPF program validating SYN cookies -- the one from the BPF
+> selftests -- and an SO_REUSEPORT group with a TCP listener and an MPTCP
+> one, the latter being selected. With KASAN, the original version of this
+> patch reported:
+> 
+>   BUG: KASAN: slab-out-of-bounds in mptcp_subflow_init_cookie_req
+>   Write of size 1 at addr ... by task python3
+>    mptcp_subflow_init_cookie_req
+>    cookie_bpf_check
+>    cookie_v4_check
+>    tcp_v4_do_rcv
+>    tcp_v4_rcv
+> 
+> Without debug options, and with request sockets of half-open connections
+> next to the corrupted one, the kernel panicked a second later, when the
+> timer of a request socket fired:
+> 
+>   BUG: kernel NULL pointer dereference, address: 000000000000058f
+>   #PF: supervisor read access in kernel mode
+>   #PF: error_code(0x0000) - not-present page
+>   Oops: Oops: 0000 [#1] SMP NOPTI
+>   CPU: 3 UID: 0 PID: 0 Comm: swapper/3 Not tainted 7.4.0-rc1+ #1 PREEMPT(lazy)
+>   RIP: 0010:tcp_syn_ack_timeout+0xd/0x30
+>   Call Trace:
+>    <IRQ>
+>    reqsk_timer_handler+0x22e/0x500
+>    call_timer_fn+0x2a/0x140
+>    __run_timers+0x1f7/0x280
+>    run_timer_softirq+0x49/0xf0
+>    handle_softirqs+0xfa/0x300
+>    __irq_exit_rcu+0xb5/0xf0
+>    sysvec_apic_timer_interrupt+0x73/0x80
+>    </IRQ>
+>   Kernel panic - not syncing: Fatal exception in interrupt
+> 
+> Fixes: e472f88891ab ("bpf: tcp: Support arbitrary SYN Cookie.")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Chris Mason <mason@kernel.org>
+> [ Shorter comment. Commit message: how the issue was found, its
+>   symptoms, and that the connection then fails. ]
+> Signed-off-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
+
+
+Reviewed-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+
+
+Actually, we still have a few issues with bpf_sk_assign semantics...
+
+> ---
+> Cc: Neal Cardwell <ncardwell@google.com>
+> Cc: Kuniyuki Iwashima <kuniyu@google.com>
+> Cc: Martin KaFai Lau <kafai@fb.com>
+> Cc: Daniel Borkmann <daniel@iogearbox.net>
+> Cc: Alexei Starovoitov <ast@kernel.org>
+> Cc: Martin KaFai Lau <martin.lau@kernel.org>
+> Cc: bpf@vger.kernel.org
+> ---
+>  net/ipv4/syncookies.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/net/ipv4/syncookies.c b/net/ipv4/syncookies.c
+> index 89169c82431c..f39600ee3f17 100644
+> --- a/net/ipv4/syncookies.c
+> +++ b/net/ipv4/syncookies.c
+> @@ -312,7 +312,8 @@ struct request_sock *cookie_bpf_check(struct sock *sk, struct sk_buff *skb)
+>  	skb->sk = NULL;
+>  	skb->destructor = NULL;
+>  
+> -	if (cookie_tcp_reqsk_init(sk, skb, req)) {
+> +	/* reuseport can pick an MPTCP listener: req is too small for it */
+> +	if (sk_is_mptcp(sk) || cookie_tcp_reqsk_init(sk, skb, req)) {
+>  		reqsk_free(req);
+>  		req = NULL;
+>  	}
+
