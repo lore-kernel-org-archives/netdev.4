@@ -1,94 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795758816;
-	b=aLsGLMO5yjUG0yKBXY/URGVE0ly4OaDbCw+m3t3zgvO526r8C0Rz033F64FqreBD04mc
-	 rXhqR1TEhF/V7BCA35uAsTNX30DuBB8+PLMmSTWhuxuHbXE7NeyGulr/OPdmQH3fONxgi
-	 EuRkMuGzptxklHwflhvzRg8yrQmEaY5G6Y/TXZOOV+QBSMcLfv8HRoIeEFTfAot3xCLyh
-	 4FVyT51bhRkFWs1Eov5iUAH4QvWoQqOxIXxrvgQS0B2qwb+zTljJlXyUL/koGIaWpNvgZ
-	 dWY3avd/z/+283NGT68F2Nocz5y9UDPFk6o2awSBu7MpG/+wMN1/vB4opqfKo8a0yNw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795758816;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=CJVSd+Wq9RvOR9XH+zDJ1/ZiXPZMqlEQ5ITdd3R2yzA=;
-	b=j+xaSx/wq1onjWN7r+4SSOPThDl1MhjLghi/6zqoLmJ4RNNgwNyMP8IIy0uXM6ByRU0C
-	 BDeqYN9r9yOj8cqFFfBIOJAeGklTkZrdrmvhq3pyIcYQgZGE8Oh9I2hoExislRxP9Ubez
-	 y8MvgxmlaepnrXVoqHQe4apUc8R6cI+vMd/4cdX+6TO5zxFNXiqcmFW3ct0AJs/rluYP7
-	 NBQtQBI8nxbijFM7yHZuSVDO3n/rryrKCjKJ7lRGK14pus+j8HAZHIt4YtrZ94sKf8hDj
-	 Xcn0RacW3vD4EYhJ9QgefgycGFZ50+D2IkhDsDrNtA7KfRtPa3LxHwc1CBI31fJscNA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b="NwhX0mN/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795758830;
+	b=Q4ur/R2GOI7ZJ/nd1kpGGfz23xrQCTtgNHsvZBW9+qKo/5eGXco8qFXTrPPrLnd83CoP
+	 OXO2471DgIKM3p5sinzz1g6h6aiT6i3KhCqFU/Yr04BTeJ4I7v9ppINL6b+5JgTw2/eQ/
+	 3DvPH+dbfovNtamqGW4AtgWBOye4zRcB2grdg2AzedOU3+8YUp+Nxq2qTnZku5bRFJr8m
+	 dmStYyMTuqM8/FD4d3y6FJW6oOvT2jSrM6dNMOWGQ0CaksfeDunSRUQMZuZCDqrhqYQfv
+	 17VY3Pj9pUS3BF1XGjxMqM2PRQixQRUu1lvz6iybYBbxHsjzgjzeSQ/tOK5i5R6RvpQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795758830;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=JrUvEB9bKJ/BNC3KUGPkt1IQIMmXxUgGHDAUEm/+p4g=;
+	b=hm1mOIWOnptb472LlpWXZlIF5vH9y9q9IAj79zrBLDOCw5klPxTmzPOiJ2N7Z2yYQEi5
+	 q8RkkuLYTTMqONnS0vprusMn2LqXje22lpl1gN2r0vM7wi1N+o51EegEukl2F0C2xF11b
+	 YC9jbbQk+NaBB2Mi7B3i0DUxMZ8eyVqpudFWhGa84U/jwbZ8LghY3TyJXDWZ3X2xsD+jv
+	 Wg4bAGr3oKrfTLalX3jrvOwaIsxb4tY7xPn/liQEPdKf3s5dRxo+g/Dca6jP8vYwjMK94
+	 ZzUQvRO3sk6JrZu3liWyNhwI3FyFRQu5x7+VRgTdj4K0oIBRctXiXMRCk2QnXtArixA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nk8Bv3Ih;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F2CC606A31C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:53:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F2CC606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25FEC606A31E;
+	Fri, 27 Nov 2026 05:53:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=NwhX0mN/
-Received: from ptx.office.stw.pengutronix.de (ptx.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::109])
-	(Authenticated sender: relay-from-ptx.office.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 809272004B4;
-	Fri, 27 Nov 2026 06:53:32 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795758812;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CJVSd+Wq9RvOR9XH+zDJ1/ZiXPZMqlEQ5ITdd3R2yzA=;
-	b=NwhX0mN//G4M2a0VYDKm6nUkkDMwG4vBR6RV+efZVeauhRpBofw27nPjTHtysIVGBbB68U
-	T1/ruXPRbRVTZUUM6qZnrttoRX/sLFaOGbBaibWRRw0/gHZxLCfLFlbG6zQvNHV2hPn+v4
-	MeozIWKe+3c9KgwLHn5auheoG/U7AM8h+AGrtzOIJbNMV7MqYO6zdKK3sbEcgMvstZjdxY
-	r80NQuTEunZSvVmnMK7ZWiCD8l5TjaN8rhAG7NUIaPzn5dFPpL0w5clYpY1iObkI/yFzTB
-	bDM6em2UEiWWjRLQVnTLV/1PHPqDnNsYE6iIMGygPVXw5cI8pSUm6Oa+Ndkh2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795758812;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CJVSd+Wq9RvOR9XH+zDJ1/ZiXPZMqlEQ5ITdd3R2yzA=;
-	b=HdgxwwqaDqMVorUtQsozvqx1uq3VSG9Cm4HrocEafLbEy0MIMbbpxwoFUvhGmxwGa7dBwu
-	vqweP2iUC9pSVz4kQeNQQ0LVx1+ByJqb5+o/2aJfCtET773GJ5WmiWgaKyE7bkWFqTnod8
-	8brAm5W1xDCnKE/Sce5dvqu8P8xiwAF8MqccbOWqUCyRsgO4WZEcpDL+GI2248O5EcgaXc
-	FcrM/UfT1BUSsVdObvEdn7P/NU7Bsd+nVUceUoWvVieS0sQY5l9gvNC9HfBOiGgM/33/Qh
-	A/jRJJFtcrOiTAaJVpnZfCoYIxDLaE842Hqd5Zo+Qxyg4ppPnx9tae0R7DA22A==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=relay-from-ptx.office.stw.pengutronix.de smtp.mailfrom=ore@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795758812; a=rsa-sha256;
-	cv=none;
-	b=FY/lZxDa02OO8cvJfh8T2ZeL82qhacfC2w4P0dwk8fFzdghocHtKg5W3dK/FBb+uW0Brdk
-	TrhgMkvKjvxF9jz2qBy8UykWv+F2XDfXLqHFOlGan0oH/nzzm1X5D60E9LtnZkiCEaJf3K
-	yDA4ckQnlRSBXaa+z5+rM/ZEoSQ4emCvg4ygcXG2HrIOCpxneqJmghM3RYfWuSRJpY1y/H
-	kvXGmhHXqKNGSIiGVXTz4JMTyU2NjwAomU3lxrORAihz+104lrrmqj7Zr/Ek/NWMMkKJiG
-	ySi3eTmTKz7i3JuVEHYg1QeHL4ASsphbM7C2X1PuadKwzfVmGsRWiwbbR6G4XQ==
-Received: by ptx.office.stw.pengutronix.de (Postfix, from userid 1058)
-	id 6A29E1BF4EE; Fri, 27 Nov 2026 06:53:32 +0100 (CET)
-Date: Fri, 27 Nov 2026 06:53:32 +0100
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: Vladimir Oltean <olteanv@gmail.com>
-Cc: Woojung Huh <woojung.huh@microchip.com>, UNGLinuxDriver@microchip.com,
-	Andrew Lunn <andrew@lunn.ch>,
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nk8Bv3Ih
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF2C61F00893;
+	Fri, 27 Nov 2026 05:53:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795758829;
+	bh=JrUvEB9bKJ/BNC3KUGPkt1IQIMmXxUgGHDAUEm/+p4g=;
+	h=From:To:Cc:Subject:Date;
+	b=Nk8Bv3Ih9yrsmEYJyuitgiLr8W1ZkwCY+r0HW3grzEQft4VtQ4XSsvYzrzXu7O3yu
+	 YQw4KKnWNVy8WVnFCVq1CVHZnCnvl5K7kXQUOG4AKxmYaNtg4kH3ljhk8D9OFoLRO8
+	 Y2A2KuXL4mRG44/vI0l08KDHC89vAJEUhmDmrNQPAz+EpCe9BkyaIArZEfJ87K5Fhz
+	 aOh46GRefK+KEEea0u7Y1EJD91kip7UBgtOj50nZyKaxFOGWKcSMTdaHALr85/QWSP
+	 TIXvho1NVxI29D+YhP+sIKliZp0DGiMzM8hBnOUhrqfqGvJg1joGWQWrxNmPU90eDe
+	 S1rkyfz2eZkag==
+From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
+To: Alexander Duyck <alexanderduyck@fb.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	netdev@vger.kernel.org,
+	bpf@vger.kernel.org
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	kernel-team@meta.com,
+	Stanislav Fomichev <sdf@fomichev.me>,
 	Simon Horman <horms@kernel.org>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Nikolay Aleksandrov <razor@blackwall.org>,
-	Ido Schimmel <idosch@nvidia.com>, netdev@vger.kernel.org,
-	bridge@lists.linux.dev, kernel@pengutronix.de
-Subject: Re: [PATCH net-next 0/5] net: dsa: microchip: let the bridge decide
- about link-local frames
-Message-ID: <awka3GOt3XIKURcX@pengutronix.de>
-References: <20261126-ksz-stp-link-local-v1-0-39aed15f6271@pengutronix.de>
- <awgHiY9mcEAD1C34@skbuf>
+	Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>,
+	Bobby Eshleman <bobbyeshleman@meta.com>,
+	Daniel Zahka <daniel.zahka@gmail.com>,
+	"Mike Marciniszyn (Meta)" <mike.marciniszyn@gmail.com>,
+	Mohsin Bashir <hmohsin@meta.com>,
+	Breno Leitao <leitao@debian.org>
+Subject: [PATCH net-next] eth: fbnic: Support XDP redirect
+Date: Fri, 27 Nov 2026 06:53:32 +0100
+Message-ID: <20261127055334.3156389-1-bjorn@kernel.org>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -98,30 +75,106 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <awgHiY9mcEAD1C34@skbuf>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Hi Vladimir,
+fbnic treats XDP_REDIRECT as an invalid action: it warns and drops the
+packet, so programs on fbnic cannot redirect to devmap, cpumap or
+AF_XDP sockets.
 
-On Thu, Nov 26, 2026 at 12:23:55PM +0200, Vladimir Oltean wrote:
-> I didn't go into any sort of detail in these patches yet, but they
-> reminded me of this thread:
-> https://lore.kernel.org/netdev/20250127125426.3b7cdkb75o5dbcr5@skbuf/
->
-> IIRC Tim's problem there still wasn't resolved (he tried to use the
-> reserved multicast address tables). Does your series address his issue
-> too?
+Support the verdict and advertise NETDEV_XDP_ACT_REDIRECT. The buffers
+of a redirected packet go to the target, and a failed redirect drops
+the packet as XDP_ABORTED does. Each RX queue flushes its redirects
+once per poll.
 
-If I see it correctly, Tim had two concerns:
-- the reserved multicast table assumed that the CPU is the last port,
-- and 01:80:C2:00:00:0E was not forwarded.
+The NAPI vector, not a variable of the RX loop, notes that a flush is
+due, as one more live variable in that loop costs XDP_DROP six
+instructions per packet.
 
-The first one is handled by 96baf482ca1f ("net: dsa: microchip: Fix
-reserved multicast address table programming")
+Signed-off-by: Björn Töpel <bjorn@kernel.org>
+---
+ drivers/net/ethernet/meta/fbnic/fbnic_netdev.c |  3 ++-
+ drivers/net/ethernet/meta/fbnic/fbnic_txrx.c   | 13 +++++++++++++
+ drivers/net/ethernet/meta/fbnic/fbnic_txrx.h   |  1 +
+ 3 files changed, 16 insertions(+), 1 deletion(-)
 
-This series addresses the second one. :0E is trapped to the CPU, the
-tagger no longer sets offload_fwd_mark for it
+diff --git a/drivers/net/ethernet/meta/fbnic/fbnic_netdev.c b/drivers/net/ethernet/meta/fbnic/fbnic_netdev.c
+index 52244219d166..9f0d8c070d1c 100644
+--- a/drivers/net/ethernet/meta/fbnic/fbnic_netdev.c
++++ b/drivers/net/ethernet/meta/fbnic/fbnic_netdev.c
+@@ -822,7 +822,8 @@ struct net_device *fbnic_netdev_alloc(struct fbnic_dev *fbd)
+ 	netdev->hw_enc_features |= netdev->features;
+ 	netdev->features |= NETIF_F_NTUPLE;
+ 
+-	netdev->xdp_features = NETDEV_XDP_ACT_BASIC | NETDEV_XDP_ACT_RX_SG;
++	netdev->xdp_features = NETDEV_XDP_ACT_BASIC | NETDEV_XDP_ACT_REDIRECT |
++			       NETDEV_XDP_ACT_RX_SG;
+ 
+ 	netdev->min_mtu = IPV6_MIN_MTU;
+ 	netdev->max_mtu = FBNIC_MAX_JUMBO_FRAME_SIZE - ETH_HLEN;
+diff --git a/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c b/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
+index 07d4b2e92362..da38ac1146c0 100644
+--- a/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
++++ b/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
+@@ -22,6 +22,7 @@ enum {
+ 	FBNIC_XDP_PASS = 0,
+ 	FBNIC_XDP_CONSUME,
+ 	FBNIC_XDP_TX,
++	FBNIC_XDP_REDIRECT,
+ 	FBNIC_XDP_LEN_ERR,
+ };
+ 
+@@ -1211,10 +1212,15 @@ static struct sk_buff *fbnic_run_xdp(struct fbnic_napi_vector *nv,
+ 		return fbnic_build_skb(nv, pkt);
+ 	case XDP_TX:
+ 		return ERR_PTR(fbnic_pkt_tx(nv, pkt));
++	case XDP_REDIRECT:
++		if (xdp_do_redirect(nv->napi.dev, &pkt->buff, xdp_prog))
++			goto xdp_exception;
++		return ERR_PTR(-FBNIC_XDP_REDIRECT);
+ 	default:
+ 		bpf_warn_invalid_xdp_action(nv->napi.dev, xdp_prog, act);
+ 		fallthrough;
+ 	case XDP_ABORTED:
++xdp_exception:
+ 		trace_xdp_exception(nv->napi.dev, xdp_prog, act);
+ 		fallthrough;
+ 	case XDP_DROP:
+@@ -1334,6 +1340,8 @@ static int fbnic_clean_rcq(struct fbnic_napi_vector *nv,
+ 				napi_gro_receive(&nv->napi, skb);
+ 			} else if (skb == ERR_PTR(-FBNIC_XDP_TX)) {
+ 				pkt_tail = nv->qt[0].sub1.tail;
++			} else if (skb == ERR_PTR(-FBNIC_XDP_REDIRECT)) {
++				nv->xdp_flush = true;
+ 			} else if (PTR_ERR(skb) == -FBNIC_XDP_CONSUME) {
+ 				fbnic_put_pkt_buff(qt, pkt, 1);
+ 			} else {
+@@ -1387,6 +1395,11 @@ static int fbnic_clean_rcq(struct fbnic_napi_vector *nv,
+ 		fbnic_clean_bdq(&qt->sub1, head1, budget);
+ 	fbnic_fill_bdq(&qt->sub1);
+ 
++	if (nv->xdp_flush) {
++		nv->xdp_flush = false;
++		xdp_do_flush();
++	}
++
+ 	/* Record the current head/tail of the queue */
+ 	if (rcq->head != head) {
+ 		rcq->head = head;
+diff --git a/drivers/net/ethernet/meta/fbnic/fbnic_txrx.h b/drivers/net/ethernet/meta/fbnic/fbnic_txrx.h
+index 6ee3cce3d942..7bc0c25ac50b 100644
+--- a/drivers/net/ethernet/meta/fbnic/fbnic_txrx.h
++++ b/drivers/net/ethernet/meta/fbnic/fbnic_txrx.h
+@@ -173,6 +173,7 @@ struct fbnic_napi_vector {
+ 	u16 v_idx;
+ 	u8 txt_count;
+ 	u8 rxt_count;
++	bool xdp_flush;		/* An XDP redirect awaits xdp_do_flush() */
+ 
+ 	struct fbnic_q_triad qt[];
+ };
 
-Best Regards,
-Oleksij
+base-commit: ccb81d5e317b0ae2cc66ca1c628c0ca907928f94
+-- 
+2.56.1
+
