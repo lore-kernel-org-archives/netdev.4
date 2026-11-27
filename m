@@ -1,101 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795789587;
-	b=KBrxzg0E3EpgfDUuVDeCV/1m3B9U359Kr99FglXuwSSCf+TL5dpYo1oxMBCoXzRrK0DA
-	 bT4Y4xH0vwO0OlxLRmaVUYKScuIP94H7/x14l6PVF7B33jgXosmYu+90hPKnnYAsQABwY
-	 gluIu9EVA5GslQNQ+5Ab5pBT4FVy58TdqPjusbd4LTrp+Lo8FvBWBPyoKGbhyLJxzYPQ3
-	 lbMBwfoLKKhv2EzM/Ia6ccHtEUh6N+MKiIsV0UAKTwz5AR7z60q643Ie5LnfBVCFDfGwr
-	 K4ix9b/dJ80xcCzM0PdGtXbHJcqPm0hGDfRUc+JzBmW9EwKEVHHybw+VMgGydBhTKdg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789587;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.179
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795789664;
+	b=VOfdIWbV9FI5rfFlDqyId4c3fBJDf8LegWpYkpYVmm9xJB/c2Tx8FcyQf6fzIdpCcd//
+	 7k215EGPTDz3SqfBg8bsY7tAgn55HmqMtVs+f/2PPMRpFCIKe6aOwunaO97ECzoh61cjD
+	 pjgiv6lEL1ZaY+heQ1O4sz+E/BwzwMcQxK40GRVgiR5cIJgSpKUYE/sdPwdfUKRp6nfjh
+	 cwt7cWuGHRmfUoyJIaHidyWlzQvGq5Ij55/TNvQXB6tW/S4QIMdQ2ZE3ODWS5ep+VVTrw
+	 IM9KMEYpf1QZIFje9/RRZVuX2OPe5QrHtAnCjgd7/eLLc5sG9UaZe0g679AOm5MpXmA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789664;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=m1DqYt/Feo6Tg97bGood/CsVYKHCLyHFMxbJBDzqGhc=;
-	b=4VrCEy1cP8TQOBfS9ecRealYIYkvPiI/MJ2PtAATcLETcA5pj0qeotsZ2hP/bSSvXf31
-	 G+mDO9tiHw67FcCFMYivaYadrgw3FUMaY4QYOru5sJB5Apw17YVV7Gg7eOPONTyvIg7UG
-	 XyuzyTqAibIIswmpB3H1hR19EydjMTa+sKRIuHad3pla3ocDMxX42D/LbPvNOzkQTmwoA
-	 jCukch3E19ONBdNCP5daK0JaKUcRQL3Ed2Tuy6SD4lYhNa2zDOfSzLN9JfO/qP7mqlcJQ
-	 x3eadXN3J1M9pSy0/wOWRfq7o/BOKLeu0IzrzfXJwI9Xepdq4YEsCVC27L7E++02DVA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=AAcb5vfaAA7rQOvxn3vN2wvPr8anCPC4jvF7VU0us5s=;
+	b=ViJaL+bM3pfPTJV3ntX2MyvXsCQdJ9SsCuakLAteHCkQ4UvF8UZbCQsAduy3PDlyLmMq
+	 ne67p6+tAsRylMGrE1k6JX2l1uE0KTTzbVxlUzYdP5fFyEtaJV0YGzJAmSb/HSlseN1IJ
+	 v3tfCYRlPNUCenMLpDHEc6d9SW/OgsAhENTLoDAzczcalt7LuyrEz4p7VuYeoiqtyOpem
+	 BG/CuoPyKAkwIlDMPg6urLM9K2cZvhOBoia3qfwwn/P29gCMvIhk59fKaIDsiBODyhxax
+	 G14Yf4bhtkUndnPl3crSZrMvVJIxOpK+HqukQHD06w3fegLq15kT1MxXMJV6yI7Sc3Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cC+qyaGB;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.54
-Received: from mail-yx1-f54.google.com (mail-yx1-f54.google.com [74.125.224.54])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uTjQaEfm;
+	arc=none smtp.remote-ip=209.85.210.179
+Received: from mail-pf1-f179.google.com (mail-pf1-f179.google.com [209.85.210.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EACF606A68B
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 14:26:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2EACF606A68B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EBB0606C2D8
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 14:27:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5EBB0606C2D8
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cC+qyaGB
-Received: by mail-yx1-f54.google.com with SMTP id 956f58d0204a3-67db8985419so10046588d50.1
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:26:27 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795789586; cv=none;
-        d=google.com; s=arc-20260327;
-        b=M/hKNDjH568CCkFYASfgZJXpdtfhIT08yjcstBgv1dKzHbYugCZeKOZGR1/+KUNEVm
-         iMqYet8KIgruvW7rSB24DbK8d8Y1ICyXZfURp/2GRMGD4aupeI3dV/IWNhDUtWIbkm36
-         97EnlOU39nIRoiyKSAR4pGVTYTBBgyTW7d+zAOiqFMsuhx+XyObLP5ucPSa22zu+a0vW
-         9aiQIq6ngjzKQqlb3kMyB76dUbT3q3R7Ubk3sGe7nxqoXpMqkQKOmzlePUlCIMrCx3Ls
-         8lwbWmuxbCdHZ01VYjEh8bJz+twSVGqTUFPZxazHOA+HsYrO6iKmaMkrsRByaKKeUnJL
-         jWRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=m1DqYt/Feo6Tg97bGood/CsVYKHCLyHFMxbJBDzqGhc=;
-        fh=Kfu0sJA09SIm0r8Jp94wyoZzNyf3yoZLB7wcS6/cC7o=;
-        b=CwiF+sqzuPCjZNRGb9akZRnRIuc2iQ8OrCpvBxaMLp7pJaQFKq1xTaS++9wv2xI5wy
-         /mwBCVzzM0UmTWrWugDUuaoFnjH0B45+STzVszMOM+6wxrg6heG70TIytqmBkBL6ihko
-         +XzBj+bQw3FB47M8FPBxyWHroKCzJTo19/Vvb2wFhsbMM2CLEqOy/DzrlDtQ3Aa5S6D9
-         IlIyu/2clXF8a9CfRYZDLntofSrE8Y5kWhq2qrl3CqfvvH4VqgcFbSjWCvT7vhPqqXYj
-         Qb5C9Wn11NIgHfUsMrbtN+sA+QwLFO4jkZWBrYrDSAChL5XuSCnip0rRFm8TnizwyXP1
-         mI0w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uTjQaEfm
+Received: by mail-pf1-f179.google.com with SMTP id d2e1a72fcca58-8a070755c8cso3957075b3a.0
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:27:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795789586; x=1796394386; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=m1DqYt/Feo6Tg97bGood/CsVYKHCLyHFMxbJBDzqGhc=;
-        b=cC+qyaGB7xL9/hIvPM4ljhUM9AVaeCKlMK0ostHAZv1kgp3lsJC8zl2UpLsbY7otIa
-         QCDU6cUBKgiLBSOY57PzbUabzc8p+p2iAhbHDJrNScBluGlgc0Q+/7lPscZQ1NgYX+Mg
-         OiZgV5RY8nh6r6xs478/Ymbq/NlSuyXmxF3gNVJb/WMt2D+JOcxR3B5I16d8UzC4GREF
-         8b2kbs1gHoy1BP/XSOM+TplqEspcJjKGaFdKuTwX0z2lLH77QyrThzSem3Xmf9nG5O8/
-         tapWNSHQpmghvv/R0hhEZHG+3z0HyAzNPU4RhLafw+Sop5lML9Y6MnGWkUm/ySctlfLU
-         F5sQ==
+        d=gmail.com; s=20260707; t=1795789664; x=1796394464; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=AAcb5vfaAA7rQOvxn3vN2wvPr8anCPC4jvF7VU0us5s=;
+        b=uTjQaEfmiSinhlwwTJeNkxeUQiIliw6n/EsgqcVXpD26QIrQMg2asVmqAvJCAz/ebV
+         wvoUpzvESTPjB9Td5sMaxXXId/E/PBUc6+IW2PG5uNcKAOMNQxHu8Q/RqYnLRPqY/Mmn
+         x+cJOudaSvvJCM4bOm647a6P0cQYCJnZSBAxAQNX/vZxmXpgwlLk6qrTBcRlWt5jSQaJ
+         P6CAR4wg8vlcvQZBbetJHmdaGVS6R60TrnDAQa0SwGty1FZyOuA3906TJDiFOxHjIraF
+         2Ome3CQhv4PkFgIwokBv+m2hLzGMAofMDhJokfPyFrIu/A3w3lscpX+E65VC5+nr+bJW
+         FCdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795789586; x=1796394386;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=m1DqYt/Feo6Tg97bGood/CsVYKHCLyHFMxbJBDzqGhc=;
-        b=CXAcXJcTvr/F+tp/mloxblCaPlMFSjXGmcMO1AD79+sqdAH7X0FLY9UU/d0ozCl0NN
-         6te99RSTUFl3ie9QfTDWx+AcVbsTjei5JHKW4hM29wWAb7Q8wOTd1yEdasRdhUji7eUX
-         JnaBhRsAqPVUTtwiHFh6QeJmX7qM74qLKBjG4aU4e03WNUgyGtk+5MUDuCUrtEDfrgqA
-         U6Jp40vvV8642gbo6FlgbzRPvY4TKxP1jR090KTUM+LUFZNxajSZB/BKVLw1po/6zV1M
-         TW5q5qyUWBNbI9ZibHC9X1TuMmLQXid9uFWRM6/+BjckfrNF4kpAcLd5AJQHS7kIARuc
-         qHew==
-X-Gm-Message-State: APuU4Z/7ua9nTQ5y4hrj6KI/+ib+sWctfhIevlEA/jqXilcQOmduYRfX
-	kAgGVwM47M9V6+Cf17YkUChyMBhJP9aRo3GZyEFlZHt9aKhT0Njx9kyBM+S9lSGmzOlVvvvKXtI
-	84UIxVuN0oKsKPv+GGycl8Ak7/U1tYgc=
-X-Gm-Gg: AZFdTZfp7AGwIFE1lwH8bZClplpuORRDm3eOZssWOfHgivriUSp10hGh4Wcv9+NOygP
-	2YPC+jiGToJw3wyd6aPvj6t85gPZMKePqwPgNvS/LopRvx9nBoYaBUqifAojlKC6P1pQmZkldgB
-	s6npjRyJy63iJUB81fNUf4WtApTsMTWRxFfRT0KlbiA0cH/OsDTMMKHjJbqW+NqzjSmr8qJusCs
-	Up60Twyrmn/Ogbh1LaTAa+/ADu3UXIdrKnEMfat4qXXZ2JkWpMkXmm/eNCNs3B2TcdwP/0M3KOH
-	In9ZPvyjWADoflwRFPmG9kTHwHKPh0xM3jL6pq7rQMyBcYi6lYh2IvnQJkX/AZt+u1sJrhutHMt
-	9aRpY7hYJ4yhMSrKr26TixMJVlDHDHjqUcM1vJTVDVm/CUVoNl1RgyZ/sx3lDOrrq8jobK62R0V
-	0LeliqVN2d8BArT4Ihu2NlH0BLzPNft2IqP5XwOJTYmb65OVpt8PgLVaiuL8j+bjrZUvvFtMmD4
-	FomeG88daOKvhst50E6LCHiORs/jKBLUYovVqR+WCypp1e/ZW+62vHGkORW/w==
-X-Received: by 2002:a05:690e:1489:b0:679:5bea:d3fb with SMTP id
- 956f58d0204a3-67df44ff2a3mr11332814d50.98.1795789586210; Fri, 27 Nov 2026
- 06:26:26 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795789664; x=1796394464;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=AAcb5vfaAA7rQOvxn3vN2wvPr8anCPC4jvF7VU0us5s=;
+        b=tWQAmMil0oI4Fn+U6ZMsOIvsHydJ38yMQ35WRZRdXWtt7teEt5nRxBy2MpUlNE8OZf
+         J0raBGYpUea+voASujWtqMBMMyJDGuRYIvzdAtqTcIVyu3Kq4v56T6i7nG0N4eH5A5pQ
+         nRkW7mf6qW5YHP9x4fez/QhguNqXMOuVnHuLauT/jnez/fo5U7YfI80jLhAwD86Liapy
+         ZCrK2BNv70v9J81ZU21qUzgvyS+LQfC4KVwPjXfR4PUQYd8BOFmsnJahUUuTc5r8LDNQ
+         hmNAsdZNtv2FJ5XW+6s3xjhq6wLF5GzylIJWs/kYQ5FfrS6m3R7WnHinebDrpiDqfbKI
+         yx7w==
+X-Gm-Message-State: APuU4Z/oAhNvrlnjkb0rimK68eW5t2XKMj913eoTU/Dh6Vf3HsdyEAmP
+	q4zOxZY3yer51Xh8a4cQ13weacNnZrOmscJY5bt5jrYuZOrfKvnmg2E8Ab4mUg==
+X-Gm-Gg: AZFdTZcx3+kIbFMxZPKw7qnHb15Tw9HZI7Bw2EPl71Ygz4dDfMBsKoKhK8dd6KQ1SPk
+	RYIFf+gW2YU5WX+3JvzVHsuo2UT+a+D+zJeDsmsel0bLNroK/NfJXhdjvNslTTjH/dgOsBfuTSu
+	wTnWeJMqzW27nnsWyKFiUT09MK+pP0BNBC1SI9DN78P/Qh/ka0nbBLOnZHTEfQL8yudeuo9IWCV
+	kJn/s2TQz9rv7gS3bR9R8uoPBVTAVAUDfQ5EYOq1o0DX5NgL3suuNjqW4kosBmHsaTocOSyuPK+
+	5nXXLrXSXDsLJzfsgzJAAxKKwhY6TI8tydSf2Cu4ps4ZJXJueFFS8V/5/xXYNyFsqfxLKPt4Vn3
+	ayPpjkgyG9qNuy7siJkaynTX5KRPkd9KfpeS4a7Q0lKXTNhVIowD61SFG57yaV6DTpuA/J5RJ+L
+	Y3ezEvIqmGtfFvFuVb3Gabc7XHq9aziIiyZyD0EvzjXjpB62zt94AHSb+qQZ8vJfQbgeh/CYzZ+
+	4MV+vWMD9iI/bX3ukIKrpoZfazMor1rExamGsCfWaW/wfRy8h7WteueLoLuqhkEXy6kFFEUbHEd
+	KlFl1SGaYiVkt3u/zrEwC4TkeO/aWQ4fkmBsz2PR3x1M/fNOXvrSUNA=
+X-Received: by 2002:a05:6a20:c887:b0:3e0:eae8:7525 with SMTP id adf61e73a8af0-4014d14d239mr26392350637.64.1795789663419;
+        Fri, 27 Nov 2026 06:27:43 -0800 (PST)
+Received: from d.home.yangfl.dn42 ([2a09:bac1:7680:d30::4d0:13])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d02ba46sm12578021a12.21.2026.11.27.06.27.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 06:27:43 -0800 (PST)
+From: David Yang <mmyangfl@gmail.com>
+To: netdev@vger.kernel.org
+Cc: David Yang <mmyangfl@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net] net: dsa: motorcomm: Reject isolated redirect targets
+Date: Fri, 27 Nov 2026 22:27:28 +0800
+Message-ID: <20261127142732.1337041-1-mmyangfl@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,77 +97,62 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <7d7b20e7-6749-46c4-a6f8-462f83cd27e3@web.de> <0302adc3-dbf2-4e62-ac9b-8923ac285506@web.de>
-In-Reply-To: <0302adc3-dbf2-4e62-ac9b-8923ac285506@web.de>
-From: Jonas Gorski <jonas.gorski@gmail.com>
-Date: Fri, 27 Nov 2026 15:26:14 +0100
-X-Gm-Features: Aa3M54rU861K6hVH_v4BM8VXqJq13L8vPQqUixPloEFQahDxyt31sYLJ9SxYLgk
-Message-ID: <CAOiHx=mX7HYFXt05G_cH+u3uu3pVZEF5W5j2M0tRs6PG5swd_g@mail.gmail.com>
-Subject: Re: [PATCH net v2 1/2] bcm63xx_enet: Prevent unbalanced
- clk_disable_unprepare() call in bcm_enet_remove()
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Hemanth Selam <hemanth.selam@gmail.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Christophe Jaillet <christophe.jaillet@wanadoo.fr>, Florian Fainelli <f.fainelli@gmail.com>, 
-	Frank Li <Frank.Li@kernel.org>, Julia Lawall <Julia.Lawall@inria.fr>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 27, 2026 at 3:04=E2=80=AFPM Markus Elfring <Markus.Elfring@web.=
-de> wrote:
->
-> From: Markus Elfring <elfring@users.sourceforge.net>
-> Date: Fri, 27 Nov 2026 11:52:23 +0100
->
-> A clk_prepare_enable(priv->phy_clk) call was specified within an if branc=
-h
-> in the implementation of the function =E2=80=9Cbcm_enet_probe=E2=80=9D wh=
-ile
-> a clk_disable_unprepare(priv->phy_clk) call was unconditionally performed
-> in the implementation of the function =E2=80=9Cbcm_enet_remove=E2=80=9D.
-> Move this clk_disable_unprepare() call into a corresponding if branch.
->
-> Fixes: 7e697ce99ceb09538cdc1dfa9ebb3db60236b0a7 ("bcm63xx_enet: use manag=
-ed functions for clock/ioremap")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
-> ---
->  drivers/net/ethernet/broadcom/bcm63xx_enet.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/net/ethernet/broadcom/bcm63xx_enet.c b/drivers/net/e=
-thernet/broadcom/bcm63xx_enet.c
-> index f6595fdc888d..cc9a5cd2a2a3 100644
-> --- a/drivers/net/ethernet/broadcom/bcm63xx_enet.c
-> +++ b/drivers/net/ethernet/broadcom/bcm63xx_enet.c
-> @@ -1915,6 +1915,9 @@ static void bcm_enet_remove(struct platform_device =
-*pdev)
->         enet_writel(priv, 0, ENET_MIISC_REG);
->
->         if (priv->has_phy) {
-> +               if (!priv->use_external_mii)
-> +                       clk_disable_unprepare(priv->phy_clk);
-> +
->                 mdiobus_unregister(priv->mii_bus);
->                 mdiobus_free(priv->mii_bus);
->         } else {
-> @@ -1927,7 +1930,6 @@ static void bcm_enet_remove(struct platform_device =
-*pdev)
->         }
->
->         /* disable hw block clocks */
-> -       clk_disable_unprepare(priv->phy_clk);
+Port isolation takes after REDIR judgment, but software may deliver
+such frames. Reject such offloading.
 
-clk_disable_unprepare() is NULL-safe, so it's fine to call it
-unconditionally. This change fixes nothing, just adds potential
-breakage (disabling the phy clock before unregistering the mdio bus
-feels risky).
+Triggered and verified on YT9215S.
 
->         clk_disable_unprepare(priv->mac_clk);
+Fixes: 8eb9e7520b17 ("net: dsa: yt921x: Add ACL support")
+Signed-off-by: David Yang <mmyangfl@gmail.com>
+---
+ drivers/net/dsa/motorcomm/tc.c | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-Best regards,
-Jonas
+diff --git a/drivers/net/dsa/motorcomm/tc.c b/drivers/net/dsa/motorcomm/tc.c
+index e3f057ed580f..5713ae84ece7 100644
+--- a/drivers/net/dsa/motorcomm/tc.c
++++ b/drivers/net/dsa/motorcomm/tc.c
+@@ -1064,7 +1064,10 @@ yt921x_acl_rule_ext_parse_flow_action(struct yt921x_acl_rule_ext *ruleext,
+ 			terminal = true;
+ 			break;
+ 		case FLOW_ACTION_REDIRECT: {
++			struct yt921x_port *pp = &priv->ports[port];
++			struct yt921x_port *to_pp;
+ 			struct dsa_port *to_dp;
++			struct dsa_port *dp;
+ 
+ 			to_dp = dsa_port_from_netdev(act->dev);
+ 			if (IS_ERR(to_dp) || to_dp->ds != &priv->ds) {
+@@ -1072,6 +1075,27 @@ yt921x_acl_rule_ext_parse_flow_action(struct yt921x_acl_rule_ext *ruleext,
+ 				goto fallback;
+ 			}
+ 
++			/* Port isolation takes after REDIR judgment, but
++			 * software may deliver such frames.
++			 *
++			 * Bridge membership changes may break existing REDIR
++			 * rules, but we cannot do anything here: driver can
++			 * neither reject such changes (port_bridge_leave() is
++			 * void), nor tell tc which one is invalidated.
++			 */
++			dp = dsa_to_port(&priv->ds, port);
++			if (!dsa_port_bridge_same(dp, to_dp)) {
++				reason = "Redirect to another bridge";
++				goto fallback;
++			}
++
++			to_pp = &priv->ports[to_dp->index];
++			if ((to_dp->index == port && !pp->hairpin) ||
++			    (pp->isolated && to_pp->isolated)) {
++				reason = "Redirect target is isolated";
++				goto fallback;
++			}
++
+ 			action[2] |= YT921X_ACL_ACTc_FWD_EN |
+ 				     YT921X_ACL_ACTc_FWD_REDIR |
+ 				     YT921X_ACL_ACTc_FWD_REDIR_DPORTn(to_dp->index);
+-- 
+2.53.0
+
