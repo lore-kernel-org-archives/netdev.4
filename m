@@ -1,61 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.27.60.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795818356;
-	b=1HW076wCJpRelGa5CLJyZyrCWe3QFUcuPeXyMUPgZLmn5lutnmaddulc8eY6y9Y+L7Gk
-	 zRQa2iYvAEC2In/HlhyX1RGAIb9PP4LzIBMzijysBnd2fDSmt0JhuDb5tSp7sbSLSdFBj
-	 ILEk2RcJX1t1anIIggxvJ9SFaOuQ0qTS3EluCfXGFpHBJWShNXswUyOyJTU0Ao5JU7Ip1
-	 MqbF9+W/fBZWJW0Ejf5ByG/6UGVYhhBWfhNgWjjxWumJ2YORVoI+ndm1rJnqdn92U5y2K
-	 4YEAfxOOovJ0oIvyTT47ldY83mcickRuxWuLzaFyTFV1QSidPEnbvQNGnvN+fXFQ9Ug==
+	t=1795818486;
+	b=j4W9RBVEaN8WtGanEYYY7GioqyYPNqb8QykkHAI06vrf9OEv0eAVZTSoIf/AxEFizWy/
+	 YrlNFWGu7akRwKR9duKyMEhObmQ3rsecGWvaCc1JsnZ9eRY4jt4Gd4x56WTcwIaTgGT0q
+	 hVvZCJWL25p1yxg6L7NRytsfVMIAX8S7jqrUY/y82EkTJdEZqFmLvZuZUb4aBJG98Yeew
+	 LYqSMtelpIspLgeJb0FBuU4YlTEDZjJT2+2yr94xV1lEcOOA7B0/Oz3w2VyFvLY3Ybay4
+	 GCI4uH6agaBEDLHsgLtMAEIuNYpbSLU+JB6oJpnV/wyglXighyADU8Gjia1V6gDah6w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795818356;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=xJRmzNvq1O79iasY33Ckwg4qBT9YXe3i0Q0gMj2U+Y0=;
-	b=D8Phji+z2JF70V+DYtdkT/73q/aI722F1YsgZaqRdbfF04xFRilYcJnYr6JrFoQ5p8fv
-	 aEtvmePqJmZa3al9IWFltlJvZanJW6Ohwww6gprze9/MaM84OJFEFgtvfSVH+kczTN4wt
-	 d3qJY3LiV7XBt2e7aU48Z5l27uvLDLVIay8/t1SB0+1G7SlesaPQkNkjt+T6xHSDc2XLN
-	 xpqX1KZkEi1sRD0mdkHb+osBiF/5CYp8y+FDNVcf2Zx/mIipF78S7OUycQnjqBhMEE0n4
-	 uYGe5DXkVE0shv5FJW4vY8ONiYVj6kf0oocTgS4onUuEq+IYd0W07YHQ9OIc15FAopQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795818486;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=MoDoW5TcR6bdLCM0d1UScBuGr3A3WzhkwpOzQR3lmfU=;
+	b=siInN1niupvLdGMvzI4spEIUJt5ZjELo1Fcphi7pBiFmfjU15eki8vjwlCVQBytHGJri
+	 z5Lwb1zpH83nVcgT/u2RcKDAf7LxdWZynZLswmdc7LYd2Ado7gRgzU6VNZFFyrSImoP/w
+	 l4ghfs7QgqYazm9bT8GKJkimToq3BfZ1GOs/SKyJUbWHGdYQ6m14KxN3FIHkJqSOgArmk
+	 qRkoHVEOApY1cUhlqaHUtRc2SpsVCzqCtQ6bibv1vi6y2oSu5aoNQUc0JNXzZ6wA2c+MP
+	 ZJLFMmPSpn9GyBe9SCITi+NhRm/fDL6pYDpOMostj5DyTBnvIA7dfo56e6hQK7gPtng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bJaBinNW;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=corp.free.fr;
+	spf=pass smtp.mailfrom=corp.free.fr;
+	dkim=pass header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=JED486N3;
+	arc=none smtp.remote-ip=212.27.60.169
+Received: from rcs.proxad.net (rcs.proxad.net [212.27.60.169])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 489DE606A326;
-	Fri, 27 Nov 2026 22:25:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B9E5606A31C;
+	Fri, 27 Nov 2026 22:28:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B9E5606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=corp.free.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=corp.free.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bJaBinNW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFB201F000C1;
-	Fri, 27 Nov 2026 22:25:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795818355;
-	bh=xJRmzNvq1O79iasY33Ckwg4qBT9YXe3i0Q0gMj2U+Y0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=bJaBinNWkcj4mgWSBRNvCS2tKhK+mjiTKF8/RwIFfrUEoEZ9TPBx794qSrTZMYkc5
-	 jK+9FYweOL3n/0mcVn9iwd/VqGiEH5vLpb5xlwr7QCPvrdMWjEKM+V4Ht0mLbCtcst
-	 DjX1qDFxxUfOD5E0fGzf3HgV9E0jzovsvX15uOuFFu4OXHstxZO/rQXVZ8UusbFtlm
-	 Mhw3rgTyISz1wVbpUnNo/pykEudYHEuU4HLurDv0K7pwv6hC+alot+VLM74PaFyi6n
-	 LACjWqGLOiKH9gad8ggzRgfCM98iuCLF0nMhBc45Nnxg42so4zBOc+FCistgIH8wOM
-	 0tbvreiVYG9zg==
-Subject: Re: [PATCH net-next 5/5] selftests: net: add a scale test for LISP
-From: netdev-bot+sashiko@kernel.org
-To: vjardin@free.fr
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, donald.hunter@gmail.com,
- nicolas.dichtel@6wind.com, horms@kernel.org, corbet@lwn.net,
- skhan@linuxfoundation.org, rdunlap@infradead.org, shuah@kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-Date: Fri, 27 Nov 2026 22:25:54 +0000
-Message-ID: <179581835452.3135.4676723835518066022@kernel.org>
-In-Reply-To: <20261126-for-upstream-lisp-v1-v1-5-7382a4bcfd9b@free.fr>
-References: <20261126-for-upstream-lisp-v1-v1-5-7382a4bcfd9b@free.fr>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=JED486N3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=corp.free.fr; s=rcs;
+	t=1795818483; bh=jtZGXvdsN1gOM5FmcrO2xM28wDYuuwBnTAQnJvObioc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JED486N3iPEUirBuCSzHy34NVRVOWD1s50E5Nu5HZWEmtLNFLYQSaRZM6Xpqr5SPN
+	 nZzWQjqp5AajQZO3c4mhVg8kBvf1vZjxbyqnQ+8KusENets+/cRpkwBGZI/oN8UtRt
+	 rPMrIZGM9kO9VyrapcrECMiOSlV1FFYCgyMymkNaYQ9Dgue292eSwe/ESjj3esryef
+	 8JLRA1O10zM7vwo9XoqBMzjGihfy3eIQ7Ngco/PydQW1PoNNmx+oYG9QUlNRdyRMGR
+	 YcYVVhAz5ARsg9GOCvbyyiIc07Jq5Ms5M0L26i37bhe/dSHMEggh9ermPiWKFEE/AC
+	 tdcxGGhjP7AYQ==
+Received: from [0.0.0.0] (unknown [213.228.1.188])
+	by rcs.proxad.net (Postfix) with ESMTPSA id 0272244C0E90;
+	Fri, 27 Nov 2026 23:28:01 +0100 (CET)
+Message-ID: <6a02f731-b883-471e-bc15-01e82433479f@corp.free.fr>
+Date: Fri, 27 Nov 2026 23:28:01 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,132 +56,124 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 07/11] selftests: forwarding: tc_flower: test
+ the enc_key_id mask
+To: netdev-bot+sashiko@kernel.org
+Cc: saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com, mbloch@nvidia.com,
+ jhs@mojatatu.com, jiri@resnulli.us, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, michael.chan@broadcom.com,
+ pavan.chebbi@broadcom.com, bharat@chelsio.com, donald.hunter@gmail.com,
+ corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
+ dsahern@kernel.org, idosch@nvidia.com, shuah@kernel.org,
+ netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ oss-drivers@corigine.com
+References: <20261122213200.3207385-8-acassen@corp.free.fr>
+ <179546966804.3135.7021273084185929997@kernel.org>
+Content-Language: en-US
+From: Alexandre Cassen <acassen@corp.free.fr>
+In-Reply-To: <179546966804.3135.7021273084185929997@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+On 11/23/26 22:34, netdev-bot+sashiko@kernel.org wrote:
+> [Severity: Low]
+> Is this comment accurate as a general statement? The commit message makes
+> the same claim:
+> 
+>    "A tunnel device takes no skip_sw filter."
+> 
+> Several drivers offload flower rules on gretap devices through indirect
+> blocks. In drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.c:
+> 
+> mlx5e_get_tc_tun() {
+>      ...
+> 	else if (netif_is_gretap(tunnel_dev) ||
+> 		 netif_is_ip6gretap(tunnel_dev))
+> 		return &gre_tunnel;
+>      ...
+> }
+> 
+> mlx5e_rep_check_indr_block_supported() then accepts such devices via
+> mlx5e_tc_tun_device_to_offload(). The nfp driver
+> (nfp_fl_is_netdev_to_offload()) and ice also handle gretap devices.
+> 
+> The limit seems to come from this test's topology: an external gt-ex
+> device, no enc_src_ip/enc_dst_ip match, and frames generated in software.
+> It doesn't seem to apply to tunnel devices in general.
+> 
+> Could the comment and the commit message say that instead? This path also
+> returns without log_test or log_test_skip, so nothing in the skip_sw pass
+> shows that the hardware enc_key_id mask paths had no coverage.
 
-- [Medium] The background loops in churn_test()
-  (tools/testing/selftests/net/lisp_scale.sh) can be left running when…
-- [Low] The sub-tests in tools/testing/selftests/net/lisp_scale.sh depend
-  on each other through hard-coded state.
 
---
+yes, some drivers offload a tunnel device. The test only need the sw 
+match. will reword both if there is a v4...
 
-selftests: net: add a scale test for LISP
 
-This adds lisp_scale.sh, a selftest that installs the mappings of many
-remote sites on one LISP device of an xTR. Each site gets one nexthop and
-four EID routes, and a second namespace stands in for all the sites. The
-sub-tests cover counters, RLOC moves and replacements, withdrawals, churn
-under traffic, and taking the device down and deleting it.
 
-> diff --git a/tools/testing/selftests/net/lisp_scale.sh b/tools/testing/selftests/net/lisp_scale.sh
-> new file mode 100755
-> index 0000000000000..badba6491a42c
-> --- /dev/null
-> +++ b/tools/testing/selftests/net/lisp_scale.sh
-> @@ -0,0 +1,532 @@
 
-[ ... ]
 
-> +churn_test()
-> +{
-> +	local loops=()
-> +	local pids=()
-> +	local rounds=0
-> +	local site
-> +	local out
-> +	local pid
-> +
-> +	RET=0
-> +
-> +	out=$(mktemp -d)
+> [Severity: Medium]
+> Can this probe hide a regression in the kernel's enc_key_id mask handling?
+> 
+> The kernel side is already in this tree. TCA_FLOWER_KEY_ENC_KEY_ID_MASK is
+> in the flower policy, and fl_set_key() parses it:
+> 
+> net/sched/cls_flower.c:fl_set_key() {
+>      ...
+> 	fl_set_key_val(tb, &key->enc_key_id.keyid, TCA_FLOWER_KEY_ENC_KEY_ID,
+> 		       &mask->enc_key_id.keyid, TCA_FLOWER_KEY_ENC_KEY_ID_MASK,
+> 		       sizeof(key->enc_key_id.keyid));
+>      ...
+> }
+> 
+> fl_dump_key() dumps it through fl_dump_key_val().
+> 
+> If either path breaks, the grep fails and the function returns 0 before
+> log_test. RET and EXIT_STATUS stay unchanged, so the script still reports
+> PASS instead of FAIL. The result of the filter add is also not checked, and
+> its stderr is discarded.
+> 
+> The commit message is right that log_test_skip would turn the whole
+> script's exit status into a skip. But a silent return makes an in-tree
+> kernel regression look the same as an old tc.
+> 
+> By comparison, check_tc_erspan_support() in forwarding/lib.sh only checks
+> whether tc accepts the syntax:
+> 
+> 	tc filter add dev $dev ingress pref 1 handle 1 flower \
+> 		erspan_opts 1:0:0:0 &> /dev/null
+> 
+> It does not use the kernel's dump output to decide whether to skip.
+> 
+> The probe also depends on the exact text "enc_key_id 256/0xf00". That
+> output format comes from an iproute2 change that the commit message
+> doesn't reference. Released tc prints enc_key_id as a bare value. If the
+> final iproute2 output formats the key or the mask differently, wouldn't
+> the main test never run anywhere, with no failure reported?
+> 
+> Would it work better to probe only whether tc accepts the syntax? A mask
+> missing from the dump, or a failed match, on the current kernel could then
+> go through check_err and log_test.
 
-[ ... ]
+No! v2 only checked tc. The review of v2 asked to skip on a kernel 
+without the mask... Such a kernel ginore the attr without any error 
+(only the dump show it). bridge_fdb_learning_limit.sh also skips on a 
+dump since 863ff546fb62.
 
-> +	for site in 5000 5001; do
-> +		while :; do
-> +			ip netns exec "$x1" ping -q -f -w 1 -I site \
-> +				"$(site_eid4 "$site")"
-> +			ip netns exec "$x1" ping -q -f -w 1 -I site \
-> +				"$(site_eid6 "$site")"
-> +		done > /dev/null 2>&1 &
-> +		loops+=($!)
-> +	done
+A broken parse or dump doesn't read as a pass in netdev CI. A "SKIP:" 
+line turns the result into a skip there. The test runs and passes in CI 
+today [1]. The probe text is the dump format of the iproute2 pair [2].
 
-[Severity: Medium]
-If the script exits before churn_test() reaches its kill_process loop,
-what stops these while : loops?
 
-The loop subshells run in the init netns, and their PIDs are kept only in
-the local loops array. The EXIT trap only runs this:
+[1] 
+https://netdev-ctrl.bots.linux.dev/logs/vmksft/forwarding/results/924466/46-tc-flower-sh/stdout
+[2] 
+https://lore.kernel.org/netdev/20261109131151.960789-1-acassen@corp.free.fr/
 
-cleanup()
-{
-	cleanup_all_ns
-}
 
-cleanup_ns() in lib.sh kills only the processes listed by "ip netns pids"
-for the namespace and then deletes it, so it never touches these subshells.
-
-Suppose the script gets Ctrl-C while the churn loop is running. In a
-non-interactive shell, background commands ignore SIGINT. A SIGTERM sent
-only to the script PID has the same effect. In both cases x1 is deleted
-and every "ip netns exec $x1" then fails at once.
-
-Would the two loops then keep forking failing ip processes until someone
-kills them by hand?
-
-The kselftest runner timeout signals the whole process group, so this
-mostly affects manual interruption and harnesses that signal only the
-script PID.
-
-The mktemp -d directory in $out would also be left behind, because
-rm -rf "$out" only runs on the normal path.
-
-Could the loop kill and the rm -rf be registered with the lib.sh defer
-helpers? tests_run() already wraps each test in in_defer_scope.
-Alternatively, the PIDs and $out could live in globals that cleanup()
-handles, or the loops could stop at a deadline instead of using while :.
-
-[ ... ]
-
-> +	rm -rf "$out"
-> +
-> +	(( $(count_nexthops) == LISP_SITES - 1100 ))
-> +	check_err $? "unexpected count of nexthops"
-
-[Severity: Low]
-Does churn_test() need to depend on what withdraw_test() did here?
-
-The 1100 comes from withdraw_test() deleting the nexthops of sites
-3000..3999 and then 4000..4099:
-
-	sites_batch "" 4000 4100 'printf "nexthop del id %d\n", nh'
-
-churn_test() deletes and re-adds sites 5000..5199, so it does not change
-the total. This check just repeats the one at the end of withdraw_test().
-move_test() also asserts count_nexthops == LISP_SITES, and most sub-tests
-rely on the sites created by install_test().
-
-tests_run() in lib.sh iterates ${TESTS:-$ALL_TESTS}, so a subset can be
-run. With TESTS=churn_test, this check would fail, and sites 5500/5501
-would not exist, even if the churn handling itself works.
-
-withdraw_test() sends its deletions through ip -batch without -force. If
-it fails partway, the same problem would be reported again here as an
-unexpected count of nexthops.
-
-Could this cross-test count be dropped, or compared against a count taken
-at the start of churn_test()?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126-for-upstream-lisp-v1-v1-0-7382a4bcfd9b%40free.fr
