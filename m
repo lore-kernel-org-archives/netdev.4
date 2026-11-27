@@ -1,60 +1,180 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795795085;
-	b=wzapffFXsZQmj41QSFgNWpk2wPU2D+TyH9rs/8nRp6q8ufIC8U8oeiq22LyUh83XzJpz
-	 LbQTAnE2XUGBP793A4reWpBQP6RZWv+gfL5trNgK8YYuQSPa99BKzZQ/eLEAuYJV/LTOX
-	 +rXfiB4WBE5L4wpddSMhUdJIdl2Wj7bFnHPcwlQXlcR5jADjJZWrMunrnKw3ydhR7PAGq
-	 oQeGahV8iugO/8vqO4VwC2Xm/LAWixdB428S+Xru2LgJmYxr3KYLD5xVtR3POqnc0vStI
-	 OpCLDyp253AueNaBmj4WCHhgHcFgfSfBzgc8axrZg/NufOhqGSSCDd5h0zNR6TPkilA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795795085;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=7KGeFjs5PX/tkxJAUFM5Z/NmhcKaV2QlvKHXrIhvBs0=;
-	b=O04/7dAg8ehY6pI+doJuVyH1u/cYu9bCAyJ/bk9v4iJ18CWCa/2vcmFxQG/5tCodL38V
-	 6tEigWT9clLieFdnT/D58mnZd1/IIF5SJdjfW4lkE1d3fU9vvnM0VXuaBnNL1WywKN1w4
-	 yhVwZZIE3VOH9Rta3DH1n+4q9fKwcXGtbxz/5v2PDsFcRP1pSp6NETAm4V9tUZBbjazoZ
-	 rEhDLlBAzCcGPM/svWaIx6DD+Aib8JyLwJUSSeIoQPvzQVWE7VAuDeULMGeo5VQhPnU6n
-	 MLFUVsBc99VcXeQNP9tWh7QxmyCfPr9LG06mELJ/sMwX47ZWXHHbmergjay4oimlZ8g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=My2MzzJ3;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.12
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795795304;
+	b=bBG9gM2SWBmaF2PuQ/0Xm0wnhHk+R+R9V/fbasOfh0Ms5oO1b/M2ZiFT13h8jiInjdaQ
+	 MGcrdC5UftPjuxelDZO2b9X1rJBXYExvzyjrwaWgYPTxFug6BpCAYUDUaLY7xYMDPywem
+	 hYsqMqcZBzXzSuxHnuLdjY9EKaC0dB3O8oIYGv7YlB9gz4fo0JfCbihxkMi3V0fHdNOy+
+	 gNXO1ThBWN6O4xfCAzTEmnVzKZQ3USEkBJT0UMaDtiOtetu5uDRz+DvpdSdJgPxN2SIzP
+	 0CG37sbGD6Y0O5wTcc0KjwZsmyazwrd6eJ+O/zAWFDKS79xt/TpvtSibf3jeMJhCjYQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795795304;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:Received:Received:From:To:CC:Subject:Thread-Topic:
+	 Thread-Index:Date:Message-ID:References:In-Reply-To:Accept-Language:
+	 Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:
+	 X-Exchange-RoutingPolicyChecked:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=OLe4okM9N46rTMbyYsKX/LFNv7Fqw0qOjjXCUoY9ry4=;
+	b=dlRfW8SJxg+1lLvzB4dS10koQh1wJzZ7/qvoKSA05iJyPOD75YVPe1J6rQpmsdJoriH+
+	 GKwbIjYwayM4DZHzHYMfke2JAZi7CqTP/uOgU3MRwDY4lOcl2o7pe9T4Dg0oAYCJmn6OJ
+	 /hVN9XqYyMp0B3UJSWLHqoi4CfkBBGcUyyVEYy3M7/Pzz8gYxmd92eU+JtpT829rUZxST
+	 O/a+zmZbjOVbYQ3T8efNzVz1wEfTM+sJaXuFGhrY1xqmV65dQHXtJwioJ/RwoA2sVdNJ3
+	 eqs8O6PQ+Qq4i64sCvRKHqhYghjMAcpHMOU4yYrv0j26YK9Rg8Sw1/0VpsU8mHMqEkQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mMybott6;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDCE3606A6B6;
-	Fri, 27 Nov 2026 15:58:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93AC4606A32C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 16:01:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93AC4606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=My2MzzJ3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF2051F00919;
-	Fri, 27 Nov 2026 15:58:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795795085;
-	bh=7KGeFjs5PX/tkxJAUFM5Z/NmhcKaV2QlvKHXrIhvBs0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=My2MzzJ33v5yEC0fEtDE0zVv0XGghwkpGU/rRK4ZRlDT7inZZwMYWsfmO62NrCT7g
-	 7bTuTowcyj8sboqPkd9pH1SjyNQjR7aGvsxFqBIqYKJgxBNhsBcf750TYUMHquPSTR
-	 rqyui/iftzcgMJ2APe6oaoVKGx2tT3lrk42CMS0IrLuFDUrPal5tjg9LR7GiVFJxoi
-	 fxKVCo1OPrjfmIiHKOHeTGpygx/GClaPxM5pL+GkbzHV80P6QwWnCBSK3lS3hMVkfM
-	 ejEPcKf0+B+z7nO/CBTV6Bzh0MczPGwy/CvAgWCh8KDua5/2stFtnpr8mbFGM+Shdd
-	 rd2uq548m5R4g==
-Subject: Re: [PATCH v2 10/11] net/xsc: add the transmit path
-From: netdev-bot+sashiko@kernel.org
-To: tianx@yunsilicon.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, jgg@ziepe.ca, leon@kernel.org,
- huangjunxian6@hisilicon.com, weihg@yunsilicon.com,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-rdma@vger.kernel.org, kerneljasonxing@gmail.com
-Date: Fri, 27 Nov 2026 15:58:04 +0000
-Message-ID: <179579508443.3135.6949667103028918025@kernel.org>
-In-Reply-To: <20261126145740.70868-11-tianx@yunsilicon.com>
-References: <20261126145740.70868-11-tianx@yunsilicon.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mMybott6
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795795304; x=1827331304;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=LTHOBNSr6ftKqZ8RVXOf2MyE8MtE8lrPb4HoJkyDjtc=;
+  b=mMybott6mtwegn7eiEoIjEe5OFjsf2SF7r/2GIEmHJD6ol6IRo++Acth
+   zh9eVIJ5ysaFkShCYaR/Ja7yLJCJ/WZdnNEiR2ahRA6UCy7IfPhA6QSyR
+   uFKPT9Qp/FYagbgaceB6b5ahrL2xaDPpH66bzKIOp4RGCvC+9uwx5yY7f
+   t+wvt45vWrKiV55AR9GuX7RcDag71RLHlLR/9UIMbZECFhfcuTNcgl6L9
+   dq9vBqK9zpON8PpS9dgs/8QgeQ8OUqLjLAYxhb2vmF8MQ9adbHcbwozMc
+   ngDKvOw2Ufkze82ZxzI/5oV4Nm/uBx0sD80T6AIBVJQ2LER/DycefALW6
+   g==;
+X-CSE-ConnectionGUID: QwiQCBe4RFej57N5fqF4Mg==
+X-CSE-MsgGUID: mQ00P8GwT3mJ1f4LVDY8KQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4616925"
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="4616925"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 08:01:42 -0800
+X-CSE-ConnectionGUID: Rpg0bYtVQE27EFZJkTYXqQ==
+X-CSE-MsgGUID: S9mflYf5S5KoJ+do43fThg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
+   d="scan'208";a="12715769"
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by fmviesa008.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 08:01:42 -0800
+Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Fri, 27 Nov 2026 08:01:41 -0800
+Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
+ FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57 via Frontend Transport; Fri, 27 Nov 2026 08:01:41 -0800
+Received: from PH8PR06CU001.outbound.protection.outlook.com (40.107.209.68) by
+ edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Fri, 27 Nov 2026 08:01:41 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TXBhOJ2FXEwWVkvyy3yNjaHQ33cJMNdswSCWq9tglGJbdfLNIQ0TTdK8E7mPNyNTBomKFb7+s/83YEU5gmsH59YtQiDmQPhaDdL1t84E3WM9KorR+Zk5cbw773VbHmhnbjLbbnxrKrpaXRI6y0UKQTUU2gl6OTJ5o9LBrp6tYiJN2GH4+xPZy9QX9/zYzqrVYHJbJC5GwAPg3A65UCpnrHUlu/voyZhD3oqQ4XeY/k3gk1m4CfVp0dWVZjGwrh6gwtETbLF5FtWiR/cd2LNmo7wZpzsj4XlMqGDt+KRnhpQgJnOsNrNzkTa/7n+Am3fh+DjDNs804SP/49n4mgZTTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OLe4okM9N46rTMbyYsKX/LFNv7Fqw0qOjjXCUoY9ry4=;
+ b=UP56qXCzdT6XHzkOtTRpXteddgAimjmyAqzEhLgrkLJGma3xGebvjky3xmI3joS+XT6FBp5zgvimmRa1kx5SgE4fZCVmIzqKPU/5oAJ0YddaHB4kHT47lSKK5edfWn571ZJAvDu3TzilnKHDZvvjnCBOOx0MIL87ILzgbbT+TY93yb+U4VwrtejB/4QzyHpnu0m+fx/0bpwTginXPKZcysDYm+k45kIc3dHApHgXSkHg8qKFb+9SI3nOytR+Zqn58Ie9MS7evEZ7Ijn4itVObUHdKQm01M2qj24rVIGLABaT3Cgd7fVjaY6hpXVup/xk/cB0Fbllw0vj/C3jepr35g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from PH0SPRMB0197.namprd11.prod.outlook.com (2603:10b6:510:43a::22)
+ by DS6PR11MB787091.namprd11.prod.outlook.com (2603:10b6:8:4c5::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.10; Fri, 27 Nov
+ 2026 16:01:38 +0000
+Received: from PH0SPRMB0197.namprd11.prod.outlook.com
+ ([fe80::167:c419:e42e:59e0]) by PH0SPRMB0197.namprd11.prod.outlook.com
+ ([fe80::167:c419:e42e:59e0%5]) with mapi id 15.21.0639.012; Fri, 27 Nov 2026
+ 16:01:38 +0000
+From: "Olech, Milena" <milena.olech@intel.com>
+To: Cyriel Ladriere <cyriel.ladriere@gmail.com>, "Nguyen, Anthony L"
+	<anthony.l.nguyen@intel.com>, "Kitszel, Przemyslaw"
+	<przemyslaw.kitszel@intel.com>, "intel-wired-lan@lists.osuosl.org"
+	<intel-wired-lan@lists.osuosl.org>
+CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>, "kurt@linutronix.de"
+	<kurt@linutronix.de>, "hawk@kernel.org" <hawk@kernel.org>,
+	"richardcochran@gmail.com" <richardcochran@gmail.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@kernel.org" <edumazet@kernel.org>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>
+Subject: RE: [PATCH iwl-net] igb: only pull the Rx timestamp header from the
+ first buffer of a frame
+Thread-Topic: [PATCH iwl-net] igb: only pull the Rx timestamp header from the
+ first buffer of a frame
+Thread-Index: AQHdfnNA32kHuRkD1EqnUSZbOll9R7dCE5DQ
+Date: Fri, 27 Nov 2026 16:01:38 +0000
+Message-ID: <PH0SPRMB0197F1DA6FD83F4F3980090C8E412@PH0SPRMB0197.namprd11.prod.outlook.com>
+References: <20261127132804.975014-2-cyriel.ladriere@gmail.com>
+In-Reply-To: <20261127132804.975014-2-cyriel.ladriere@gmail.com>
+Accept-Language: en-US, pl-PL
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PH0SPRMB0197:EE_|DS6PR11MB787091:EE_
+x-ms-office365-filtering-correlation-id: aa6d48f6-3c48-4c54-28fa-08df4c9fb80c
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|261102123227099003|261028144727099003|261021123027099003|261022105027099003|261021135927099003|261021121427099003|261026140227099003|38070700021|56012099006|260925021311599003|260925022911599003|260925021911599003|11063799006|10067099003|18002099003|22082099003|261009223027099003;
+x-microsoft-antispam-message-info: TlaBjw81iFfDSa5dS8ntPSsuL6ElDD7QtJSetv4arXzMF//Vx42EFnDjMaOyc0/tDoevV5Rj1dLfz9qMHMRUaRhWesFdtFTQGPDjSqRRKY8a67/aGjGX2V6vBOzSRMcWIxc0+fTMpa9JGMXj3RfkRPBXADchknqRbwousemLD6izJecOeu7u7PAf3WtpTMCL/2o7BPCm+Tf610eUC3vSgU8DfMsdNIZG2vI1JwBh3aZ6Vz/gHOjpnCZ0sGIomKbnjQ92NUDEI6OsQ2uUu0Ao6jzHY70aohcRZDZEmzQqwJjtJNhIjkaEuoajTK3IuBkNFGgxiFd3v7kkKQdJ6iVfJhHmrqgu+jZMHqw1lm1A7K5EB4ODOEe1e+ju+u/3NZSOhglRu2hAKf4n9DKxGSDqjrN+NpysMiNUWPG14u3paDGmeWdTXs8fSakejPl8Mv58gZCd7PpZy2jxjdSH+RtjAHSSLMpbfmqZHTSLuLGT8JwijbiVM1prrBTzkW+spJzAc6+8hE1NjwEF4Q4ZDSKWMrgZGBmT2omm+2evPLlA0PXEro3EeDZ4kxqvzlGLclZiJoSffxJNEpAslLO1S1Nzo6aPEyg2Bl0CsRCV6naEKlwLJFz4klil60sqMBxhJ4uADSpVrE745/nM41T+Ehm+ye/f5TWUJdtN1W3lD7tqRQFt6Rkqbk2WOg0j30vMhMGiczMNmj/WOYWW75D78fy0D3H5W3bVXneQzRyHXbeQFpg=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0SPRMB0197.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(261102123227099003)(261028144727099003)(261021123027099003)(261022105027099003)(261021135927099003)(261021121427099003)(261026140227099003)(38070700021)(56012099006)(260925021311599003)(260925022911599003)(260925021911599003)(11063799006)(10067099003)(18002099003)(22082099003)(261009223027099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?PeBeVbPbZPydc4Q0QZzAkR3FOC2lugtW0WIQddZm/gjuhV16Q7GfQrGJdLa1?=
+ =?us-ascii?Q?ikqr3NWd/fer3YPtYIsf3mMtPguK28gw/9zLtKWQO4EKAjpLKbD7Wch46Pzu?=
+ =?us-ascii?Q?vVwxm+g5ZF1SWAbx0Ueis+vB0l8WgcX3hoTfR02kUgIFAJurmn1nJWJVyXkm?=
+ =?us-ascii?Q?0SkPVjIXNXJAeCDowNUsbrEMM+lTrsNJrp3ybwdapDzmifHIOu09llnCGjiO?=
+ =?us-ascii?Q?k36F5qsb2Vv4Is1JhNaTfTQmPNnuzJhEAS57GKZ5UXDYKE12XHlKziiwTuKr?=
+ =?us-ascii?Q?A5WPFfEHPg5Gz7OjEb0VOqaiDrfwaTdaYDdgolYYwf9+V9t4sQY1RMteate+?=
+ =?us-ascii?Q?pe7in30t3GbLugyvPaZpajF+yzzAuat5H9m7Zp5KoUbnTB8lOV2xbuSOUM+E?=
+ =?us-ascii?Q?0+YiJekuLysPIINSOcJwlRdmHyLq868y3JVBczZoNryXaBLB4YJlpORnXypJ?=
+ =?us-ascii?Q?PLm56E0nFi8bLTpRRMFjPF7cadPpDgl5KMXiwMlB9HpVwQyuD6EilV5gnNR0?=
+ =?us-ascii?Q?7mcQaQzfWpGrOpRXS2U4vEvH8rpva96U3YnZgcMChmXWbUQI63vrcOGC3kW7?=
+ =?us-ascii?Q?btO0JuT4HccDrVkkONqLErWek39lpA/ovAN/dsCBaH1zxyfdXyBVxAjVW/RX?=
+ =?us-ascii?Q?yKSYcSLyW6MicEeLIyRu3L+GbvQ8AtopMvl/NYSB72yPCA5taRFjMmy9DKsG?=
+ =?us-ascii?Q?w50ktbrCvbrcVjsmUFlf5yAIciDOMiGFswRittfF5jk2uOkosoI6rt43tNcu?=
+ =?us-ascii?Q?tNv3AroqZ0cH3vQFxNNXovSwsbAWTgq/U8ihNLATLfiF5XJOAyhWL0V/dHlX?=
+ =?us-ascii?Q?1fxStKaAA823n3zD1rNY86kqTCLiCbzzMNUMHiG+5OHo43eWuDeqUM6ZMJ3y?=
+ =?us-ascii?Q?dToLLMZt2THcWtvz4+guUU4N/mzsvgmv7/d1sVFSGbQzHWe6AoVM0Ll2XUTY?=
+ =?us-ascii?Q?DV4/YhOjzZe7jM8mYG5NFO1I98GKRf5NtH91W5Rv+yGg3/EKCJdDP8PUULAT?=
+ =?us-ascii?Q?miQXclN2EY02CCcq7dfOaHLEAkUiaqOewUUhGG8Z95397mcQf/7bV/h3PnOL?=
+ =?us-ascii?Q?+qd2Nvg7Vx3jFnMMmQQOH0/qk4JfiOYgYxzglrbi55To3OrouHetfOdF/OKx?=
+ =?us-ascii?Q?AyvtzfRZ4uXFwSwl116JGhtkxCFyyeWaksoPSodYI0pAAj61e0Vc1xn4WElN?=
+ =?us-ascii?Q?9delBsOJtc0Jph+tBKVy90mxtCgFku04oWRWAjM2YNhyB+zxNPVmWFD+cjGZ?=
+ =?us-ascii?Q?Cvip2AqST6NrOvj5n7f106E5jmvUKBMXOFG9KGoX0JIsGwoRADRNzcvs7bf8?=
+ =?us-ascii?Q?79BBT+lH4TPboUoTiz8adRcbGekdhd8Fpqxuxuq759vhkShpQ1oJZVOT9OcM?=
+ =?us-ascii?Q?AQHcGy550gwPu5YdC+5CO5swL7lSEbKl4IZZcL2JLCLfD0HwJdQ7ytdQMG35?=
+ =?us-ascii?Q?XRIdyx/rRcvm+ZZlsoL+hDyQ1BWqXUAy15zEkGOJyPINRsiM6zDF7swEoxsr?=
+ =?us-ascii?Q?r3QbERARwOHBzvifavPAZSHW2cL0jtjt7ii8dHD0/TuyEpn28RvbJrLMbXKf?=
+ =?us-ascii?Q?s/gde7SqNu2wShhKoHSSVlN9wxuPBCLTXGkVp1znD+DxUQ9iVNc2g0uT5bum?=
+ =?us-ascii?Q?Tr/JUWIjef7j2TclE7tPYYSbZ3dhpf+OOOIWiRAK4Lm28ZPKDxl8/PBq4Yue?=
+ =?us-ascii?Q?YHzbU6ilz5jy0JuTZBNcMpmVUrY3b1NGbgDexrRvkIQGwosGDYqmVFaqVk9U?=
+ =?us-ascii?Q?fxJes3VEvw=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,325 +184,78 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-Exchange-RoutingPolicyChecked: YQD88eZ0VMEpjom88RFRKeYz0Y4XyGLB7SU3xvOCKB/TH1qgtt4cLPpDfpUEs630w2bNqilt2DVxGK+9V08C+3QYzgueLolc9i7CNQovekEWE6wxz9UJaDF+1mPf0hox0YlTk2mACg9/NhcDGMG8OwP9YN/F2PbV15Pf9JitYDnA9ouOtWWzGibbtrOdSfarf6p0528CYfiNzgkJl9GPSYN5+9VH0e41l+jH6CVTArqtj8MeK4IfqEAkvK321rIkA9ar1mbtgLeUwHi6q1dFbZB8kzRqnjwzAhwDjT+4aSMdcjRsZpBFZMYdkGgGiGlTK3jiRkeVZ6jQALK3mwSsDQ==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PH0SPRMB0197.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aa6d48f6-3c48-4c54-28fa-08df4c9fb80c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Nov 2026 16:01:38.0625
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: fuAZCaM3NdGLzCJxwITiu90/NW3t4b7dNzWLhgClR5bx56mvicOda7ifhhEjWVlxnkS4AKMUc5ISyYN/8SBFYQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS6PR11MB787091
+X-OriginatorOrg: intel.com
 
-Thank you for your contribution! Sashiko AI review found 7 potential
-issue(s) to consider.
+On 11/27/26 2:28 PM, Cyriel Ladriere wrote:
 
-Critical: 0 · High: 1 · Medium: 5 · Low: 1
+>When Rx hardware timestamping is enabled on 82580 and later parts, the
+>NIC timestamps every received packet in-band: it writes a 16 byte
+>timestamp header in front of the frame and sets E1000_RXDADV_STAT_TSIP
+>in the Rx descriptor.
+>
+>Since commit 5379260852b0 ("igb: Fix XDP with PTP enabled"),
+>igb_clean_rx_irq() checks TSIP and calls igb_ptp_rx_pktstamp() for every
+>Rx buffer, including the continuation buffers of a frame that spans
+>several descriptors (jumbo frames, e.g. MTU 9000 with 3072 byte
+>buffers). igb_ptp_rx_pktstamp() is meant for the first buffer only; its
+>only validity check is that the first 8 bytes are zero. When a
+>continuation buffer happens to start with 8 zero bytes, 16 bytes of
+>packet data are treated as a timestamp header and removed from the
+>frame. ip_rcv_core() then drops the packet because skb->len is smaller
+>than the IP total length (IpExtInTruncatedPkts).
+>
+>The drop depends on the payload, so retransmissions of the same data are
+>dropped as well. We hit this with GigE Vision cameras streaming 9000 byte
+>UDP packets to an I210 with ptp4l running: about one 4K frame in 700 lost
+>one packet; every original and every resend counted in
+>IpExtInTruncatedPkts, and a capture on the interface showed those
+>packets exactly 16 bytes short (8994 instead of 9010 bytes). With Rx
+>hardware timestamping disabled, or with packets small enough to fit one
+>Rx buffer, no packet was lost.
+>
+>Only pull the timestamp header while no skb has been started for the
+>frame, i.e. from its first buffer, as before the commit above.
+>
+>Fixes: 5379260852b0 ("igb: Fix XDP with PTP enabled")
+>Signed-off-by: Cyriel Ladriere <cyriel.ladriere@gmail.com>
+>---
+> drivers/net/ethernet/intel/igb/igb_main.c | 8 ++++++--
+> 1 file changed, 6 insertions(+), 2 deletions(-)
+>
+>diff --git a/drivers/net/ethernet/intel/igb/igb_main.c b/drivers/net/ether=
+net/intel/igb/igb_main.c
+>index 131df3e09ba1..24be1f37cc6a 100644
+>--- a/drivers/net/ethernet/intel/igb/igb_main.c
+>+++ b/drivers/net/ethernet/intel/igb/igb_main.c
+>@@ -9068,8 +9068,12 @@ static int igb_clean_rx_irq(struct igb_q_vector *q_=
+vector, const int budget)
+> 		rx_buffer =3D igb_get_rx_buffer(rx_ring, size, &rx_buf_pgcnt);
+> 		pktbuf =3D page_address(rx_buffer->page) + rx_buffer->page_offset;
+>=20
+>-		/* pull rx packet timestamp if available and valid */
+>-		if (igb_test_staterr(rx_desc, E1000_RXDADV_STAT_TSIP)) {
+>+		/* pull rx packet timestamp if available and valid; the
+>+		 * timestamp header is only present in the first buffer of a
+>+		 * frame, a continuation buffer (skb already started) holds
+>+		 * packet data that must not be stripped
+>+		 */
+>+		if (!skb && igb_test_staterr(rx_desc, E1000_RXDADV_STAT_TSIP)) {
+> 			int ts_hdr_len;
+>=20
+> 			ts_hdr_len =3D igb_ptp_rx_pktstamp(rx_ring->q_vector,
+>--=20
+>2.53.0
+>
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] net/xsc: lockless TX queue stop/wake race in xsc_eth_xmit()
-- [Medium] The new transmit path in xsc_eth_xmit()
-  (drivers/net/ethernet/yunsilicon/xsc/net/xsc_eth_tx.c) drops frames…
-- [Medium] The RX and TX paths fill the same hardware descriptor, struct
-  xsc_wqe_data_seg, with a raw DMA address in ->va, but they set ->mkey…
-- [Medium] The SQ and its completion queue are sized from unrelated
-  capabilities, while the new TX path asks for one CQE per WQE and…
-- [Medium] net/xsc: unconditional CQ doorbell MMIO write in
-  xsc_poll_tx_cq()
-- [Medium] net/xsc: xsc_poll_tx_cq() frees completed TX skbs with
-  dev_kfree_skb_any()
-- [Low] xsc_eth_xmit() starts with `if (!adapter->opened) return
-  NETDEV_TX_BUSY;`.
-
---
-
-net/xsc: add the transmit path
-
-This adds an ndo_start_xmit implementation to the xsc ethernet driver. It
-posts linear skbs to the send queue and rings the doorbell. A TX completion
-handler unmaps and frees the skbs once they have been sent.
-
-> diff --git a/drivers/net/ethernet/yunsilicon/xsc/net/xsc_eth_tx.c b/drivers/net/ethernet/yunsilicon/xsc/net/xsc_eth_tx.c
-> new file mode 100644
-> index 0000000000000..580af1f231056
-> --- /dev/null
-> +++ b/drivers/net/ethernet/yunsilicon/xsc/net/xsc_eth_tx.c
-> @@ -0,0 +1,87 @@
-
-[ ... ]
-
-> +netdev_tx_t xsc_eth_xmit(struct sk_buff *skb, struct net_device *netdev)
-> +{
-
-[ ... ]
-
-> +	if (!adapter->opened)
-> +		return NETDEV_TX_BUSY;
-
-[Severity: Low]
-Is this check needed? adapter->opened is a plain bool. xsc_eth_open() and
-xsc_eth_close() write it without WRITE_ONCE(), and this code reads it
-without a lock or READ_ONCE(). KCSAN would likely report the pair as a data
-race.
-
-On close, the core has already quiesced TX before ndo_stop runs.
-
-On open, the queue is woken and the carrier is turned on before the flag is
-set:
-
-xsc_eth_activate_channel()
-    netif_tx_start_queue(psq->txq);
-...
-xsc_eth_open()
-    netif_carrier_on(adapter->netdev);
-    ...
-    adapter->opened = true;
-
-In that window, could a PACKET_QDISC_BYPASS sender going through
-__dev_direct_xmit() reach xsc_eth_xmit()? It would get NETDEV_TX_BUSY on an
-awake queue, and its skb would be dropped.
-
-The driver API also discourages returning NETDEV_TX_BUSY without stopping
-the queue. Could this check be removed so that queue start/stop ordering
-handles it, or could the accesses at least be annotated?
-
-> +
-> +	if (unlikely(skb_is_nonlinear(skb) || skb->len == 0 ||
-> +		     skb->len > sq->hw_mtu))
-> +		goto err_drop;
-> +
-> +	pi = xsc_wq_cyc_ctr2ix(&sq->wq, sq->pc);
-> +	wqe = xsc_wq_cyc_get_wqe(&sq->wq, pi);
-> +	memset(wqe, 0, xdev->caps.send_ds_num * XSC_SEND_WQE_DS);
-
-[ ... ]
-
-> +	cseg->data3 = cpu_to_le32(XSC_WQE_CTRL_SEG_DATA3_CE);
-> +	wqe->data[0].data0 =
-> +		cpu_to_le32(FIELD_PREP(XSC_WQE_DATA_SEG_DATA0_SEG_LEN_MASK,
-> +				       skb->len));
-> +	wqe->data[0].va = cpu_to_le64(dma_addr);
-
-[Severity: Medium]
-Should data[0].mkey be set here too? The memset() leaves it at 0.
-
-The RX path fills the same struct xsc_wqe_data_seg with a raw DMA address
-and marks it with XSC_INVALID_LKEY:
-
-drivers/net/ethernet/yunsilicon/xsc/net/main.c:xsc_eth_alloc_rq() {
-    ...
-		wqe->data[0].mkey = cpu_to_le32(XSC_INVALID_LKEY);
-    ...
-}
-
-Suppose the device treats any mkey other than XSC_INVALID_LKEY (0x100) as a
-real memory key. Would every TX descriptor then be checked against MR 0 and
-complete with an error, or put the wrong data on the wire?
-
-The tree doesn't show whether the hardware reads mkey on raw ethernet send
-WQEs. Still, the two writers of this descriptor disagree. Could the TX path
-set mkey to cpu_to_le32(XSC_INVALID_LKEY) the same way RX does?
-
-> +
-> +	sq->pc++;
-> +	if (unlikely(!xsc_wqc_has_room_for(&sq->wq, sq->cc, sq->pc,
-> +					   sq->stop_room)))
-> +		netif_tx_stop_queue(sq->txq);
-
-[Severity: Medium]
-Can the SQ completion queue overflow here? Every WQE sets
-XSC_WQE_CTRL_SEG_DATA3_CE, so every posted WQE produces a CQE. The queue
-is only stopped when the SQ ring itself is full.
-
-xsc_eth_build_queue_param() sizes the SQ and its CQ from different
-capabilities:
-
-	adapter->nic_param.sq_size = min_t(u32,
-					   BIT(xdev->caps.log_max_qp_depth),
-					   XSC_SQCQ_ELE_NUM);
-    ...
-	} else if (type == XSC_QUEUE_TYPE_SQCQ) {
-		attr->ele_num = min_t(int, XSC_SQCQ_ELE_NUM,
-				      xdev->caps.max_cqes);
-
-caps.max_cqes is 1 << log_max_cq_sz as reported by firmware. If
-log_max_cq_sz is below 10 while log_max_qp_depth is 10 or more, up to 1024
-WQEs, and so up to 1024 CQEs, can be outstanding against a smaller CQ
-before NAPI reaps them.
-
-If that happens, the CQ error event would only be logged by
-xsc_eth_cq_error_event(), and TX completions would stall.
-
-Neither xsc_eth_xmit() nor xsc_wqc_has_room_for() takes the CQ capacity
-into account. Should sq_size be clamped to the SQ CQ size?
-
-> +
-> +	if (!netdev_xmit_more() || netif_xmit_stopped(sq->txq))
-> +		xsc_update_tx_db(xdev, sq->sqn, sq->pc << ds_num_log);
-> +
-> +	return NETDEV_TX_OK;
-> +
-> +err_drop:
-> +	dev_kfree_skb_any(skb);
-
-[Severity: Medium]
-Are these drops counted anywhere? Four cases end up here: non-linear skbs,
-zero-length skbs, skbs longer than sq->hw_mtu, and dma_map_single()
-failures. Nothing calls dev_core_stats_tx_dropped_inc() or updates a driver
-counter.
-
-Successful sends aren't counted either. No tx_packets or tx_bytes are kept,
-and xsc_netdev_ops has only ndo_open, ndo_stop and ndo_start_xmit, with no
-ndo_get_stats64. This seems to still be the case after the later commit
-"net/xsc: add the receive path".
-
-Won't ip -s link then show no TX activity and no TX drops for this device,
-even when DMA mapping fails or frames are rejected?
-
-> +	if (!netdev_xmit_more() || netif_xmit_stopped(sq->txq))
-> +		xsc_update_tx_db(xdev, sq->sqn, sq->pc << ds_num_log);
-> +	return NETDEV_TX_OK;
-> +}
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/yunsilicon/xsc/net/xsc_eth_txrx.c b/drivers/net/ethernet/yunsilicon/xsc/net/xsc_eth_txrx.c
-> --- /dev/null
-> +++ b/drivers/net/ethernet/yunsilicon/xsc/net/xsc_eth_txrx.c
-> @@ -0,0 +1,70 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/* Copyright (C) 2021-2026, Shanghai Yunsilicon Technology Co., Ltd.
-> + * All rights reserved.
-> + */
-> +
-> +#include "xsc_eth.h"
-> +#include "xsc_eth_txrx.h"
-> +
-> +struct xsc_cqe *xsc_cqwq_get_cqe(struct xsc_cqwq *wq)
-> +{
-> +	struct xsc_cqe *cqe = xsc_frag_buf_get_wqe(&wq->fbc,
-> +						   xsc_cqwq_get_ci(wq));
-> +
-> +	if (!!(le32_to_cpu(cqe->data1) & XSC_CQE_DATA1_OWNER) !=
-> +	    (xsc_cqwq_get_wrap_cnt(wq) & 1))
-> +		return NULL;
-> +
-> +	return cqe;
-> +}
-> +
-> +int xsc_poll_tx_cq(struct xsc_cq *cq, int budget)
-> +{
-> +	struct xsc_cqe *cqe;
-> +	struct device *dev;
-> +	struct xsc_sq *sq;
-> +	u16 sqcc;
-> +	int i = 0;
-> +
-> +	sq = container_of(cq, struct xsc_sq, cq);
-> +	if (!test_bit(XSC_ETH_SQ_STATE_ENABLED, &sq->state))
-> +		return 0;
-> +
-> +	dev = sq->channel->adapter->dev;
-> +	sqcc = sq->cc;
-> +
-> +	while (i < budget) {
-> +		struct xsc_tx_wqe_info *wi;
-> +		struct sk_buff *skb;
-> +
-> +		cqe = xsc_cqwq_get_cqe(&cq->wq);
-> +		if (!cqe)
-> +			break;
-> +		/* ensure cqe content is read after cqe ownership bit */
-> +		dma_rmb();
-> +
-> +		xsc_cqwq_pop(&cq->wq);
-> +		wi = &sq->wqe_info[xsc_wq_cyc_ctr2ix(&sq->wq, sqcc)];
-> +
-> +		skb = wi->skb;
-> +		wi->skb = NULL;
-> +		if (skb) {
-> +			dma_unmap_single(dev, wi->dma_addr, skb->len,
-> +					 DMA_TO_DEVICE);
-> +			dev_kfree_skb_any(skb);
-> +		}
-> +
-> +		sqcc++;
-> +		i++;
-> +	}
-> +
-> +	xsc_update_cq_ci(cq->xdev, cq->xcq.cqn, cq->wq.cc);
-> +
-> +	sq->cc = sqcc;
-> +
-> +	if (netif_tx_queue_stopped(sq->txq) &&
-> +	    xsc_wqc_has_room_for(&sq->wq, sq->cc, sq->pc, sq->stop_room))
-> +		netif_tx_wake_queue(sq->txq);
-> +
-> +	return i == budget;
-> +}
-
-[Severity: Medium]
-Is dev_kfree_skb_any() the right call for a completed TX skb? It goes
-through dev_kfree_skb_any_reason() with SKB_DROP_REASON_NOT_SPECIFIED.
-Every frame that was transmitted successfully would then be reported
-as a drop by the skb:kfree_skb tracepoint and by drop_monitor.
-
-This runs from the channel NAPI poll, so napi_consume_skb() would
-account the skb as consumed. It would also let the skb use the NAPI
-bulk free path. That needs the NAPI budget to reach
-xsc_poll_tx_cq(), with a budget of 0 passed through when called from
-netpoll. Would napi_consume_skb(skb, budget) work here, or at least
-dev_consume_skb_any()?
-
-[Severity: High]
-What orders the queue stop in xsc_eth_xmit() against the wake here?
-xsc_poll_tx_cq() runs from NAPI without the TX queue lock. Neither
-side has the barriers that netif_txq_maybe_stop() and
-netif_txq_completed_wake() provide.
-
-In xsc_eth_xmit(), netif_tx_stop_queue() is called based on a plain
-read of sq->cc. There is no smp_mb__after_atomic() and no re-check
-of xsc_wqc_has_room_for() afterwards. Here, sq->cc = sqcc is followed
-directly by netif_tx_queue_stopped() with no smp_mb() in between.
-Couldn't this interleave as:
-
-CPU0 (xsc_eth_xmit)            CPU1 (xsc_poll_tx_cq)
-reads old sq->cc, ring full
-                               sq->cc = sqcc
-                               netif_tx_queue_stopped() == false
-netif_tx_stop_queue()
-
-That would leave the queue stopped with free descriptors and no
-further completions to wake it.
-
-The other direction looks worse. Suppose this function observes
-__QUEUE_STATE_DRV_XOFF but loads a stale sq->pc from before the
-final post. It can then call netif_tx_wake_queue() on a full ring,
-even on a poll that reaped no CQEs. Nothing orders the state bit
-test before the sq->pc load.
-
-xsc_eth_xmit() never checks for room before deriving pi from sq->pc.
-The next frame would then overwrite the WQE and sq->wqe_info[pi] of a
-descriptor the device still owns, leaking that skb and its DMA
-mapping. Once sq->pc is more than a ring size ahead of sq->cc,
-xsc_wqc_has_room_for() wraps and reports room again. The queue would
-stay awake and keep overwriting in-flight entries.
-
-Would it make sense to use netif_txq_maybe_stop() and
-netif_txq_completed_wake() from include/net/netdev_queues.h? That
-would go with READ_ONCE()/WRITE_ONCE() on sq->cc and sq->pc. Could
-xsc_eth_xmit() also stop the queue and return NETDEV_TX_BUSY if it is
-ever entered without room?
-
-[Severity: Medium]
-Does this need to ring the CQ consumer doorbell when nothing was
-reaped? If xsc_cqwq_get_cqe() returns NULL on the first iteration,
-i is 0 and cq->wq.cc has not moved. xsc_update_cq_ci() still issues
-a wmb() and an uncached writel() to DB_CQ_CID_DIRECT_MEM_ADDR.
-
-The channel NAPI poll will call this on every pass, including passes
-that only have RX work. With RX-heavy traffic or idle TX, most of
-these MMIO writes would be redundant. The sq->cc = sqcc store is also
-unconditional and dirties the cacheline that xsc_eth_xmit() reads on
-the transmitting CPU.
-
-Could the doorbell and the sq->cc update be skipped when i == 0?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126145711.70868-1-tianx%40yunsilicon.com
+Reviewed-by: Milena Olech <milena.olech@intel.com>
