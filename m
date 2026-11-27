@@ -1,54 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795760307;
-	b=RaPJ8kdRqylIl1y8y3wPbIHlXArFTs/hoPkyDCQ87alDoGlwfRHx3wK4o9ySkPnTWV+h
-	 5Ez64rlOrUuqdxQQcNieqkcdLpOvS7ZeYE/xIqDNSgHho/gBU/+xt7RwMGo2/f3EYb6eY
-	 ff/AJTm2oh48G6t2uKTyf47TtV6phQwBP0XsKf2PVskLX1/SAg0XhRJlb7395oh2xuAdy
-	 cOkbNXadbaP2eh0rTj3YkmQbJ7Ew3JYWtJhs1gJjFTVUAU6PQrHbaYaJtiE0mecssGdrx
-	 uFGHTjsJXNEPTasgelOfnVMJqwzmBRDmKp5EhJhAIKdbvmd1AQ5MwtmUF4YszuFsVbw==
+	t=1795760458;
+	b=P15uQEXjT8AaibzfnUfgVBU65S9QgDXDprdImTTsabjjhAUDYTz0f/22jc9Mu8CQDVfY
+	 b80OOp3D0408LPz65gAV/w6NytS0Axk23h8Jg5/DnqZuYLMYF4pJHmle/oa/GvUGE3lEl
+	 mmagz/uOAK5L0OeToSOwuYsMAkrjnn6k76NBZL8vm4S8p/rEMHa7FkCrS0HwR6Eo66tj6
+	 VTMRNgQNs3Lwu3neCrdHwzWFKOutmHSyi1DwO42/U5oFTuXhKjq59TaF08C4eTSYlTy6l
+	 tGqOleVp6mahDjOj0ShbGLe9dLX6MsZl98xfAsAXW5WnJfvxNYAgjNqdpzc3KsBE6ug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795760307;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Xall2LvYqrNEWJ3haGr3baDKY0fqS4yjvxamjxNnjGY=;
-	b=E5zIdocz8agGxPSOD6iY5jFV4mdG1/71Ael56TQgviDPY402FTGV2jNVAtOjaTm/fb3A
-	 FGRazexEW/MXeZyH131quraeo6OnKjWL9XI886Djq78m7cR6S++Xnt2aRhaBa6OGnWOmI
-	 8hHxp0CFeSsDhvFh0CvS+jKZBcAOlx7rrKxHUhjE7cKqEO2FLKBQikdJ92IDj8rke0i/Q
-	 VHZN5E5M/PLq7C/14j0QF7fcyIrGuGxVyJAucXkZ1aBjk38PrseILom3baZVCr4KeF/Qg
-	 3uYXHqvR8WLwVpbdYk7wuxNOh3863Zu0frBapdTMJET3NvYLWR4ScVPrjbwJc+2i1RA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795760458;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=Mj7VdG614iEFC4f6R8a3eu/YkBaqsbzabkLhl6xyJ9g=;
+	b=psIsML187i4ON3rOzVltrPZqmRJpfzg9zv1E6l23ye3UCp5uOiTWnVr/HILgIuNJ4/3Z
+	 GUoHQI9bMrus3RNW/eMFPJgbbScNyT/j4uH+MjluIuimKsaejjwRu09sR4u90TxYsRaFr
+	 jviVvMciSz6+yMxBTYEMMbg7PriHZzy1JPdfex1K3RbcoZ7WiGK6Vj4va1e+/SpLACzRa
+	 biJkCsS2nT5/xQjTT7SbFT0j5ur7LsS0aQ4HKdSwiektG/R5odFk9qMJrhGm3T1xfqNbJ
+	 fhPwIAwguN0AYVpKBiv7vUoZavJ2miqfJM7H01PBxZMsI9RVwJAN8eEAbatts8CwFxw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sKr55MTO;
-	arc=none smtp.remote-ip=91.218.175.47
-Received: from mta0.migadu.com (out-47.mta0.migadu.com [91.218.175.47])
+	dmarc=pass header.from=nebusec.ai;
+	spf=pass smtp.mailfrom=nebusec.ai;
+	dkim=pass header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=EzU2QqTv;
+	arc=none smtp.remote-ip=209.85.215.170
+Received: from mail-pg1-f170.google.com (mail-pg1-f170.google.com [209.85.215.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 263C9606A31C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:18:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 263C9606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 044AC606A323
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:20:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 044AC606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=nebusec.ai
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nebusec.ai
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sKr55MTO
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=kS24aWEDVFAGZg9av7QpzpXRdTf89yuZQQWrd8Pe7YI=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795760304; v=1; x=1796365104;
- b=sKr55MTON/+6jrOYoyP4mbHJKogHVXu9Sy8xuEmw89uAYd4PLeivI6FcOlRQwTBLAeu3cSVF
- uh7hEohrUeSmHTgPd+SFC4C0L1YiokNOradNPZrh86Ik6+ihBWo4j2q8XICHqB01t4IjwRlu1z1
- xSzqw+oyTwgaacapk//YEWLo=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 7a6dd275991888ae;
-	Fri, 27 Nov 2026 06:18:24 +0000
-X-Mizu-Trace-ID: 7a6dd275991888ae
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <d5c55d47-8651-4c75-a0b6-2734a1394a9e@linux.dev>
-Date: Fri, 27 Nov 2026 15:18:02 +0900
+	dkim=pass (2048-bit key, unprotected) header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=EzU2QqTv
+Received: by mail-pg1-f170.google.com with SMTP id 41be03b00d2f7-cd69954c755so5603646a12.3
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 22:20:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nebusec.ai; s=google; t=1795760457; x=1796365257; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Mj7VdG614iEFC4f6R8a3eu/YkBaqsbzabkLhl6xyJ9g=;
+        b=EzU2QqTvs2fmfjNEreiScbjCK4FoM/KpZ2iE1Cbs8B1LtBeYS3siFdWhh2ww309Qbg
+         /KxeblNH8rNIZ/HRk3hJr1NJWNsqipo+g3Ancut3kY4fmGQYfXwtw3bRj7kyuaUmfC9E
+         oHdbLUwHd8auFrSE/mqewRnfoF5mmgQH+GUECpvAHnoXS1ChI3sKFgDYld0jjY1FvKFv
+         YqLYOb7XEGZStodcoyB6bpCiUnb3Pk+p0ZxuzDfsERzYdTx6QUyt+oTekvki9g+7wVAM
+         X6cETEvZ3Ad/cSbfoIzElDUybLEGgneZpLSy5yOMM/LCdCjJJsw6vEcJlvt5+IHjrSWS
+         SMWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795760457; x=1796365257;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Mj7VdG614iEFC4f6R8a3eu/YkBaqsbzabkLhl6xyJ9g=;
+        b=FB08s4OLpMx8gxsIrUhCS6BTX+MfJeFaFoAi0TRgnhaU050D3EZexjNB4LTVrHBBLA
+         aix5SS0tGEQoF7MNsg2/pSmkp2lIoX6950q1IZuwf7Nawq3Ky3DxbxJXaFtajNOL1pP1
+         IwbPOp+Qpv8mXqpG+M+gXqcwu0syh3cXiuEK5fIRt2+ch3Ns4Q1pUS3XVtFZB4OP9nwr
+         tvuDMfsZvRNubGkIUc2/l75y5wN8ZpFah1J/hkM+kgCp0jBZ9mpsj0Um7FLiOvOR1GRN
+         Qzvszc+E3JX8/LcsyyX1mmgqogJOa2TO0p4pVx6A3aERk40XgD5uWD9KEyK80JRe+KV5
+         cuWA==
+X-Gm-Message-State: APuU4Z+frsxQJzKtDx7ad7KsSiza2r5LgJcQ/OCgReEvxamgn7BBTzQB
+	JAJNLNFoSwGWAqRQfsmWgEPf+1TvtpHf+O/7Z99EpgKuUcgnhwIaTxT4kxM+NKiPiZRoc8uldSv
+	MldE6cA==
+X-Gm-Gg: AZFdTZcSpZhsBUyiO3NSgDWB4an9g9fgkHtOljbSn0+YsG9dNUSIjJIzAly2QRcdt6/
+	4kp3zLqx4eAyrHXjYqPDUNwOWdsP7ITkwgX9U1j9zkzCGNcJzyxi/p2eu5H+YYEORI2NyQ8RAEl
+	jzdmRWUF6mWHZ5lE4wH9LsGEDt8wuNivlyzPzDRyGHucF3twx8FDVmIoOAeOjtxu8rEsL+FEYhK
+	y+SamKuQkGfo1nPo8CHLon9FQKkBcWdq/J5XH/yIGCP2qMr7vu9H64BGZsYaNST9QWbVJl07G8R
+	Mi3MrWA/mB1BuR8qG3QTLjcy/RFDg7N0kFGP50odDxQj/c6imoI8PAOQiY87LLjM2IEtO2mjDWs
+	kwtjBcnYRBe8ic3z7hGjieu+Vi0YsnC3RwNRgJ9hafJkmJ1elTYcxPoQQlTaBZGIRQb1aHZKseb
+	WkrTaZPAysK26JsM79IiJveECOyc9nnmWQGdKZ9c5/vWr1tAteZxV9RiMWE/kCpRGxsYVrUdMZu
+	A435NkgV0NJXV8qgvCA+d0Lk4vcyA7mpCUhU62zIAt4YUK8Ts/5WKFQCzICNO3X5UCnB3sabXxs
+	HnHZJ6CUpmJ4JQT+hqMGGlrscOJ5KdyEaNvY2vcF
+X-Received: by 2002:a17:90b:248e:b0:3b5:9a2:c8ab with SMTP id 98e67ed59e1d1-3b509a2c972mr4362700a91.67.1795760457203;
+        Thu, 26 Nov 2026 22:20:57 -0800 (PST)
+Received: from enjou-Legion-Y7000P-2019 ([174.136.206.51])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb2076sm36939740a91.2.2026.11.26.22.20.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 22:20:56 -0800 (PST)
+From: Ren Wei <weir@nebusec.ai>
+To: netdev@vger.kernel.org
+Cc: jiri@resnulli.us,
+	ivecera@redhat.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	willemb@google.com,
+	horms@kernel.org,
+	chi.minghao@zte.com.cn,
+	vega@nebusec.ai,
+	caoruide123@gmail.com,
+	weir@nebusec.ai
+Subject: [PATCH net 0/1] switchdev: fix deferred item flex-array allocation size
+Date: Fri, 27 Nov 2026 14:20:50 +0800
+Message-ID: <cover.1795576931.git.caoruide123@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,132 +103,118 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v1 0/6] net: avoid stack canaries in TCP/IPv4
- fast paths
-To: gang.yan@linux.dev, netdev@vger.kernel.org
-Cc: "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- John Fastabend <john.fastabend@gmail.com>,
- Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>, Matthieu Baerts
- <matttbe@kernel.org>, Mat Martineau <martineau@kernel.org>,
- Geliang Tang <geliang@kernel.org>, David Ahern <dsahern@kernel.org>,
- Ido Schimmel <idosch@nvidia.com>, Stanislav Fomichev <sdf@fomichev.me>,
- Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>,
- Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>,
- Phil Sutter <phil@nwl.cc>, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org, mptcp@lists.linux.dev,
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
- Xuanqiang Luo <luoxuanqiang@kylinos.cn>, david.laight.linux@gmail.com
-References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
- <133c1ca98af6beb48c0db1e6bb539a2a76ccda49@linux.dev>
-From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-In-Reply-To: <133c1ca98af6beb48c0db1e6bb539a2a76ccda49@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 2026/11/26 at 17:48 gang.yan@linux.dev wrote:
-> November 24, 2026 at 9:06 PM, "Xuanqiang Luo" <xuanqiang.luo@linux.dev mailto:xuanqiang.luo@linux.dev?to=%22Xuanqiang%20Luo%22%20%3Cxuanqiang.luo%40linux.dev%3E > wrote:
-> 
-> 
->>
->> From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
->>
->> With CONFIG_STACKPROTECTOR_STRONG=y, a function that has a local array or
->> passes the address of one of its locals to another function needs a stack
->> canary. The canary is set up and checked on every call, also when the
->> local is only used on a path that almost never runs.
->>
->> This series removes the canary from functions of the TCP/IPv4 fast paths,
->> by returning results by value, by using storage that is not on the stack,
->> or by not calling a function that has nothing to do.
->>
->> Patch 1 returns the two mptcp_space() values in a structure, so that
->> __tcp_select_window() no longer needs a canary.
->>
->> Patch 2 changes ip_neigh_gw4() to take a pointer to the address, like
->> ip_neigh_gw6(), so that ip_finish_output2() no longer needs a canary.
->>
->> Patch 3 uses pskb_may_pull() in icmp_filter(), so that
->> raw_local_deliver() no longer needs a canary.
->>
->> Patch 4 turns skb_try_coalesce() into an inline wrapper over a function
->> returning its results by value, so that its callers no longer need a
->> canary because of it.
->>
->> Patch 5 returns the result of the TCP receive coalescing by value, so
->> that tcp_rcv_established() and tcp_data_queue() no longer need a canary.
->>
->> Patch 6 calls bpf_skops_write_hdr_opt(), which needs a canary, only if a
->> BPF program reserved room for TCP options.
->>
->> The bloat-o-meter numbers are from gcc 16.2 on x86_64. The functions
->> named in patches 1 to 5 also lose their canary with clang 23.1.6 on
->> x86_64, with and without ThinLTO, and on arm64.
->>
-> 
-> Hi Xuanqiang,
-> 
-> Thanks for this series. Besides the code size, do you have any runtime perf
-> numbers (TCP_RR, cycles per packet...)? I think it may help the maintainers
-> judge the real gain.
-Hi Gang,
+From: Ruide Cao <caoruide123@gmail.com>
 
-I omitted runtime numbers from the cover letter because earlier cross-NIC
-TCP_RR runs were within boot-to-boot noise, and I did not want to overstate
-the gain. I re-ran the full 6-patch series against its base commit
-(a4c450594f5d) in a tighter setup on an x86_64 server (Hygon C86-4G,
-ConnectX-5 10GbE mlx5, GCC 12.3, CONFIG_STACKPROTECTOR_STRONG=y, identical
-.config, nokaslr, boost off, isolated CPUs/IRQs, busy_read=0, 3 alternating
-boots per kernel x 4 runs):
+Hi Linux kernel maintainers,
 
-1. Single-CPU loopback 1-byte TCP_RR (both endpoints on 1 CPU running the
-    kernel under test, 99.9% busy with no cross-CPU lock contention; each
-    RR counts 2 TX + 2 RX = 4 Tcp InSegs+OutSegs):
-    - instructions:k / tx:  33,562.3 -> 33,410.6 (-151.8, -0.45%, CV 0.01%)
-    - instructions:k / seg:  8,372.8 ->  8,336.1 ( -36.8, -0.44%, CV 0.02%)
-    - branches:k / tx:       7,627.9 ->  7,604.4 ( -23.5, -0.31%, CV 0.03%)
-    - cycles:k / tx:        48,883.8 -> 48,613.8 (-270.0, -0.55%)
-    - throughput:           52,804   -> 53,068 tps (+0.50%)
+We found and validated an issue in net/switchdev/switchdev.c. The bug
+is reachable by root with CAP_NET_ADMIN. We've tested it, and it should
+not affect any other functionality.
 
-2. Cross-host 10GbE mlx5 8-flow 1-byte TCP_RR (server CPU-bound on 1 app
-    CPU + 1 IRQ CPU, client pinned on a fixed peer kernel):
-    - instructions:k / pkt: 12,040.6 -> 11,946.0 ( -94.6, -0.79%, CV 0.43%)
-    - cycles:k / pkt:       19,652.2 -> 19,450.1 (-202.1, -1.03%, CV 0.52%)
-    - throughput:           79,455   -> 79,883 tps (+0.54%)
+This bug is tracked at: https://bugtracker.nebusec.ai/f/10431
 
-3. Loopback small-write TCP_STREAM (-m 512 -D, 2 CPUs):
-    - instructions:k / seg:  5,805.6 ->  5,713.7 ( -91.9, -1.58%)
-    - cycles:k / seg:        8,538.5 ->  8,416.8 (-121.7, -1.42%)
-    - throughput:            641.8   ->  650.5 Mbit/s (+1.37%)
-    (Note: in the 2-CPU / multi-flow cases above, perf shows part of the
-     larger per-packet drop comes from fewer spinlock-slowpath and idle-loop
-     samples in addition to the direct TCP path savings; test 1 isolates
-     the direct instruction/branch reduction.)
+We will provide detailed information about the bug in this email.
 
-4. perf record (cycles:k and instructions:k) confirms
-    bpf_skops_write_hdr_opt() drops from 0.04-0.12% to 0.00% across all
-    profiled workloads, with consistent drops in tcp_rcv_established(),
-    __tcp_transmit_skb(), and __tcp_select_window().
+---- details below ----
 
-One caveat to be transparent: on a loopback 1-byte UDP_RR control (which
-only exercises patch 2's ip_finish_output2() canary removal),
-instructions:k/tx changed by the expected -23.2 insns/tx (-0.07%) and
-branches:k/tx was flat (+0.02%), yet wall-clock tps/cycles still shifted
-by -0.80%/+0.68% due to fixed code-layout/IPC differences under nokaslr.
+Bug details:
 
-So the reliable runtime signal here is the deterministic drop in kernel
-instructions and branches (~152 insns / ~23.5 branches per loopback TCP_RR)
-and the disappearance of bpf_skops_write_hdr_opt() from the profile, while
-wall-clock TCP_RR tps/cycles (~0.5%) remain in the same range as
-code-alignment effects on this machine.
+switchdev_deferred_enqueue() stores a byte payload in the deferred item
+flexible array, and data_len is a byte count. The array is declared as
+unsigned long data[], and kmalloc_flex() treats data_len as an element
+count, so every deferred attr or object item is allocated
+sizeof(unsigned long) times larger than intended (8x on 64-bit). The
+subsequent memcpy() copies only data_len bytes, so this is not an
+out-of-bounds write; it is an 8x GFP_ATOMIC over-allocation that makes
+those atomic allocations more likely to fail.
 
-Thanks,
-Xuanqiang
+This patch declares the payload as u8 data[] __aligned(sizeof(unsigned
+long)). The offset of data does not change, because the preceding
+members are pointers (or an empty tracker). The aligned attribute
+documents the existing alignment contract.
+
+Reproducer:
+
+The issue is reachable as root with CAP_NET_ADMIN. Create a VLAN-aware
+multicast-snooping bridge, attach veth ports, add several bridge VLANs
+on the bridge itself, and add a host MDB entry without a VID. Leaving
+the VID unspecified makes the bridge replicate the join across every
+bridge VLAN, and br_switchdev_host_mdb() then defers one HOST_MDB
+object per lower port into switchdev_deferred_enqueue(). With a modest
+setup, for example four veth ports and bridge VLANs 1-11, a single
+
+    bridge mdb add dev br0 port br0 grp 239.1.1.10
+
+is enough to observe the oversized GFP_ATOMIC allocations.
+
+We ran the PoC in a 2 GB RAM x86 QEMU environment.
+
+------BEGIN PoC------
+
+#!/bin/sh
+set -eu
+
+if [ "$(id -u)" -ne 0 ]; then
+	echo "run as root" >&2
+	exit 1
+fi
+
+ip link del br0 2>/dev/null || true
+for i in 0 1 2 3; do
+	ip link del "v$i" 2>/dev/null || true
+	ip link del "p$i" 2>/dev/null || true
+done
+
+ip link add br0 type bridge vlan_filtering 1 mcast_snooping 1
+ip link set br0 up
+
+for i in 0 1 2 3; do
+	ip link add "v$i" type veth peer name "p$i"
+	ip link set "v$i" master br0
+	ip link set "v$i" up
+	ip link set "p$i" up
+done
+
+# VID 1 is the default PVID; add 2-11 on the bridge itself.
+bridge vlan add dev br0 vid 2-11 self
+
+bridge mdb add dev br0 port br0 grp 239.1.1.10
+
+------END PoC--------
+
+----BEGIN crash log----
+
+On the Linux 6.12.94 x86_64 guest, pahole reported
+sizeof(struct switchdev_deferred_item) = 32 (empty netdevice_tracker)
+and sizeof(struct switchdev_obj_port_mdb) = 56, so a deferred HOST_MDB
+item requested 32 + 56 * 8 = 480 bytes instead of 32 + 56 = 88. With
+CONFIG_SLUB_DEBUG=y, kmem:kmalloc traces at switchdev_deferred_enqueue
+showed:
+
+    call_site=switchdev_deferred_enqueue+0x2b/0xf0
+    bytes_req=480
+    bytes_alloc=1536
+
+A deferred attr item is the same error by type math on the same pahole
+sizes (32 + 48 * 8 = 416 bytes instead of 80); that figure is not from
+a separate slab trace. After-fix bytes_req and bytes_alloc were not
+measured on this setup.
+
+-----END crash log-----
+
+Best regards,
+Ruide Cao
+
+Ruide Cao (1):
+  switchdev: fix deferred item flex-array allocation size
+
+ net/switchdev/switchdev.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+base-commit: 32756b82fde8f6cc98b174fdcd02c2a61033e263
+-- 
+2.47.3
+
