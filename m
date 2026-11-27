@@ -1,112 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795776064;
-	b=Hvv2nMDxohlqYqvq4D/atu6FDQL2//vKeK84BjtEZ/tI3Qv3IWvLmsFfbbJLtNOJQkoG
-	 1rt1mrimbLnoUk1HVjN2L1w/jTEDkRM+QcIrkQi1HatG3RFD9+/IqnxKlL1uXfjR7lWKW
-	 GSzxJfNhZ+mvl7zV8qc5rPwD9AyOkpIMStMb9REh3W20b0/H8QrLr/T/YhRyUfT6cUkOn
-	 MbFsAaXmDEKFd6qq6PMvfNS1rshurVmCqRTt5/3icf4OkzK6P/FHUd8wtLukNn8GuXZ0L
-	 Rs486L/3rblyb3RciPf1KKQhq3B1jZw2ILAQKYs1tTM97rCjNyx+fadJvabP0sENSdg==
+	t=1795776376;
+	b=OJRDGnbr0fwhLRBcdMm3X2jut3uSygPElYICfjJMJTz3FygCTMixb1vazjgXsqYKHSU6
+	 1ffEQrzQfKN7iggbiJvvgtAoYMWrLZj5fNPa+AUFoIC7ogG7RDpoS7DR4kCik0M2+v7GY
+	 mwiyak+aMt8NAGcH0bHCclfLukgx9m5c/b4f9+Ejg/AMhhJlGPH0YUpepRPd2WtXOBwvc
+	 joaKN/XIsPTSRYylNf1v1qSxaEjJ+sl5UxFKLIciSfSgG0ZAbtVsw6FWYxwsCTUFizRDk
+	 7kly1Za66V9ZdzyR/5hQH5M6y8SOo0zEGZciFAyiop7x5CdcBOXeTJSsZc/IKhKrLYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795776064;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:In-Reply-To:References:X-Mailer:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=46jt2PFBd8rULQ4Nt62VZapADm8oEY8BfGTGabREOUM=;
-	b=QPKOqW/gD19xiMH4SYR5Uc+ebOUXZr6ArlDGHDhxKY2IDCu7y5ycBSkVxfPAe5lr6K1w
-	 bE+MyP8o1rvkOQFywyvy/3KviIVqxR7biC0BDAW6qrSgZOfHucBjGZ/XkmfPJC85KVVwN
-	 r3sy2POUtnIKmXqJtt/ayv1+IfASgyaUqDCA3l9Z7QPGw21QO20op4tBmpYcwQB4KJ7zC
-	 5riv6jn7mll2uF5femUxN2eIlznarhCWVZGQfbgtbz/THuhmKDJox777uewpnzBZDiN0M
-	 9MIv/PTx3CqdEJn412PjagH872xU1dubSClGkQj2RT5XneQ5X7DNFKnria87mToqJlg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795776376;
+	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
+	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=2Wuf2F36HJ2XxV5MeacajP2DupxV2D11RTqyQO76IBk=;
+	b=S+RbXFJnwyvrCxpLwO0z3Pd5rSiSZ3fbPp6/pBonJVCUOp82MBFzq0CE28cjCVRTzaxe
+	 x2HJjgeDAe+jnOJqfgUJzs4L/iX67fTv7bRJ3F72fg5mS1poGalPTMDOuobc+jSiPtVdZ
+	 lCvaF7+VjubJuZhNLxqmCYnTftY/rRkGc8VOCaenVi4l0euFSBjPINgCa5P76Z2GTL7tc
+	 I8SomYNQFofF790jQQA7ZZ2+OKlusdU7lDjI3HtIPNVR7vM0vlp1RcyOaOE09kpLdEmK7
+	 Rs0g9AAV55AOQelixmlYVKAI5Cjhl08VosArPaZQFEbPQTLkenJIur0UhbaO9BKQIqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eDuPgHaR;
-	arc=none smtp.remote-ip=209.85.221.44
-Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=tipi-net.de;
+	spf=pass smtp.mailfrom=tipi-net.de;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=TTO00Emq;
+	arc=none smtp.remote-ip=194.13.80.246
+Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DB08606A6AA
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 10:41:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5DB08606A6AA
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C0E0606A31C;
+	Fri, 27 Nov 2026 10:46:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C0E0606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eDuPgHaR
-Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-4a3e706b5dfso4994333f8f.2
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 02:41:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795776063; x=1796380863; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=46jt2PFBd8rULQ4Nt62VZapADm8oEY8BfGTGabREOUM=;
-        b=eDuPgHaRC2KPGtaz+A22NSuvwSL5c0S2/zFOdQyD6aCjOhVgcuVtQjzSvQec+NBskO
-         GFILsA7kxm2ho56P/w+E23h/xEs5Bem7Wa9d4t0P1GDu20HTExFjtSOd1tJGxqBAFBaO
-         d3L+OTKO/C+IgE/s+bt2WgS1WLbycp27c+LeGecVVa44T/RJWT0vWgzhEgwHJS1d562p
-         DGdJBkklROvvU8d8szblYMFAHpd/Wl1fSOK+1NkwhzPYY7haLhZraKOtRm5ar0keWauF
-         k6LnC66mvpVU018A014jCvDM4f8SusXUeDf/IQwGlUpr/Oh9R/TlCUeFQdOt6gadcfak
-         q22w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795776063; x=1796380863;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=46jt2PFBd8rULQ4Nt62VZapADm8oEY8BfGTGabREOUM=;
-        b=K4Jouu1EoXi9SqRv9CS2JlGPYE4RxPfNgpsTtRPxlP0X2mG6PXZbazwxtmyNDpwFup
-         C2tJbFNltz5elByXkzyheGA0Zb8offO9CwaMaLaDF9iq/sahUQxKxC6AgN30kn1wtgWB
-         KaByJwoG1pRiObtq4NToD1+CJtT127k5flcpXp/3o5UVlkG/YlsRIzJGvucuNeA8cFMV
-         ZPQ//7ae+futs+nGdjSW90AwkOu0Q9KFnBKsPaw1lX52lUetuBcVMqgwEGvgn8QYbPrZ
-         wCXB+rd0fWv66yMG+OH3P9ne3P5T1++O/CJcnHDOZ5CD4NKgsV1rpuanlw9fWRu8kVUj
-         PUrA==
-X-Gm-Message-State: APuU4Z+F7JjkqMJuRqBwRF59Eby5aEPSpAaaWa2ODXZ64CtxitEx/Hlc
-	vuDjpKEaws2hqoM5edCgzdWRff190OMJp/sWVu+HH5wACabO9ZXwa8hP
-X-Gm-Gg: AZFdTZez4yLCeX+u4F/CHbwalIMa8u2HG4X1adUcrJkNO1nV8Pi6a7wSTeP7fQpZgg2
-	dnop1D7t8y0bGAmFG2SpytQsNLBNClkGcQiVWAMPOAUUCvXRFj2fKnLbc6uPuu7u0ffMOrvmO2T
-	S+59OMut8DyAXeg6dbExPqrUgOrUYUo1jY/tdN7Cm8c6Sn4YO8RmYWvyUZYGVeWKIFXaIFthdc6
-	s8VPHhtfuBrR7Z8dClf2tynFb31MV6AaGQP5rSv6rKzrXfl/LSdC2gOkbgmd3UwlnBW9yQZUvTi
-	Nbrla6tz/1vw96y0NkfteqZGvmvlnOHMki0hDDJG5KDM8snySeZfsAuRckicTP05kvmIHcN9Dcc
-	2TKetIODPSS5JnQhFGC2XwFmAaSzZOFSQhPi2Nh9MD3Y8jleZLpekzAgqmNGKdsaWYFtVuKt4BK
-	iDuyzsi8oqVNF3TKZMYMxFB24UQPv6SbAG3RAUfE+LD3aetUEGlABm/c0n/+pbIMXHIDiCtylNA
-	Lo47yAUaGIzcvVfuCMDlnddKckeJBXU0rf5zDymgJ0o3gt+ZMifj87eD3AMBBsz59IEF/uRCmGo
-	Bj0XI0ohkjrS8k5NFPb1In4/1BAK2Zc6qJvjDnZCztELEEOYJMXSrHUbDFfnNE7myA==
-X-Received: by 2002:a05:6000:470c:b0:4a7:593a:f421 with SMTP id ffacd0b85a97d-4abb73b557amr44307973f8f.47.1795776062532;
-        Fri, 27 Nov 2026 02:41:02 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b2c9sm47910577f8f.31.2026.11.27.02.41.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 02:41:02 -0800 (PST)
-Date: Fri, 27 Nov 2026 10:41:00 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-Cc: netdev@vger.kernel.org, "David S . Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Alexei
- Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, John
- Fastabend <john.fastabend@gmail.com>, Andrii Nakryiko <andrii@kernel.org>,
- Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi
- <memxor@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu
- <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa
- <jolsa@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai
- <ihor.solodrai@linux.dev>, Matthieu Baerts <matttbe@kernel.org>, Mat
- Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>, David
- Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>, Stanislav
- Fomichev <sdf@fomichev.me>, Neal Cardwell <ncardwell@google.com>, Kuniyuki
- Iwashima <kuniyu@google.com>, Pablo Neira Ayuso <pablo@netfilter.org>,
- Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org, mptcp@lists.linux.dev,
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org, Xuanqiang Luo
- <luoxuanqiang@kylinos.cn>
-Subject: Re: [PATCH net-next v1 0/6] net: avoid stack canaries in TCP/IPv4
- fast paths
-Message-ID: <20261127104100.3c915088@pumpkin>
-In-Reply-To: <bffee809-2992-40eb-97c7-72d919de0aed@linux.dev>
-References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
-	<20261126102058.1fecf50f@pumpkin>
-	<bffee809-2992-40eb-97c7-72d919de0aed@linux.dev>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=TTO00Emq
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1A9D9A383E;
+	Fri, 27 Nov 2026 11:46:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1795776373; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=2Wuf2F36HJ2XxV5MeacajP2DupxV2D11RTqyQO76IBk=;
+	b=TTO00EmqyMFBthjSxEqrU7DFZisSFYmLzPHTo8f4SQOiQcBHcyaJ/ZArLodvlnHt/ajrnf
+	O4wiDVRcPmIudQYJeN9jsS0rAKhroYRvXsbQCwmT8xbhKSQFBL1xIw5E1hm1NcFMSoTkd7
+	QyhOHNUF2mNTfxAqyAYKKzevXJKj1SDYLbSN/S6vUVYpDWu79ThCXAWfCRdmA2lMcxXLrn
+	4Duk8jQ2IdiJGAG8EXsvz2ciK4Eb5T1+3OuGLACTZtx0Ko5BLmnua0A8/1aKGVHBqMtjkm
+	JAaAFLFxNHxybwGEpyNrqb3e0cRfOhu3/MSsk4rQ49t4bGsrMCIqq72M1dpayw==
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -116,80 +53,60 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Date: Fri, 27 Nov 2026 11:46:11 +0100
+From: Nicolai Buchwitz <nb@tipi-net.de>
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: Doug Berger <opendmb@gmail.com>, Florian Fainelli
+ <florian.fainelli@broadcom.com>, Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Florian Fainelli <f.fainelli@gmail.com>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Justin Chen
+ <justin.chen@broadcom.com>
+Subject: Re: [PATCH net-next v9 8/8] net: bcmgenet: reassemble jumbo frames
+ from status block fragments
+In-Reply-To: <20261126120757.gdz5lo4tw7bhgzax@DEN-DL-M70577>
+References: <20261123-nb-genet-mtu-nn-v2-v9-0-4f93ded19bbb@tipi-net.de>
+ <20261123-nb-genet-mtu-nn-v2-v9-8-4f93ded19bbb@tipi-net.de>
+ <20261126120757.gdz5lo4tw7bhgzax@DEN-DL-M70577>
+Message-ID: <97e5f84e077c346d6cfe238b022ea439@tipi-net.de>
+X-Sender: nb@tipi-net.de
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Fri, 27 Nov 2026 15:33:15 +0900
-Xuanqiang Luo <xuanqiang.luo@linux.dev> wrote:
+Hi Daniel
 
-> On 2026/11/26 at 19:20 David Laight wrote:
-> > On Tue, 24 Nov 2026 22:06:25 +0900
-> > Xuanqiang Luo <xuanqiang.luo@linux.dev> wrote:
-> >   
-> >> From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
-> >>
-> >> With CONFIG_STACKPROTECTOR_STRONG=y, a function that has a local array or
-> >> passes the address of one of its locals to another function needs a stack
-> >> canary. The canary is set up and checked on every call, also when the
-> >> local is only used on a path that almost never runs.
-> >>
-> >> This series removes the canary from functions of the TCP/IPv4 fast paths,
-> >> by returning results by value, by using storage that is not on the stack,
-> >> or by not calling a function that has nothing to do.
-> >>
-> >> Patch 1 returns the two mptcp_space() values in a structure, so that
-> >> __tcp_select_window() no longer needs a canary.  
-> > 
-> > While all (I think) architectures can return a big integer in two
-> > registers (dx:ax on x86), not all ABI do the same for small structures.
-> > For those architectures returning a struct by value is implemented by
-> > passing the address of a hidden on stack structure.
-> > So code generation may be worse than passing the values by reference.
-> > I can't remember the list of architectures, mostly old ones - but not
-> > 32bit x86 because the compiler option was set when regparm=3 was added
-> > for 2.6.
-> > (Note that this is different from passing small structures by value.)
-> > 
-> > David  
+On 26.11.2026 13:07, Daniel Machon wrote:
+
+> [...]
+
+>> -/* Largest MTU that fits one descriptor, with room for a VLAN tag so 
+>> a VLAN
+>> - * interface can use the parent MTU.
+>> - */
+>> -#define ENET_MAX_MTU		(ENET_THLD_MAX_LEN - GENET_RBUF_ALIGN - \
+>> -				 ETH_HLEN - VLAN_HLEN)
+>> +/* UMAC_MAX_FRAME_LEN is 14 bits wide and counts the FCS */
+>> +#define ENET_MAX_MTU		(GENMASK(13, 0) - ENET_FRAME_OVERHEAD)
 > 
-> Hi David,
-> 
-> Good point! thanks for bringing that up.
-> 
-> The small-struct-by-value pattern in patches 1 and 4 follows the same
-> approach Eric used in commit 7a4cd71fa451 ("net: add
-> vlan_get_protocol_offset_inline() helper"), which returns a 2-field
-> struct vlan_type_depth to avoid stack canaries in callers.
-> 
-> I did note the 8-byte struct ABI distinction you mentioned:
-> - On the main 64-bit targets (x86_64, arm64, riscv64, ppc64le, loongarch64)
->    as well as 32-bit x86 (with -mregparm=3 / reg-struct-return), both
->    8-byte structs (struct mptcp_space_info and struct skb_coalesce_res) are
->    returned in registers and the stack canaries are dropped cleanly.
-> - On ABIs that return structs (> 4 bytes on 32-bit ARM EABI, or any struct
->    on s390x) via a hidden stack buffer, it indeed falls back to a hidden
->    pointer. Even there, the callers previously passed *two* pointers to
->    locals (&space/&full_space in patch 1, &fragstolen/&delta_truesize in
->    patch 4), so passing one hidden 8-byte return slot should not be worse
->    than before, while keeping the code cleaner and type-safe.
+> Now that the driver supports larger MTUs, should the flow control 
+> thresholds be
+> scaled for larger frames?
 
-There might be a subtle difference in the function itself.
-I think the result structure gets allocated on stack and then a memcpy()
-used to copy that to the caller's buffer during the function return.
-That may, or may not, be faster.
+IMHO there is othing to scale, GENET has no software programmed flow 
+control
+watermark. Pause is just CMD_RX_PAUSE_IGNORE and CMD_TX_PAUSE_IGNORE 
+plus what
+the PHY negotiates.
 
-> 
-> That said, if maintainers prefer packing the two fields into a u64 so that
-> even 32-bit ARM / s390x return them in registers, I'd be happy to change
-> patches 1 and 4 to do that in v2.
+The only MTU dependent thresholds are the packet ready pair, which this 
+series
+touches already
 
-That is horrid ... and you'd need to use a u128 on 64bit.
-It really is a shame that C doesn't have a syntax for returning 2 integers
-even though pretty much all ABI have always supported it.
+> [...]
 
-	David
-
-> 
-> Thanks,
-> Xuanqiang
-
+Thanks,
+Nicolai
