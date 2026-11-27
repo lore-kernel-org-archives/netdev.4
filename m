@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795748421;
-	b=msGSr9FRmHfCA9DML1OXHmbS8oglLSHXY348CLN0yyv+64QNKCiOc+bbY6F7qPio2LWn
-	 s80eeRKmUyKkQp7qR8PS+ZMdzv0JptqbMrLrwAx6D+W90w27KY8gA1r7RD4MQ3DNzERP/
-	 gPEhsjIJ4awFUmnaZRCQHTE02vumqpbyF2HzWeEN/y8AgMs/O0fm9icJ6OJJgqbeRBdtH
-	 2x5GrXFakHn9pyTJR6CttQXJxf3Oe8PiOvcQi1MgKAPGlmDqQYkkShbvPemlf53bR518l
-	 SXxTCUwvPMvbtIDBhJmEIxek50lDNWrwvqt2BH5tjS7JnDvFRiEkDb/dkkZ4VHkQNaA==
+	t=1795748425;
+	b=JcRJ10uVaRzoNhBCwiX/cm310xt6VKZ2VbTL0JP3VVWlFAROmLteqJ5jUwog8GAfIiRj
+	 NH9W+8ZPs2j4gVyKpUMp+rG6WauMdoSG2K0V4dZv1vnpyhHHj7RQXSRqm7ozzOxstRsOi
+	 iMp0oJcCs5Wm+65w2/ghCdYQLcmU3DMT1qh9mxr16Izr08CPeIJMz2IuigbxZnzeR7aV5
+	 PIv6umymfp9e5RNmvwxrhQzDMqGWXE/OneUjqluzJl4FfFwBc3Z9qeY28GLDzkP4/SEeD
+	 sEhKgXqL3ilhImiBmcUufmIZA5cGag11ZLM/VifojTOqzTfwKWuFHsgpnJjR57bUznQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795748421;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795748425;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=hMApwIg4ccUL/UyqPXsHiMrSMPM8gjtRIzIDGfh+Ylw=;
-	b=G14OD9E1Gsi99XHmptPWygEo9hQO2fNIbMrfny1DGttyQAuQtFJsMw+03/fpgq5CUecN
-	 vG0uMysqeItUNopg5aaDgtB62UVskBf27GB1t+5KJ49tzm4rE2hH5joyTq9IrdOaZ8S0V
-	 r85ZcfM0PeZHi98elk/7nClUIMoNrjah9bBUeJ+GX757dtKFMU0OyAWEQZJY2pgoiA19a
-	 ne/0SsGKWpML7pVSmueh8oQloBWnG6LWNWqu33r0IH/w5xO22JzEhySOwwjOdAQrbOmvH
-	 QlWMATm3v8qp0JHL3Ce84vP754iNCnUJQ6fkc9XXRVcnxgTXs0fN2im9rHzimleZFsw==
+	bh=USZ4pXGtSrus6rr3wZ/V5Nx7cc8/08wBYDNTSgspgLs=;
+	b=i05EhnnV0wOifANVbHAz0bZLEWYcLnRBuj7QonKhnZNlrHmMF0Ou6KylC2K/SIWGT4Zv
+	 zlylbPvfEP4A33VR8gkRIg/7m9IYtCgeikBTlfjCIBi9riokB8E9oWZeBL4tXHENZGwNM
+	 G/3HBAccQPOfi4/9YfNoDxeKcRsyPMrpdURKIhNqNES01GObh8atc15cle0revsJzTX/L
+	 PYuWqn6mO+FEXpntYyAFqFuoCAGqKgbXLOV3iqIWb6AqCAy8VDs6Xdtgo51ncj656Vn4Y
+	 DhSqorkzwIbx/0dNBlqcQyM8WFn5K0n1ZjbTJv8Saj+FcNTSBJ6ObiCda/a+qq9GD0g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OSBOBqUn;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m+A8L6z6;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 533CC606A326;
-	Fri, 27 Nov 2026 03:00:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5829F606A337;
+	Fri, 27 Nov 2026 03:00:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OSBOBqUn
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D96591F00923;
-	Fri, 27 Nov 2026 03:00:19 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m+A8L6z6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E61491F0093B;
+	Fri, 27 Nov 2026 03:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795748420;
-	bh=hMApwIg4ccUL/UyqPXsHiMrSMPM8gjtRIzIDGfh+Ylw=;
+	s=k20260515; t=1795748425;
+	bh=USZ4pXGtSrus6rr3wZ/V5Nx7cc8/08wBYDNTSgspgLs=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=OSBOBqUnHLedRCtaXJ4p+M5VYiukJ1PwKjgjrRm27IPZRLuHkbhyfPhbzJLkqw+gJ
-	 Hx0e0zAc1sjObOQZdnmfR6NTkQd0z5woiyo2OC6FCRlkxC8n4xrcZsDi/F3yvKA5Pk
-	 gUwU6N9Sz3geZgEL6KgFJSodeN9x/GMvR0vQJWwljCsy/cHZ//DHgc8t6sARH6mQxt
-	 mL1NdIZdFxojBVL7B9gD7CPZjqOWTyoHHH6kKR3xd7Hyevbc+3MziD9weIITwrdZ6P
-	 7gcU+ZBh3bdZT6EOcQtcuDL9ukBvaWeBlKuPI27pE+PvT4pierYLMaYr0WxB8mcMvp
-	 5O/6M7Pindvfw==
-Subject: Re: [PATCH net-next v14 02/15] net: dsa: realtek: rtl8365mb: add chip
- family infrastructure
+	b=m+A8L6z6SMmJDTeW5ik12AkU7p5PrDujYC7bxHMhscO1t3SvrUewPCERQGlQ5nmEb
+	 DAuCK+J/QLzdKbvNpoJDS9MXBaA7J1Vz0iqBJcOgBveNZQP/l9VK4cwxSILK9+LJSF
+	 OqoFer7/c84B2THDkFr5vIK7fv/8tYN74KHrOoKn646Zex3zLFM7tVlPuUJDyC+RA4
+	 CHiWkEjT+bfCYLxK13cArfKEXK4ynRq7DkNNDRwOh4qXsoNJ+xFwFPAOvMj41eLEYg
+	 YywZOUCJbHO0X2J6sMqjMc8ACQVGL9mVWt7axV/RSSUhS9yw2qBTdbwZrREtZMyenz
+	 aGE8/HiApO3Eg==
+Subject: Re: [PATCH net-next v14 10/15] net: dsa: realtek: rtl8365mb: add
+ family D SDS13 PCS support
 From: netdev-bot+sashiko@kernel.org
 To: namiltd@yahoo.com
 Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
@@ -51,10 +51,10 @@ Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
  alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
  fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev,
  o.rempel@pengutronix.de
-Date: Fri, 27 Nov 2026 03:00:19 +0000
-Message-ID: <179574841941.3135.14226342893059359025@kernel.org>
-In-Reply-To: <b2f42e59-b629-47dc-a61a-d87580516fdc@yahoo.com>
-References: <b2f42e59-b629-47dc-a61a-d87580516fdc@yahoo.com>
+Date: Fri, 27 Nov 2026 03:00:23 +0000
+Message-ID: <179574842350.3135.16231120628373898056@kernel.org>
+In-Reply-To: <19c82953-5c62-461f-b5a6-3445a485d136@yahoo.com>
+References: <19c82953-5c62-461f-b5a6-3445a485d136@yahoo.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -74,61 +74,80 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] This patch removes the kernel-doc entries '@jam_table: chip-
-  specific initialization jam table' and '@jam_size: size of the chip's…
+- [Low] In drivers/net/dsa/realtek/rtl8365mb_main.c, the family D early
+  return in rtl8365mb_sds_probe_option() sets mb->sds_supported = true…
 
 --
 
-net: dsa: realtek: rtl8365mb: add chip family infrastructure
+net: dsa: realtek: rtl8365mb: add family D SDS13 PCS support
 
-This patch adds enum rtl8365mb_family and struct rtl8365mb_family_info,
-which hold the data shared by all chips of one family (the family id and
-the init jam table). struct rtl8365mb_chip_info now points to a
-family_info instance, and all existing chips use RTL8365MB_FAMILY_C.
-rtl8365mb_get_family_info() and rtl8365mb_is_d() are declared in a new
-rtl8365mb.h.
+This commit extends the RTL8367S SGMII/HSGMII PCS code in rtl8365mb to
+family D switches. On those switches the CPU SerDes is reached through
+the indexed SDS13 window and the SDS_MISC fields use a different layout.
+Family D gets its own tuning tables and SDS_MISC programming, and it
+skips the family C option register probe, the SerDes pause programming
+and pcs_link_up().
 
-> diff --git a/drivers/net/dsa/realtek/rtl8365mb.h b/drivers/net/dsa/realtek/rtl8365mb.h
-> new file mode 100644
-> index 0000000000000..7b0c7109378c6
-> --- /dev/null
-> +++ b/drivers/net/dsa/realtek/rtl8365mb.h
+> diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
+> index 3f45ff43cb4c8..cfb8d4bb1126c 100644
+> --- a/drivers/net/dsa/realtek/rtl8365mb_main.c
+> +++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
 
 [ ... ]
 
-> +struct rtl8365mb_jam_tbl_entry;
+> @@ -1418,6 +1461,14 @@ static int rtl8365mb_sds_probe_option(struct realtek_priv *priv)
+>  	int ret;
+>  	int i;
+>  
+> +	/* Family D has a fixed SDS13 programming model and does not use the
+> +	 * family C option register to select its tuning table.
+> +	 */
+> +	if (rtl8365mb_is_d(priv)) {
+> +		mb->sds_supported = true;
+> +		return 0;
+> +	}
 > +
-> +struct rtl8365mb_family_info {
-> +	enum rtl8365mb_family family;
-> +	const struct rtl8365mb_jam_tbl_entry *jam_table;
-> +	size_t jam_size;
-> +};
 
 [Severity: Low]
-This isn't a bug, but should struct rtl8365mb_family_info have a
-kernel-doc block?
+This early return comes before the "Nothing to probe if no external
+interface is wired to the SerDes" loop over mb->chip_info->extints. As a
+result, every family D chip ends up with sds_supported set, whether or
+not it has an SGMII/HSGMII extint.
 
-The patch removes these lines from the struct rtl8365mb_chip_info
-kernel-doc in rtl8365mb_main.c:
+In rtl8365mb_setup(), sds_supported is the only check before the rate
+limiters are raised:
 
- * @jam_table: chip-specific initialization jam table
- * @jam_size: size of the chip's jam table
+	if (mb->sds_supported) {
+		ret = rtl8365mb_sds_raise_rate_limits(priv);
 
-The jam_table and jam_size fields themselves move unchanged into
-struct rtl8365mb_family_info. That struct has no kernel-doc, and the new
-family member isn't documented either. struct rtl8365mb_extint and
-struct rtl8365mb_chip_info in the same driver still document every
-member.
+So every family D chip now gets 0xFFFF written to 0x00CF and 0x0398, and
+GENMASK(2, 0) written to 0x00D0 and 0x0399. Before this patch, family D
+never wrote those registers.
 
-The struct has no /** marker, so kernel-doc won't warn about it. Later
-patches in the series add about 18 more members to this struct
-(ext_config_forcemode, vlan_4k_read/write, vlan_port_get_pvid,
-l2_entry_size, the l2_*_to_* converters and the qos_* hooks), and none of
-them are documented by the end of the series.
+The 19-bit LSB/MSB layout and the reason for raising these registers
+(the 0x1FFFF reset default) are documented only for family C. The commit
+message also says:
 
-Could a kernel-doc block be added here that keeps the removed @jam_table
-and @jam_size descriptions, describes @family, and covers the members
-added later in the series?
+  "The port 6 rate limiter registers it writes are the family C ones;
+   they have not been compared with the vendor RTL8367D API."
+
+If these addresses mean something else on the RTL8367D, the regmap
+writes would still succeed. The switch would be misconfigured and no
+error would be reported.
+
+For the RTL8367S-VB this probably makes no difference, since it does
+have a SerDes on port 6. The commit message does say the code is meant
+to be reused by other family D boards, though. A later family D chip
+without a port 6 SerDes would still get these writes.
+
+Could the family D branch skip only the option register read and keep
+the extint check? And could the limiter addresses be checked against
+the RTL8367D API, or the writes skipped on family D until they have
+been?
+
+>  	/* Nothing to probe if no external interface is wired to the SerDes */
+>  	for (i = 0; i < RTL8365MB_MAX_NUM_EXTINTS; i++) {
+>  		extint = &mb->chip_info->extints[i];
 
 [ ... ]
 
