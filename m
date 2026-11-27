@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795784886;
-	b=wfzH/xNSblA0GOdFgnFymSkccp8Io8eNZf8Tq96FrRnRXzxjY1xeJbnK1PDcjzDK2ioB
-	 WVW/CorOHNXfv4rqeVusYuyCNTIWf3AgVFPh/wJxEbLOoWosCA81/HiNv5I9rHc07c1HL
-	 LK+iqcrd2g1D5IML4UF7B1IxqbyvgkFl6EYN17Nm2okSTw/B4fz96JZPxxM5jZ1DfrF6f
-	 reBcwK+UNHpAVJHbru9fq5+C5LP/d4CNQKDaHfK3DAAIDOVJZ8k+AwlZw8HSZkVV1r7GJ
-	 AkwFiNxrwv+YTRlWvXZGXxP3aBwc+PTdcgGp4DzWf9YzEa58g7Dz4pNEdh7PD4hP09g==
+	t=1795784891;
+	b=0DlRalCLyg3CzWUp5ArU+7ncrSLuAh+/9yev9fvUnkYL+N0T6dkvc7uc4w+YbrS1Y7wB
+	 kW+BsrXJnMAeFsGT3jJp8ynUwB3wOHL0gTib/93IszROOUBekqu3QuObiUNTdJcM7UsiQ
+	 BWFtq1MH5DarpOi+R4ziiaJZBrGt6gMYN+x7Bsrz89GDPL1QsxbSQJolBfOVc+yBYu2hd
+	 wgOS+3NFW7kDy8KPIHqGbpXfx8Rz+tlqILaFVcHN4R5cDw3DItxCRp471c/xbwWI77Yer
+	 Tx0z4kSpbQeUomsAAr81KpjKlR4wjK14xnCUAqOPoq1wQe3ePGFo6RN9y7yVon5GF+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795784886;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795784891;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=xQJVoXQ5eMS+GhTtT2Nj+RU53pH9NYtB5vD012gHjf4=;
-	b=nm5nUqsiaic4ZmkVy2L1vl8/K3U+gySqhP7DVgjeaYqfy++0J/NL54vgMbHX50i80GtC
-	 TE1AFGdnCSIpAZcctgrpLxoVllMCXdqOrteuSQMn/doWu/TrRylU7bxzbjqBuw3ebpsE9
-	 J4dv//hr3YqO+o8N759El434nMThiOVPaBUWzgIaPn/sz7whIfQVF+7VQfBDr71Ly6yfM
-	 mMahhlLvSQgEaxJcFgRm0i0GqNxOn6Jv1OA+aMXPKquMwRAZUiPHH4JCEwkT5FpMpwhuD
-	 7/qVgChZXywuvsqh5RUww/JGDnWt+pGSOIb/1UH86aBNvy2OOfUa6aZgjRdtxkyJJ5A==
+	bh=vU9PPw/AI53jAU5wmvH6jGspA5SK2M7ZDo7YzMi4F+w=;
+	b=aPfvZfMZkoNR+yvPIoK63FbysW2z1VLwaYRMg8lHSXJ0kcw1iI+CwiCWmrmaBysk5dxR
+	 cjh9Uc83EyaZJLuxScZ3BfnnVspur4HHy6wJpJ7mxF/sdXYCbiOyaPuZLpXH2LJEo3h9a
+	 RM8WpiN+vQwwSv204qB2u2rkqNeN3JCH9JBTK2fEmwi3CyDnjmpr0efyz5m7V8j++fCs3
+	 5s92+mRC8FbVgZVYQZJu7td0+kj8LfJik5WX197Tmnp3yvwUHHocmfigdDQua1ZJOG2wo
+	 J9v7xhwFjnQno/cKAalnHACD3Hy9XMVL1OWT/SiOQxd/XSRbT9EveoWZqF7znD7kCcw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ElXf2h8h;
-	arc=none smtp.remote-ip=209.85.210.170
-Received: from mail-pf1-f170.google.com (mail-pf1-f170.google.com [209.85.210.170])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rpMj4PMJ;
+	arc=none smtp.remote-ip=209.85.215.175
+Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62DCF606A31F
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:08:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62DCF606A31F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8A61606A31E
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:08:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8A61606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ElXf2h8h
-Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-8a06cc097c7so5030153b3a.0
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:08:06 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rpMj4PMJ
+Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cdb1199bfd8so3760652a12.1
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:08:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795784886; x=1796389686; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795784890; x=1796389690; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=xQJVoXQ5eMS+GhTtT2Nj+RU53pH9NYtB5vD012gHjf4=;
-        b=ElXf2h8h9nfTtFmf2DWYPK8CucPykSR6O0pmk1h6wilQ5yCxJoP6ogMBMhPJbmgkpH
-         Vnps8qhtZPL7UAeNzYJ/Ec6EkQabz4Q6vhiht9X57T8k657dkrGSvh2iMQZXRbiz/3tf
-         Lo3SOyD9XMBW0tO8e8J+EpRji/GAreh/xZa5McKnJVrG6QcwZgbDHFtpF2emy9reWNM8
-         jGiJ8x5SGceNEBcmE5waQksUo8rZBHkPN+sTyOgODlrFqa+biXsv2LarREkIsi2XFFiq
-         jHslO5dEm+UbpUHarQkm1wIAXrLolPQftFBIbTV37snqdA8X1sFhTmOhGy09ZEA4z6XA
-         lngg==
+        bh=vU9PPw/AI53jAU5wmvH6jGspA5SK2M7ZDo7YzMi4F+w=;
+        b=rpMj4PMJ9cSYUw+lSVf0BIvzWYC0SJvTLMJMVOf5cLzKKPpWrSjPQ15LH5iBmH05tW
+         SgGQ2i+XmDEpsjeYXx6Ko4HTIGq2MECfFlR9etF5tHd/aNdaGbu9LrJ9zxwKCb2qybYg
+         7WX8CuP5cZ/Po7A/bKOZwAhTvRlyHLoTeUnlC8QKGFOAyXNtgOhD/MMI8hdzrg5ysVL5
+         gcf3uvzYce+zoICfxQg/44hY81D+r4VDA5UbN17GOJ6u2+ewcsSgV00MXhM5lfzmtWde
+         s6GscGSfUM6d5eWk7lfK4MAbpTbsu6elK9yWVIjYYMd548ew1KkUVewkMM4JgBTULBsK
+         UraQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795784886; x=1796389686;
+        d=1e100.net; s=20260707; t=1795784890; x=1796389690;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xQJVoXQ5eMS+GhTtT2Nj+RU53pH9NYtB5vD012gHjf4=;
-        b=Xw2gBNaLyqpAFb/ZPtxO7zqtqBPS1BipuCw2Yo56uh7rWan/DHgT9Iy0d+S5e8ZTqy
-         zH/+Tvj5bNJpTBbHaH/Xs3m895dzBJV0nEgCDJWLboNq54GOI4qaCy5hQpwrHVTV8k0O
-         JSTIIUq9a3ivmqrxOYH1DWNj6YIjzP57CQUkoVXASCVNQvqZIppCNmGddDvaShoHo0CK
-         rH88GrZi9woNpXOvRObSZuFgDpFDbLKr14hVCGEvO8zmPyA5dc6ndhqMKBBPPkZt96jR
-         Nii2kgthVb8h+uPW14eIl6JwvFVlzV+alisQs6nVqcVbAarJMgdcIgYirJ8kn7j1nfzX
-         SR+w==
-X-Gm-Message-State: APuU4Z/L7UkMzaaUcblIfcGRMVULLE/Al5ifEeSIqi5+/1m6FPqnW095
-	wrjdgEmHIrWNC7nriOCWANUZKL95SfODKFaDxK7epu5mjmpw1CoYd9ErPYOzXQ==
-X-Gm-Gg: AZFdTZflZtLBiexu8dxjCrrsFcSru3tmPjEvGeBG8/Z368QgMEq3btfg72b0VjB39a8
-	rJuU2OmDRhoqLMM03ECPAC1qa4d1aTvwjJYK4jircLHZngC1qbrvfCceZCp6qe7uI+NbUpXYwoO
-	fMyFKYh9NOrbC0Dy6MT3YzbLE4saOa9qXieoq8vs3DJqDM6niiA9l5J6yDsRxtAqc5eh31ewTi5
-	Y8uECOjgGCIFw5BbQFZ+uwoT9seR+01cwCr/kw15yYD5qCNUquJuad631VldLBWS6J4piPNWm5M
-	kmoaYuqhnUiQx2/LzN2sr65Ihkxh/oAT3H3OYNii87btBfTolNs9MfojF7XRvj56n7YMyW69uXP
-	X4pfD4AwYjncZMVMwebm8PIawM7Fw80oWjBU8gpcyCX20EF241J6x/iOOjwnlUJHe1UAw6tl9j2
-	U6qZqxKjwqBFqo4dQzgWWURhHpPeWZADDqFLVDJbQMI71Gv4Q7eQNkInA7vsuSywzanHN+s9djb
-	N9IAg4HIISNxTjZjXvuG7OujxTvpz9/gR5VWsCgbCmvy7lAwKPVU+nK4R1CiwLZ159Xj8xGrXhu
-	sQN7YfvmXMfBiKS2aZUPowUQ+B+jq0pJiGwDZ5Vc/+j/K+f9EgxSgsw=
-X-Received: by 2002:a05:6a20:4303:b0:3e1:379d:f953 with SMTP id adf61e73a8af0-4014ca45151mr26753532637.57.1795784885543;
-        Fri, 27 Nov 2026 05:08:05 -0800 (PST)
+        bh=vU9PPw/AI53jAU5wmvH6jGspA5SK2M7ZDo7YzMi4F+w=;
+        b=Ejbp5Wp9caAR0oCcIjwkDK0ek9Y7DyhsnwqPNVU9du469HcGou+QAfZQ1OuynfQ85l
+         o1qRAYrIASA0X2dYUyT93/BdacsqbQRbvfuDo+HDz+MjdWiQXgSASQcaUyndvFCWJsJL
+         eQOpgV75YFOLA6A0KVcr6OS0xuWUgWYlJcRQwJ/yrfZp6Zcc4Bw5MWxrJUkdwI8vawXv
+         pegRM5pmUC1VAgwtJF2gB/rKFnBOhp8AMK1Hr/htCJo1emC5qcuiB8XyrZEHtt4NGpTg
+         yj9DVHipmLOdU/8jGvDOg+nnw+lHJq5H6GWHXpgDBYBabeOrub+XKa2lLizLvNv+YNKT
+         5QHg==
+X-Gm-Message-State: APuU4Z/QIfOeri6zdB26+LdJYJ+8ZTqUJVLPpVPjDDigQc/WGyIWBo7V
+	OHVMI9Zf7Tq7Hyl/y07apvdvJQQlNrPjonII/ato6o/B+ckBasbq5WA3kwNcGQ==
+X-Gm-Gg: AZFdTZcvSeF3Lxa/PtSmcgv/OjMeQ63WDOUeijFhKrgChmgUp0DFzF1bau5Ve5x06ZO
+	Bk2SUfw9Cox6D278Zx0W2wD+eWrgZW6JHnPyfa/nxHVzIvlWuMDaaypfMB4zOQJ37Flp2g2C2T5
+	d63vT98y41KhuWf2ZgOBDb5zdHpd3XgIYqOSzniShNj9zYPt/uP7BLyozZYaG82DnSaq7IwHk26
+	Figxlankzkyx54QyrLQfP/hTxwOMSvg8Q870wSwSEuaF8124lDSYiCHT5WyefHbCltQWTPap6dj
+	gyKcDgfeV7YcuJyfxQzThPCJPDEnHSIe28C4Abjj+qUPYk97p0/TqtUhOl1Jq25DIvlIPqhoqIQ
+	oSV2f7Yham2U+iT1+ESrl9TE9fTZHMV3h6U1ouNi16onvn0Gx3N7ds0+6t9FEs7Dc8iw+z+Yv12
+	7X4Wuq62ErD++hmRKGitmHljIHCUJxUI8C9AOYuCE4gyuADLxJAjyoRG7LmkNpnfMDxOZN2uLdV
+	VwW9Sp+1jEoiXP6PZm7S7ng0GSdoyMuE1Ic5pHR+Q5mgf9UDy03c6BrtJT+rUd+X0wQ8vw1pciC
+	NKp4qWmq8rfi0d1GS34Lahg3pOtN7x8kkADbG0dedrEejYlcIrWN4NE=
+X-Received: by 2002:a05:6300:8941:b0:3e1:e757:205e with SMTP id adf61e73a8af0-4014da5ea9dmr25631676637.42.1795784889837;
+        Fri, 27 Nov 2026 05:08:09 -0800 (PST)
 Received: from d.home.yangfl.dn42 ([2a09:bac1:7680:d30::4d0:13])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d028a54sm11860795a12.18.2026.11.27.05.07.58
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d028a54sm11860795a12.18.2026.11.27.05.08.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 05:08:05 -0800 (PST)
+        Fri, 27 Nov 2026 05:08:09 -0800 (PST)
 From: David Yang <mmyangfl@gmail.com>
 To: netdev@vger.kernel.org
 Cc: David Yang <mmyangfl@gmail.com>,
@@ -91,9 +91,9 @@ Cc: David Yang <mmyangfl@gmail.com>,
 	Jian Shen <shenjian15@huawei.com>,
 	Jijie Shao <shaojijie@huawei.com>,
 	devicetree@vger.kernel.org
-Subject: [PATCH net-next v5 2/5] dt-bindings: net: hisilicon,hisi-gmac-v1: Add mdio bus child node
-Date: Fri, 27 Nov 2026 21:07:25 +0800
-Message-ID: <20261127130729.1263920-3-mmyangfl@gmail.com>
+Subject: [PATCH net-next v5 3/5] net: hix5hd2_gmac: Use mdio child node for MDIO bus if it exists
+Date: Fri, 27 Nov 2026 21:07:26 +0800
+Message-ID: <20261127130729.1263920-4-mmyangfl@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261127130729.1263920-1-mmyangfl@gmail.com>
 References: <20261127130729.1263920-1-mmyangfl@gmail.com>
@@ -108,34 +108,38 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This adds an optional mdio bus child node. If present, the mac will
-look for PHYs there instead of directly under the top-level node. This
-eliminates any ambiguity about whether child nodes are PHYs, and allows
-the MDIO bus to contain non-PHY devices.
+This allows explicitly specifying which children are present on the mdio
+bus, like commit 4d98bb0d7ec2 ("net: macb: Use mdio child node for MDIO
+bus if it exists").
 
 Signed-off-by: David Yang <mmyangfl@gmail.com>
 ---
- .../devicetree/bindings/net/hisilicon,hisi-gmac-v1.yaml    | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/net/ethernet/hisilicon/hix5hd2_gmac.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/net/hisilicon,hisi-gmac-v1.yaml b/Documentation/devicetree/bindings/net/hisilicon,hisi-gmac-v1.yaml
-index 89ed6ab1905e..a71529825955 100644
---- a/Documentation/devicetree/bindings/net/hisilicon,hisi-gmac-v1.yaml
-+++ b/Documentation/devicetree/bindings/net/hisilicon,hisi-gmac-v1.yaml
-@@ -53,6 +53,13 @@ properties:
-       - const: mac_ifc
-       - const: phy
+diff --git a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
+index 44b05d41cb95..b3b2aa1b7698 100644
+--- a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
++++ b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
+@@ -1101,6 +1101,7 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct device_node *node = dev->of_node;
++	struct device_node *mdio_np;
+ 	struct net_device *ndev;
+ 	struct hix5hd2_priv *priv;
+ 	struct mii_bus *bus;
+@@ -1189,7 +1190,9 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
+ 	snprintf(bus->id, MII_BUS_ID_SIZE, "%s-mii", dev_name(&pdev->dev));
+ 	priv->bus = bus;
  
-+  mdio:
-+    $ref: mdio.yaml#
-+    unevaluatedProperties: false
-+    description:
-+      Node containing PHY children. If this node is not present, then PHYs will
-+      be direct children.
-+
-   hisilicon,phy-reset-delays-us:
-     description: Triplet of PHY reset delays in microseconds.
-     items:
+-	ret = of_mdiobus_register(bus, node);
++	mdio_np = of_get_available_child_by_name(node, "mdio");
++	ret = of_mdiobus_register(bus, mdio_np ?: node);
++	of_node_put(mdio_np);
+ 	if (ret)
+ 		goto out_disable_clk;
+ 
 -- 
 2.53.0
 
