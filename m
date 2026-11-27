@@ -1,102 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795789558;
-	b=J0dZnL0FGRXGinnTYJVGDL58xXO3YLRSyc5I+JzhHwvsEtjCtBPt2e/oaeMpbGoY9LZe
-	 3FfXo0P9EmjCWFk3GccbWwSy1pBrk7JJfliZ3t/1S4Ik8TRY1DggnmNDnBLjW8Y+Zm++J
-	 mDDB/vp1TcvsuszlHI74Wi1ug8SA1lkpbCGJWXNd+XwWQoriayG6K4QGIG+6NDbujY/s9
-	 LOpECm9BKgoMLq8YxH3fkYmAskJSLfUEmmVdu3lPYE1+5nfYmB2olBINqyMJ/fKqhiAC6
-	 lIwpW4Jc4SmURAHQg18EsTxL9rxeHyURCSyGctdtcKzfT/mt7Pcsu9NPM+ivYZvBg7w==
+	t=1795789567;
+	b=HF01Fk+RVpCfNbIzhVW/VWOhm4DgQ11ABpIw6pFJdYEPtwgTOIG0ZcX/d/J8ChQpbu32
+	 z3syvz/GzQOWIO+i3YQpK40G8pM9ScChOZ51kPv4k0meC0qvmPSaW7TMe9L7H7t52Bb0Z
+	 DywhjPvyWxg6DguTXcH8kp2a3zw+L7OwJaSqFJWVd5BvH9eIXlna9dBGsshcvC2xfuxA6
+	 BZQ7X37swoG9dCdvgHZBejZI1NjNy1eSjBcCctFu3H8nokqucAUyBovjgOYZJI0ginxYp
+	 ifMMcl9zGrtuYvCe2Riso5KVxiCbS5PiZGFBJMIDHglXv8sN4dLer/4EjuskgAhehHw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795789558;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795789567;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=CUYUcZ8zVrccdQp8eylc+qilfxVX7jnZyDSPYCH5vsQ=;
-	b=m3JUGZCUwZXUHSh2nAdsfh2oMu38La+E3bxJvC14BydFA/p4sEgfsbQLm6s7iGCJFy+t
-	 +0sKMu8MXxLUqFMuGtCCdLvVwYx6IuPrpDecwWlNezSQ4sS9Ywsqm5SZkME9DAVz9DqsM
-	 +KgAyFAP6bhVpcTe4ujvLzeQzXhG5Tfjvpsa7+Ld2YJHHk/LNJabL04/bCQBDXNucSO7p
-	 f5jt27urgo5HiEGCeAitMPnooPzxqAlptSDFMYqd+FQE1OWwzS+F3KwJj4ecspCTP6nYL
-	 ZMlcDqNos3MCCUnr7TlgBi7RbIdfNtpb6RC959GSneHmvyC8JCLhrUwSqFKD3ia2N1w==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=rGni9AlTGG5xVbZWZfwiZBu/wCWcaLCQAeaatovwSX8=;
+	b=mO5Aqn4+9598R1TcCzb5g4Vdmuv3KnnHl8hXgtB1UbVvgJiq9A3XkPTId7e6NPc6T2Ol
+	 vppUF+If3qBKPQAzJc7re4ipfmWUMC+RaEAhcqyBaLsu0HtSc7+2IINdlVSqrWItZ5tSr
+	 /eVuaF1a07PM6Zn4lBN7kAeNbMiuNbOAgTdRvxPWAZYsLgo87TSdtakYO4Sz7Wwul9ZlQ
+	 gyIsxoEPWY4tPey3jNtHa78gh4p8pzco04A/NIc/lNMZAA/Pub/opR24TKGQASOC78cag
+	 UNdV3AR1ma6aU2Ah6lxh8WV7fkiqfWI8NeGibBTq47dJkKbAyBgoz6E36gdkxnBvvFg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cloudlinux.com;
-	spf=pass smtp.mailfrom=cloudlinux.com;
-	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=PNoPGUYd;
-	arc=none smtp.remote-ip=209.85.215.171
-Received: from mail-pg1-f171.google.com (mail-pg1-f171.google.com [209.85.215.171])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rgtoOtn7;
+	arc=none smtp.remote-ip=209.85.160.170
+Received: from mail-qt1-f170.google.com (mail-qt1-f170.google.com [209.85.160.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96C93606E139
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 14:25:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96C93606E139
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03DD4606A326
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 14:26:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03DD4606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=PNoPGUYd
-Received: by mail-pg1-f171.google.com with SMTP id 41be03b00d2f7-cdb2893531bso4302018a12.1
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:25:57 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rgtoOtn7
+Received: by mail-qt1-f170.google.com with SMTP id d75a77b69052e-5569551d19dso93565701cf.0
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:26:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudlinux.com; s=google; t=1795789557; x=1796394357; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795789566; x=1796394366; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CUYUcZ8zVrccdQp8eylc+qilfxVX7jnZyDSPYCH5vsQ=;
-        b=PNoPGUYd72bdVRNz6j5xAK9fj1N/kgvqWgnVi+dggqk/FcbIEE3jmb3pEonFHHWsQI
-         7TjQT8NVt2gY+sd52p5CjR07Wt8Mw7WRm5WiIUoT3i9eLTw5wYHp8ZxvOxbDJkBwi/8d
-         cF/urv3guhCw71osZosrgSwWuTHFwLD8s9sqb404M+SqyeGfnPfShOlb1XHsskrjbCAZ
-         xTE94+issUodeM8Ea44WxzBe8LFNVXPIqZxL6zyUP4BoIYW2Mom7a3rdjVDtjpcCo4Eu
-         OWovmwPB/T1z3kVlKyWj0BGfl9hYXgekn3omCY8LR3ZM7tJ1dRq/OO2v4mtrXma8jfel
-         Rh3g==
+        bh=rGni9AlTGG5xVbZWZfwiZBu/wCWcaLCQAeaatovwSX8=;
+        b=rgtoOtn74EmOMwu4iilSpzxcsYJDiE+exXeZmdifLXpTkHxHycmgdQozLxnsQho+K1
+         f7Z3weKOK8g5TIkfwor+ZdpaiIZXgUeMV+ux56wFLnDdadpV3ZAu5VAAOkJMqdfu/gWj
+         fzrw+lUB6nBcPLghUeq6R7hcpRmhF+2GQa0kUsODza4HgaLOCuQUFvJ5LQqpXzTcOJ+h
+         KOMkRyU5hUg8tBelK8HlQmm5ifC1OUtklSO76F0vnXQQJqqGRanL2jgeiFqGGklekKEM
+         Nygb61v53vArvbkdUkVRoo5BgIyrG6hUBMctsVPhfqSKQIMPhkj61cs7F6ym/GqfuvDa
+         3i2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795789557; x=1796394357;
+        d=1e100.net; s=20260707; t=1795789566; x=1796394366;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=CUYUcZ8zVrccdQp8eylc+qilfxVX7jnZyDSPYCH5vsQ=;
-        b=ByWvC+jdMu5DUa0Lvtwv7wL9UOijSHdyOqPWNrO8mQ14PUFJlp/QlXgYOfRV7LHz9q
-         CFVp0eIirChgw+GiyT8zgzNmlbyFDAKDO++Nv2pzbG6/d1Ca+cWMF0GwSaEn71HYXHtB
-         Z62ertOnjsQyMsJyd8GH24oMfdqWoG6Q3bzyi4ylSCV2UP+wLZ+12Y8v5+o1arpTGd3f
-         QlXsDY8cUDB0CDT1UYGbo88Hpm/IxC+3jCHNwIeTtpGvIAGz4HRMimOWg8SbQxzof0TR
-         KJzNY9dshMffYk/Mt9UhhSTEiRuAZj4RprbpI4YEf/gBQKNwV4kKuP+0zK6SThV+4/Oq
-         7Neg==
-X-Forwarded-Encrypted: i=1; AL+hErHRGj0iThxK9DNqHBCBUOeOVbzERBxhxJisO0nP7rVGugfN2l4visIYstJKyNWhUnL2icSew3U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9rGOK8kDrSrc2rXaMw9eQSVIS2C/5TXKQjVFE7fu31VjxkmfyU
-	zlwe4tQk/oKiquG8qiBaEgSyRk/w/ap9p0iBIt0XV/bR/5Jatk7AnWi8A3bYfsGbR7Y=
-X-Gm-Gg: AZFdTZfT9iTlmkRBFO7DYXqulPH631Ds7d7axYGSxVNApVOnA85UQPbvEwlg+6U5fat
-	sf/6y1SxTIAu90MN904ZEDi/DJD+fO7kQFtm3OjnvpB51zmCNdLfvOPavVaPUwa97XtVOOxQ/Mt
-	jHgH4uBt6jSFj0YdOreFOzfbjfqeBu/WTxEur1c6csvarXVHg5m+0YHSiUKbk0mTVInRvUIeAeA
-	nEnhgzt52ZTHU96kZAQy3ufnMdC678bLrFHaodx+2q/UBfDGBFnVELotdHTCkt+01KW+mBivfc9
-	C1GjfacQv9k/iyP6zR/kYcmJs9A10/7qDT5wyM+0yzDdwj4kll8jZHc1NtfbF4ZzMZa3mLZUeL+
-	jYENTQEOjhQb3S3AQSCTTQCwROOSnHfDcQ+Yp5AeNmNVoie7PV2vwdIpVKn1HIRtKZ1rvOY9gPo
-	+1kjoagBjH2mcWyiOClH4YeMPlo1927kEzl8TesKgtaE/i/I3VneHQ4JA8ylBaWqFR6ZlygsTn4
-	ZBI7VNhmH2YORrQ8mY21OcNzUFQHPZaMZ836to1eN8omrrBKCkeeuZ+evr5bY1Vjg0GrTxoo8lT
-	JDImjV1J6q3q4dD6M09a5CCIOKapg4X1dXkIxAvnLKrgK5gVQe5JIKxydQ==
-X-Received: by 2002:a17:90b:4b86:b0:3b5:35eb:5e94 with SMTP id 98e67ed59e1d1-3b535eb5ff2mr2981408a91.41.1795789556690;
-        Fri, 27 Nov 2026 06:25:56 -0800 (PST)
-Received: from rmustafin-laptop ([27.79.41.63])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4dfbe54a2sm18324629a91.17.2026.11.27.06.25.52
+        bh=rGni9AlTGG5xVbZWZfwiZBu/wCWcaLCQAeaatovwSX8=;
+        b=paVv9ym5Qgeo1fFJ3bC1dlf8zRo50eylwds4jpli1eedIn//IlUPXY48x7dc5bzDno
+         K3zpVyyUpylMYK9K28qRseHjB3pLc3ctOhtbWY91GRu68ffvmrg7v3mxDewBY4haKPwh
+         5tGOKpNDh3TpKNge+C39MxOAQ15xOMDbyvSSVU5RlNoaNpyDO8Mn5nHOxy1G4Yt+8m0G
+         IoLrPobR+9Fr0vPCW1P7LiR6wdloPQnaQqXunek0pHWOQLew3kKJPyJKoso5tISjhkik
+         Rh1oz+l1Bq79iaUZ9wVR9bqTxETpdgEWK17qCZRIYaLH664UaeUJdSwLiapON4ULzvkp
+         bKOQ==
+X-Gm-Message-State: APuU4Z9EWdMK63SRO6AHq/ETpnGh3ko0BSO0eY/RDJx8dlJ5ZP5jri7V
+	g54A1kWQi24otybC3uVWRV5pr+arQKPb/pUQCVsposrbfDqWTgyrbqv8h0dSJQ==
+X-Gm-Gg: AZFdTZf5V8zsHYOUrp0yJW8sziIUa74gi0gFKtyfmxI4MzRQCvpo9FOQ5pmeJKh2DuL
+	W4KFWQVQUViNnPwXp2zoaGFyn7KoCkD8ld73n6zouSeavPkAwyrpNAhNO0Tk7VpndD0EFNkaxWc
+	1rHdD0FpUGR56cN++nCxNThTHd7OMa+m1K5JyLu49SgIRA2o15VvCA+6DvnfyFMJurEp2YjjV74
+	x3cLF8Gu0Z4cGUrT/0v2J8uGxcpUKwv4FuoOspxYxigKntYtCrrzKGhZjrV7YpoGPQvN9IxMJ+r
+	xjdbyn5Bu+r33U6ltKoUzJw8xpOm8OJ7WrrERFvXKorrkgUmC12yzIEexOAB7zVZbIEaAp3xyq6
+	SSwScZEsm6uMyP8gHre474z1Guitenz12FqFKME29aqaU0CdKS8GjQqWxLiBn94wy/CNCG+bJXN
+	hkpuSY0JXRtulIPy0lNa/9zqWA4hqw3BUwoaPCXcEqiVLl/aoi4DoPxjZoeTWqD5pF4ClrH796y
+	bqSJVLvUOVVOCWaj99R4qtVsYJuUD7vrwAH/o70In1jM4sJ+r9sB14jKIffxPrYyCdMtN2h04lF
+	jAJ6aw3XyRW9mkOqdWgMU9HIVaah7MG+r85/m591UUYA8iuemESD7cM8y4DTls6MQliiCvGwP2f
+	dqRax2hBAfhehHy+zWaPv92UMTVnOnZK0dUI/xswJhIVM6PjhFl22CWlvvdlqpdF+6wRceng=
+X-Received: by 2002:a05:622a:60e:b0:55d:3347:813a with SMTP id d75a77b69052e-55d76a3a0c4mr414480461cf.27.1795789565626;
+        Fri, 27 Nov 2026 06:26:05 -0800 (PST)
+Received: from wsfd-netdev58.anl.eng.rdu2.dc.redhat.com ([66.187.232.140])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d7889ea4csm209378831cf.26.2026.11.27.06.26.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 06:25:56 -0800 (PST)
-From: Rustam Mustafin <rmustafin@cloudlinux.com>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
+        Fri, 27 Nov 2026 06:26:04 -0800 (PST)
+From: Xin Long <lucien.xin@gmail.com>
+To: network dev <netdev@vger.kernel.org>,
+	linux-sctp@vger.kernel.org
+Cc: davem@davemloft.net,
+	kuba@kernel.org,
+	Eric Dumazet <edumazet@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
 	Simon Horman <horms@kernel.org>,
-	Christian Hopps <chopps@labn.net>,
-	netdev@vger.kernel.org,
-	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Rustam Mustafin <rmustafin@cloudlinux.com>,
-	Sashiko <sashiko-bot@kernel.org>,
-	stable@vger.kernel.org
-Subject: [PATCH ipsec] xfrm: iptfs: report the too big error to the frame's own socket
-Date: Fri, 27 Nov 2026 21:25:50 +0700
-Message-ID: <20261127142550.66326-1-rmustafin@cloudlinux.com>
-X-Mailer: git-send-email 2.52.0
+	Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>
+Subject: [PATCH net v3] sctp: unshare GSO skb frag_list members instead of linearizing
+Date: Fri, 27 Nov 2026 09:26:04 -0500
+Message-ID: <112afb6053d880d08bc768ecc72853357240ce29.1795789564.git.lucien.xin@gmail.com>
+X-Mailer: git-send-email 2.47.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,75 +100,121 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-iptfs_is_too_big() calls xfrm_local_error() when its sk argument is set,
-but xfrm_local_error() reports to skb->sk and dereferences it. vxlan
-passes its tunnel socket as sk for a forwarded frame that has no
-skb->sk, so an oversized forwarded frame on an IP-TFS SA with dont-frag
-oopses:
+When the iptables TEE target copies an SCTP GSO packet with pskb_copy(),
+the frag_list skbs are shared by reference via skb_clone_fraglist().
+The SCTP receive path then races on shared sk_buff headers in
+sctp_inq_pop(), and can hit a BUG_ON in __pskb_pull_tail().
 
-  KASAN: null-ptr-deref in range [0x0000000000000010-0x0000000000000017]
-  RIP: 0010:xfrm_local_error+0x92/0x190
-  Call Trace:
-   iptfs_output_collect+0x2c2/0x1170
-   udp_tunnel6_xmit_skb+0x713/0xd90
-   vxlan_xmit_one+0x1ebc/0x3490
-   ip6_forward+0x1573/0x35c0
+Commit fd60d8a08619 ("sctp: linearize cloned gso packets in sctp_rcv")
+tried to fix this by checking skb_cloned() on the outer skb, but
+pskb_copy() gives the outer skb a private head without marking it
+cloned, so that check never fires for the TEE case. The frag_list
+members stay shared regardless. Even when linearization does trigger
+(e.g. for AF_PACKET clones), it destroys per-segment boundaries,
+breaking AUTH: the HMAC is computed per segment on transmit, but after
+linearization the receive side hashes across all concatenated segments
+and the digest never matches.
 
-Check the frame's own full socket instead, as xfrm4_tunnel_check_size()
-does, so a forwarded frame gets the ICMP error. Drop the now unused sk
-argument.
+Fix by avoiding linearization for GSO packets entirely. Add
+sctp_gso_unshare() which walks the frag_list and ensures exclusive
+ownership of each member:
 
-Reproduced on a KASAN kernel with vxlan forwarding over an IP-TFS SA;
-with the fix the oops is gone and an ICMPv6 Packet Too Big is sent. The
-xfrm_state.sh, xfrm_policy.sh, xfrm_policy_add_speed.sh,
-vrf-xfrm-tests.sh, pmtu.sh and ipsec selftests pass with and without the
-fix.
+ - skb_unclone() on the outer skb to privatize the head when cloned.
 
-Fixes: 0e4fbf013fa5 ("xfrm: iptfs: add user packet (tunnel ingress) handling")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/179551712630.3135.52212996809224784@kernel.org/
-Cc: stable@vger.kernel.org
-Signed-off-by: Rustam Mustafin <rmustafin@cloudlinux.com>
+ - For shared members (users > 1): replace with a pskb_copy() to get
+   a private sk_buff and data buffer.
+
+ - For non-shared members: skb_unclone() to handle the case where
+   users == 1 but the data buffer is still shared (dataref > 1). This
+   state arises when a cloned GSO skb is trimmed via ___pskb_trim() or
+   __pskb_pull_tail(), e.g. an AF_PACKET socket with a BPF snaplen on
+   loopback trims a clone from dev_queue_xmit_nit(), leaving the
+   original's frag_list members with privately-owned sk_buff headers
+   but shared data.
+
+Data exclusivity matters because sctp_sf_authenticate() zeroes the
+digest and writes the computed HMAC in place; shared data would corrupt
+AF_PACKET readers or let a crafted packet pass AUTH on a second copy.
+
+Fixes: 90017accff61 ("sctp: Add GSO support")
+Reported-by: syzbot+f15a6eff7a53f6eb7dc3@syzkaller.appspotmail.com
+Signed-off-by: Xin Long <lucien.xin@gmail.com>
 ---
-Assisted by Claude Opus 5.5 (claude-opus-5-5).
+v2:
+  - Use a proper Fixes tag and refine the commit message.
+  - Use pskb_copy() instead of skb_clone() for shared skbs in frag_list
+    (noted by Sashiko AI review).
+v3:
+  - Call skb_unclone() on the skbs in frag_list that are not shared in
+    sctp_gso_unshare() (noted by Sashiko AI review).
+---
+ net/sctp/input.c | 46 ++++++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 44 insertions(+), 2 deletions(-)
 
-A KASAN reproducer (single VM, vxlan forwarding over an IP-TFS SA) is
-available on request.
-
- net/xfrm/xfrm_iptfs.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
-index 0313a43aa8a9..ccdde630a825 100644
---- a/net/xfrm/xfrm_iptfs.c
-+++ b/net/xfrm/xfrm_iptfs.c
-@@ -1813,7 +1813,7 @@ static int iptfs_get_cur_pmtu(struct xfrm_state *x, struct xfrm_iptfs_data *xtfs
- 	return pmtu;
+diff --git a/net/sctp/input.c b/net/sctp/input.c
+index 9494cfa51106..89599fe4c2f1 100644
+--- a/net/sctp/input.c
++++ b/net/sctp/input.c
+@@ -82,6 +82,42 @@ static inline int sctp_rcv_checksum(struct net *net, struct sk_buff *skb)
+ 	return 0;
  }
  
--static int iptfs_is_too_big(struct sock *sk, struct sk_buff *skb, u32 pmtu)
-+static int iptfs_is_too_big(struct sk_buff *skb, u32 pmtu)
- {
- 	if (skb->len <= pmtu)
- 		return 0;
-@@ -1824,7 +1824,7 @@ static int iptfs_is_too_big(struct sock *sk, struct sk_buff *skb, u32 pmtu)
- 	if (skb->dev)
- 		XFRM_INC_STATS(dev_net(skb->dev), LINUX_MIB_XFRMOUTERROR);
++/* Ensure exclusive ownership of head and frag_list data for GSO skbs.
++ * pskb_copy() shares frag_list via skb_clone_fraglist(): copy shared
++ * members and unclone shared data so sctp_sf_authenticate() can safely
++ * zero and rewrite the HMAC digest in place.
++ */
++static int sctp_gso_unshare(struct sk_buff *skb)
++{
++	struct sk_buff **pp, *p;
++
++	if (skb_unclone(skb, GFP_ATOMIC))
++		return -ENOMEM;
++
++	if (!skb_has_frag_list(skb))
++		return 0;
++
++	pp = &skb_shinfo(skb)->frag_list;
++	skb_walk_frags(skb, p) {
++		if (skb_shared(p)) {
++			struct sk_buff *copy;
++
++			copy = pskb_copy(p, GFP_ATOMIC);
++			if (!copy)
++				return -ENOMEM;
++			copy->next = p->next;
++			consume_skb(p);
++			p = copy;
++			*pp = p;
++		} else if (skb_unclone(p, GFP_ATOMIC)) {
++			return -ENOMEM;
++		}
++		pp = &p->next;
++	}
++
++	return 0;
++}
++
+ /*
+  * This is the routine which IP calls when receiving an SCTP packet.
+  */
+@@ -117,8 +153,14 @@ int sctp_rcv(struct sk_buff *skb)
+ 	 * it's better to just linearize it otherwise crc computing
+ 	 * takes longer.
+ 	 */
+-	if (((!is_gso || skb_cloned(skb)) && skb_linearize(skb)) ||
+-	    !pskb_may_pull(skb, sizeof(struct sctphdr)))
++	if (!is_gso) {
++		if (skb_linearize(skb))
++			goto discard_it;
++	} else if (sctp_gso_unshare(skb)) {
++		goto discard_it;
++	}
++
++	if (!pskb_may_pull(skb, sizeof(struct sctphdr)))
+ 		goto discard_it;
  
--	if (sk)
-+	if (skb_to_full_sk(skb))
- 		xfrm_local_error(skb, pmtu);
- 	else if (ip_hdr(skb)->version == 4)
- 		icmp_send(skb, ICMP_DEST_UNREACH, ICMP_FRAG_NEEDED, htonl(pmtu));
-@@ -1908,7 +1908,7 @@ static int iptfs_output_collect(struct net *net, struct sock *sk, struct sk_buff
- 		/* If the user indicated no iptfs fragmenting check before
- 		 * enqueue.
- 		 */
--		if (xtfs->cfg.dont_frag && iptfs_is_too_big(sk, skb, pmtu)) {
-+		if (xtfs->cfg.dont_frag && iptfs_is_too_big(skb, pmtu)) {
- 			trace_iptfs_too_big(skb, xtfs, pmtu, was_gso);
- 			kfree_skb_reason(skb, SKB_DROP_REASON_PKT_TOO_BIG);
- 			continue;
+ 	/* Pull up the IP header. */
 -- 
-2.52.0
+2.47.1
 
