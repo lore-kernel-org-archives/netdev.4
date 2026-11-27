@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795798084;
-	b=DOwsSZ/BIxRtdzpiNW5O0oYjLMuKuyfmmCVaXmabmaipZ1I/l8P0CVE23IVpK7EdryDF
-	 iMh4GSEhQS9iIeg4fwXfJG3BcnlUZ1GCC/2bGG50dKjPTIS6PyqPuIE36HBjOcNISOtRK
-	 h7O1K6jriDSW14L0S1fr2S0Rz/MJpLPEApQjFO9Ayk2s0PMVE3QwnH2fhdNgwV9Zm6hZK
-	 LLd00YC+ws9SOpa2OUfeoXNtq9NvjlzUG4N+0rNVnSj96afKSSEE2OvmgXk90tThQbH/G
-	 isaRLAlAlp3fXaXOLeVHQkLtPcQOfME4Fue+d7oWDYBfd4oBo1U6qKXnayWc2KEQoOQ==
+	t=1795798079;
+	b=ZbwqfT+GZHTH7mgoLPtwsmjedLNgNqxHbOmihXOSH0Ktq8pTwTF5Ovbx1kgVr8HnLJW4
+	 3Tw0wZ2csCIWmiDWwtL0KudF1+GroQFh+1dJr74k6pakMoELAbYHxfRx3G8Vtu+4kOeco
+	 tcS/vZS+4IYm4AATyY5oWWCCmKOqyRAel1YyyHRg0NuIOtArTUwiHYRYPu1D44FfjJuLB
+	 xaCrWyJW6uYvLtMUbpPJWvH2W5Q0594/JoicqBlARvmbJ8w55wYJAphwmJoNm+52YEGZz
+	 lOpYH63MfUFnm0nQD5Rb57mFycahh8UfSjTFAmYMxEo8FgVBMscGaKPxXvu1f2dVuzw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795798084;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795798079;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=Gxrq+wTNFJE4UAmtLE4bDuZwtUUzAFZI+KbF7SkCIZk=;
-	b=JPPr+NSG6n7JN83QA/Kf8mO5A8mowUurEYJlsGYVs6QrIDztOMDBgo/HktggFbDxwvw1
-	 WSz+sqSmXBK0+AQk0Azk0CU2+cViOGYyj1sorAMitq2p+8/4awqVo2psGLxGcXmKRtpRL
-	 LjfB4dE+KhoXQdkVKW0wxpk//0odunoz4fOT+dkZq+ZCsoxmfQmCy+PP6iSRZDVm81/op
-	 q8deTAfXIfWdcC3Ga8gqgJR3unO+Rz5aH1kkt4TzSi9CH1Vu/Ck0Yj8iMpJD57sqv5rYN
-	 sNwuGJ1y59QKnvyvx24BNlnBBIir0fk0hk2MjVjnYcJoDovupf1iFRoqyytt+/k5J2A==
+	bh=C1FYswoD8Xj3aNMqiCEkryNHFekWPkkmcUpWTXfsBxg=;
+	b=yUKjqRGZUbfG1u7n8wnF39si0t9Yah71BPiSZrko6F6RuCQQJi0NZDH7ImUVYcHlqSBT
+	 Mh99lnIImEGEncU2Q/D+7DE6v+3naabrGAhV5EGmDvJJKp+FZqRkBrj2qbZ58ppNOhd4r
+	 3reoeC1W179f8N74mGZ3f8XlhrB7CtcYCFZcwlE1Qp/EqcXilU3LxUsLszx7xb0btsikW
+	 V4UxEoiAOlcs6OAJa+6UcXGjDVTWURHQWm74Q+HQs+mHa1eOepZUGRM+OpGX6exX7fz9y
+	 ZzoVO97aPiHcZGgYlq5vFwzBjVyrtNRAC3/JtOf4RejC7qau8KoDt44Ggz2Wae7XP1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GuHdK9hx;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nl9n2Me6;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 496AF606A32F;
-	Fri, 27 Nov 2026 16:48:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 647AA606A31C;
+	Fri, 27 Nov 2026 16:47:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GuHdK9hx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F9F41F00897;
-	Fri, 27 Nov 2026 16:48:03 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nl9n2Me6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C8F51F0089A;
+	Fri, 27 Nov 2026 16:47:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795798083;
-	bh=Gxrq+wTNFJE4UAmtLE4bDuZwtUUzAFZI+KbF7SkCIZk=;
+	s=k20260515; t=1795798079;
+	bh=C1FYswoD8Xj3aNMqiCEkryNHFekWPkkmcUpWTXfsBxg=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=GuHdK9hxhorwyGDf/NWUtSntyUl7kZOsP2iWa42j0SBqsrwGmxXSdTLZhfu2Gr9/e
-	 LdNHipNIexo6WqI8BpRwTjf8gNWoFX04wVcK3aPLavtG/kDO3LolnKjxuzQDQkjR4c
-	 MBbkCv9n5ElUYGUqE0WnymJSXx6B5H7AYU0WN6qIqIvyY5yepqZjbjmSHm5rXKGDlO
-	 v4J1iKitJ9iV803UpK7ebhVMC1rZx8wBRQGFv8pN0IaLFMIRIGzFoCih/Z806swSbt
-	 sKVb+QaGc1G0oDAN9OhdT1WgzEsBfoYc9f2gRwlsJBdZSWJbI4dutaF+pWorN4wZiB
-	 7PZN4nxyjasrg==
+	b=nl9n2Me6N1JedPIRE0LeWN2KXA8ye/NHwzrKMPDJykgy/Efc4j5hXU5YQFlDvFqh2
+	 80ynbzuHZyfTLQNJdI0VKkcNfAQO+hKmVhwtlKApauPeuWoDjbrqL1HxMSYZHRoXXC
+	 5JIbPNpFStgJ1sVhw7HX9QZls+HfOqcwsPNDbOux5u3heqYZDq9cMSrlCpUS8MJgyF
+	 sI0LCXSO6W6oe9ngRnewCOg/iJI8XAUqHhOkhI5/E3Xa4KNWe3Hyovq+s+8KodqvlO
+	 pjLG+KBjr/pZE5Kz/eezoFzqrt8pdsYYnGMEcl2f+LEmpX4uMVy+tzUfssgvUT8ma+
+	 4y5ehQNkh52xg==
 Subject:
- Re: [PATCH net v6 4/8] ptp: ocp: restore disabled SMA inputs when binding
+ Re: [PATCH net v6 1/8] net: dsa: sja1105: keep pin function on EXTTS disable
 From: netdev-bot+sashiko@kernel.org
 To: ahmadexp@gmail.com
 Cc: netdev@vger.kernel.org, richardcochran@gmail.com, davem@davemloft.net,
@@ -49,11 +49,11 @@ Cc: netdev@vger.kernel.org, richardcochran@gmail.com, davem@davemloft.net,
  vladimir.oltean@nxp.com, vadim.fedorenko@linux.dev, andrew@lunn.ch,
  linux-kernel@vger.kernel.org, arkadiusz.kubalewski@intel.com,
  jiri@resnulli.us, jonathan.lemon@gmail.com
-Date: Fri, 27 Nov 2026 16:48:02 +0000
-Message-ID: <179579808276.3135.5382400825629748441@kernel.org>
-In-Reply-To: <20261126-timecard-driver-v6-4-ahmadexp@gmail.com>
-References: <20261126-timecard-driver-v6-4-ahmadexp@gmail.com>
-X-sashiko-severity: Medium
+Date: Fri, 27 Nov 2026 16:47:58 +0000
+Message-ID: <179579807811.3135.3342251402434914609@kernel.org>
+In-Reply-To: <20261126-timecard-driver-v6-1-ahmadexp@gmail.com>
+References: <20261126-timecard-driver-v6-1-ahmadexp@gmail.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -66,148 +66,176 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+- [Low] The changelog says the coding assistant helped 'develop the
+  correction and source-derived regression test' and that 'The test…
+- [Low] The commit author is 'ahmadexp <ahmadexp@gmail.com>' but the
+  trailer is 'Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>'.
 
-- [Medium] The commit message describes a hardware bug that does not
-  exist.
-- [Medium] The code that disables an SMA input and the new restore code
-  in ptp_ocp_sma_fb_init() read the hardware state differently for…
-- [Low] There are three submission metadata problems.
+Pre-existing issues:
+- [High] Pre-existing teardown race, not introduced by this patch: the
+  EXTTS poll timer can be re-armed after it is cancelled in…
+- [High] Pre-existing init-order race, not introduced by this patch:
+  sja1105_ptp_clock_register() makes the PHC (and its .enable callback)…
 
 --
 
-ptp: ocp: restore disabled SMA inputs when binding
+net: dsa: sja1105: keep pin function on EXTTS disable
 
-This commit adds a loop to ptp_ocp_sma_fb_init(). At probe time the loop
-reads each SMA selector through ptp_ocp_sma_fb_get() and sets
-bp->sma[i].disabled when SMA_ENABLE is clear. It also forces disabled
-pins to SMA_MODE_IN, so they show as "IN: None" after a rebind.
+This patch changes sja1105_extts_enable() so that the PTP_CLK pin is only
+switched to PTP_PF_EXTTS when capture is being enabled. Disabling EXTTS
+now only clears the enabled state and stops the poll timer. The pin is no
+longer moved away from periodic output.
 
-> The SMA disable state is stored in software and is lost when the driver is unbound. The hardware selector may therefore route an input after a rebind even though userspace had disabled it.
->
-> Apply the disabled state during SMA initialization so the hardware mux and software state agree after binding. This fix is independent of DPLL reporting.
+> A coding assistant helped analyze the teardown side effect, develop the correction and source-derived regression test, and prepare this changelog. The test exercises the actual function with configuration writes stubbed.
 
-[Severity: Medium]
-Is this description accurate? The disable path already writes the
-disabled state into the hardware input selector:
+[Severity: Low]
+The changelog mentions a regression test. The patch only touches
+drivers/net/dsa/sja1105/sja1105_ptp.c, and the test is neither included
+nor linked. Could the test be included, or the reference dropped?
 
-drivers/ptp/ptp_ocp.c:ptp_ocp_sma_store_val() {
+With sja1105_dynamic_config_write() stubbed, can the test see whether
+PTP_CLK keeps driving the periodic output after an EXTTS disable?
+
+Was this change run on SJA1105 hardware? If not, could the changelog say
+so, as Documentation/process/coding-assistants.rst asks? Another patch in
+the series, "ptp: ocp: match ART DPLL frequencies to selectors", states
+that no physical card was used.
+
+> Author: ahmadexp <ahmadexp@gmail.com>
+> [ ... ]
+> Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
+
+[Severity: Low]
+The email addresses match, but the author name differs from the
+Signed-off-by name. checkpatch reports this as FROM_SIGN_OFF_MISMATCH.
+Could the git author be set to the name used in the sign-off before
+resending? The same mismatch appears on every patch in the series.
+
+> diff --git a/drivers/net/dsa/sja1105/sja1105_ptp.c b/drivers/net/dsa/sja1105/sja1105_ptp.c
+> index 350f958dcb2af..da35805152e05 100644
+> --- a/drivers/net/dsa/sja1105/sja1105_ptp.c
+> +++ b/drivers/net/dsa/sja1105/sja1105_ptp.c
+> @@ -816,9 +816,11 @@ static int sja1105_extts_enable(struct sja1105_private *priv,
+>  	    (extts->flags & PTP_EXTTS_EDGES) != PTP_EXTTS_EDGES)
+>  		return -EOPNOTSUPP;
+>  
+> -	rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_EXTTS);
+> -	if (rc)
+> -		return rc;
+> +	if (on) {
+> +		rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_EXTTS);
+> +		if (rc)
+> +			return rc;
+> +	}
+>  
+>  	priv->ptp_data.extts_enabled = on;
+>  
+
+[Severity: High]
+This isn't a bug introduced by this patch, but the enable path just below
+this hunk can re-arm the EXTTS poll timer after teardown has cancelled it:
+
+drivers/net/dsa/sja1105/sja1105_ptp.c:sja1105_extts_enable() {
     ...
-	if (sma->disabled)
-		val = 0;
-
-	if (mode == SMA_MODE_IN)
-		val = ptp_ocp_sma_set_inputs(bp, sma_nr, val);
+	if (on)
+		sja1105_ptp_extts_setup_timer(&priv->ptp_data);
     ...
 }
 
-Neither ptp_ocp_detach() nor the probe path writes sma_map1 or
-sma_map2. The probe path goes through
-ptp_ocp_sma_init()->ptp_ocp_sma_fb_init(). So the cleared input selector
-should survive an unbind and rebind. The new loop also only reads
-hardware, through ptp_ocp_sma_fb_get(). It updates bp->sma[i].disabled
-and bp->sma[i].mode but writes nothing to the mux.
+sja1105_ptp_clock_unregister() stops the timer before the PHC is
+unregistered:
 
-Before the patch, the user-visible problem looks like a reporting one. A
-disabled SMA1/SMA2 has its input field cleared, so BIT(15)/BIT(31) of
-sma_map1->gpio1 is clear and the pin is detected as an output:
-
-	bp->sma[0].mode = reg & BIT(15) ? SMA_MODE_IN : SMA_MODE_OUT;
-	bp->sma[1].mode = reg & BIT(31) ? SMA_MODE_IN : SMA_MODE_OUT;
-
-sysfs then reports it as an output. A disabled SMA3/SMA4 is reported as
-an input without "None".
-
-On "independent of DPLL reporting": ptp_ocp_dpll_direction_get() takes
-the direction from sma->mode:
-
-	*direction = sma->mode == SMA_MODE_IN ?
-				  DPLL_PIN_DIRECTION_INPUT :
-				  DPLL_PIN_DIRECTION_OUTPUT;
-
-The patch forces SMA_MODE_IN for disabled pins. After a rebind, the DPLL
-netlink direction for a disabled SMA1/SMA2 therefore changes from OUTPUT
-to INPUT.
-
-Could the commit message describe the reporting fix and this change to
-the DPLL-reported direction instead?
-
-> A coding assistant helped validate the rebind behavior and prepare the source-derived regression test and changelog.
-
-[Severity: Low]
-The patch only touches drivers/ptp/ptp_ocp.c, so the regression test
-mentioned here isn't included. Can it be posted for reviewers?
-
-This isn't a bug, but the From: name (ahmadexp) doesn't match the
-Signed-off-by: name (Ahmad Byagowi), and checkpatch will flag that. The
-body paragraphs are also not wrapped at 75 columns.
-
-> diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-> index 284908c6abc22..aa18c5e5eba45 100644
-> --- a/drivers/ptp/ptp_ocp.c
-> +++ b/drivers/ptp/ptp_ocp.c
-> @@ -2932,6 +2932,14 @@ ptp_ocp_sma_fb_init(struct ptp_ocp *bp)
->  		reg = ioread32(&bp->sma_map1->gpio2);
->  		bp->sma[2].mode = reg & BIT(15) ? SMA_MODE_OUT : SMA_MODE_IN;
->  		bp->sma[3].mode = reg & BIT(31) ? SMA_MODE_OUT : SMA_MODE_IN;
-> +
-> +		for (i = 0; i < OCP_SMA_NUM; i++) {
-> +			reg = ptp_ocp_sma_fb_get(bp, i + 1);
-> +			bp->sma[i].disabled = !(reg & SMA_ENABLE);
-
-[Severity: Medium]
-For SMA1/SMA2, can this miss a pin that was disabled while it was
-already in input mode?
-
-If the pin is already SMA_MODE_IN, ptp_ocp_sma_store_val() skips the
-direction switch, so only the input selector is cleared:
-
-	if (mode != sma->mode) {
-		if (mode == SMA_MODE_IN)
-			ptp_ocp_sma_set_output(bp, sma_nr, 0);
-		...
-	}
+drivers/net/dsa/sja1105/sja1105_ptp.c:sja1105_ptp_clock_unregister() {
+    ...
+	timer_delete_sync(&ptp_data->extts_timer);
+	ptp_cancel_worker_sync(ptp_data->clock);
 	...
-	if (sma->disabled)
-		val = 0;
+	ptp_clock_unregister(ptp_data->clock);
+	ptp_data->clock = NULL;
+}
 
-On rebind, the SMA1/SMA2 direction comes only from the input-enable bit
-in sma_map1->gpio1, so the disabled pin is first classified as
-SMA_MODE_OUT. Because of that mode, ptp_ocp_sma_fb_get() then reads the
-output register:
+Userspace can still reach sja1105_extts_enable() with on=1 until
+posix_clock_unregister() marks the clock as a zombie inside
+ptp_clock_unregister(). Two ways in are a PTP_EXTTS_REQUEST ioctl on an
+already open /dev/ptpN and a write to the extts_enable sysfs file:
 
-	else
-		gpio = sma_nr > 2 ? &bp->sma_map1->gpio2 : &bp->sma_map2->gpio2;
+ptp_extts_request()
+  ops->enable(ops, &req, 1)
+    sja1105_ptp_enable()
+      sja1105_extts_enable()
+        sja1105_ptp_extts_setup_timer()
+          mod_timer()
 
-disabled is set only if SMA_ENABLE is also clear in sma_map2->gpio2.
+ptp_disable_all_events() doesn't undo this. It only disables EXTTS
+channels whose pin is set to PTP_PF_EXTTS:
 
-Suppose the output half has SMA_ENABLE set while the pin is in input
-mode. Then the "IN: None" setting is not restored, and the pin comes
-back as an enabled output, the same as before the patch.
+drivers/ptp/ptp_chardev.c:ptp_disable_all_events() {
+    ...
+		if (info->pin_config[i].func == PTP_PF_EXTTS)
+			ptp_disable_pinfunc(info, info->pin_config[i].func,
+					    info->pin_config[i].chan);
+    ...
+}
 
-Every direction switch in the driver clears the other half, so this
-state would have to come from the firmware power-on defaults for
-sma_map2->gpio2. I couldn't verify those defaults. SMA3/SMA4 don't seem
-affected, because their direction comes from the output-enable bit.
+sja1105_ptp_pin defaults to .func = PTP_PF_NONE, and ptp_extts_request()
+doesn't require a pin assignment. The re-armed timer would therefore stay
+pending.
 
-Should the restore check the input selector for these pins? Or should
-the disable path also clear the output half?
+sja1105_ptp_extts_timer() re-arms itself and calls
+ptp_schedule_worker(ptp_data->clock, 0). Can this touch a freed ptp_clock
+after kthread_destroy_worker() or put_device()? Or a NULL clock once
+ptp_data->clock is cleared?
 
-> +			/* Both buffers disabled: report None. */
-> +			if (bp->sma[i].disabled)
-> +				bp->sma[i].mode = SMA_MODE_IN;
-> +		}
->  	}
->  }
+And once the devm allocated priv is freed, wouldn't a pending timer_list
+be left behind in freed memory?
+
+[Severity: High]
+This is also a pre-existing issue, not introduced by this patch.
+sja1105_ptp_clock_register() makes the PHC, and its .enable callback,
+visible to userspace before the EXTTS timer is set up:
+
+drivers/net/dsa/sja1105/sja1105_ptp.c:sja1105_ptp_clock_register() {
+    ...
+	ptp_data->clock = ptp_clock_register(&ptp_data->caps, ds->dev);
+	...
+	timer_setup(&ptp_data->extts_timer, sja1105_ptp_extts_timer, 0);
+    ...
+}
+
+On the first setup, priv comes from devm_kzalloc_obj(), so timer->function
+is NULL and __mod_timer() returns early. An EXTTS enable that lands in this
+window is silently dropped. EXTTS then reports as enabled but never polls.
+
+The later setup of a live priv looks more serious. In a multi-switch tree,
+removing and re-probing another switch goes through
+dsa_switch_remove()->dsa_tree_teardown(). That runs sja1105_teardown() and
+then sja1105_setup() on the surviving sja1105.
+
+sja1105_ptp_clock_unregister() uses timer_delete_sync() rather than
+timer_shutdown_sync(), so timer->function still points at
+sja1105_ptp_extts_timer. An EXTTS enable on the newly registered /dev/ptpN
+could then enqueue the timer before timer_setup() runs:
+
+sja1105_setup()
+  sja1105_ptp_clock_register()
+    ptp_clock_register()        /dev/ptpN is now live
+                                  PTP_EXTTS_REQUEST
+                                    sja1105_extts_enable(on=1)
+                                      mod_timer()
+    timer_setup()
+
+Can timer_setup() then reset entry.pprev and timer->flags while the timer
+is still linked in the timer wheel?
+
+If so, expiry would seem to reach __hlist_del() with a NULL pprev. Another
+outcome is a later timer_delete_sync() that sees the timer as not pending
+and leaves it in the wheel.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126-timecard-driver-v6-0-ahmadexp%40gmail.com
