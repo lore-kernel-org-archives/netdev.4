@@ -1,107 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795770699;
-	b=tv398TNTjrSolFD/avJPHgs4DFcCdDD3zCrkfcSaXscY23zjjmIQ5HqbNhGvrp2nvAqa
-	 HbbgyK3WMe42iQY1HArRwg1KHdNm/u5JAsy+zIJvJF0CVfIclWr40tYczqQivE6LZF7Jx
-	 TLDWkiH6hP+Qpv6x4bsUXh4pjpfqgVgF0X7edoDd0So25HbGGrrkRKLNYuQEbLRpnSDQ/
-	 +Q+5aMx2P+GQabpIaco4v9cojXG4/iODEI25bNFBNmKj5AjbSxRbCMaweXHHarxde3gvT
-	 OKBclxHbjY8qY/ZC2tBq1bGcX1vLmWMEiCjp6BwAuvXR8701gRN/Pct2nSI1gPI5e9Q==
+	t=1795770839;
+	b=PNIdyFhtWvk7Kb5E2VklpawMVSWAayU3T6v5O4BIlhewoA478HxxxxH3eOskftsJ46kn
+	 oGbDqPATUj0aNMW9eGEvEnJAnVzlIkWM8esdG/7y2IgdwdComGWuC5HF1j5owto3WMeLS
+	 38teUnLSXvInbvKRWACkpOzs1ffXa+X6hS5kNsvhl9E2hjL2/woRY0OjKIhQIYH1Gmnig
+	 /ZUcs5NvLLM1iVNcsPtbP+BIK6dFKWfIJe7Q/9415hV9y/CWbBFji9E0cP3WBwfiw6t/8
+	 eUl46vmR80XZnD07DdNW+vDWoKjvF3gyxwfF4M0YqHIWR+67VRGsWwkNHrQ3+fH6lWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795770699;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=aGmL05K1LldZsg+2x8czLa8BN0q4ZrDwGHvyThvJoes=;
-	b=z4ZEb0Y037X8N2YcL1HJakyS+g/28Nm9wHyjzn6N/z6A7KKF21UFc1oB6TzrHvtEnPiR
-	 QJjBp1AXcZpbT96zyqmlkAT0oiPFwUp1uP2Nj4SwL2ClHHEI8Mz+P2n7aGdBQ9InifKHg
-	 QZ7DF/K06toG5+9DF6WAHIWrWGLXqifuACGy7R1fJKGHRiCvsQUIKQPx3KZS8kWMrwOVH
-	 A3U0MM1JyMvbYr+8Max3FKsMKr7Wgs+Hg0Kj2XMwoF0kGPy3VgX+h47Uw6FSrx5nxadLe
-	 eqpKK/c6u7DlKPWd9it9UlAoDa2EFHje/CgSBpBk4Md1qsPHKrs55y4m4sVnNrYAvUA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795770839;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=x2Rh4c/4J+pnoNGHPrrKjUF2LgrC1+eSfFkYwdsOQ7w=;
+	b=LFsCYg8NEl+moI36HPemlMIXhs8a5PPHtwy/rO33nsNgJXMRqrtsxV1mKgHAbKV0WfXM
+	 tp7tZeuFOQ41cpW+r34fiuN01ss1JKXwcaL4nABT9P5MRV0ljS+dhgTPWyFd45YWxhIQQ
+	 cDyTYPKIxtXICrOh3Is+Tcd8K4sJKo9w9e1eLkze/48ZXG3CBlcP+rvwEF+2hEPf3dXOp
+	 txIqMKVtLh//sn4Arqft1W5xad/fvPdn5/qZ0cgKGFTu4YP90Zj0xvavaNxzOLag3zR8V
+	 wiTUyzAhtif9MFrTwwJYOw3SDG6zEhOsVjry1pIjri7fAd/NncLzs4HW6Njjdk9cjwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MrYdXZqm;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=aaYgahXg;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GEFeoT2C;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B1BF606A31C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 09:11:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B1BF606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCF47606A327;
+	Fri, 27 Nov 2026 09:13:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MrYdXZqm;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=aaYgahXg
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795770698;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aGmL05K1LldZsg+2x8czLa8BN0q4ZrDwGHvyThvJoes=;
-	b=MrYdXZqmEk4QvPE/e48yFSA7ctljCh1SIjyHtCs5eKJ3zDyCoCmLfzGZJxSxSVcJ5kXU6p
-	QlcMoozScSktCEb2T02JhfZdFwp3GiRtW3O7jBn90bBMH1nP3GlT2/2PDxZutS2PjMqAeE
-	A8aMLBQFItvjLbm1gBIztsaJM12w6CQ=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-540-l-AiwYPQPaucl8k9bD_7jQ-1; Fri, 27 Nov 2026 09:11:36 +0000
-X-MC-Unique: l-AiwYPQPaucl8k9bD_7jQ-1
-X-Mimecast-MFC-AGG-ID: l-AiwYPQPaucl8k9bD_7jQ_1795770695
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-4a370217dcfso7052008f8f.1
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 01:11:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795770695; x=1796375495; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aGmL05K1LldZsg+2x8czLa8BN0q4ZrDwGHvyThvJoes=;
-        b=aaYgahXgyowRrU4Ja7LPQOfUElQvzN6OOekafaXbRdJlOsS24aEXbeqSJkUutl3Siq
-         EN7IcsTEroI2UVidRf2ka+h1Y8cSW8QK/IUYdsAuSzbHC0Zx+3iDCyma4JBvgznO6nAq
-         8l+NhGnjXivrE4wKS77WTUClHwpTbqFdYGdXOm+ROrNo/G8khfQNFp6WMIcZJKrTrhgv
-         6iJhqgTonXqFI/sG9gtfYAF78sbyNx9TvVlbHT6VPqbDTKjpVXcxEdRwG4zsntmyYmpk
-         uTEMUTjaUeSt6vHMYzNNytVBlstjUuSZ5Ib7oW1jzQWQIg7QrJeI5Xz14sna2GoW1yOA
-         fr2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795770695; x=1796375495;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=aGmL05K1LldZsg+2x8czLa8BN0q4ZrDwGHvyThvJoes=;
-        b=ra3V7rdchG3A57mIgtSUjLP8LaF3bqARxVK+WX4n/WwxYN/Hg0KhwDLKngUQnltXiJ
-         oQVXjQEPtQLWoKVgHw9D4XwOVxsA5HncUIGk0/qm1LoRxMrlxXJtzW/74Nh3NSAccZcq
-         zz/O3wXNVaYU3rpiAqelSdTkH9bXkwhhJxo74foaKYXneBIbOgdtA+hG87Zk9d7wNbTf
-         mFQ13bnpViijfvJi0PoJ9rHFQaQr/RBV9SXOHrFp2A22sF8FXzX4WJWpk6BooDvZA1qU
-         2nWV0Ko//6ctMwFy6QA1ifY1088O74NFez8QFUJ05Mosq9YiwJy/NWwSISC87bwqPuOX
-         rDyw==
-X-Gm-Message-State: APuU4Z8mwtaQKL2ZMdprBdtNT+OflGgukE4XdYaHbsPGjIPwyEU2NWfQ
-	PlvcvvGigRjB57xwtTasvLPLjxJVz2t9o2uAQAXSjkDZlvrbV73WGCS5/qPhQ4C+wG1GXo3zQHA
-	tJ//n5DJqIGpRr0F5NUu4mbusfqEupdR4jZhlT7DZsu9rUvGucOUgbslsTQ==
-X-Gm-Gg: AZFdTZdGBuVEMvxtytK1IYiHv2hee1nrnrSWatJF6oNeMxSvnHMPVH4baki08viYjUp
-	Vi3aZaYzngEFkwli7fJlWrzV1/OIDmSZuX42SvkfWuR11C7lam7QvBClhPBJeak8pAPQQDlfr1g
-	rPFMPcNjnZbnIe9ldIX8r/BKabjSS6+VLCIFkbIvb+0t7SBNP8AzAqw0a4DRxHwUuQmZy59ctg+
-	KFoaT9f+9bskUVdu4fqHdgXMgpdUeIwEzqw2mZZ2Mvxl3qxMM/wGi4qzfoRji4xFE2cRen6cOC9
-	DL90RiaY/G3kbGr2jgbM5Wlwh4cGRNxdbIEQwflxOB0GiTYX036p/MzeynOQTXOl64LXI0CuCqD
-	U36USxPc4r3iXJy+0eu8RGhzZYTrGs/z58NSVYUwqG3tNQvSRFO3V2zku8pl2NW9JcQ89ecbM49
-	GG04yFHE35DrsEEpE3ammTbmuXulP6ySjcBjJcg6knTGpB
-X-Received: by 2002:a5d:5f4f:0:b0:4a7:35af:c83c with SMTP id ffacd0b85a97d-4abb3e21218mr45862909f8f.43.1795770695002;
-        Fri, 27 Nov 2026 01:11:35 -0800 (PST)
-X-Received: by 2002:a5d:5f4f:0:b0:4a7:35af:c83c with SMTP id ffacd0b85a97d-4abb3e21218mr45862867f8f.43.1795770694547;
-        Fri, 27 Nov 2026 01:11:34 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989b3sm45914248f8f.51.2026.11.27.01.11.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 01:11:34 -0800 (PST)
-Message-ID: <16d457c9-ff01-4ecb-9b50-1daa2be6a255@redhat.com>
-Date: Fri, 27 Nov 2026 10:11:33 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GEFeoT2C
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 924071F00932;
+	Fri, 27 Nov 2026 09:13:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795770839;
+	bh=x2Rh4c/4J+pnoNGHPrrKjUF2LgrC1+eSfFkYwdsOQ7w=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=GEFeoT2COrZyGbCVQTlFdXm9TrXUaWKdtRXAPtFCaVHRcE6wHTf8uAM4dRxuNBULn
+	 HSSCVWU0m+9vCyFqzRkHYtu5aQ+dzhXn+QiNCyjEhjg1V1zb7w8PXNgrqlAmXeih5L
+	 mnu4spdwTpEQy7cb7Qaa+tcKbJ3Zcqj57os94wnj+dX6ldmVXTWEfIfQdwlVUv1f/1
+	 3/mawGTpreEXcL3CP9ZW6FQE3mgmkGoLfhmkvDQpmmCruTxuFQBt3BTqBSIbwUukUU
+	 IuBLgGkW2PkLx1/IBsHvEN7QumjxmZKRe9eJwv/MGeuyCXfSjZjxxqnJDksjVAPEtG
+	 TyL81e4FxNuNA==
+Subject:
+ Re: [PATCH net] openvswitch: reject negative L2 length in ovs_fragment()
+From: netdev-bot+sashiko@kernel.org
+To: ljp1205831794@gmail.com
+Cc: aconole@redhat.com, echaudro@redhat.com, i.maximets@ovn.org,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, jbenc@redhat.com, netdev@vger.kernel.org,
+ dev@openvswitch.org, jiapenglin@tencent.com, stable@vger.kernel.org,
+ corvus@tencent.com
+Date: Fri, 27 Nov 2026 09:13:58 +0000
+Message-ID: <179577083811.3135.5534472542080696587@kernel.org>
+In-Reply-To: <20261126083218.55429-1-ljp1205831794@gmail.com>
+References: <20261126083218.55429-1-ljp1205831794@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -111,50 +65,138 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: lan966x: fix disabling timestamping without PTP
- traps
-To: Daniel Machon <daniel.machon@microchip.com>,
- Horatiu Vultur <horatiu.vultur@microchip.com>, UNGLinuxDriver@microchip.com,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Richard Cochran <richardcochran@gmail.com>
-Cc: netdev@vger.kernel.org
-References: <20261123-lan966x-ptp-del-trap-v1-1-3f46ca6072b2@microchip.com>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261123-lan966x-ptp-del-trap-v1-1-3f46ca6072b2@microchip.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-On 11/23/26 15:53, Daniel Machon wrote:
-> lan966x_ptp_del_trap() looks up a PTP trap rule with vcap_get_rule() and
-> removes the port from it, or deletes the rule when no other port needs
-> it. The traps are removed whenever timestamping is configured with
-> HWTSTAMP_FILTER_NONE.
-> 
-> Before this patch, every vcap_get_rule() error is returned as -EEXIST,
-> including the -ENOENT for a trap rule that does not exist, so disabling
-> timestamping on a port that has no traps installed fails. This breaks
-> moving the hardware timestamp provider of a port from its PHY to the
-> MAC.
-> 
-> Return 0 for -ENOENT, as there is nothing to remove. Pass any other
-> error from vcap_get_rule() on, as the rule may still be installed with
-> this port in its ingress port mask.
-> 
-> Triggered during test development, without kernel modifications, on a
-> lan9668 board whose LAN8814 PHYs are the default timestamp provider:
-> "ethtool --set-hwtimestamp-cfg <port> index <switch PHC> qualifier
-> precise" failed with "File exists". With the fix the same command moves
-> the provider to the MAC.
-> 
-> Fixes: 72df3489fb10 ("net: lan966x: Add ptp trap rules")
-> Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
-IMHO this is borderline for net at this point of the cycle. Any strong
-objection to move this one to net-next?
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Thanks,
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-Paolo
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
+- [Medium] The patch makes ovs_fragment()
+  (net/openvswitch/actions.c:791-792) reject only…
+- [Low] The new `skb_network_offset(skb) < 0` case in ovs_fragment()
+  (actions.c:791-795) reuses OVS_DROP_FRAG_L2_TOO_LONG and the log text…
+
+--
+
+openvswitch: reject negative L2 length in ovs_fragment()
+
+This patch makes ovs_fragment() drop MPLS packets whose inner network
+header sits before skb->data. Before the patch, a negative offset passed
+the MAX_L2_LEN check and reached a huge memcpy() in prepare_frag(). Such
+packets are now dropped with OVS_DROP_FRAG_L2_TOO_LONG.
+
+> diff --git a/net/openvswitch/actions.c b/net/openvswitch/actions.c
+> index 12e339cbf7912..9c19fe8676a7a 100644
+> --- a/net/openvswitch/actions.c
+> +++ b/net/openvswitch/actions.c
+> @@ -788,7 +788,8 @@ static void ovs_fragment(struct net *net, struct vport *vport,
+>  		skb->network_header = skb->inner_network_header;
+>  	}
+>  
+> -	if (skb_network_offset(skb) > MAX_L2_LEN) {
+> +	if (skb_network_offset(skb) > MAX_L2_LEN ||
+> +	    skb_network_offset(skb) < 0) {
+
+[Severity: Medium]
+Is a lower bound of 0 strong enough here?
+
+In the eth_p_mpls() branch, orig_network_offset is where the label stack
+starts. A real inner network header is always at least
+orig_network_offset + MPLS_HLEN past skb->data. So any offset in
+[0, orig_network_offset) would come from the same stale
+inner_network_header that the commit message blames on POP_MPLS.
+
+Each excess skb_mpls_pop() moves skb->data forward but does not touch
+inner_network_header:
+
+net/core/skbuff.c:skb_mpls_pop() {
+    ...
+	__skb_pull(skb, MPLS_HLEN);
+	skb_reset_mac_header(skb);
+	skb_set_network_header(skb, mac_len);
+    ...
+}
+
+On an L3 port (mac_len 0), one excess pop gives -4. That matches the
+0xfffffffc in the KASAN report, and the new check catches it.
+
+On an Ethernet port (mac_len 14), the same pops would give 10, then 6,
+then 2. The offset only goes negative after the fourth pop. Offsets 10,
+6 and 2 all pass the new check.
+
+With an offset of 10, prepare_frag() saves a short L2 header and pulls
+10 bytes:
+
+	data->network_offset = orig_network_offset;
+	...
+	data->l2_len = hlen;
+	memcpy(&data->l2_data, skb->data, hlen);
+
+ip_do_fragment() or ip6_fragment() would then parse a fake L3 header
+from the bytes that the memmove() in skb_mpls_pop() left behind. For
+IPv4 those bytes are the last two bytes of the source MAC followed by
+the 0x8847 ethertype, so iph->ihl would come from the source MAC.
+
+ip_frag_next() then copies iph->ihl * 4 bytes with
+skb_copy_from_linear_data() and does not check skb_headlen(). Stale
+buffer bytes might leak if the fake ihl is larger than the linear area.
+That part is speculative.
+
+On output, ovs_vport_output() pushes back only data->l2_len (10) bytes
+but sets the network header at data->network_offset (14):
+
+	skb_push(skb, data->l2_len);
+	memcpy(skb->data, &data->l2_data, data->l2_len);
+	...
+	if (eth_p_mpls(skb->protocol)) {
+		skb->inner_network_header = skb->network_header;
+		skb_set_network_header(skb, data->network_offset);
+		skb_reset_mac_len(skb);
+	}
+
+It isn't clear whether this over-pop vector can actually be reached in
+this tree. The commit message does not describe it.
+
+__ovs_nla_copy_actions() resets eth_type when mpls_label_count reaches
+0, which rejects a simple push_mpls followed by two pop_mpls(0x8847)
+under an IPv4 flow key.
+
+An MPLS flow key with a masked label count can over-pop through the
+u32 underflow. However, key->eth.type is then MPLS at runtime, so
+ovs_fragment() takes the WARN branch instead of reaching
+prepare_frag().
+
+A path that carries the stale state across recirculation looks blocked
+by the skb_mpls_pop() change that clears inner_protocol when popping to
+a non-MPLS ethertype (commit 78a86d75a70e1e).
+
+If the vector the commit relies on does exist for Ethernet ports, would
+it be safer to check this inside the eth_p_mpls() branch instead:
+
+	skb_network_offset(skb) < orig_network_offset + MPLS_HLEN
+
+using signed offsets? Valid traffic would not be affected.
+
+>  		OVS_NLERR(1, "L2 header too long to fragment");
+>  		reason = OVS_DROP_FRAG_L2_TOO_LONG;
+
+[Severity: Low]
+This isn't a bug, but the new negative offset case reuses the "L2 header
+too long to fragment" message and OVS_DROP_FRAG_L2_TOO_LONG. A negative
+offset means the L2 length is invalid, not too long.
+
+Drop monitor and the kfree_skb tracepoint will show the
+OVS_DROP_FRAG_L2_TOO_LONG name from net/openvswitch/drop.h for this
+case. Reusing the reason makes sense for a stable fix. Could the log
+text say something like "invalid L2 header length" instead?
+
+>  		goto err;
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126083218.55429-1-ljp1205831794%40gmail.com
