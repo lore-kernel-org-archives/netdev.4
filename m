@@ -1,78 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795738609;
-	b=pGSbyv0PUMLDPG53O2D+ww4wGq9x37lox1IUYa9SWoD5iC+EnKQxgx7/m+2bOWpQSUwK
-	 NoVJRE/dQqNRNUO9fpgYgAdvL8xFseut7Zm3fWhv7byatsZuYV9zzYkojJ1HEBlm+KukE
-	 1QPnP3kWj1vCH73cYZtB+PvB+QV8Cg/jogz/4JnjMNx3drax9tGOZxShWdHCW7CAgmJjV
-	 hCEbVlgMt6jeE5vIcXsScFSSxoUA9ikt/vQ5iFE0FwJdi3k7U5IYu7DDECM7shZrdHD76
-	 5GoyGJOFDU3LnyljucBGFAgQOc5U8ndI4YkFxQ6JRbOyX1mK6UqH52tIW4oKZ/fgHyA==
+	b=AhK2BWhrh5UF/euUBbdkIydScMtHrKEFUW89t/BhOq6CDvnlnhQLk1zhIL7Y/mlWI2fd
+	 mpTZuTnNHAbdoL0AHOG5KEV23lev96+H4ltr6zvwTYJeNvgvrfhR/dADqrpr0IZY1UyXS
+	 9w/50HURAaoYUL8taA53igakrtXfjsgCYNzUrlzGeKy5JVBSCVomkYA8ZAJ45gOge7d2B
+	 G7eUWail2mxSF1TPCcDIx86xjBV21tevi21N4CCYJRfeHPuApok+FlSGNPAYeKICgAgWl
+	 pEsnf2pmQSUBLHh+vv1RwkV6j9MNTI/kHsjl/oMMgs8D3uNPH/kCdCYqQ+q2ZuB4Axg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795738609;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=DaucjX7EGKxhjPytfA6PE6Q1xmcvizrq4bihC56pvSM=;
-	b=ivOXMOd02twXQxvwngJmE/bArrdXt022rgL5nd1K0ybhjjGCX0oXY6k0LJsEQnvwkFEo
-	 2EhyCIW86d6bCUUaJgzQ9xcyBCY9wkoGdftkS/SHhtDFkvXenTd8A1of61iTPXBg8H4Hw
-	 VLVZZWZAx5QL0o69dbRZn4NeVBM2J7Ji68td2Z8A0NbBpww9pzKhlnqVkhIR2fmusTKBN
-	 Rp6no+k6mnjDosMWRhCvUFxeCYKiUT8GYBsl3oFvjigsmlE3LMbsIt9gE62R43VtUxsxW
-	 +zXEIE/23XBctJy4au1DVgnQmzQxVuZLN0PLbUYRsbHq4ZXNkKz7MKooiIYYuj4548Q==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=npRlcaBUGO4zBESfN/npXWj8+rVH/w1YcWRi93JmvYY=;
+	b=DCj1KkRy5Oy9eC5DKTnaATO7tSphd0N1v3eAfU/xRGkzFTY2zKNh6jqrF61KEGcAfOoL
+	 rL+CEYVTrWkzoaYdrxsbvf7At25XeJ/u8WMniZWLxStjhaYLMjuvvDmCVN+owi7qPZ8Yu
+	 TR0a8YlpkwbI8UMKybFT/5wVUMsiWQxJD+IPcAsQw2h5Fx29hBn9YI+GmUBL+He9Ier0w
+	 FKgUCaMa0ydaMAqe0tLhCoj2fISU7XEjK7j6wylzprLUsZXydYwEsI0h4ROA79JaXFLy8
+	 gRps3xx1oN/looEuP6d8JkCaK7BA9UjcWi/jGgl8iYkAMZWUbJcQ0TccK5d0MOlqXIA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lwLIWbsQ;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PYO8aFEt;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D3D9606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF042606A31C
 	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 00:16:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D3D9606A323
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF042606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lwLIWbsQ
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb9d8e8e90so46687795e9.3
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PYO8aFEt
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb69f5b161so49246515e9.0
         for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 16:16:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20260707; t=1795738607; x=1796343407; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DaucjX7EGKxhjPytfA6PE6Q1xmcvizrq4bihC56pvSM=;
-        b=lwLIWbsQhHcHN3CDna52sVsq9gSO9DJklq6bzGLe3Els2E42gC4pjSTwi8CBXWLj69
-         Y6xmDtc6vsito++1VpPJRTsurb0wgyvDhyMIg+LD/l26p52SEGOkBsnM4H/sadwjMOqP
-         yqZVtUrGQauUYqpHZDGlRuUHH2sCLzuOyxWAaDjFw2nfdIdTw3taHA64sqf7Z8bP4d13
-         8Z/U3f1HmgsK3yj/WRRhDbndUus2MBgUPvB2KPMI6ZVKHsF+COYApylXIc+drZgLM/Bk
-         Ed4rW/K8emw3n7dCq2ap1AUGQmklHOyJbD33q+73qeC/NDNq5fnm2CwdYHjz+hEdCPim
-         22Qg==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=npRlcaBUGO4zBESfN/npXWj8+rVH/w1YcWRi93JmvYY=;
+        b=PYO8aFEtgcaK2RPagOerewhpmmc0ZDfIuCpod+G7twgg2sk8nOtwoVzXqiOruClPIm
+         ykZa2Gxh+SbdOb03Tk7Ecox+GJjbV9l2/iELPwatOZLCW6UmJZa8NAe8B/w/TKjjd6pb
+         Z8lDEzwMElZT3VuGrs7870kS2fZ5W6L3Y1LHKxricIzTODmmgHGB8yL32QZKvtgZU/Ea
+         c/FH6xopP1GpfrAy773fdIGxTM8VNlJBn431gWDOYNXBHbqBmwGj7RPl1BwxdeO7uPEu
+         JszKhsTKy2u/qCKbWkAQnfWQfdvyXVGBNEX4EE1GUhwSFa4Z8PJSs1cVbio6w2uoB1CD
+         pzwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795738607; x=1796343407;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=DaucjX7EGKxhjPytfA6PE6Q1xmcvizrq4bihC56pvSM=;
-        b=lnH2Moe+uJIm9Hgmpa/9OHdXAc1yOlBoOqBvtqQtGz5QJWy9YA9MOHDu8sMTKsRnPH
-         fhbmZUAEjtJ2RPZhc5NSxZngcoq6vtzkRT7ao8Xuh2IozSKnfPxuZSazJH67teVsA9hP
-         n10fxq9IUkpl+Km5b2GxezDi5+f0D6PTRI3cQlhqOjwagwVtYYJ8U6dF1vFo8UQeiOMy
-         p+UlO61WzOQ9MJadVEhJRVfbTONzaOsZscRaK3/RHO8NJQpH2IQ0JhSgdm4FkF3S6hof
-         LvoLEcBGjBv2SZIS7mQIWxylke9CePA2ZGlMFqc/NHWkN1Mu/GV4uqJCN/po78ueXBKQ
-         G0Cg==
-X-Forwarded-Encrypted: i=1; AL+hErFWXx7It24ntCe+0YIIW4Yy91aV0RkpgeKfI3OyYii4fDdotjmC2jPKukEvCP7Qz0ThUEAxJX8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+zY4lIRmfA0YUIv/lUtI2j7ExmVwkMD1nfTbvXTBV2tfmAgB9w
-	cpuOJZMD84wWldtvTV6r1+sYJQ8Gxy0CKgTDjoGYM62LzFB5wQHv+6g=
-X-Gm-Gg: AZFdTZdV8Pj0HqAg65HmfVKSK3phLcoyFw8DNdbojANnTW86noA1rQ7OYLf3PiZ1Q8H
-	22XUWe2wxDcA1pFkxjryyjH18/RMjZhMltyyIgdaGNcYxOhib21tpjzdIfxlWEl+fc7UJjPN8R0
-	FYxCfCVJRKFsMT/OACTXMvgs9etwxu0m3CfSgOe3gc4iaEtmyaAgWkXBst3COTBI8TESsKuayxQ
-	1jXHFIB8+qIqDDQs09lWqcmIYGBL0N08u6S1BRIzV7o7heOlulwy7cr9C0FRHOHPS0AdltfRAFM
-	rztoGavQGs4c+ZFrxqJi8SAqmboQsfl1CFUrxCwJpU4uf5ZokcFGP8HeZ9d3D7YQJMzT/ld5NMr
-	RIYqnHohxw4seN+uH5KUTS3rwwofCbAxD/9xQDZ+WBdJX8iUWEmweUSU4rDkl8F2hxazFcywmvT
-	elFpaaNvV3NV35Rb+jserL/Qw+lpQ4h5xpa550W62p8GeU51mK+WkljEzufYakjxpEYZrBGJeL5
-	UKapM2xj8C9pJ59B7lUlJf7xq7rwxId9la7YxIffvdOha8cv7Ng3yfiq595pxAro3so/iKkQXim
-	F7RPSplDQ/uHkBs=
-X-Received: by 2002:a05:600c:3f0a:b0:4a5:75d2:c104 with SMTP id 5b1f17b1804b1-4bb8880cde7mr439388735e9.22.1795738606729;
-        Thu, 26 Nov 2026 16:16:46 -0800 (PST)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=npRlcaBUGO4zBESfN/npXWj8+rVH/w1YcWRi93JmvYY=;
+        b=uIz6fQTjkndAzjhk7lQeEaK7cwJKbO+Z9CBpn/Jv/MiAQluyL6l/eDyL2gkIKZB3lP
+         SdPqL38svH2WzJxfnniArK1JbAp5V3s7sg729pxsZAkONYlE3Q2SCw/B+kXZnLbWKd8P
+         8spUcvquxihroFHxAzfK4bxoAPrMgBhYDIu5icKonvSRM29D46MpjrAjXuaQIn/2vsEn
+         KuSTgENaaNCUuEEfW7fpog46nq0AoESpYThJxlaRQh7glJYvGWQLbwZ09MvIgi+x7654
+         Gqxi9GbXJG1AKtn1RzDzDQci7IkWPzj1+9CUllFzoUWrSnPJZB0s6P/4ucnb7elwf2jl
+         YpYg==
+X-Forwarded-Encrypted: i=1; AL+hErEtyYhGy+8Jk1/qd5i4lJ+1pHgzgvDsnlNI7JgSTAj8mKUYcpGLClU7YNWZmm2KEMHSvo2qCsY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+OUd+//r9vmTaWT3vYeYJLYJiY2z/161MQ2agn+82XIDBrJySx
+	rNoNNgl/eBStN62f2cp6AqF/z96J6v2cED5aTjnnDFyDYLIh6qd+cUI=
+X-Gm-Gg: AZFdTZd58wN9X5/yu/vzk26mIjS7K9fDwJBsgahHTjUSNNve2hfLkxRJN0lBpkOhnE5
+	MWFQCRvBzHqLgmy9jaMaUNNPvp3u7lrBlUjDTQEBEN0XiQvijxX9RCVDarYxdLtGmU3aZjTStQG
+	PjI+qios3MX4dLEsS6mLCnNa4anzZ4Q2+Pb8ZwJc93DenX4A0sAps14dRkFvLS8QoCTraEJQx5R
+	YfAyIHbaslVlLO1vh0Cqlke748/KZtLyNnT5FKeXUSCgcfY6Te5bHz79uKdUy4pCpowwgCv6WDp
+	3Ar1Y1Jp3pFWrcmtSxc16UB6a6LbOBLdxMN+VaXyf7S3UagTqnMXDhgE4SI66hqEtSvBnZLzGMh
+	dKosUCa9TiOCpihQGkkwbf9Z/30LYJdghyXO6tFRHAif7FV5ksfobxVVksOUCDMXKLcc6HqHWc2
+	za+elujdE9pu4R6oTsGV1tHS46Df/8kWUOT/gzDrhNFnaYS35+BFd18nU0ptSS4yp0dwqjh9HLT
+	lNw2e413VDttt9cRfESH9cWJeyUsIC5IyjZ6/rou/2qfjpc2mDG72TpV38CplruiFiCaCY9kTMw
+	UZstQwNasifq8L8=
+X-Received: by 2002:a05:600c:5306:b0:4b7:6aac:7406 with SMTP id 5b1f17b1804b1-4bb887ca0bamr418564775e9.3.1795738607398;
+        Thu, 26 Nov 2026 16:16:47 -0800 (PST)
 Received: from localhost.localdomain ([2001:41d0:303:db6b::])
         by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906d6a13sm356650865e9.3.2026.11.26.16.16.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
@@ -93,10 +94,12 @@ Cc: Phil Sutter <phil@nwl.cc>,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org,
 	Tristan Madani <tristan@talencesecurity.com>
-Subject: [PATCH v2 nf 0/5] netfilter: pin file with get_file_active before reading f_cred
-Date: Fri, 27 Nov 2026 00:16:32 +0000
-Message-ID: <20261127001637.1026589-1-tristmd@gmail.com>
+Subject: [PATCH v2 nf 1/5] netfilter: xt_owner: pin file with get_file_active before reading f_cred
+Date: Fri, 27 Nov 2026 00:16:33 +0000
+Message-ID: <20261127001637.1026589-2-tristmd@gmail.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261127001637.1026589-1-tristmd@gmail.com>
+References: <20261127001637.1026589-1-tristmd@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,42 +113,94 @@ Content-Transfer-Encoding: 8bit
 
 From: Tristan Madani <tristan@talencesecurity.com>
 
-Five netfilter callsites read file->f_cred through the
-sk->sk_socket->file chain under RCU without pinning the file reference.
-Since commit 0ede61d8589c ("file: convert to SLAB_TYPESAFE_BY_RCU"),
-the file slab slot can be freed and reallocated within an RCU grace
-period, so these readers may observe stale credential data from a
-recycled file object.
+owner_mt() reads sk->sk_socket->file->f_cred without holding a
+reference to the file. Since the file slab uses SLAB_TYPESAFE_BY_RCU,
+a concurrent close() may free and recycle the file object, causing
+stale credential data to be read through f_cred.
 
-This series pins the file with get_file_active() before reading f_cred
-and releases it with fput() afterwards, matching the pattern used by
-the recently merged cls_flow fix (commit 59cf9e6f48e5a).
+Pin the file with get_file_active() before accessing its credentials
+and release with fput() afterwards.
 
-Changes in v2:
- - Switch from get_file_rcu() to get_file_active() per API change
-   (get_file_rcu was removed; get_file_active is the current API)
- - Reference merged cls_flow fix (59cf9e6f48e5a) which uses the
-   same pattern for the same bug class
+Found by manual code inspection; not triggered at runtime.
 
-Tristan Madani (5):
-  netfilter: xt_owner: pin file with get_file_active before reading
-    f_cred
-  netfilter: nft_meta: pin file with get_file_active before reading
-    f_cred
-  netfilter: nfnetlink_log: pin file with get_file_active before reading
-    f_cred
-  netfilter: nfnetlink_queue: pin file with get_file_active before
-    reading f_cred
-  netfilter: nf_log_syslog: pin file with get_file_active before reading
-    f_cred
+Fixes: 0ede61d8589c ("file: convert to SLAB_TYPESAFE_BY_RCU")
+Cc: stable@vger.kernel.org
+Signed-off-by: Tristan Madani <tristan@talencesecurity.com>
+---
+ net/netfilter/xt_owner.c | 27 ++++++++++++++++-----------
+ 1 file changed, 16 insertions(+), 11 deletions(-)
 
- net/netfilter/nf_log_syslog.c   | 28 +++++++++++++-------------
- net/netfilter/nfnetlink_log.c   | 35 ++++++++++++++++-----------------
- net/netfilter/nfnetlink_queue.c | 35 ++++++++++++++++-----------------
- net/netfilter/nft_meta.c        | 16 +++++++--------
- net/netfilter/xt_owner.c        | 27 ++++++++++++++-----------
- 5 files changed, 72 insertions(+), 69 deletions(-)
-
+diff --git a/net/netfilter/xt_owner.c b/net/netfilter/xt_owner.c
+index 8f2e57b2a5868..75fcff0ce21aa 100644
+--- a/net/netfilter/xt_owner.c
++++ b/net/netfilter/xt_owner.c
+@@ -10,6 +10,7 @@
+ #include <linux/module.h>
+ #include <linux/skbuff.h>
+ #include <linux/file.h>
++#include <linux/fs.h>
+ #include <linux/cred.h>
+ 
+ #include <net/sock.h>
+@@ -65,8 +66,8 @@ owner_mt(const struct sk_buff *skb, struct xt_action_param *par)
+ 	const struct xt_owner_match_info *info = par->matchinfo;
+ 	struct sock *sk = skb_to_full_sk(skb);
+ 	struct net *net = xt_net(par);
+-	const struct socket *sock;
+-	const struct file *filp;
++	struct socket *sock;
++	struct file *filp;
+ 
+ 	if (!sk || !READ_ONCE(sk->sk_socket) || !net_eq(net, sock_net(sk)))
+ 		return (info->match ^ info->invert) == 0;
+@@ -77,14 +78,13 @@ owner_mt(const struct sk_buff *skb, struct xt_action_param *par)
+ 		 */
+ 		return false;
+ 
+-	/* The sk pointer remains valid as long as the skb is. The sk_socket and
+-	 * file pointer may become NULL if the socket is closed. Both structures
+-	 * (including file->cred) are RCU freed which means they can be accessed
+-	 * within a RCU read section.
+-	 */
+ 	sock = READ_ONCE(sk->sk_socket);
+-	filp = sock ? READ_ONCE(sock->file) : NULL;
+-	if (filp == NULL)
++	if (!sock)
++		return ((info->match ^ info->invert) &
++		       (XT_OWNER_UID | XT_OWNER_GID)) == 0;
++
++	filp = get_file_active(&sock->file);
++	if (!filp)
+ 		return ((info->match ^ info->invert) &
+ 		       (XT_OWNER_UID | XT_OWNER_GID)) == 0;
+ 
+@@ -94,8 +94,10 @@ owner_mt(const struct sk_buff *skb, struct xt_action_param *par)
+ 
+ 		if ((uid_gte(filp->f_cred->fsuid, uid_min) &&
+ 		     uid_lte(filp->f_cred->fsuid, uid_max)) ^
+-		    !(info->invert & XT_OWNER_UID))
++		    !(info->invert & XT_OWNER_UID)) {
++			fput(filp);
+ 			return false;
++		}
+ 	}
+ 
+ 	if (info->match & XT_OWNER_GID) {
+@@ -120,10 +122,13 @@ owner_mt(const struct sk_buff *skb, struct xt_action_param *par)
+ 			}
+ 		}
+ 
+-		if (match ^ !(info->invert & XT_OWNER_GID))
++		if (match ^ !(info->invert & XT_OWNER_GID)) {
++			fput(filp);
+ 			return false;
++		}
+ 	}
+ 
++	fput(filp);
+ 	return true;
+ }
+ 
 -- 
 2.47.3
 
