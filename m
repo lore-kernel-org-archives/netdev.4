@@ -1,98 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.98
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795818730;
-	b=ICds0XWOoAYdGGUXPVM87nMc8KukpJWH+ts1wyr3Cr3dbhqDXratXLsspVQoeStgQ958
-	 CfgzS2rcf0T110awIn0YjLw63TsLwXq2Sd3hfCLflT9k/kNOwoTrv5BLOQ+8QaVxC0GjH
-	 ZiOstXg1awkMUiZhJDIPmhK7IJJrsf4JspcmxTJW6j8o9UeXWyKC7BYPULWDBXlVIxlGF
-	 nPN7C97xv90pdjhihUOCtcuKxvl7KLtbfQ/d+RLZ3OlsTSohm+05VvVKQ1OttOkZ14xFR
-	 LqV6SbNLMFL91FEbRwSmBPWVILYSyF2jQwUFF3t9GvOvzSHvhcW1xzgRGQk6QHN+iHg==
+	t=1795818728;
+	b=ApyW2IMbsbVswARturWGNB1Fjt5e/2tMLRazHz4qj83+8rigT+R1G/4W+wUU+pvVkq7d
+	 /5DCAe6mmZ5fBtF7q9xb+X6Fd7GEoaOdzb5gvTnvY9jJIofLvTag+KNYAAluF+TaCXwbX
+	 8ELMZR3h7J/LmyyPcuXHU/8ftDwk/aX66T1S5sbAo5TffxY+q214WWb08rqakcNyRseFQ
+	 YQJQpThMO8eek/UxtiYj0BBHhefcSr+UAqczKCkoKQc/JCTG01r4zuIOG/Pd9qzopQgSF
+	 jlDdH5hXxudNVmNpIR6Z2Q9zY0mxMVMpf8VM+0OqQnvLDXrDEzM6CijyR4wIeBp32kQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795818730;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=JkfqMAYa303IAXL1Qwk53rqN6BbVqNVDCZjhNvYLNXg=;
-	b=Bol8w9IY8811yyCibsIlSXiGLntbX4lhyDzrlsX39ylAeyjn9/UP0dT5CPwYNxKi+AdL
-	 XVYCzFOxH+A0mJVvp0QSyU0P53hi1mBi7+QCxDSeKiLcnephc3/f9689Z0kGHLF/+HQok
-	 Byqry4uMxB7Y4W2WtAHmh1ocD1fB24Bo0LNVWVzRrxh20B4LbWPaNEEo4ALBCuhqbjjnO
-	 V1und10QZTwD86mjVE5NHq0ef6rNp3pE2WGUK0GZl0c/5OPtpyEI82ntNT37f9jUURfUc
-	 0z+DDJoslD1J+KS0eYAl+mHz4EzHHNu1gK/5z/Di2frhzWdt+zIDiavk9gy8WeKaz2Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795818728;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=xWeuXFNJEh/jiSDnxzK517P8HlQSiTzBLoh84vujaF0=;
+	b=m1DQF9v8uJlNkjcDsRkbdYNL5MEWoZQo+m/iAjmWpKn7gOvEfaILyxcd/mpnklMRduAx
+	 xjkWUAyZRr1ixkvA0LWdK94QdXRAzeSwBIgatPZytVfQn/qkY4N1b2pWlG1SR07XAhhPj
+	 v9j7NdnE/60kQKTwNMtOKsxO1f9a/h4KGetxp9KvyDuUx8ULU3MdHaTfK/K+fGRsH6EgT
+	 0LMOnUkgJSo43qYbwhcYHJLgUr6aNWKqoPJZC5ZiWRgQ0WH/dQPJEyM22NQs+ozY3BVzd
+	 ToJBkHljxJ5WTrtoH9ioi7tvHhJtZMrVexPS6WJ7ttjxf7BxNWiE3HAHhRBkNFaNI7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=andrii.net;
-	spf=pass smtp.mailfrom=andrii.net;
-	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=dSzEPUbF;
-	arc=none smtp.remote-ip=209.85.216.98
-Received: from mail-pj1-f98.google.com (mail-pj1-f98.google.com [209.85.216.98])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UUR9vJV1;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A739E606A323
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 22:32:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A739E606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17667606A31C;
+	Fri, 27 Nov 2026 22:32:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=dSzEPUbF
-Received: by mail-pj1-f98.google.com with SMTP id 98e67ed59e1d1-3ac78f4c10bso3932173a91.1
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 14:32:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=andrii.net; s=gmail-2025; t=1795818729; x=1796423529; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JkfqMAYa303IAXL1Qwk53rqN6BbVqNVDCZjhNvYLNXg=;
-        b=dSzEPUbFLfoKeZQxnAG9QqWHbOj8cv5Kaqd11peIcu5btYU9rDWRJX7Xr0IJoeuyJr
-         iOZJuJm5lXcHHXSczkdFuXIwaF95duee69xoVEwfNKKjqNpxplfm/TIMG9cY7JevTvCg
-         qxcssLKWV2xo9PCqYR572cSZp0u8ALAF4YY66x7xkrQMGrK6AZJwZWL86ze43b3n2kzX
-         O9TIkHPfXVjNxNS9u7h8oIRRQO9nHIVtJAXqUs+wADNGHcXa+a6rYLo4HfEvRSjRCoic
-         cgvr691f1z4dgwNyc4PXSyfPls9LodqgKBYOk1nHuZoZ74QIVNQatf0CvlyJx6r/u5RI
-         fH/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795818729; x=1796423529;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JkfqMAYa303IAXL1Qwk53rqN6BbVqNVDCZjhNvYLNXg=;
-        b=Px1aOutyf9n7TpZO1iee7VEpMgdtEZ8fbb2gE8ttOTj6xDObKmmTs4MLjbuPIxdqTu
-         ZDhrGYmGoqs30NU59y/c6M7cL+A5LU+UNWFPAitWFvt/4vgDPgIGZxH2gZX5UN9B6Wk3
-         6ppYb2B+pjiyMSMgWQ+hn2IzEoePRuc6yekUZop0raLQD51IQ3b1fIQtDOqSTUe+TqME
-         FK778JgcllQh6F/OdQPqcLXacH0ZiWtYe36VFykwiI44S0uhXvdvjDe9SThKholiZ1bQ
-         BmAWzhY0dB2Z2noRWzKqW1RAPaIAaS0RKnPNcszPrCkIUc6aKtlamgtMsEYbinuiRmac
-         Dlbw==
-X-Forwarded-Encrypted: i=1; AL+hErGrtazGIMjjOOIFKMNFbFg1QjYzwsbxq9UHeLd7ytsnGhH+K2rRjZ1ZkSUv9AKQQDp/t+vSDRo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8P6Wbn8cv65R9Qnvc+Hyw7lDNhVX1kKQbLzAZTjLZE+tu/LIQf
-	8hJ/53nI413OT5W31uHb0C807kb6MYghkyVBFS6lSsClIn/2VeyFJYeLQ95Dx7owbTuDvVivoEu
-	694GZWcOUpmQihY73nNNinygOYChI/yDBe6z7PQhzZA5Q6ngnajA4
-X-Gm-Gg: AZFdTZdHJYbl/j3DacdqwIo77g+Dq4CVycUWIL3ewd42WwWHt/YX4BKJq2DgJmNraJ+
-	hBYhs2CsI/5IDSILwyRuEPWJR5b7kEZV9oYikepB9wokK+9U4q8g3sVqdkiNETUz2mhYb0hSnSp
-	Xsd1zLz+3wifxI+yjJVZmT22BsOstKWvZjyJzXh5ly7g/FGv3vShwca+H1JNHwc7Wwz5woXNOPM
-	paAlZjydYguhxaxfX9msZL2P3Uc43mM82v4GqKiVqv0oBJ9/oDZTuQpKDvr2v/LVTOx0hdYtjCL
-	tFTv9TWik+1wQEkX0K+HRF3L+p0P/I4hBz1rL6FtiRv5E6FUAqVI4QPMHrPM9yQjcGvSPjVCT+N
-	yWVc7qbjgPOEAWR8BbjxN8GUBGJ8=
-X-Received: by 2002:a17:90b:2cce:b0:3b0:9a1b:b709 with SMTP id 98e67ed59e1d1-3b41c95f64dmr26944682a91.54.1795818728866;
-        Fri, 27 Nov 2026 14:32:08 -0800 (PST)
-Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b4d00c6137sm8742684a91.5.2026.11.27.14.32.08
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 27 Nov 2026 14:32:08 -0800 (PST)
-X-Relaying-Domain: andrii.net
-From: Andrii Tereshchenko <opensource@andrii.net>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Christian Hopps <chopps@labn.net>,
-	netdev@vger.kernel.org,
-	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH ipsec] xfrm: iptfs: give a runt-started inner packet a MAC header
-Date: Fri, 27 Nov 2026 14:32:05 -0800
-Message-ID: <e7d0ab12-61be-4ba7-9a2d-4a71ca73dc4e@mid.andrii.net>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UUR9vJV1
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61FB71F000C1;
+	Fri, 27 Nov 2026 22:32:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795818727;
+	bh=xWeuXFNJEh/jiSDnxzK517P8HlQSiTzBLoh84vujaF0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=UUR9vJV1FHwKwPTjfB8sKjNThc/9dq9eWGfiz6h2BtiM5LkLgwIfzjA9YaL0HbB+n
+	 JH5mkEyQz2aZFT/nhuCQdjCyX1xHSe0pNVBKbQ4YtKmaWtIyeVuzyTc/FMxRqT+vkY
+	 fqdE5NMjtle7HZ9f0iOX8EZDDLeztx2w6PWJsie9EEO5T8LCw/SE/oTngRaogVBJge
+	 xVVYc01nGpcq/8Th2eGkCitpqyZ3sKxLxrlux6GfF9IPddUfoQdqhz3mYDcwUR6TGw
+	 EzEikFcxpd7pO+upHxkq7j2EsXGncObnnG9M/yCBMgV5StJ7O3odhq2h0+SC6EAzIu
+	 kVXtYqOd1tYSw==
+Subject: Re: [PATCH net 02/10] net/mlx5e: Stop counting packets dropped by
+ IPsec RX SA rules
+From: netdev-bot+sashiko@kernel.org
+To: tariqt@nvidia.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+ willemb@google.com, parri.andrea@gmail.com, borisp@nvidia.com,
+ cratiu@nvidia.com, eedmunds@nvidia.com, gal@nvidia.com, jmassar@nvidia.com,
+ jianbol@nvidia.com, kuniyu@google.com, leon@kernel.org,
+ linux-rdma@vger.kernel.org, mbloch@nvidia.com, phaddad@nvidia.com,
+ raeds@nvidia.com, saeedm@nvidia.com, horms@kernel.org,
+ sridhar.samudrala@intel.com, steffen.klassert@secunet.com
+Date: Fri, 27 Nov 2026 22:32:05 +0000
+Message-ID: <179581872594.3135.1501113897778355076@kernel.org>
+In-Reply-To: <20261126215614.792598-3-tariqt@nvidia.com>
+References: <20261126215614.792598-3-tariqt@nvidia.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,78 +68,133 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-When an inner packet's IP header is split across two outer packets (a
-runt, which RFC 9347 allows), iptfs_reassem_cont() allocates the skb
-for the rest but never sets its MAC header. Any packet socket on the
-device then pushes back toward the unset header and panics:
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-  skbuff: skb_under_panic: text:ffffffff82071ea5 len:-65455 put:-65455
-   skb_push+0x53/0x60
-   tpacket_rcv+0x91f/0xee0
-   netif_receive_skb_list_internal+0x49b/0x10e0
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-An unprivileged user can set the whole thing up (both tunnel ends and
-the capture in its own namespaces). With GRO on the ingress device,
-gro_list_prepare() reads past the head the same way, with no socket
-at all. Rebuild the MAC header from the outer packet.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-The patch was written with an AI coding assistant and reviewed by the
-submitter.
+- [Medium] In rx_add_rule()
+  (drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec_fs.c), the…
 
-Fixes: 075694765446 ("xfrm: iptfs: handle received fragmented inner packets")
-Cc: stable@vger.kernel.org
-Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
----
-Found by an AI code review agent while testing an unlocked runt state.
-Validated with a shell + Python (cryptography) + C netlink reproducer,
-no kernel changes or fault injection; a sender without the SA's keys
-cannot reach it (ESP drops forged runts). Tested: the reproducer
-panics unmodified kernels, as root and as an unprivileged uid, and
-passes with the fix, with well-formed frames; KASAN and lockdep
-builds, panic_on_warn=1 on the fixed kernel. GRO evidence (no packet
-socket needed), on f0e68014f4ac: IPv6 ESP-in-UDP with runts through
-GRO + rx-gro-list at ingress triggers KASAN slab reports in
-dev_gro_receive() (read of size 8); the same traffic with runts=0 is
-clean, and the fixed stack forwards everything with no report. Also
-reproduced with the sender on one host and a KASAN victim on another,
-needing only CONFIG_XFRM_IPTFS (the xfrm_iptfs module, or built in);
-present since v6.14. A reproducer is available to the maintainers on
-request. Depends-on
-note: this copy relies on C1
-([PATCH ipsec] xfrm: iptfs: reserve room for the outer MAC header in
-new inner skbs, patchwork 15029420, posted 11-27) for long MAC headers.
-
- net/xfrm/xfrm_iptfs.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
-
-diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
-index 3fff835497b9..28b9fa109251 100644
---- a/net/xfrm/xfrm_iptfs.c
-+++ b/net/xfrm/xfrm_iptfs.c
-@@ -845,6 +845,20 @@ static u32 iptfs_reassem_cont(struct xfrm_iptfs_data *xtfs, u64 seq,
- 		}
- 		xtfs->ra_newskb = newskb;
- 
-+		/* Rebuild the mac header from the outer packet, as
-+		 * __input_process_payload() does for the skbs it allocates;
-+		 * packet taps push back to it on receive.
-+		 */
-+		if (skb_mac_header_was_set(skb)) {
-+			skb_set_mac_header(newskb, -skb->mac_len);
-+			memcpy(skb_mac_header(newskb), skb_mac_header(skb),
-+			       skb->mac_len);
-+			if (skb->mac_len)
-+				eth_hdr(newskb)->h_proto =
-+					(xtfs->ra_runt[0] >> 4) == 6 ?
-+					htons(ETH_P_IPV6) : htons(ETH_P_IP);
-+		}
-+
- 		/* Copy the runt data into the buffer, but leave data
- 		 * pointers the same as normal non-runt case. The extra `rrem`
- 		 * recopied bytes are basically cacheline free. Allows using
-
-base-commit: 1213df0bc5993e479706c5eba5830243d778f164
 --
-2.53.0
+
+net/mlx5e: Stop counting packets dropped by IPsec RX SA rules
+
+This patch removes the COUNT action and the counter destination from the
+RX SA rule used when attrs->drop is set. Packets dropped in hardware are
+then no longer added to x->curlft.packets for packet offload. The goal is
+to match crypto offload accounting, and the rule keeps CRYPTO_DECRYPT so
+ESN state keeps updating.
+
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec_fs.c b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec_fs.c
+> index 502d89a18f9ec..0facc54771558 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec_fs.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec_fs.c
+
+[ ... ]
+
+> @@ -2103,17 +2102,24 @@ static int rx_add_rule(struct mlx5e_ipsec_sa_entry *sa_entry)
+>  	flow_act.crypto.type = MLX5_FLOW_CONTEXT_ENCRYPT_DECRYPT_TYPE_IPSEC;
+>  	flow_act.crypto.obj_id = sa_entry->ipsec_obj_id;
+>  	flow_act.flags |= FLOW_ACT_NO_APPEND;
+> -	flow_act.action |= MLX5_FLOW_CONTEXT_ACTION_CRYPTO_DECRYPT |
+> -			   MLX5_FLOW_CONTEXT_ACTION_COUNT;
+> -	if (attrs->drop)
+> +	/* Keep decrypting packets even when dropped, to allow ESN state
+> +	 * updates.
+> +	 */
+> +	flow_act.action |= MLX5_FLOW_CONTEXT_ACTION_CRYPTO_DECRYPT;
+> +	if (attrs->drop) {
+>  		flow_act.action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
+> -	else
+> -		flow_act.action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+> -	dest[0].type = MLX5_FLOW_DESTINATION_TYPE_FLOW_TABLE;
+> -	dest[0].ft = rx->ft.status;
+> -	dest[1].type = MLX5_FLOW_DESTINATION_TYPE_COUNTER;
+> -	dest[1].counter = counter;
+> -	rule = mlx5_add_flow_rules(rx->ft.sa, spec, &flow_act, dest, 2);
+> +		rule = mlx5_add_flow_rules(rx->ft.sa, spec, &flow_act, NULL, 0);
+
+[Severity: Medium]
+Could this cause x->curlft.packets to drift away from the hardware ASO
+packet-lifetime counter for packet offload RX SAs?
+
+The drop rule still decrypts against sa_entry->ipsec_obj_id, so the ASO
+context for that object keeps being processed. For any finite packet limit,
+mlx5e_ipsec_packet_setup() in ipsec_offload.c arms the lifetime counter in
+the same ASO context without checking the direction:
+
+	if (attrs->lft.hard_packet_limit != XFRM_INF) {
+		MLX5_SET(ipsec_aso, aso_ctx, remove_flow_pkt_cnt,
+			 attrs->lft.hard_packet_limit);
+		MLX5_SET(ipsec_aso, aso_ctx, hard_lft_arm, 1);
+		MLX5_SET(ipsec_aso, aso_ctx, remove_flow_enable, 1);
+	}
+
+x->curlft.packets, however, is derived only from the SA rule flow counter
+in mlx5e_xfrm_update_stats():
+
+	mlx5_fc_query_cached(ipsec_rule->fc, &bytes, &packets, &lastuse);
+	success_packets = packets - auth_packets - trailer_packets - replay_packets;
+	x->curlft.packets += success_packets;
+
+Before this patch, both counts included packets received in the drop
+state. After it, only the hardware counter would, assuming the device
+decrements remove_flow_pkt_cnt for packets that are decrypted and then
+dropped by the same FTE. The code does not show whether the device does
+this. Keeping DECRYPT so the ASO state keeps updating suggests that it
+might.
+
+If so, when the hardware soft lifetime event fires,
+mlx5e_ipsec_handle_limits() checks curlft once and marks the soft limit
+as handled:
+
+		sa_entry->limits.soft_limit_hit = true;
+		/* Notify about soft limit */
+		xfrm_state_check_expire(sa_entry->x);
+
+At that point curlft can be short by the number of packets received while
+attrs->drop was set. The soft expiry (rekey) would then be missed on this
+path.
+
+In the final round, attrs->lft.soft_packet_limit is set to XFRM_INF, so
+mlx5e_ipsec_handle_event() no longer calls mlx5e_ipsec_handle_limits(). Since
+remove_flow_enable is set, can the hardware retire the SA while the xfrm
+state is still valid, and drop traffic until curlft catches up?
+
+The software poller mlx5e_ipsec_handle_sw_limits() returns early without
+requeueing whenever attrs.drop is set. So the catch-up might also not happen.
+
+The commit message says:
+
+    Remove the count action and counter destination from the drop rule
+    so these dropped packets stay out of the lifetime, matching crypto
+    offload accounting.
+
+Crypto offload does not arm the ASO lifetime counter. Is it intended that
+the hardware lifetime for packet offload RX SAs still counts these drops
+while curlft no longer does?
+
+> +	} else {
+> +		struct mlx5_flow_destination dest[2];
+> +
+> +		flow_act.action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST |
+> +				   MLX5_FLOW_CONTEXT_ACTION_COUNT;
+> +		dest[0].type = MLX5_FLOW_DESTINATION_TYPE_FLOW_TABLE;
+> +		dest[0].ft = rx->ft.status;
+> +		dest[1].type = MLX5_FLOW_DESTINATION_TYPE_COUNTER;
+> +		dest[1].counter = counter;
+> +		rule = mlx5_add_flow_rules(rx->ft.sa, spec, &flow_act, dest, 2);
+> +	}
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126215614.792598-1-tariqt%40nvidia.com
