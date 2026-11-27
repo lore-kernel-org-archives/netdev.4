@@ -1,84 +1,85 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795772674;
-	b=F6B+Vb/U+ozST7zbgjQtVBVcNd17zGxNBPmA4uEJ7sE0rVdMBZ5OaZIuI47Wm7u7FkkF
-	 APcKePCrTrqZorBrBxMNTWAYLctpeEVXDsJgPOUaLUpI7ChubTPqI/qXZqn1FoD16WW02
-	 /vfCN399lzq7q8Qeh5wEJGAFC9Q6odB8ISWBnH8LuvtlnSKhny0lp8KGtf7OgJuhRL7Up
-	 1/+YcFpTlrekCo3cMnIzWPFP39jdAos0AM/e5hTtRT3rm4cTtHPsYWtgzumVblKWSoX1w
-	 YtbpyJP+brpMwQIi/5XtMdoCIdC6lLdOgrYjKqHtpDfLh2yVb9nLgNNSKc8+gFnw98g==
+	t=1795772677;
+	b=zYrk0aeT6tNOpN4p4KaNFTHlJXxnqFPoADLvUzzBAbJGBqHJDdcX9AdygfJPv6qc7VkW
+	 DJG7D7yYt1CAl/m0n0gAWtWnSYCY5xR7GqMVCaKSzZ1NFRUdo4FWCb6wjfLqXKD19OEgY
+	 2j5GPrKVrZySzNjwUOOqG5UMl4tdzOFJJgKOwRpojywMHEij6tGRRa/JHUoJlnf1Q639L
+	 ikJrJcWwi8RbsHPz30oaw0yPO4ZZI5Z6/XnUdKQXJ+uW2jpWxnaArFbjFdBwN0sCE6QnP
+	 G5YARXqOfBiP+5tBlBeoYdo5g1GPHu0kXbOaBoaYmEqokNwuicP/nFAMOVBxDGvPEsQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795772674;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795772677;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=zaR40rZn8yPO10crw6SvlKKbSvr6UbmTuLHfOgeH+mk=;
-	b=Cac4XlyTLPy/7yWsmt8Utbagk2pgyIOGWnJMqg7szIcPxOfUMkn1KTrqj8TskBDp3J1n
-	 JDV2ezsoukj7zzzv5gDlvkyBLINAIhJyGPbJEbAdWY8KM4ZkeWxTB3E9HlUdfFPJVHXjx
-	 gZGbv5trKQos1BAy75F3bwX+her46RtBu0nHQBaqlR7hxEd6KZ3OoKmNmTsJRY8P/r0ol
-	 oAsTq0X+IWzwExTOmdDitLsuOLCyq8++pm1HSKxdQH/oidi5601N/ZF3qx2Cz+BMPkZkU
-	 cY/mp2gycFo1Np3xU5u5nmZaAlU5AZWmWZ7rH2i8dyoIIMWOxOd73MvQsY5QWne0yqw==
+	bh=kickVyHCqw7m+/zzS3Tm+FHiKP0gHN0yQAEnTz/BI+M=;
+	b=cjQYRrpi274Sz06TsecVd8SQL9h2kV+DGB8UqX4+Avp8cDJRe5ia5P0iUyFyYPcJsN00
+	 F5kZ8PHPJnP/rhYnFwM4ei2o/g9FjBUQ3sYPkx46vrXbeebYYVQ4WwDICpyHlM3vARYzS
+	 TKYYr9P9aCcDgNgRcW9TQFPwlsm5+zZM50HeoF1nDrXzzswtUmTW5IeVLyYRaAXNnSNXd
+	 8LewPVbOMZcFzV9Bh9yl9HABxlZ0iHMIbtgWQzsilJG9NdFHE+C65Rs59TDhI9nx7cwvO
+	 PMKWuKezMRvsk1oGM/Ii/A7yQ7tyXOLlNlnxPZnt7eAOYqEQANtZQFLJvqSDNzpiTCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=blockcast.net;
 	spf=pass smtp.mailfrom=blockcast.net;
-	dkim=pass header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=OQMiwSvo;
+	dkim=pass header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=UPNfFUJ3;
 	arc=none smtp.remote-ip=74.125.82.170
 Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 413EE606A323
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 09:44:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 413EE606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14298606A336
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 09:44:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14298606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=blockcast.net
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blockcast.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=OQMiwSvo
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-38431138772so10249460eec.1
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 01:44:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=UPNfFUJ3
+Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-386cf1041cdso4803078eec.0
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 01:44:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blockcast.net; s=google; t=1795772673; x=1796377473; darn=vger.kernel.org;
+        d=blockcast.net; s=google; t=1795772676; x=1796377476; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zaR40rZn8yPO10crw6SvlKKbSvr6UbmTuLHfOgeH+mk=;
-        b=OQMiwSvoRS0arb+/iKbLrljP+Gyej0yR6IaG/GtROOzm6oTeupbSBCD/gbfjEglxm1
-         hHBByGoc4FAzy3GME5EHq/S2+ZZoTfEAKpmdk4ediSvl1m4gG0FDpKkBAY4wXIIuBGJo
-         XokYV7t7UW/JO87gjGHETnG8I2gh2JXDWj22c41S/Fu9NyR3cSNHkJUhjKUAvXKXrNO0
-         9cBqxhnGqTHzcbANyvAMDPW40XSM7BHk3FfNiHVA0spG9kUBj46Njr3ZVJBjD/1ccZ67
-         BM18/e90f07CBsRBXvpPYwNQV0HKh8BH3APk/DICV4DpfFVRCmA6woVY/jkW06vqpDPQ
-         fO4Q==
+        bh=kickVyHCqw7m+/zzS3Tm+FHiKP0gHN0yQAEnTz/BI+M=;
+        b=UPNfFUJ3OPgNiFJcut+ESQpF4Kv4m/UrytuSlw2ndm/nZ8u2jql5CSXJy+hKwOMr7l
+         4aDAbraTGHtLNoq3uObESlkSYzfdc6si0AnjLw6pm9nMc+djTksnEf3Nf6UGLUvTNR5K
+         S6LMSCEFA5meLAZwD1jBUyWBPlBdY9qilLtmxRLPyXsnbG38OXinr4+E0UMBZofHbg06
+         s5VjoiPxH7bIdt3Z5T//Brz42arkCHZ9DV8Qx1uHJJySgh5K73sYavk9bD9W/HiDEkox
+         0BcaYBG0U2/Ega7tKoE0iejegxFgAZKs0w/aM2rqp29DLXS260rcPZahShCtZryt7u9Z
+         cQHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795772673; x=1796377473;
+        d=1e100.net; s=20260707; t=1795772676; x=1796377476;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zaR40rZn8yPO10crw6SvlKKbSvr6UbmTuLHfOgeH+mk=;
-        b=tgnxGYt6vqIGJROwt4XhVmu4WY/LQMYqcTFCJXgUOTvF1FoMcmEY21fIQ5Xa3VRd32
-         iI3Z5AZH5q7r2RBjPBkDLwQ8nI1dgrfR4B4tHvwgxlXy/daxhD0gsNJ6F48ecmt8k6GN
-         71OJkyKozfvOtI/3o6lDEH5Xd81ANCBqHlew1SkmVTY+3kJWe5sR8IEnOwScPLcms55O
-         kx1tTuFj8YbYXJ2REmSrazVLhm1Qtl9kbaKUEki81cDEeKbthX8DsdrBdo7AMvsu6z1R
-         SLHbhYiLaDQl+8801AW25a73dbFomWb/5cbgKI2bt7GXIpLFbJEGFvZQgqkN2J0UG9Co
-         51yA==
-X-Forwarded-Encrypted: i=1; AL+hErFTm3RBq6oLhNqtLd7UT1qQPyMIWNqNXRN0Q6se/G9x9CuguhDxa18Nf2LRZB9ZSAXvU9XGQ4w=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+BLhdF+TkWPHTeow0BQsZJiPsBDm+2a9dkA31dsWy18vkUui0q
-	mn4cgaBFNSFYbJbpRqz3lVIP7mjt3uOUj72yRTeQuDb4jcbRPx23FVxdv5I/NghC7+Y=
-X-Gm-Gg: AZFdTZftgf8yPchOzpUdF2Wa8vZXMF/+Kh6C3jcSBbmGD4oDUt9yAL//W+KiLgpoYbJ
-	FFsf8T5O2D0ZqoE+7FtGaIlFfu07X+xCT34fExmNsl/o2S90t5iBni9ZbeKDV/ViSbHEugnu2CO
-	tHFqr2jK676acE5dwg/OOHEX3zciJaWFCcjxgQOn8pD5lVOIgtygapOV5HN2DEEnoK/DAIXDtzv
-	t0a6+db2V5fwF9jJxV2T77WpLsJz4Jnkfogu1mp4Htc0vATH8ntNrKSith01f/kUyTAms82nX8H
-	/mQwXqD95DVaqxySBncl4hqnR4AoNGeQmbCwJLkdbYDdsxWVDT7SuiXEgplINOlRvqpQYts4Tyu
-	0WnFijnodgRNpBpjXcoKOhfOoSdYcZRVJ/wSEf21q71lqh3egz0uCLr+Y29yvktKfaT+lt6sDH7
-	OB7yb3ZEpYO1ZwVHJCmg7XduMV4S+s/Xl3dfj4WYWb3mwyPTQaxTNGiNj3GXnhmJ+b053Qbm9HC
-	RCTbQQBu+1hfqqMyeX4zGWHlEwqWrn5lJy3gJJd9iGqPHZt/3jU+csGafFQQewaHUxAp6JISjig
-	/kYplIPz8dQ6JvODSYfCS5NVvECnaxp20dkqk2CdWI6zOzP2VDqkM5ucT3zHzeuGV1LAoR8+hC/
-	SnAodfU/Zr+OIuAmRZUDjgIEe3wM=
-X-Received: by 2002:a05:7301:7110:b0:383:b90a:3535 with SMTP id 5a478bee46e88-386a0ab67c8mr18277624eec.24.1795772673373;
-        Fri, 27 Nov 2026 01:44:33 -0800 (PST)
+        bh=kickVyHCqw7m+/zzS3Tm+FHiKP0gHN0yQAEnTz/BI+M=;
+        b=HVSchS5P+Ud5VxnaKKfRiOlMi1hg7EPpQ2NCnYv4E+1DIFD+14M9M0+O4aGf9mV+ie
+         OYq278L+Tk2cWvkWNi/ohjwLyREarakxDD1h6t0CPLPcGOwN3wnbCFkv0woj6rgbp1/4
+         YBGfPBanASsZzO925oyEY2jTHPRbSZnZ7UUW+XLuh5+DTM6EoAyOM2TWMMiZTgcDJcBI
+         ezZ/W4++yuk+SbC6+qHe8vqm28sQBEUe8qMD3Ef1umpH7qAfRFQ6dic7OQAr4VKn80n4
+         1Wp/dUeF9PBxul1FCkvfcErVZZNTL3wg2s4McaFarORo4K+K2bkPd4KK5o851TFWN/Gf
+         XcRw==
+X-Forwarded-Encrypted: i=1; AL+hErFhmsKo+tADS9uTcnVuoE4YzYgQDQ88nnlKTF8Gd76zShFeIfdmsLS4KUq2s5On04Cw2nHy7cM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z973ROd4FPK16nr+EG5bUOpoHXDD1HSqRlVPEiP718WhK7mCCyc
+	gSLWKF+TMOaZ5zWOavgX8P+wHmhSA1YPurS1cz6do/EcGFnWddy8yv2FxTfbquW0JaoEiL+uq/G
+	LI5szhzI=
+X-Gm-Gg: AZFdTZdN0kye9NcGyQarxhAp0yogk462ey8s1T28/yUrDCAAioQSQkVI98XDflthfPm
+	Ro52XywAKKEHW1X3mfI8b8keHEnVC1bobXxFxGb/E6GQ+gnna7U/tWNoVuYaXuHKiP5VTjKtGfN
+	bvViZbavUaaor8WJzpXwdfrXxRLoo+dbFt4R/2Qsbz9sDpgBiom/ys8aKN9y0Z1qIrbulBmq2jn
+	IxBP0ByeEkgEhWtk9OGQOerqMSV42pD/1pYTmd/RdkuYcElYcmSKvPWmyU+CMrvFyhON9ME2k9f
+	8FeUQfv7n7fpkUM/hVVSdXN6V1cveBebqG33dw0hXQxvKBUq98NyGHLXBZL+2xUsf+0uFkLva8b
+	z1hnZJJEVdS4FDFcoFm8QxUnwaSOMOO1fjtHQVBzmdI5AFzT/lBXpVk8ygqS9Iqmp0U/8u3tNAq
+	Tpd7jIDTa/u5lgC26BNZr5r1Tnduv7BSdR12lmo4GS9Giv0TiPZZlmeCnTcCq1MKIZUmQUL69al
+	mJrBQ69QFgPb9UozF2yk3R+O+q18QxvLTa8W+NeLQe9q74jn7WGmRlGJWNHsUo7IuJuYyuafC19
+	uUQEE5255UfWbwik3qwihRNTriDhDFntfW7YAKk/pWa/DJpP95x6qjkL5blio3nnq15YZ7Spw3m
+	/4y5yNt4wMgrF3SpXaTEU4k7N5y6tmrBhYT/x3TZdYeoFirBF
+X-Received: by 2002:a05:7300:d083:b0:380:f112:3cc9 with SMTP id 5a478bee46e88-3857093f06cmr23196159eec.38.1795772676367;
+        Fri, 27 Nov 2026 01:44:36 -0800 (PST)
 Received: from devbox.ts.blockcast.net ([2602:f74d:1::32])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aaae4960sm42027457eec.18.2026.11.27.01.44.32
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm84928712eec.4.2026.11.27.01.44.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 01:44:32 -0800 (PST)
+        Fri, 27 Nov 2026 01:44:35 -0800 (PST)
 From: Omar Ramadan <omar@blockcast.net>
 To: netdev-bot+sashiko@kernel.org
 Cc: ap420073@gmail.com,
@@ -90,12 +91,12 @@ Cc: ap420073@gmail.com,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	horms@kernel.org
-Subject: Re: [PATCH net-next v2 5/12] amt: forward multicast data over IPv6
-Date: Fri, 27 Nov 2026 09:44:30 +0000
-Message-ID: <20261127094431.2963861-1-omar@blockcast.net>
+Subject: Re: [PATCH net-next v2 11/12] selftests: net: add amt_v6.sh for an IPv6 outer transport
+Date: Fri, 27 Nov 2026 09:44:33 +0000
+Message-ID: <20261127094434.2965392-1-omar@blockcast.net>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <179572061952.3135.14503580379845323397@kernel.org>
-References: <20261125191450.2497936-6-omar@blockcast.net> <179572061952.3135.14503580379845323397@kernel.org>
+In-Reply-To: <179572062428.3135.4041633001964825666@kernel.org>
+References: <20261125191450.2497936-12-omar@blockcast.net> <179572062428.3135.4041633001964825666@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,29 +108,26 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On Thu, 26 Nov 2026 19:17:00 +0000, netdev-bot+sashiko@kernel.org wrote:
-> Is the transport header reliable at this point for an inner IPv6 GSO
-> skb that carries extension headers?
+On Thu, 26 Nov 2026 19:17:04 +0000, netdev-bot+sashiko@kernel.org wrote:
+> Does this also skip when the amt link type is not available at all?
 
-No, as you describe: ipv6_mc_check_mld() leaves the transport header
-just past the fixed header for every data packet, so
-skb_gso_validate_network_len() under-counts each segment by the length
-of the extension headers.
+No, it did not. v3 checks `ip link help` for amt, as amt.sh does, and
+skips on "Unknown device type" and "Operation not supported" from the
+kernel.
 
-v3 saves the transport header offset before ipv6_mc_check_mld() in
-amt_dev_xmit() and puts it back afterwards, if it was set, so the
-per-segment length counts the extension headers and the check sees the
-segment that will be sent. Only a data packet reaches that path; an MLD
-packet keeps what the check set. I have no runtime test for the GSO
-case: it needs an inner UDP_SEGMENT socket with a hop-by-hop or
-destination option, which amt_v6.sh does not have, and v3 does not add
-one. The kit has a textual check that the restore is still there.
+> Does this skip in the packed-attribute case described in the comment
+> above and in the commit message?
 
-> Can this u32 subtraction wrap when dst_mtu(dst) is below 50?
+No, and you are right that nothing in the tree emits "IPv6 address in an
+IPv4 attribute": the exact-length policy refuses the 16-byte attribute
+first, with "binary attribute size out of range". v3 matches that
+string instead, and the comment and the message quote it.
 
-Yes. v3's amt_tmtu() returns zero when the route MTU is below the outer
-headers, so amt_tmtu_exceeded() is true and the copy is dropped before
-it is made.
+The Low finding is also fixed in v3: the message no longer says "plus
+jq" and says which of amt.sh's checks are not carried over
+(send_mcast_torture4 and send_mcast_torture6). test_query_egress() is
+carried over now, with a third gateway in the first gateways' /64 added
+for 3/12.
 
 -- 
 Omar
