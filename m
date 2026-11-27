@@ -1,81 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795772554;
-	b=A65jB8ijAyvaA4RIHX0ZJS36M6I9bKzAO0q2gvypL1L1zNvtRpLhQwD/Xcj3JzLD/qNp
-	 1Mp/nTsPFS6GiI2bOTNlhkf08hsu7DMEvRm2oR2R9PKDdYNybyiccHVJS+PtcI0ETn3dw
-	 9l7Co3oZVeb/YQvY0HVJ9WTi6c9OP+SH6vIS/1za0idF9r9dPOPIjOC1dh3RUmC1XlqGe
-	 +PDzALghEaWEQfYTYtZzUVR+Ig1nNItDE79KpxbFRih8L/dD0LLwWAsIPSLbFAUcZmFqN
-	 XUwjtlPwHOFgvQjkaxS//zppyIcDv0FSCwCO7xdBe1CPdlVRXzvkGrACzg49SCnbIxg==
+	t=1795772671;
+	b=ZsFIeIOft4aHhNrq32ZYkcUOu4wrRRt5Zsjr9GV61Yr213so2DWkfRFmCXSmQuwj3NbA
+	 FugLCPLbsiKOqH86onulZfmMnWmD6dApDr043hkw/NXLPAUK4UZvE6xdqdLh/TnKlDWdN
+	 dUuvlM/XaT1oeFfQ+dGTfDxKF+EBSFe+aZ9ioDpybqb0mfDSlntBLjIY1m+cYVsPaoRfr
+	 tp7v1l2Jx6xPKLkvC/M/ptrvvPufmK0jQ/gzBpf2JcvRiKnf++aJjjtMjN0ih+S9Wqn4M
+	 QfVm5lGWEDBjmylGcCCoNvvIbibk25SZv5jj7X31qibgydVb4pqSZpmis3z7lBbK/WA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795772554;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=xwPQDlQlJN42Ig5O+tbCP066ideoNucQAnKxdmUCo7Y=;
-	b=WPdkF0c2POVH6E/zZGLP/blOXP/vxiFsBRSALEVgyRplDHUXSOPkGtOP4FZ2EwiEDALe
-	 qlNmWIyU6D6al2Ju8u9W0FqcjLtOrmQ0D3M6PFd0nnY1AWaVc9XdIsvJqHNh/eqxoU0cq
-	 9G+9iDRdUDRSL7oJKmz6Nn4Zbn2INhccVqqojhR6cQLwEhDvooGVsFtuZs0iXNEDepLyb
-	 2FRaxuk8ajX0BusBu1k1uVYaNtrLkJO+uHSAZHxUadl81YFabOgSjNJG3Ldj/WmJArIgO
-	 7AkWuSyqcuIOT0M9qOtY0kJP+jNZFWG0oE7OeuXeWohOpP9EGsYKwSDsloKcRng954Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795772671;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=uBc/0navA/XNmaOJk7fHTE3AuIw2bivnerbrsG3pp/o=;
+	b=lrNpg2cnSy4SdsSMXzKCSoA9ZfCr8hHMA+HuzMIlOfLlzidbB+UCgK9aTHF0BpBJLw1A
+	 LDOEEHZ1XuYHg6RaCyUtWk8sYigAQky5WYx1WpPlkP0GfAx66dy1qT7WmFEk79hbvrBm9
+	 XJwBuQlCxWzmcc0+q3DDp+yData7AhDL3vH9H98yt0dYvviVlycnrQt0hly/jqsntYrEB
+	 H8mZBH4uUm4uvG2HXScbby1IQSve3rDRnAHbUNvgR1VP8sMei+Zp3+Gk/uA3C2TAclL+Q
+	 Pm0qHOtzlFsnyyR6q/qSHknPBoSGSXn0qg8MbLo+18xtebK0we2ocO3kkWToO+byyoQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=M75RDy7U;
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=blockcast.net;
+	spf=pass smtp.mailfrom=blockcast.net;
+	dkim=pass header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=x2RNRq6w;
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84DF6606A31C;
-	Fri, 27 Nov 2026 09:42:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84DF6606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B24A2606A31C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 09:44:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B24A2606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=blockcast.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blockcast.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=M75RDy7U
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795772553; x=1827308553;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=2w8vmJ70JZqInfPNxoBGVHO0Eg2269CQk35NBSdnMvY=;
-  b=M75RDy7UxN+zpuxlG8dhtQ4S4riWsxK4X7fwd1h30pHWydEM6GTlrMET
-   8vTj9i62n/IkSHpspfRe5NY/AE9HwVjueTbw6MKN2KUyxQGbPjlkUd8LC
-   w3ohaPI/RSp3oZx6C2+vN3T7wLBAasZ7OEIHStMIq9JqKJzj98YOcO2aI
-   kS9o9Ip8wC3Z1I+R0eO3n2q0dnNIToriL4nBXzn16w9HslZ/c9I9SJqfd
-   pzlAT7nF7+mkkjHye/5FNmVU5acg1FtJcNIr7Ok2uAmFo9g68CM8zD+NX
-   SUcgG9PgGVjRT42glFoWM3UVLAQLkgEJYh7wadhJa5f5mGtumhqQ/SVul
-   Q==;
-X-CSE-ConnectionGUID: lOB1Vim1RbSKJaS/OCc0VQ==
-X-CSE-MsgGUID: EiLX8zZpQ66YKyWERBh+1g==
-X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
-   d="scan'208";a="67349671"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Nov 2026 02:42:32 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 27 Nov 2026 02:42:32 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Fri, 27 Nov 2026 02:42:29 -0700
-Date: Fri, 27 Nov 2026 10:42:29 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Paolo Abeni <pabeni@redhat.com>
-CC: Horatiu Vultur <horatiu.vultur@microchip.com>,
-	<UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
- S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, "Jakub
- Kicinski" <kuba@kernel.org>, Alexei Starovoitov <ast@kernel.org>, "Daniel
- Borkmann" <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev
-	<sdf@fomichev.me>, <netdev@vger.kernel.org>, <bpf@vger.kernel.org>
-Subject: Re: [PATCH net] net: lan966x: return an error for XDP frames that
- are not queued
-Message-ID: <20261127094229.hk6x776cekm4p6hh@DEN-DL-M70577.microsemi.net>
-References: <20261123-lan966x-xdp-xmit-errors-v1-1-f25b6661167d@microchip.com>
- <d7c589fd-0faa-4f48-817e-66efee73185c@redhat.com>
+	dkim=pass (2048-bit key) header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=x2RNRq6w
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-386ab9ab619so10780235eec.1
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 01:44:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=blockcast.net; s=google; t=1795772670; x=1796377470; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=uBc/0navA/XNmaOJk7fHTE3AuIw2bivnerbrsG3pp/o=;
+        b=x2RNRq6wfsYCVD/oRhw3e74SQjyylIOlX0URS4iq2QaS74LPXRwYeHSL0frpEKKlU0
+         4XR5DSblgtCknocR/o/+4E/bR5Apz98CtOZKJ81OEe6i2Rf758K0jFhACyqHfaUAukDN
+         +7hE01G08ZnZX19AKm/WmRRKg/w+M1IWRxW5gUbp6DYdMUEqxELMBMZxnwGrBkJD6Fo6
+         aOIGz+2uo5Kknc6Vcg6TuD5wKdUQScG/cX9dsl4i9b/IgxHAivOsHMuAsmBX7PBZktpm
+         B9yKvH2RWuC/Jmk7Y/8PWMZ32DJqvk+sUY6n9abuVUVwE7W9xyzFoqj13jdEdYrLYfIy
+         bq3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795772670; x=1796377470;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=uBc/0navA/XNmaOJk7fHTE3AuIw2bivnerbrsG3pp/o=;
+        b=EujICtIVDre1+WPpQjJ56V0tHVDHjkLaYkxKjG9JRPFCQTvcreHGIbV5qbN9sGXP5k
+         5buk385NajKy/KPSyDpng/0kaiHauRHWMxy5NZvIFvTpEKZYQM4Hl8+pwlzW+mz0nR0g
+         D8UzWBmS/vvHWUzIGYXR0TvkQmUSEWEre6BvzyDYjbSIbPGOaiVTOJ/E4FMPwG7AIovZ
+         eLepRKNvwqEHkVqjQa3d25r4+fJVu15HrdDDWcGrh0lHFw6HijYTJKpn1grCRhAI/6MA
+         maxO73aRQUDjUMHTvXf/EbIlW0Iw8jm/WzMm5QkGZmywtzazj4rjdHKxhYa1zJUWZvA4
+         SYyA==
+X-Forwarded-Encrypted: i=1; AL+hErGfH6MVMmwgMS2uvgK6NHMUq4JGT3nDdMOaTKTSgkat2FhDkmE7czXbs/OzujKlTBDWZXLJui0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z86hkMLaKtG2TXLP89HnfP1GXbJ9RxqH4HfVDnZQJh0ig1/TIzQ
+	i7JW4wh/2xenhKyhEE2ZK/MYrYeUygd37pEv30WjM7blLjMKvSK0HxCWzOlYzRT6xG8=
+X-Gm-Gg: AZFdTZcO5w9Q+pYtlhVgJKBcElQiCW/R89DLW1pFoaTV+BJv/OLJglcRzbOorCjB3H+
+	16uI5P6QuSf8/05RexaSbnNscftSxYkrfIIDsiSzoTDqyVLn0WbbT3VhSoA+LDnaOVkwqXzVLuQ
+	25jNvdYqoK/we2fFNnTLpXmsHdoTPQqNtobUsy606A4n5391mHIDqyHEFD+l45z3UyvTDuUm6YW
+	3FpDNRQR0nlZERjPrwcBIs698Q+MPxOEAmOr4EDe/Pmcm1vH8rk24X0jQLvl9ZOb9biNqd28VdS
+	+9hKUrPPF2doe1wxHQyYdQBsTx0NgDb1rphJjFc0dYNzbmbSxGrPjmZx2A3bIlDpiHaQ5sYNeR3
+	7vqMf93Vqw13IgOyFW/seI4XebyI/xU/QnTOmApxcbPbIzb3f2MMj2BZLnp6guI+pOTu+dPZsAs
+	5+A6QFr6INI8UU17iQBMhyVh/VrOo9wQJbttrsygoOfDhedT3D3mo0uGUk7QKNfqg+vADI2/Tgb
+	lWbayYHjDnTCZcj6e1+0Pool/YmrpKJ4ASVnobSY2N7cHgrCzRlrD/yRqPNpENJLi8Fe1Ri5qNm
+	rrKFLd6+/db3XRkxa+I7XlVtHsoz1eITj0xRlWC41OLI8x6G/QDMMx07KNOW13SRTE8GRDXIOJb
+	yfyujsjShwCFr9TKAlkRIczgUtIzmgIDTWxSkX4Un92p6Tg0X
+X-Received: by 2002:a05:693c:6010:b0:385:849b:7899 with SMTP id 5a478bee46e88-385849b7adamr27832938eec.4.1795772669710;
+        Fri, 27 Nov 2026 01:44:29 -0800 (PST)
+Received: from devbox.ts.blockcast.net ([2602:f74d:1::32])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm73935236eec.6.2026.11.27.01.44.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 01:44:28 -0800 (PST)
+From: Omar Ramadan <omar@blockcast.net>
+To: netdev-bot+sashiko@kernel.org
+Cc: ap420073@gmail.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	horms@kernel.org
+Subject: Re: [PATCH net-next v2 3/12] amt: key relay tunnels on a union amt_addr endpoint
+Date: Fri, 27 Nov 2026 09:44:26 +0000
+Message-ID: <20261127094427.2962443-1-omar@blockcast.net>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <179572061610.3135.16297939691113808529@kernel.org>
+References: <20261125191450.2497936-4-omar@blockcast.net> <179572061610.3135.16297939691113808529@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,44 +105,39 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <d7c589fd-0faa-4f48-817e-66efee73185c@redhat.com>
+Content-Transfer-Encoding: 8bit
 
-> On 11/23/26 15:54, Daniel Machon wrote:
-> > lan966x_xdp_xmit() counts a frame as transmitted when
-> > lan966x_fdma_xmit_xdpf() returns 0, and its caller only returns the
-> > frames that were not counted.
-> > 
-> > Before this patch, lan966x_fdma_xmit_xdpf() returns NETDEV_TX_OK, which
-> > is 0, when an xdp_frame has less headroom than the IFH or when its DMA
-> > mapping fails, without queueing the frame. The frame is then counted as
-> > transmitted and never freed. An xdp_frame can have less headroom than
-> > the IFH when an XDP program grows the head of a frame with
-> > bpf_xdp_adjust_head() before redirecting it to a lan966x port.
-> > 
-> > Return -EINVAL and -ENOMEM in these cases, so that lan966x_xdp_xmit()
-> > stops and the frames that were not queued are returned to the caller.
-> > 
-> > Found by an AI code review agent. Reproduced on a lan9668 board with an
-> > XDP program that grows the head of each frame and redirects it to
-> > another lan966x port. With the fix the frames are returned to the
-> > caller.
-> > 
-> > Fixes: a825b611c7c1 ("net: lan966x: Add support for XDP_REDIRECT")
-> > Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
-> It's not clear to me if the issue addressed here is stats miscount
-> (should target net-next) or deterministic memory leak per packet.
-> 
-> Could you please clarify?
+On Thu, 26 Nov 2026 19:16:56 +0000, netdev-bot+sashiko@kernel.org wrote:
+> Does an exact 16-byte compare still make the per-source cap work on an
+> IPv6 relay?
 
-The commit message could have explain that better, sorry. It's the latter - per
-frame memory leak.
+No. Counting per /128 lets one host that owns a /64 open the cap's worth
+of tunnels from each of its addresses, and the MAC check only shows that
+the sender can receive at the address it used. Eight addresses and the
+default 16 per source fill a table of 128.
 
-> 
-> Thanks!
-> 
-> Paolo
-> 
+v3 counts the tunnels of one source with amt_same_source(), which
+compares the first 64 bits of an IPv6 address and the whole of an IPv4
+one. Both the early check in amt_request_handler() and the one in
+amt_tunnel_get_or_create() use it. A tunnel is still found by its full
+endpoint, so gateways in one /64 each keep their own tunnel and share
+the cap. Patch 11 now has a case for it: with max_tunnels 16, which
+allows two per source, two gateways fill their /64 and a third one in
+it, with an address of its own, gets no Membership Query and no
+multicast, while a gateway in another /64 gets both.
 
-/Daniel
+The /64 is fixed, not configurable: the cap is a bound on one host, and
+a host that is given less than a /64 is simply counted with its
+neighbours.
+
+> The commit message only says that the per-source count "compares the
+> same way".
+
+It says what the count does now.
+
+I will send v3.
+
+pw-bot: cr
+
+-- 
+Omar
