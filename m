@@ -1,100 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.132
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.75
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795759037;
-	b=BDp/TsXHalym1UZp4+4kIVXlCOn+WpBZUSBTEGAxpabiCpIJRwJh+tARo+9DGf23glmd
-	 iQxTHi6qglV3DlJ/4rYJrsmjgnKHFzG4IXn80jtwo4JUEPTHWrbyvDuchyhTeCQACqACr
-	 nlq3v9A4yEnh5JE09dSw+b/MtG39XXAvrJV8iK0laW3D3LhUHPL/oHNUv/lfDyqgt0gYy
-	 iTFTsXkwXkX3GnR0z1PdiCMj8x0tQiplhiCC+SNXOlhoAnZCiH+RE2JhkxXEx8t+TzkWA
-	 a6dV7zCoslbhb9LqQZKneVAmSwpgvRERy+gFQghJvVklYwKrTBzyWzhSfnkaXbtORiw==
+	t=1795759273;
+	b=R4lZ9k3Pye9+qgkLK7wD4bLOcF7PfYagzu0xjwv6d/xVV8BB3ZDlESvyrtv1giTs6tt6
+	 XgKL7LzRaHOke31N5/wi03ke+RwB0LcOJZhHtsT8KAjOMQw7q194Ol8ohJmVZQTVGoXGy
+	 M0BGVFq9reLVHl21S+6peuHwZrPGerddvjwsjhHWOBGBhXkETcPJiYpFvDK/jQSqoj1Ag
+	 cJ3Ql/UpYCyyw1lfr1fEL8Ut1292leiq9TknTprbkfhbWN4alg0CbHXxVUf5cDmLmJOXR
+	 LSayfCyt52R4V+2YQOra+9mf7WMLGOejRLDdqW/hh5PmSgeaugH7o29TCI/odkiusbA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795759037;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:From:Date:
-	 Subject:To:Cc:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=+R/R2nJLO5cjd36BbWY3awbaWv3s9L6uqWVOFpPVHCc=;
-	b=3AA6mAcez1//0pvp4PsXVmjwwI3oYBbmfmggAZZSbavmYY7sZtTxDZuEQWgJ/AjSSPP3
-	 EHlZaHhEMc6JqiRXnYbnkqwCyVDuVNJcx6QTuVo8/ZuzD7FYj04X877pfZ4Y3bJ6Twmzl
-	 EgeaVTVH16arHWOcfORBe1tscZWjdxS+7OugXLPXF6H0VPdeYbrG1Wf5Em25qbisjhHDO
-	 XJuXqHib0pVfAZl2EU10Cius+DCykbQEjcjW0E0j1AUCZXU0iqZYqitVRff6VPBvgB7VS
-	 emUrcA68zoHMl0bXw4SHrCy993ILMj2Onj1bMeXlwLScPveoSsNKjlYA3fC/YEavjjA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795759273;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=nrXUyBnnLMn4mqMV0QE9b5zcQInsdQBriad2AyK2+Eo=;
+	b=TOHvLRVtpqv/HVD70/OB01v91bwtHnUMfyxnVCWl0PQykDriSwVdYX/L9/KAaPh3wChA
+	 oJMvY//VGmWBfD9qyxDHNB5gY8dw3IcPmQxtlbCE5qAstPg7CABre1zwdOQc+wEZoxbU2
+	 dNCrfxsshKtc57YTJPvbfAEwzvqSehrrljfe3ApskKNkIZJMZTs6JW6G1V7D7L+SK3Wt5
+	 3CE7IY8YPCcPx6lmBxu97OVwDEy20UEE3tBsrpb8+vQz6LQXix1/wbP9+ZhxZCr2+bNbK
+	 pQAEvhoYkWO/ewKL9LV5XPQu0p9ZS79Htw/9JoLasAXyOsWszJrSbBkHOZJ1cHXaQ8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hkQXCEnI;
-	arc=none smtp.remote-ip=74.125.227.132
-Received: from mail-pj2-f4.google.com (mail-pj2-f4.google.com [74.125.227.132])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Y5sBkEAp;
+	arc=none smtp.remote-ip=91.218.175.75
+Received: from mta0.migadu.com (out-75.mta0.migadu.com [91.218.175.75])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A4F8606A329
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:57:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A4F8606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AAF92606A321
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:01:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AAF92606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hkQXCEnI
-Received: by mail-pj2-f4.google.com with SMTP id d9443c01a7336-2f042b6ef3aso55428865ad.1
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 21:57:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795759036; x=1796363836; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:cc:to:subject:date:from:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=+R/R2nJLO5cjd36BbWY3awbaWv3s9L6uqWVOFpPVHCc=;
-        b=hkQXCEnISOOdIhfSmNQ+wti7aHe/TCsYuW3IUXyLmoEWAuISnOT6KyE+O2PpQ5Dcmb
-         S2IhAWY2ARH9atbednkegfndCsIKn828pZYkOYq6FgkQYQpVuSGUVvSJ6jogd/bpTZ4g
-         vmtIt5e306+jXjYQI4hF2EHMKoCRfVpdndccatFP8diVGyasUOeJN3GDSjb0C6yfh8sG
-         9fCAxrnmQ8qvQt9C2iNJ8Yn7/boXQyW0FrJnCjKx3CGcdRGloCZ3YIZPZR1+hTfxe7dU
-         gaNSvyORjVfjhC1wedfg+qx1Z8bOWhAhvjHY54PNlWoRc0Spl9/OK81CJxoq1xckjy/h
-         XIzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795759036; x=1796363836;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:cc:to:subject:date:from:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+R/R2nJLO5cjd36BbWY3awbaWv3s9L6uqWVOFpPVHCc=;
-        b=wrm4gtC2Y9eL2FBTGSzvDwdCbOw2gpLQuWXRwN7eJ7XNkQIa8DFYlT1mTIFYsHAnDM
-         2KL8uG5R2AxsGeAYLXSXklNJVtA3K52zFNtOwbWZf6Rj0+aGECpiS2sZnaELz2YyQ/70
-         gSp1ukVx5Pkul6vF3EgN0/n74qZYZLjdZ3ITQrjs5Sm/r7E8gIxHoyc1FC55AdqABWIY
-         aIrnKXW9o/hIfx9/1W7zrI+9JLNXUvTLWcuuENOTy4CoMTNCj66ySLhV2ds+roTdzWs/
-         IBJbVssX/mVYereYvCnyQ7p/eBaRITk+/nw/FvFaabfMGcUCpCjJMtek/n7AhootqMOg
-         M/yg==
-X-Gm-Message-State: APuU4Z/eiEGSJX3SGbsQ7asbuxxuZfiqWm9fqvS3vQjyFKVr7FpZaJNz
-	9jDibjXcgo6L0+mpuP6sKeZ1oRhImUwIWx1ZwZA6NMhhw+Mqoo+MCkon
-X-Gm-Gg: AZFdTZdN7D1b+4vWK2HFkIb+7gRnEDNWT4WJiBj0CN2bhk+X4nPA4EpCJN7wS9t/8CE
-	UgcI9xKlCqZ6DWU8F82ilwxHJwG1MToqb4QeJxP/WMEqRRlTRSmyVOy/qJEERNUpZ21ag9uBpIJ
-	nbwnhKHtQc6nhL3NnPBKRjGZ9GhIOwRrkrjPUFq/xLG+hN2IAUU3pZZ4a0bQzYS0W7h13cavxUb
-	rYdhqtgHU3HrN4UwxckjloRq98WVb7hDpPcQHcL8UBaaMNJ+eqhCgrcU7Y9hDVAEWztRi/tiZ2A
-	esYDm1Potudk5LQUMfoWHrT5PTOcX7rdvOrX7XTcoTGJk5PdBkg4Su+rIn+f8BL6Fvz8sMUH+xu
-	ROS0BNI8f94yaWByLZ6o9O3FaHs/ICHdf3yjCDKieLdP98g0gj9G5K+KLp6YURbqRAMMCQa/G+U
-	00akH0QGXHNggwrQLJtDe8Ne8io2imqZwdyFiAa0Xoe3gn6wPbbP1hv7bJ5O3TC3dtRJBiq6axq
-	4kwIbU3q8V5weJgHUa2YI8Th/wkAuPoQ+QYk/VFoef6EBazAuLGM00QTYrWS4OhYl7/Fz7x2Rma
-	trXgcgSJckfBGb5n4yZcosZfYA1lPahwMzQoH+v6VahpNzdHFjtvWEnnyFeUOj3xVcL+hFtOS9a
-	iZEkrZwy6fVzlXbIg8rkzFEk=
-X-Received: by 2002:a05:6a21:3d8b:b0:3e1:aa91:7134 with SMTP id adf61e73a8af0-4014d46b50emr20040114637.72.1795759036448;
-        Thu, 26 Nov 2026 21:57:16 -0800 (PST)
-Received: from [169.254.212.233] (ec2-16-179-105-217.ap-southeast-2.compute.amazonaws.com. [16.179.105.217])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077a058sm11926655b3a.8.2026.11.26.21.57.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 21:57:16 -0800 (PST)
-Message-ID: <reply.cover.1795754281.git.n0ps1edzz@gmail.com>
-From: Zhou Qiuyue <n0ps1edzz@gmail.com>
-Date: Fri, 27 Nov 2026 13:56:01 +0800
-Subject:
- Re: [PATCH net] ipv6: route: fix use-after-free in ip6_confirm_neigh()
-To: Ido Schimmel <idosch@nvidia.com>, Kuniyuki Iwashima <kuniyu@google.com>
-Cc: netdev@vger.kernel.org, David Ahern <dsahern@kernel.org>,
- David S. Miller <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, Willem de Bruijn <willemb@google.com>,
- Hangbin Liu <hangbin.liu@linux.dev>
-In-Reply-To: <awjbaKiRpvUyHA3z@google.com>
-References: <20261123133000.1.n0ps1edzz@gmail.com>
- <20261125190113.GA421469@shredder> <awjbaKiRpvUyHA3z@google.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Y5sBkEAp
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=7VngrNZEXiKoDUMjMc/nzPenWV2Zy0/emms0Y+lumzs=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795759270; v=1; x=1796364070;
+ b=Y5sBkEApFsaG7tDNVA61iRZ4F35l421r6lYOjienw2wc71fpUfYJS4oFsuZOprbajPMWb2Kd
+ 9usp5H8ixhueAERbI0YLoOwHmmbj1ZDIMlXKoxFC3spponR6w+jpLJl2ott7gOdh7Vz3+vTY7NP
+ PXHHL3qGfL5jdPEUKM7zdtKo=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id 9ad39df9598d294b;
+	Fri, 27 Nov 2026 06:01:10 +0000
+X-Mizu-Trace-ID: 9ad39df9598d294b
+X-Migadu-Flow: FLOW_OUT
+Date: Fri, 27 Nov 2026 14:00:58 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: netdev-bot+sashiko@kernel.org
+Cc: jv@jvosburgh.net, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+	tonghao@bamaicloud.com, razor@blackwall.org, shuah@kernel.org,
+	jiangjiehua1@huawei.com, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH net 2/3] bonding: update slave array on link change for
+ broadcast mode
+Message-ID: <awkcmoDW5AHqJujs@fedora>
+References: <20261126-bond_broadcast_updelay-v1-2-188e5538d6ca@kylinos.cn>
+ <179574935712.3135.18271637068349106750@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,10 +69,174 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <179574935712.3135.18271637068349106750@kernel.org>
 
-Thanks for the review. I addressed your comments in v2:
+On Fri, Nov 27, 2026 at 03:15:57AM +0000, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 3 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 2 · Low: 1
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] The commit message says the patch makes the broadcast
+>   usable_slaves snapshot 'follow link transitions the same way balance-…
+> - [Medium] Because broadcast now publishes usable_slaves (the revert,
+>   which this patch relies on), switching a broadcast bond to balance-rr…
+> - [Low] The series ordering is not bisect-safe, and the dependency
+>   between the two patches is not recorded in tags.
+> 
+> --
+> 
+> bonding: update slave array on link change for broadcast mode
+> 
+> This adds a BOND_MODE_BROADCAST case to bond_miimon_link_change(), so the
+> usable_slaves snapshot is rebuilt on miimon link transitions. That keeps
+> the ignore_updelay decision in bond_miimon_inspect() in line with the
+> current slave link states. It depends on a revert of 45fc134bcfad so that
+> bond_set_slave_arr() publishes the array for broadcast.
+> 
+> > Add the broadcast case so the snapshot follows link transitions the
+> > same way balance-xor does. This needs the revert of 45fc134bcfad as
+> > a prerequisite: with 45fc134bcfad applied, bond_set_slave_arr()
+> > discards the refreshed array for broadcast.
+> >
+> > Fixes: e0caeb24f538 ("net: bonding: update the slave array for broadcast mode")
+> 
+> [Severity: Low]
+> Is the series order bisect-safe? The revert of 45fc134bcfad is applied
+> before this patch. On its own, it makes bond_set_slave_arr() publish
+> usable_slaves for broadcast again, but nothing rebuilds the array on
+> miimon link changes yet.
+> 
+> At that intermediate commit, a batch enslave with updelay leaves the new
+> slaves in BOND_LINK_BACK. The snapshot taken at enslave time then has
+> count == 0 and is never refreshed, so bond_miimon_inspect() ignores
+> updelay permanently. That is the bug 45fc134bcfad fixed.
+> 
+> If this patch went first, it would be a no-op under 45fc134bcfad, and
+> every commit in the series would be correct.
+> 
+> Also, this patch carries Fixes: e0caeb24f538, but the revert it depends on
+> has no Fixes: tag and no dependency annotation. 45fc134bcfad is likely
+> already in stable trees.
+> 
+> Would a tag-driven backport of only this patch leave the stale snapshot
+> behaviour unchanged there?
 
-https://lore.kernel.org/netdev/cover.1795754281.git.n0ps1edzz@gmail.com/
+This commit description already said it depends on the revert.
 
-Thanks,
-Zhou
+> 
+> > diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+> > index d6675e87d06b6..b1efbdf597ec4 100644
+> > --- a/drivers/net/bonding/bond_main.c
+> > +++ b/drivers/net/bonding/bond_main.c
+> > @@ -2780,6 +2780,7 @@ static void bond_miimon_link_change(struct bonding *bond,
+> >  		bond_alb_handle_link_change(bond, slave, link);
+> >  		break;
+> >  	case BOND_MODE_XOR:
+> > +	case BOND_MODE_BROADCAST:
+> >  		bond_update_slave_arr(bond, NULL);
+> >  		break;
+> >  	}
+> 
+> [Severity: Medium]
+> The commit message says the snapshot follows link transitions "the same
+> way balance-xor does". Does that hold outside the MII monitor?
+> 
+> balance-xor also rebuilds the array when the ARP load-balance monitor
+> changes a slave's link state. Broadcast is still left out there:
+> 
+> drivers/net/bonding/bond_main.c:bond_loadbalance_arp_mon() {
+>     ...
+> 		if (slave_state_changed) {
+> 			bond_slave_state_change(bond);
+> 			if (BOND_MODE(bond) == BOND_MODE_XOR)
+> 				bond_update_slave_arr(bond, NULL);
+> 		}
+>     ...
+> }
+> 
+> Broadcast can use ARP monitoring, because bond_mode_uses_arp() only
+> excludes BOND_MODE_8023AD, BOND_MODE_TLB and BOND_MODE_ALB.
+> bond_slave_netdev_event() also skips broadcast, since
+> bond_mode_can_use_xmit_hash() is false for it. So under ARP monitoring,
+> the broadcast snapshot keeps the state from the last enslave or release.
+> 
+> bond_option_miimon_set() can switch the bond from ARP monitoring to
+> miimon at runtime. It zeroes arp_interval, cancels arp_work and queues
+> mii_work, but it does not rebuild the slave array. params.updelay
+> survives the switch.
+> 
+> For example, slaves enslaved with carrier under ARP monitoring are marked
+> BOND_LINK_UP and counted in usable_slaves. Later the ARP monitor marks
+> them BOND_LINK_DOWN, but the snapshot is not refreshed. Once miimon is
+> enabled, bond_miimon_inspect() sees usable_slaves->count != 0:
+> 
+> 	if (usable_slaves && usable_slaves->count == 0)
+> 		ignore_updelay = true;
+> 
+> Recovering slaves then wait out updelay even though the bond has no usable
+> link.
+> 
+> The reverse case also happens. If slaves are enslaved without carrier,
+> count == 0 and updelay is wrongly ignored. Either state lasts until the
+> first miimon commit reaches bond_miimon_link_change().
+> 
+> Should BOND_MODE_BROADCAST also be added to the condition in
+> bond_loadbalance_arp_mon()?
+
+Ack, I will also handle the arp monitor.
+
+> 
+> [Severity: Medium]
+> Now that broadcast publishes usable_slaves, does a switch from broadcast
+> to balance-rr leave a stale snapshot behind?
+> 
+> Releasing the last broadcast slave goes through __bond_release_one():
+> 
+> 	if (bond_mode_can_use_xmit_hash(bond) ||
+> 	    BOND_MODE(bond) == BOND_MODE_BROADCAST)
+> 		bond_update_slave_arr(bond, slave);
+> 
+> This runs after bond_upper_dev_unlink(), so the slave list is already
+> empty. The result is a non-NULL usable_slaves with count == 0, and after
+> the revert that array is kept for broadcast.
+> 
+> Neither bond_option_mode_set() nor bond_close() resets the arrays.
+> 
+> In balance-rr, nothing rebuilds the array afterwards:
+> 
+>   - bond_enslave() and __bond_release_one() only rebuild for xmit-hash
+>     modes or broadcast
+>   - bond_open() and bond_slave_netdev_event() only rebuild when
+>     bond_mode_can_use_xmit_hash() is true
+>   - bond_miimon_link_change() has no BOND_MODE_ROUNDROBIN case
+> 
+> So in balance-rr, bond_miimon_inspect() would see count == 0 on every
+> pass. It would set ignore_updelay = true and force slave->delay to 0 for
+> every recovering slave.
+> 
+> Documentation/networking/bonding.rst section 13.1 says updelay is ignored
+> only when the bond has no active links.
+> 
+> In the baseline tree with 45fc134bcfad, broadcast never published
+> usable_slaves, so a switch from broadcast to balance-rr left it NULL. The
+> same missing reset on mode change already existed for a switch from
+> balance-xor to balance-rr.
+
+This seems not broadcast only issue. The other xmit hash mode also have this
+problem. Maybe we should set usable_array to NULL if it's length is 0? Need
+to further checking.
+
+Thanks
+Hangbin
+---
+pw-bot: cr
