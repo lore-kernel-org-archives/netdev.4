@@ -1,64 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795791720;
-	b=GW+F9bqsKpVfkkZwpyXVx7PIT35U9aDD0iVP5LiBe6MAowUnr2wT7BFZFVIAlFdJnRJx
-	 541k5TVYOSThNNHb32yr1QaTacT27ZGv0v9tXafFH4JoZ1j9JkZXqnESSRD/d7mYAhuj2
-	 CxD8VmF7W/KmKKPgHOSOyLxCIT90k2nP1q4rX+naxQGx2U9xKT9VJR0JDeEft0pBDMubK
-	 1Yqvunqqo+P/y/BDc7aFQbmKgAVCFNtF3sR11p0tpVjz2NZv0XOfxgi05F5QEDajssQfX
-	 9pyweCRnXZM1P+w5/30ieSMeYzUuKdNQrzaXnuXoSdLNQgLVjAniAZi9dPGBw4r5piQ==
+	t=1795791871;
+	b=kX5SKjuXkhK//acFuT7IB+4EfMBTQM6sVWPYkVXjw02/q4cXe8Q0hv261DRC8EXOq69J
+	 0V7wBdWn10gmus0de/6x1QMF/m2Zl2+2tNr/A2OGthCfYM2pBvdt+YESTLrbcPbk0pDa2
+	 Th9lUgil6GxqzGzpKZBYrgPBSStrTWhbFmNPIvnXj7umexTkjTqZopjSc5o6vY8f7Sbn4
+	 JfUcaZKuFaICCMHsrdaIyxueMXHm9UDQgvWKxw89+N3YGwk57OBnwB/YvRXBMrphYfNHp
+	 kS1rFO2S1aH6tD6eOw5QrD8KTh/ak3waaOtX0RyNKZmbA5EMUENZ5VnVJu2a3U/6aIA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795791720;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=gavLcZVGISvYCgA5MKkRgGqRprf3c04aAEhyObo7WH0=;
-	b=O102nt/n56VkMWQPUlodKC2N0CMCxZNthT0P1QRhDocFC97xM2/ZzulG4QOi1ta/b1Ul
-	 gBr00t5NbhmVm9dW6gjqRu/Dq4+94rj6rcxrirCGl3a5EzRqH9ucaKISXrSGBrCUKeOsT
-	 OlSF1Hm1L9LKsMK39eT1LNx0jngg37mf4RL2yQQSNdxJB2ycYPQQBb/5QN8t2HoJWIu7m
-	 CiRN7q1dy3a/PZldsFS+2vkn4UgdgSxVm5JAX3XUmuT/S7ejUYXmjSbLl8yPC8k+2kzUK
-	 B0dyUIdUxvxKW55nY2rxX61vP/y7LnW514XwLZXyWk5xTaI5WL4TeTZECcF9G+6oJ4A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795791871;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=evZv5hVWWdGZaCGpsWgw0bSasbGvdKzP09x7/rjAc+Y=;
+	b=hj0EKGKVniWc08eyRiKR5+R39dcZVTv6eZ5d/pNwKb5/b2Pc6NfcmXKFhhtzSS6STvVi
+	 cyUWGwFtpAi9tixFZ99Axixq/zN7PROzm038idCcKa+myqACUT7wcVpEWX7rTWx9jNgF8
+	 c5kP/ORpvT04Hg/uNuZmOiGmq6yrZqkSIJlJu0j0sCkj0DFZe5c2l6etVjxwca8HwTYjX
+	 B/mudvC2kTTFPQ81gcl+fM5N+zVLmet7Cv0T9OGYWtH3TwOjRexeo+lirk+UWFxxtZ5Ys
+	 15kRETp9WnhgUzvUaDWlvidt038l5ZnRFqV12hcevTTzdthxQevVIUtHS/czcS7tW+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y1AMsJGm;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FYMGeXEy;
+	arc=none smtp.remote-ip=74.125.82.169
+Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED992606A332;
-	Fri, 27 Nov 2026 15:01:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38AD0606A31F
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 15:04:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38AD0606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y1AMsJGm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 084ED1F00925;
-	Fri, 27 Nov 2026 15:01:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795791719;
-	bh=gavLcZVGISvYCgA5MKkRgGqRprf3c04aAEhyObo7WH0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Y1AMsJGmTSoeBnJeSnK81ArrXDkJlSz8cl90Ch0PEgJFym2qaMEqwG2rjjmbcIULK
-	 7qC+7uCyZ3fhasBkePeZdgwQLCwfhMWcnQs2tZnb/MBczoaLPHJdeIuPG/YHcTBQqS
-	 TvsLYpc4pfTzVKKVtvjgG4FOQW2+5YTVqO8CYdMySRX0qpu1Ai3OA5oTerxtqa7475
-	 sLh9VxikgXx2xZEwW+f5mwKXKD4cWBoFbo9Q4f12PMPc/yF05HYcWJAPUJDDGUlTXT
-	 cCLszI7953dHgNgzfitXeK4Z/A7waQIZMJTD5wcxp8vuk6tiyH2c+IiJA/TQwz11lt
-	 k5HPUfAw/s96A==
-Subject: Re: [PATCH net-next v4 2/2] rust: net: phy: pass &Device to suspend,
- read_mmd and write_mmd
-From: netdev-bot+sashiko@kernel.org
-To: engineer.jjhama@gmail.com
-Cc: fujita.tomonori@gmail.com, tmgross@umich.edu, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net,
- bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org,
- aliceryhl@google.com, dakr@kernel.org, daniel.almeida@collabora.com,
- tamird@kernel.org, acourbot@nvidia.com, work@onurozkan.dev, andrew@lunn.ch,
- hkallweit1@gmail.com, linux@armlinux.org.uk, netdev@vger.kernel.org,
- rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Fri, 27 Nov 2026 15:01:57 +0000
-Message-ID: <179579171759.3135.17093174832715178@kernel.org>
-In-Reply-To: <20261126-exp-phy-rs-maybelocked-v4-2-16f9a10bb579@gmail.com>
-References: <20261126-exp-phy-rs-maybelocked-v4-2-16f9a10bb579@gmail.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FYMGeXEy
+Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-3863db981d4so11545516eec.0
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 07:04:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795791870; x=1796396670; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=evZv5hVWWdGZaCGpsWgw0bSasbGvdKzP09x7/rjAc+Y=;
+        b=FYMGeXEycxZkHzzZ8Ikig9UJ8Hpp9wM7ypyAIbIfsBMWVStPflQ83reJpJDHbdR8qO
+         pL1bO+vvoxYTezTfnLg4rukWOLHmZgQiZn0NY7DiqjCS+tXvWUOv4JbZXnpxcMU8bFyb
+         JcOGsyORNqWPOZFApIJQdoatPSLFrGNAYpLz1hzmoEZDM1Mvpm3wSpH1OQ2RjT5k2xQV
+         a6gNTONcqrg7ISvqxw/RrCu+xeKo3AvXua7oBGt2WhnvEFfG6j7HVNHWmkP6WJFEyUxi
+         K5cY4VhGiKbk2SmgkI7mdm2TQp4YYVVrXezT9o5+Pc5/QUMmjHt8dqJeslKPuF50w8jr
+         TJkQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795791870; x=1796396670;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=evZv5hVWWdGZaCGpsWgw0bSasbGvdKzP09x7/rjAc+Y=;
+        b=GwJjKkUH/5MCkos3jlhKiVal55yg5jweR+XZlUbKAZtkN+zhMhhpkJao8DjwEPvE37
+         5HxKQ8HlCoRV0IPlmwYc7SMVayuQZmS+uBtmuJvpgqCoNveT0Wq8cxMkpVP7llFfjTEV
+         EcKk4JOWHfoN5ga5HrZewMAkkLdQDVJQz24M5INNJPEiaqeKvEZDMblQUGQk494E2LFH
+         0lgfZe15wQimXYwPfppkxsHvrzeKf5hq0wjISIqiqrkmY8eYTCb2Ygk2DUFIXzuu5qhz
+         6o5u7bv+aPe8lvXmsTEgoWNvRwRkrDpnSlDXmVI6t6leT7bmovs1+jmhXuJILHkt+Tua
+         5lww==
+X-Gm-Message-State: APuU4Z/FuGrf/4BBgjjlHzNZVOGo0kECy/dlw9mglfIKqr0FWV+B//mU
+	IXdOFP0xPooykpM5onqsoYN9fZuw/cQ6k+Wp8lbNM8yuVzPkiYWo2CfL
+X-Gm-Gg: AZFdTZcqtB5LQhVqfA/kVYAGLlCaO6vfbkBr7yW7n8qm0uldDTsWSr+s0Vrg1UcgOmZ
+	LP35zWniH5sYzmCPZNz09c3xZJhdoDuOC3bpNcLwt+4okr/KFgDpOrQy3uA+HBsiZbP26TLoPKN
+	A3qMhiYvgWVyRgdHXt5RVuZWNZGdISEuIdxF2f9CSTDFcWUi8CV6gCOkp3X223ktxm5tDscm7dO
+	ipDDXrdN1aps0M0FRUQUl4ORZeJ0Fdq83eytPG1L91jK2cO7/NMwJ8+ix4DM4TjC6GqLDamjvTj
+	8U5w5fGlZC96fKm4GZmojVN0cucuzJrGugxbqLvViGZMBYD3Y0FLGr4SOi9O6AJNTwoDfPYG3CN
+	zukcvANaCb4x0y+0l1RXj8sZAZaQMKX4vwLT3ECThB2ACHlpUVhbw6dO6essJ3GrX3rLPjpWLIp
+	9RuI7qwyifFQ718FkLhvdCT1w+dDhV/NRR3BrWpWT6H4JkOxDoqPyU6nCvQ/CGFirtsj/ReYKqj
+	Ql4xShaMj2ruTofTS/90jRs1Ye83YHXzoRKz/XYWydLxB3PdinYcdiBm0cecXPZJPm18kOc4KJ9
+	d4BpbIV7vvsHGuP2mbu7FGQtNtgUHg1mEBXVR6qmgiQ6mA==
+X-Received: by 2002:a05:7301:929:b0:376:37a2:87f3 with SMTP id 5a478bee46e88-38570f25262mr22505837eec.31.1795791870034;
+        Fri, 27 Nov 2026 07:04:30 -0800 (PST)
+Received: from localhost ([2605:52c0:1:e99:982a:f6ff:fe2e:6e83])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm87628909eec.4.2026.11.27.07.04.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 07:04:29 -0800 (PST)
+From: Lin Lei <llleigoing@gmail.com>
+To: Eric Dumazet <edumazet@kernel.org>
+Cc: netdev@vger.kernel.org,
+	mptcp@lists.linux.dev,
+	ncardwell@google.com,
+	kuniyu@google.com,
+	davem@davemloft.net,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	matttbe@kernel.org,
+	martineau@kernel.org,
+	geliang@kernel.org,
+	llleigoing@outlook.com
+Subject: Re: [PATCH net 2/3] net: bound receive window predictions before narrowing
+Date: Fri, 27 Nov 2026 15:04:25 +0000
+Message-ID: <20261127150425.1393380-1-llleigoing@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <CAL4WiiqM1E9wzfjCzHcOy2SN6j0CjN6r94JYdPNt=RoLLDL5hw@mail.gmail.com>
+References: <20261117052200.1507847-1-llleigoing@outlook.com> <20261117052200.1507847-3-llleigoing@outlook.com> <CAL4WiiqM1E9wzfjCzHcOy2SN6j0CjN6r94JYdPNt=RoLLDL5hw@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,99 +106,228 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Hi Eric,
 
-Low priority / nit picks for your consideration:
+Sorry for the late reply -- it took me some time to put together clean
+WAN reproducers and check the tracepoints carefully before getting back
+to you.
 
-- [Low] This patch adds doc comments to `Driver::read_mmd` and
-  `Driver::write_mmd` in rust/kernel/net/phy.rs.
+Reading your comments on patches 1 and 2, I realize my v1 changelogs
+did not explain the failure mode clearly and conflated two separate
+issues:
 
---
+  1) an implementation bug where 32-bit wrap coupled with the
+     unconditional rcvq_space.space update can leave sk_rcvbuf stuck at
+     its initial value across subsequent steady in-order streaming; and
+  2) the pre-existing overshoot of the slow-start heuristic itself on
+     burst or backlog samples.
 
-rust: net: phy: pass &Device to suspend, read_mmd and write_mmd
+I think it is clearer to look at them separately. Replies inline below.
 
-This commit changes the suspend, read_mmd and write_mmd callbacks in the
-Rust PHY abstraction to take &Device instead of &mut Device. The reason is
-that PHYLIB does not always hold phy_device->lock when it calls them. It
-also documents that read() and write() deadlock inside read_mmd and
-write_mmd, and updates ax88796b_rust to match.
+On Thu, 19 Nov 2026 08:56:32 +0100, Eric Dumazet wrote:
+> What happens today: this round gets a smaller sk_rcvbuf increase than
+> the formula asked for (or none). sk_rcvbuf never shrinks here, and
+> the next measurement has a sane @oldval. So we lose one step.
 
-> diff --git a/rust/kernel/net/phy.rs b/rust/kernel/net/phy.rs
-> index bb2cc6b3c94c8..d04a651ae62b2 100644
-> --- a/rust/kernel/net/phy.rs
-> +++ b/rust/kernel/net/phy.rs
+Looking closer at tcp_rcvbuf_grow(), it seems this can lose more than
+one step -- once @rcvwin wraps, sk_rcvbuf can stay stuck at its initial
+value across subsequent steady in-order RTTs (barring an OOO packet
+hitting tcp_data_queue_ofo() or another multi-RTT stall).
 
-[ ... ]
+In tcp_rcvbuf_grow(), tp->rcvq_space.space is overwritten with @newval
+at the top of the function, even when u32 @rcvwin wraps and
+sk->sk_rcvbuf (and therefore tp->window_clamp) is not updated:
 
-> @@ -627,12 +627,18 @@ fn resume(_dev: &mut Device) -> Result {
->      }
->  
->      /// Overrides the default MMD read function for reading a MMD register.
-> -    fn read_mmd(_dev: &mut Device, _devnum: u8, _regnum: u16) -> Result<u16> {
-> +    ///
-> +    /// PHYLIB calls this with the MDIO bus lock held, so calling [`Device::read`] or
-> +    /// [`Device::write`] here deadlocks.
-> +    fn read_mmd(_dev: &Device, _devnum: u8, _regnum: u16) -> Result<u16> {
->          build_error!(VTABLE_DEFAULT_ERROR)
->      }
->  
->      /// Overrides the default MMD write function for writing a MMD register.
-> -    fn write_mmd(_dev: &mut Device, _devnum: u8, _regnum: u16, _val: u16) -> Result {
-> +    ///
-> +    /// PHYLIB calls this with the MDIO bus lock held, so calling [`Device::read`] or
-> +    /// [`Device::write`] here deadlocks.
-> +    fn write_mmd(_dev: &Device, _devnum: u8, _regnum: u16, _val: u16) -> Result {
+  void tcp_rcvbuf_grow(struct sock *sk, u32 newval)
+  {
+          ...
+          oldval = tp->rcvq_space.space;
+          tp->rcvq_space.space = newval;   /* updated unconditionally */
+          ...
+          rcvwin = newval << 1;
+          ...
+          grow = div_u64(((u64)rcvwin << 1) * (newval - oldval), oldval);
+          rcvwin += grow;                  /* wraps in u32 */
+          ...
+          rcvbuf = min_t(u32, tcp_space_from_win(sk, rcvwin), cap);
+          if (rcvbuf > sk->sk_rcvbuf) {    /* false after wrap */
+                  WRITE_ONCE(sk->sk_rcvbuf, rcvbuf);
+                  WRITE_ONCE(tp->window_clamp,
+                             tcp_win_from_space(sk, rcvbuf));
+          }
+  }
 
-[Severity: Low]
-Should this list of deadlocking methods include Device::genphy_suspend()
-as well?
+Concretely, taking the values from the TCP trace below (rtt_us = 100000,
+ooo = 0, scaling_ratio = 158):
 
-The previous patch in the series ("rust: net: phy: take &self in methods
-that do not need phy_device->lock") changed genphy_suspend() to take &self.
-That means read_mmd and write_mmd can call it through the &Device they now
-receive:
+  1. Initial sk_rcvbuf = 6,382,000 gives tp->window_clamp = 3,938,890,
+     with initial oldval = 14,480.
 
-rust/kernel/net/phy.rs:Device::genphy_suspend() {
-    pub fn genphy_suspend(&self) -> Result {
-        let phydev = self.0.get();
-        ...
-        to_result(unsafe { bindings::genphy_suspend(phydev) })
-    }
-}
+  2. After an initial receiver stall, a measurement sees copied =
+     3,987,000 and inq = 39,096, so net @newval = 3,947,904:
+       - tp->rcvq_space.space becomes 3,947,904;
+       - the unnarrowed prediction is 4,297,614,134 (2^32 + 2,646,838),
+         which wraps in u32 @rcvwin to 2,646,838 -> rcvbuf = 4,288,547;
+       - since rcvbuf < sk->sk_rcvbuf, neither sk->sk_rcvbuf nor
+         tp->window_clamp changes.
 
-On the C side, that call takes the MDIO bus lock a second time:
+  3. Now tp->rcvq_space.space (3,947,904) exceeds tp->window_clamp
+     (3,938,890) by 9,014 bytes. (tcp_measure_rcv_mss() clamps
+     rcvq_space.space down to window_clamp only when scaling_ratio
+     changes.)
 
-phy_read_mmd()
-  phy_lock_mdio_bus(phydev)
-  __phy_read_mmd()
-    phydev->drv->read_mmd()          <- Rust read_mmd callback
-      Device::genphy_suspend()
-        genphy_suspend()
-          phy_set_bits(phydev, MII_BMCR, BMCR_PDOWN)
-            phy_modify()
-              phy_lock_mdio_bus(phydev)   <- deadlock on bus->mdio_lock
+  4. Across the rest of the 64 MiB steady in-order transfer with
+     continuous reads, each ~1-RTT sample stays below 3,947,904, so
+     tcp_rcv_space_adjust() keeps taking:
 
-phy_write_mmd()->__phy_write_mmd()->drv->write_mmd follows the same path.
+       if (copied <= tp->rcvq_space.space)
+           goto new_measure;
 
-As far as I can tell, read(), write() and genphy_suspend() are the only
-&Device methods that access the hardware. All three take the MDIO bus
-lock, and the abstraction has no unlocked accessor along the lines of
-__phy_read() or __mdiobus_read().
+     no further tcp_rcvbuf_grow tracepoint fires, and sk_rcvbuf stays
+     at 6,382,000.
 
-If that is right, a read_mmd or write_mmd override cannot safely reach the
-bus at all. Could the doc comment say this, or at least name
-genphy_suspend() next to read() and write()?
+A similar lock-in happens in mptcp_rcvbuf_grow(): once
+msk->rcvq_space.space is set to 3,963,800 (with oldval = 14,600,
+wrapping 4,296,650,602 to 1,683,306 -> rcvbuf = 3,215,868 at
+scaling_ratio = 134), sk_rcvbuf stays at 6,553,600 (whose full-budget
+window at that ratio is ~3.43 MB) throughout steady streaming.
 
-No in-tree Rust driver implements read_mmd or write_mmd today. Before this
-series, &mut Device methods such as read_paged() could already deadlock
-here in the same way. The incomplete wording itself is new in this patch.
-
->          build_error!(VTABLE_DEFAULT_ERROR)
->      }
+> For TCP, the slow start branch is only taken if the RTT is above
+> tcp_rcvbuf_low_rtt (1ms by default). I guess you had to change this
+> sysctl to get this result over loopback ? Please describe the full
+> setup, including tcp_rmem[1].
 >
+> More importantly, reaching tcp_rmem[2] after a single 4MB burst is
+> not a goal. What is the user visible problem here ? Do you have
+> numbers (throughput, drops, rcv window) for a real flow ?
 
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126-exp-phy-rs-maybelocked-v4-0-16f9a10bb579%40gmail.com
+Yes -- my v1 loopback test for TCP had lowered tcp_rcvbuf_low_rtt
+(MPTCP has no low_rtt check). To test without touching that sysctl, I
+reran over a simulated WAN on 7.4.0-rc2 (mptcp_net-next commit
+800508bf1ccd, keeping tcp_rcvbuf_low_rtt = 1000 us and tcp_timestamps =
+1 at defaults, with tcp_wmem raised so the sender is not
+send-buffer-bound):
+
+1) WAN reproducer setup and results:
+
+   I tuned tcp_rmem[1] and the initial write size here specifically to
+   land inside the narrow (~1.8 KB on TCP, ~1.6 KB on MPTCP)
+   non-growing wrap window and verify whether the flow recovers on
+   subsequent RTTs; I do not have data suggesting this narrow window is
+   hit frequently on mainline.
+
+   Trigger conditions:
+     - Path: two netns over veth + tc netem with 100 ms RTT and
+       1 Gbit/s (BDP = 12.5 MB), MTU 1500, TSO/GSO/GRO disabled.
+     - Budgets: tcp_rmem[1] ~ 6.1-6.25 MiB, tcp_rmem[2] = 64 MiB,
+       tcp_wmem[1] = 16 MiB on TCP / 8 MiB on MPTCP, tcp_wmem[2] =
+       64 MiB.
+     - Traffic: Phase 1 queues an initial burst before draining so that
+       the resulting sample lands in the first 4 GiB wrap window (on
+       Phase 1's drain for MPTCP, and as Phase 2 starts for TCP);
+       Phase 2 streams 64 MiB with normal continuous reads.
+
+   Results (Phase 2 application goodput over 64 MiB):
+     - Plain TCP (tcp_rmem = "4096 6382000 67108864"):
+       * unpatched: SO_RCVBUF stays 6382000 -> 6382000 -> 6382000;
+         trace_tcp_rcvbuf_grow fires once (time=113917 rtt_us=100000
+         copied=3987000 inq=39096 space=14480 ooo=0 scaling_ratio=158
+         window_clamp=3938890); 64 MiB takes 1.823s (294.4 Mbit/s).
+       * with v1 patches 1+2: SO_RCVBUF reaches 67108864 and 64 MiB
+         takes 0.767s (699.8 Mbit/s).
+
+     - MPTCP (tcp_rmem = "4096 6553600 67108864"):
+       * unpatched: SO_RCVBUF stays 6553600 -> 6553600 -> 6553600;
+         trace_mptcp_rcvbuf_grow fires once; 64 MiB takes 2.019s
+         (265.9 Mbit/s).
+       * with v1 patches 1+2: SO_RCVBUF reaches 67108864 and 64 MiB
+         takes 0.815s (658.8 Mbit/s).
+
+   Standalone reproducer scripts for TCP and MPTCP:
+     https://gist.githubusercontent.com/llleixx/5201855b015831b5377a02478f843949/raw/repro_tcp_lockin.sh
+     https://gist.githubusercontent.com/llleixx/5201855b015831b5377a02478f843949/raw/repro_mptcp_lockin.sh
+
+2) Original workload (your question on patch 1): I first ran into a
+   stuck receive buffer on an Ubuntu 6.8 kernel with default tcp_rmem
+   ("4096 131072 6291456") on MPTCP over a high-jitter path; in a local
+   6.8 reproduction of that setup, sk_rcvbuf stayed at 131,072
+   alongside msk->rcvq_space.space = 16,282,074. (On 6.8,
+   mptcp_rcv_space_adjust() kept rcvwin in u64 but narrowed at int win
+   in __tcp_space_from_win(), and its older msk rtt_us caching could
+   allow a longer sampling interval.) While auditing current mainline
+   from there, I noticed the u32 @rcvwin wrap above as well.
+
+> This needs @newval to be ~256 times @oldval between two consecutive
+> measurements. The "allow the sender to double its rate" logic was
+> never meant to be meaningful for such a sample: a 4GB prediction
+> out of 4MB copied to user space is garbage, wrapped or not.
+> [...]
+> What happens with your patch: a single sample like this sends
+> sk_rcvbuf straight to tcp_rmem[2].
+>
+> This is the kind of sk_rcvbuf inflation we have been trying to avoid
+> lately, see commit aa251c84636c and the tcp_rcvbuf_low_rtt logic.
+> I am not convinced this is an improvement.
+> [...]
+> If there is a real case where growth is too slow, I would rather
+> discuss the heuristic than the type of @rcvwin.
+
+Agreed -- a 4 GB prediction from a 4 MB read makes no sense, and
+jumping straight to tcp_rmem[2] on a single burst is undesirable.
+
+It seems this overshoot is inherent to the current formula rather than
+caused by widening @rcvwin: even on unpatched mainline, with
+oldval = 14,480 and scaling_ratio = 158, a burst or OOO release of
+~382 KiB already yields rcvwin > 39.5 MiB and sends sk_rcvbuf straight
+to a 64 MiB tcp_rmem[2] (~342 KiB already reaches ~51 MiB). Around
+~3.95 MB, the u32 wrap turns that overshoot into the lock-in above.
+
+Following the comment above the formula ("slow start: allow the sender
+to double its rate"), one option (with u64 @rcvwin) might be to cap the
+growth ratio (newval - oldval) / oldval at 1:
+
+  grow = rcvwin << 1;
+  if (newval - oldval < oldval)
+          grow = div_u64(grow * (newval - oldval), oldval);
+
+That leaves rising samples up to 2x unchanged while bounding larger
+jumps to a 6 * newval window (~3.6 MiB rcvbuf instead of 64 MiB for a
+382 KiB burst, though a 3.95 MB burst still yields ~36.6 MiB). Since
+genuine slow-start samples can exceed 2x slightly (e.g. ~2.2x in commit
+aa251c84636c's trace), this would still need to be evaluated against
+the slow-start workloads from aa251c84636c to check the ramp-up vs.
+peak-budget trade-off.
+
+> If you send this again:
+>
+> - net-next, no Fixes: tag, unless you can show a real regression.
+>
+> - Please split TCP and MPTCP changes. One patch with a "net:" prefix
+>   touching both, with a single Fixes: tag pointing to a TCP commit
+>   is not right for mptcp_rcvbuf_grow().
+> [...]
+> Same remark about the Signed-off-by: than for patch 1.
+
+Understood -- for any follow-up patches, I will target net-next without
+Fixes:, split TCP and MPTCP, and fix my From:/Signed-off-by:
+consistency. On patch 1, I also agree with your point about huge
+best-effort SO_RCVLOWAT values.
+
+To summarize:
+
+  1) The 32-bit @rcvwin wrap coupled with the unconditional
+     rcvq_space.space update is an implementation bug that can leave
+     sk_rcvbuf stuck across steady in-order streaming on both TCP and
+     MPTCP, rather than only losing one step.
+  2) Jumping straight to tcp_rmem[2] on a burst is a separate
+     limitation of the current unbounded slow-start extrapolation,
+     which could potentially be tamed by bounding (newval - oldval) /
+     oldval (e.g. at 1, subject to slow-start benchmarking).
+
+The above is just my personal take on these issues -- I would really
+appreciate your thoughts and advice.
+
+Thanks,
+Lin
