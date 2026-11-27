@@ -1,105 +1,132 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795738611;
-	b=Z2VR5P51tX6tpctS+EjpVbmR+ANYYfr2OWCA9CgQcevt7NY77ZCP24XKEQmJzTGUHBpn
-	 WxaKgkWubJVcBRvHTZWD3gSHNjTTJNIUgeRIeuAsHGhT0qTFVcyUfULFmUUsUQBBC2kiv
-	 m5Or1gkteDqhoc2J0GSK4W6Nq3c1iYoCAQyyqr25AHB/xLGi+Grq5M+d7TZrZmOqCFL/e
-	 tH/EwAeA2pQCg+xjY8M4xHv63JwxGmymUWeL4c3WWCE6hN1M9XfDz6xeUAjC+80OZkZub
-	 QKxMF83Ko8p5NggPfJvkFx19cAQ+5K5t1qTPM7gVU2E1+Rg9jC16QKX1CCceJUS3j1w==
+	t=1795739841;
+	b=QbG5Cklm1nAAgy9OsyJBF/Wbmz5wf4PR8g3G8k7p98qaKhf8NclKNHXuhCy4hmMPjjc8
+	 tivm8Ff0M08QRlElOCFaCTbiBBsyfCDh//EFIF9GqU144HhlYchWpi8cvS5KmEnvwhQm6
+	 0vyziM879tYXKi9DIjVIMh8HjKzO2aHdLzVPo4isScBuXXg6v60/CD0XoeWY95PRwu+QO
+	 ZpaRj3nBqzG7P7nJIg4YTBuWE96r7jr32pAUI/F7xEyJRnFlampAKFlk1ktMU+uCmOBiK
+	 EmJlmEkbBqpoMKKIyElXdO8IcLR14Vj3x4GeLn4v4x6vxEsQSSNqc1l0iWO+2QSEt8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795738611;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795739841;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=d09q77CW+vLOu0h3yXJDzaOaqLHW3peCBQAh0XhX6Zg=;
-	b=ljLioys6YW9UaJSE0aWrmh1LFQyZxlXfcwS9gyjcJwijt2WnE4+JiEomS3hPGC4DcD3O
-	 6U7TB8bOLwvt/0o1rBCJgxspU1ogaZijXoMmBmCyVY4g2FkC7wSsM7YOMmnwACAW64jpz
-	 mZCsl6jtcjW2xUqLM0z4b6B/HPfwZooF0cJO7sOjWpsqX5R52utIVH3jzQFTX8Kzv4ZRC
-	 Uoob1+tXhBnVDMfIc0/QWjZmgpCk0+Lu+mixcXky6pk1VyJDehPnnjC3KH35BFY9GWBdb
-	 hO2FuUu5zFW5aP/NXbgOjGAnBVnjbB5jUFtT+9QYQKjwVC73nkNGKV2AFYHAYtV9aNA==
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=BYEpToCdu/Jrl7504w/3VIKWXqy3i8TunCn9olVHqm8=;
+	b=MD+uTrziS4nWaTEOo7Bu5YCO+UqFvX/X/86zTop1nGwD3qd/BJIV92m0/b3RL5RPfIgM
+	 KImoojiPUJZ+GGrsICFszbJp5XFnDn4xaP6tYEDc6WJpVQD5KsLqtu0dbk9NE6/yJsosD
+	 xJ75sXTPVOWyri5aHORapmZesWl7WgQxofjnAAG7e/SbHfhV4tKlnqfgLWWymhppzLf0q
+	 LsrrnQo99WelvFQwlYYElHulUX/8biJ3z6CvfI/R68zbV5ks5zr4PWOfkqGs6Ajh8EOr7
+	 hp0vvQL3IQOaCtsWXaAOU+BpDeHvAF6A0ZQ5eRbAyBjj3l3REpEkwyl+iDFv6yVaENw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D3+gfUgL;
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	dmarc=none header.from=ziepe.ca;
+	spf=pass smtp.mailfrom=ziepe.ca;
+	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=RYi3Edqp;
+	arc=none smtp.remote-ip=209.85.160.173
+Received: from mail-qt1-f173.google.com (mail-qt1-f173.google.com [209.85.160.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C264606A6A6
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 00:16:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C264606A6A6
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69958606A321
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 00:37:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69958606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D3+gfUgL
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb70074ab2so80420395e9.0
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 16:16:50 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=RYi3Edqp
+Received: by mail-qt1-f173.google.com with SMTP id d75a77b69052e-53644ab1f7bso66730021cf.3
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 16:37:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795738609; x=1796343409; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=d09q77CW+vLOu0h3yXJDzaOaqLHW3peCBQAh0XhX6Zg=;
-        b=D3+gfUgLoHhmkjycLbU8ZDWQECx0FNnNAudpkYvjpTYaKXacBhxhxE9hkG0UIi88ik
-         BWLbgdFgEwU84Ypzy4/r+3Hx5ruvMwSTI4vYjog8bbq8F/Vgn0ta7ZDNVFH3PWmKNrhy
-         7txK+TAQNTQ3L/1w0Sl2MWPgZNvUB+VQD6E2ruo98DRv6a2lNf+XqKmm09Vu+vCl/ILd
-         S6rvS/6D3pngsAqu5p1SklS0Ruq99aWp9/xID6rq+eTPivnTQ7xbuDeh3cHZH8kxnD1Q
-         txx2BpxSAyyh7+hvs3xSAUdfJZLLGgIv7KxxnjbJ4DkLczEhiFzumSA26VFI2YFfQklx
-         IY8w==
+        d=ziepe.ca; s=google; t=1795739839; x=1796344639; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BYEpToCdu/Jrl7504w/3VIKWXqy3i8TunCn9olVHqm8=;
+        b=RYi3Edqp0iJYoWgnyFakqRlcBMM8VcDiE8d4VlY5bSzWrQs7C3jbXpEvdsf5xbs0HR
+         k8SJFejOERTl3boet9eADaubxky0nrElyxMPXPWpVpP4P4sFBNoLT0vNQZStolAgoetA
+         AVu2Mh8zCbpacWNyUVPHGl3RGM6A9CQHETQIX4aOfJBdNhGQef7KqYfIDR6ufufdP8LP
+         5jHoiOvsTjxDjWW0L90H9rgfkvqlxNkDfm7h3cX67l/8MpA/9M1cz2dLCiNt8o5kr/5Q
+         JdnVCeij4xVh62dHP4PJZYsGnouQAS5wg9J0Y6QCTQui72S1909B3CcTDDr25xXeCo8X
+         2BJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795738609; x=1796343409;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=d09q77CW+vLOu0h3yXJDzaOaqLHW3peCBQAh0XhX6Zg=;
-        b=dDxPdrIHg7Zv3HJO8kGUbH77Y+6kyjE4olqHebPf5zkptCGoj+PPbE3hzdSygLgzSc
-         BDCjjQB3XwciG9JlyTAqvzB1hyCOzabqxmqSscDA3sXeON2fhB+cFQdt94V2HYwOqjDI
-         dsRkaa6R/6HxHkkpzybxCdSQQ9xvRuw9PCRWYi/AR3rMpMd/EMGEvjrgwuiA+Y1F1R8B
-         Fk9T3SfWzUcCPHceb/wId5HgWacPxzCXHnVEXiJv6vGqfH1fPfUB7AmbHrnXRyqD53IK
-         EAFrXTawUMRg6jyLbBQgc7rkNp9NIzmcsZLHn8Z5E/hFXuxPnRd3jgKRktKOBSe+p0Pp
-         A1eg==
-X-Forwarded-Encrypted: i=1; AL+hErF8J1GiIBy/ASPRSQElqRYUwFIFjOpWGr6rRLveMSMEHkd4eA2aDhm1zUfmG1mUdGH/m/G7SH4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+5f7FBP7bVdKPlBX+nXXrIJIxiUZPf9d+QIFuUR8lE8zn+sdy/
-	4xF4sR9taTiPbVO8cMqeOTN4UAF3d+W42T9N1Ha3X89DTADjSKWfSLE=
-X-Gm-Gg: AZFdTZcNO70Qb1ozPz48L8lrzkxwnUDgtQ144xvcxMnXY8sG1WXQLlRM/tNTa2Cl13B
-	tofHLHxXAllg+6gYaS+RBDIzHLvm51eZ4OpZuC3YtIxnoIiIgojYWZv73vj1dwA8vJsiJNupvfU
-	WJBGGadd/uxKZ8CTLostLbl+jwZ8fIVcKVt6M6K/KydcUY4e++NQ+9APgJctRo9gnisRwAoxi3A
-	Lib2iVVJLxJalSh1veEZTTfe04dyo5OTfCCd4/mjqTjRgPpzA5AxZR6nr7WLHjc/534XDjQGnYf
-	z7CExDqiJAmx6P1cdfTlJym4J5pUPj7JxnGyvWz0aj9q6kCZF5Zd+66azfpeta7YsFRQVAuVrSq
-	RqhErChDYBWRjGWummGxPb/v6y/DRt9pG1Gx28nP1UGdKI7k5RTANI3pu0wOASJT8fr/UgQUekY
-	IWTlTM5kva4uwVhfNfBgI74IauWpVg6MoyryR7LNxTSuhftnRUXtVV1/Qe6JfnZHLoEsObXLgsy
-	/lriS5zTpXmsOpdJWUOy7V4btMNB5nxNjxS4S9lO+0KOHWBrjvlPYA5NMA46Ah85MucIdHlm6CG
-	dob+kBbD39RE8Bw=
-X-Received: by 2002:a05:600c:8210:b0:4a1:dbdf:17a8 with SMTP id 5b1f17b1804b1-4bb887e25e8mr450837465e9.2.1795738609068;
-        Thu, 26 Nov 2026 16:16:49 -0800 (PST)
-Received: from localhost.localdomain ([2001:41d0:303:db6b::])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906d6a13sm356650865e9.3.2026.11.26.16.16.48
+        d=1e100.net; s=20260707; t=1795739839; x=1796344639;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=BYEpToCdu/Jrl7504w/3VIKWXqy3i8TunCn9olVHqm8=;
+        b=pXQTkgXVxbmnswPVWEGp4DnEtS8qpI+XnQFVOAD5hpfGzIEE5RjPg7GJXWwVF2yvMi
+         WXGC2ezloWtAUN9O6iKmfqfRDTu6B5YFf7iBEyteZ2TdgKq4iRM61yBukAtxvFPTgIXp
+         Geg6ApvhLHQMGhGf1bUeA3H51pjHirAjMQHaV2cMuR79Qr64nD9Nwt60Oq3+ErxLdEqz
+         gc/QyBeS1/9L0ejeKk2/4o0MxKc88LR9j59GAykFkqIeWLCwFXMHZfaz/Iz5inf9CS4T
+         Tdh1C7EQ1CwjbpZfy1JwfGTl7MkohKy/blFpJSyha4DubD5FYb5JL8LPkAKCgfpBvx4t
+         o9kg==
+X-Forwarded-Encrypted: i=1; AL+hErEI/pbUNCUzGtwADHfUtanFRJgdPx7hlNgMtHBaLc30fQ4NXF7oGfkdqKWiqc+KxbBF9cHUX6Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/JDYFOw4redJaoMHKejwtoHBHM6yxZhGmjeKPefWVsGNXvQDn7
+	dKiBSX5ME3wMCHWIr1UoSn1d/cuWFVmUFbaUp09EQseFv1o1cDQkXz8/DtzBC0s4TIk=
+X-Gm-Gg: AZFdTZdaCAcp1hkF+c/RKtgDqka90kUYcZfRaQ/Q7U+56G8tF8UEr9CoVtkLszg8bf/
+	lBlI0gE5ijgni29M9nGP4Y/xl7ecq0N3a35LqYrmII2Y9A6c14JXaYhsYdOmN8a3Jnx+s8XECFY
+	WtGA2Dj1CLP4usHAtNtO31KyvQ2MS4VjExW2E7IwUVccg2aRKxQvRI4Nb5WmcojBY5hPge+6+JV
+	+0Mvi7Ke75JCSKk2mCj7Ea+rGVH3ameuKF21FURSMDRN+X9nYxqSgKTf6Ave3iYoCpajHWvjdfV
+	ZtKgfmQRFz0pa4Jlf85PoqdiKeK1n8kJ6K5IScm4Ttm9HrcOgqVP5QBqdqwXnv6jyU4OM+ZiOi6
+	4xl70SAS9+OyHgiP76f7AJxCRb6RL2Eksphz4uQvCpHmblIu4au4/LBo9uDnyDi4cSjKH78j/xe
+	1o02IVntyhJIPNwIA7gI8kHmxPcFudLiMyjbcAu/uIEEPbldQ9oi+Tl2VxRju9fKhnpj32jmULg
+	qovwxaZ58H7JnoB5e5fBum9332fgYAwV9LYCFtud/RPEsEkFKRYdI/h1zzmj1hi521rl2DhjrGH
+	iK9ruA==
+X-Received: by 2002:a05:622a:1f13:b0:533:8900:4eae with SMTP id d75a77b69052e-55d76a168d0mr403124891cf.13.1795739839275;
+        Thu, 26 Nov 2026 16:37:19 -0800 (PST)
+Received: from ziepe.ca ([142.177.118.84])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d788506b0sm192115611cf.17.2026.11.26.16.37.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 16:16:48 -0800 (PST)
-From: Tristan Madani <tristmd@gmail.com>
-To: Pablo Neira Ayuso <pablo@netfilter.org>,
-	Florian Westphal <fw@strlen.de>
-Cc: Phil Sutter <phil@nwl.cc>,
-	Christian Brauner <brauner@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
+        Thu, 26 Nov 2026 16:37:18 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xWjxm-00000005OdJ-0d4j;
+	Thu, 26 Nov 2026 20:37:18 -0400
+Date: Thu, 26 Nov 2026 20:37:18 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>
+Cc: Alistair Popple <apopple@nvidia.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Thomas =?utf-8?Q?Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	Matthew Brost <matthew.brost@intel.com>,
+	Vivek Kasireddy <vivek.kasireddy@intel.com>,
+	Dongwon Kim <dongwon.kim@intel.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	Karl Mehltretter <kmehltretter@gmail.com>,
+	Baolu Lu <baolu.lu@linux.intel.com>,
+	Felix Kuehling <felix.kuehling@amd.com>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
+	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+	linux-rdma@vger.kernel.org, iommu@lists.linux.dev,
+	Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
+	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
+	linux-nvme@lists.infradead.org,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	Simon Horman <horms@kernel.org>,
-	coreteam@netfilter.org,
-	netfilter-devel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Tristan Madani <tristan@talencesecurity.com>
-Subject: [PATCH v2 nf 4/5] netfilter: nfnetlink_queue: pin file with get_file_active before reading f_cred
-Date: Fri, 27 Nov 2026 00:16:36 +0000
-Message-ID: <20261127001637.1026589-5-tristmd@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261127001637.1026589-1-tristmd@gmail.com>
-References: <20261127001637.1026589-1-tristmd@gmail.com>
+	Mina Almasry <almasrymina@google.com>, netdev@vger.kernel.org,
+	Alexey Kardashevskiy <aik@amd.com>, zhipingz@meta.com,
+	treding@nvidia.com, jhubbard@nvidia.com, chaitanyak@nvidia.com,
+	Leon Romanovsky <leon@kernel.org>
+Subject: Re: [PATCH v3 03/24] dma-buf: Add the SGT DMA mapping type
+Message-ID: <20261127003718.GR246011@ziepe.ca>
+References: <20261124142032.GN9566@ziepe.ca>
+ <7a5a2d3a-e42e-4dc0-8d22-8dd1bd249501@amd.com>
+ <20261124194618.GC114530@ziepe.ca>
+ <awZ_Os1pXelOGaFP@nvdebian.thelocal>
+ <fb9a6b12-c134-4e40-86a5-dbcb59c0b91b@amd.com>
+ <20261125155559.GL246011@ziepe.ca>
+ <5fb8bb60-7d9f-49b1-899c-40a890fdc14b@amd.com>
+ <20261125190705.GN246011@ziepe.ca>
+ <awfMy1d8ICL6mr9i@nvdebian.thelocal>
+ <a8c00bbf-dddb-4207-bcdf-af58d27116c5@amd.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -109,85 +136,18 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <a8c00bbf-dddb-4207-bcdf-af58d27116c5@amd.com>
 
-From: Tristan Madani <tristan@talencesecurity.com>
+On Thu, Nov 26, 2026 at 10:58:13AM +0100, Christian König wrote:
+> Would it help if have a call on Teams or similar services to discuss the whole thing?
+> 
+> That might be easier and especially faster than by mail.
 
-nfqnl_put_sk_uidgid() reads sk->sk_socket->file->f_cred without
-holding a reference to the file. Since the file slab uses
-SLAB_TYPESAFE_BY_RCU, a concurrent close() may free and recycle the
-file object, causing stale credential data to be read through f_cred.
+I think that is a good idea, I suggest you and Alistair should pick a
+time and see who else can come. From experience eu/au/eastern na
+doesn't jive :)
 
-Pin the file with get_file_active() before accessing its credentials
-and release with fput() afterwards.
-
-Found by manual code inspection; not triggered at runtime.
-
-Fixes: 0ede61d8589c ("file: convert to SLAB_TYPESAFE_BY_RCU")
-Cc: stable@vger.kernel.org
-Signed-off-by: Tristan Madani <tristan@talencesecurity.com>
----
- net/netfilter/nfnetlink_queue.c | 35 ++++++++++++++++-----------------
- 1 file changed, 17 insertions(+), 18 deletions(-)
-
-diff --git a/net/netfilter/nfnetlink_queue.c b/net/netfilter/nfnetlink_queue.c
-index a8aa7ad832c3f..7a31267ae38f6 100644
---- a/net/netfilter/nfnetlink_queue.c
-+++ b/net/netfilter/nfnetlink_queue.c
-@@ -22,6 +22,7 @@
- #include <linux/netdevice.h>
- #include <linux/netfilter.h>
- #include <linux/proc_fs.h>
-+#include <linux/fs.h>
- #include <linux/netfilter_ipv4.h>
- #include <linux/netfilter_ipv6.h>
- #include <linux/netfilter_bridge.h>
-@@ -578,29 +579,27 @@ nfqnl_put_packet_info(struct sk_buff *nlskb, struct sk_buff *packet,
- 
- static int nfqnl_put_sk_uidgid(struct sk_buff *skb, struct sock *sk)
- {
--	const struct socket *sock;
--	const struct file *file;
--	const struct cred *cred;
-+	struct socket *sock;
-+	struct file *file;
- 
- 	if (!sk_fullsock(sk))
- 		return 0;
- 
--	/* The sk pointer remains valid as long as the skb is.
--	 * The sk_socket and file pointer may become NULL
--	 * if the socket is closed.
--	 * Both structures (including file->cred) are RCU freed
--	 * which means they can be accessed within a RCU read section.
--	 */
- 	sock = READ_ONCE(sk->sk_socket);
--	file = sock ? READ_ONCE(sock->file) : NULL;
--	if (file) {
--		cred = file->f_cred;
--		if (nla_put_be32(skb, NFQA_UID,
--		    htonl(from_kuid_munged(&init_user_ns, cred->fsuid))))
--			goto nla_put_failure;
--		if (nla_put_be32(skb, NFQA_GID,
--		    htonl(from_kgid_munged(&init_user_ns, cred->fsgid))))
--			goto nla_put_failure;
-+	if (sock) {
-+		file = get_file_active(&sock->file);
-+		if (file) {
-+			const struct cred *cred = file->f_cred;
-+			__be32 uid = htonl(from_kuid_munged(&init_user_ns,
-+							cred->fsuid));
-+			__be32 gid = htonl(from_kgid_munged(&init_user_ns,
-+							cred->fsgid));
-+
-+			fput(file);
-+			if (nla_put_be32(skb, NFQA_UID, uid) ||
-+			    nla_put_be32(skb, NFQA_GID, gid))
-+				goto nla_put_failure;
-+		}
- 	}
- 	return 0;
- 
--- 
-2.47.3
-
+Jason
