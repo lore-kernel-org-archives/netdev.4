@@ -1,108 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795777506;
-	b=4mEa84tTbedyCy8olMyMdklmI2WI+lPrUEEm+Y6KNe/6eWrYVlOxvWz5CayRJRYDKkwu
-	 P4lnvQwPJ5dys2CADClRsGIy/VS0YpEA+mZ6vLvE2t7LOesn+TpUrRbmgwynFvf+ajtoC
-	 4KsG7Ki/ZYMASzKOLteQV+k++haTanLE6IdOxF3rRGUT9yGK75MvcCpGB/Xn8KtEQfzYJ
-	 jDTwaZpguLm3VY18tjfGG/9p+nhdoTa/4lrVLDJsy4t3NfvJIZltZsGjJ0vwFa5rTG5kI
-	 j3TRY2HRNWhPqSjkVO5R+6brxMTgDJYASUofHUKpf1H7vLp7XkEl8vpVdwjQt3tuasQ==
+	t=1795777525;
+	b=RAkgF9QHjYEMT34J4uT27QRlDJNbl6rNGyf94GEELJEH2JCW2wJj28JowyX/oxi6uZSN
+	 zOkpte993sFMbRMTzU5p0bFJ40byf2uFxdnKw5SVdL4Y02F5TspIpZDYfgQgJJY+2y8yG
+	 9sIG5M7uvZcz2Gst3QJ4ENdVpsolM2kNtAs8N0PLDUPU/CYo+Ow9BKsqeY8HVS4m2RkjU
+	 bXKiEsxx5cMD0JQ1g9YUEseH7sKIDCMsNIOMhDqIfrAM5zYTrXTAA2KukNMMkqCX/xs8V
+	 vLAGiY2yulSd6ZIdGYtttfulE5foQAcT/pvFZW4XzDwJOHmcHtOCis0a02cp1JfE2kw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795777506;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777525;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=qcpX6YwnHTFKfGu87lTd7oqauZWlHU08Aks6/ht/Glk=;
-	b=CkQJx+ehJaU/y4ciXKNsJ5PNW3DhlMkrAeAcsjEhzRkoRIqxFbfD/2CrpNv/h7LaRPuV
-	 xYnsv/syVrWsl8zZ6ENBOzEqWsENWFY1O+9qR1sjy2rAYQNhRaW2xpcHLofPMnYpDmkS/
-	 k+1xULX+fhr3lkwk12D0zfw6pQONm7dDHC+3aeqjLyFCyHb60MjV6xLGgPpHZz3XxMStF
-	 TyLS7D+gcz1gs29Wd8VcFoJazZVHAN/oG7H3ogDQc38yVWuo+GBxsV5bn3VSDHgiKVCNe
-	 H9QglphHcI0nwd2rDJYSiRo+oeiYJ2bvGlYYk3YcLigTFhbRNvLY3fPW3Dvc5qp/blQ==
+	bh=U9ANJ3B6+URyp8PWUZ9qIzc4cW2GM4LcDUwic8AgW+c=;
+	b=q+5YMv/tvKyh9jjV5gVWgMBI2smfAdPrh6u+59HfYfD/n2pRYtwNwO2CC6pvfJSySsKC
+	 2iOqgYNXGWeUS+RlTvCjIims3NfHwt81OV4eSSXQa9177ptk3bH9rvO8nolQGsowVdl5U
+	 8Bp4u9K+9ywL5wYhxk4wVCgY5aiPpPkg3Rq6aIJMro+vIpBAWFLBH3zrI4b+nXLSu2dyX
+	 J4mPyO0KHgi9dT8U3E9EtxYr+h6ByFnxdUMsmGPaN4Wdxcuvp1ZMy+SWgOE5FhDgdfSru
+	 sLFvOFitnXtSr4OJLjHWcu2JYFQizLK1xwJhx1hDpq1F5nqvoF49V+RppbSu6Z5e8Lw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Bs1q28KR;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="m1/rciBR";
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=wkennington.com;
+	spf=none smtp.mailfrom=wkennington.com;
+	dkim=pass header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=eqeVT47p;
+	arc=none smtp.remote-ip=209.85.215.174
+Received: from mail-pg1-f174.google.com (mail-pg1-f174.google.com [209.85.215.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0392606A324
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 11:05:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0392606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0204606A31E
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 11:05:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0204606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=wkennington.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=wkennington.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Bs1q28KR;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=m1/rciBR
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795777504;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qcpX6YwnHTFKfGu87lTd7oqauZWlHU08Aks6/ht/Glk=;
-	b=Bs1q28KRG+Q+EutZdVt1HQ5lRo5QWfQAf6QBol5yH1DOebcRFcZbeXeUZymFwSIUbK4S2Y
-	ORgat4tyec+fTmHLO1BN6WkSDqp5wTBm8oJWMo61G5jtFxxGiUH3cRJ3IaxBhyJQnFxvGK
-	s5XLa6qZHfhiy+e4253lK7WJGq5cWpk=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-600-ssvKtu9yM7Kk6slrKOY4HQ-1; Fri, 27 Nov 2026 11:05:02 +0000
-X-MC-Unique: ssvKtu9yM7Kk6slrKOY4HQ-1
-X-Mimecast-MFC-AGG-ID: ssvKtu9yM7Kk6slrKOY4HQ_1795777501
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-49337a224a8so4820927f8f.3
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 03:05:02 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=eqeVT47p
+Received: by mail-pg1-f174.google.com with SMTP id 41be03b00d2f7-cdac6d19ddaso3261829a12.2
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 03:05:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795777501; x=1796382301; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qcpX6YwnHTFKfGu87lTd7oqauZWlHU08Aks6/ht/Glk=;
-        b=m1/rciBRUKbiNZLc56oAE0Djpvd9OQ7EBzCR3KWb7A7zRKLr05+HordNZL+9k1uZpb
-         M2/PLpHqTgLow3ARGAy/Aa+QoyRhE+IXHX0fE/tQ46S8vhDbdmICmTwxAyf3NLI9mDZ3
-         QlHUkKEVMvk/4J/twgIkvcZoVBtaVwfU9xRNm/djfEZxzCP7RUtQdXI31wlCWe3LwUtn
-         +1/78g0UWq5oTKFgDIbKx6Sdqo2ngC/XlOtbQfWVeazjPAry42ZyzKt3o20MPd2+WbrG
-         Sk+v1StbHx1PG1wKsQwkOK1mfx35uCj0CXEvnSHcsaOYmYlnWvgL8lN5ITkVhYEcmPLs
-         fa1g==
+        d=wkennington-com.20260707.gappssmtp.com; s=20260707; t=1795777524; x=1796382324; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=U9ANJ3B6+URyp8PWUZ9qIzc4cW2GM4LcDUwic8AgW+c=;
+        b=eqeVT47pJpbojwUSkka7lRiGS7EKd7+nSow9IiGOrxs/BnWNagVHsdo3bsVJ/1UTXj
+         X6j1AtWOoBQdgX5JHb+WZWkVsvIEGTH+JTwfHsoCof3wZMitsBLcq/XwcpGt72jN6QHc
+         c1x3GpyI9qUlOVMV8bXWZ0YQ6OBKAZF1Rb62++h8AMmSr50VKSERLfpCB2IouGn4pZcr
+         BUpoWon/eA7/yWrJKdhlyVu1O0LSELrgdhhT/t+ASoq8CeoUr+vu+iqDsyljLZ6R9rY6
+         O7GM2CbeFVgWN9W5bhPotOYu93reY9sVItY8HBIhtDXdWVK0+4EzEJkxaz04pr3riehp
+         BpSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795777501; x=1796382301;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795777524; x=1796382324;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=qcpX6YwnHTFKfGu87lTd7oqauZWlHU08Aks6/ht/Glk=;
-        b=VCTbmXH+ehJ5TARjvehjszaC1E+OQcTmPaW3pDwRfiUFdhJOD2Jnmkgy4zvsodcbbd
-         njYPTpGC8rLg1ubzdr2N6sAMICgHXZCvMzTosQUIfWLkovQ+n0JAo6he8n0gBfKNogsJ
-         CQGo/ATc9Peb2YzAi9aB7BliwJuyfE7yH+/Ic6BePyDqaKRRSy6bJBxMjxOK/O84DbaQ
-         58j56Ad5lFdttuz65hzG1J1vt5B0L9RQkW50IodA3XjlU896f+1G5Eutaoec2kMHL9Pt
-         ynV7ldgMdnLkSaWoYk2vw94K8ors0J5p+Ews/9zLXCgGFfnE0bBvEzYXUdvW+m/jOX6I
-         zU9Q==
-X-Forwarded-Encrypted: i=1; AL+hErGd8cqt6ymS/1Nc0Q+JXq5IUrCoiSxKCu7HRb7PII6SLLUHExZzM3oSZgmaW7eX0YMb7BeamjM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Xy7hyPjIH64y0vNYYagFH5Joo5j3K9Lv4J9vEIpqOGUJ+vNMs
-	6LENJCkyNE4cQ0+btXixRwzXuBphb9Cqtlm+M6RrC2wWyoXeHt7wqfrK98krvuFHPCYfB7UtOYE
-	iOJmaqG6ipmcVb475VSZVg+O3XnigGBuaJnnB9FLnJFx6WDipYEV/F3uKmw==
-X-Gm-Gg: AZFdTZdUl13XbHgfcbEIiWc50XAas0UmXzG3c9LH0y1g+JyXE6muoa5oWdDqltd0DPB
-	3QaMQw9cSY8ZfkNX1fphL20LVeHorfAN+R3fzEfx9HBzazx/WKm1Oi/b5QfxY1mQ1y6ov5s8OMQ
-	+R6W9WQgE0cdAvmWEViDKLtdj9bej+yz/l4Gr+Vli/z87iWhVhMZVZostwGlwzPMnnNpF6UlwKA
-	AsqZ/WkSN4hFdqcVjEyj9w3YXcxJpwtL90oItx8FBTBAbTw3/SPF3aDbz4TxExPxY0Wuitst8JQ
-	XvXfhENpiMxE/mTFeJx5EUb1bSClWbzkaK5ZhN5EpyIbH7sE0RErxVJwXovtHGJYoFXfXH2/7qd
-	0KRXSp3fPwhdfAW6kjZxwKOmYsf43rTmqMEU9M87LyDVboF8/YrC0f594OlFDfOBFjnkqo7f2uo
-	Y+y16YJu+wO+bgQ3QC0VhUXYy2Ni1N+O9H/paV5ZJ3VtVp
-X-Received: by 2002:a05:6000:4812:b0:4aa:8da8:4bbc with SMTP id ffacd0b85a97d-4abb5702827mr43599206f8f.36.1795777500986;
-        Fri, 27 Nov 2026 03:05:00 -0800 (PST)
-X-Received: by 2002:a05:6000:4812:b0:4aa:8da8:4bbc with SMTP id ffacd0b85a97d-4abb5702827mr43599159f8f.36.1795777500541;
-        Fri, 27 Nov 2026 03:05:00 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989b3sm46514173f8f.51.2026.11.27.03.04.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Nov 2026 03:05:00 -0800 (PST)
-Message-ID: <fa61e083-d6c0-40d2-b25a-f83cad368397@redhat.com>
-Date: Fri, 27 Nov 2026 12:04:58 +0100
+        bh=U9ANJ3B6+URyp8PWUZ9qIzc4cW2GM4LcDUwic8AgW+c=;
+        b=hmHTqhd1c2xqCl4MVM7Mhr3DAcCs42FYxQ0tFqAt+x69NY0pqRrlX0IznrRr4i4M3i
+         eAC4TCFSsN4dGFXUGjzAz0ML9wASu8YjzjlmFQOFEMQTgk7+Nae9hZhPYhooHpL57sTp
+         754O8F0yN38+dScPcGnaBoDyYUMvcW2THr04fktbOTMVXVDbjiVQsiefT+rO7uaVmHZG
+         vSJx1+Ivgfbf1/OkNWBqaatvGFfPPSZsZzaMVBOZU+We7Z3UaakPl7Pu2qg6KRWWE8vs
+         9x/HTMUQvDldRcMy91aJA0RMBnwFHhu7mrkOnVN/Wmo5HARSGUoUi+xNZ8ZlbJsnP1wS
+         lAVQ==
+X-Forwarded-Encrypted: i=1; AL+hErGCbj4jYtvt1ctE5eYk5uXzRdcoEhsE7IcVsfSfxhFSXbRr9ScMqqaQum2Xi34hYVb+g6C3Gf8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8z46wlTyjbX4/Gdw+7ZhwC+tbnALac7x4iVoxW/bud++Pmc2Oz
+	us2WRGBYKQFz5SoTDqnFCZGVwcM28Rtfwg/u627igpejwA6KbJRF90/gWjgZ4gVqwOY=
+X-Gm-Gg: AZFdTZef3cVpq0gIayATZi4bun/ZBtQFFV+1Ht5FIgbZwCjS6k+MtFu4WtMRsEESa7R
+	SICr0q1MBnK8zjJ/glnC7ROY73lqRqy5GaV9oJzOFES00x9Bcmmyg3q3TgCQc1zVx942bVwES82
+	UEaMm/SvJoUKSQkGlzl6g30Twxw2zjbgub7xlSdLi5+97J6sABxtzfXKTC1BoKQIxeW7VaxuYp7
+	Q7HNm9Ck+GCse9pN2Db4egdDZ4EPCnsGWAwKzYJ8c0WCI9l2jx9R9aqSHJUq/WekDuYoXLDU47+
+	jBE9YVaIu6AAL5TycbcKNoklFv6QsiJ3xRZAmpVgJQ8VmtUhvkezWS5/6jZpnZrk6SI5MkS6h3v
+	xfinX8p9h6+vJdbmklhLvNE7h36OBX6YJ9yDRJLZXA+4kE+5S1+xkF8ELAOWyCNhRhN/00JTWnz
+	c57SL8vmiD9w3/eBVFIGppUMPS0g2O7QqlKx8shljEGk4JJMSzCTVrPqwkDqtwtFfbJwGhs97zm
+	fA2xxGsOvVGRdPtLGRJLJ4GZs1vfM7GLq7H7lV0F0bTGo+4ovNzrT/6hyD1MMGL0OXNIxEZhW+n
+	VVMSGzjt7bbNHtCUDsaIIOJfWTtAQoLU8x6O8H/7Jk98EaWTI4tqCSCzXP+JTFmPq34xjv3aVlW
+	o++bqWQ4bdxYATAjQJ10TVaEROVOR821cQUI=
+X-Received: by 2002:a05:6a20:3d07:b0:3e1:89d6:ba1 with SMTP id adf61e73a8af0-401493a748cmr33033618637.3.1795777523884;
+        Fri, 27 Nov 2026 03:05:23 -0800 (PST)
+Received: from wak.c.googlers.com.com (246.21.127.34.bc.googleusercontent.com. [34.127.21.246])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cea7c38sm12857789a12.2.2026.11.27.03.05.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 03:05:23 -0800 (PST)
+From: "William A. Kennington III" <william@wkennington.com>
+To: Oliver Neukum <oliver@neukum.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: linux-usb@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	"William A. Kennington III" <william@wkennington.com>
+Subject: [PATCH net v2] net: usb: cdc_ncm: send the NTB once another datagram would not fit
+Date: Fri, 27 Nov 2026 11:05:21 +0000
+Message-ID: <20261127110521.1235409-1-william@wkennington.com>
+X-Mailer: git-send-email 2.56.0.567.gdb80ae8cd5-goog
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,47 +102,105 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 net-next 8/9] net: dsa: netc: add PTP two-step
- timestamping support
-To: wei.fang@oss.nxp.com, xiaoning.wang@nxp.com, andrew@lunn.ch,
- olteanv@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, horms@kernel.org,
- richardcochran@gmail.com, linusw@kernel.org, linux@armlinux.org.uk
-Cc: wei.fang@nxp.com, imx@lists.linux.dev, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org
-References: <20261119030534.1892935-1-wei.fang@oss.nxp.com>
- <20261119030534.1892935-9-wei.fang@oss.nxp.com>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261119030534.1892935-9-wei.fang@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/19/26 04:05, wei.fang@oss.nxp.com wrote:
-> +static void netc_port_tstamp_timeout_work(struct work_struct *work)
-> +{
-> +	struct netc_port *np = container_of(work, struct netc_port,
-> +					    tstamp_timeout_work.work);
-> +	struct sk_buff_head free_list;
-> +	struct sk_buff *skb, *skb_tmp;
-> +
-> +	__skb_queue_head_init(&free_list);
-> +
-> +	spin_lock_bh(&np->tstamp_lock);
-> +	skb_queue_walk_safe(&np->tstamp_queue, skb, skb_tmp) {
-> +		if (time_is_after_jiffies64(NETC_SKB_CB(skb)->ptp_tx_time +
-> +					    NETC_TSTAMP_TIMEOUT))
-> +			continue;
+Observed on BMCs in real use communicating with a USB NCM gadget over an
+EHCI host controller, where bulk TCP traffic caused steady tx_dropped
+growth and retransmits. Tracing the link with kprobes and the kfree_skb
+tracepoint during iperf3 TCP runs confirmed that every drop came from
+cdc_ncm_txpath_bh() calling usbnet_start_xmit(NULL, ...) into a stopped
+TX queue.
 
-Not a blocker, but I think that starting from the tail would be better:
-the loop can be stop as soon as non expired skb is seen.
+cdc_ncm_fill_tx_frame() only learns that an NTB is full when it is given
+a datagram that no longer fits. It then hands the NTB to usbnet and
+parks that datagram in tx_rem_skb for the next NTB. If the stack sends
+nothing more, only the TX timer is left to send it.
 
-In the hopefully common scenario of no timeouts, the worker will peek
-a single skb, instead of traversing a possibly long list.
+With 16 KiB NTBs usbnet allows 5 TX URBs in flight at high speed. When
+the NTB that was just handed over is the fifth, usbnet stops the TX
+queue. The timer then builds an NTB for the parked datagram and calls
+usbnet_start_xmit(NULL, ...) directly, bypassing the qdisc. Since commit
+ad70411a978d ("usbnet: fix kernel crash after disconnect")
+usbnet_start_xmit() frees what it is given while the queue is stopped,
+so the datagram is lost and counted in tx_dropped. A bulk TCP sender
+hits this several times per second.
 
-Can be a follow-up.
+Send the NTB as soon as another datagram of the interface MTU, with a
+VLAN tag, would not fit, provided no datagram is still parked in
+tx_rem_skb. Nothing is parked on that path, so cdc_ncm holds no
+datagram when usbnet stops the queue for a full TX queue, and the timer
+has nothing to flush into it. An NTB also no longer waits for the next
+datagram to arrive before it is sent.
 
-/P
+tx_rem_skb is still used when a datagram needs a new NDP that does not
+fit, as with several MBIM sessions.
+
+The cost is that an NTB is closed while it could still take a datagram
+smaller than the MTU. With 16 KiB NTBs and a 1500 byte MTU this does
+not change the 10 full size frames per NTB.
+
+Tested on an NPCM730 BMC (EHCI host, Linux 7.3.6 with BQL and fq_codel)
+running 30 s iperf3 IPv6 TCP streams to an NCM gadget, same board
+before and after:
+
+                        tx_dropped  Mbit/s (before -> after)
+  1 stream,  fwd        106 -> 0    119.8 -> 141.0
+  4 streams, fwd        128 -> 0    164.3 -> 172.4
+  1 stream,  bidir       51 -> 0     39.5/118.3 -> 73.0/107.7
+  4 streams, bidir       62 -> 0     36.7/150.3 -> 78.0/130.2
+  4 streams, MSS 512     81 -> 0    129.2 -> 152.8
+
+Fixes: ad70411a978d ("usbnet: fix kernel crash after disconnect")
+Signed-off-by: William A. Kennington III <william@wkennington.com>
+---
+v2:
+  - Replace the timer re-arm polling from v1 with closing the NTB as
+    soon as another full-MTU (plus VLAN) datagram would not fit, so no
+    datagram is parked in tx_rem_skb when usbnet stops the TX queue.
+  - Add real-hardware discovery/trace validation and same-board Linux
+    7.3.6 (with BQL and fq_codel) test results. Mainline usbnet BQL
+    still hits these drops because DQL's limit exceeds the 5-URB
+    (80 KiB) TX ring cap.
+v1: https://lore.kernel.org/r/20261118034122.315979-1-william@wkennington.com
+
+ drivers/net/usb/cdc_ncm.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/drivers/net/usb/cdc_ncm.c b/drivers/net/usb/cdc_ncm.c
+index e92dc7f011ea..7fbce4846a04 100644
+--- a/drivers/net/usb/cdc_ncm.c
++++ b/drivers/net/usb/cdc_ncm.c
+@@ -43,6 +43,7 @@
+ #include <linux/ctype.h>
+ #include <linux/etherdevice.h>
+ #include <linux/ethtool.h>
++#include <linux/if_vlan.h>
+ #include <linux/kstrtox.h>
+ #include <linux/workqueue.h>
+ #include <linux/mii.h>
+@@ -1369,6 +1370,22 @@ cdc_ncm_fill_tx_frame(struct usbnet *dev, struct sk_buff *skb, __le32 sign)
+ 			ctx->tx_reason_ndp_full++;	/* count reason for transmitting */
+ 			break;
+ 		}
++
++		/* Send now if another full size datagram would not fit.
++		 * Accepting one more would park it in tx_rem_skb after
++		 * this NTB has been handed to usbnet. If that NTB fills
++		 * the TX queue, usbnet stops the queue and drops the NTB
++		 * the timer builds for the parked datagram.
++		 */
++		if (!ctx->tx_rem_skb && n + 1 < ctx->tx_max_datagrams &&
++		    skb_out->len + ctx->tx_modulus + ctx->tx_remainder +
++		    READ_ONCE(dev->net->mtu) + cdc_ncm_eth_hlen(dev) +
++		    VLAN_HLEN + delayed_ndp_size > ctx->tx_curr_size) {
++			ready2send = 1;
++			ctx->tx_reason_ntb_full++;	/* count reason for transmitting */
++			n++;
++			break;
++		}
+ 	}
+ 
+ 	/* free up any dangling skb */
+-- 
+2.56.1.839.g22a8290db9-goog
 
