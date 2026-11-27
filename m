@@ -1,80 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795819070;
-	b=5hdpogvi0Mvv0kwXqhe4eo+HgxtTG5BJBFX0I3a3bhybtxEr6uTFe6QTtCot9T4uM3oD
-	 SkywEFzKPEnhxVzQqsQtpLAEVph6zapTvzpOmwUeXxiXMgo+AA4JagOcoAYS0bTJLy4zO
-	 +ynw38vZ6mnSRqDyzb3bCzoOFk4AUg4P4JV7AtheR4qLU/dF1dr74DtwLZgMBM0SaeGeV
-	 SJtuNTU36WZxzYTXBMtPAR0PGr9WuJRhnIg1U0+gouB654Lr5QelQcy1wUKBYNI+ds1x3
-	 F0tkS0x2DU0TH3rlKaH6KqlX/bVOmO00bKNVDzwCfXs5zlokmmkHQsULjAacF7yOoww==
+	t=1795819073;
+	b=Bxrjpm4+8FG/z9xpsjOHvPKAdywb79l5rWXj3kExKTZAUHxdm9A7oNJGVU93P6lVP24q
+	 Lv5slEORTPgQh8bcNAAQib44huO/OT67uDTQxoXF7mGJjLb/HAqzEdhJJzE+64m+VvUhK
+	 OcQeDCYvYcetoYECSaontR8pGH3al4oWZdgh8ScI0znuV05Evs3Ks2A0c/TFURJgeatDO
+	 MSMN3K5ib6fWJ7WX+hKHkF2Nqi9bYDCG+mXfDKJnAY9U9xOj7zuH+iygbcHTkKapmEVt8
+	 vo7JolTw9AhU2ry0nsEAJqbQ9OFZ+TGIWm3VTrMfTGhb6FDvvOWysK1RtjRw8aS3ldQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795819070;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=tQTuiTysv88wPS84RZ+a9Tm4Wp4SVgkgMieh1jZXifU=;
-	b=odQpF7GPvuP9yM7d2rxDEo8SdFrXgEbKG3aeWidNJhX29koyG6X+WY4qN1XuyqFv3Xo+
-	 /gfa+tUFxy9F2r8OXPAMcykV2iBT4pOPAZB3KgHX3M4SbO4k8iJRi2pcNDPy3EXm0XxEA
-	 s2TrPOrOVPIPmlrOScT6/0XwNDf4uAyTF9uGJdYhoilZ9O5Yx02X7bDOukve+D/zrrD+6
-	 2HbSZU8OHqF0VaEKZCGzuXqMzD3PjwqHes0A5BuxtTcHGgPbQHE0LZj2mIfp36f5l6adn
-	 /EpqpCBymPHUloZ46O6jRu4IB1C6aIzgND5RW+99yYjBe8stKcXyDOAbQkxtlh9DwAQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795819073;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=tq4vvO9BS7u9vv4gu1rRkhvXdqzr46zgrAgFSiJEXyQ=;
+	b=zcbvaInrzpzbwWaSCaNAGV08qfqI1INd/cuY9DFa0SuFhBPR+VGs75bo4MSl6D+1FxM+
+	 c7TOa0OMkFjrMlYg/FLvYSw2MVLURhI05Qd42dvjlJgXnPlQ8lmn7cmyVsIhNpqjiWnO8
+	 OBGtZV2DhqEqSJjzcRihFvi0JWTpXvoVjV7UurZICIc/24UV5S5taf0dGRFU/7HU/BWjJ
+	 z/GqA34cdzGCIoWv/7CZsbJvTnFTAU6Kift32NrtIm4iCCHzouc2D6uQAkeEC3DLWbfAV
+	 B0OLQ3ijjyEKJScTSO/ju7FoF4yMUXu0sN9k/H9fUHu3zQCmSgmVdnec+UWHsVWv+Yw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kTyIZjBh;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=naHn28JT;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43DE9606A31C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 22:37:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C7D1606A31C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 22:37:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kTyIZjBh
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=naHn28JT
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795819069;
-	b=l2+pWGwaauJJQqZ5M8YKUAjuVpgwrVyYJXlKp9Wi012GFRuYkh7yAPCKB4gAiLSf1yBz
-	 xtwkrxXVlEiZlUuCtuDObl4VNF6JsfHQx4vZNG0Frnq4s5mlHP5oc1/EJXSkG8n1BEsTG
-	 jiDINYdFn28e3cyVht646VU2qI2aiXmenWFNculimlz4TgnV9JdvLoSbVmtVJO/xG1K8f
-	 qiKvZ4cfyM++gU8XOMApphM0cxQYhVqmT7rxIVn+C9wTsVZSSncJpZJd6fjPYmLKK+vf2
-	 8+h63i8ae2G5Ef2GUY1UvawzFx3RIrFXdGRsWRhrFQ6Myi27mmup6Cc9UMfzWgYHClw==
+	t=1795819072;
+	b=la1AdTcAOpqga87hvZ6PwY8U7Ct9s47RudGp6VRz2r3+k2fKQZNuXB0vrdCZLK6CAows
+	 R6GcL2hEAPm5QlbctxHWosLqIoYUCG67lMDrsN6pglBrkz4PmRW148G1mtqdg90W5CTD8
+	 uRkeNbUGqiHTU3nE/c1lJRGnh+pkcnozOMBKrIHO0WgC1D99alvl5IiB5zhp4wQaw2LKG
+	 Wd3YEeNqOgMphgfb+DV+PafvGnn1dyCaEnN1eMhC9uolldGhu9DljqTJBdc9fGCq/MCuR
+	 fKUBuZ+DrwoYunbr9z2R0YaWMw0j0n4iGrsn4hgsoHQsCSfvBNxlyRFqcnDp3fCjAoQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795819069;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:To:Cc:X-Mailer:
+	c=relaxed/relaxed; t=1795819072;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=tQTuiTysv88wPS84RZ+a9Tm4Wp4SVgkgMieh1jZXifU=;
-	b=m4r53syJanrqqToX/12zXDcg1oLBqZvF0WpJR1La+Q3UquenOdliLiz8tXUeHotV2BE4
-	 xfO7Xfez4Ar87N7sTEHUQtdMxLASx/qpz97qFoiE3LUQVdVNORllpJKmWfHgu4KuJ6KW+
-	 /rgq5iyZ91vkJ5WJ7thrbhAF/+sNo0OQepeNhC8RfkoodFKc2biaIN32eZ1j7ftXe1RZL
-	 yr2k8PbB2OqKq8AAr7CC8s7X5eYK3mZMSUlw/bjpLz6rngI4+ACS7Tku9qPz81ZkQstAI
-	 Ak5AKaTCN8Rqx7POXekueUAqUlNxN36X6h1dGPGIl9SMjOcPi9sI72l0eoeBwOFoqcg==
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=tq4vvO9BS7u9vv4gu1rRkhvXdqzr46zgrAgFSiJEXyQ=;
+	b=u4gvdsn6L7x0aTZZ9zgAG5qIAD/oJpqp2UYRzx7IfW3OJrpkobfCmDA+b1wB+xh4WedD
+	 b7ObMU7G9YXGhuSavKNqW2pfqYtb5Z/3tufgpdDMOe/JPVKJTnM+BT/1gBbna8FhUR+6E
+	 /0SsHs1PozPHUyLV1Vfb5Bj/7vUGruhs6d3PO4UkciroSTPltUpRFEsWVFi/vfMysMWX0
+	 NFyM0Py8jObgbZdkNCLk0p1Bs5Zkrq+le0XHwwawLC4WL9snkw77Zqz7YIR3Z9iN/lvbB
+	 lhUCvB28CRHu7fBAQ4lXgZz9S9G7ORvK6k5Hy9nt++O4BjHMagi/Rt76m8Jrd5aTXsg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 2DC731F00897;
+	by smtp.kernel.org (Postfix) with ESMTPS id 8185E1F00898;
 	Fri, 27 Nov 2026 22:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795819069;
-	bh=tQTuiTysv88wPS84RZ+a9Tm4Wp4SVgkgMieh1jZXifU=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=kTyIZjBh0W7X2aKtBXKsrKQXTvAzOwUuGADvBR8yJlq7U1zyIEP0M+8dY4EdxrjUQ
-	 ix1zsD6HdDyQwfOxtINTbF3o9WT3qA5xoLjK3f2xSfmj6m4P34AW98T9mzGuNMynKB
-	 MZ2hIzzQNIH774hcYr7GS0pJRdZSTLAZ8jOPln7Au31IlDJ8vC5AL8eOkq05KlYJ37
-	 0LQFDsd06nXtmAAWBVS3ARFWPgi6e0o29ziLtBRp9JE5SvlcTSCSvF/nwwQ0p9oh7X
-	 Wxriuw/zYVohYIDtkVC23fCpnNLxhW07Zr3OdJt9/ebZpn47BYARh2gqMJqRxn07lo
-	 XF6M3I9EkiT1w==
+	s=k20260515; t=1795819072;
+	bh=tq4vvO9BS7u9vv4gu1rRkhvXdqzr46zgrAgFSiJEXyQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=naHn28JTO4VcXfRR1LP0tC8abI+a2QqBYQAusyEnXJeYBcOrWDLdikvCIORyzW8Oi
+	 f+b74fLGarKbY7GdtI9sGadEtGL2LQZNcACUPQuiQyuaW+d97tzhTLizbl3mCl8fPB
+	 037oOsSFxV48N8+YCERMLY17/vkV6GcwKA8q3jiX7y10k1G8yhVYRGasAYtBERQc3Y
+	 euFPpHln4dnhNTkNc5uCL421lWGmry0ADjc1tMDVNfcRUvEIAhGBvEhkuzFRxEExbr
+	 3BZQpIvdRymz0i0D8V8MUYP+PKUa3ov/sKmc/a++aEIexu8FOWgCWQedL+oL/zyH2i
+	 xXdlCjuQmiD0g==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 825F14DE56;
-	Fri, 27 Nov 2026 22:37:44 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 06E504DE5E;
+	Fri, 27 Nov 2026 22:37:45 +0000 (UTC)
 From: Vincent Jardin via B4 Relay <devnull+vjardin.free.fr@kernel.org>
-Subject: [PATCH iproute2-next 0/3] ip: support LISP (RFC 9300) tunnel
- devices
-Date: Fri, 27 Nov 2026 23:37:38 +0100
-Message-Id: <20261127-iproute2-lisp-v1-0-df8ea175bc06@free.fr>
+Date: Fri, 27 Nov 2026 23:37:41 +0100
+Subject: [PATCH iproute2-next 3/3] testsuite: add test for lisp
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,71 +83,103 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADIGCmsC/z2M0QpAMBhGX0X/tZX9NPEqciG+8ZdmbUjJu1suX
- J4659wUEQSR2uymgFOibC6BzjMal8HNUDIlJi7YaM21Eh+2YwerVaJXpmyGpgLXFiWlxgdYub5
- fR7/qcO3UP88LyedEtm4AAAA=
+Message-Id: <20261127-iproute2-lisp-v1-3-df8ea175bc06@free.fr>
+References: <20261127-iproute2-lisp-v1-0-df8ea175bc06@free.fr>
+In-Reply-To: <20261127-iproute2-lisp-v1-0-df8ea175bc06@free.fr>
 To: David Ahern <dsahern@kernel.org>, 
  Stephen Hemminger <stephen@networkplumber.org>
 Cc: netdev@vger.kernel.org, Matthieu Baerts <matttbe@kernel.org>, 
  Vincent Jardin <vjardin@free.fr>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795819063; l=1702;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795819063; l=2428;
  i=vjardin@free.fr; s=20260525; h=from:subject:message-id;
- bh=7nd6BlqaJsHgxYsTrMLtC0L57s6XiuJ62VdGDLEwrvw=;
- b=WHzsU4HmU2rdBO7RCecfGGKZX0kQYFjNY4iJ3rNAc4i+PU5BSlwio9yzH1DVUGMWfniADGx7i
- vwCJH+vpSXpCSIQO3IM64IjtPeMijPHRytppnHeKs9A8D9XJl0wjTvX
+ bh=WXV+PDL4dcCQwPuXlvDRBbz0HV1YFgXClHcIX/Zyvgs=;
+ b=QPx5sQVmJPzptU9SthlUiSkF6FIHbKrfQ5PQg+mrHOIHfnFLFwiY8zJ3NfCZT3xRJFdfh10Ri
+ 10PkHB/DXOeC54IfswMr2ztOyEL9wVoAXh/KjMmEeUH+3Qecik7pv5F
 X-Developer-Key: i=vjardin@free.fr; a=ed25519;
  pk=hppgLeFpGpKOi7LNwGEZ4jOYofJCoGd4Jf1ltAabiLw=
 X-Endpoint-Received: by B4 Relay for vjardin@free.fr/20260525 with
  auth_id=871
 X-Original-From: Vincent Jardin <vjardin@free.fr>
 Reply-To: vjardin@free.fr
+Content-Transfer-Encoding: 7bit
 
-This series adds the lisp link type to ip, for the LISP (RFC 9300)
-tunnel devices of the kernel series
-  "lisp: add a LISP (RFC 9300) tunnel device"
-posted for net-next:
+From: Vincent Jardin <vjardin@free.fr>
 
-  https://lore.kernel.org/r/20261126-for-upstream-lisp-v1-v1-0-7382a4bcfd9b@free.fr
+LISP checks
 
-The purpose of this serie is to support the selftest of the kernel:
-
-  https://lore.kernel.org/all/8707e3b0-c948-44ea-8afc-d33387925173@kernel.org/
-
-A LISP device carries the packets of an instance ID, or of the
-instance IDs that have no device when it collects metadata. The routing
-locators of a destination come from the encapsulation of its route or
-of its nexthop, which ip already sets: the series only adds the device.
-
-  ip link add link wan name lisp101 type lisp id 101 local 192.0.2.1
-  ip -6 nexthop add id 1 encap ip dst 198.51.100.1 dev lisp101
-  ip route add 10.2.0.0/24 vrf site nhid 1
-
-Patches:
-- patch 1 uAPI header
-- patch 2 link type, with its manual page
-- patch 3 test
-
+Signed-off-by: Vincent Jardin <vjardin@free.fr>
 ---
-Vincent Jardin (3):
-      uapi: add the attributes of the lisp devices
-      ip: add the lisp link type
-      testsuite: add test for lisp
+ testsuite/tests/ip/link/add_type_lisp.t | 59 +++++++++++++++++++++++++++++++++
+ 1 file changed, 59 insertions(+)
 
- include/uapi/linux/if_link.h            |  12 +++
- ip/Makefile                             |   2 +-
- ip/iplink.c                             |   2 +-
- ip/iplink_lisp.c                        | 137 ++++++++++++++++++++++++++++++++
- man/man8/ip-link.8.in                   |  66 +++++++++++++++
- testsuite/tests/ip/link/add_type_lisp.t |  59 ++++++++++++++
- 6 files changed, 276 insertions(+), 2 deletions(-)
----
-base-commit: 8055701cb470fdc9e5e9909369bff3f7e24c872e
-change-id: 20261127-iproute2-lisp-639a94e27fe3
+diff --git a/testsuite/tests/ip/link/add_type_lisp.t b/testsuite/tests/ip/link/add_type_lisp.t
+new file mode 100755
+index 00000000..d42f6dd3
+--- /dev/null
++++ b/testsuite/tests/ip/link/add_type_lisp.t
+@@ -0,0 +1,59 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0-or-later
++# Copyright (c) 2026 Vincent Jardin <vjardin@free.fr>, Free Mobile
++
++. lib/generic.sh
++
++# Skip test on a kernel without LISP
++NEW_DEV="$(rand_dev)"
++$IP link add dev "$NEW_DEV" type lisp id 1 2> /dev/null || ts_skip
++$IP link del dev "$NEW_DEV"
++
++ts_log "[Testing Add LISP interface (instance ID)]"
++NEW_DEV="$(rand_dev)"
++
++ts_ip "$0" "Add $NEW_DEV LISP interface (instance ID)" link add dev "$NEW_DEV" type lisp id 101
++
++ts_ip "$0" "Show $NEW_DEV LISP interface (instance ID)" -d link show dev "$NEW_DEV"
++test_on "$NEW_DEV"
++test_on "lisp id 101"
++test_on_not "external"
++test_on_not "local"
++
++ts_ip "$0" "Del $NEW_DEV LISP interface (instance ID)" link del dev "$NEW_DEV"
++
++
++ts_log "[Testing Add LISP interface (local RLOCs)]"
++NEW_DEV="$(rand_dev)"
++
++ts_ip "$0" "Add $NEW_DEV LISP interface (local RLOCs)" link add dev "$NEW_DEV" type lisp id 16777215 local 192.0.2.1 local 2001:db8::1
++
++ts_ip "$0" "Show $NEW_DEV LISP interface (local RLOCs)" -d link show dev "$NEW_DEV"
++test_on "$NEW_DEV"
++test_on "lisp id 16777215"
++test_on "local 192.0.2.1"
++test_on "local 2001:db8::1"
++
++ts_ip "$0" "Show $NEW_DEV LISP interface (local RLOCs, JSON)" -d -j link show dev "$NEW_DEV"
++test_on '"id":16777215'
++test_on '"local":"192.0.2.1"'
++test_on '"local6":"2001:db8::1"'
++
++ts_ip "$0" "Del $NEW_DEV LISP interface (local RLOCs)" link del dev "$NEW_DEV"
++
++
++ts_log "[Testing Add LISP interface (metadata)]"
++NEW_DEV="$(rand_dev)"
++
++ts_ip "$0" "Add $NEW_DEV LISP interface (metadata)" link add dev "$NEW_DEV" type lisp external
++
++ts_ip "$0" "Show $NEW_DEV LISP interface (metadata)" -d link show dev "$NEW_DEV"
++test_on "$NEW_DEV"
++test_on "lisp external"
++test_on_not "lisp id"
++
++ts_ip "$0" "Show $NEW_DEV LISP interface (metadata, JSON)" -d -j link show dev "$NEW_DEV"
++test_on '"external":true'
++
++ts_ip "$0" "Del $NEW_DEV LISP interface (metadata)" link del dev "$NEW_DEV"
++
 
-Best regards,
 -- 
-Vincent Jardin <vjardin@free.fr>
+2.43.0
 
 
