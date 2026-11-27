@@ -1,139 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795786767;
-	b=Pu3H2gRsu1NDkaTJqZdnIHht6ZRaaOmXawaJo2crQoC8kfrZKEVYcBgRIssq5gMVlidi
-	 AESZbtgIYtG7nOg6bNMeNbe8Z3b8WcYSyD+Dde8n6RTvGswgU8f0DgX2BPKTkWqKV1vq6
-	 DVz7OUiYXXELgaw8sGs9ITbx704+/dSqn7w1UVRDLR2lvrqEUuMAIL4L2unub38WMFBpA
-	 FG5YBZQksjP6G2SHc5wr/H1ijEvYN/77cyKqm7i6mTJk+cOYkbjc5cj7gwRGXDraz3akg
-	 ZEMFufuUej0zu4LlAkKyWEmYoMZa/Qbk3esF2lxFMRTCaFzcBsQSDVLBBw3MIJQHAGg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795786767;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
-	 Subject:To:CC:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=rSGB5r2OqCjgLeGq3byMfsKVgPkMqq4UnQBx6/lxxZ4=;
-	b=bVr7sGcCNTQtf05Poxpm/nY7GxLHk1pFZtAPCChmsJ9mAYRVHKoW0V3XVsCBR/9oy/Ew
-	 ILompxigPbieGa2vlVqfDibk+CQyk9n/r5NKYlbHjMBEYsxeQqNMeKYRu/fFj0JDjzut8
-	 GMRollVFdDnancLIQNeyEew01hylmGodGfS5vJtb7sEEl6AbkUS1XpoQYW3cEKL8ShKEM
-	 s4JfHlXd7xxplJQR9FifxX804O0wADlxC4kgsJrZMcPGjZYgTmB+irvNH379SXlYB3Hwa
-	 BH0UB+tL2502sM/ODgb40684HES5FIfawnd8E6bghEiXjx+hjTBwFeluqvGRPr18kFQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="Hg1fhM8/";
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=Aae6K8WT;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.18
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795786787;
+	b=qKr4aDF0n9MQYXMQxgc/pEszI3NtQHl+8/qdVerwG2IsA+u7jNb77qxx6I0gVK6LreE9
+	 cZQY4NshJs8hYzBiKeHel8k9Z2S7jwj/2aQ7odDB6NRxhh69YZOFTflgdE+aKrclJRhQb
+	 xjGMSU1yWyVjWXnq66LWY/3hXnJ5z7t78nYIkp9AFRaZ5QJSPwojI+X1D6Iy7aLKOnjx2
+	 Re1U2+qPoolUc3AJ6Apa0rRVb/SP3M1bFPSTajDVOXEd8EF4Gy2qbewqr2NsuZ/g4hD/M
+	 hhIDnhNNAiGHf0ezLqwtihsZ03f16pmFIXAoRqXqKr//cJO+IrHJDMyx3zTlcYTtfng==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795786787;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
+	bh=2PM+uxG5Fn1P1YGldfCKNEzcWDpv+pjhJWUbR6zOp7M=;
+	b=OKkgkUI3ocgB660mblfFYnwbJRJEyNWfI0RzBEEgDCBtgG/4vIwzT0ANgG1iju2QrPSq
+	 +4xSlgW8fXuNboWv91wLUcZeKQBXYj4x7/r2aeVoZ9EYES+Of5NQ9RGhZfmJmWGhuVdQ+
+	 16Jn1DegbKbDvH5uZ0TxGmWPkhDa7ZDDvaQfU486r9mFr6ROs5uol13w+Zq/yGlKLKUyS
+	 AzM91fxQBYX5VipmuHoQd3zZghgqZOxHSsIcz4Lj1EtJUbLr3RduZkm6CpvlVRAcOthjG
+	 R4biV/2tXgi//1bXZPEtc6YA+H/7nKNfG+DDzlqnsbe58TFcAt21SsWvJzXoo2vIT0Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=FRIAFTa6;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E748606A31E
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:39:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E748606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6603606A329
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:39:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6603606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Hg1fhM8/;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=Aae6K8WT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795786767; x=1827322767;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=uSgDnylBFqSvC7/moICTM8UObndLd43JdjoTDxBjEN4=;
-  b=Hg1fhM8/dd+DZ4eMqCgewJzvPz+9dlYZ+FXUSo7c+QIAc3mzbwffkzqX
-   vStXb6U1KYoeIbBu6tYH5GksEoC1LgVUQ0iW6qrNDec32XaZqy34j0SIU
-   DmREcdr9ac9xygXzhMfF8bjvGjfWH/GyejqEplpAfD4brJezmyhLtERP4
-   bRQIpsNBEN2FFY7BKcm0pHXCsND5zlYsFu2Vi3Y/+0t9UDfhkym1Ao/+k
-   u5J9L+yoamY3UuGXBq02pIBSHNmqCzgHCXgoTqCA6DTryGtMelhbWFu68
-   ocL2+3ZqP3zoh3HwqaaTbGOtgPMlPbnRlH1WldwAVqKuqCFIpLzNu27KK
-   Q==;
-X-CSE-ConnectionGUID: VMFcKmlkQTCdYBAT/bz8dQ==
-X-CSE-MsgGUID: PYZHoLd6QUiEsLJSulVg0Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11979"; a="4710307"
-X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
-   d="scan'208";a="4710307"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 05:39:26 -0800
-X-CSE-ConnectionGUID: CFzBc3WeTfKkNZlpBMb84g==
-X-CSE-MsgGUID: tJ/XqbcCSFmxE40N5hJGWg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,237,1787036400"; 
-   d="scan'208";a="12638223"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2026 05:39:25 -0800
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Fri, 27 Nov 2026 05:39:24 -0800
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Fri, 27 Nov 2026 05:39:24 -0800
-Received: from BL2PR02CU003.outbound.protection.outlook.com (52.101.52.9) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Fri, 27 Nov 2026 05:39:24 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mKfSbXZn+1MwN4JnTi17suJdhsWglkz9awHuSdqKg7gd+oMsd2iRUW/4uU/IAY7FflJmiUVt0Etgf68iQLcTn6DA2uEkiz30o/SWpIJN0zBpudSSxwb9KtRr3fHcn31lVcBRZ+1cEr4XOZ1bPKagQ08WKJYtEpNh+9iVQMRAgAFPxBycxReS88+4w98zpr0/yX8DnNEZH2Jsd2sSzB0L+5xBCXuuSRFm3V/eN5VykdF58RVuLZCYfLTOyzvgFWsRcqVAVOQQKO+PpyyUfnYxxB113Wm0Iy/p2hBf773y0MjwNFKlK+CnnkHje84CnleYYWP1Xth1+2cKtenAZM2/YQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rSGB5r2OqCjgLeGq3byMfsKVgPkMqq4UnQBx6/lxxZ4=;
- b=vjFX0C7yvQUuylQrmGN2fTkb1PhUo5+XEVIAVRyvOHMq3Ijuv2rSwoY9WR4AvQKppvL4O2jRuqSBHLFXLpiMSEPTubneNnO0wwzxWoSdEQN6wUVN0hWEMdUdUO6OJUA1Bjim59GEV97eR0++hlJAq7NCvQXuNB7bmWjO/z4OLlczZxv5vfgDfKHF3lxWpOZQZMO7mjh23yjlZ1LpLJ1KMQ/in7YoAb6KlGdgDngUgN3EAp1NGmGhaGWCVccF7XXAtCeCa4UrgicxLPFQXoYBKqGbHm7rswYm2pmg+HOH8Osgkp67Fx22cmITNSdBMJeZGTLF0iCgAyiv/c5KdSL0kg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rSGB5r2OqCjgLeGq3byMfsKVgPkMqq4UnQBx6/lxxZ4=;
- b=Aae6K8WTG/kbBWUj4A8CdfwBl2U7Vb9w/2UtgTcUylMiwUu+FMor+Qs9xz8HCnptzY81cFJbb/yxR3UajYnG7hMny8cSl4zzAZOnfiCMMrOOit4XSsQzftN4j/P65m21KjlelRjM9Pke3iKOajcypewSyH+uZ9iNU3vjA3PTCes=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from LV3PR11MB8508.namprd11.prod.outlook.com (2603:10b6:408:1b4::8)
- by LY0PR11MB123582.namprd11.prod.outlook.com (2603:10b6:404:226::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.10; Fri, 27 Nov
- 2026 13:39:21 +0000
-Received: from LV3PR11MB8508.namprd11.prod.outlook.com
- ([fe80::a1e8:1786:e5d1:8e51]) by LV3PR11MB8508.namprd11.prod.outlook.com
- ([fe80::a1e8:1786:e5d1:8e51%5]) with mapi id 15.21.0662.007; Fri, 27 Nov 2026
- 13:39:21 +0000
-Message-ID: <e8a1046e-c129-414f-9e90-d165c863c856@intel.com>
-Date: Fri, 27 Nov 2026 14:39:16 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH iwl-next 2/3] ice: share default RSS hash profiles between
- PFs
-To: Jakub Ramaseuski <jramaseu@redhat.com>, <anthony.l.nguyen@intel.com>,
-	<intel-wired-lan@lists.osuosl.org>
-CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <netdev@vger.kernel.org>
-References: <20261126123114.893916-1-jramaseu@redhat.com>
- <20261126123114.893916-3-jramaseu@redhat.com>
-From: Przemek Kitszel <przemyslaw.kitszel@intel.com>
-Content-Language: en-US
-In-Reply-To: <20261126123114.893916-3-jramaseu@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: DU7P195CA0001.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:10:54d::15) To LV3PR11MB8508.namprd11.prod.outlook.com
- (2603:10b6:408:1b4::8)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=FRIAFTa6
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795786785;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2PM+uxG5Fn1P1YGldfCKNEzcWDpv+pjhJWUbR6zOp7M=;
+	b=FRIAFTa64rXiKMLbD+JG2Zf+YFbzT/vEGDAKI3E7fw9iA98kxPK0bZMmqTsjb27AC8I6Iu
+	wLNYb3n1469JnQOce/GezRew9yyPWCdPp8e49TJFsafjarFcOeh60tzDUcCqjNfXCFZ+7N
+	Qhcv/kEIC89UHh6gVUFC3jXn+U21++E=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-169--T_V3DQhOHK6aoc1SVs_gQ-1; Fri,
+ 27 Nov 2026 13:39:40 +0000
+X-MC-Unique: -T_V3DQhOHK6aoc1SVs_gQ-1
+X-Mimecast-MFC-AGG-ID: -T_V3DQhOHK6aoc1SVs_gQ_1795786778
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7FA4C1956041;
+	Fri, 27 Nov 2026 13:39:37 +0000 (UTC)
+Received: from [100.91.101.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id EFD4518004FC;
+	Fri, 27 Nov 2026 13:39:32 +0000 (UTC)
+Message-ID: <2505b9de-c1aa-4338-b097-59fd59ac7289@redhat.com>
+Date: Fri, 27 Nov 2026 14:39:31 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -143,560 +71,92 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV3PR11MB8508:EE_|LY0PR11MB123582:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8ca2ef75-e7b2-4675-80a2-08df4c8bd7c3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|11063799006|4143699003|6133799003|261009223027099003|18002099003|22082099003|260925021911599003|260925021311599003|260925022911599003|10067099003|56012099006|261102123227099003|261028144727099003|261026140227099003|261026130827099003|261026135527099003|261026121527099003|261021121427099003|261021135927099003|261021133027099003|261021130227099003|261021123027099003|261022115727099003|261022113327099003|261022105027099003|261022075727099003;
-X-Microsoft-Antispam-Message-Info: JVJAgHeF5oBvyUbdTDNQe/B4dVIzlRwIMayRJ6Sq9Ja5PhnlN1e/Ib+1HUWN9SnGjanBugKE/TRTVbXAgawF33ZI/25X5L/VxRuYs3gJpi5XboA565Dp+4EmmZijNqLpIQy9N3T+5VF8pE/1TraSYEuspaAhGnM6nIAQTSmXLsrrKECef32OIGyvuB5HNbTILRO3s/ncMULlP8LUMOyBQ1v/gbx8zRamPWa0o0+9Fdz5MUj60SadmkxA4+vtFU4Hsk0d19kSTcuV4Y/KjIFP3MTGLcc/M+DjjCR+EWkmL2P6zMKAWjbZB8cGfqYi7eYvM5p1fmafj/l44MTrJkkH4mug+5xpibZNOOe+FRBmuPb3Y/FzqVKC+KUP0y7VIUaIMeEG9AsmRoV/XFoZySjrlHZvKlhnq0/c9lEiJ1pkKoyyNv2xUtpo9PheVvYl2bn5WcejKR488KTFnNEWiQSq4UBpAm92Uevfvfa/jsbwNhqA5YuRGKUh8LccZfsYYhbOtNoqJwIbd5iS7czQhrLDfCK0KnzMtR29nAT0SMJLnoqvJhthfsbQaEuaFsNngwtDtpzAIUjzx1SFf8EoR3ABXr8aq0mGKz1/ILvLmdThpof0oN0c/UrSm07kE5nT02cm8xl83+E6OA1wJlRpSmLgtZw6nIOooa+5YIeE+YFVIHM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR11MB8508.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(11063799006)(4143699003)(6133799003)(261009223027099003)(18002099003)(22082099003)(260925021911599003)(260925021311599003)(260925022911599003)(10067099003)(56012099006)(261102123227099003)(261028144727099003)(261026140227099003)(261026130827099003)(261026135527099003)(261026121527099003)(261021121427099003)(261021135927099003)(261021133027099003)(261021130227099003)(261021123027099003)(261022115727099003)(261022113327099003)(261022105027099003)(261022075727099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eGx3YllYRHFOL1BpTEZ4c3Z1R3BrZ2JJU1pXbEJkTnRQbWhlV09sbThXU3E3?=
- =?utf-8?B?c29PRlVlSThET3pjelRkOFVoQXJMbGhhdml4d0tGWnlNc0VKSGdQeHIxS3Ir?=
- =?utf-8?B?YVV4MFFJYUdndTZPOGNVQ0pFSTM3TTFTakEwSDJZQ0tJelVXOFQ4VEJLRUow?=
- =?utf-8?B?bGdYUk1oYkl3dnhDczRIWGdKSFRSaFBOMmhrS1MvRVUwOEc1R2ROWWpkQWlE?=
- =?utf-8?B?cFZoNVdnTXNnWnM0UkpoZGMxUVdkOTdMaHdYcEc4YTBna0svdVVLQW80Rk15?=
- =?utf-8?B?c25jUFQrY0pCbWE4VzBib1Rsbytnbmx0eFBFalNNdzREN2ZPVWZjbTAya2tQ?=
- =?utf-8?B?bWxpQ1NTaFhJN2lyYzZtUTlhSVBtOTVGYXkrb09NT1NSMGZoeWZaaTNuN2Z2?=
- =?utf-8?B?dmVXUXVub1VVMFMvZDJZNTh4UHErd0VCVnR3cVkxV0luTU9PR3p3Vi94Tk5Z?=
- =?utf-8?B?b1NyZytHMVVrTU9hZFpRcFZQMDBuQWNEeTloZGVaT3VGdGJCWGRTaUg0NDhB?=
- =?utf-8?B?TjNkeTdlYUhKdThlZG5ZOVRxdUc2TVV6TktxN2lnemYzNDVmcGlpZEhJdEY2?=
- =?utf-8?B?MHQ3NGpaNjJlMjRUZ3ZFbEJwc0pnUGF6NDBLaENCRjdzc3dpeFlWb1lwQ0NB?=
- =?utf-8?B?dmpTZ0U3TGVoVDd1SzBTTGV4OCtVVVpEQXdpeC91WWU2c3NrZ0doaXFVNk1s?=
- =?utf-8?B?ZHUwQnFUK0h1d0V2K0dGV1dYR1VFZlVvcGd5SDZ2SEh6SlFqTHpkWnpTdUxi?=
- =?utf-8?B?SUhKb3V4UDYxd3pOU0czbEpORnVIVER5QStKdWxPcXl5SGhKSEJJT0tFOUVz?=
- =?utf-8?B?emI3bUZiOEF1WklmVmZmZk5qYUZXQW9rMlh1c256MHhvL1c0cVRTQW5HSGFE?=
- =?utf-8?B?RG9uNFNwendvTmt1SWY5c01DK0xRT0NHdjhpWmplbnpYMHNITUlzRC9mdTJ3?=
- =?utf-8?B?ajByU3Rsak5VeFU5VWJuYTRDVWsvNUcrWCtiQTRUY0hOMmxyS0l6UjNzTHJ6?=
- =?utf-8?B?WXhUa2pUNlJjTUxydTdKYVVpTmZnN1RKY0ZlWDkvS3dmaDROWWgwZFl0TmM2?=
- =?utf-8?B?SlNhVVNQNEMwMXJodHEzclR5RXgwWGpLdGFtR1VWUVZmVEhvb3cvc1pGYUV4?=
- =?utf-8?B?UXlOaFpFWmEzWlpzWXMyR1k3SEJXRTkvNTJJQXdwV3pZM01iY2VMcHU0bUtP?=
- =?utf-8?B?cURrZVM4QXZUdjJsVHVpTjUzcmFlV0djN2dqeUkzUGZJWmNHMklBRHp4dERq?=
- =?utf-8?B?aUlVS0FxNDdreDk1ODhBUENPZGkzc3Fqc1pmY05XOEc1VlRkZzAyb0taRjdJ?=
- =?utf-8?B?MVZjcE95cUhUUzJHNVNPTERCZ0ZrZFJMY001Z0VURlRKVlliekRjWkhGanoz?=
- =?utf-8?B?WVhIMVRlTngvTUJISWFucHMvQ0NqcmZQblhTK0xCbEhLV0RFS2hqYkVpNHln?=
- =?utf-8?B?MmM1cGdxMzRQenBuaHVjUUlqUVdHY0Q2LzFCSTJlL0hCWCtXOFlVOWJQMEdI?=
- =?utf-8?B?blovU01nQ3RkN2JIRUtPcVVwN2NzUzFRNVl0bks2OFpROGRlb29uS2JLVjBw?=
- =?utf-8?B?OW93b1JEYXNKYlVObzNseDFVa0wxK1FEdWV4bVBwRlRZN3VzMUl1K0tXZmpN?=
- =?utf-8?B?TW05ZzFqbzlSWFNyTk1GTFlPR0c4M2k2OGJmRGUzSU42a2xQc2tNSCs3R3R6?=
- =?utf-8?B?MGpDNHZ2ZEFVazhCV0pVTGNFNDBOc3lVQ0t1VzBBa0M5dmpwV00vRFJOSGh5?=
- =?utf-8?B?YWxHMFdsVWJvRWYvRXd0WDMvbzQ3WFVPRGFJdEY3TWFtZW53d3NxdHdNTUZk?=
- =?utf-8?B?N2tBZWVxb1hPNkJmUVlFVEd4T1JKMlpSRjFacFBTdVVXcHRHSkljY2NZbVh6?=
- =?utf-8?B?ZkdLQkVwSTEwY0xPWmplck1YSC9qTjlSQmRUOGdxVG81bEVrZUxFdVV4VTdr?=
- =?utf-8?B?TXZUcUNIVzZRaFRWT244U21pWjQvQ3RrR2NhU29iTVgzZFZ6Z0t4K1c1S3JL?=
- =?utf-8?B?SHo5K3BrMWtya2hlenhwZGNYSTVvT3JYSjZOeHltNEF6V3VwSTMzd0lNL28v?=
- =?utf-8?B?dzVlbE55Ny9KN0cyQmg0endUMVN0eS9PR04zU0xnZ3puL2s0YVJSTnk0UDBr?=
- =?utf-8?B?TUQ5bzVwdW00dnVGaGdKQzZxS1ZGMVpzYkNUVFRLQ256b3pJNmJ4L3hxRHNI?=
- =?utf-8?B?MU5pRmdVR1poWWlVZFpabUJsbEl4dmw1Rm9JbEJVYWZ5aWdQdVE2S3RONWFn?=
- =?utf-8?B?T1RlMnB6MTd0d1RSZ0UzVFU4MDRiUFRwYi9VQktvcTV2SUIzV1pvY01abTdN?=
- =?utf-8?B?NS9LKzRqTkFIU2l0M2NPZkV4Ty9Cdm1oS2RMczBZOGUrTTJkQkw3Q2lrT0VP?=
- =?utf-8?Q?DowG8tHwpIlWYIkI=3D?=
-X-Exchange-RoutingPolicyChecked: Krl3bFrL0WFAl0o0w+OFrtEgD432fiiY4N9F2JHzX1CugmVPesHhhCEq+XeSUtNxZEclT/lGoEA0xMCJy2YW+yzM5bsHV7r5evWi2Nbpci9xnmq/vbNBpQnLi11NRMOtm3Kx2LCkVaXtFtaAQVTcpRA2YBJGkLonDlk48DkHgGGFmfpt6YWnL9fO3XyEO0U06GUtBK4iNSwnta8CKNyfVRyz4ezVpOSpEKoKPc1mSTJGhYVu3F+WfZOntG15t2+AWKVZsGR9OENcPUhW9H9cOXucH0PML1WlK60mnDMjanoBvEhLpCIJri//FPiyRV9EVWTKpfTbohPWTv+O5+Qe4w==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8ca2ef75-e7b2-4675-80a2-08df4c8bd7c3
-X-MS-Exchange-CrossTenant-AuthSource: LV3PR11MB8508.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 13:39:21.6060
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jUj+IOSkyzwKnKqjEi4ihEfZ9k80S9IprOSjXGq/i1CVVcY7juzPJqJzC/4QbsZPST242z3wpxPeNW5yKWDTsYWIwdCK/4cJgdmDNsnLDdA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LY0PR11MB123582
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v5 06/14] selftests: dpll: add pin state tests
+To: Petr Oros <poros@redhat.com>, netdev@vger.kernel.org
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Shuah Khan <shuah@kernel.org>, Randy Dunlap <rdunlap@infradead.org>,
+ Jani Nikula <jani.nikula@intel.com>,
+ Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+ Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
+ Jiri Pirko <jiri@resnulli.us>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+References: <20261125090522.3777494-1-poros@redhat.com>
+ <20261125090522.3777494-7-poros@redhat.com>
+Content-Language: en-US
+From: Ivan Vecera <ivecera@redhat.com>
+In-Reply-To: <20261125090522.3777494-7-poros@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 
-On 11/26/26 1:31 PM, Jakub Ramaseuski wrote:
-> RSS hash profile IDs are a firmware resource of the whole device: the DDP
-> package defines 128 of them, of which IDs 2-127 can be used by the PFs.
-> Each PF allocates its own IDs, and since
-> commit a6d63bbf2c52 ("ice: Implement RSS settings for GTP using ethtool")
-> its default RSS configuration takes 19 of them. On devices with 8 PFs,
-> like the E830-XXVDA8F, that is 152 IDs: the PFs probed last lose part
-> or all of their default RSS configuration, and RSS configurations requested
-> later, e.g. by VFs, fail:
+On 11/25/26 10:05, Petr Oros wrote:
+> Add dpll_features.sh, a script that exercises individual pin callbacks
+> with get/set roundtrips over netlink. It creates a dpllsim device with
+> the standard pin layout by default or runs against the device named by
+> DPLL_DEV_ID or the first device of the driver named by DPLL_DRIVER, and
+> picks the pin to reconfigure up front, so that no test touches the
+> reference the device is locked to. The pin is an input that is
+> disconnected or selectable on the device and that none of its parent
+> devices reports as connected or, where the tool prints the operational
+> state, as active, since a pin can be registered on several devices. A
+> parent device that is locked or in holdover and shows no such input
+> hides its reference, so no pin is picked then, while an unlocked device
+> has no reference yet. The NCO input of zl3073x, which iproute2 prints as
+> a pin of unknown type so far, and both pins of a connected reference
+> sync pair are left alone. The comment above pin_is_spare has the
+> details. When the first input pin and another one both qualify the other
+> one is taken, drivers tend to list their primary reference first. Every
+> test checks again that the pin is spare before it changes it. A spare
+> pin can still be selected while a test reconfigures it, which the header
+> of the script points out.
 > 
->    ice 0000:6c:00.0: ice_add_rss_cfg failed for VF 0, VSI 2, error:-5
+> The first test moves that pin between disconnected and selectable, the
+> states of automatic mode as Documentation/driver-api/dpll.rst defines
+> them, reads the state back after each step and restores the original
+> state at the end. On the device the script created it then checks that
+> connected is refused. Hardware drivers are not held to refusing
+> connected, ice accepts it in automatic mode, and a pin with the
+> state-connected-override capability would take over the reference. On a
+> device provided by the user a disconnected pin is offered to the
+> selection only when its priority ranks below the one of the reference on
+> every device it is registered on, it could take over otherwise, and the
+> readback accepts that the device picked the pin as its reference. Manual
+> mode, where connecting the pin makes it the reference, is left out until
+> the simulator can change its mode, a device provided by the user in
+> manual mode is a skip.
 > 
-> The default configuration is the same on all PFs, and so are the profiles
-> it needs. The package, for E810 and E830 alike, defines the RSS profile
-> IDs as shared resources: firmware lets a PF allocate an ID another PF
-> holds, by allocating that index without ICE_AQC_RES_TYPE_FLAG_IGNORE_INDEX,
-> keeps the ID until its last user frees it, and a PF reset releases the IDs
-> of that PF. What firmware does not provide is a lookup of the ID
-> programmed with an extraction sequence.
+> A driver may refuse a state the capability promises, for a constraint
+> the interface does not tell. That is a skip on a device provided by the
+> user, with the reason the tool reported, and a failure on the device the
+> script created, whose simulator accepts both states of its mode. A
+> refusal that follows a failed readback leaves the test failed,
+> dpll_log_test_skip_or_fail no longer turns a recorded failure into a
+> skip. The restore is deferred right after the original state is read. It
+> acts only while the pin is changed, when the test ends early or its own
+> restore was refused, one that gets to the end otherwise restores the pin
+> itself and checks it. The cleanup handler of every script that defers
+> runs the pending restores before it removes the devices the script
+> created, so that an interrupted run puts the device back as well. defer
+> reports nothing about what it runs, so the restores go through
+> dpll_restore, which logs one that fails, fails the run and returns its
+> status. A pin that cannot be queried is a failure, not a pin that is in
+> use or lacks a capability, and so is a device that does not report its
+> mode or the state of the pin, both are mandatory.
 > 
-> Keep a list of the profile IDs shared by the PFs in struct ice_adapter,
-> keyed by extraction sequence. When a PF needs an ID for a default profile,
-> it joins the ID another PF uses for the same extraction sequence, or
-> allocates a new one and adds it to the list. Each PF takes and releases
-> its own firmware reference, through its own admin queue, when its
-> reference count of the profile goes from 0 to 1 and from 1 to 0; the PFs
-> never access the tables of each other.
+> The stress script gains a test that floods one input pin of a fresh
+> device with changes between the states of automatic mode and ends on
+> selectable, the state a fresh pin is not in, so that the readback after
+> the flood catches a setter that stores nothing. The library gains the
+> state setter both use, which keeps the extack line of the tool in
+> DPLL_LAST_ERR so that a test can tell a refusal from a failure, the
+> device mode getter and a check whether the pin set usage of the tool
+> knows a keyword, so that a test skips on a tool too old for it rather
+> than every script requiring a newer tool.
 > 
-> Only profiles using neither field masks nor symmetric hashing are shared:
-> the GLQF_HMASK registers are split between the PFs, and GLQF_HSYMM is
-> programmed by every user of a profile. Such profiles, including the two
-> GTP-U ones hashing on the QFI field, keep one ID per PF. Raw (parser)
-> profiles program GLQF_HSYMM on their own and never use a shared ID.
-> 
-> A PF leaves the list on reset, devlink reload and remove, as firmware
-> releases its IDs then. CORER, GLOBR and EMPR empty the list: each PF
-> empties it while preparing for the reset, before it can allocate IDs
-> again, so no PF joins an ID the reset freed. A PF that prepares late
-> may drop entries a faster PF made after its rebuild; their IDs stay
-> valid and are freed as usual, only not shared. An ID firmware hands out
-> as a new one drops a stale entry for it. Sharing is off when an
-> ice_adapter can cover more than one device (E825C, devices without a
-> serial number).
-> 
-> While at it, replace the fd_swap parameter of ice_add_prof() with flags.
-> 
-> Measured on an E810-CQDA2 split to 8 PFs (NVM 4.30), with all PFs bound,
-> then one VF created on each PF and "rx-flow-hash {tcp,udp}{4,6} fn" set on
-> it, reading the IDs the PFs hold from firmware:
-> 
->                 IDs in use     IDs in use after   failed profile ID
->                 after probe    VFs and ethtool    allocations
->    before       126            126                70 (30 at probe)
->    after        33             65                 0
-> 
-> Also checked on an E830-XXVDA8F (8 PFs) with a RHEL 9.6 backport: one VF
-> per PF and "rx-flow-hash {tcp,udp}{4,6} fn" on each, all 32 input set
-> changes succeed with no ice errors.
-> 
-> Fixes: a6d63bbf2c52 ("ice: Implement RSS settings for GTP using ethtool")
-> Signed-off-by: Jakub Ramaseuski <jramaseu@redhat.com>
-> ---
->   .../net/ethernet/intel/ice/devlink/devlink.c  |   2 +
->   drivers/net/ethernet/intel/ice/ice_adapter.c  |  13 +
->   drivers/net/ethernet/intel/ice/ice_adapter.h  |   7 +
->   drivers/net/ethernet/intel/ice/ice_ethtool.c  |   2 +-
->   .../net/ethernet/intel/ice/ice_flex_pipe.c    | 351 +++++++++++++++++-
->   .../net/ethernet/intel/ice/ice_flex_pipe.h    |   9 +-
->   .../net/ethernet/intel/ice/ice_flex_type.h    |   1 +
->   drivers/net/ethernet/intel/ice/ice_flow.c     |  51 ++-
->   drivers/net/ethernet/intel/ice/ice_flow.h     |   2 +
->   drivers/net/ethernet/intel/ice/ice_lib.c      |  10 +-
->   drivers/net/ethernet/intel/ice/ice_main.c     |   5 +
->   drivers/net/ethernet/intel/ice/virt/rss.c     |   2 +-
->   12 files changed, 427 insertions(+), 28 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/intel/ice/devlink/devlink.c b/drivers/net/ethernet/intel/ice/devlink/devlink.c
-> index 9851e6140a944..aba28e33eac58 100644
-> --- a/drivers/net/ethernet/intel/ice/devlink/devlink.c
-> +++ b/drivers/net/ethernet/intel/ice/devlink/devlink.c
-> @@ -460,6 +460,7 @@ static void ice_devlink_reinit_down(struct ice_pf *pf)
->   	ice_vsi_decfg(ice_get_main_vsi(pf));
->   	rtnl_unlock();
->   	ice_deinit_pf(pf);
-> +	ice_put_shared_profs(&pf->hw);
->   	ice_deinit_hw(&pf->hw);
->   	ice_deinit_dev(pf);
->   }
-> @@ -1326,6 +1327,7 @@ static int ice_devlink_reinit_up(struct ice_pf *pf)
->   unroll_dev_init:
->   	need_dev_deinit = true;
->   unroll_hw_init:
-> +	ice_put_shared_profs(&pf->hw);
->   	ice_deinit_hw(&pf->hw);
->   	if (need_dev_deinit)
->   		ice_deinit_dev(pf);
-> diff --git a/drivers/net/ethernet/intel/ice/ice_adapter.c b/drivers/net/ethernet/intel/ice/ice_adapter.c
-> index eecad97c084d9..ea21c83155d81 100644
-> --- a/drivers/net/ethernet/intel/ice/ice_adapter.c
-> +++ b/drivers/net/ethernet/intel/ice/ice_adapter.c
-> @@ -53,7 +53,9 @@ static int ice_adapter_init(void *priv, void *init_param)
->   {
->   	const struct ice_hw *hw = init_param;
->   	struct ice_adapter *adapter = priv;
-> +	struct ice_pf *pf = hw->back;
->   	struct devlink *devlink;
-> +	u64 index;
->   
->   	devlink = shd_priv_to_devlink(adapter);
->   	adapter->devlink = devlink;
-> @@ -84,6 +86,15 @@ static int ice_adapter_init(void *priv, void *init_param)
->   
->   	adapter->phc.use_timecounter = ice_adapter_use_timecounter(hw);
->   
-> +	mutex_init(&adapter->rss_prof_lock);
-> +	INIT_LIST_HEAD(&adapter->rss_profs);
-> +	/* RSS hash profile IDs come from the firmware of a single device.
-> +	 * The NACs of E825C, and devices without a serial number,
+> Signed-off-by: Petr Oros<poros@redhat.com>
 
-I would not care about devices w/o DNS - those are strictly "pre-prod",
-and if someone at intel (those should not leave our lab) would have such
-cards, it will be sufficient to just use only one per machine, or to
-program DNS number to some other value.
-
---
-For the 2 NAC mode, it bothers me after working with the code around,
-that it was melted with the "whole device" thing, except its shared
-or not depending on the topic. Would be great to add one more level of
-common abstraction. Of course its not easy given there are multiple
-series in flight that touch the code.
-(this is not an action item for you, just saying that improvement here
-would be much welcomed by me personally)
-
-> +	 * may share one ice_adapter, but not the profile IDs.
-> +	 */
-> +	index = ice_adapter_index(pf->pdev);
-> +	adapter->rss_prof_share = index && !(index & ICE_ADAPTER_FIXED_INDEX);
-> +
->   	return init_srcu_struct(&adapter->ports.srcu);
->   }
->   
-> @@ -92,10 +103,12 @@ static void ice_adapter_fini(void *priv)
->   	struct ice_adapter *adapter = priv;
->   
->   	WARN_ON(!list_empty(&adapter->ports.list));
-> +	WARN_ON(!list_empty(&adapter->rss_profs));
->   	for (int i = 0; i < ARRAY_SIZE(adapter->cpi_phy_lock); i++)
->   		mutex_destroy(&adapter->cpi_phy_lock[i]);
->   	mutex_destroy(&adapter->cgu_synce_lock);
->   	mutex_destroy(&adapter->rebuild_lock);
-> +	mutex_destroy(&adapter->rss_prof_lock);
->   
->   	cleanup_srcu_struct(&adapter->ports.srcu);
->   	mutex_destroy(&adapter->ps_lock);
-> diff --git a/drivers/net/ethernet/intel/ice/ice_adapter.h b/drivers/net/ethernet/intel/ice/ice_adapter.h
-> index 3778948730ef7..6e2d8b33ce71e 100644
-> --- a/drivers/net/ethernet/intel/ice/ice_adapter.h
-> +++ b/drivers/net/ethernet/intel/ice/ice_adapter.h
-> @@ -101,6 +101,9 @@ struct ice_phc {
->    * @ctrl_pf: Control PF of the adapter
->    * @rebuild_lock: serialize PFR recovery across PFs of the same adapter
->    * @ports: Ports list
-> + * @rss_prof_lock: Mutex protecting @rss_profs
-> + * @rss_profs: RSS hash profile IDs shared by the PFs, see ice_flex_pipe.c
-> + * @rss_prof_share: The PFs may share RSS hash profile IDs
->    */
->   struct ice_adapter {
->   	struct devlink *devlink;
-> @@ -124,6 +127,10 @@ struct ice_adapter {
->   	struct rw_semaphore ctrl_pf_lock;
->   	struct ice_pf __rcu *ctrl_pf;
->   	struct ice_port_list ports;
-> +	/* For access to the list of shared RSS hash profiles */
-> +	struct mutex rss_prof_lock;
-> +	struct list_head rss_profs;
-> +	bool rss_prof_share;
->   };
->   
->   struct ice_adapter *ice_adapter_get(struct pci_dev *pdev);
-> diff --git a/drivers/net/ethernet/intel/ice/ice_ethtool.c b/drivers/net/ethernet/intel/ice/ice_ethtool.c
-> index 4a5e2043447f1..ceba419233a70 100644
-> --- a/drivers/net/ethernet/intel/ice/ice_ethtool.c
-> +++ b/drivers/net/ethernet/intel/ice/ice_ethtool.c
-> @@ -2966,7 +2966,7 @@ ice_set_rxfh_fields(struct net_device *netdev,
->   	struct ice_netdev_priv *np = netdev_priv(netdev);
->   	struct ice_vsi *vsi = np->vsi;
->   	struct ice_pf *pf = vsi->back;
-> -	struct ice_rss_hash_cfg cfg;
-> +	struct ice_rss_hash_cfg cfg = {};
-
-rct
-
->   	struct device *dev;
->   	u64 hashed_flds;
->   	int status;
-> diff --git a/drivers/net/ethernet/intel/ice/ice_flex_pipe.c b/drivers/net/ethernet/intel/ice/ice_flex_pipe.c
-> index 6d619eeaf0190..427ea89aa091a 100644
-> --- a/drivers/net/ethernet/intel/ice/ice_flex_pipe.c
-> +++ b/drivers/net/ethernet/intel/ice/ice_flex_pipe.c
-> @@ -1215,12 +1215,13 @@ ice_prof_has_mask(struct ice_hw *hw, enum ice_block blk, u8 prof, u16 *masks)
->    * @fv: field vector to search for
->    * @masks: masks for FV
->    * @symm: symmetric setting for RSS flows
-> + * @skip_shared: do not return a profile ID shared with other PFs
->    * @prof_id: receives the profile ID
->    */
->   static int
->   ice_find_prof_id_with_mask(struct ice_hw *hw, enum ice_block blk,
->   			   struct ice_fv_word *fv, u16 *masks, bool symm,
-> -			   u8 *prof_id)
-> +			   bool skip_shared, u8 *prof_id)
->   {
->   	struct ice_es *es = &hw->blk[blk].es;
->   	u8 i;
-> @@ -1237,6 +1238,9 @@ ice_find_prof_id_with_mask(struct ice_hw *hw, enum ice_block blk,
->   		if (blk == ICE_BLK_RSS && es->symm[i] != symm)
->   			continue;
->   
-> +		if (skip_shared && es->shared[i])
-> +			continue;
-> +
->   		if (memcmp(&es->t[off], fv, es->fvw * sizeof(*fv)))
->   			continue;
->   
-> @@ -1376,6 +1380,324 @@ static int ice_free_prof_id(struct ice_hw *hw, enum ice_block blk, u8 prof_id)
->   	return ice_free_hw_res(hw, res_type, 1, &tmp_prof_id);
->   }
->   
-> +/**
-> + * struct ice_shared_prof - RSS hash profile ID shared by the PFs of an adapter
-> + * @list: entry in the list of shared profiles of the adapter
-> + * @es: extraction sequence the profile ID is programmed with
-> + * @pfs: bitmap of the PFs (by hw->pf_id) holding a reference to the ID
-> + * @prof_id: the profile ID
-> + *
-> + * The DDP package defines the RSS profile IDs as shared resources: firmware
-> + * lets every PF allocate an ID that another PF already holds, keeps the ID
-> + * until its last user frees it, and a PF reset drops the references of that
-> + * PF. Firmware cannot look up the ID programmed with an extraction sequence,
-> + * the adapter keeps a list of these entries for that.
-> + *
-> + * Only profiles without field masks and symmetric hashing are shared, their
-> + * only hardware state is the extraction sequence, which all PFs write the
-> + * same. The GLQF_HMASK registers are split between the PFs, and GLQF_HSYMM is
-> + * programmed by every user of a profile.
-> + */
-> +struct ice_shared_prof {
-> +	struct list_head list;
-> +	struct ice_fv_word es[ICE_MAX_FV_WORDS];
-> +	unsigned long pfs;
-> +	u8 prof_id;
-> +};
-> +
-> +/**
-> + * ice_shared_profs_adapter - get the adapter whose PFs share profile IDs
-> + * @hw: pointer to the HW struct
-> + * @blk: hardware block
-> + *
-> + * Return: the adapter of the PF, if its PFs may share profile IDs of @blk,
-> + * NULL otherwise.
-> + */
-> +static struct ice_adapter *
-> +ice_shared_profs_adapter(struct ice_hw *hw, enum ice_block blk)
-> +{
-> +	struct ice_pf *pf = hw->back;
-> +
-> +	if (blk != ICE_BLK_RSS || !pf->adapter || !pf->adapter->rss_prof_share)
-
-I guess pf->adapter cannot be null
-
-> +		return NULL;
-> +
-> +	return pf->adapter;
-> +}
-> +
-> +/**
-> + * ice_prof_can_share - check if a profile ID may be shared with other PFs
-> + * @hw: pointer to the HW struct
-> + * @blk: hardware block
-> + * @masks: masks for the extraction sequence
-> + * @symm: symmetric setting for RSS profiles
-> + *
-> + * Return: true if the profile uses neither field masks nor symmetric hashing.
-> + */
-> +static bool
-> +ice_prof_can_share(struct ice_hw *hw, enum ice_block blk, u16 *masks,
-> +		   bool symm)
-> +{
-> +	u16 i;
-
-the default type for variable is "int", and loop counters should be
-declared in the loop header
-
-> +
-> +	if (symm)
-> +		return false;
-> +
-> +	if (!masks)
-> +		return true;
-> +
-> +	for (i = 0; i < hw->blk[blk].es.fvw; i++)
-> +		if (masks[i] && masks[i] != 0xFFFF)
-> +			return false;
-> +
-> +	return true;
-> +}
-> +
-> +/**
-> + * ice_find_shared_prof - find the shared profile ID for an extraction sequence
-> + * @adapter: adapter of the PFs sharing the profile IDs
-> + * @es: extraction sequence
-> + * @fvw: number of words in @es
-> + *
-> + * Return: the shared profile, NULL if there is none.
-> + */
-> +static struct ice_shared_prof *
-> +ice_find_shared_prof(struct ice_adapter *adapter, struct ice_fv_word *es,
-> +		     u16 fvw)
-> +{
-> +	struct ice_shared_prof *sp;
-> +
-> +	list_for_each_entry(sp, &adapter->rss_profs, list)
-> +		if (!memcmp(sp->es, es, fvw * sizeof(*es)))
-> +			return sp;
-> +
-> +	return NULL;
-> +}
-> +
-> +/**
-> + * ice_find_shared_prof_id - find a shared profile by its ID
-> + * @adapter: adapter of the PFs sharing the profile IDs
-> + * @prof_id: the profile ID
-> + *
-> + * Return: the shared profile, NULL if there is none.
-> + */
-> +static struct ice_shared_prof *
-> +ice_find_shared_prof_id(struct ice_adapter *adapter, u8 prof_id)
-> +{
-> +	struct ice_shared_prof *sp;
-> +
-> +	list_for_each_entry(sp, &adapter->rss_profs, list)
-> +		if (sp->prof_id == prof_id)
-> +			return sp;
-> +
-> +	return NULL;
-> +}
-> +
-> +/**
-> + * ice_drop_shared_prof - remove a PF from the users of a shared profile ID
-> + * @sp: the shared profile
-> + * @pf_id: the PF
-> + *
-> + * Free the entry when it has no users left.
-> + */
-> +static void ice_drop_shared_prof(struct ice_shared_prof *sp, u8 pf_id)
-> +{
-> +	sp->pfs &= ~BIT(pf_id);
-> +	if (sp->pfs)
-> +		return;
-> +
-> +	list_del(&sp->list);
-> +	kfree(sp);
-> +}
-> +
-> +/**
-> + * ice_join_prof_id - take a reference to a profile ID another PF allocated
-> + * @hw: pointer to the HW struct
-> + * @blk: the block of the profile ID
-> + * @prof_id: the profile ID
-> + *
-> + * Allocate the given profile ID, without ICE_AQC_RES_TYPE_FLAG_IGNORE_INDEX:
-> + * firmware adds the PF to the users of the ID.
-> + *
-> + * Return: 0 on success, negative error code otherwise.
-> + */
-> +static int ice_join_prof_id(struct ice_hw *hw, enum ice_block blk, u8 prof_id)
-> +{
-> +	DEFINE_RAW_FLEX(struct ice_aqc_alloc_free_res_elem, buf, elem, 1);
-> +	u16 res_type, idx;
-> +	int status;
-
-in new code please name the variable "err", not "status"
-
-> +
-> +	if (!ice_prof_id_rsrc_type(blk, &res_type))
-> +		return -EINVAL;
-> +
-> +	buf->num_elems = cpu_to_le16(1);
-> +	buf->res_type = cpu_to_le16(res_type | ICE_AQC_RES_TYPE_FLAG_DEDICATED);
-> +	buf->elem[0].e.sw_resp = cpu_to_le16(prof_id);
-> +
-> +	status = ice_aq_alloc_free_res(hw, buf, __struct_size(buf),
-> +				       ice_aqc_opc_alloc_res);
-> +	if (status)
-> +		return status;
-> +
-> +	idx = le16_to_cpu(buf->elem[0].e.sw_resp);
-> +	if (idx != prof_id) {
-> +		ice_free_hw_res(hw, res_type, 1, &idx);
-> +		return -EIO;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +/**
-> + * ice_get_prof_id - get a profile ID for an extraction sequence
-> + * @hw: pointer to the HW struct
-> + * @blk: hardware block
-> + * @es: extraction sequence of the profile
-> + * @masks: masks for @es
-> + * @symm: symmetric setting for RSS profiles
-> + * @flags: ICE_PROF_* flags of the profile
-> + * @prof_id: receives the profile ID
-> + *
-> + * Get a profile ID for @es, which the PF does not have yet. With
-> + * ICE_PROF_SHARED, join the ID another PF of the adapter has for @es, or
-> + * allocate a new one and make it available to the other PFs.
-> + *
-> + * Return: 0 on success, negative error code otherwise.
-> + */
-> +static int
-> +ice_get_prof_id(struct ice_hw *hw, enum ice_block blk, struct ice_fv_word *es,
-> +		u16 *masks, bool symm, u32 flags, u8 *prof_id)
-> +{
-> +	struct ice_adapter *adapter = ice_shared_profs_adapter(hw, blk);
-> +	u16 fvw = hw->blk[blk].es.fvw;
-> +	struct ice_shared_prof *sp;
-> +	bool share;
-> +	int status;
-> +
-> +	if (!adapter)
-> +		return ice_alloc_prof_id(hw, blk, prof_id);
-> +
-> +	share = (flags & ICE_PROF_SHARED) &&
-> +		ice_prof_can_share(hw, blk, masks, symm);
-> +
-> +	guard(mutex)(&adapter->rss_prof_lock);
-
-we ban guard()() in netdev, scoped_guard() is fine
-
-> +
-> +	sp = share ? ice_find_shared_prof(adapter, es, fvw) : NULL;
-> +	if (sp) {
-> +		status = ice_join_prof_id(hw, blk, sp->prof_id);
-> +		if (!status) {
-> +			sp->pfs |= BIT(hw->pf_id);
-> +			hw->blk[blk].es.shared[sp->prof_id] = 1;
-> +			*prof_id = sp->prof_id;
-> +			return 0;
-> +		}
-> +
-> +		ice_debug(hw, ICE_DBG_PKG, "Failed to join profile ID %u, allocating a new one: %d\n",
-> +			  sp->prof_id, status);
-> +		share = false;
-> +	}
-> +
-> +	status = ice_alloc_prof_id(hw, blk, prof_id);
-> +	if (status)
-> +		return status;
-> +
-> +	/* Firmware hands out unused IDs only, an entry for the ID is a stale
-> +	 * one, left from before a reset that cleared the IDs of all PFs.
-> +	 */
-
-should we clear those at reset?
-
-> +	sp = ice_find_shared_prof_id(adapter, *prof_id);
-> +	if (sp) {
-> +		list_del(&sp->list);
-> +		kfree(sp);
-> +	}
-> +
-> +	if (!share)
-> +		return 0;
-> +
-> +	/* without an entry the ID just stays private to the PF */
-
-too many comments - general rule is to avoid (esp. in the AI era),
-it's fine to comment about something that is not inferrable from the
-code, like FW/HW behavior
-
-> +	sp = kzalloc_obj(*sp);
-> +	if (!sp)
-> +		return 0;
-> +
-> +	memcpy(sp->es, es, fvw * sizeof(*es));
-> +	sp->pfs = BIT(hw->pf_id);
-> +	sp->prof_id = *prof_id;
-> +	list_add(&sp->list, &adapter->rss_profs);
-> +	hw->blk[blk].es.shared[*prof_id] = 1;
-> +
-> +	return 0;
-> +}
+Reviewed-by: Ivan Vecera <ivecera@redhat.com>
 
