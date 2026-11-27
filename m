@@ -1,87 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.201
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795758179;
-	b=hxm77V9Uu8YA3dkuUR3nNoMzBJI9WB6lX4L3PH2LmqbOl2vkpYW3/5drCz7GgXlYL/9D
-	 7H6SGdZHfuH++ZsNPxqpnG75dPnv4qBoEnf5MaOtgZbZLHaA+r6C1mbsWR2lX2Nm4kUBE
-	 HVfQF4QqxVv2vvx4pjH7rMCnmA91/vVwpKVs+FZ7Fj2wBDCrcEbER74XF8qMN2Wf7008P
-	 g+x5vsd7q9ZNb8HrZXP1hVz5VVY8fvMj0pNgP2vY1uQ0oIQehyOSFr/GOFhrx945FbHyL
-	 60DxGiy5vtyIUCZ4Sc1zexkzRvvS0rE7aXWom3QGQS+UtUaSTOQubjVsSkKGigKLXMw==
+	t=1795758186;
+	b=X1A+EScDGZSArM9IB2pq1GVpL+nyhj3XtkqlWEkmK88VO2At6PpHuCOGk3D+Eufe6Gtk
+	 M2CG2GZ6KrPnDekzAcVHr4QMBrAFfxWnCL2EO2c+CWL9vgH21AKjcRh5APhLg5ixZfNss
+	 xDLyZm6pPZwZmvz0V1nmQuWoPjEWaPdIYEA4NSYb9pZVcButE6QVQcknzDo8BNNPZUBPS
+	 sqBWFLoOl53Ec8ba9LEw0OgKBqkaPfree0jvg3TFEnI9nSgtYZXgsOp50JvODojI9P9bV
+	 3OUkZWRQbFyGQFSbfEbLBXOoKFzFccrGF2EkwKA9OZFv6dCk9n3curMwRU8cRveqkyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795758179;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795758186;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:In-Reply-To:
 	 References:From:Date:Subject:To:Cc;
-	bh=HGt0ju/M5SRQjRd2zHJjdz3pvevsYivTWnOfSUsqHSY=;
-	b=3DW7vB5I79SSi/p/3RBQOo/FbX052ihHjGflIPIZF5Qux5or+oM/2m9CfqkmToPdKkak
-	 cG2n8nxjcXY/33BskwGzl7FsiPqBasCraIBhEiMi9cyAo1O3NKYTL4ScF77+wWC3/bu5g
-	 T47QOhE4zJNoV4KiEdHw+Hp3B50eUsH8/CTY7Nr++Wp0aUUMiDqfVNG7YwbxYHaS3kQgh
-	 zhZAvrfvLuIYblSWSnabKF1k95PxkWokvW/XxZR+WtCzyaMEHoQdDKwlROaPT4XpT/Xo9
-	 rwzfHEdDZo/cN5wV7Pgp7ydR8/ma5WFJlYwDHZWldjNlZtLmjuuOnZCNfwOGHCQRDig==
+	bh=UpT25VFf7eU22sV/VzXxGuM9gIjAsd0+ZF31m/a17hI=;
+	b=MRQSHjBKjNpj0teBKluicB82/LMIiuB/fTQ5HUQnjaNR2ACSO0mXH71IPHevvPH/+kSc
+	 Oqkc4DmfDyIz+WUGvCae2pmR6TWkZ8NINfy1IuDepd5IuKNsAJS5SumhH42HXC271SAYl
+	 tfaqDZg5svLu6j2qAIVpIR/MuiOhLPE+Oq4hC4wl0xSxcyNdXWvyTMkq6ixrKx5HxNcLl
+	 dFlCneqGfOeIP3RFxPQKJZeI7a0X5GXrK1rLzZuJhhA/b6ftoiacs3vJc7Kmjhn07l0J2
+	 aBqOlTzjtZevXqlNnY4pyikm0CQuKGx0NVG4K+WkXcA6ZkNZdtyw8fY0XMgel6V8otA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=T0NoVJC+;
-	arc=none smtp.remote-ip=74.125.227.131
-Received: from mail-pj2-f3.google.com (mail-pj2-f3.google.com [74.125.227.131])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e6qbZQWu;
+	arc=none smtp.remote-ip=74.125.227.201
+Received: from mail-pi2-f9.google.com (mail-pi2-f9.google.com [74.125.227.201])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EB8C606A31E
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:42:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0EB8C606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FDBC606A31C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:43:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FDBC606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=T0NoVJC+
-Received: by mail-pj2-f3.google.com with SMTP id 98e67ed59e1d1-3b52896ae66so320031a91.1
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 21:42:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e6qbZQWu
+Received: by mail-pi2-f9.google.com with SMTP id 41be03b00d2f7-cdd8f943737so1893529a12.1
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 21:43:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795758178; x=1796362978; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795758186; x=1796362986; darn=vger.kernel.org;
         h=cc:to:subject:date:from:references:in-reply-to:message-id:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=HGt0ju/M5SRQjRd2zHJjdz3pvevsYivTWnOfSUsqHSY=;
-        b=T0NoVJC+A2MOckGPVZTFYoTRtQbkY8vF+hiuIoq1U1pQxU3EuSn003TBeaIt9zQzTE
-         yFOTnUP1kMtjQjWNG+GBPzXJD6HnVdDP60K/tZnv3YFooMeZrZ3LZFX5Jjqs1pP4uDES
-         Su7lrgWC/vVdFrIdJV1QfVPnRfXxLLaXZC/IVNvVksE6MFOaRfLvzKQSOyNmV+OrS82+
-         LxIJPHvQ3LpRJ9PwHBDeuHULj44o8RaLD5h9vRp1cuE6mYNBlF0RWu7sW68S/zQvDy2d
-         FpEMqCpwh7MW7irnO8rqrB1WI7v3ZIiO+o6Yc0gZH+oHvOaQZuxsM46jau6tjReoMzY3
-         VIpA==
+        bh=UpT25VFf7eU22sV/VzXxGuM9gIjAsd0+ZF31m/a17hI=;
+        b=e6qbZQWuefoENmjDWe/NciyEIGqaLOgY2G+M8rm+J7ukGGZWzt4xSkQByOIx4h/9K1
+         FWU4fMGsgtn/C9LxC4ddBMr4O68BrkX1wEPFzzrh2WqvNHhXAEHmGtH3vXwcTPmXz363
+         UHAM7Up8Q04SDqc3JfXb0CRWjpz+CT8He5WFiKdp/Fx7h/PQy3JmtQPpSyHUJsW/2wz2
+         E+YScQZJJeWEygdC0MrLhC+BAslMD+b9zSYxZ63XqZSc8oj/NIFwijarMU5ghVYxBfmP
+         VzHEeH9B6nf1keIiCOHaYcPoUvVdQ+hFEnVXs7k4ZLxlIFmliz/f0ySZV9UlPWcFbjof
+         vsVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795758178; x=1796362978;
+        d=1e100.net; s=20260707; t=1795758186; x=1796362986;
         h=cc:to:subject:date:from:references:in-reply-to:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=HGt0ju/M5SRQjRd2zHJjdz3pvevsYivTWnOfSUsqHSY=;
-        b=AJeW+Ca1qpodiCtWjckPraHwxGfNmKczrJ7BLJVsiMWfTk40+ZxiOqNLsRg/7lvT5c
-         gpj/qkOLmUzOnpDh6U8UfZ2WlUOOlz5lGBzHgYI66qch/GSYFENuQpJUWe65wfKDRPu+
-         7cIhVVUnW2CC3cizaKuROXsHcMxS8aw7aBH4wM6/PYcOo7AEKYKVeY+LtjQpGxvysLN8
-         mP72vNvyTW5uzzpMjhAKtpjmVtTCpjzKo72VumnMEhUaR0ORjVlpReqgVPQCUThJxEcl
-         osBPuObG282YiaYAD9H1PICJHbU0XHWuHPFBBcaFhICx0g7VOqjNpS0DiXqg/A7SzWpI
-         LE3A==
-X-Gm-Message-State: APuU4Z+LZVXuOVYRefAYCb1yzmvOZvfCsnCiWPQ2QvHx1H8LEmWwiQGE
-	9OCIHCK5pDM97SfS9+BMcP42peRkmsDPqdWm5Mc6Gyk/S+IOng5nP0oel+gleYt4gwcWXw==
-X-Gm-Gg: AZFdTZcX2dBJXSSV0F8HcZ4ILayJD1iFPUKCtalbt+FAtr78++i/jwUecujG2TOTIZy
-	pRP9A2uyplxMEBDfCkq/GOriewqCIxAKkz8tFtCIa3LC9BrnH8Nw541+9dqwxEBrQ1Es8G2f7qv
-	lwySyfajlIjsKktF30Wh8y5eeSUVNhdvza+U7iBsZC14myVJlyrUlsMp0D5qLXwPhk/5G2JcS/O
-	xSkwUNqK573DRV6gg04eMKjQ/HgGAl/WyU8Rjonkb4p+zOurwSw12jAdCmv8iPBufUDfJPhTV4R
-	eL9hnASRPr7FNJ5r78bC876m62BCT9JOTW9DFLeNcU95y2FjS7JOfNdRnifoAiAy0CINkLWN1iE
-	P8yltv9sTcdJkY6FgjxaJSidQ7sExvgaTa6NWButmpJKFkADGw4ReUTB8IbGgfFEQZOQ1mabL30
-	ncSmmPwEDfsMxEoM5kXm1cWdbnSS0dXIn+BtzpUbRjaHPJlCftmrM9ohwgtdfmLp7BDKVlBHvAU
-	Qttx/v1ocHdImiI6YyZt4+u2yHy8j80N2FWHX8V/NrnWH0XvHpEtQkiEarbBsI/fKpHtYMZCgSe
-	G2N3VU4VAdtWkiHb3QN7NrR9pDcQS2EF3yD3XhI=
-X-Received: by 2002:a17:90b:5543:b0:3b0:a1af:e4fa with SMTP id 98e67ed59e1d1-3b41c9e4290mr23442280a91.24.1795758178448;
-        Thu, 26 Nov 2026 21:42:58 -0800 (PST)
+        bh=UpT25VFf7eU22sV/VzXxGuM9gIjAsd0+ZF31m/a17hI=;
+        b=2U5z+BbqDMkQEN20eP1w8F23UR8ZtuGk0bARkp/lt0UBazs379lZBe6f7h3k9cC7Ik
+         GbN01EOvvOylet/L191iDr4ENMv8gjpEmn8ZE7yBBRdSfit98171g6JhTRK7D6FWah2n
+         5NV7SKxvrq08SAV1d8rJOhyKAkin5U1p/96/0W0blJo9LrYZDT8V8CDPSlBYIW5hSj4+
+         O08NmYt5UIPjK905eA5tuQywOVKBLK8ul/GVkbJ7gmxH6xGaxZAtq6Y3OfSOXPhVKOFg
+         tnjjRd4z1W2beMsJnNw8IrQpk9uQltqEWoWtvR3++/og2DMWdQw1ITkGZWe3ZuTZAyM9
+         zw5A==
+X-Gm-Message-State: APuU4Z+8WpikgWmwMK8A/w2yesSEVSlm/tTzMkXC104FKr5tP4rOeYnI
+	ri6mlFMzYDLqrjakL9zcB85YYD2jGRf1+uNbJ+8B5YeM2YxTs22XiDmiNdIktbMfHlU0DQ==
+X-Gm-Gg: AZFdTZeNhpWxm7ipbnTK65dXyookhp5J92bx8TuQRF6j62cgCrY3y552K1Yle8w+LPv
+	zUiKrwch/ZUDGxKbXO6F/SkKMnoka27wN+gDVAgwECqt1pHdDAjjlEB0KwW/s/vtGB3NN1Nj4KT
+	RHYBbbIy+4H/q0XtVqYYKj8CU6+wYS7Zbwish7x7/uYyewVJlwOrf7XYXKKSqIAzq3hijQiTetA
+	E6/MG4Jge2WkBeb+rmVdKvkwbW47StMh2YuOtvJjzykn7vYj6HEDEHE1uNlfDDOMj6zBFpgo5vj
+	VGw8JwmidKh+opiZ2HBFXJ6cNeDHU+s0yypa6JyGZGP5aGIUk/DOgjmWOzLclXNxeTnOVnSvUfV
+	Kd0evSmH936rrvUVe88hSnyxbBetYAExjKcQQRyslnJFn+pfpvVL4mPHU+UNRUmK2ywDmfjX5Y0
+	1WCatR8kAEVZ8wk+auam8VDNXew1ujUz24oSRA7LXm2LV6O6Yk1NNL9m9z6ktAyGsa5BRC6L2b5
+	VZu8JXNvwMEYj5cWE8LnMrwaxnEb2frfY67SGZWQmbp8LV+98s63o9IlP8hFUU167ATY3anV6oO
+	VLoAhhjW3LdeKzLwGHAOMw/ON+S7zaHx8RWTfg==
+X-Received: by 2002:a05:6a21:7e81:b0:3e1:a63f:13c4 with SMTP id adf61e73a8af0-4014c351961mr18428205637.51.1795758185614;
+        Thu, 26 Nov 2026 21:43:05 -0800 (PST)
 Received: from [169.254.212.233] ([2406:da1c:1ee6:2e01:64c9:ebb0:9e1:f7da])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfcadffsm12022687a12.9.2026.11.26.21.42.51
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfcadffsm12022687a12.9.2026.11.26.21.42.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 21:42:58 -0800 (PST)
-Message-ID: <5d53930db2b6d514f0346b6b8dd43b25d2320813.1795754281.git.n0ps1edzz@gmail.com>
+        Thu, 26 Nov 2026 21:43:05 -0800 (PST)
+Message-ID: <0cd69817db8a8efff95403ae1ff108bd460b9ccf.1795754281.git.n0ps1edzz@gmail.com>
 In-Reply-To: <cover.1795754281.git.n0ps1edzz@gmail.com>
 References: <cover.1795754281.git.n0ps1edzz@gmail.com>
 From: Zhou Qiuyue <n0ps1edzz@gmail.com>
-Date: Fri, 27 Nov 2026 12:03:31 +0800
-Subject: [PATCH net v2 3/4] ipv6: route: fix use-after-free in
- ip6_confirm_neigh()
+Date: Fri, 27 Nov 2026 12:03:46 +0800
+Subject: [PATCH net v2 4/4] ipv6: route: fix use-after-free in
+ ip6_dst_neigh_lookup()
 To: netdev@vger.kernel.org
 Cc: David Ahern <dsahern@kernel.org>,
     Ido Schimmel <idosch@nvidia.com>,
@@ -102,63 +102,55 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 
-dst_confirm_neigh() is reachable from paths that do not hold an RCU read
-lock, including rawv6_sendmsg() with MSG_CONFIRM and MSG_PROBE.
+ip6_dst_neigh_lookup() can be called without an RCU read lock.  One such
+caller is irdma_addr_resolve_neigh_ipv6(), after its route lookup.
 
-ip6_confirm_neigh() loads the egress device with dst_dev().  Concurrent
-route teardown can replace dst->dev with blackhole_netdev and drop the
-route's reference to the old net_device.  The old device can then be freed
-before ip6_confirm_neigh() finishes using the pointer.
+The callback loads the egress device with dst_dev() and passes the pointer
+to __ip6_dst_neigh_lookup().  On a neighbour-cache miss, that helper calls
+ipv6_neigh_create(), which dereferences the device and can invoke its
+operations.  Concurrent route teardown can replace dst->dev with
+blackhole_netdev, drop the route's reference to the old net_device, and
+free it while the lookup is still using the pointer.
 
-An AI-assisted source audit identified the unsafe load.  A delay inserted
-after it to widen the race window reproduced the issue on v7.4-rc3 with
-KASAN:
+Hold the RCU read lock across the lookup and use dst_dev_rcu() to load the
+device, matching the protection in ipv4_dst_neigh_lookup().
 
-  BUG: KASAN: slab-use-after-free in ip6_confirm_neigh+0x6a7/0xbd0
-  Read of size 4 ... by task confirm_race/130
-
-Hold the RCU read lock across the callback and use dst_dev_rcu() to load
-the device.  The grace period added to netdev_run_todo() ensures that the
-device remains alive until the read-side critical section finishes.
+Ido Schimmel identified this unprotected callback during review.  The
+lifetime and non-RCU caller were validated by source inspection; this path
+has not been triggered independently at runtime.
 
 Fixes: 9514528d92d4 ("ipv6: call dst_dev_put() properly")
 Cc: stable@vger.kernel.org
-Link: https://lore.kernel.org/netdev/20261123133000.1.n0ps1edzz@gmail.com/
+Suggested-by: Ido Schimmel <idosch@nvidia.com>
+Link: https://lore.kernel.org/netdev/20261125190113.GA421469@shredder/
 Signed-off-by: Zhou Qiuyue <n0ps1edzz@gmail.com>
 ---
- net/ipv6/route.c | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
+ net/ipv6/route.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
 diff --git a/net/ipv6/route.c b/net/ipv6/route.c
-index 1b2dcc066..6bdd4423c 100644
+index 6bdd4423c..a9f197bf5 100644
 --- a/net/ipv6/route.c
 +++ b/net/ipv6/route.c
-@@ -257,16 +257,21 @@ static struct neighbour *ip6_dst_neigh_lookup(const struct dst_entry *dst,
- static void ip6_confirm_neigh(const struct dst_entry *dst, const void *daddr)
+@@ -249,9 +249,16 @@ static struct neighbour *ip6_dst_neigh_lookup(const struct dst_entry *dst,
+ 					      const void *daddr)
  {
  	const struct rt6_info *rt = dst_rt6_info(dst);
--	struct net_device *dev = dst_dev(dst);
 +	struct net_device *dev;
++	struct neighbour *n;
 +
 +	rcu_read_lock();
 +	dev = dst_dev_rcu(dst);
- 
- 	daddr = choose_neigh_daddr(rt6_nexthop(rt, &in6addr_any), NULL, daddr);
- 	if (!daddr)
--		return;
-+		goto out;
- 	if (dev->flags & (IFF_NOARP | IFF_LOOPBACK))
--		return;
-+		goto out;
- 	if (ipv6_addr_is_multicast((const struct in6_addr *)daddr))
--		return;
-+		goto out;
- 	__ipv6_confirm_neigh(dev, daddr);
-+out:
++	n = __ip6_dst_neigh_lookup(rt6_nexthop(rt, &in6addr_any),
++				   dev, skb, daddr);
 +	rcu_read_unlock();
+ 
+-	return __ip6_dst_neigh_lookup(rt6_nexthop(rt, &in6addr_any),
+-				      dst_dev(dst), skb, daddr);
++	return n;
  }
  
- static struct dst_ops ip6_dst_ops_template = {
+ static void ip6_confirm_neigh(const struct dst_entry *dst, const void *daddr)
 -- 
 2.56.1.windows.1
 
