@@ -1,79 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795749904;
-	b=gRm7UfAl9FTFbUggqPqB+qSEWdhcZvyrksBTDP/lcC1LcjuuxkCPF9oxyL9JbId2ZGft
-	 n1L3mh0rr74V8ZJ+kEO/6299fH792lwhWNrdXI5IoAEF8RmMMGMsPxY4GmdmrH97y8RqM
-	 ay7ycwUz+m7Pg1Qkey+oYJDoaEW/54vF4NAsYOetgm4yxkwYGNMwFDm34TRWavxAWAc5L
-	 ef/2heDg6bKKuvpdL0Kv2LrVAmxur8xWa18nf0FMofotkdbNn8bRy3s1JsJ3qtQHvewZV
-	 OJQVkJu8zTKHbH6xxUUvD6JeNdwzRmUg0Qna+cJxRklR3rtyFreLXlDSI1vgsL5MPFg==
+	b=Qo8B6lQaub5Vi6IemqRWPBQVxEb+zvgkKp20BQeJ3R6OsP4HJUricSpd4IuLBJndYz7s
+	 BWIvhPIWJ6Td2udLZIHoUCGR4crdUgleTRpVAGw69YKPc7W0xEIJZehdmqG9m/tr2twl9
+	 ASNzzriUxpGv5PL3+BvSEtgGYxEsUPqkPJfDMUln7Q77+ETLu7llrhVH/xmMpPf7lXbtO
+	 eWG0Nj7sY+DfZLKTRPzn/t/aaOqPNGPRitOkhAGoQm3hpu6WOXch2oJbv3ZatfQCCJ+bF
+	 Z6dA9dloJfC3TTL13O2JXEYFZmwkMnethbsNBSaexk911cV92fQcRK7OjXYmPeXG97Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795749904;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=jLp1zVgyra6q3KRMbVPlHRrPKkxKf/mkhedlT39naDM=;
-	b=P06WwY5o+kyxE236c+jkXOelna7vIhy9sC4K+U+0tCou1PD1D6Wg5K8N+kA/Hxf/JKtS
-	 Z/YFD+mjswH/E+uoLzeb65o+w6dvpyKfS0Oa/2khwdV8f+t8xPf50zFSny01z8r4ifCDm
-	 LyvcTYjnbXeC6oSJdu9j9K6rdHdzNA4E6KXaewY74H6bqrxu3ZJGLz86fAuH3Bf9IKrZT
-	 J6usFsR5EkOD9jfmN1qLHJSG1LYCv+XxY4udGpWJqvZVXEoX+prj3lQ0X4PseoLBQlRNK
-	 6zDSIj/FE38oDjUpew9vTkuhVz2V4XC2pUdTnjVHfLHnoToyd1c2ZK7EmVSlV8GDVxg==
+	bh=52am0+RGOkzPAIjdsmAaqktJxCKhWTpn1uKgbfEsWmg=;
+	b=v13RpO0hAiZqyh4Jny/8JjSA6PHsPKNv/XjwJGYAVEQ+TsF1kCTy2f0C26rkFsrjQg7q
+	 h6ZrMMJdkkZVoc5X0H6M1nF7YK+g+PvPVN2Zn5z5ZTj9Z78dVRVVl8Yro+3Fmb1BfjcDW
+	 0AeE7sYMVyFUXjHOeNrm1pS0nZWpgonvWx8SxKl89+pf+k1bZ64323p4FvF3iexkd+YjD
+	 gOsXrL7r7/tP2cVYgnjEwkiWkgbY+9Qsw5KSSOsqcGYm9otyrW6wafflo6jQSsdbCvXjW
+	 9id5uZpVbKcTKmFfjmsSBExQ22LYYx5phoHME/pbDP/YhXHMJD1+EYrnSyvUgURTsKg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=iiitd.ac.in;
 	spf=(null) smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b="h91Rby/1";
-	arc=none smtp.remote-ip=209.85.216.48
-Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com [209.85.216.48])
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=VBplC0tr;
+	arc=none smtp.remote-ip=209.85.215.182
+Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CFD3606A31C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 03:24:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CFD3606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92109606A323
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 03:24:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92109606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org; spf=tempfail smtp.mailfrom=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=h91Rby/1
-Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-3b402824d07so5041357a91.1
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 19:24:48 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=VBplC0tr
+Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-cc4be0e5351so5034236a12.0
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 19:24:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1795749887; x=1796354687; darn=vger.kernel.org;
+        d=iiitd.ac.in; s=google; t=1795749894; x=1796354694; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jLp1zVgyra6q3KRMbVPlHRrPKkxKf/mkhedlT39naDM=;
-        b=h91Rby/12MFgK2KZ9lu0UCiz7Kmqforr4tO9ZJ1bt9otY9DCHMJrCVHWj8uXVEq9fM
-         KJNH3+DF/A0yumOBQL73f08gJp+2pspmR5jKknKWC2eLMDhKdSRwlRsam8fs5G2Xy5LW
-         TQ0NtTFlDjwy77nqtgDCQoAo2APN0+Cngy23A=
+        bh=52am0+RGOkzPAIjdsmAaqktJxCKhWTpn1uKgbfEsWmg=;
+        b=VBplC0trq5gc/oMI9ml+w8lfea3+OGihGigPqvVdBDIeBZX6KKDeyAYX2Q3+sksY5j
+         DyOfaqj1sbFvBPd0lnYPLH7TjaSnfGBYLMF7gGF0B33mlMOkf9r9Px6FmS3PhrU6u7xO
+         T67urYUqrKu9/33loMpXtc/ZAwH+c5IHeQu8Q=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795749887; x=1796354687;
+        d=1e100.net; s=20260707; t=1795749894; x=1796354694;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=jLp1zVgyra6q3KRMbVPlHRrPKkxKf/mkhedlT39naDM=;
-        b=ChZ2DhsEx4rJuRI3aFnKiA0JYPohQGELC7x8mIhLBNvga/gDAU8vL8JQqNJtWGtvKh
-         H9DqNsdAY9ZKYMIuzoM3MdqE5m2iCxAmojqcDjNs9/+4FoebV/TDMobE04wU0DJda2sZ
-         ISHSvzpsRr4dSKpyqaVYezr+bNm/MizG/uYBa8CWsWZAkHXUkagnPCuK6Kt+8M4MREh2
-         R7dQcmUi92uW7pWo/5Qk5dI0Bwaolm1hCsLH/vOAVYiOZF99k12yYnw+0md+FcgI5PYJ
-         /n1eG/f9myEevei2aLnVGxsYBtCSwbMUrS4nm04W8wyoMCA00sIQyMTvqYUq/TXgPCXY
-         rUTQ==
-X-Gm-Message-State: APuU4Z9DmFbFXCa1RI/acF9Nc3JhXhetH5dQ9pWdoAtvsOB7P83hcD45
-	rHewbUj4BdhLNjVl3jSHkW5NLRBDeI77piPbvlLzIVAUK0MPaUdrorDb1dh524wG4IQSrJ9sCPq
-	HILnpZKXBHw==
-X-Gm-Gg: AZFdTZetN7kjm8fTvBgjtACIJyNXeCjoycCaE+YTs20wn3JSImd+mTiJh5sPZLJAEMt
-	8ekEqUhmS80Bpx5sWJE/Y4HzXNhB6b4CilEfHuJ8QCIpVBc9Y1GG5gQtfMc6R9MYdsa5epCvqkU
-	ByRO4MVVTyEdMsW1B1QFzuzfD241jsCHdZ64gAZK4/o4ljACOXYQ2ZXlbMso4imFKfgybRmiWJZ
-	qO6xvKBhtyZOrynL58q21FTsU/R+xSYP3aw2PPlLRXNYK2J+BGFGYroLmnZaGO5w49mDq70HWbQ
-	zIwiZ0Iquv0SfjtcaitGljht8JCad/3Fpp8xnBVj4q8fg0/QXzneDMPB60mTOw3LhxeB0tHBq0a
-	Jwhja7kKprpLMH/mGqM0w/PN4miNIOtQssVsRM2+lzerNyI8C6YIa8MKwGRg1OWln13dmNDKqNX
-	APt8X1EQrFBhzzcsYZ18PfhJAMH7WQc1YCa6TLCC9hE7UanOswNcbN9ld0GUHWdqInL3uLAxgYn
-	DO4e6wSZGzYaV7A6xd7C3LIzfCOMjFhO4RVSD5TbqQudppeqFya/+1vV58yCbFqG4Jnza50W+OW
-	cBg2osLUAgVvbx156EiH9ANKANu+WuGx9grtlOVwoOL7jV41jONqnWRYw+rhONgpTTE0udf68dH
-	xSuz6X7pvcCshDQcWaEcc1NtStwbJ+SKMms6Pn0kOV1BGNrB672BiUP8jgU03PnVJ
-X-Received: by 2002:a17:90a:e705:b0:3ad:aa1a:312e with SMTP id 98e67ed59e1d1-3b41c7e127cmr22418092a91.3.1795749887577;
-        Thu, 26 Nov 2026 19:24:47 -0800 (PST)
+        bh=52am0+RGOkzPAIjdsmAaqktJxCKhWTpn1uKgbfEsWmg=;
+        b=bai67PtNajWbSKZ1q65n8ZTyLb1hBKYkt2jF6j3WZfWJ89mC9U2MIT03cZUztMWp9Q
+         u5wKHPY+qXDzsuMhNIfO2IluysJUZYbEGpsTcOB0F5YGbmbQbdgxyXhxHD9EGwlRIidw
+         2DErrriZfPOvMScUBrlOBSe6JLP2L6EWNx56UnE9I7vLAeBeMBBC1edX5yDlb16bWjnA
+         zk5vy2UCg45UxQjBIJ3lQstC3eHC3gdI4Cyx90vbaPMoNucePoe2BZ8Aq2q7s0TRAbHl
+         qiaEmt3qnxOgcDJ2AfUiH5NBJB/fpoBUa0RnQZEzEEKQ1CcYmNwxUqaJxC/UQcBvGz79
+         u4+Q==
+X-Gm-Message-State: APuU4Z+p8mmkiiby4mKCPNV0VDU+B04bSEqLs5Jo4tf/RvyFdA48PdTy
+	CoF2rXsm21oDvaQ/oe65CgcvN3wLLv1KPZmQt58iaum46cwkL7U93cE9zkNAfS2dgjQ=
+X-Gm-Gg: AZFdTZflwVyWPHHuwVMK8EAL3hqJtts6xIfPjj5wXJJZPwijE3tjT2Erj7ObazZoa1Q
+	Drri5YWzRa2xxKEvLtr90lfqDVHARs3O5hDiu6YKXY1CN51jjYcJOows2H36Qbg+7/00YBAawTK
+	hoko8h5b6nSLGi42zjEk7KGY2s1jPdKQXEZ9T+o8/99+gfMBWmv78mXDdLdLJmtGKoJHI9G+5kk
+	V8m/k7zGSdZlI/i8g6qRDosFnf0ELzdatfPyLaI2BsuLrmiXzWC0ysYh3InYp9oO7xUULr0raKT
+	16g0EnwHOYmdVIAsIosICjtmXmDH0OWn+3rdDjnV0q8yCGIoCGD/QLgOpYUOdBzwVUbXjtNZ3sS
+	luJ9p6l2Q0IPxWQGRFD0E0btCw+PGmeud/KXZsXPsfP/+wkpSCAu0ySdEDWk3I1kfvSh0Kn86h+
+	qDylAEwXB3fyMbyjzIh+Tah2jxOVOEKTvCDBmQ0FehDNnT+23fvTVborjSp10xjA+YbLusam56d
+	00owxS0iw66QjTPdCj51wRy9B2OJ8me7sahnbBcwjCkFaFZ9hM0HeHJcH1d4l5SlFXlIEkn1wuD
+	8MJvmDRP/GXsSOyZq60f4hNwNCd7EezoQyJhwpEbUSxrFQi6w3fqyDGLEFyQjGUv0KQGUwVzrcx
+	TCikpUgjrzyousVPEdBwb4r3vHiU3qIMjxcmKxmv/hsb6sKUAb/RUvhXS46+ZBKouFSdg9OnSKN
+	dDKemnDJ3PZw==
+X-Received: by 2002:a17:90b:4c4c:b0:3b3:ab74:cc9a with SMTP id 98e67ed59e1d1-3b41c55a3f1mr22245299a91.0.1795749893896;
+        Thu, 26 Nov 2026 19:24:53 -0800 (PST)
 Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120769sm112521635ad.57.2026.11.26.19.24.44
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad46ef5sm35791634a91.8.2026.11.26.19.24.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 19:24:47 -0800 (PST)
+        Thu, 26 Nov 2026 19:24:52 -0800 (PST)
 From: Piyus Kedia <piyus@iiitd.ac.in>
 To: David Howells <dhowells@redhat.com>,
 	Marc Dionne <marc.dionne@auristor.com>,
@@ -81,9 +81,9 @@ To: David Howells <dhowells@redhat.com>,
 Cc: netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	kapil@presceralabs.ai
-Subject: [BUG] rxrpc: stack out-of-bounds read in rxrpc_input_soft_ack_tq()
-Date: Fri, 27 Nov 2026 08:54:42 +0530
-Message-Id: <20261127032442.2631270-1-piyus@iiitd.ac.in>
+Subject: [PATCH net] rxrpc: fix the test for a sequence number being in a Tx queue
+Date: Fri, 27 Nov 2026 08:54:48 +0530
+Message-Id: <20261127032448.2631400-1-piyus@iiitd.ac.in>
 X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -96,56 +96,25 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi,
+rxrpc_seq_in_txq() masks the sequence number down to the queue size and
+compares the result with tq->qbase, but qbase is a whole sequence number,
+not an index.  A new queue is only allocated when send_top + 1 is a
+multiple of RXRPC_NR_TXQUEUE, so qbase is 0, 64, 128 and so on.  That makes
+the test wrong in both directions: for the first queue it is true for every
+sequence that is a multiple of 64, and for every later queue it can never
+be true at all.
 
-A peer can make rxrpc_input_soft_ack_tq() read past a local variable on the
-I/O thread's stack.  The read is 8 bytes and lands on whatever follows a
-one-word bitmap.
-
-The cause is rxrpc_seq_in_txq():
-
-	static inline bool rxrpc_seq_in_txq(const struct rxrpc_txqueue *tq,
-					    rxrpc_seq_t seq)
-	{
-		return (seq & (RXRPC_NR_TXQUEUE - 1)) == tq->qbase;
-	}
-
-It masks the sequence number down to the queue size and compares that with
-tq->qbase, which is a whole sequence number rather than an index.  A queue
-is only allocated when send_top + 1 is a multiple of RXRPC_NR_TXQUEUE
-(sendmsg.c), so qbase is 0, 64, 128 and so on.  The test is therefore true
-for the first queue whenever the sequence is a multiple of 64, and false
-for every later queue no matter what.
-
-The one caller is rxrpc_input_soft_ack_tq():
+rxrpc_input_soft_ack_tq() uses it to decide whether the tail loss probe is
+in the queue it is looking at:
 
 	if (call->tlp_serial &&
 	    rxrpc_seq_in_txq(tq, call->tlp_seq) &&
 	    test_bit(call->tlp_seq - tq->qbase, &new_acks))
-		summary->tlp_probe_acked = true;
 
-new_acks is a single unsigned long.  With qbase 0 and tlp_seq 64 the offset
-handed to test_bit() is 64, so it reads the word after new_acks.  The
-offset
-is tlp_seq / 64 words, so it grows with how far the call has gone past the
-first queue.
-
-The first queue stays in the list as long as it is not fully hard-acked, so
-a peer that soft-acks packets without ever advancing firstPacket keeps it
-there while the call transmits past sequence 64.  The tail loss probe then
-sets tlp_seq to the last transmitted sequence, and the next ACK that
-reaches
-the first queue does the read.  Only one bit of the value is used, so the
-leak is narrow, but the read itself is out of bounds and the offset is not
-fixed.
-
-The test came in with the RACK/TLP work in 7c482665931b, which added both
-the helper and its only caller, so this affects v6.14 and later.  It is
-still there in mainline today.
-
-Reproduced on 7.4.0-rc1 (63fe746a609a) with KASAN on x86_64, and on 7.3.1.
-The rxrpc_tlp_probe tracepoint confirms the condition - it fires with
-pq=0x40, that is sequence 64:
+new_acks is a single unsigned long, so when the probe is at sequence 64 and
+qbase is 0 the test_bit() reads the word past it.  A peer that soft-acks
+without ever advancing firstPacket keeps the first queue alive while the
+call goes past sequence 64, and KASAN then reports:
 
   BUG: KASAN: stack-out-of-bounds in rxrpc_input_soft_ack_tq+0x467/0x530
   Read of size 8 at addr ffffc9001363f848 by task krxrpcio/0/9662
@@ -155,25 +124,46 @@ pq=0x40, that is sequence 64:
    rxrpc_input_call_packet+0x1db/0x250 net/rxrpc/input.c:1290
    rxrpc_input_call_event+0x16d/0xc30 net/rxrpc/call_event.c:338
    rxrpc_io_thread+0x534/0x860 net/rxrpc/io_thread.c:531
-   kthread+0x26a/0x2c0 kernel/kthread.c:436
   The buggy address belongs to stack of task krxrpcio/0/9662
    and is located at offset 40 in frame:
    rxrpc_input_soft_ack_tq+0x0/0x530
   This frame has 1 object:
    [32, 40) 'new_acks'
 
-A patch follows.  It compares the base of the queue instead, which also
-makes the probe detection work for queues other than the first - at present
-it is dead code there.  With it applied the same reproducer reaches
-sequence 64 again and there is no report.
+Compare the base of the queue instead of a masked sequence.  The probe
+detection also starts working for queues other than the first.
 
 We found this with a syzkaller-based fuzzing harness driven by an AI tool.
-The analysis above was checked by hand against the code.
 
-Reproducer: not included here.  Documentation/process/security-bugs.rst
-says a finding made with AI assistance is treated as public, and the same
-paragraph says not to post the reproducer publicly.  It is a single C file,
-tested, and available on request.
+Fixes: 7c482665931b ("rxrpc: Implement RACK/TLP to deal with transmission stalls [RFC8985]")
+Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
+Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
+---
+Tested on 7.4.0-rc1 (63fe746a609a) with KASAN, same config and image before
+and after, with only net/rxrpc rebuilt between the two.  The fault needs the
+tail loss probe to land on a multiple of 64, so the reproducer walks the
+transfer size until it does and the rxrpc_tlp_probe tracepoint says where it
+landed:
 
-Thanks,
-Piyus
+  before   pq=0x40 (sequence 64)   KASAN: stack-out-of-bounds
+  after    pq=0x40                 no report
+
+ net/rxrpc/ar-internal.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/net/rxrpc/ar-internal.h b/net/rxrpc/ar-internal.h
+index 865f05fe37ab..cdf5736d88a4 100644
+--- a/net/rxrpc/ar-internal.h
++++ b/net/rxrpc/ar-internal.h
+@@ -1580,7 +1580,7 @@
+ 
+ static inline bool rxrpc_seq_in_txq(const struct rxrpc_txqueue *tq, rxrpc_seq_t seq)
+ {
+-	return (seq & (RXRPC_NR_TXQUEUE - 1)) == tq->qbase;
++	return (seq & ~(rxrpc_seq_t)RXRPC_TXQ_MASK) == tq->qbase;
+ }
+ 
+ static inline void rxrpc_queue_rx_call_packet(struct rxrpc_call *call, struct sk_buff *skb)
+-- 
+2.43.0
+
