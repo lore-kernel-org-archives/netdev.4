@@ -1,60 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795804001;
-	b=vynwhFlgUOvP9g6Ym6aH29W7UGYNupqQsA0bftl+dS810RJFFqrc2lXGCJWONEfmxKlf
-	 6utqcUmmK6xfZWFPL1fJtV5sOscMVnUH81cexxc7LUT/cvJYbX35P88sxTnlvhjP+QcBF
-	 zCXPkhkm05oN8jR/XFAHBfMGTJryNMvcMIYJCUTd0G50jjuDwWGEUpo7IGfvZOWK6qbB8
-	 erzkVDPrUMDTfah7EYKzKIzZbxtbo9orHtr225qIi6f754lV6A3Nz4WAExSVYdXm0Mu0Y
-	 WEdZZeRCgo9FPFeAGZEc+jcMMsXuXEJfJe8Nol6290eCl5xmXULiR1kzWlaFDD5GPbQ==
+	t=1795804125;
+	b=FJIz4y5KoPiQ1RAts/BWh8Bj2LFistiHESJc8iQPVylKwH4XlYWV9kWEqiriuJwAQLJ2
+	 Zvzr1DP93t44VX8GYbNp/3vLvvd0+TK9qIBHkSC/d6FFmX97h3AwTziH903jqFJ/4GEyO
+	 tvp6Q+TXLpEIiNscs5V9zsF5uUNIigahw7W9AtKt4r537fN0tBFGB07zQxX7bgkbmb30s
+	 /QWeGvM79emgAH9ZN1np8mI4XbJdQ4CbMLt7ynREaYcPEjXzgx8IvbVlr5DEVddJoeKS/
+	 IP8EJqRVHMUL1f6OoOR5F4/OkIb19dJSFHx051bzPDoqvT1gb0uSkjUD0BZj0mdUMmw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795804001;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=W0M+QFiTzI1lqSuBhwE3o3ta8tLlW62Sj46FgVterKM=;
-	b=n5tJ/2gdHtD+gpQfg2Fo1gbQc0qe9pkHTEiNxcwiVKdXC5siUDIdN8ALfSfXmfEXodBU
-	 sqXxwSDHHEKW4nMlLA3J0AKADUT4MMeK2BCzpAxK/F8VNDERjRh7si3tM/1OQU024OJSJ
-	 UG9G9V/hr71NdzUdWjo8X+Xn5bfXLBwiGoY0wWpW1y+Yoc7JCSaEL6x+cdKiSlA/tRJUR
-	 FIxBXaVIprCbdAIYe0v9puTmjtbWpRKSFM01mgJd5Mh/ZIHmoa0JfAGx/Snmny/pEpjWA
-	 Yd5uGfA6AUVsvb3VAXiaifihwjRU4VxQwCDibQo/TlJLZAxGt34MGzn0u3RDR+tJqQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795804125;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=uN9/onAoNgkR+7ro9HSYi/mupzW7YqzE64LyZyUQwBI=;
+	b=tkTmKeVW7BBNJ/6/ubohuP7upzWCf1JQ2QjCYq68AXf8UwUYt2/DfGwQTX6m272aFPL8
+	 85g6r5ozAmSjQcKW3dKITFI+G67fpTZANtbrGxNTUIwLoPdWJje2XIf9dW9F6E2g2zxEP
+	 alf9nMwNotjiLI33IJBVar6SDOMPRUNrOhHBA7xXk0DwRhEm7GcMh80fmC98UEWq4LiK6
+	 85yCrO5olCU3bS3pan4IJF4QQ1Yz5elGNUHdpazoXLB6XcWYpKwYYPiSFppVx3QI0yxYB
+	 LmB4E1dEEru07Jt1hpBdMhKvUPG2wSruUsuCMFJg0hl6lJ/ocElt6QvrhwTbA6BGWLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EC9047bD;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="estgrb+/";
+	arc=none smtp.remote-ip=91.218.175.70
+Received: from mta0.migadu.com (out-70.mta0.migadu.com [91.218.175.70])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1266F606A31C;
-	Fri, 27 Nov 2026 18:26:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8CBB9606A31C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 18:28:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8CBB9606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EC9047bD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35D841F00893;
-	Fri, 27 Nov 2026 18:26:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795804000;
-	bh=W0M+QFiTzI1lqSuBhwE3o3ta8tLlW62Sj46FgVterKM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=EC9047bD+sQV8PSueArN4PdFl1CigIoYZqMNZOZ8esJ47hsF/C/thblxYiNanNwHf
-	 aXnkUOPZ3UJ/0EzGM9kxRgfWkYHRrXrbGBfMZTYu0xGDmH6HTSPhWT3ORUNUCPaSna
-	 GZ1GW5o5j009HpDjF0gue4RW3P47CYE8pjiLK7INLdNUVAjN4gHo2OCTFBpdJaNQij
-	 LIHvYjSkm3iqcEkP9lGw7nGN/zKqr7GIRjAGPAag/WNLsF70x/uvaO/bnbdxwRPHbV
-	 Q0gLY0WaHxWJS4G7ihiLVKtHeOcPWPfUy3plXP75YesnfAhuFhcUJISMsP7G3QyKbI
-	 xy5OsXf5rcodA==
-Subject: Re: [PATCH net v7 1/2] vxlan: reset the remote's dst cache when
- snooping moves a MAC
-From: netdev-bot+sashiko@kernel.org
-To: ilskdw@gmail.com
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- kuniyu@google.com, mschiffer@universe-factory.net, nicolas.dichtel@6wind.com,
- shuah@kernel.org, linux-kselftest@vger.kernel.org
-Date: Fri, 27 Nov 2026 18:26:39 +0000
-Message-ID: <179580399973.3135.12029769847251459361@kernel.org>
-In-Reply-To: <20261126182329.91058-2-ilskdw@gmail.com>
-References: <20261126182329.91058-2-ilskdw@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=estgrb+/
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=y/VCxMcz7FgjzD7R4U43r7zW7BsA39YNkpkHZku4Dd4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795804122; v=1; x=1796408922;
+ b=estgrb+/rj1a9ryeuKpcTocvGJv+r1TIWppwkl2/eYNzSNyDOAeyVCsKQeh1Q8xzN5xLM4qk
+ HXUvQ3Bkn3s4zLF55fJfgoDAof797qNhcBDe2zguNwFtokbifLl79Mtx9IW+we3eOAqMPF+55xt
+ zfH647SxT71xAFeceaHtxLbw=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 41f83617c506ba49;
+	Fri, 27 Nov 2026 18:28:42 +0000
+X-Mizu-Trace-ID: 41f83617c506ba49
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <40e130fb-83fa-4e9f-acf5-114781d76a76@linux.dev>
+Date: Fri, 27 Nov 2026 19:28:41 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,136 +58,76 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 2/3] net: pcs: rzn1-miic: Add resets to rzn1 info
+ structure
+To: khendry@reliablecontrols.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Russell King <linux@armlinux.org.uk>
+Cc: linux-renesas-soc@vger.kernel.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20261127-miic-reset-consumer-v1-0-3cab78b94e23@reliablecontrols.com>
+ <20261127-miic-reset-consumer-v1-2-3cab78b94e23@reliablecontrols.com>
+Content-Language: en-US
+From: Clement Leger <clement.leger@linux.dev>
+In-Reply-To: <20261127-miic-reset-consumer-v1-2-3cab78b94e23@reliablecontrols.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The patch closes the deterministic case: a snooped migration
-  now resets the cached route.
-
---
-
-vxlan: reset the remote's dst cache when snooping moves a MAC
-
-When vxlan_snoop() sees a known MAC arrive from a different remote, this
-commit now resets the remote's dst_cache, updates remote_ifindex and
-clears offloaded, matching what vxlan_fdb_replace() does. The early
-return compares remote_ifindex only for IPv6 link-local sources. The
-update runs under vxlan->hash_lock, and the entry is checked again once
-the lock is held.
-
-> diff --git a/drivers/net/vxlan/vxlan_core.c b/drivers/net/vxlan/vxlan_core.c
-> index d11028b374721..584d56d03b1c7 100644
-> --- a/drivers/net/vxlan/vxlan_core.c
-> +++ b/drivers/net/vxlan/vxlan_core.c
-> @@ -1434,6 +1434,67 @@ static int vxlan_fdb_get(struct sk_buff *skb,
-
-[ ... ]
-
-> +static enum skb_drop_reason vxlan_snoop_move(struct net_device *dev,
-> +					     struct vxlan_fdb *f,
-> +					     const u8 *src_mac,
-> +					     union vxlan_addr *src_ip,
-> +					     u32 ifindex)
-> +{
-
-[ ... ]
-
-> +	rdst = first_remote_rcu(f);
-> +	if (net_ratelimit())
-> +		netdev_info(dev,
-> +			    "%pM migrated from %pIS to %pIS\n",
-> +			    src_mac, &rdst->remote_ip.sa, &src_ip->sa);
+On 11/27/26 19:14, Kyle Hendry via B4 Relay wrote:
+> From: Kyle Hendry <khendry@reliablecontrols.com>
+> 
+> Update the rzn1 info structure to include the resets that the driver needs
+> to deassert
+> 
+> Signed-off-by: Kyle Hendry <khendry@reliablecontrols.com>
+> ---
+>   drivers/net/pcs/pcs-rzn1-miic.c | 7 +++++++
+>   1 file changed, 7 insertions(+)
+> 
+> diff --git a/drivers/net/pcs/pcs-rzn1-miic.c b/drivers/net/pcs/pcs-rzn1-miic.c
+> index 682a73cf5a87..3c4eca8960bd 100644
+> --- a/drivers/net/pcs/pcs-rzn1-miic.c
+> +++ b/drivers/net/pcs/pcs-rzn1-miic.c
+> @@ -128,6 +128,11 @@ static const char * const index_to_string[] = {
+>   	"CONV5",
+>   };
+>   
+> +static const char * const rzn1_reset_ids[] = {
+> +	"rst_ts",
+> +	"rst_miic",
+> +};
 > +
-> +	dst_cache_reset(&rdst->dst_cache);
-> +	rdst->remote_ip = *src_ip;
-> +	rdst->remote_ifindex = ifindex;
-> +	rdst->offloaded = false;
+>   static struct modctrl_match rzt2h_modctrl_match_table[] = {
+>   	{0x0, {ETHSS_GMAC0_PORT, ETHSS_ETHSW_PORT0, ETHSS_ETHSW_PORT1,
+>   	       ETHSS_ETHSW_PORT2, ETHSS_GMAC1_PORT}},
+> @@ -855,6 +860,8 @@ static struct miic_of_data rzn1_miic_of_data = {
+>   	.miic_port_start = 1,
+>   	.miic_port_last = 5,
+>   	.sw_mode_mask = GENMASK(4, 0),
+> +	.reset_ids = rzn1_reset_ids,
+> +	.reset_count = ARRAY_SIZE(rzn1_reset_ids),
+>   	.init_unlock_lock_regs = true,
+>   	.miic_write = miic_reg_writel_unlocked,
+>   	.type = MIIC_TYPE_RZN1,
+> 
 
-[Severity: Medium]
-This fixes the deterministic case. Can a route for the previous remote
-still end up in the cache after the migration, though?
+Hi Kyle,
 
-hash_lock only serializes the writers. The TX path in vxlan_xmit_one()
-reads the route key locklessly with plain loads, well before the cache
-lookup:
+LGTM,
 
-drivers/net/vxlan/vxlan_core.c:vxlan_xmit_one() {
-    ...
-	ifindex = rdst->remote_ifindex;
+Reviewed-by: Clément Léger <clement.leger@linux.dev>
 
-	if (addr_family == AF_INET) {
-		key.u.ipv4.src = cfg->saddr.sin.sin_addr.s_addr;
-		key.u.ipv4.dst = rdst->remote_ip.sin.sin_addr.s_addr;
-    ...
-}
+Thanks,
 
-Then udp_tunnel_dst_lookup()->dst_cache_get_ip4() runs, and on a miss
-dst_cache_per_cpu_get() stamps refresh_ts before the route lookup
-happens:
+Clément
 
-net/core/dst_cache.c:dst_cache_per_cpu_get() {
-    ...
-fail:
-	idst->refresh_ts = jiffies;
-	return NULL;
-}
-
-Here is a possible interleaving:
-
-CPU1 (TX)                          CPU2 (snoop)
-vxlan_xmit_one()
-  reads old remote_ifindex,
-  old remote_ip into key
-                                   vxlan_snoop_move()
-                                     dst_cache_reset()  /* reset_ts = J0 */
-                                     rdst->remote_ip = *src_ip;
-                                     rdst->remote_ifindex = ifindex;
-  /* jiffies moves to J0 + 1 */
-  dst_cache_get_ip4()
-    old entry rejected
-    refresh_ts = J0 + 1
-  route lookup with the old key
-  dst_cache_set_ip4()
-
-After this, every later lookup on CPU1 passes the
-time_after(refresh_ts, reset_ts) check. That CPU keeps using the route
-for the old remote while rdst->remote_ip holds the new address.
-
-That gives the same next-hop mismatch or blackhole the commit message
-describes. It lasts until the cache is reset again or the route goes
-obsolete. Later packets from the new remote take the early return in
-vxlan_snoop_should_move(), so nothing on the snoop path repairs it.
-
-The same window also seems to allow a torn read of the 16-byte IPv6
-remote_ip while the plain struct store is in progress.
-
-Storing the fields first and resetting afterwards would not help, since
-a TX that read the key before the store can still miss in a later
-jiffy. vxlan_fdb_replace() uses the same reset-then-store order, so the
-netlink path has this window too:
-
-	dst_cache_reset(&rd->dst_cache);
-	rd->remote_ip = *ip;
-
-Would closing it fully need a different invalidation scheme? For
-example, the rdst could be replaced under RCU, or a generation check
-could be added.
-
-> +	vxlan_fdb_notify(vxlan, f, rdst, RTM_NEWNEIGH, true, NULL);
-> +
-> +	return SKB_NOT_DROPPED_YET;
-> +}
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126182329.91058-1-ilskdw%40gmail.com
