@@ -1,101 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.134
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.202
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795762519;
-	b=032Tf5B5/pPYPN0o8bPHZwjPIAxjEn38yMads5gImhsHb7mPnl7tSrz93BnXNc8mhyNB
-	 6bYtPJfEMHFh1JV/8Dp18+lYggCSBrJyt9pHG0MEDr0EgbxmDJQB4KrZgqQnvqYGK/4QQ
-	 KCRt8i97G5yj0UsO5OdywE8wcaaw60vQKYJlLrCf/VjpvQaTSQTpDy+usyNQS1n7anH0b
-	 vbuUfRvSqzoRm4KkGgeUCrHDSmSrUVfIFQtIErv1ZII39T/I8C0fM/E+QYyiA/72lCtIR
-	 CF66MdPiDIJTThWi0c1N+zwa6BXfEZGZdJLIOuKJH+sozNV7ovYz4xyZKgFh/War6eQ==
+	t=1795762687;
+	b=3lFT596HJHLLmmrK5JW8UjUyVbNIw7RwMCFonepUARZfh3rLGZCLGHqEqJQV2RdY2Wkt
+	 07ihNedj1EKQ06E9s3rXp/urV4HrLBfWdEu3yFC+D7UcDeiFfE0Uyko/dJYrOi/O8uh2x
+	 NSRS9lmv9ILjCNBpoAOhYll0nDInrf0djSTiDaLoOowVXsJ/r/Ebypngl6UuD80SZbNPt
+	 iaVkQzR4DQSaUxPpE58hlDT4IgfpsISdRdHxnqCfmUpKh3whRfnVdoDIj/1wOgCW5cg+m
+	 r0Xx3+2RacHbwsFETYIr5DrFpPSgmAxrtHiXONm3eeTXrt/YgipYKJJ23ZeyRS5lPgA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795762519;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795762687;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=erNRx/pa4ybfvht61Cy5QMsfcLY/xQhwXhQlf25RgsI=;
-	b=ZTEPcBCEZOt2m5yCxOHjp9W+MFmazQA4H4roJPjbpsukArqA9n6kYqgHcR1I6J7zhub5
-	 NYlqjPmpoCHBl1d7egYrM0yydpKEJOxANiyW6ZEhKcWvDrR/hxip+WaW2dGiaLf1uq1iO
-	 5g1g7qbhBuIZeoeKdKlQ6BB+aA+x8K2rA6T85IiL6mLX1Hgu6KJ/D9M+HRxe+2RUtXHKg
-	 hN4HkpD383pFf3+7uuWBHahbt5LxJ4aorTiBl9mqX7dW3AAUxVilzY+ZE5kkO47gKZ2OQ
-	 SvSwdkMaN7PIveKZ/AdqStueYKgsPCqAVSsxQ5NAGqN5I4lmJjMOyzEONnJ1/1mSJMw==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=rw/R6ybt1QcdjNXidw02ubcIKo06kOfp72MwTKAEG3k=;
+	b=W1ZAYiH28NWBba6j7mcH/GxT6FL25JbtmvyRgv48vU+3Jv789YMQzYcHWh6OA/w4lC/3
+	 +5OBmEv3PRbP9J8fv5om7DtqUaNYnydj/8WxIQ4ivKLMPuDfrr+by44SGNA2c1Sc/yL9O
+	 z6xdQalEBp0MYeB0nASlK2D1RE8PV4fafwrYBbf9Z3LSm/JhQlb5GvZitqE5JGuYZKqZr
+	 mAnWQQl5yD0PlRXRJcCbn5PPy0lARSl0rjN9gYuMnQtFZ5ODFv3DZ6NUF/MoiU6V6TkGD
+	 cu7LDBB2tSnHI+i/FNFx7vXDQguiy2zkXrYLubJTFsBu2jUbdEfdGH6MJFOlSKSn9/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xw6a4Wdb;
-	arc=none smtp.remote-ip=74.125.227.134
-Received: from mail-pj2-f6.google.com (mail-pj2-f6.google.com [74.125.227.134])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=COZN6MOj;
+	arc=none smtp.remote-ip=74.125.227.202
+Received: from mail-pi2-f10.google.com (mail-pi2-f10.google.com [74.125.227.202])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65EC7606A321
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:55:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65EC7606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E81D4606A326
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:58:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E81D4606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xw6a4Wdb
-Received: by mail-pj2-f6.google.com with SMTP id d9443c01a7336-2f08b80a840so41953445ad.1
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 22:55:19 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=COZN6MOj
+Received: by mail-pi2-f10.google.com with SMTP id 41be03b00d2f7-cdac0ac5f19so3800696a12.1
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 22:58:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795762519; x=1796367319; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795762686; x=1796367486; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=erNRx/pa4ybfvht61Cy5QMsfcLY/xQhwXhQlf25RgsI=;
-        b=Xw6a4WdbBuEohq4yjyZKoO3Y1qKNC6rBR2ZO+XR5X6FRoZhnMgDRDKVx1a+BQp4RHj
-         Yy9SJixfy91qcMTmAQVIZTKHvG5A72rknRFllvO5+Zdi3rHQmLcbQciJE9CzpU1AJ0hO
-         dyun41/ut8Njp4vByLSGE6fE+8sNxKbOnJgwcffLCkUqIdbc5ENGp2sFWI0L1KUjO+w3
-         QBbNqQuHP1GTIL90KSnMaJ4PEkWcbWusKPqxvuCxI0taO/uWECcDfIq20lJ5guSi/muP
-         iwwaJiQDPH5AolyhtfATtNPfkFASCQ2ROi9XRq1vgAlKkJLL8tkCMmAIM7JG2nFuvVUT
-         fjFA==
+        bh=rw/R6ybt1QcdjNXidw02ubcIKo06kOfp72MwTKAEG3k=;
+        b=COZN6MOjsPcFVoEeaiGgsF+/e6tTcTZQS9iRwunz8SIJCHdPJcBNTnk5TjH4KXx7DW
+         w2SRIJzKtvud7uFtk7g5lKf2J8CIo7oPBvqwPyCrMMpHIJ9uhv4momkzYxzNwz7MRyYT
+         XBqPOLxFU6An8CjL1rcCift2PtL4/F5xHSZs0wlA+WCFb/6BE42czIGVK6Zwmmoe7RoN
+         SOaqabns2twyFyOdfjukt0TRzn1syR8rxe5ftrwweUoLbZpk0I3M+jQ2fDvnosfEIIb5
+         pWdw0X3vITHsA2RM+PL2X4YTY1PrZT210gySkcP1W4Lx5DNEVpdcclcIbaKKZN8FpC6d
+         Cqow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795762519; x=1796367319;
+        d=1e100.net; s=20260707; t=1795762686; x=1796367486;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=erNRx/pa4ybfvht61Cy5QMsfcLY/xQhwXhQlf25RgsI=;
-        b=2pWNRkEgUKndw6I3N0NFioaqDzdKzaDSvQcmhuiYtFvM/CMNvpUZouEF/BiVvhQEPJ
-         Pjw1tDc+WCq3LcZQ5x6qrF9Ys6/HjIT9hrRdyxQvNxJGX94LZ8Gvr25kysVtppD4xbbp
-         g4rpBn+lp2A9y1PQgiMiXSkSrfvGcGonDgHb9ddP9E93RMCoCnQ0ejhEtgMCqH1imKUx
-         mXDSsVFpWDEmZ0RBZE/Lir3FQpR8Z1/bpTZ4bxwhSJ5BSDRPEubJr6rGBhcvPYa/V7O4
-         sHeFg52CSMVL+RYBNwA1A0glUZ70wznNRhyjsjoBr9cp5xajsxxlJvK05uQwK90b2Jhq
-         Lssw==
-X-Forwarded-Encrypted: i=1; AL+hErGRqn5euqVmdzq4zqkY4ZJsi6SrySbrMhZJF/KDzEWraybeA2aqWs5bki+4UhGiUs7z+C+3REs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9X9F3c5wt2FHTpLv2NRzdyu8koE6UZq/nrxUQVHts+mPLG1Gif
-	+0uTNTPvafjkSn2GOafvHumoYf1fUKxzTsYDuKMsnUMBkM11g/D6zHdj
-X-Gm-Gg: AZFdTZfLOiLmdttsM9x0c/9R2b6WtXUqlW6/SA87exCpiawrBV7laR5oKM8ek60LOcF
-	iYhQ9yv+PhrK8kgEJAMCWrnE3d28cqROX0DzA5a5ZRDTl40jcGHWL2oicEWpbX9Eq3en2GCP563
-	MRcFvUkcI8TueuJDpUY6+Ss1JrtoophVqOXyPHMvHe+egKJDpRIk6iGjl+4uKzyjgxUxI+NBZqP
-	aMFzsqK6CN3hJJyMqRSED5JIymVmrnQCCsbTPYaSW7KrmsMughSctMoqK0sSxuTmfNXU1rqmlXW
-	WJrEJyVQXy/zly+33rGR+xFkZGY3nafN2YKVEKE7SBpK7cKDIUA6r0+yn9GOhUoHzK93CY27a0N
-	M9GMLAhST7E7SxM9q41ueyIDajamvWciPOIzPhxrRdFVmm0i2j19ObAcPp0pPVIh1m7jysoHpWh
-	nX1ZyuliWeQNSn1ezWM/ith8P1/hcF6fYB//HhH7Z90zb15Z1iH15KJzywkp5xVVELFgYGYDbVl
-	Ti3ZRtiWUltIgX4JmTjnsRUogBNLxFnaPa/XuZTCrUL9geZTSWxU5AjGJqpoSZrd0csmdgbEJnr
-	hnkDkVogESrCPbMFr72UV7c9azz9XTKZePj+SVyrD4Seuf0HsABlX+Tejwm4kk4tfDYN5kl+uFA
-	I
-X-Received: by 2002:a05:6a21:32a6:b0:3fb:3a56:e41b with SMTP id adf61e73a8af0-4014db62821mr29894274637.48.1795762518648;
-        Thu, 26 Nov 2026 22:55:18 -0800 (PST)
-Received: from BSDHENRYMA-PC1.localdomain ([43.132.141.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87353b333sm11793302b3a.40.2026.11.26.22.55.13
+        bh=rw/R6ybt1QcdjNXidw02ubcIKo06kOfp72MwTKAEG3k=;
+        b=YI8DP/b6WVfL3hm8ZGDsdVSnU5eBSQOdyH2wPSIFnbroc/5t/nlbalV5r5lY95KrHc
+         ACyakwRp6MMtQ6JSSOFmrjkdu/uMApmxVcZhhHoNHOTRePCJSUQdt9FwKceJwMKUvLoz
+         TMWB4688eNP0ySHRmRmHiYq7t308aer6cfwhxZhUSkDwIvgSlEPpXkA8uHbwvoTrl9/p
+         wKKzDLANHNfmPFeX8xhBv2EP9wQWeFa/61TSdL58zAPCjeyEZYMpKJK+6OwscuGYNVxD
+         6c5eYlpyPecF22Ct4a4Hn2LnRGNmnsxrdlmh1Tu5oJ6Xgm1KN7JjLmqevVCC7XXGVWQ2
+         pgtQ==
+X-Gm-Message-State: APuU4Z/GVqT4V1wTwZY8pTD4I/4B/Tor0BkbEX/D/oXuxIIhIkxiKRHF
+	tRqT7cZ356yuPxZ1HJhZyHsdMLJ/PMl9xL8f7UGsPioUQWjQrbubuHav
+X-Gm-Gg: AZFdTZeNjVeui+iq+fx4VMJuVdlyWJDIK5hTK4eWLA/Y52WqizYqCdf8HOlLxcVsNgM
+	8Wfy4ACm0bYHIiIy7lFontB1w08NYNXiFX7MwFOaEaSx7Pxue+IXmPnW8Au9R0pZkDDt9MhFnGz
+	2Ub5puCOhTvNby1vq/7/fhvwjkcmIPi73tgbFYPP88xAMPTUxezaEv8BZu5DIGPKi+kDPBnkH8A
+	oqu1BmW0xH/33Ga39UhEBJA/62VX5/vY6erytGWuZPxbtzAAurVNP9Sq3Y2aQdKQHvFpvUEZWIV
+	JTgacNUszLuoEQnxm5R0GZRR2fBWedsBm1GQHkKHlBJd779xp7gepvXhYvAyGSRtFCSvrkgris9
+	LX/V6NqtUtHePdnkvnOjl9mMI/a5lEB8SSgrRG8HcUy8JEnY9gJ0wF/nzc7CYQrJljlLKUL7IMn
+	HDb6I2kuVJNzliU5fVQMIovsB1pb+58eCWt7yH6PKKf+hFKyLOYNDJOJKNFB5RaVCZZPGiL1ojm
+	Drq/3Z5nwSFAKXWlNAsp8Wjj5WTsWRPO5LcDXEKzR7tGyb9q973RMYmyvI+f0Ud8CAibB/YiHSd
+	GfbjC5Bo9jOAzTcLdHdmX6r+3ensU/gtdQN8O/0gfMgw+cpL6iAvQ9lbGa06kqesW/ZdIUHTxDM
+	A9eaKZKA8W47VeX/fMecGSw==
+X-Received: by 2002:a05:6a00:10d3:b0:89f:6989:cb9b with SMTP id d2e1a72fcca58-8c87bfa1ebemr20969839b3a.27.1795762686230;
+        Thu, 26 Nov 2026 22:58:06 -0800 (PST)
+Received: from BSDHENRYMA-PC1.localdomain ([43.132.141.11])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285c228sm11839098b3a.10.2026.11.26.22.58.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 22:55:18 -0800 (PST)
+        Thu, 26 Nov 2026 22:58:05 -0800 (PST)
 From: Henry Martin <bsdhenrymartin@gmail.com>
-To: Pablo Neira Ayuso <pablo@netfilter.org>,
-	Florian Westphal <fw@strlen.de>,
-	Phil Sutter <phil@nwl.cc>,
+To: Jamal Hadi Salim <jhs@mojatatu.com>,
+	Jiri Pirko <jiri@resnulli.us>,
 	"David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Simon Horman <horms@kernel.org>,
-	Patrick McHardy <kaber@trash.net>
-Cc: netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org,
-	netdev@vger.kernel.org,
+	Pedro Tammela <pctammela@mojatatu.com>
+Cc: netdev@vger.kernel.org,
 	Henry Martin <bsdhenrymartin@gmail.com>,
 	stable@vger.kernel.org
-Subject: [PATCH nf] netfilter: nf_nat_h323: fix UDP mangle offset in set_addr()
-Date: Fri, 27 Nov 2026 14:55:09 +0800
-Message-ID: <20261127065509.2925843-1-bsdhenrymartin@gmail.com>
+Subject: [PATCH net] net_sched: hfsc: clear el_node linkage in hfsc_reset_class()
+Date: Fri, 27 Nov 2026 14:57:56 +0800
+Message-ID: <20261127065756.2927925-1-bsdhenrymartin@gmail.com>
 X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -108,64 +103,47 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-set_addr() unconditionally adds dataoff to the embedded-address offset
-before mangling the packet.  That is correct for TCP, where
-nf_nat_mangle_tcp_packet() counts match_offset from the TCP header and
-dataoff carries the TPKT header length.  For UDP,
-nf_nat_mangle_udp_packet() already counts from the UDP payload, which
-is where the decoded H.245 data starts, so the extra dataoff shifts the
-write past the address.  When the decoded address sits at the end of
-the payload, the shifted match_end runs past the skb tail and the
-memmove() length in mangle_contents() underflows, turning into a huge
-copy that runs off the mapped pages:
+hfsc_reset_qdisc() drops the eligible tree root, but hfsc_reset_class()
+never resets the linkage state of cl->el_node.  A class that sits in the
+eligible tree at reset time keeps a stale linked node while the tree is
+gone.  This breaks the invariant that the linkage state of el_node
+matches the membership, which hfsc_change_class() establishes for new
+classes.
 
-e.g. on mainline v7.4-rc4 (KASAN build):
+Two consumers trip over the stale node.  cl_in_el_or_vttree() reads it
+as "class is in the tree", so hfsc_enqueue() never calls init_ed() for
+the class again and the class is starved permanently.  eltree_remove()
+later runs rb_erase() on the stale node against the reset root, which
+splices a stale sibling back into q->eligible.rb_node and revives a
+class the scheduler should have forgotten.
 
- BUG: unable to handle page fault for address: ffff888140000000
- CPU: 1 UID: 1000 PID: 82 Comm: poc Tainted: G O 7.4.0-rc4 #2
- RIP: 0010:memmove+0x91/0x1c0
- RDX: fffffffffffffffe RSI: ffff88813ffffffe RDI: ffff88813ffffffe
- Call Trace:
-  nf_nat_mangle_udp_packet+0x13f/0x420
-  set_addr+0x18a/0x830
-  nat_rtp_rtcp+0x50e/0x910
-  h245_help+0x1eb/0x240
-  nf_confirm+0x481/0x8c0
-  raw_sendmsg+0x203d/0x2630
-
-Only add dataoff on the TCP path.
+Clear the linkage state where the rest of the scheduling state is
+reset.
 
 This issue was discovered by Tencent CodeBuddy Security.
 
 Cc: stable@vger.kernel.org
-Fixes: f587de0e2feb ("[NETFILTER]: nf_conntrack/nf_nat: add H.323 helper port")
+Fixes: ac9fe7dd8e73 ("net_sched: hfsc: Address reentrant enqueue adding class to eltree twice")
 Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
 ---
- net/ipv4/netfilter/nf_nat_h323.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ net/sched/sch_hfsc.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/net/ipv4/netfilter/nf_nat_h323.c b/net/ipv4/netfilter/nf_nat_h323.c
-index 6bcd6734769b5..764bfc89027f6 100644
---- a/net/ipv4/netfilter/nf_nat_h323.c
-+++ b/net/ipv4/netfilter/nf_nat_h323.c
-@@ -35,9 +35,16 @@ static int set_addr(struct sk_buff *skb, unsigned int protoff,
+diff --git a/net/sched/sch_hfsc.c b/net/sched/sch_hfsc.c
+index 284490fd6ca91..e64df06429239 100644
+--- a/net/sched/sch_hfsc.c
++++ b/net/sched/sch_hfsc.c
+@@ -1491,6 +1491,10 @@ hfsc_reset_class(struct hfsc_class *cl)
  
- 	buf.ip = ip;
- 	buf.port = port;
--	addroff += dataoff;
+ 	cl->vt_tree = RB_ROOT;
+ 	cl->cf_tree = RB_ROOT;
++	/* hfsc_reset_qdisc() drops the eligible tree root; the
++	 * linkage state of el_node must match the membership.
++	 */
++	RB_CLEAR_NODE(&cl->el_node);
+ 	qdisc_reset(cl->qdisc);
  
- 	if (ip_hdr(skb)->protocol == IPPROTO_TCP) {
-+		/* nf_nat_mangle_tcp_packet() counts match_offset from the
-+		 * TCP header, so move the offset past the TPKT header.
-+		 * nf_nat_mangle_udp_packet() already counts from the UDP
-+		 * payload, where the decoded data starts; adding dataoff
-+		 * there writes past the address and can underflow the
-+		 * memmove() length in mangle_contents().
-+		 */
-+		addroff += dataoff;
- 		if (!nf_nat_mangle_tcp_packet(skb, ct, ctinfo,
- 					      protoff, addroff, sizeof(buf),
- 					      (char *) &buf, sizeof(buf))) {
+ 	if (cl->cl_flags & HFSC_RSC)
 -- 
 2.39.5
 
