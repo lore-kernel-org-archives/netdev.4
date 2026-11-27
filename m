@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795773589;
-	b=HFYGwKrKffd8iAGbai2CDwW0eexi0s034remcKN29SjZyfWdQQ3+ysKw6t7H0FyFLcPJ
-	 zgRgEsDx85Nq6hINm3RM4GBtcJzGlwBMiyOPwKwYRDaSiuCFHrNjKqrCGwHJewsI88QpW
-	 TPRxrnTlJJdJwSFR1/4WeHiPkiK1lPmfr0Tn59Nntz7VxMTWdZOWEoY3CulYQjvYzz8m9
-	 ZmMfyit+4/Ans9CUdm/9pMF0UjuqzyU8hsfKme/L06MkyVxabt+/rxtX9NTI0+99xLKLA
-	 HoTSay0DCKQhvmlfGkEExxF4VjigavG0SwXFKHUFIt0dPESdFVPgdKm/1/6QYnHMDYg==
+	b=WjXBXXJW3nOHkZo552fLt77ozNuWCQT8YHFwKGF+kwQPmsj5DgWrh+5EMlVg0TPvtJiJ
+	 XTiw1oEt6xZaXB+zDAj/3wdgOP9IIg47/y4FDeI3APm4GK5ArpBgQUo4AmB4oCAUp7dTQ
+	 j05yEJsB4GRAYBdEIGKhVOupHwp8hEB9P9/lqOPrY5qtx9kRBCaIPKpewpMnwYbTleJwX
+	 /GUuOxMCnuS8gowPt8XwfBL0uNwJuR6isF6tHC7Ox2TWmMa6FHpnn0YiYl3oFjtU6g1vd
+	 VWZmP+ouM9MiIyLShsKh2aj1RIvLl0+AfPa7L7ByFrzzxkVEcPyKY8zPnoJWs+mTTfQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795773589;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=HXRFd2cOQNGMDoVqNtgavt7+ro/SHVcuYq+oVmWUa/o=;
-	b=nb88DVg6vSicsq/zj7HbQOt/ykENL5ThRedAPjGzi+N8Zn3keN37iC7PUeL1KfniGRdZ
-	 Nwn20QmIPJZoZ1q/IrQSOuoPqmdN/Oe0XJqLUNKwAO7VbkbwhKU/1zvRm4UGyZSxKEUjp
-	 rX3QZiDJd0Tjxg8Nn/hEoEaWLBKxLluo+iDWPctWtXy/wTky7GWPuF+T9V49eY65ff8tS
-	 Qm7IT3x1RwrV2Q+Olfk8QLN8kjE+2ACY2L1qrmIjmnmLKZmLTYJem0AeCDnFo6WS35Heg
-	 Rz3oIzKX1ugE05J/cCf6H7tyoxeRyXmiHXCv1O8jCoeBOFW8TXoHfdD3wlvYWrIJ34g==
+	bh=0nK6oALc+naSloQwr+O6Q/o/NLhG5dNIKnSetmOiKA0=;
+	b=f3sVPiQ50DY8D3kqP7slJ1T7YC97ZdxVslm0IqKcPS52iLw5aZ1UXmopX9VDHyAl/aRa
+	 Vzv0bUXv/vL1To5DAT/649Fs+XCU2c09+r+W8IdBjD9ygvhr9M0FQnig77d2qTJlXVR5C
+	 vlElSxvEdetuoG5kQFcv0fwyPOaMt2jlcCHtYOq/JbbhDp0B/co96yvdSqzmVzs8zMBz9
+	 b3OKH61iXx/1gs+snkUwk6W4lwMyCcjZTIHfXNOczyX+MrqWL2MCphxH3EVGH/I+NG5Ho
+	 F5JamZFnkzDnzdLYpVPDsCrsD3cZ6GHzPxFyN9PJ8qMr9/+0nxqD2Qx8G5O75jjL9lA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R0QhIu3W;
-	arc=none smtp.remote-ip=209.85.208.50
-Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com [209.85.208.50])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p1yox5AY;
+	arc=none smtp.remote-ip=209.85.218.42
+Received: from mail-ej1-f42.google.com (mail-ej1-f42.google.com [209.85.218.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B8A6606A31C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 09:59:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B8A6606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED448606A323
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 09:59:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED448606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R0QhIu3W
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-6bab10844b5so9204651a12.1
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 01:59:49 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p1yox5AY
+Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-c5188e4980fso408775866b.2
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 01:59:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795773588; x=1796378388; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795773587; x=1796378387; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=HXRFd2cOQNGMDoVqNtgavt7+ro/SHVcuYq+oVmWUa/o=;
-        b=R0QhIu3WgCK80EmN+8wbvDiPq89uiXgOMhnArI5XW0kgdPoxIIMMQPEv9EOAfsRKt0
-         AoNSPTQvWVUMM4mR3xNEeahH9jWALBDordO6pIF33Ik/2Mo5C3IPhwcnqsq+axKxtIIJ
-         WK8ZLgpXSB7hGEon68r3i6Ns60Uc+NUjZSd8GmMswWuYVjyBc+cKOWdffY4mXGalac8Y
-         ewm7Yj+5U15Jl8xAW+cWs3wGF0L3cmcsQCvOa5+hEw5cc0U1FoSdxdROgJLSu6baBfMV
-         y5LmOijPxYDiKIYeIXATWP0XJvuNPyByrJcvMP5u/0OZfiCaxHuvlIsD91v7PuE6uPaH
-         6heQ==
+        bh=0nK6oALc+naSloQwr+O6Q/o/NLhG5dNIKnSetmOiKA0=;
+        b=p1yox5AYNN2uipZQJnbpRMDXSaCRlxjVfqocWix9bJXh6U29ZRSWOk6AxAz2mejS5g
+         Ev0B5+rw6V4ykP9QG+hqKg9XzXbvKqUQ5G51RFNj6bDS8STlvTtBldjL7ehBF7MbuhIY
+         a9GqdncJIKydAShBiTz8UMqpgoo6gEsHwRL1OqblF/JTxQ7E6luqB4lwmU6tmLaotuHd
+         ltuefe8RBlTO+xrsLjGDFpLYkvQ3/BAFdPYZMlYFKQToKxM0q8x+KzDNEODB4sePc4ag
+         bu4bDv9TIAmAloS4bcxC7WUGLrxQGOAZBL8Hs1cBRPFatTW6X0YrKjSbcGLNTcFAYNQ9
+         uPeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795773588; x=1796378388;
+        d=1e100.net; s=20260707; t=1795773587; x=1796378387;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HXRFd2cOQNGMDoVqNtgavt7+ro/SHVcuYq+oVmWUa/o=;
-        b=dsHSoM32NEFI+kE1L4QGf2Fkdhmx3Zx76MwiZ2vgBmNpr4S5bvKgJvAlMxYG4lYeY9
-         EFylM3hDNb9DrjtidYkvPCd9lrKO0KPewBsaPCv+71KYc++O1zkKhGm4yY70htiW//36
-         tIbg/0Getmo7xf071D5rpGqOOL8mOHk9XF5nX0/WHkDdumiz+G4xXKmpshoESRpmN8Ep
-         pB0ljJz+z7Xc9x87L8f/C6uV1HTk+nWMuj10BzWC9fGZc8fsqcq6TbDqxQRDULi9v0NC
-         kNQfhAh/5EhJ2XuHXXjfSb+yqPhRPO0xZq/Eex55DDtVwvxIfhtQLAsT6jeO02N5xYkc
-         Jq0w==
-X-Forwarded-Encrypted: i=1; AL+hErGGBwBm1E27HaHvxTernuj9nnPJ5XaKO5ZRujX5MCW5Kv8FxNdMvZ1aWZr2hHr2QOW4MVKBsZQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9WJXBC7Jazpf0PMKQoYermi9YlH0Uml41b3qQza+3hyLddHNFR
-	wmrjrUniePFqtRD8vO4kpVG4P7cmjlCwob8sC9fIdt7/dSBIrvO1KQua
-X-Gm-Gg: AZFdTZdtzgjkAawJgFmNLuK42Zv1ClMd32zPwI5O+1uB8aNoPqFFgscja6D8I+abYfu
-	KWDwi1ut0ygZuAtBq7XwRKCn6lMV45TwXqtw7btpu/0FT2eSLgm58Ck2kP1kf7+1A0FsbhVjFPs
-	pBclwMpD3eePtsX18FYLw4XlgpPLkqrTEPPCMllEPNB4bSAIkdbOh3h8t+/oJ+Mv4Q07WXqGxBt
-	yKrf1yNj6t2m8iSqY7Wg1m0uhbo0Ahu/5JhzXO0SY2WBLo0+ybdubkDWL6Kx9dTOKU7P/Um/R7y
-	BjN0ECHiDE/HqupIDfmJPd+U7N3amFC2aKEhg6pGV71mUDI0s4dvJTnl9QF6J/V1CeVzBtiHMsJ
-	ZAZQsyMelO8OldbPXjow0rajVx0mAYS188Kix60OBXVhm02BpRUt48EZLoR4DknNYjwmMSESDJU
-	0dQofzQ1xF52D7qV3i93cTVv2bWBjHc6SNi7dN01lMcQA2aRJEVrjV3ELc7NNCtVYK81lVsimB1
-	Rx0MYtK6RSarjA8x4DmxAG6thZnUJgrswp7vRffSNtjQxwRDDK/B0YZiMI2z2igv19m+6gCxZsU
-	tmsEOOuD96YlxJ4FYdyka9QCTY8+p5T3TpGbiH8bHN3XE7vc8hT5JJQ43iymqYly/Bkc2A==
-X-Received: by 2002:a17:907:968a:b0:c42:bc58:f21 with SMTP id a640c23a62f3a-c51d5adb93emr163106666b.15.1795773587905;
+        bh=0nK6oALc+naSloQwr+O6Q/o/NLhG5dNIKnSetmOiKA0=;
+        b=1p7IqifEGjVdmseuJrWreVY0V1gx3KLgBx44e/aCpvmf/jwRfbDXVJ+/xSEZBLVe04
+         veimWzrouciqI4BhcI4qY9eV3gwpryxO56JUAs0wwRa+dxrb1rkOi5oxPMgFexBHFkRn
+         etXWHStiNuE+nqRAjrpcw3F9L86Miew9gWAJGJnJ/e2OyIGHw73ox4ZFrHOtpmcQjKcp
+         YnnpFNs2SaoMyy6Kcsv0myTOrTCjjnPuFCxslVk/e5oL9WC6YoK6Ql5yF2afIGofuNex
+         50v29nORKifjx1AR7rbgl/TbsLCbERKNhKPBpo1VsvfHbFpgC84T5gqAMczmP+Ty8yvQ
+         ypyg==
+X-Forwarded-Encrypted: i=1; AL+hErH3hFBysyIQBUKIXUIZMoCSWhPVdx8+Pvf7ha/tGFeUOoLmYR1bEJaL3EIJZiMXZohm86s4Xjo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+jrE2NwIE6s2Hw3qHAVZAwoZ9Pd8gTUbrE0MoDYaUYU9DSKoYn
+	40/P614vV92j4/VqrTz/YrMjWgKP8xMnmRg/BEwJoG4X4x3hTXVeiezh
+X-Gm-Gg: AZFdTZdDc+PCEPlQABHyPrMmii80UsDf5QuNOgCYox0R/glN9wArocbvXnHIVR4PSLT
+	ao/6DLvvCFP6zBkIV+RzasWG7rT1RBLsQQQaaejr+576zP49hublomm3Vn+AmzYa4kVFRTvV30X
+	qfxppBdNybAMxA7UqrjogqOHGB5uELOBtS7rseRCY2jMjsrNbOhcp+uddysxlFKk87yl8YmHLkD
+	nqU9MyO4csbveLPGlI60jW4EGqtPhccTsjFvzke2OD4jccuy4Wd8weTFgkRgNHWf3oDhCMCqiK9
+	5YUtNn+JPbUUqmUgSVCQ5TGjCbiMHjb0c0UDIiD9UU5CsxENPUYr0EwIc0ClANerdFSm9XlNe07
+	wLUomcIZBsnBctb8NVsi9PSA/UsLi5Nov9Qac4xB4p8IQhGW5Z8MolSRL7O9vaxxUkcnBIeQ1aF
+	7ZIbC4c+lG6GlhArWuJeNrNEVFTH32x1fCX7sMVsCvFGIjjYiRLQD8swhLefqoWPnKSS4qAnVXQ
+	if71pEW64vo47s1Bd69+J9xoPfHO3mNd68J/2AjfZj9YUow4zO01INgG/wbgDaTuI9BoGcV496b
+	yBMYKmQW48bcRgu3xQRl3525/J/XVVPa44iRQFy8Wi5DLu+B
+X-Received: by 2002:a17:906:7944:b0:c41:8e21:4d58 with SMTP id a640c23a62f3a-c513a41edc0mr2010416766b.5.1795773587030;
         Fri, 27 Nov 2026 01:59:47 -0800 (PST)
 Received: from Air-pasichndev ([188.163.8.107])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae8ce16sm841249266b.37.2026.11.27.01.59.47
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae8ce16sm841249266b.37.2026.11.27.01.59.46
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 27 Nov 2026 01:59:47 -0800 (PST)
+        Fri, 27 Nov 2026 01:59:46 -0800 (PST)
 From: Andrii Pasichnyk <apasichnik9@gmail.com>
 To: "Jason A . Donenfeld" <Jason@zx2c4.com>
 Cc: wireguard@lists.zx2c4.com,
@@ -90,12 +90,12 @@ Cc: wireguard@lists.zx2c4.com,
 	Shuah Khan <shuah@kernel.org>,
 	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2 2/2] wireguard: selftests: remove a peer under load
-Date: Fri, 27 Nov 2026 11:59:44 +0200
-Message-ID: <20261127095944.17844-2-apasichnik9@gmail.com>
+Subject: Re: [PATCH net v2 1/2] wireguard: peer: free packets left on the per-peer queues on removal
+Date: Fri, 27 Nov 2026 11:59:43 +0200
+Message-ID: <20261127095944.17844-1-apasichnik9@gmail.com>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <179577288974.3135.10854019193613008297@kernel.org>
-References: <20261126094722.73025-3-apasichnik9@gmail.com> <179577288974.3135.10854019193613008297@kernel.org>
+In-Reply-To: <179577288773.3135.10772290029017294104@kernel.org>
+References: <20261126094722.73025-2-apasichnik9@gmail.com> <179577288773.3135.10772290029017294104@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,37 +108,35 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
 Sashiko AI review wrote:
-> [Severity: Medium]
-> Does 1 MiB leave enough headroom for what the new loop can log?
+> [Severity: High]
+> Can this purge of peer->tx_queue run while peer->transmit_packet_work is
+> still pending or running on packet_crypt_wq?
 
-In the runs I made it stayed well below that: about 217 lines per
-removal on average over 200 removals, and 340-400 KB for the busiest ten
-in a row. But the worst case is what you computed, so v3 raises
-CONFIG_LOG_BUF_SHIFT to 21.
+Yes, it can. An encrypt worker that the second flush waits for can queue
+transmit_packet_work after that flush has started, and then nothing
+waits for it. Before this patch that was harmless, because the entries
+on tx_queue keep the peer alive until the worker has consumed them. The
+purge breaks that.
 
-> Would setting a non-zero message_cost while the loop runs avoid relying
-> on such a thin margin?
+> Would a flush_work() or cancel_work_sync() on &peer->transmit_packet_work
+> before purging tx_queue close this window?
 
-No: the "Keypair N created/destroyed" lines are rate limited by the same
-setting, and the object check at the end needs all of them.
+It would, but the tx_queue purge is not needed at all. The leak I
+reproduced is on rx_queue only: the transmit worker has no budget and
+drains everything that is ready. So v3 will drop the tx_queue purge and
+free only what the disabled NAPI left on rx_queue.
+
+As far as I can see rx_queue does not have the same window: a decrypt
+worker queues no further work when it is done, it only schedules the
+NAPI, and napi_disable() waits for the poll.
 
 > [Severity: Low]
-> Could the commit message give the detection rate with the default
-> NR_CPUS? Or it could say that NR_CPUS=1 is needed to reproduce the
-> regression reliably.
+> That makes the new comment the accurate one. Should the old comment be
+> updated to match?
 
-I only have single unpatched runs there: one with 2 CPUs failed, one
-with 4 CPUs passed. v3 says that NR_CPUS=1 is the configuration that
-checks for this.
-
-> [Severity: Low]
-> Does anything confirm that the peer is actually under load when it is
-> removed?
-
-Not in the script. In the runs above every iteration had an accepted
-iperf3 connection before the removal (10 of 10 and 200 of 200), on KVM;
-I have not run it under TCG. I kept the loop minimal as Jason asked, and
-can add a transfer check if that is preferred.
+Yes. v3 updates it and says why tx_queue is left alone.
 
 Thanks,
 Andrii
+
+pw-bot: cr
