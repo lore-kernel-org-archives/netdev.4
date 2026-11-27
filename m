@@ -1,155 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.9
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.49
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795757033;
-	b=MM7gRhmVykIPbxHMHZj/u/sxJENgZchm2wEVXlmZxMkRqz7wtSSJYSnamTxFsvbeVTOw
-	 fhj5RWNk9Fi4LcCWqnzb/ohXyw3zHGLen87NjjXy+KY6TtQwNEd8nGLQiESvNo/2o1AvL
-	 U/RCPsyk4E1lHktjpatXE+sXzFvR0/dHlkOdXdGpYv5EOQ29oAGQ6OgfxVOtiIF9nlMbk
-	 Jzrvx+XD1Hsi6UB7cnVoLLKdg4YbKnew4siXM26ynAloiWNLvYW8IQaSjnVC+55vwEgT6
-	 b/Rjce5DBOqYwqZFYgOGC20KHX4ApNQ6c42TaJRga+WHsGVoMSkv7ULxRae6xmDYedw==
+	t=1795757152;
+	b=bFelmRMNe0HSNGKWz4HdbE8cdI8uIfdK1ocaiQlgR3KE1guqaAX7jDEZ0WkoBP4xbvIv
+	 WDHGo9cvnYx7/vGBJUtIRsLvn43SI3bEuB64terVI4sPq1Pq4bq/vworrj/ZnNaqDyoQM
+	 mg3csbP0/OytKmkrI/NHyAJQGPRbGNqSaXdkKpGrrStR8C/zYsmf4Rgp6pDfFeMwTOrgO
+	 KqNYTkLLmibFfQs00hRomCQoRkOzLky8H0+fepe2u012cOPQAUk7qF1M9EtbjBlfv0ZTH
+	 faHnleZBCjhH2rCyQGi6iqxS/eGMUIdDALmGncDObRzCprzOjMoBwpnslt6ooNY4Fvw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795757033;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 user-agent:x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=/zqAtfkU/n51gvBXvEZZc8pLCo2U9xBmnyhU2rPbMZ0=;
-	b=VmHwoZwnJOMQrbkqmDMLRKano8gIjM9W4EDxUjtSVzI8mzHYjNpKQOVj9sH14gjlj3ni
-	 R3C1l9P91JtDUkou+TmJLpiXhNfbcnLv4Hzm4QbxzXulZIzzVr18vheyuhxBlLGtyjN85
-	 y2GTa4qLqb1cwuwiIx3J2tLCKfOixof2EbxfeJCssZa1B43JymsXAwbsKVZ8u/fV++1E1
-	 00TuuxT6l9Cu5cQVU7FJ/5M0zuMIh/yUNL5JgemHM+cnBJwTz7tkY9Xss9gb7xpIxz8jZ
-	 EaSqbgiqsRxAi/QTBEvnb4faUWhsSjB+zwJPKu3fsI0XBlDEbx6B9daKxIWsc7W8K6w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795757152;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=8zadYnSLJC4oWK4KEqW/pDBGl06U5XfACnUZ/V8R80A=;
+	b=EHcJZP/Sz5ezxsF64NPGDa+8r+8q/au2H0KIOsDbEvIG9oLxlhyR1sjt3vnc0p3I8LGB
+	 ne0EPxDf+iQNXUaYfhweNa0FJpBj46OUNRRq8D3jt3K6Tp9kAhxAPQ3abfozrmsL9Fexv
+	 WLOJ47b7wskrZnB7KnVn7hbK4M7IFQjyvjLY5min/WVsWw2QYpUpwzqZP5AfuPJagMfAV
+	 izmDY40uoTYM9KZyp+jPpY0G1kf9717HprMfIrJvNJ5wFrICobBYerEIMzNcV/CwagsSg
+	 zCtA3BJzuodz0jhbImeoGymgGhP5TxoGCO1tLPGXB++4EAsCevb3tquHtqRRK4pdd5Q==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=selector1 header.b=U2OWVv0c;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.9
-Received: from CH5PR02CU005.outbound.protection.outlook.com (mail-northcentralusazon11012009.outbound.protection.outlook.com [40.107.200.9])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="lCV/0I8i";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.49
+Received: from mail-yx1-f49.google.com (mail-yx1-f49.google.com [74.125.224.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0916606A31C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:23:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0916606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13B79606A31C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:25:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13B79606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=selector1 header.b=U2OWVv0c
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=g1Voh7ldVXeeVs6Dke0hZQDATVSnJMUunXKtDaEtI+AHdBUavjQ9lJKaH5Vk6Xp1YFsA9N4l+lYIb++9/1Gjc9+Q7CQW6T066uLjk16CGdKXadvfbuDumxojUkYkOb+tmcIg6Z8snv+QHED4ramGqwYLwG9gJxNuSopBcLNR1oDiUMj3x3mrJIyTwLdsLCH6TOZCOqxqZHZQcAIwB3zS3KK5pR1n6l07TTbB4asOlwlmzkjTtgoXIUunP4lGrIG1ncE0uyqf9LkO08wNNa2eLir/69+Re5H0dBU9cjrcIlsyZowv741F/3ToHRkFj8lxqAL8rHBMTz2hf1MOXdzVRA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/zqAtfkU/n51gvBXvEZZc8pLCo2U9xBmnyhU2rPbMZ0=;
- b=tdyQDSgqssF9LUPoOqO6zrTR8bRhq7SmB3TmdxKFLWy8JFPdH3j6h5SCY4avK2iUPjkCk2N2r4OVFQ28vcDeR5Y9xEAh/n4hxG4MdpzR6WPsPTwPmvidW+DH1UB9szRmk+IHKatMzarvUZ+0Lcq7pQDw3H0QazEDAcps2yMPZenwcsaXwAszWKEuIw1yVxM9LeEmxwp/FHpQNv0H1Ho3iHKOSr7f8z1YX941bM2CWc0Zx5lRBGxx6nPllLmXhcJ99WiaThNXc6h0LnJuFDBzM4d2NyStRKYw21nbOS2ZkF+vL4evOaeVm3IhOVoSxm+b3lyK5s/ddf1eYcnonkEo/Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=microchip.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/zqAtfkU/n51gvBXvEZZc8pLCo2U9xBmnyhU2rPbMZ0=;
- b=U2OWVv0ctG0WjS2YCYnQNs1GEPfVDfeNlbkmGOe93zZbQPBO70ThBgtRRqeKY/L/uu8MyxvFXOMKs4R5h/1yzEwOsCalp55io4Rk2tmGegWxUz0NJZY4AmexqDUYjDr/u6MsjXXoy8l7rV/wFtFFd2o39Eu6T9O3mBQ8CTsgkcE9DZlT+CdOsPxuvDzEXY1/SdMUpI85yWWroXaKGInyUDgQIZPCUKTc5b6/BxTLaPlJczX4mzBgqOFFsm7E+b+wNGZBkhMTjpcZ3/L8094s7lIc+rhnbtwcIeUS3cp2YXqKI6krvciUn5kxoCa7ePUUe1HPmKkYOOZ07bwuthwZHw==
-Received: from PH7PR11MB8012.namprd11.prod.outlook.com (2603:10b6:510:24b::7)
- by DM4PR11MB8180.namprd11.prod.outlook.com (2603:10b6:8:18d::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
- 2026 05:23:47 +0000
-Received: from PH7PR11MB8012.namprd11.prod.outlook.com
- ([fe80::71b7:7099:a6b4:4bbf]) by PH7PR11MB8012.namprd11.prod.outlook.com
- ([fe80::71b7:7099:a6b4:4bbf%4]) with mapi id 15.21.0662.004; Fri, 27 Nov 2026
- 05:23:47 +0000
-From: <Parthiban.Veerasooran@microchip.com>
-To: <netdev-bot+sashiko@kernel.org>
-CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <hkallweit1@gmail.com>,
-	<linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
-	<UNGLinuxDriver@microchip.com>
-Subject: Re: [PATCH net-next RESEND v4 1/4] net: phy: microchip_t1s: fix
- collision detection on PLCA status change
-Thread-Topic: [PATCH net-next RESEND v4 1/4] net: phy: microchip_t1s: fix
- collision detection on PLCA status change
-Thread-Index: AQHdfBJLeS4RQTRLUkqgGtNTuXLgWrc+wyCAgAKjrgA=
-Date: Fri, 27 Nov 2026 05:23:47 +0000
-Message-ID: <c40abb19-1d4a-4e46-bb96-8d4cdfef2333@microchip.com>
-References: <20261124124930.485323-2-parthiban.veerasooran@microchip.com>
- <179561192599.3135.16135249584970983112@kernel.org>
-In-Reply-To: <179561192599.3135.16135249584970983112@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-user-agent: Mozilla Thunderbird
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PH7PR11MB8012:EE_|DM4PR11MB8180:EE_
-x-ms-office365-filtering-correlation-id: fbddb1c0-03d4-4ca4-4a30-08df4c469cd6
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|38070700021|10067099003|56012099006|261026121527099003|261026140227099003|261028144727099003|261022105027099003|261021121427099003|261102123227099003|261009223027099003|22082099003|18002099003|11063799006|4143699003;
-x-microsoft-antispam-message-info:
- i302eCxRSYQ+80k7VMyb/jFe8UXd/c279bFA5GTQy0QxO4oi+o1xTWAhk11LfciRFepa1Iivg5RQvQ80qBknXNoi2+btlrXyOmZaJcSCzjhM4MsP6Sqp7k+03/fqr3wDDwHm7yJW9d3sX8foGIY1mF2nV8Yuj8En7mtFYcLKGx+uBwQM/SlncdS7XJKsqSualqDrkzNA5ScS66Gs/fBh9AQXIkm+vuaVbO/qDgrp7tW59hX0/QSL4NlZiRsQDTudSoRbcnRRLmWDX9X/Jl08D1KYupFiaknOLHClQpXLQDbWtg1r9/rTP9PZOIxy0QfY1zqU32LmfK4d46oAajneQ+gSTs1bRflX7g3tZ7nrSgF4Kmxyf3C3k+8AvU73Nah1h0WBJRdapY3AYgIeZBnIgzoBtRChh2ZpXLbEpHpZ+rxos/vEucnuc2ZV0MFiTaABNWMEnWVOeyTUz0lnobUJvULWH6tb34Ftyq1gjPqvDIQDoZ1A4CGJ/ygxuuwZf3W2XTsjJ70c5LSr81CORsk7VqQklU2xsk4j2ahSM9ST98y1UmuJrKJQp0JWIFzkOJCQ+N1TheBFG2c3a2av5xzFWdCqRUqpw39WywVniLDQgJWodw6oGybrVytQfSoP757uL25cn9hiyQx8kHGKGX8/NEkA9XCDGIBO+nehwYB2mCE=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR11MB8012.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(38070700021)(10067099003)(56012099006)(261026121527099003)(261026140227099003)(261028144727099003)(261022105027099003)(261021121427099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(11063799006)(4143699003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?utf-8?B?cDlaVS8wMEI1THFhY2Y1RW5Ca3hhbTJoK2kvOWNiSUhTblplQ045UUtXTWlO?=
- =?utf-8?B?d1laT05wWm90ZmZrTWozUjhld1g0UE1zcXdNRnRCRnVjSHFGWVg1QVdqeXFN?=
- =?utf-8?B?citEWWc3WllvL05zTHhleE1VRlRlWldvRnNpUThGVDVYb24wZFhxdzR1V3hH?=
- =?utf-8?B?UGhiT3kzM0V6S0RLV21qcjJ6ZG9Ya0gvVGkzUHpZemNGSS9Mejc1VXg2UlVl?=
- =?utf-8?B?TzlJaUg2TzJ4Q1I5RStpaTVFTWdKdlVwbjZsS0VxQThLM3RkMmpHZ0FKR2tK?=
- =?utf-8?B?UUtSSjFpUGZaNkVUdElFaGdaVTJWT3E2WmN3bHFCK2diVXVSNnpGYllzd1Fq?=
- =?utf-8?B?ZC82NlorcFRFTUVLSkJET01yem9vdVVaOEhmekJLK0N4RThwREFFVmpLd0x3?=
- =?utf-8?B?VThGNmlEY2VZUEZDR2liSTlRNWM1bitBTllDOXNpRkRIRHpGdkdhK2VrTllS?=
- =?utf-8?B?U1pKOEZVL1dyRmpYS28yOThhSDEyU1hqNXVDaHpBOU82eGxyemxOcjJhWDRi?=
- =?utf-8?B?ZVBEanVhRm9KdGczaE1ESWVQZlhoMHhmZ09lZTVEOHdKMXp4dWszZllmZ3NW?=
- =?utf-8?B?anlkclIyK3ozUWRVVXJ0UDRsRm90czZGRTZJayt3Wm9uYXlsRFhFc2pwSGN5?=
- =?utf-8?B?ODdoNFhRanlQVmIrdElLWDRiRENPclFKdGl4RlRkaEx5M0g3SzgxNlM2cmhQ?=
- =?utf-8?B?NVBKYTBoVzFvdVVQM1plQlBDamk1V2RuZmxueXdiUzZmN2JhQmU0Q09KeCt2?=
- =?utf-8?B?NXNIQWF2RlpIbVFKOXhWTVcxbG9hcW8xVGVoZTBrNktxRUFNT2tIMHh5SzlD?=
- =?utf-8?B?RE5hcVZnSEFIMEtVUzE5L1VJa2pRNkxjd05wSENKOFY2VWtmZUVhZ210Uzhk?=
- =?utf-8?B?U3c3K0dRN2Y5S2dLMmNtQUhkWnhoVWZmM1p0SG9iMXFvQkwrZWlYWWZ2YStx?=
- =?utf-8?B?VCtTRnE2cVRJLzI5aGFJTEpuWUhCTHNWbCsrUks0RFZjbll1cGZoV1pOTWZt?=
- =?utf-8?B?VXlVSU43azdyS3IwQmxONGlYTkdwNnk3MTZjMkdLeksrZ2NzckVUYVdtaTUx?=
- =?utf-8?B?cFZpTlE0VXE5TEhHRXpZcTdiTlNHQ3cxT0U2Tjd1eWZHU00zNERtYStLWFlV?=
- =?utf-8?B?Q3I5R1UvM2JjU0dwZUVEeDV5ZndGR1c3UmdpK0tOTDVBbG9sRmdHcGMxM3R4?=
- =?utf-8?B?ZEc0dnluTktTYnBpSUdXenlrS05Ua2RhZ0IwSkdwQTM5cXBHTUJQcjB3VVVV?=
- =?utf-8?B?Q2tlRnhSSzFOb0FpZENsdmdJTEtsUWRDZmVBemhxb3FVeDJzdktDbW16d0tp?=
- =?utf-8?B?ZjNSalVWbnd0ZWlwVVR1SFNIWjVIMmF2bllJeTkzZFhrbzVDWG5XZGZaYWJl?=
- =?utf-8?B?UURkQlA1QTZSbjV2dWV5WGdXT0laOTh0Wjgyd1ozS1RNNW81cFNPMGVpUkMx?=
- =?utf-8?B?U2R5Sm1MbTgvWmZuSUxlUUlVeDBkb25SWkxWb21zckJvS2Vka3U3UVlGaDNl?=
- =?utf-8?B?cy8vUUpHbndqTVBCakR0b1QxbFh2VVhtaENjMThlakVzbW1NNitrM2pwUG5M?=
- =?utf-8?B?MGJjSTZkTGxoOGR3RGlJUTNVWk5sUjBSTlJBYnR5c0hEbndmL0pWNThQbDJ6?=
- =?utf-8?B?UjA1YmpHemI3d2ErQVU1UlNuTHZ4L2dXUDRsYzNJdEV4WVF5OVRqTTBJMGVy?=
- =?utf-8?B?ZFAvU0lRaVNPckF3ek8zVmRCYU1KYUxjUXkvZHRFOHBwSFB6N0VoSkVHVFRp?=
- =?utf-8?B?SFdwdURMRHowRnhaV0hwUjdTa0dtL2c4VEhrU1hFcjIwRmVKODJGZnhHWnhy?=
- =?utf-8?B?NTBvVDdscWpDQ1lSd0ZhSTY2STNTSkJITW4wbVV1YzJ2UFE5bDcrN1RFVWFF?=
- =?utf-8?B?Q0RKMk9GRG9Od0l1VzFGS0hISnd1cHlSZ0NmVXNWMkhsSndwaDRYMTVTMGdq?=
- =?utf-8?B?dUJmNmFtcCtBMDRaUnoydFpBZHdNcHlZYWRZaG5lc1hJbnNEUjJvc0FTc1la?=
- =?utf-8?B?R0ttaVBzSktTcTFQQS9IbGZjclcrUmNMalZ2QXV2SFk1SXd6SXdjUVloUlp1?=
- =?utf-8?B?THR5eUU2M1dKSWZ1U1lKSnVsOWRwYVlHLzIrZERRRjc5NjN0SWdGOS9ZdC9T?=
- =?utf-8?B?eW9kMFFBZUFEZU82aXhabUJRcjFGK3NObnhQNFI2eVJxVk5pUkZHWjU4WWFW?=
- =?utf-8?B?bDhEUm0zcHNCZWNNeUxzVUdWWGw0djhxQmxEVUNzRGFVTmM4bVRRUTZHUkNR?=
- =?utf-8?B?YnMzaEp1c2pJekRKTzBtVCtTTEVEbUNkeHRNUGhzY1JOdE53bDRZNjlxZ3pR?=
- =?utf-8?B?NnkvQXJ3c0l4SzhWcENZY3ZrU1ZuelZhZDFEZ0U2Y2h4cVZ4NGZNV3NUWnNJ?=
- =?utf-8?Q?4XWi/lbkG3529MIA=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <9E7DE9D11BCEA24CA0C2853712F4E8AB@namprd11.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lCV/0I8i
+Received: by mail-yx1-f49.google.com with SMTP id 956f58d0204a3-677bc4704cbso8968513d50.0
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 21:25:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795757151; cv=none;
+        d=google.com; s=arc-20260327;
+        b=BHV5it/aE1cHUFmxRCoaYgwc5uxGcL5+jMMS7AkAF7pr/va+Ao7w1+ogDKKlr9Ovmi
+         PoM7211aQ14NGGP/7fbFztRnl6I7886MKWbmFdZ16eAuShfeM22J6gqOof502x3EfIQk
+         1iclQeI95pL3F68nSpWZENh9OFkw6pGSQkiJR4KsXa+uI2y44r1OTUt6CWnM0/rjI4kJ
+         okwIlRnN6vHGuASvid3+io4K7fWdBJWhz9kc35oQKUdFqxu5SHXCGSRyQQk6jhG83BO/
+         lQzAZ6J3hNlUJst9REB+C/AjtIS3SIzGopz+5pV9Vu571FtV5aCay8E9imxYgUaqXkVw
+         B/GQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=8zadYnSLJC4oWK4KEqW/pDBGl06U5XfACnUZ/V8R80A=;
+        fh=/OR1/1Fpsr1s1gc20hWQW3QPGDBSy/4KfYPesF7lvSo=;
+        b=U6/gVMbTu8//ZZd5iLcVeIMEADdIPcr0YJgQ8aE9/PybGN2L3Mq96IXpHF2jeWjppH
+         cxcdA4CahLN1Xs0bM/1qByg5YtDL8Q9t4Ghhl3VSbZ4zwiuBJCFi4RY5TGrikQSWcIK3
+         DFRkQLeiqh5gimYZGo7kuX6GDgyZZnL5V6GC+6vnY100QVM8/LPM+nAbumCjQq+hacq8
+         F2UMEayjbylQssrwlT6pd65VRjJoKvGS2iA4na8erbtHHksM2fvro2WI8X3YM9A/9fHf
+         kfjaFBfaefGqXkNDN5lckSwL0t89u8VGczDVG0Ys+GbJpk8sFGRghvp9+vldJUTdD917
+         /Y6g==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795757151; x=1796361951; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=8zadYnSLJC4oWK4KEqW/pDBGl06U5XfACnUZ/V8R80A=;
+        b=lCV/0I8isypgadQcogTLtoCz/UVpKWFG0smPfTyt5A70tqt6zcF2BuGNrAz29vTJKZ
+         Rk9DYHrTsfhFQVbp3hTzdcLzuu8K4NSWq9vBGrITpSyrDXj0rX+F+YmL7POqZhYj+29v
+         DXWreCFIhMQOL6aJynZbDlkCNBYaQMpSXCNGHSakZSmEtjQ2AsJKa2dnfZGyWmdkoqCC
+         c2vuRXV/eq2CSXdycCVKlJJ6Ba3Mkyt9s/tJmmcGsaRXtsSpMfTfJxR6zAg4TggIOjvA
+         mZMO8d8pnLoYTcCjS3KX5sfi712uuLwPFjIqh8i+4OqtFy5jWTAOwX2eALsA8P5LKjAr
+         YpIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795757151; x=1796361951;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8zadYnSLJC4oWK4KEqW/pDBGl06U5XfACnUZ/V8R80A=;
+        b=H2jjsulBiHfsy690kin8zJou50Grmo7fir8mjcPuIoCGOu+DmWuk+4gzfnX0hy5uhL
+         jI05T1H/RgzxYZJxxDsnBev8RZEtAJGZBSzhIYhWbnqLB5Lr6pRRkkyYPwx80MYjqZ2U
+         sMZkB9T6oaORVLZjFrGuSQgKYx+QJdgldrO4DJojZtLFQkUm4gGMX0GhY+Ion03i6KVS
+         u3p9VEDWcUF73mV6v1hNr/mAEU5sUYBlv8ocVjCX9/0fl7lcJw8BD/G0Kc6OBwgHyPEI
+         ib/tVEZ88FmvbM3/EhtJuxfvCsHw4IjYq6kThQ++cFv8DrEnXA0TzFXlE/ExxxzgzIU7
+         QHQg==
+X-Forwarded-Encrypted: i=1; AL+hErFfxQgsNU81IFGg1mE6H6TvDHX8f20zfpBlYMKw2SR3cA0d2OMplfcy5nADVG+8CBLCSwlvLT8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+XvY9ZLr26maGRUwgHUInW2jYp0rmm9Isc9ogIF3lqR72z2rL8
+	L6ArpW0tQKIIT2OMDH43UAR/N3uT8eP/2vNE0MdwVVAFJAfFZT9/lT2Iq/vY+i566nayYJJp35I
+	xI1VclGhVlmCu9yzZSv+sCaOBTn3DHZ0=
+X-Gm-Gg: AZFdTZeSOl2tRh7KUPhhXeDti4RfXEWctx0KEoZBEQ4siibH13+qIRiMvrlWyDGqVIo
+	kDq7TBkxmyxYRHwxMghmfw77Wrr/4znLNgLnAtn0Erw6TnTYEBn827TbvhipY58kp9cSXYWrEb7
+	2saH+sgVzq+o9fCNP5f0ESg6gm4B+PPZzbPnIdD9xsiAup8jCj3vzY+B6A9HM87/RTUwnhZJav5
+	kC8dEdVO6pAqXxlE0N/k3A71rQmM0JbgGR+naCNSAWFLN6F93ChEPPelD3b1Mm0SMRy2a2RPQSs
+	vODKfrjTWRLFpvy10sH+boAAufWuX2D5Hjkw8WmfcGo8dMNTP6r/QwM0kKWMUe4znJaAITBkiG6
+	Tgbt3fAVXWNZd9hA3FayiVlaLV409jDuR9XYetX2kqkWKXfrY2iyEPpkE3Jk5xAaOF/iXyRXdVQ
+	PsJovLzsxXPNZ3SOSAxA==
+X-Received: by 2002:a05:690e:151a:b0:67d:ea44:eed0 with SMTP id
+ 956f58d0204a3-67df43f342amr5944468d50.31.1795757151192; Thu, 26 Nov 2026
+ 21:25:51 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -159,38 +105,74 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: microchip.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR11MB8012.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fbddb1c0-03d4-4ca4-4a30-08df4c469cd6
-X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Nov 2026 05:23:47.2087
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: iXuI2HMi4VvtpZy6q6zIgkTPZhSj6gwzC8Lhczt8CD2oFLqM53rYP0sTEd79I+srSa+GOz43rITqHXBLW+v7YJzqXgiv/eMuF2VyylVGjHzGkuNPDqrgZAeeBkptbPo8
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR11MB8180
+References: <20261127033534.175-1-sunyiqi2@huawei.com> <179575078181.3294.2500218795739226970@kernel.org>
+In-Reply-To: <179575078181.3294.2500218795739226970@kernel.org>
+From: Charles Research <trilobyte777@gmail.com>
+Date: Fri, 27 Nov 2026 00:25:39 -0500
+X-Gm-Features: Aa3M54pM9aMwykZrmzdwnraMcKFs8w_Vab-aMEV-uj23ITBp-ElUf2aBFcAeAHE
+Message-ID: <CAPS2u-V_bfyuZFwqB8KOswp8YT4EjYiO8Oj+xUjh+veyNGTpdA@mail.gmail.com>
+Subject: Re: [PATCH net] sctp: validate Cookie Preservative in the first pass
+To: netdev-bot+sinfo@kernel.org
+Cc: Sun Yiqi <sunyiqi2@huawei.com>, netdev@vger.kernel.org, linux-sctp@vger.kernel.org, 
+	marcelo.leitner@gmail.com, lucien.xin@gmail.com, davem@davemloft.net, 
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, willemb@google.com, 
+	horms@kernel.org, luoxiaoxing@huawei.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-SGksDQoNClRoYW5rcyBmb3IgdGhlIHJldmlldy4NCg0KSeKAmWxsIGxvb2sgaW50byB0aGUgcmVw
-b3J0ZWQgY29tbWVudHMgaW4gYWxsIHRoZSBwYXRjaGVzIGluIHRoaXMgc2VyaWVzIA0KYW5kIGdl
-dCBiYWNrIHdpdGggdGhlIG5lY2Vzc2FyeSB1cGRhdGVzIGFzIHNvb24gYXMgcG9zc2libGUuDQoN
-ClRoYW5rcywNClBhcnRoaWJhbiBWDQoNCk9uIDI1LzExLzI2IDY6MzUgcG0sIG5ldGRldi1ib3Qr
-c2FzaGlrb0BrZXJuZWwub3JnIHdyb3RlOg0KPiBFWFRFUk5BTCBFTUFJTDogRG8gbm90IGNsaWNr
-IGxpbmtzIG9yIG9wZW4gYXR0YWNobWVudHMgdW5sZXNzIHlvdSBrbm93IHRoZSBjb250ZW50IGlz
-IHNhZmUNCj4gDQo+IFRoYW5rIHlvdSBmb3IgeW91ciBjb250cmlidXRpb24hIFNhc2hpa28gQUkg
-cmV2aWV3IGZvdW5kIDIgcG90ZW50aWFsDQo+IGlzc3VlKHMpIHRvIGNvbnNpZGVyLg0KPiANCj4g
-Q3JpdGljYWw6IDAgwrcgSGlnaDogMCDCtyBNZWRpdW06IDEgwrcgTG93OiAxDQo+IA0KPiBJZiB5
-b3UgYmVsaWV2ZSBub25lIG9mIHRoZSBpc3N1ZXMgYXJlIGxlZ2l0aW1hdGUsIHBsZWFzZSByZXBs
-eSB0byBlYWNoDQo+IGlzc3VlIG9mIE1lZGl1bSBzZXZlcml0eSBvciBoaWdoZXIgYW5kIGV4cGxh
-aW4gd2h5IHRoZSBBSSBpcyB3cm9uZy4NCj4gSWYgYW55IG9mIHRoZW0gYXJlIGxlZ2l0aW1hdGUg
-YW5kIHlvdSBwbGFuIHRvIHJlc3BpbiwgcGxlYXNlIGxldCBwYXRjaHdvcmsNCj4ga25vdyBieSBp
-bmNsdWRpbmcgInB3LWJvdDogY3IiIGFzIGEgc2VwYXJhdGUgbGluZSBhdCB0aGUgZW5kIG9mIHlv
-dXIgcmVwbHkNCj4gKG9uZSBzdWNoIHJlcGx5IHBlciBzZXJpZXMgaXMgZW5vdWdoKS4NCj4gDQo+
-IC0gW01lZGl1bV0gbGFuODZ4eF91cGRhdGVfY2RlbigpIGluIGRyaXZlcnMvbmV0L3BoeS9taWNy
-b2NoaXBfdDFzLmMNCj4gICAgZGVjaWRlcyBDREVOIGZyb20gdGhlIHNvZnR3YXJlIGNvcHkgcHJp
-di0+cGxjYV9lbmFibGVkLCBub3QgZnJvbSB0aGXigKYNCj4gLSBbTG93XSBsYW44Nnh4X2NvbmZp
-Z19pbnRyKCkgY2hhbmdlcyBvbmx5IHRoZSBQTENBX1NUU19DSEFOR0VEIChQU1RDKQ0KPiAgICBi
-aXQgb2YgSU1TSzEsIHZpYSBwaHlfY2xlYXJfYml0c19tbWQoKS9waHlfc2V0X2JpdHNfbW1kKCkg
-aW7igKYNCj4gDQo+IA0KPiAtLQ0KPiBTYXNoaWtvIEFJIHJldmlldyDCtyBodHRwczovL25ldGRl
-di1haS5ib3RzLmxpbnV4LmRldi9zYXNoaWtvLyMvcGF0Y2hzZXQvMjAyNjExMjQxMjQ5MzAuNDg1
-MzIzLTEtcGFydGhpYmFuLnZlZXJhc29vcmFuJTQwbWljcm9jaGlwLmNvbQ0KDQo=
+For the missing discovery/runtime context:
+
+I originally found the Cookie Preservative length issue during
+AI-assisted/manual review of the SCTP fixed-format parameter
+validation following the Adaptation Indication issue, and then
+independently reproduced it at runtime in an owned KVM/QEMU
+environment.
+
+The malformed Cookie Preservative parameter was accepted on the
+unpatched kernel in both header-only and overlong forms. The
+header-only case causes sctp_process_param() to read
+lifespan_increment beyond the declared parameter and use that value
+when calculating the State Cookie lifetime returned to the peer.
+
+For my July 29 testing, the unpatched kernel accepted both malformed
+forms. With the original validation patch applied, both malformed
+forms were rejected while the baseline and valid eight-byte Cookie
+Preservative controls continued to pass.
+
+Sun's patch moves the validation into the first parameter walk, which
+addresses the additional path where the second verification pass can
+return before all parameters are checked.
+
+Since this is a follow up on the Cookie Preservative issue I
+originally reported and runtime-tested in the linked July patch,
+please feel free to add Reported-by: Charles Vosburgh
+<trilobyte777@gmail.com>.
+
+Thanks,
+Charles
+
+On Thu, Nov 26, 2026 at 10:39=E2=80=AFPM <netdev-bot+sinfo@kernel.org> wrot=
+e:
+>
+> Hi!
+>
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>
+>  - How the issue was discovered, e.g. hit in production, hit during
+>    development, syzbot report, manual code inspection, LLM or static
+>    analysis tool scan.
+>
+>  - Whether the issue was actually triggered, or is only theoretical
+>    (e.g. found by LLM and not proven at runtime). If it was triggered
+>    please include the symptoms, like the stack trace or kernel messages.
+>
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account.
+>
+> *IMPORTANT*: If you do repost (for other reasons) - please include
+> the relevant info in the cover letter or commit messages.
+> --
+> The evaluation is done by an LLM so it may be wrong, if you think
+> that is the case please reply and explain.
