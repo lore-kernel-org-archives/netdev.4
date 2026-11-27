@@ -1,100 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.98
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795751008;
-	b=ZBprrcsHgBWU0RTLKCn0cOIQ1vfg0eu20errCMBNDxreALk4VGJ6j37bMIX6ur8eGt+0
-	 l49sAOr+f1XfSjryw0UYMBnjsNT5MN5943/ttF0/CLmIqEkIiFuwZelAPZ/dDAR1edZaM
-	 pLZbYxrIUegZLppPCvLRDlXMPjEJVWrcFOFK6MIe+szSytFUSzSwdRaNG+BQo4Bf6E0sQ
-	 82N74oJbLzJkTEHQzW+DnjRPkC+/0lX/YyDHyuvbkBjbJOcrQ3X3PdFsOxcTxqBpI4LNn
-	 haWiIPqbapWpEpetcRDU+UUN+SQUa9Qaf8bmGQquKF0u6b+FkjF5fwsUxlvdcb5MFbg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795751008;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.171
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795751119;
+	b=dSCP2QwZhx0CJ4wfw0xQjAqpBFFOzQ+KPn+56HrZAfRFCShuRLgRdENnEip6NBUw9i6l
+	 EFuRLrVdPoO9keLHCTQInXbWNDAgw4rPVfpWc245+AfeSs9ih6okyC1l35bQvVDpOAsqJ
+	 joru/vpNs/e+6dlN0jr8dma1epMubFqJFTBzl+MWNbT0cSu+Q+q9AO218yQ5AZ4GFygwq
+	 ftupGiQdRofSMqmLxsHqoV1ZQ/mGKjwLPpEdJ2iupQg4ZiPAfhwM22fQfDAFw+V4PyL11
+	 rk0Px/+NvW5w7WsBMZCH4vz8uaAR3bQiLQaW5a/aKvS6HW86sFaEIYJbhwyMZcSo70A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795751119;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Xv9HoU11wg50uyramdQYfq7Umn1TYxplpQtca+BOSaU=;
-	b=dpFxlLtJKpzcR3pRWurzGmir0r8O9LaaT9w+yoZqrPRwfAaPkuKocCx3gJoAbQG14+zo
-	 1XMSXs3U3Ky93Uc5Gi2oinFdccOGd90l+dh3pqeasdymUBKpPDLnfLTd8nl8L7nqhsNRG
-	 iZGumXZy3eF4aHAP9hEa2sGK8W0NogafUZQHy1Rf4o7kV3r1INxG/sqVEv6nPmqpE0FrU
-	 fU2wDoxpKgV0nQ47d09/loAYZFFdu7KCD/zxO1xPrrcrKWZ2Q7ibNXm2TjOcrHmEBp591
-	 ICDy75TA7u9boslTNHkPEVOy8ASeY9QyPvebOvDm4Bv3vImuRUs1BxsSABbEi0hA7rA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=andrii.net;
-	spf=pass smtp.mailfrom=andrii.net;
-	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=Ybc9KqKC;
-	arc=none smtp.remote-ip=209.85.216.98
-Received: from mail-pj1-f98.google.com (mail-pj1-f98.google.com [209.85.216.98])
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type;
+	bh=FbnZURxMx4LYMK8HegrQ0qedsvGCdsjG/NAXgIAIpJs=;
+	b=fLSowZw7xErV4Crfjkc+NyvaLto19gV4YY5JYqqsifzeg5JzMUpMtFv7/ndQj/IWRHyw
+	 R44mPli5AV8zNOKp+/UWqumVTsQTZR5Iwfy7Cls2ms/ng3afgaBxm+EHStHIC79KaQqys
+	 RWi6EZqq35oiGQjyCvlzEFKE7jZ625mmsN1RTS+0TLDcqkgXehEPz9Ux105s7tm7tpqAp
+	 a9oDv5IBRA9PwJkZeVqFn7z+TwtYEPqCvmzdorCRqy64slbzgYuH46wEdz9bfS9H44jkl
+	 GzAMLo8IkbzFeAPdbqLZMYjqVBboNMmFRVhGul0O4SqZu8oHr9Qf3tFVoiLh9iWGVfg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XJ6JJEP4;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.171
+Received: from mail-qk1-f171.google.com (mail-qk1-f171.google.com [209.85.222.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68C90606A337
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 03:43:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68C90606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B927F606A323
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 03:45:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B927F606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=Ybc9KqKC
-Received: by mail-pj1-f98.google.com with SMTP id 98e67ed59e1d1-3b3d4d3bba3so3750711a91.3
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 19:43:28 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XJ6JJEP4
+Received: by mail-qk1-f171.google.com with SMTP id af79cd13be357-93f2049ea7aso540504885a.2
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 19:45:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795751117; cv=none;
+        d=google.com; s=arc-20260327;
+        b=EEB4nJjSZbVPw3s+vybO4XUOUz+ZvyOZaMuEXjmzjAHNF602BQfr+ce1Cn1r5/8iXJ
+         O1qmlFzfuGCgsYt2RA9a0SvJRD6SjpovRl4uuNOu3qGvanx3/c3QLNaXpqrOMswuZ9H9
+         ysy3gVMhaR9g9w0oX0wqVerjcOKprCdK5EfhPwBrXZUivqFEWLJAHJmYr60qTwMdXqxB
+         0P87W7kdal4ijd0/6YBBqmq1EvEzVVpommhfONGnD6GzRJa20AI7T49/1DS90KX9VVsr
+         0cVqSFMo6W/Epp7bNJCF4bkOMOWh6KBbM3N1AKPk9gZnHpTO5ufcoHz33MWBSbvT3ysh
+         /1BA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=FbnZURxMx4LYMK8HegrQ0qedsvGCdsjG/NAXgIAIpJs=;
+        fh=XY+sD7fp4fw3esEsbX9seo8tgAGOI4Kx7T5wgXgY8NU=;
+        b=g6O0wsF8FMon1Kf0DgzVJGxKbUl/zvYDdTEepAg2dxEBfsubWBaRriHeRubsP3iFhK
+         xY0m0takbXk9epsFLC6iMCgD3YxRwbKmNiUDz/mlqTRBJHbhl+SVeqzXFX0W6sok5ZFD
+         cLpG2R0kflpyYr3xlpXOySWi5+PPuJ05rc/4mrCw/TWvwA1I5N2sEomPFiNei0pMC3Yp
+         KNoE7CNQvjyyhXX1wV935vObr/ycNjaFEtfhjNBrVXzdMRmIkSlx4GoQQ25Z2umIhKEm
+         +0dziNPozsCrpHu3FDHlwX4HmzCEgRuF9zro58Ep0C8y7QT/igywmtbK0gOxA0fnp4wJ
+         B93g==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=andrii.net; s=gmail-2025; t=1795751008; x=1796355808; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Xv9HoU11wg50uyramdQYfq7Umn1TYxplpQtca+BOSaU=;
-        b=Ybc9KqKCk7jo1UVGtMcMSXNl5D6Iv5/l8sju3YXqeQTNRm/5YodH9ulL687tR8jX9J
-         RNcbHN7JcHIc3/B27m1Vq0ZcMXTQHkvlJ/qXBwVqMtd3ALUhgu3PFg9z4UJezju4fJU6
-         do6AJWIbPOExmoybQVwMGQEQuxgwRdTdC9JT64QmtTw9kN5XrqcV3/9JyaUV2beswWZO
-         9C/AscZ/PTtG3dhO+Hv5wLG5QW536vKo9KWytOH6SDoH0TbTA2nhK2z4Nsrt1qHYD9iy
-         F28n4k94kejdNesvFVX0O88DQyhFpJXp9pv5YrhLbh0e89lFhQSKA/WzMlo2XkuzmYWR
-         WEtA==
+        d=gmail.com; s=20260707; t=1795751117; x=1796355917; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FbnZURxMx4LYMK8HegrQ0qedsvGCdsjG/NAXgIAIpJs=;
+        b=XJ6JJEP4oSsth+gQxIhZHfZIpS4t9u/j4s4JDsVJ9pOQO9KxJEL2i8l7dH8qDsddtb
+         c0JH53kJ6z3TER+MDElAAo7GbpsyiatMg/Fl+xNWkJkslkYnsIxUxfMPRSc4wSudzOOc
+         BsNOy9Xd1xm7jMl5f3IvCa0x252MyDB2C4T95TaHd026R6HdH50bvUG+ek7W4wqoQCLo
+         gWvulSpvur0VkaMncYm6XltL+S/8UXeNV+7QNqswtLAWsPldUryOOtiXyb59Mmm/XuVm
+         Kk4y9qL6OWjOaCzIo+h6oHaD3+n0mIy79O4o0btY21U9+JwQisxFM1Pv8h2jHtoxapTM
+         ACOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795751008; x=1796355808;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Xv9HoU11wg50uyramdQYfq7Umn1TYxplpQtca+BOSaU=;
-        b=bnu2abHcHiWPiXqD4UVxfcbW10WGOiCRT+Ng0/vKpFuXCCn0IoUrd+vl2GQkAcr/gn
-         cx8o+TGpFvcnkGbPW6/tDUb7lBgL48E6RWPxzVXKYq3UMBgve9MYrIrbApHkt5htJoqF
-         QUD3wYtZN5r3fAZmRueLhmPFkRG55uF8pyFLV5xc3CUvogo/LkgOQF5pFR8RWbyvRlyK
-         nA4ZW5ZhuVhg//iZHHGWxn1dfpMSQmM677Mer6wcmo6lTD+066O2Nwxglpl1GXjrNpPr
-         hof0aRV7Zny2WaB+vlLUK/MzKGDVT0xYA9xAc8zdZ05dfG0nszTA5vMJ8nZp/BR+j8Yv
-         +99w==
-X-Forwarded-Encrypted: i=1; AL+hErG3Dhieoby2o4NXqKqoYrWEvuI5tB2uUQWA9NMxgFFT1xlMHgC1d54Hhk0m2ke7micEFvX8iHE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+eNY7fCOEFJwUdpBqPcidwWlPOW1s37L+8lqusOPm73w+016jl
-	XGI65SXbDbycOrjrXnKPzCPwlhg0TMDXZ9cH+XBycErBl6WL2SKJVhfEJPZRP9wEct8a9oIg0vz
-	zK2qeZ5uloCBSYELWDbJq1MQ7d64xmrIXXki9rzVfvr1UhEDUeiW4
-X-Gm-Gg: AZFdTZeFWf7VgqY951UyLO1kDx9grQmE7gQE9/d8NLjABoXv3LcQmpQd9NiG0P/bctp
-	4sr10KGKi4VPlDiWWi/hkPuc9jzKiwOPehDr4qY1SHm7CNdgf17mm5KTTbZiQSWlqNkRnuxX3Ya
-	zJwvALxZuQVKfzp7rbI9miUU7cvTgu/45s48Fy44pdHmVt8Qi5lVj73tUAohWZKNAu5DX63VBqX
-	hm3i6HqzTSycuEQEO7Qgz2k8QYqeYJgzUPX0rMqYmA2pSljTU2ppPV8szCt+bSJmfuxDdnaP1bM
-	X3Mvm9PKu3z+uXw2ffjpFTQFdYk7GqHKLrkuuLwN3OtYVRcz4v5oaVi2Dr4vp44N6mAObDVfFzG
-	unEpjEa9tfimlMB0Xi25/trzFg3Y=
-X-Received: by 2002:a17:90a:e705:b0:3b4:fa3:36de with SMTP id 98e67ed59e1d1-3b41c9750e2mr20734881a91.51.1795751007623;
-        Thu, 26 Nov 2026 19:43:27 -0800 (PST)
-Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b405960cd1sm16387485a91.2.2026.11.26.19.43.27
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Nov 2026 19:43:27 -0800 (PST)
-X-Relaying-Domain: andrii.net
-From: Andrii Tereshchenko <opensource@andrii.net>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S . Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Christian Hopps <chopps@labn.net>,
-	netdev@vger.kernel.org,
-	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	security@kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH ipsec v2] xfrm: iptfs: don't modify skbs it doesn't own when aggregating
-Date: Thu, 26 Nov 2026 19:43:24 -0800
-Message-ID: <d6f4d771-7235-460b-9a6d-dc2348a24f83@mid.andrii.net>
-X-Mailer: git-send-email 2.56.0
+        d=1e100.net; s=20260707; t=1795751117; x=1796355917;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=FbnZURxMx4LYMK8HegrQ0qedsvGCdsjG/NAXgIAIpJs=;
+        b=vSQPkYTUdE+N3SGmOgVKPX1Irz1L7+rlOVcpdbOtVhcC/JMRF4T7alC3wEeYCvJZHw
+         PAvDNRBrQEyderO5+WUIw1YAyVQUFotlvOgEnYb3w8rpaafpHiewivPL4vnKd9/2su0S
+         hODW+8GQN124BusMIBZdvbBJ9PsbhyAB8yOV3jA508ugWRtppHwBvbScazT9L/Wi2gJf
+         qY3hknQN/RMVtoVIsfKu93TkSQrePD9A9En6/4Az/sULdANugw8ZfYbmKAe6p2pI/vah
+         p17PQ8r0irypf4uecdVZdjUodudECtQzkvYLmqm//hCSWKm/NntmF5z1WqgTnGsXb+Kq
+         Tblw==
+X-Gm-Message-State: APuU4Z9+iC9xb4qvCzUVkMPRNG5rjpFkYoCSleoSclkdEer+Z9uH5o2F
+	gscZxqno/nUGJsKp8TBJuYjWpSkR0X3SkRu2/NbwKHp1hYNFi/9ib88z5ILBjIoIxlTnJFfZhZ5
+	lOBc2Y6hsI6Hh42a68nHHM917brz13ac=
+X-Gm-Gg: AZFdTZdoPvtoyA++CtsHIvKW3XpHenktbQ0c3e4AlOgQ77Me1zfisOdNCy5BffAW+5m
+	ciMaHjAfLgZv700oD4ieWTjcutuEM2mWkHPuB+bgO9s89pLuE42dtbXxu9wLBH3l7NMlwxnpzPX
+	bzT5IBhli2zVMaDxMmGPCCKFAJtoVZbUWodmu123LMFQHHTgjHoXN4mXRXB/ssVmbIZ3N+yby/e
+	5DuUsPyZ0oPF85grZ4I6CfC2DM7PWnZhQzWnxU6cl5zLqfCy4TghS6oIb5YOK7O8uSuF8vRJB28
+	0NeoONrIvWcNOCjFTWBO3qqHSP8YRo1pk+RPtVZjZYMRcWC1JqRoH4dM0wOTEewtKSBOnKIrG8s
+	CJsUaCiBwfG4WXOs7Ml0RswPUhaY/eHZBz5yUhMMNo8H5nBR5ygaCf4D+nsiZyDkZCkTEtGc=
+X-Received: by 2002:a05:620a:7113:b0:949:7bb1:ac62 with SMTP id
+ af79cd13be357-949ba9b3e2bmr4101755985a.25.1795751117359; Thu, 26 Nov 2026
+ 19:45:17 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,178 +102,161 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261103041134.33310-1-physicalmtea@gmail.com>
+ <20261103041134.33310-5-physicalmtea@gmail.com> <auxHe77Kv3tS4hjJ@sgarzare-redhat>
+ <CAJwVaMK6UpxOmCbuzGK15h+DhN5H6cj6cy-=gCHtSxoVbLfzwA@mail.gmail.com> <awgGJECGxVi-40Tq@sgarzare-redhat>
+In-Reply-To: <awgGJECGxVi-40Tq@sgarzare-redhat>
+From: Jia Jia <physicalmtea@gmail.com>
+Date: Fri, 27 Nov 2026 11:44:41 +0800
+X-Gm-Features: Aa3M54pcBjgXejbuaq1eXqIMf3KBe8_JC3aAgzKGz_iHEeLknXQ66it8CaqM6QA
+Message-ID: <CAJwVaMLfUK-qiP87i4d66UEnOEet6m0BNuDr+kDWiXrZv06SYQ@mail.gmail.com>
+Subject: Re: [PATCH net-next v5 4/5] vsock/virtio: coalesce native RX
+ write-space notifications
+To: Stefano Garzarella <sgarzare@redhat.com>
+Cc: netdev@vger.kernel.org, stefanha@redhat.com, bobbyeshleman@gmail.com, 
+	mst@redhat.com, jasowangio@gmail.com, eperezma@redhat.com, 
+	xuanzhuo@linux.alibaba.com, davem@davemloft.net, edumazet@google.com, 
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, kvm@vger.kernel.org, 
+	virtualization@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-iptfs_output_queued() aggregates inner packets into the first skb,
-writing to its shared info and relinking frag_lists. But a first skb
-can share those with someone else: a clone (the original TCP keeps
-for retransmission), a frag_list shared without cloning (skb_cow(),
-pskb_copy()), or a nested frag_list (conntrack). The result is memory
-corruption, a CPU-hanging list cycle, or leaked skbs:
+>
+> On Fri, Nov 06, 2026 at 08:49:17PM +0800, Jia Jia wrote:
+> > >
+> > > On Tue, Nov 03, 2026 at 12:11:33PM +0800, Jia Jia wrote:
+> > > >Each received packet can update peer credit and call sk_write_space(). A
+> > > >writer cannot consume that credit while the virtio RX worker retains the
+> > > >socket lock, so repeated native write-space notifications in one RX batch
+> > > >are unnecessary.
+> > > >
+> > > >This patch coalesces write-space notifications on the native AF_VSOCK path;
+> > > >data-ready remains per-packet here.
+> > > >
+> > > >The batching patch establishes batch ownership before its first packet.
+> > > >This lets this patch record a pending notification for that packet and
+> > > >flush it even if the packet immediately ends the batch. Deliver it while
+> > > >holding the socket lock to preserve the callback context of the existing
+> > > >receive path. A following patch changes that timing together with
+> > > >data-ready handling.
+> > >
+> > > Can you report performance data related to this patch also here?
+> > >
+> > > IIUC this is not giving a lot of advantage, so my question is if this
+> > > more complexity really add a value for us.
+> > >
+> >
+> > Sure. The performance tests currently cover patches 4 and 5 together,
+> > so I will include those results here.
+> >
+> > They do not add another broad throughput improvement. I kept the
+> > combined notification change because of the cycles/byte results.
+> >
+> > With P1-P3 only, against baseline:
+> >
+> >   Buffer size  baseline cycles/B  PATCH cycles/B  cycles change (95% CI)
+> >   64B        66.728    61.220  -8.25% [-18.99%, +3.91%]
+> >   256B       14.363    14.515  +1.06% [ -4.22%, +6.64%]
+> >   512B        7.792     7.578  -2.74% [ -6.55%, +1.23%]
+> >   1K          3.988     4.032  +1.09% [ -1.64%, +3.88%]
+> >   4K          2.063     1.973  -4.38% [ -8.23%, -0.37%]
+> >   8K          1.702     1.667  -2.06% [ -7.99%, +4.25%]
+> >   16K         1.473     1.475  +0.17% [ -5.06%, +5.68%]
+> >   64K         1.385     1.358  -1.96% [-10.61%, +7.53%]
+> >
+> > Only the 4K interval excluded zero. With the full series, against
+> > baseline:
+> >
+> >   Buffer size  baseline cycles/B  PATCH cycles/B  cycles change (95% CI)
+> >   64B        65.282    57.843  -11.40% [-13.77%, -8.95%]
+> >   256B       14.710    13.813   -6.10% [ -7.89%, -4.28%]
+> >   512B        7.709     7.188   -6.75% [ -8.79%, -4.66%]
+> >   1K          4.075     3.862   -5.23% [ -6.80%, -3.63%]
+> >   4K          2.034     1.887   -7.21% [ -8.67%, -5.72%]
+> >   8K          1.664     1.568   -5.78% [ -7.83%, -3.69%]
+> >   16K         1.450     1.385   -4.48% [ -6.08%, -2.86%]
+> >   64K         1.338     1.317   -1.51% [ -3.21%, +0.22%]
+> >
+> > From 64B through 16K those intervals stay below zero. 64B through 1K
+> > did not show that in the P1-P3 run.
+> >
+> > This is also why I spent the time making this work with sockmap.
+> >
+> > The value I see is lower RX CPU cost, not another large throughput
+> > gain. I am still unsure the extra code is worth it, and I would like
+> > your opinion.
+>
+> Thanks for the numbers!
+>
+> Both tables are against baseline, but the two baselines are a bit
+> different (e.g. 66.728 vs 65.282 for 64B), so it's not easy to see the
+> real contribution of P4/P5. Can you compare the full series directly
+> against P1-P3?
+>
+> Anyway, IMO the big win of this series is P1-P3 (throughput), while
+> P4/P5 add a lot of complexity (saved native callbacks, new af_vsock
+> helpers, sk_callback_lock, sockmap corner cases) for a ~5% of CPU
+> cost, without throughput improvement.
+>
 
-  skbuff: skb_over_panic: ... len:-340 put:-340 ...
-   skb_copy+0xfc/0x180
-   esp_output_head+0x38a/0xb40
+I ran a direct A/B comparison on top of the base batching patches:
+reader TID cycles/B dropped up to ~2.3%, and guest CPU1 aggregate
+cycles/B dropped 4.4-5.8%, which matches your ~5% estimate.
 
-Aggregate only into what IP-TFS owns: unclone the first skb, send a
-first skb that has a frag_list on its own, and stop at a following
-skb that has one. Nothing is un-nested any more, so
-iptfs_rehome_fraglist() goes.
+Guest reader PID/TID (cycles/B):
 
-The two frag_list cases were found by an AI code review agent after
-v1 was posted. The patch was written with an AI coding assistant and
-reviewed by the submitter.
+  Buf     P1-P3   +P4/P5  change (95% CI)
+  64B     7.032    6.963  -0.99% [-2.52%, +0.57%]
+  256B    4.323    4.256  -1.55% [-2.82%, -0.26%]
+  512B    2.296    2.257  -1.71% [-3.35%, -0.05%]
+  1K      1.313    1.303  -0.79% [-2.50%, +0.94%]
+  4K      0.744    0.727  -2.19% [-3.46%, -0.90%]
+  8K      0.611    0.597  -2.26% [-3.52%, -0.99%]
+  16K     0.535    0.534  -0.29% [-1.48%, +0.90%]
+  64K     0.512    0.513  +0.36% [-0.43%, +1.16%]
 
-Fixes: 0e4fbf013fa5 ("xfrm: iptfs: add user packet (tunnel ingress) handling")
-Link: https://lore.kernel.org/all/179171627713.434549.11629734394381610294@kernel.org/
-Cc: stable@vger.kernel.org
-Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
----
-v2:
-- Apply the frag_list rule to every skb that has one, not only to
-  clones. v1 missed lists shared through skb_cow() or pskb_copy() and
-  nested ones from conntrack. iptfs_rehome_fraglist() and the
-  un-nesting loop are removed.
-- The netdev AI review of v1 [1] reported the same gap and one more way
-  into it: skb_checksum_help() in iptfs_first_skb() unclones the first
-  skb before v1's check. Testing skb_has_frag_list() covers that too.
-- v1 said that uncloning the first skb adds no copy. As that review
-  showed, this was wrong when packets are aggregated: ESP's
-  skb_cow_data() can then reallocate the head again. v2 does not change
-  that cost.
-- Drop v1's 2/2: Nguyen Ngoc Thang's same fix is upstream as
-  b88c75488ecc ("xfrm: iptfs: force a dst reference before queueing
-  an skb").
-v1: https://lore.kernel.org/all/c1e999b5-15ee-468d-81c5-530a560e84df@mid.andrii.net/
-[1] https://netdev-ai.bots.linux.dev/sashiko/#/patchset/b56bbced-a8b0-4ae9-80b4-1958ea36684c%40mid.andrii.net
-Affected: v6.14 and later (0e4fbf013fa5 first shipped in v6.14-rc1);
-needs CONFIG_XFRM_IPTFS and an IP-TFS SA carrying aggregated traffic.
-Mitigation until the fix lands: no IP-TFS SAs, or the xfrm_iptfs
-module left unloaded (it is tristate).
-Found: a production panic (the cloned head), then an AI coding
-assistant review after v1 (the frag_list cases). Validated: a test
-module driving the CHECKSUM_PARTIAL route, 50 of 50 rounds. Tested:
-the private selftest (nested FAIL to PASS, shared hang to PASS) on
-ipsec master 2803867cf3de, two boots each, panic_on_warn=1 on the
-fixed kernel.
+Guest CPU0 aggregate (cycles/B):
 
- net/xfrm/xfrm_iptfs.c | 61 ++++++++++++++++++-------------------------
- 1 file changed, 26 insertions(+), 35 deletions(-)
+  Buf     P1-P3   +P4/P5  change (95% CI)
+  64B    21.688   21.049  -2.94% [-6.02%, +0.23%]
+  256B    8.333    7.892  -5.29% [-7.02%, -3.53%]
+  512B    4.448    4.240  -4.67% [-6.13%, -3.19%]
+  1K      2.497    2.382  -4.58% [-6.81%, -2.29%]
+  4K      1.302    1.227  -5.73% [-7.26%, -4.17%]
+  8K      1.050    1.013  -3.51% [-4.37%, -2.65%]
+  16K     0.953    0.925  -2.98% [-4.79%, -1.13%]
+  64K     0.842    0.805  -4.29% [-5.75%, -2.81%]
 
-diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
-index 0313a43aa8a97..c6bdfbd9a1a8b 100644
---- a/net/xfrm/xfrm_iptfs.c
-+++ b/net/xfrm/xfrm_iptfs.c
-@@ -2139,27 +2139,6 @@ static int iptfs_first_skb(struct sk_buff **skbp, struct xfrm_iptfs_data *xtfs,
- 	return iptfs_copy_create_frags(skbp, xtfs, mtu);
- }
- 
--static struct sk_buff **iptfs_rehome_fraglist(struct sk_buff **nextp, struct sk_buff *child)
--{
--	u32 fllen = 0;
--
--	/* It might be possible to account for a frag list in addition to page
--	 * fragment if it's a valid state to be in. The page fragments size
--	 * should be kept as data_len so only the frag_list size is removed,
--	 * this must be done above as well.
--	 */
--	*nextp = skb_shinfo(child)->frag_list;
--	while (*nextp) {
--		fllen += (*nextp)->len;
--		nextp = &(*nextp)->next;
--	}
--	skb_frag_list_init(child);
--	child->len -= fllen;
--	child->data_len -= fllen;
--
--	return nextp;
--}
--
- static void iptfs_consume_frags(struct sk_buff *to, struct sk_buff *from)
- {
- 	struct skb_shared_info *fromi = skb_shinfo(from);
-@@ -2234,6 +2213,21 @@ static void iptfs_output_queued(struct xfrm_state *x, struct sk_buff_head *list)
- 		if (iptfs_first_skb(&skb, xtfs, mtu))
- 			continue;
- 
-+		/* Aggregating writes to the first skb's shared info and, when
-+		 * it has a frag_list, to the skbs on that list. A clone shares
-+		 * its shared info with the original, e.g. the skb TCP keeps
-+		 * for retransmission, so unclone it first. The skbs on a
-+		 * frag_list can be shared with another skb whatever the first
-+		 * skb is: pskb_copy() and uncloning share them, and the list
-+		 * of a datagram that conntrack reassembled can nest. Send a
-+		 * first skb that has a frag_list, or that we cannot unclone,
-+		 * on its own.
-+		 */
-+		if (skb_has_frag_list(skb) || skb_unclone(skb, GFP_ATOMIC)) {
-+			xfrm_output(NULL, skb);
-+			continue;
-+		}
-+
- 		/* If fragmentation was required the returned skb is the last
- 		 * IPTFS fragment in the chain, and it's IPTFS header blkoff has
- 		 * been set just past the end of the fragment data.
-@@ -2246,18 +2240,8 @@ static void iptfs_output_queued(struct xfrm_state *x, struct sk_buff_head *list)
- 		 */
- 		remaining = mtu - (skb->len - sizeof(struct ip_iptfs_hdr));
- 
--		/* Re-home (un-nest) nested fragment lists. We need to do this
--		 * b/c we will simply be appending any following aggregated
--		 * inner packets using the frag list.
--		 */
- 		shi = skb_shinfo(skb);
- 		nextp = &shi->frag_list;
--		while (*nextp) {
--			if (skb_has_frag_list(*nextp))
--				nextp = iptfs_rehome_fraglist(&(*nextp)->next, *nextp);
--			else
--				nextp = &(*nextp)->next;
--		}
- 
- 		if (shi->frag_list || skb_cloned(skb) || skb_shared(skb))
- 			share_ok = false;
-@@ -2273,6 +2257,13 @@ static void iptfs_output_queued(struct xfrm_state *x, struct sk_buff_head *list)
- 			if (skb2->len > remaining)
- 				break;
- 
-+			/* Appending would relink skb2's frag_list, which may
-+			 * be shared. Leave skb2 to be sent on its own as the
-+			 * next first skb.
-+			 */
-+			if (skb_has_frag_list(skb2))
-+				break;
-+
- 			__skb_unlink(skb2, list);
- 
- 			/* Consider the buffer Tx'd and no longer owned */
-@@ -2292,10 +2283,13 @@ static void iptfs_output_queued(struct xfrm_state *x, struct sk_buff_head *list)
- 			/* skb->pp_recycle is passed to __skb_flag_unref for all
- 			 * frag pages so we can only share pages with skb's who
- 			 * match ourselves.
-+			 *
-+			 * iptfs_consume_frags() empties skb2's frags, which a
-+			 * clone shares with its original.
- 			 */
- 			shi2 = skb_shinfo(skb2);
- 			if (share_ok &&
--			    (shi2->frag_list ||
-+			    (skb_cloned(skb2) ||
- 			     (!skb2->head_frag && skb_headlen(skb)) ||
- 			     skb->pp_recycle != skb2->pp_recycle ||
- 			     skb_zcopy(skb2) ||
-@@ -2315,9 +2309,6 @@ static void iptfs_output_queued(struct xfrm_state *x, struct sk_buff_head *list)
- 				/* Append to the frag_list */
- 				*nextp = skb2;
- 				nextp = &skb2->next;
--				if (skb_has_frag_list(skb2))
--					nextp = iptfs_rehome_fraglist(nextp,
--								      skb2);
- 				skb->truesize += skb2->truesize;
- 			}
- 		}
+Guest CPU1 aggregate (cycles/B):
 
-base-commit: 2803867cf3defa294710088a4663b434e12b5e93
--- 
-2.53.0
+  Buf     P1-P3   +P4/P5  change (95% CI)
+  64B    48.985   46.388  -5.30% [-6.36%, -4.23%]
+  256B   11.194   10.704  -4.38% [-5.48%, -3.26%]
+  512B    5.886    5.592  -4.99% [-6.00%, -3.98%]
+  1K      3.080    2.945  -4.36% [-5.61%, -3.09%]
+  4K      1.508    1.421  -5.80% [-6.67%, -4.92%]
+  8K      1.215    1.160  -4.51% [-5.64%, -3.36%]
+  16K     1.079    1.029  -4.66% [-5.87%, -3.44%]
+  64K     0.941    0.894  -5.01% [-6.34%, -3.66%]
 
+> So my suggestion is to split the series: send P1-P3 first, so we can
+> focus the review on them and merge them, and then send P4/P5 (squashed)
+> as a separate series. That way we can also evaluate the direction
+> suggested by Bobby (batching in read_skb() + coalesced sk_data_ready(),
+> like TCP), that may allow us to avoid saving the native callbacks at
+> all.
+>
+> WDYT?
+>
+
+Sounds good to me. I'll split out P4/P5 and send just the two core RX
+batching patches in v6 (dropping P2 as discussed in the P3 thread).
+
+We can look into the notification changes and Bobby's read_skb() idea
+separately after that.
+
+Thanks,
+Jia
+
+> Thanks,
+> Stefano
+>
