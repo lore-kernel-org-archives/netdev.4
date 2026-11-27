@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795774412;
-	b=t8OzIWHRNF1afKIeOcw94S13TG/dcer14lel1wAhCOSfJnPxQ5UwoG3nq4pMR3T81QIZ
-	 rhgyWsO+p5179dTfl5Wy/0n2FUH34k3I4TbqPRH+zDLV2PFpwIp9f6R+PUJb41lAMlZ3Q
-	 xUUMRgbln6r23z5ScYqyK+WMw0xx9T++ufFIzQw8Mrze40WC+JrWw0DLuvvhe9NYW4wEe
-	 B24p920t8v/tsV+a8Uozbulb09jDB/3qmzSC7CST2SCH7LZWtOc0KuY/Be7sXhXIRuxuY
-	 54dB5wnd2PlX5SCMkg+k1QJ/3kR7STQm09Egm2sGdaT+4XzoUJPVqHtcenA3oLJRNXw==
+	t=1795774416;
+	b=0o/Ky8TYT7D/vbDQ5w6+BOlZA0nbUM2dkzgg5AA1hbpVXdFKcVzroacEsn3czgZlel0P
+	 th9QHwR/CDtBP9/ovqR5gnBYxkHZTOcUHr9/0YG7ui/mmvhoJaHy0DE49bMaUxE5BMbN3
+	 pJby1hGS36Ye6ljVr2JlU6TEONkLsFiDMBdQ2kZyiu/uXXtrWx44mQfA6VxkcsZMPiXwX
+	 A8+sgixXFFijS9GQKfXOEVZcGqAiNRcvR1sMLJjy3nKmlDClUOZxdjh87r1mMwkMoGHHD
+	 e6pSR7Xsd81mJzUv1FvEPelaAcIyH5Aqqquc7qSyfGHWtlWab+VHqXdh3OY4TkR1lYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795774412;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795774416;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=Cdp4y+NU/kVwGHCxRbY2Msr2auB6YOWOh/0ZbWxjaPM=;
-	b=zKHR5y16O+fQ6UWW5rzZs12X97NPxq0+BAQ3/eTztF9jsdz9LTcO7KovbxwJfQY3j9SZ
-	 vknpSGxW+FPlJTNqC/DfuxwKSEyLsFJ2fuIVYSTahrVOnU/m+iriyEhHjH9Q2fe13umpv
-	 BzbvywkiXomDRB/8sMNiFPYeEDUjwGSdHWBJd6VUaBKXdLJSmXM5f4g1Z/9KSNO+zUgx7
-	 44cn8iB6uvrYjbdi4yQiLvv64V/OiEsWLVdjZh6G0OwoyQmnoCQkXwhkKnmxkfu52rnp6
-	 Q8o1KBXEKBjk9oza1DwHKUinZQh8g6ssqjRqbBdUNJPAzrGYYhG5ZVDKvvpFZmolQWA==
+	bh=2DUY6z4JUx4XuUzTN36qvUc60BpHxHxrJWb2xIPMw5c=;
+	b=uUUQny+WIyyT6dgN65FMpKqMa+o6nDXjoO+LbGz3XU0m4Rd7I125Wo9G9R66WhsPe2PO
+	 1vCgqDptUxP0isa+5hVGwkfVtJOu1+m3KUd6Y6eYaooIzOwjlfp8Zb2S/+fIck5m1bAFa
+	 Kk0ByWYpf8AYcF/jv5yZ/T23/QtiJrr9kfsIsuW1CVTZkcAvHgQxfmrJjV0kRgogpe9Ch
+	 HJmSyVDbiSiYVV8zewvzJHmKX3MTVsxsB5/k8BRkv1c53YZAICU76DAdGohUPcUVN8Lse
+	 oTed64KiciuVmtTY+QwOAVMGrZ2DzWYcJBqcdplRslS/EolLLdcXQbssLL4lvhpjcjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MtN5IqiK;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JqitOORF;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A376A606A331;
-	Fri, 27 Nov 2026 10:13:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E4B6606A323;
+	Fri, 27 Nov 2026 10:13:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MtN5IqiK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96B6D1F00897;
-	Fri, 27 Nov 2026 10:13:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JqitOORF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DA2F1F0092B;
+	Fri, 27 Nov 2026 10:13:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795774412;
-	bh=Cdp4y+NU/kVwGHCxRbY2Msr2auB6YOWOh/0ZbWxjaPM=;
+	s=k20260515; t=1795774415;
+	bh=2DUY6z4JUx4XuUzTN36qvUc60BpHxHxrJWb2xIPMw5c=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=MtN5IqiK0Le+qSmGizqREknUJkOENsWEDWxcFrWTgvyCt7Ar/tZRIJZZWnIxrk9G0
-	 mpj2gfkRZvD97s4yMnStIWxgfGDoDXKk8gS8aX1qAHqrisMSgdLb4AgwvhPTmGm26G
-	 StPTMRpsCHNm357pcD7Yduj2wvH3f/zxNXfVEg6zJDgtg7r8rZd+naCLKXLRC+XdO6
-	 wPMuCFYHQnn6qIdZi6RQZVGFqJb1KcrFcIkevYZvBMAeA56qxZpN4eUQv1DhFxIItk
-	 7TkNR5J1GAjOs2kXV0TrUHmjTzl2/+LI4h5fuUBW2/xK2o28w+vrXNiCjYvThaq0IH
-	 fjTqEoC35U1fA==
-Subject: Re: [PATCH net v3 03/10] rxrpc: Fix carrying of in-flight calc over
- retransmission
+	b=JqitOORF4rvoKzl42R2FT2VhYXdQiDkbj5iTF60u2/uNuCaepvKCFvkKU3fbvf2Jm
+	 4UrdoioeF6mVTEyV6LlN1uPUXw3+K+LNWmA5T53ZOjm9hTmY0qEpzAFzfQcjddc7+d
+	 JAgu3Cq8yw5Hjd3uPs3NNGKfbnQ8gQRvEGghmnDqqHDw+FR3B6UFCF5BbAcyo//TX3
+	 9j8Jl/5iV6Hrot138eDsZ7mRwvYgOUfRZxvruZLy+V+CvobTCIfDrOkUAwD+RpuJwI
+	 OCJCRJvlnGxjPpkZfGDC23HTN/+C6u5fzHAEIn6Z0Fi+mbFoXJFXhavfx4BxMS0/2F
+	 Oba800gf8DQJA==
+Subject: Re: [PATCH net v3 05/10] rxrpc: Fix RTT processing for a presumed
+ lost packet getting ACK'd
 From: netdev-bot+sashiko@kernel.org
 To: dhowells@redhat.com
 Cc: netdev@vger.kernel.org, marc.dionne@auristor.com, kuba@kernel.org,
  davem@davemloft.net, edumazet@google.com, pabeni@redhat.com, horms@kernel.org,
  linux-afs@lists.infradead.org, linux-kernel@vger.kernel.org,
  jaltman@auristor.com, stable@vger.kernel.org
-Date: Fri, 27 Nov 2026 10:13:31 +0000
-Message-ID: <179577441120.3135.18228727853946391641@kernel.org>
-In-Reply-To: <20261124161302.4044422-4-dhowells@redhat.com>
-References: <20261124161302.4044422-4-dhowells@redhat.com>
+Date: Fri, 27 Nov 2026 10:13:34 +0000
+Message-ID: <179577441465.3135.4498965455896872277@kernel.org>
+In-Reply-To: <20261124161302.4044422-6-dhowells@redhat.com>
+References: <20261124161302.4044422-6-dhowells@redhat.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -71,68 +71,75 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] The commit message for "rxrpc: Fix carrying of in-flight calc
-  over retransmission" explains the mechanism: in_flight was computed at…
+- [Low] The commit message for "rxrpc: Fix RTT processing for a presumed
+  lost packet getting ACK'd" understates the impact of the bug.
 
 --
 
-rxrpc: Fix carrying of in-flight calc over retransmission
+rxrpc: Fix RTT processing for a presumed lost packet getting ACK'd
 
-In rxrpc_tlp_send_probe(), this commit moves the rxrpc_tx_in_flight()
-calculation to the point where the value is used. The value then reflects
-any (re-)transmission done by the TLP probe. Before this patch it was only
-refreshed after new data was sent, and not after the rxrpc_resend_tlp()
-retransmit path.
+This patch makes rxrpc_rack_update() return early when the ACK'd segment
+has had its segment_xmit_ts[] reset to UINT_MAX by rxrpc_rack_mark_lost().
+Without this check, rxrpc_get_xmit_ts() returns KTIME_MAX and the RTT is
+calculated from that value.
 
-Link: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261020201258.290827-1-dhowells%40redhat.com
-
-> rxrpc_tlp_send_probe() calculates the in_flight value at the top of the
-> function and then doesn't use it till the bottom of the function - after it
-> may have done (re-)transmission, which would change the value (though it is
-> recalculated in one place).
->
-> Fix this by calculating that value at the point it is needed.
+> With RACK-TLP, under some circumstances a packet that is presumed lost has
+> its xmit timestamp reset when it is marked lost.  However, if an ACK then
+> turns up anyway, rxrpc_rack_update() sees a bad RTT calculation because the
+> xmit_ts is calculated as being KTIME_MAX.
 
 [Severity: Low]
-This isn't a bug, but could the commit message also say what goes wrong
-because of the stale value? The patch is Cc'd to stable, and backporters
-would find the user-visible impact useful.
+The code change looks correct. Could the commit message say more about
+what the bad calculation leads to? A single bad RTT sample is only part of
+the effect.
 
-In rxrpc_rack_timer_expired(), the timer mode is cleared before the probe
-is sent:
+Before this fix, take a segment that was never retransmitted. Its xmit_ts
+is KTIME_MAX, so rtt = acks_latest_ts - KTIME_MAX is a large negative
+value. Both update branches at the end of rxrpc_rack_update() then fire:
 
-net/rxrpc/input_rack.c:rxrpc_rack_timer_expired() {
+net/rxrpc/input_rack.c:rxrpc_rack_update() {
     ...
-	call->rack_timer_mode = RXRPC_CALL_RACKTIMER_OFF;
+	if (ktime_after(xmit_ts, call->rack_rtt_ts)) {
+		call->rack_rtt	  = rtt;
+		call->rack_rtt_ts = xmit_ts;
+	}
 
-	switch (mode) {
-	...
-	case RXRPC_CALL_RACKTIMER_TLP_PTO:
-		rxrpc_tlp_send_probe(call);
-		break;
+	if (rxrpc_rack_sent_after(xmit_ts, seq, call->rack_xmit_ts, call->rack_end_seq)) {
+		call->rack_rtt = rtt;
+		call->rack_xmit_ts = xmit_ts;
     ...
 }
 
-In the retransmit branch of rxrpc_tlp_send_probe(), the call to
-rxrpc_resend_tlp() increments tx_nr_resent and may decrement tx_nr_lost.
-Both raise rxrpc_tx_in_flight(), but that branch never refreshed
-in_flight.
+This leaves call->rack_rtt_ts and call->rack_xmit_ts at KTIME_MAX and
+call->rack_rtt negative. These fields are only written here and are never
+reset. No real xmit_ts can be after KTIME_MAX, so the state stays this way
+for the rest of the call.
 
-Suppose in_flight was 0 on entry: every outstanding segment had been
-SACKed or marked lost, but acks_hard_ack was still before tx_transmitted.
-After the retransmission, the old code then skipped this block:
+After that, rxrpc_rack_detect_loss() computes lost_after from the negative
+rack_rtt. Also, rxrpc_rack_sent_after(call->rack_xmit_ts, ...) is true for
+every segment:
 
-	if (in_flight != 0) {
-		ktime_t rto = rxrpc_get_rto_backoff(call, false);
+net/rxrpc/input_rack.c:rxrpc_rack_detect_loss() {
+    ...
+			if (rxrpc_rack_sent_after(call->rack_xmit_ts, call->rack_end_seq,
+						  xmit_ts, seq)) {
+				remaining = ktime_sub(ktime_add(xmit_ts, lost_after), now);
+				if (remaining <= 0) {
+					rxrpc_rack_mark_lost(call, tq, ix);
+    ...
+}
 
-		call->rack_timer_mode = RXRPC_CALL_RACKTIMER_RTO;
+So remaining is always <= 0. On every later ACK, each segment that was
+reported but not ACK'd is marked lost straight away, with no reordering
+tolerance. This includes segments that were already retransmitted, and
+the result is spurious retransmissions.
 
-That left the RACK timer at RXRPC_CALL_RACKTIMER_OFF with no RTO armed
-behind the probe.
+rxrpc_rack_mark_losses_on_rto() is affected too. With the corrupted
+rack_rtt, deadline = now - lost_after can overflow, so loss marking on RTO
+is also wrong.
 
-Could the message add something like "no RTO was armed after a TLP
-retransmission, so the call could stall until another timer fired or an
-ACK arrived"?
+Would it be worth describing this lasting loss-detection breakage in the
+commit message?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124161302.4044422-1-dhowells%40redhat.com
