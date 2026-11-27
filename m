@@ -1,54 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795772396;
-	b=QkyOStZzfZfOMQWy/RrWpaVdpP1CpTbRzctRRncLjnG/JAVaBezkRgjqO82IHbiwNP7U
-	 YjvZc/I5ihwFbFVa/clARRXXUDCvHQsejmfIWKQbWbNs1Xtn9tm1bdHMMybbHq+7mamto
-	 sh79gxJXeS+ZVMrXukpTJL4Tadw+3lwSzIa3wkBHV8DU6GWGXXH1ZTxBjEgL5d+Sk/EoC
-	 NNFht6bmMe15ypsBkvz77TSllIBO/E1D1Hszf55hEuabkWXIExzF7V1eXfx749mQKR7Zh
-	 mK2qaVyieg0n4lhMQQZdBPw+pkmBZIkMrYmvPZWx+ysPhsBQCz7dm8w+SEDY7FQqeFQ==
+	t=1795772554;
+	b=A65jB8ijAyvaA4RIHX0ZJS36M6I9bKzAO0q2gvypL1L1zNvtRpLhQwD/Xcj3JzLD/qNp
+	 1Mp/nTsPFS6GiI2bOTNlhkf08hsu7DMEvRm2oR2R9PKDdYNybyiccHVJS+PtcI0ETn3dw
+	 9l7Co3oZVeb/YQvY0HVJ9WTi6c9OP+SH6vIS/1za0idF9r9dPOPIjOC1dh3RUmC1XlqGe
+	 +PDzALghEaWEQfYTYtZzUVR+Ig1nNItDE79KpxbFRih8L/dD0LLwWAsIPSLbFAUcZmFqN
+	 XUwjtlPwHOFgvQjkaxS//zppyIcDv0FSCwCO7xdBe1CPdlVRXzvkGrACzg49SCnbIxg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795772396;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=q27QeHoS7UR2882yH+xfPYckzF6Be62Y/DrY6dpeN0c=;
-	b=JzNWY0dZzk2jrzP4ceyNum/Wp937XvckqNJsQE04Qd1kuG/t46o5tjpRGEvjlsnoKZ96
-	 hQ+O21QdjbKPVU05OXga61oXxKs65iEC585SDqwjtXrZUAFLveM5z8yBi42fq9J8Zf3mp
-	 5AXFSaPoqSSqaYji3gIZkBH3SpjdumPJrxGVAM90h/6Qh3zISUzg0m5UKOI/BZB3OZRWI
-	 bR+9stCByI41wXOyZtlahmeQ/kA+tMDR+/IiF/OFOlGiG8RU2vfhPmVNUV7Rq7OIdiUnT
-	 Up+h1uRqYrEOmcN+HhJQIIha5JSUTHEyFVMUqssGTGNnKDHlJK5d1dT7+pV+eKcd+KQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795772554;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=xwPQDlQlJN42Ig5O+tbCP066ideoNucQAnKxdmUCo7Y=;
+	b=WPdkF0c2POVH6E/zZGLP/blOXP/vxiFsBRSALEVgyRplDHUXSOPkGtOP4FZ2EwiEDALe
+	 qlNmWIyU6D6al2Ju8u9W0FqcjLtOrmQ0D3M6PFd0nnY1AWaVc9XdIsvJqHNh/eqxoU0cq
+	 9G+9iDRdUDRSL7oJKmz6Nn4Zbn2INhccVqqojhR6cQLwEhDvooGVsFtuZs0iXNEDepLyb
+	 2FRaxuk8ajX0BusBu1k1uVYaNtrLkJO+uHSAZHxUadl81YFabOgSjNJG3Ldj/WmJArIgO
+	 7AkWuSyqcuIOT0M9qOtY0kJP+jNZFWG0oE7OeuXeWohOpP9EGsYKwSDsloKcRng954Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.198
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=M75RDy7U;
+	arc=none smtp.remote-ip=68.232.154.123
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AF2A606A321
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 09:39:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5AF2A606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4fb73e868aaso8411071b6e.0
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 01:39:56 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795772395; x=1796377195;
-        h=content-type:to:from:subject:message-id:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=q27QeHoS7UR2882yH+xfPYckzF6Be62Y/DrY6dpeN0c=;
-        b=1dZqSPxwV256rWb+2yBhyG8CLtqCQ7AspUJ9cN2q8uNyPI91vzugd5Ct+zJ+vyqKda
-         HXhq+ywYtLzosROzm2aXJie9l+w0no/E2TTIwK02wC5TwJFmYab37U6T3k6/tIFQ0WsX
-         pHDNO0T0xoBcO0ZGPJ2Lh8+XQAHUR6ih6OisDnyz/lVKFAJUwu4j08EduvRB6O2HAkyw
-         boQYE2lV8vfx1zvcon6QUDEUIbnnUV1WGmv626gb7waJgPB+nZKx9cf8AjqXIx5aHRAE
-         W2MSyAM6N4vMnEbg8G4DiyMKKWR2E0WliAQPI0PL33tcdeRSIA44z70T3/AMk7cDIYpH
-         QcKA==
-X-Forwarded-Encrypted: i=1; AL+hErErkts/WbCb4ftWlsluoOSLWP6wYeK6eBfwpvwd/J7q0FygkEY/nDBjETxH4RX0Zw0OscsKpow=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/n4TDczrKmbS/NUDvV+dbUDNtrdHbh9n+NpvuHMkoQgE4MmDuX
-	lX60bIidpD9QAS7nRgbiRtiEFZ1Bz5M7yWDqlIElyBvwiUd83opsGekYY8JEOhHxyUzmp+GZ8kp
-	A1mQt/lzEh76u8HQlxkvYLSvY2J26GTCO+BU0H1pSPmGwwmDhPC9sJjLbvls=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84DF6606A31C;
+	Fri, 27 Nov 2026 09:42:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84DF6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=M75RDy7U
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795772553; x=1827308553;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=2w8vmJ70JZqInfPNxoBGVHO0Eg2269CQk35NBSdnMvY=;
+  b=M75RDy7UxN+zpuxlG8dhtQ4S4riWsxK4X7fwd1h30pHWydEM6GTlrMET
+   8vTj9i62n/IkSHpspfRe5NY/AE9HwVjueTbw6MKN2KUyxQGbPjlkUd8LC
+   w3ohaPI/RSp3oZx6C2+vN3T7wLBAasZ7OEIHStMIq9JqKJzj98YOcO2aI
+   kS9o9Ip8wC3Z1I+R0eO3n2q0dnNIToriL4nBXzn16w9HslZ/c9I9SJqfd
+   pzlAT7nF7+mkkjHye/5FNmVU5acg1FtJcNIr7Ok2uAmFo9g68CM8zD+NX
+   SUcgG9PgGVjRT42glFoWM3UVLAQLkgEJYh7wadhJa5f5mGtumhqQ/SVul
+   Q==;
+X-CSE-ConnectionGUID: lOB1Vim1RbSKJaS/OCc0VQ==
+X-CSE-MsgGUID: EiLX8zZpQ66YKyWERBh+1g==
+X-IronPort-AV: E=Sophos;i="6.27,236,1787036400"; 
+   d="scan'208";a="67349671"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Nov 2026 02:42:32 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Fri, 27 Nov 2026 02:42:32 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Fri, 27 Nov 2026 02:42:29 -0700
+Date: Fri, 27 Nov 2026 10:42:29 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Paolo Abeni <pabeni@redhat.com>
+CC: Horatiu Vultur <horatiu.vultur@microchip.com>,
+	<UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
+ S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, "Jakub
+ Kicinski" <kuba@kernel.org>, Alexei Starovoitov <ast@kernel.org>, "Daniel
+ Borkmann" <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev
+	<sdf@fomichev.me>, <netdev@vger.kernel.org>, <bpf@vger.kernel.org>
+Subject: Re: [PATCH net] net: lan966x: return an error for XDP frames that
+ are not queued
+Message-ID: <20261127094229.hk6x776cekm4p6hh@DEN-DL-M70577.microsemi.net>
+References: <20261123-lan966x-xdp-xmit-errors-v1-1-f25b6661167d@microchip.com>
+ <d7c589fd-0faa-4f48-817e-66efee73185c@redhat.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,171 +85,44 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:319b:b0:4f5:eaac:5173 with SMTP id
- 5614622812f47-57a0b84fa3dmr21639331b6e.57.1795772395289; Fri, 27 Nov 2026
- 01:39:55 -0800 (PST)
-Date: Fri, 27 Nov 2026 01:39:55 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b094feb.b83081fb.4cb0e.0020.GAE@google.com>
-Subject: [syzbot] [net?] KCSAN: data-race in xa_set_mark / xas_find_marked
-From: syzbot <syzbot+cc64b6bdf649b54047e0@syzkaller.appspotmail.com>
-To: davem@davemloft.net, edumazet@kernel.org, horms@kernel.org, 
-	jiri@resnulli.us, kuba@kernel.org, linux-kernel@vger.kernel.org, 
-	netdev@vger.kernel.org, pabeni@redhat.com, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <d7c589fd-0faa-4f48-817e-66efee73185c@redhat.com>
 
-Hello,
+> On 11/23/26 15:54, Daniel Machon wrote:
+> > lan966x_xdp_xmit() counts a frame as transmitted when
+> > lan966x_fdma_xmit_xdpf() returns 0, and its caller only returns the
+> > frames that were not counted.
+> > 
+> > Before this patch, lan966x_fdma_xmit_xdpf() returns NETDEV_TX_OK, which
+> > is 0, when an xdp_frame has less headroom than the IFH or when its DMA
+> > mapping fails, without queueing the frame. The frame is then counted as
+> > transmitted and never freed. An xdp_frame can have less headroom than
+> > the IFH when an XDP program grows the head of a frame with
+> > bpf_xdp_adjust_head() before redirecting it to a lan966x port.
+> > 
+> > Return -EINVAL and -ENOMEM in these cases, so that lan966x_xdp_xmit()
+> > stops and the frames that were not queued are returned to the caller.
+> > 
+> > Found by an AI code review agent. Reproduced on a lan9668 board with an
+> > XDP program that grows the head of each frame and redirects it to
+> > another lan966x port. With the fix the frames are returned to the
+> > caller.
+> > 
+> > Fixes: a825b611c7c1 ("net: lan966x: Add support for XDP_REDIRECT")
+> > Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+> It's not clear to me if the issue addressed here is stats miscount
+> (should target net-next) or deterministic memory leak per packet.
+> 
+> Could you please clarify?
 
-syzbot found the following issue on:
+The commit message could have explain that better, sorry. It's the latter - per
+frame memory leak.
 
-HEAD commit:    ebb7a8dc1e74 Merge tag 'soc-fixes-7.4' of git://git.kernel..
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=105ce153580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=dc99102739636b09
-dashboard link: https://syzkaller.appspot.com/bug?extid=cc64b6bdf649b54047e0
-compiler:       Debian clang version 22.1.8 (1~deb13u5), Debian LLD 22.1.8
+> 
+> Thanks!
+> 
+> Paolo
+> 
 
-Unfortunately, I don't have any reproducer for this issue yet.
-
-Downloadable assets:
-disk image: https://storage.googleapis.com/syzbot-assets/be1abd72bd4e/disk-ebb7a8dc.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/317ea0b3db13/vmlinux-ebb7a8dc.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/4ec18c47ec34/bzImage-ebb7a8dc.xz
-
-AI-generated root cause summary:
-KCSAN reports a data race on `xa_node->marks` between `xa_set_mark()`
-(`lib/xarray.c`) and `xas_find_marked()` / `xas_find_chunk()`
-(`include/linux/xarray.h`). While writers hold `xa_lock` and update
-`node->marks` using the non-atomic bitop `__test_and_set_bit()` in
-`node_set_mark()`, lockless RCU readers in `xa_find()` -> `xas_find_marked()`
-call `xas_find_chunk()`, which performs an unmarked plain read (`*addr & (~0UL
-<< offset)`) without `READ_ONCE()` or `data_race()`. Because
-`CONFIG_KCSAN_ASSUME_PLAIN_WRITES_ATOMIC` is disabled, KCSAN flags the
-concurrent unmarked read against the non-atomic read-modify-write bitop.
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=cc64b6bdf649b54047e0
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+cc64b6bdf649b54047e0@syzkaller.appspotmail.com
-
-==================================================================
-BUG: KCSAN: data-race in xa_set_mark / xas_find_marked
-
-read-write to 0xffff888106b77228 of 8 bytes by task 3329 on cpu 1:
- instrument_read_write include/linux/instrumented.h:56 [inline]
- __instrument_read_write_bitop include/asm-generic/bitops/instrumented-non-atomic.h:84 [inline]
- ___test_and_set_bit include/asm-generic/bitops/instrumented-non-atomic.h:99 [inline]
- node_set_mark lib/xarray.c:95 [inline]
- xas_set_mark lib/xarray.c:894 [inline]
- __xa_set_mark lib/xarray.c:2088 [inline]
- xa_set_mark+0xda/0x1b0 lib/xarray.c:2155
- devl_register+0x4c/0x70 net/devlink/core.c:413
- nsim_drv_probe+0x1e1/0x7c0 drivers/net/netdevsim/dev.c:1607
- nsim_bus_probe+0x15/0x20 drivers/net/netdevsim/bus.c:419
- call_driver_probe drivers/base/dd.c:-1 [inline]
- really_probe+0x1ba/0x600 drivers/base/dd.c:707
- __driver_probe_device+0x176/0x1e0 drivers/base/dd.c:869
- driver_probe_device+0x63/0x380 drivers/base/dd.c:899
- __device_attach_driver+0x24e/0x350 drivers/base/dd.c:1027
- bus_for_each_drv+0x1c0/0x230 drivers/base/bus.c:500
- __device_attach+0x1d1/0x2a0 drivers/base/dd.c:1131
- device_initial_probe+0x6a/0xb0 drivers/base/dd.c:1190
- __bus_probe_device+0xfd/0x1b0 drivers/base/bus.c:614
- bus_probe_device+0x15/0x20 drivers/base/bus.c:632
- device_add+0x601/0x7c0 drivers/base/core.c:3778
- device_register+0x1d/0x30 drivers/base/core.c:3860
- nsim_bus_dev_new drivers/net/netdevsim/bus.c:468 [inline]
- new_device_store+0x2b0/0x460 drivers/net/netdevsim/bus.c:191
- bus_attr_store+0x57/0x80 drivers/base/bus.c:172
- sysfs_kf_write+0xfe/0x120 fs/sysfs/file.c:145
- kernfs_fop_write_iter+0x1d2/0x2e0 fs/kernfs/file.c:345
- new_sync_write fs/read_write.c:575 [inline]
- vfs_write+0x57a/0x9b0 fs/read_write.c:667
- ksys_write+0xdc/0x1a0 fs/read_write.c:719
- __do_sys_write fs/read_write.c:730 [inline]
- __se_sys_write fs/read_write.c:727 [inline]
- __x64_sys_write+0x40/0x50 fs/read_write.c:727
- x64_sys_call+0x154e/0x2550 arch/x86/include/generated/asm/syscalls_64.h:2
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
-read to 0xffff888106b77228 of 8 bytes by task 3324 on cpu 0:
- xas_find_chunk include/linux/xarray.h:1752 [inline]
- xas_find_marked+0x211/0x650 lib/xarray.c:1516
- xa_find+0xa4/0x140 lib/xarray.c:2204
- __devlinks_xa_find_get+0x99/0xe0 net/devlink/core.c:375
- devlinks_xa_find_get+0x24/0x30 net/devlink/core.c:396
- devlink_get_from_attrs_lock+0xd8/0x390 net/devlink/netlink.c:225
- devlink_nl_inst_single_dumpit net/devlink/netlink.c:397 [inline]
- devlink_nl_dumpit+0x26d/0x300 net/devlink/netlink.c:456
- devlink_nl_port_get_dumpit+0x24/0x30 net/devlink/port.c:631
- genl_dumpit+0xac/0x110 net/netlink/genetlink.c:1026
- netlink_dump+0x46a/0x880 net/netlink/af_netlink.c:2360
- __netlink_dump_start+0x483/0x570 net/netlink/af_netlink.c:2475
- genl_family_rcv_msg_dumpit+0x1a5/0x210 net/netlink/genetlink.c:1075
- genl_family_rcv_msg net/netlink/genetlink.c:1191 [inline]
- genl_rcv_msg+0x3fd/0x470 net/netlink/genetlink.c:1209
- netlink_rcv_skb+0x11e/0x220 net/netlink/af_netlink.c:2585
- genl_rcv+0x28/0x40 net/netlink/genetlink.c:1218
- netlink_unicast_kernel net/netlink/af_netlink.c:1336 [inline]
- netlink_unicast+0x6fd/0x7e0 net/netlink/af_netlink.c:1362
- netlink_sendmsg+0x605/0x760 net/netlink/af_netlink.c:1921
- sock_sendmsg_nosec net/socket.c:800 [inline]
- __sock_sendmsg net/socket.c:818 [inline]
- __sys_sendto+0x429/0x480 net/socket.c:2283
- __do_sys_sendto net/socket.c:2290 [inline]
- __se_sys_sendto net/socket.c:2286 [inline]
- __x64_sys_sendto+0x76/0x90 net/socket.c:2286
- x64_sys_call+0x200c/0x2550 arch/x86/include/generated/asm/syscalls_64.h:45
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
-Reported by Kernel Concurrency Sanitizer on:
-CPU: 0 UID: 0 PID: 3324 Comm: syz-executor Not tainted syzkaller #0 PREEMPT(lazy) 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-==================================================================
-netdevsim netdevsim1 netdevsim0: renamed from eth0
-8021q: adding VLAN 0 to HW filter on device netdevsim0
-netdevsim netdevsim1 netdevsim1: renamed from eth1
-8021q: adding VLAN 0 to HW filter on device netdevsim1
-netdevsim netdevsim1 netdevsim2: renamed from eth2
-8021q: adding VLAN 0 to HW filter on device netdevsim2
-netdevsim netdevsim1 netdevsim3: renamed from eth3
-8021q: adding VLAN 0 to HW filter on device netdevsim3
-8021q: adding VLAN 0 to HW filter on device bond0
-8021q: adding VLAN 0 to HW filter on device team0
-hsr0: Slave A (hsr_slave_0) is not up; please bring it up to get a fully working HSR network
-hsr0: Slave B (hsr_slave_1) is not up; please bring it up to get a fully working HSR network
-8021q: adding VLAN 0 to HW filter on device batadv0
-veth0_vlan: entered promiscuous mode
-veth1_vlan: entered promiscuous mode
-veth0_macvtap: entered promiscuous mode
-veth1_macvtap: entered promiscuous mode
-batman_adv: batadv0: Interface activated: batadv_slave_0
-batman_adv: batadv0: Interface activated: batadv_slave_1
-soft_limit_in_bytes is deprecated and will be removed. Writing any value to this file has no effect. Please report your usecase to linux-mm@kvack.org if you depend on this functionality.
-
-
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
+/Daniel
