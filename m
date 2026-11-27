@@ -1,98 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.97
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795777442;
-	b=Axqyr+vMj3KnHdgG8FRsY0M0YtEe7WAHa5CRBviN4MNqJd+0aK/JexwfQQ1sPRPgFfRL
-	 VkLV2N0A+ji+aiaF79fev6q0ZZPTkj+z76btXQ/hyP5geKkXmnZsCXxuu/1JlXpZp8EFG
-	 tMJikcTZkdhMIUVcuwYMrDXQyf3rt725x/7/YLwb1XaJI/QcChZd0krfifrf8iqWJebxW
-	 WocXhzQ5ySy7cN75j88f3VNUawNPZ2vBD7bWzbM6+riXRlvkynxkiX5IRg5RO9CxiRQ/T
-	 KfSWYSRdM1yJZMBidM61TdjEZV//eeK9+XLbu4g/EMswUsTcO8S0DUav5K0W+6qR9bg==
+	t=1795777453;
+	b=pbNbDVVUHzMSfEXAKCeZ0pemqGkf8O9soGV83HFlQEtSeDo5gIS6MNuOZFrFUTsIi5vq
+	 ztaiVYjA71MA9NrRbsesatyoU4g/EkFgTW0PukoTAD1wIVbV7eMi85Hm+XD168Rc98T/B
+	 TZrR4Zea9RFC7cD7GK5VH37pOTtS+PgwdFaGqAZFz46Lndi7fBOOqSrd2DUdEHaiK2ogb
+	 cFmCVVGSnhhGuhxPTpar7ogSAmwoXXEYsOm+1dS8X7Ssj7x6+Pz876PFe/ScNDLQzuvyf
+	 dYnldNv/HUTOZSZQw2QjcaGdZmvKYel0h/cYH0OaIATvY5jcciPJZrNh+tzqrDOXIbg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795777442;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=sBbKLTeMth/78J0FzA5MVCClolXP++to0y+7e0RapHo=;
-	b=aMhwlEYIXIxfamyfuuwwlqsViw72/r5AdKq+emRc+SGgrg06psqNoaUW1NOqhZUDLFta
-	 Kq65eFYMDjk4O/FARm0q/mlw3ZPjtHhNLJIeMemWXxQvvXHI4sDk+kOUze/WS01PHZzfs
-	 C1i+8zaiknJ+zVr2uLeowSWCdj8VrbnkJXBRTQy+WDFkcRTxjk0XdYB+vpSpP8aDCAE6k
-	 WUPfP3GhIdjXPDJb89H0w04RuicLpb6R0IIf3ixD44/f2U0g3mlUckc2AzIRo8+jKGslP
-	 x2cDaoRzQxOtt6g4SSH+TsaKVF9rPo4nGSmpgNhzSE+ClYvRI5boed21QexEn4kBmQA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795777453;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
+	bh=NM47riWltiuXEys5rXW5mtqRsob8civcAay742/x4/c=;
+	b=AuD5xuN0wWy51MB9ssmF6PHSNV2XfKC4njMDmDI7P80NvtdrtW3ELWLRlBNxADDyF3ry
+	 QQQfio+Pxyv0aposNFUqtQGCO3HRt0tu/veib7wfmIDH0csbn013QuQFbkY6dl5euOkBi
+	 txQC6Llg2pQPP5GkVKY7T5Qpb9sfjKIfQB1feeBMjXzuimhshZebMw9gPRsweMbLS2igD
+	 /3jDnyEuyA/YojMfqKQaUpvfKalGwYgu2LbukgeLt2GXKDhyAIM1iZVU8nND/3/bj2rOd
+	 Rmpy46mPLn7peTiCM5vkMDxqkGaf2NZkp+16SaRER8l08+NyXlxYYA50oBeY2dNsQwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=andrii.net;
-	spf=pass smtp.mailfrom=andrii.net;
-	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=UQZiU34F;
-	arc=none smtp.remote-ip=74.125.82.97
-Received: from mail-dl1-f97.google.com (mail-dl1-f97.google.com [74.125.82.97])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=QJBfDGLA;
+	arc=none smtp.remote-ip=195.10.208.50
+Received: from mout-b-105.mailbox.org (mout-b-105.mailbox.org [195.10.208.50])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1946606A31F
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 11:04:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1946606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C85D7606A681
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 11:04:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C85D7606A681
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=UQZiU34F
-Received: by mail-dl1-f97.google.com with SMTP id a92af1059eb24-1a3c08d6928so11863020c88.0
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 03:04:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=andrii.net; s=gmail-2025; t=1795777441; x=1796382241; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=sBbKLTeMth/78J0FzA5MVCClolXP++to0y+7e0RapHo=;
-        b=UQZiU34Fa3WLoJfrLE6309naeCq7IO6zuC2AP3eyTRT/oykAOoZnS7dTa0QKRzG1bX
-         GxHACPHIO5DVgnHtS4+xk4RereDUpW2PImoxHBUamW2UcE75t3wx8KQ0bDSXgnQOHBHr
-         E8tzrc69cZDRExukvNvh9gkSmy2h6YL9dwfgPVOkKsQpFCB6GWFr6b0V4P5uQEUWty+4
-         4lqroT0ADML6YOXMgpC1kueW2UvPa90u/nLXAJCvjY11kp9Z+h09dXi4ooaGWjDl4JfU
-         FTxgtKmrY+MwOyq8zhWZ92NzvWAEivE400c406O6Z7i/fOQTIRdhC+s1JTAq3n+Bdx8q
-         UyYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795777441; x=1796382241;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=sBbKLTeMth/78J0FzA5MVCClolXP++to0y+7e0RapHo=;
-        b=acw2NVY67n9YBEhT38/hB6DP4vfvg40DnsVNL7WkGCYJ85p4TElfstlsa9ttZLoijD
-         nBM8/+8xdDyO7Rw1gz0u6+DzSXD9aAZ2v4nC+hgZX7j0kdt74pUa5gFxtmiJnL/wjY/0
-         1/UapYNDumx9qtUHM14Mlc+IAH3PZFISpW+x0MkF3SwggZLwE/mxFey5lG4geXBFQzrP
-         rVotrPr67LHYOgv7vLhAjXywNQqU+z+VUZK1MpTFubHGzTU9UsoD2Eudlkub5JwwG9W1
-         iqxl260ajKmWOL7ogte9rfPLX77VlFqlZNjCpDkV4Gw+HH/Or/kBd8h4y8lKnjgrtvwV
-         evUw==
-X-Forwarded-Encrypted: i=1; AL+hErHYhbaVOVDO2atF89LLvYkCw6QTjgHTAzmeW8ifyOXa+EXV2UL0eXkALLHxvCqrGSvSA8ZqDt8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ysBNMy7I+mW7RgqO4vuGDWTbFIv05kPFceDAo8TATGqPirDnh
-	krOUI8nHGAOdhbU3Bcof2vyPSfs8NIn228QNNo7OqWSTzuo901lWRVc1BIsth5eTMX9fGPKJxCy
-	XU1gWhvdgN2mE990+tlo0p/Ho53g7erMS3q7JWFcciNtvQvTkQwQS
-X-Gm-Gg: AZFdTZcih3TCA4RcQMZNon3rtzgWfXVId3NTlCslauMIAolG3yNjOlZxqs/3Gtph6g0
-	9zZh+9DTpNMvKtOiX3TBZqntqfibeeDn6n8+/SSvr5j06OCXdfh/nKjYEXqrs2PeY5/6Gm0pDg4
-	7mGDElYf52/vze8YBSwLd2uitTGX8YMn4X5mqZtkpDb446hSTdjnFu0xXdsxisOsycgcSPtKVju
-	emVsxtC74tKGa9JBiwiDq4jmUCsYW/py8pxOUTfFO+COP57JaERz+cydoO8xlWnFoYYLnwW66yl
-	6TGqb4fmwTuGGm3dzUUReWe1r45RJH8QH0hsn6xw2V6CDFIp+HOLb6xiX82vJ4DuC7BH+Q7W6W0
-	6wQP5bhCSjnMnGRKbkuzXAbyiGnU=
-X-Received: by 2002:a05:7300:ce8f:b0:375:7be3:1bbd with SMTP id 5a478bee46e88-38570b336f4mr21662778eec.23.1795777440698;
-        Fri, 27 Nov 2026 03:04:00 -0800 (PST)
-Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
-        by smtp-relay.gmail.com with ESMTPS id 5a478bee46e88-385677c0c07sm3922451eec.19.2026.11.27.03.03.59
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 27 Nov 2026 03:04:00 -0800 (PST)
-X-Relaying-Domain: andrii.net
-From: Andrii Tereshchenko <opensource@andrii.net>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Christian Hopps <chopps@labn.net>,
-	netdev@vger.kernel.org,
-	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH ipsec] xfrm: iptfs: reserve room for the outer MAC header in new inner skbs
-Date: Fri, 27 Nov 2026 03:03:55 -0800
-Message-ID: <a502a95c-de83-4f8d-986e-80f804ebe76c@mid.andrii.net>
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=QJBfDGLA
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-105.mailbox.org (Postfix) with ESMTPS id 4jbVs21pPsz9vDD;
+	Fri, 27 Nov 2026 12:03:34 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795777424;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NM47riWltiuXEys5rXW5mtqRsob8civcAay742/x4/c=;
+	b=QJBfDGLA+FYAX1OM6HAPoz6YixZJ2gTObaamZvBtyCNKtyMwZGUot0wCcJcOi4ffUYcA4Q
+	Vql7zUKZVHKmoSj4WhhxWanj9NS6mwVIavy+xFivjiGrtNGZjC5fSIY1lMmUttKB/oRpcu
+	tOvUxoqd7LvcP6+WPCTF2gKHhfB0nF4ie+kC5c4rl8QxClSud3CjqAA92yHEux3T1dmJyM
+	t41045vHzBvh2S3bS3GzPp+5D8osZEX63bDwu0lo42Jgd36wwQTq77I0IjivyfUBug51K1
+	ZrGczkjqbmOmpjHBGjrCuHYeNRxr/+bThRxIWOz1EeoPfINQnhf+hdc6IH5+gA==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
+From: Ralf Lici <ralf@mandelbit.com>
+To: David Ahern <dsahern@kernel.org>
+Cc: netdev@vger.kernel.org,
+	idosch@nvidia.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	ja@ssi.bg,
+	David Ahern <dahern@nvidia.com>
+Subject: Re: [PATCH net-next v2 06/13] ipv6: validate dsts against the netns route generation
+Date: Fri, 27 Nov 2026 12:03:19 +0100
+Message-ID: <20261127110319.354669-1-ralf@mandelbit.com>
 X-Mailer: git-send-email 2.56.0
+In-Reply-To: <52846eb18319fc2841ffa6dbb32abcc898eca8df.1795642432.git.dahern@nvidia.com>
+References: <cover.1795642432.git.dahern@nvidia.com> <52846eb18319fc2841ffa6dbb32abcc898eca8df.1795642432.git.dahern@nvidia.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,64 +81,43 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jbVs21pPsz9vDD
 
-__input_process_payload() copies outer MAC headers into skbs with up
-to 80 bytes of headroom. Longer headers (NBMA GRE) wrap the 16-bit
-offset, and the copy lands far past skb->head; reserve room for mac_len.
+On Wed, 25 Nov 2026 18:33:32 -0700, David Ahern <dsahern@kernel.org> wrote:
+> @@ -1476,7 +1483,11 @@ static struct rt6_info *rt6_get_pcpu_route(const struct fib6_result *res)
+>  
+>  	pcpu_rt = this_cpu_read(*res->nh->rt6i_pcpu);
+>  
+> -	if (pcpu_rt && READ_ONCE(pcpu_rt->sernum) && !rt6_is_valid(pcpu_rt)) {
+> +	/* A dst stamped with an older genid stays stale for everyone still
+> +	 * holding it, as in IPv4. Never re-stamp it; drop it and build a
+> +	 * new one.
+> +	 */
+> +	if (pcpu_rt && !rt6_is_valid(pcpu_rt)) {
+>  		struct rt6_info *prev, **p;
 
-  BUG: KASAN: slab-use-after-free in __input_process_payload.isra.0+0x51c/0x1c70
+This now evicts the pcpu dst of every route after any generation change,
+and the eviction still drops the slot's reference right away
+(rt6_uncached_list_add and dst_release from 02/13). A reader that took
+the dst from the slot without a reference can then see it freed, when
+the only other reference is the child reference of an xfrm bundle:
 
-The patch was written with an AI coding assistant and reviewed by the
-submitter.
+1. Bundle X, whose child is the pcpu dst P of CPU0, drops its last
+   reference, and dst_release queues dst_destroy_rcu.
+2. After that grace period has started, a lookup with
+   RT6_LOOKUP_F_DST_NOREF on CPU0 gets P from the slot inside its RCU
+   section, and is preempted (PREEMPT_RCU) before dst_hold_safe.
+3. A lookup on CPU0 after a generation change evicts P and drops the
+   slot's reference, so X's child reference is the last one.
+4. X's grace period ends without waiting for the first lookup, and
+   dst_destroy(X) frees P with dst_release_immediate.
 
-Fixes: 6c82d2433671 ("xfrm: iptfs: add basic receive packet (tunnel egress) handling")
-Link: https://lore.kernel.org/netdev/179524501671.3135.15869590714107061136@kernel.org/
-Cc: stable@vger.kernel.org
-Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
----
-netdev's AI review of Piyus Kedia's "xfrm: do not write the ethernet
-header when the mac header is unset" pointed out this write (Link:
-above). 7a505bb0168a ("net: clear skb->mac_len in
-skb_unset_mac_header()") does not cover it: here the MAC header is set.
+Mainline only evicts nexthop-object dsts this way, and
+fib6_nh_release_dsts has the same pattern, as Sashiko pointed out on my
+v5:
 
-Found independently by an AI code review agent. Reproduced on ipsec
-master without kernel changes or fault injection. With this patch the
-reproducer passes, two boots each way, with panic_on_warn=1 and no
-KASAN report. A reproducer is available to the maintainers on request.
-Not tested: an architecture where L1_CACHE_BYTES is larger than 64.
+https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795537128.git.ralf%40mandelbit.com
 
- net/xfrm/xfrm_iptfs.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
-
-diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
-index 3fff835497b9..fe54979116de 100644
---- a/net/xfrm/xfrm_iptfs.c
-+++ b/net/xfrm/xfrm_iptfs.c
-@@ -242,7 +242,9 @@ static u64 __esp_seq(struct sk_buff *skb)
-  *
-  * When @l3resv is false, resv is XFRM_IPTFS_MIN_L2HEADROOM which arranges for
-  * `skb->data - 16`  which is a good guess for good cache alignment (placing the
-- * to be pushed L2 header at the start of a cacheline.
-+ * to be pushed L2 header at the start of a cacheline. If @tpl's MAC header
-+ * is longer, as with NBMA GRE, resv is its length rounded up, so the
-+ * arrangement holds: it is copied in front of the inner packet.
-  *
-  * Otherwise, @l3resv is true and resv is set to the correct reserved space for
-  * dst->dev plus the calculated L3 overhead for the xfrm dst or
-@@ -263,6 +265,11 @@ static struct sk_buff *iptfs_alloc_skb(struct sk_buff *tpl, u32 len, bool l3resv
- 
- 	if (!l3resv) {
- 		resv = XFRM_IPTFS_MIN_L2HEADROOM;
-+		/* A longer MAC header needs room too; round up to keep
-+		 * the cacheline arrangement.
-+		 */
-+		if (unlikely(tpl->mac_len > resv))
-+			resv += ALIGN(tpl->mac_len - resv, L1_CACHE_BYTES);
- 	} else {
- 		struct dst_entry *dst = skb_dst(tpl);
- 
-
-base-commit: 2803867cf3defa294710088a4663b434e12b5e93
 -- 
-2.53.0
-
+Ralf Lici
+Mandelbit Srl
