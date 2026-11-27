@@ -1,80 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795785360;
-	b=OBLLqLQLkyb2dkfYYl22TeL/2Jp9DsxuaGz3vFyAPFzMCY1KmX2XPgWryxWP/839cBcE
-	 hj4ZGsJCGpqNxIzRTz/jrO3cxh8aj3JLR9FL9PuuqrMX+A2FA3q52Sbhx6milxVk2N6Rt
-	 oG2kmuWsAZImUsKsy8VYs9/YnYHrGlIPvUABqrR0xpkResHOavdcCdIhzokRrmUqD62bU
-	 3J1vnBbKq8e6SjYYwlTJz6VHmIOIDTHf1XvFMlfis71juTM1dwxM2aEw+js9P876iGfFq
-	 CDPQsJ30BOOBEyXEzmc1SnOGH09VVmDvzqXx+4CgiON4HFwyE+UNPmvRzDovzdwVL9w==
+	t=1795785365;
+	b=d5Q14m5e0k5k2hZIG4P4OQTkg0pfEjlQOrTyS9TP17VfzQAPy8Lit62T5LXTGNOEaJVa
+	 iouLH5LwENX8DzfHVupeABFvoSMK+r945iSL3Vit1y8Ea7GyST+a/u3BC3iSEnbxh1VVU
+	 qIqEYFeuDgOrjarIUG6UQYOMN1+OJxnmmeVq/FE2eb1gWlzIBGB31XKM/JzTSKPxSMMyb
+	 VgCnD05MnBi8Kcx6wfdmnw4qAId2xjCUGYUhR3PCUFPClhCAeJ5W3qoG525sCU6doFh1y
+	 eoZf5tk6rm6L5zNnI/ZHbZ3jv2SGpDR4go5QsSZTLyXzKt5vOSozSzlb0AmjgTVLkkw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795785360;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=KcilPTNeHFuX3APMIVWABnYww7JN1hd9xxiUDFrl/9g=;
-	b=jCpwtz+J3BXMF0OxclOhpA+C4QBtpb7JnRmYuCWDc/ZYeMpS6yFE3NOmzrQx+pYvOwN5
-	 wD435TvRgfDG8DbrVaxNIJ146v60EAwTS9XvBaed8KQ5lSFQzjLGJtsEE5WEkrQ5/Mhls
-	 owptD0w3Tv01JYv6Xuvg71yX/alLa570HMap73jq9QC7W01b5xggEmMPNcer7muGN8HWj
-	 B4mYh9LVG+JoaVWeAt0TAKJZyrYt8urf8B9YMIxgOX8zXJcnCyKvNAR1pN6w+BDRYcpyC
-	 dKfog7fuuqsqT74VJHu76JQMxdfbUStc1ZZKawBSc15rjnQX2s0yKDeLEg6+kSge4MQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795785365;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=uzS/BNAYIj/VL8SPC7NkGalZWt1Ty07+faDWaDwzv/4=;
+	b=EeOQTZvLIGdxCUVoD66nTOczmMG/Fi8qnwLLwdb8Hp63qyDcNZIbiZzDXy5+9vJl2dNq
+	 C+FFKRyzVxdZh52BJ76vBhD6p/4mfiEWcrKLbqM7dLzgn8S0g0lS3qxZpzn7Xvawwxhdb
+	 nKjf5NxQJcayELN8rF6WQhzTFi4y7JMrP/30V0UCyJ5WA9epATgc6TGJTZa9SSHS69tKE
+	 BBo64veNB6t/k9m8UK9QvPNYGRjzPG1yMkInTRfQhwsTRSBO6EwD2LpjLR9pLA5mISySp
+	 tg591NGtCHczKKeA2egbQDWn8j3U4wHx8Q9Juw1HjUHQdd7Zs7jF5TlA2iXJABk8XMw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DAFfqPJr;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="V/i5uyiJ";
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44CCF606A32E
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:15:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 262AA606A321
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:16:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DAFfqPJr
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V/i5uyiJ
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795785359;
-	b=AqO12RZzpbEZwpCLyZPNxrrqWTh4R3rwgziA6GFvXLy/LW7ZCmgV/vMifD5GkWzDsOqN
-	 UxliFL2jO2immXvpwfy5YrvCIm7OLi7T3NA4MUb1q4thZ6XbHVkZnUsDMxulGHB+Moddv
-	 WV40uJwd34lrPLygiCjexYqIetJaiwJUG3JtNy9xj35SjDhJkk0YLDJhqeQ/seMfBaKTh
-	 11Qa2xC09yJoycMyMr+DJyYKSD4m1M+uMTi7IJCEh3mG9LJ3B9wWOVphWG4TsrGQZxpJp
-	 phyBOnfYhnw17pE84Uf9iWYR0+zq8iEexwZAYqemg4A5EW2xscsjH/FT//TuhviaYEQ==
+	t=1795785364;
+	b=fCzXG/Glr8YTot2K1ne1YKr8yfEnzBE/EO3+ka/US8IlxoL2wtmBFaZzg4tVTM+Fe38X
+	 kBv3reVNJ6+Pj0mYcum4mSyK+TL57cdJSNmgZf4qu67udbG6quOzH5oO6yq/jvJ534lej
+	 OOFvB5is1XUln+vESco3uycthxJdW7mQHsC7d5OEG9f2lzP7YVDfrz1lBN6kj6V/eK7ry
+	 IMyqr24H640aeH8tduN6cADjEFVcoAhPqXPagCSm3/VR4+GRaKag2K5NkunU+n5PqJd2g
+	 QpeufEmfOZiUQ4t1LQ1PRmx48q+CdVKwMByYH0nb5nhJvFCvOCr2J23l3il2gWXyKyQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795785359;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=KcilPTNeHFuX3APMIVWABnYww7JN1hd9xxiUDFrl/9g=;
-	b=nQwkDpKVfEJRzuB7+8uAf2MLqz+aGJY+lgTD002U99P2t9I3HnJ3eCVS/smGmVb5XBbv
-	 Pgv7tnZ3zBI6s48xvFx7zhHuFeEmywPhX2tGa3e4OhSJOHLXrYt3OurXtqSce48kq+Lsq
-	 JnfzHfAiR6vYJ5IQZ6NKnwt4b91w8HNdU5OmdMLCmBYO5y+E08zx7wPXfS6Gm6U+FhUaZ
-	 LALofjHcGMzu0NOhw8owpNnJWWhXh6hqU6aTIJtzqFk1FbntfqEl6AyNeIHIdpkMEwcQN
-	 TZx7uNVCWz0xUd0UO8TxTtuC72wDda2miuQbSo59JSXgL0xp31wzn9poBYpE59ac5gw==
+	c=relaxed/relaxed; t=1795785364;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=uzS/BNAYIj/VL8SPC7NkGalZWt1Ty07+faDWaDwzv/4=;
+	b=iPdeFrPuTuuXnvfHclbZKCU52/PBPRO1sng7X6NTR/tOlA2mUJb7S4MvwrFla/NQBr9Q
+	 JfQcrPcPimTtfqWwHnufmO/xgMX0PmZiwhtHz5kPG8ZczbPEUlO6VbqdSeS8j+vikbMm2
+	 Wz3HCk7NgVc955Sj4hToN/7YJGZhuoYbxnDwdaMe15tTnu2b8T8l6+2g5JY3e984ykUXj
+	 CLmiJnRo/4OQABTcjz6M8wbAxiB3IRUN4d/sgN8aQFD06RZpSb5KuVH77IvR2HyK0iS32
+	 Mb0dTDdQb9H+tJMeC37U0AJH3l18AOfEKjDBixk3vgSJUBS7ZIQ3cXJ8DF9ORjA39pw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 2D0E81F000C1;
+	by smtp.kernel.org (Postfix) with ESMTPS id 54A231F00897;
 	Fri, 27 Nov 2026 13:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795785359;
-	bh=KcilPTNeHFuX3APMIVWABnYww7JN1hd9xxiUDFrl/9g=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=DAFfqPJr7Rq3n2A2HKIeshUvva5wDmFcXSguvsI9NCJz25tZH/F8MPD2788ga3V03
-	 tFKyDanS7B0w+NSWUfD7OmL2jZORBg0Myriwo2gCzBSUTJSKh1Rf+/iRReMvUtYIs5
-	 VG0let2q98QTeGePtb6uimO4SEZzd9rNr0MzE5q1MSFCHggIZ0IHg84JjESiRhuXRW
-	 zU1/4777qqcyb3+MI16nTbYczQfL28djlD1VuhwJsqS5s8fSV7MW5JhHo9UPVaUS+H
-	 1V3SfnkQh2lbYXTHRaZ0jKfY4rBSQ0bmmDDWwec+5DdCgKV+obUPq93pww09XyrQUi
-	 y6wyKdBBDG+Ow==
+	s=k20260515; t=1795785364;
+	bh=uzS/BNAYIj/VL8SPC7NkGalZWt1Ty07+faDWaDwzv/4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=V/i5uyiJgpt/dcj20AUchG+1mCFOjweU/YW9Ozld3IHRbpEV1i0yhd0RsInXdjRm9
+	 U/m7EZNqBAXQK4GM6cAuStGkjQe7ovLGybANY+IoccHuqMYsbNp3VVOlqlYglE+RH/
+	 jl+z/e+nKaoZhBMyRbWs2S4aD5BbY1lkHY8+eTlrudOSHr2BUHcFexz7NLnC63RSFy
+	 y0uCyG5PD0k+QnaTgaCQuVBuVtSgKDLrRml/24Hv/C35xmdE3Cr3lQbeL9GDTaukPS
+	 ihWC7k7aQ4iez7SAuEpi3L6qw01sDSGPznhwUkIAUaKRl6pS/5iJjpXeqvo+gfXa4M
+	 8nEkPQMSh6ogw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id B33EF4B7EF;
+	by lkml.kernel.org (Postfix) with ESMTP id D958D4B7FB;
 	Fri, 27 Nov 2026 13:15:55 +0000 (UTC)
 From: Juraj Sladek via B4 Relay <devnull+juraj.sladek.littleit.sk@kernel.org>
-Subject: [PATCH net 0/2] net: dsa: realtek: rtl8365mb: fix CPU port on
- HSGMII after boot
-Date: Fri, 27 Nov 2026 13:15:53 +0000
-Message-Id: <20261127-rtl8365mb-hsgmii-fix-v1-0-f2827126aa6a@littleit.sk>
+Date: Fri, 27 Nov 2026 13:15:54 +0000
+Subject: [PATCH net 1/2] net: dsa: realtek: rtl8365mb: reset SerDes data
+ path when conduit comes up
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,11 +84,9 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2M0QpAQBAAf0X7bMudcPyKPDi72HJHd5KSf3d5n
- KmZByIH4Qhd9kDgS6LsPoHKM5jW0S+MQolBF7pWSjcYzs2UdeUsrnFxIjjLjWxbS4oKItNASo/
- ASf/bHjyfMLzvB7iGRn1rAAAA
-X-Change-ID: 20261127-rtl8365mb-hsgmii-fix-eb9bd1d0dd87
+Message-Id: <20261127-rtl8365mb-hsgmii-fix-v1-1-f2827126aa6a@littleit.sk>
+References: <20261127-rtl8365mb-hsgmii-fix-v1-0-f2827126aa6a@littleit.sk>
+In-Reply-To: <20261127-rtl8365mb-hsgmii-fix-v1-0-f2827126aa6a@littleit.sk>
 To: Linus Walleij <linusw@kernel.org>, 
  Luiz Angelo Daros de Luca <luizluca@gmail.com>, 
  =?utf-8?q?Alvin_=C5=A0ipraga?= <alvin.sipraga@analog.com>, 
@@ -100,61 +97,169 @@ To: Linus Walleij <linusw@kernel.org>,
 Cc: Johan Alvarado <contact@c127.dev>, netdev@vger.kernel.org, 
  Juraj Sladek <juraj.sladek@littleit.sk>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795785355; l=2043;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795785355; l=5683;
  i=juraj.sladek@littleit.sk; s=20261127; h=from:subject:message-id;
- bh=H9F3Q62HeH6vV5WQ0vojsmvsWwkasQ3OghHAVC0PSwA=;
- b=ADeoMb/WSnDJx1wGE+TJVNzAL9jIL09GMrqr/qM/1AZfjnDim+67lAnKJzaQnBndKO01SMuH+
- Irp5FzvPBJTDspYJnMPwzNx4ASNDEkoW/Ds8m1KCbQASibVHOPTEMHx
+ bh=0YUSMA7OC6o+AJt4wzQ06SzhSjjaDllSgGI4mRa2E5s=;
+ b=thEX+Vwxp7Sex2jlME4gfPBQ5NrIooUZ7X6gaT59LF9dceoRsXoLXkgLe382M9JZNhyErJAdR
+ GZ0HoE1c4l2B5I29iJy8YwPIZZEMhPgWsTZRJLF1I5sgsOiSLDig3xs
 X-Developer-Key: i=juraj.sladek@littleit.sk; a=ed25519;
  pk=AqKiPr9Cm4+alKqIg7OT5xi2bB7LmUEaCQbSaKx1bCs=
 X-Endpoint-Received: by B4 Relay for juraj.sladek@littleit.sk/20261127 with
  auth_id=1667
 X-Original-From: Juraj Sladek <juraj.sladek@littleit.sk>
 Reply-To: juraj.sladek@littleit.sk
+Content-Transfer-Encoding: 7bit
 
-On the TP-Link Archer AX55 v1 (Qualcomm IPQ5018, RTL8367S on port 6 over
-a 2500base-x/HSGMII fixed link to the IPQ5018 GMAC), wired networking is
-dead after a significant share of boots, which OpenWrt users of the
-device have been working around with power cycles.
+From: Juraj Sladek <juraj.sladek@littleit.sk>
 
-Two different failure modes show up, both on the CPU to switch direction:
+The SerDes of the external interface is configured from phylink long
+before the conduit Ethernet controller starts transmitting on the link.
+On a TP-Link Archer AX55 v1, where the IPQ5018 GMAC is connected to port
+6 of an RTL8367S over a 2500base-x (HSGMII) fixed link, the SerDes
+receiver regularly comes out of this in a state where every frame
+received from the CPU is counted with an FCS error, so the CPU port does
+not work at all until the switch is reset.
 
- - every frame from the CPU is received by the switch with an FCS error;
-   patch 1 fixes this by resetting the SerDes data path again once the
-   conduit is up and the link partner transmits;
+rtl8365mb_pcs_config() already resets the SerDes data path right after
+taking the SerDes out of reset. Repeating that reset once the link
+partner actually transmits recovers the receiver, so factor it out and
+call it again from the .conduit_state_change() callback when the conduit
+becomes operational.
 
- - frames from the CPU are received fine but never forwarded (or
-   forwarded corrupted); patch 2 fixes this with a switch core soft
-   reset a few seconds after the conduit comes up.
-
-The root cause of the second mode is unknown to me. The vendor driver
-does not use SW_RST; it does load and start firmware on the embedded
-DW8051 for the HSGMII link, which this driver deliberately keeps in
-reset, so the firmware may be what normally covers this. If anyone at
-Realtek or with documentation can explain what PORT_DEBUG_INFO_CTRL3
-(0x091A) reflects, or a more targeted reset, I am happy to test it.
-
-Things I could not verify: whether SW_RST clears the hardware L2 table
-(the static FDB entries programmed for the CPU port); traffic and the
-VLAN-aware bridge setup keep working after it. Only the HSGMII case on
-the IPQ5018 was tested; SGMII uses the same code path.
-
-Test details are in the commit message of patch 2.
-
+Fixes: 987137345f33 ("net: dsa: realtek: rtl8365mb: add HSGMII support for RTL8367S")
 Signed-off-by: Juraj Sladek <juraj.sladek@littleit.sk>
 ---
-Juraj Sladek (2):
-      net: dsa: realtek: rtl8365mb: reset SerDes data path when conduit comes up
-      net: dsa: realtek: rtl8365mb: soft reset switch core after conduit comes up
+ drivers/net/dsa/realtek/rtl8365mb_main.c | 66 +++++++++++++++++++++++++-------
+ 1 file changed, 53 insertions(+), 13 deletions(-)
 
- drivers/net/dsa/realtek/rtl8365mb_main.c | 116 +++++++++++++++++++++++++++----
- 1 file changed, 103 insertions(+), 13 deletions(-)
----
-base-commit: 28a371228d4eb4857cc31eeb1a0d7d01e9c3ea2f
-change-id: 20261127-rtl8365mb-hsgmii-fix-eb9bd1d0dd87
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
+index da06f952a..54d90121e 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_main.c
++++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
+@@ -858,6 +858,7 @@ struct rtl8365mb_port {
+  * @pcs: PCS for the SerDes external interface
+  * @sds_supported: SerDes tuning parameters match the chip option, so the
+  *                 SerDes interface modes can be advertised
++ * @sds_in_use: the SerDes external interface has been configured
+  *
+  * Private data for this driver.
+  */
+@@ -870,6 +871,7 @@ struct rtl8365mb {
+ 	struct rtl8365mb_port ports[RTL8365MB_MAX_NUM_PORTS];
+ 	struct phylink_pcs pcs;
+ 	bool sds_supported;
++	bool sds_in_use;
+ };
+ 
+ #define pcs_to_rtl8365mb(_pcs) container_of((_pcs), struct rtl8365mb, pcs)
+@@ -1380,6 +1382,24 @@ static int rtl8365mb_sds_raise_rate_limits(struct realtek_priv *priv)
+ 				  RTL8365MB_PORT6_EGRESSBW_CTRL1_MASK);
+ }
+ 
++/* Reset the SerDes data path and resync its PLL, mirroring what the vendor
++ * firmware does right after deasserting the SerDes reset. This flushes the
++ * FIFOs and ensures a clean state for the link, preventing silent drops and
++ * CRC errors.
++ */
++static int rtl8365mb_sds_reset_datapath(struct realtek_priv *priv)
++{
++	int ret;
++
++	ret = rtl8365mb_sds_write(priv, RTL8365MB_SDS_REG_BMCR,
++				  RTL8365MB_SDS_BMCR_DPRST_PHASE1);
++	if (ret)
++		return ret;
++
++	return rtl8365mb_sds_write(priv, RTL8365MB_SDS_REG_BMCR,
++				   RTL8365MB_SDS_BMCR_DPRST_PHASE2);
++}
++
+ static int rtl8365mb_pcs_config(struct phylink_pcs *pcs, unsigned int neg_mode,
+ 				phy_interface_t interface,
+ 				const unsigned long *advertising,
+@@ -1467,18 +1487,7 @@ static int rtl8365mb_pcs_config(struct phylink_pcs *pcs, unsigned int neg_mode,
+ 	if (ret)
+ 		return ret;
+ 
+-	/* Reset the SerDes data path and resync its PLL, mirroring what the
+-	 * vendor firmware does right after deasserting the SerDes reset.
+-	 * This flushes the FIFOs and ensures a clean state for the link,
+-	 * preventing silent drops and CRC errors.
+-	 */
+-	ret = rtl8365mb_sds_write(priv, RTL8365MB_SDS_REG_BMCR,
+-				  RTL8365MB_SDS_BMCR_DPRST_PHASE1);
+-	if (ret)
+-		return ret;
+-
+-	ret = rtl8365mb_sds_write(priv, RTL8365MB_SDS_REG_BMCR,
+-				  RTL8365MB_SDS_BMCR_DPRST_PHASE2);
++	ret = rtl8365mb_sds_reset_datapath(priv);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -1492,7 +1501,13 @@ static int rtl8365mb_pcs_config(struct phylink_pcs *pcs, unsigned int neg_mode,
+ 	val &= ~RTL8365MB_SDS_NWAY_EN_MASK;
+ 	val |= RTL8365MB_SDS_NWAY_RESTART_MASK;
+ 
+-	return rtl8365mb_sds_write(priv, RTL8365MB_SDS_REG_NWAY, val);
++	ret = rtl8365mb_sds_write(priv, RTL8365MB_SDS_REG_NWAY, val);
++	if (ret)
++		return ret;
++
++	mb->sds_in_use = true;
++
++	return 0;
+ }
+ 
+ static bool rtl8365mb_interface_is_serdes(phy_interface_t interface)
+@@ -3079,6 +3094,29 @@ static int rtl8365mb_reset_chip(struct realtek_priv *priv)
+ 					20000, 1e6);
+ }
+ 
++/* The SerDes is configured from phylink long before the conduit Ethernet
++ * controller starts transmitting on the link, so its receiver initially locks
++ * on an idle line. On an RTL8367S connected to an IPQ5018 over HSGMII this
++ * regularly left the switch receiving every frame from the CPU with an FCS
++ * error. Reset the SerDes data path again once the conduit is up.
++ */
++static void rtl8365mb_conduit_state_change(struct dsa_switch *ds,
++					   const struct net_device *conduit,
++					   bool operational)
++{
++	struct realtek_priv *priv = ds->priv;
++	struct rtl8365mb *mb = priv->chip_data;
++	int ret;
++
++	if (!operational || !mb->sds_in_use)
++		return;
++
++	ret = rtl8365mb_sds_reset_datapath(priv);
++	if (ret)
++		dev_err(priv->dev, "failed to reset SerDes data path: %pe\n",
++			ERR_PTR(ret));
++}
++
+ static int rtl8365mb_setup(struct dsa_switch *ds)
+ {
+ 	struct realtek_priv *priv = ds->priv;
+@@ -3093,6 +3131,7 @@ static int rtl8365mb_setup(struct dsa_switch *ds)
+ 	cpu = &mb->cpu;
+ 
+ 	mb->pcs.ops = &rtl8365mb_pcs_ops;
++	mb->sds_in_use = false;
+ 
+ 	/* The SerDes has no link interrupt wired up, so phylink must poll the
+ 	 * PCS for link changes when it tracks the link through pcs_get_state()
+@@ -3414,6 +3453,7 @@ static int rtl8365mb_set_mac_eee(struct dsa_switch *ds, int port,
+ }
+ 
+ static const struct dsa_switch_ops rtl8365mb_switch_ops = {
++	.conduit_state_change = rtl8365mb_conduit_state_change,
+ 	.get_tag_protocol = rtl8365mb_get_tag_protocol,
+ 	.change_tag_protocol = rtl8365mb_change_tag_protocol,
+ 	.setup = rtl8365mb_setup,
 
-Best regards,
 -- 
-Juraj Sladek <juraj.sladek@littleit.sk>
+2.53.0
 
 
