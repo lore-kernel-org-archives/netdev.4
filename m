@@ -1,103 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795760462;
-	b=Yog4gOv29Sz1fzRJhMV+6XcSQ7lhptTNE61snnQzDN8WxBmOptZd5uMvrxF44P7Lz/ci
-	 0+aGkwFRXiW7a5cY6lx4HAsg7YnPx/Y1zxkxLsgch9c/G5N9tD4XcHTAX6S0f5mTOurme
-	 z9IsRPbF4MeIYTrUOYKt3qdWxv5M9J8pA0Xj8BO0SehVPs91mQjdbmNfHWNRaYZiFldfp
-	 mBCSIESJF5NQEHrBgSPAt4KPl+9xAZIQjeJ0GpDSmt+t57kCZGUHGgNab4YOkFpVQufBm
-	 v/TTrHJwN0FLBb0YPn6tI+dmW61bbfFPd12nLacq82HxP3xQ099oJF3eADBaKiCHh4g==
+	t=1795760844;
+	b=H8N4qJ6x8jFfRCvIWGojTPgbWm5UQtM8B9LgWwRV9acMbuBH58mRM5fW7Wb6f93AXhPt
+	 dgLLo27t4xapv/sNhDDvhYQJ43Gk0zAC0j2+KAYk5I0fwP3SCcFmxiEr0vM/1mp5908Hq
+	 mA5TbNPItMeiTEoMLQMUqYIlG1dyKc46s2HA+Io4trowhkaYY+XxSixEUcLNtLWQxMGWj
+	 ste698cTN0smxuRLyGwnEkUTKkxzEsbhJWAYX0upU4Dl1sGfyoHeREzw50Jt42MCsVWh/
+	 QCTMKmwJbeZEpYMKaLjqtB7mTkAuV7lNuu9yPLPUBMmaDBQwUP60PbetDiN97190k5w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795760462;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795760844;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=JNnhF0YCD46n78XblQSH3Mo4cJq4u4tqDo6kjUj/5PA=;
-	b=XxzrdsC7MlkdMKvZK9OnbRq9j3gZvCPHtjui+08aKQE7lRQj97E/J7sZd7TODHhq/c+9
-	 cdZC9+ur8XR6SbOuVNQK1NtGVn2vm7gdHZqAzS3IP3hwoMPqgNlg7fsRz34IBe2hw4bP0
-	 H+qGUeRUTUvGl3fbWFWxwHD29QyQUZ5gyGh7PqqeOPQgcYULWXct/XfjaL2JWRt3PvjwZ
-	 h6n33stXPJZE8C+YEDsK4sY7KpDpz9darfmidr7JYtXzM5QIP/Xkt42GmZPr+KOET6rJc
-	 23hYl0T1Vn32RcmNzme2+7dbrmm1E41nEvWcDMLGXjiWp5Eq35/d/rqQG0sUa2kq1sw==
+	bh=r8lJaPpRGy7TrFULAZGwfuDH5/Bcxre2ZiVQp9kvtDA=;
+	b=qmjQDbkGQw1TRAdIRm7PJl4dSNsVEnV9nIm0ztNbVmXQE3iC4wSIY+VOiDt49I+E74Zx
+	 smspoCDIbjgRfz9/TPE0HpLXRZQ6txYZNZ2epISfgnXgf8bNhbN05qNNwNL7ZFESL3J8G
+	 VANCvpZC073IjMsvFxMRaPvojh1kTTwtSW1TZomoybnVXIKIof3asAE2KPcylpjOIntdf
+	 r9PLeUPhZ1mRJ6R1KBFQXb4qM/pNs6AEHjOgmNN02bOlWY3OB4prSbALOqw0uCSMvo99y
+	 QCptmYfFNqIWKnbczg/2SDugpXytwmq2J6S9Av6V+iY5VLFHtDVIgE8SLaE552nDxeg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nebusec.ai;
-	spf=pass smtp.mailfrom=nebusec.ai;
-	dkim=pass header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=Zumk8Zxm;
-	arc=none smtp.remote-ip=209.85.216.41
-Received: from mail-pj1-f41.google.com (mail-pj1-f41.google.com [209.85.216.41])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h2wcE6NG;
+	arc=none smtp.remote-ip=209.85.215.180
+Received: from mail-pg1-f180.google.com (mail-pg1-f180.google.com [209.85.215.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7E99606A31C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:21:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7E99606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=nebusec.ai
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nebusec.ai
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08D98606A321
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 06:27:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08D98606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=Zumk8Zxm
-Received: by mail-pj1-f41.google.com with SMTP id 98e67ed59e1d1-3b402824d07so5130112a91.1
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 22:21:01 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h2wcE6NG
+Received: by mail-pg1-f180.google.com with SMTP id 41be03b00d2f7-cdb9f760337so4238715a12.0
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 22:27:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nebusec.ai; s=google; t=1795760461; x=1796365261; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JNnhF0YCD46n78XblQSH3Mo4cJq4u4tqDo6kjUj/5PA=;
-        b=Zumk8ZxmpQaeOjEFXgeOtHZCVlx6FQ0H+jglU5T/51EUY1Uddh4TKtSSpgzb+zaUFJ
-         x7cKHm0R7aSDNKSn/7u34YreD7+HbgBqDEkVg0nEV9ogyNSHUTZwYhaRj+a8dxoZFEtr
-         S18Q+hGJy5rijsEOZRzSjsWbIME9/Rld9Ue8JXNXueZTNLzi2ubLs/yam0UJtypVfC40
-         NsbUepkQSAj6gGUHhNV6K1e04k8Hb1HnhKX7nr6PG4itFou+ICizXaRLfAhkvoqvTmd/
-         Z6uiqHiCzlTRuo5ek9ka+SUQ5kCw05qxbw0Fv141saTPYMhUIr7ldY9BNJftrZkO4MFF
-         ImOg==
+        d=gmail.com; s=20260707; t=1795760843; x=1796365643; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=r8lJaPpRGy7TrFULAZGwfuDH5/Bcxre2ZiVQp9kvtDA=;
+        b=h2wcE6NGOT6lcpof0NQ3QQvjDAEV3HVb/OX7qUM07T6ClyUGjfqItQxVv6xJuKfqma
+         mcKXupf4E5BluokYklLLjO1QFIAfLuQAosn3HuE46o+gvByTEYnMUEwEBN56nwTqJvJd
+         yyyjYNmLR03MvyoAq0uCgSSdLwxGbNVzfv9M46uEiZ61KRm2NCvcz/3VAoKD/t4SlJKM
+         uhE+lRu9b0myEQU602QkaSVBVYC+AhYNrJ26X/KtKsKtDiXGdyRy+vn807/zkkzrQTKQ
+         +g/5m+MWju2+hA5vVenvFiry/02T/yKbAiYYuUENPJIv8qZ9BhAXwjARpGuqu5w+I74i
+         5+2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795760461; x=1796365261;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JNnhF0YCD46n78XblQSH3Mo4cJq4u4tqDo6kjUj/5PA=;
-        b=sxEcGHEdfMxkWM1R5iPP5mXY1RtS0aBOvvVFUtwXLTrxuh8aBmfn9rlEq/iLks4tGW
-         gRcKWJf1SZews7KWtbybd5qi+zEy1T0FRcBQYXRLMbte/DTYkEl0KNPZZdD+bMCG6+kC
-         mIi/2/aetU30v0Rvh3uALwVtW/LFV38lPOIlNo1EGiaKYXBLNeUhrMaXUAOWhUNnSRfO
-         dUM8k4yYnUErdgiiVIeGHPOC6i5C6MoewhpXKpnGpODo5QpPJJBeqAXoXeL5clVYiFRL
-         uBQCGz9iBRfrVRD1t/9BLgyy1vcp1ta5X+BMI6O52W9qD64Gn8f/bPGFZcRjsTmd+G6a
-         bvSw==
-X-Gm-Message-State: APuU4Z+Q59/ZSNBKSxu2EkLZn2084Tb2NDUE8L2J5PbDH8/jBH2meal1
-	wwjHHuXam1hrrlf7GqPXWbsjbwIH/rj9uT8cDMzOtJOkRjhMzPS7sq2qdjWL3gDJELDS0pUQDId
-	M9bZfIQ==
-X-Gm-Gg: AZFdTZdE4u/FB7mxEVWkf0ykj0vtOtVYtxL3xoAjJCyK8qLrtOaA3QPjnv50gd4bICy
-	/SIMbyIgK+qFMPJIeYOeYfcSXUdMBZNLl8B0qHZ9REttIASbzt/AJMmrXj2sBPUijSHi1vxUYv2
-	fnHlRCJ8kjzfA6cT3e5OUOQSJu2n2n7ZPuJPkS9Jr/5oqBMdiNTAORDb92uu0YkcrxNL0viFfLq
-	QzCaSdCYc+spGvr/L3UvaFOhPCWSVUEtBtw3xp/YHHOuFrK7oqsvIkHobHH6uEj/sfkTGmGoqWC
-	bYNqHTRnSX5FXn0+llPqOWwThXoqWardyzqMfgPbayczs5XOONU8FNtABUpPY2t9abt/I+isOD7
-	94EFGZh2qX6ZG/1UhftXCgDIXROpY9eA/wvIIbwejyimF0xu9H7/P3rEzfcMb0UW4YDR1BEvAJ4
-	HJo0n/41NOofEIdA5kDBjhXXiK+cPumzRsggyxsYkSLc/inNRYRnlSQkFSlH5TLqIo98DTbM2JT
-	mK5PussfqKqAM/4oKRgeyj8blRg6NCIU+Uu98HzIOJ5i/JhkwFo8Tt2px/6EinKlebTLrmrJ9Ak
-	N3qHDsUFKkmE2efAku9rRLsGsoky0ZP71Sbxdxo=
-X-Received: by 2002:a17:90b:390e:b0:3b4:fcba:8f7d with SMTP id 98e67ed59e1d1-3b4fcba9627mr7484402a91.29.1795760460924;
-        Thu, 26 Nov 2026 22:21:00 -0800 (PST)
-Received: from enjou-Legion-Y7000P-2019 ([174.136.206.51])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb2076sm36939740a91.2.2026.11.26.22.20.57
+        d=1e100.net; s=20260707; t=1795760843; x=1796365643;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=r8lJaPpRGy7TrFULAZGwfuDH5/Bcxre2ZiVQp9kvtDA=;
+        b=z/WxCQVKIStbVZztHkqttAFoFqu/5TbdsC+cFYDdjq/ApsyivLX9yPSHwDJnNo66MA
+         aCL5rxe+sPNu5mpnPqx3L/pY1sVd2an4PLtReX+ZqAwQ1QLW7oEUFLPcw5slPNQ/qBBx
+         sejjBS22GugVKWNNUenpNbgv8Emx3HWSuBDpBquEVYs8GsWHfQtzHpJLLaKgm/Ztfyma
+         oMFbGXV7RudMgT3HrBbq39WAKt77TkdMh/WnXFL6QLDaFlzKfPWApHnB/7roZ43i6bGd
+         pMZ3brPb3mo6wpTwjI87bGVp6GHfOW+T57Yvnfbom9K22e80e245ORxfWJxBHGRjISOr
+         SPrA==
+X-Forwarded-Encrypted: i=1; AL+hErGGdR9sSX1azjBkYfP+Jc0aztJAudCtQfCdmQ4XU+OQiWJy2NtwwN1IbC8yIGdbYHPdB70KD4s=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/hwMeLzcf0ZWTW9JpYsqMFaq3GLqYH/gxmxq/JGbPd50p0VKYR
+	6TNm+ehw4Jhs9QlSNKkEmYtl2E3Gb3wS7i7nHdEYYexjfQ7Spjc/yvkR
+X-Gm-Gg: AZFdTZekjbiII6LEdVCDHi+hNQP9rEEFIcsqosrDoNkibkYsPFxw9ntbTuwfd0nIAgf
+	olTq9VRFR+gkJCu0x+9oKnIDtPna2MC+hkAXKcF88uM5/lZCkOxO59gwczWx5XnT9GV2N/b7MRk
+	iiYbHRjnTrI0I76kXzbOb2yd+8oUiBeN1J/3oX4nUPGetbrPzndYcKO7UT6e8TvBk3S9SQkD2Ga
+	WFdK+DXgm23YdG7nIW0vSFzfefsDBN+D1dKv1Sx3ff6ws+2I3nte/+V9Lvv7fgxUjG0OuvbH6Q7
+	0FgF0W3umwr/EvMdoM0foCh50UHb3M8uBJiKrSkLiFWGUDtI+ejoLjgRT0unqHTJo+ddAGXicbO
+	qWfkEIbGa+XuCWlvZ6xSmYGcFaCQqXFG1I9NtQp1xgqQ9A5wDVNGrNcgsgV8Ze+v4gGy98P4u3i
+	vRam7yOs/sc1sqEe3NfNZHhY3P1sBQI2e8cj/CclghXCjZE7nwKX7kiCzJe0L88vYpK44J7a16X
+	KO1Xs8L5g3ClcSFk6p99trv9bWCRqxBIRtHIHBcIHH84Bu1kkMP/oKM65AULoTbOPf+vI5hTp+t
+	gNs/j17oyrXz9lNyEaErwh2S9lLB
+X-Received: by 2002:a17:90b:2e8c:b0:3ac:a6a5:5757 with SMTP id 98e67ed59e1d1-3b41c8df55amr15467243a91.11.1795760843097;
+        Thu, 26 Nov 2026 22:27:23 -0800 (PST)
+Received: from dbg-srv ([111.194.74.218])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b82e624sm15986522a91.4.2026.11.26.22.27.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 22:21:00 -0800 (PST)
-From: Ren Wei <weir@nebusec.ai>
-To: netdev@vger.kernel.org
-Cc: jiri@resnulli.us,
-	ivecera@redhat.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	willemb@google.com,
-	horms@kernel.org,
-	chi.minghao@zte.com.cn,
-	vega@nebusec.ai,
-	caoruide123@gmail.com,
-	weir@nebusec.ai
-Subject: [PATCH net 1/1] switchdev: fix deferred item flex-array allocation size
-Date: Fri, 27 Nov 2026 14:20:51 +0800
-Message-ID: <631cf02ac9643f0bba2bc05b260e30b8d0990cfe.1795576931.git.caoruide123@gmail.com>
+        Thu, 26 Nov 2026 22:27:22 -0800 (PST)
+From: Jia Jia <physicalmtea@gmail.com>
+To: Stefano Garzarella <sgarzare@redhat.com>,
+	Bobby Eshleman <bobbyeshleman@gmail.com>
+Cc: "Michael S . Tsirkin" <mst@redhat.com>,
+	Jason Wang <jasowangio@gmail.com>,
+	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>,
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+	Stefan Hajnoczi <stefanha@redhat.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	virtualization@lists.linux.dev,
+	kvm@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org
+Subject: [PATCH net-next v6 0/2] vsock/virtio: reduce RX per-packet socket overhead
+Date: Fri, 27 Nov 2026 06:26:58 +0000
+Message-ID: <20261127062700.29387-1-physicalmtea@gmail.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <cover.1795576931.git.caoruide123@gmail.com>
-References: <cover.1795576931.git.caoruide123@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -109,55 +113,106 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Ruide Cao <caoruide123@gmail.com>
+This series reduces per-packet socket overhead in the virtio-vsock RX
+worker.
 
-switchdev_deferred_enqueue() passes data_len, a byte count, to
-kmalloc_flex() for the flexible array in struct switchdev_deferred_item.
-That array is declared as unsigned long data[], so the allocator treats
-data_len as an element count and over-allocates every deferred attr or
-object item by sizeof(unsigned long) (8x on 64-bit). The following
-memcpy() copies only data_len bytes, so this is not an overflow; it
-wastes GFP_ATOMIC memory and makes those atomic allocations more likely
-to fail.
+Patch 1 separates socket lookup from processing under the socket lock.
 
-This was found with LLM assistance on the Vega platform and reproduced
-with the platform PoC in QEMU. On that x86_64 6.12.94 guest, pahole
-reported sizeof(struct switchdev_deferred_item) = 32 and
-sizeof(struct switchdev_obj_port_mdb) = 56. A deferred HOST_MDB item
-therefore requested 32 + 56 * sizeof(unsigned long) = 480 bytes instead
-of 32 + 56 = 88. kmem:kmalloc traces from switchdev_deferred_enqueue
-showed bytes_req=480 and bytes_alloc=1536 (CONFIG_SLUB_DEBUG=y). A
-deferred attr item has the same class of error: 32 + 48 * 8 = 416 bytes
-instead of 80.
+Patch 2 retains one socket lookup reference and socket lock across a
+bounded run of established STREAM/RW packets for the same native socket.
 
-Declare the payload as u8 data[] __aligned(sizeof(unsigned long)). The
-members before data are all pointers, or an empty tracker, so the offset
-of data is unchanged and the payload already has long alignment; the
-attribute documents that contract. The old unsigned long[] array did not
-provide 8-byte alignment on 32-bit either.
+Performance:
 
-Fixes: d8c2858181cc ("net/switchdev: use struct_size over open coded arithmetic")
-Cc: stable@vger.kernel.org
-Reported-by: Vega <vega@nebusec.ai>
-Signed-off-by: Ruide Cao <caoruide123@gmail.com>
-Signed-off-by: Ren Wei <weir@nebusec.ai>
+The measurements below cover both patches. Throughput uses vsock_perf as
+the host sender and a custom single-threaded blocking receiver in the
+Guest, with the receiver on CPU0 and the virtio-vsock IRQ/RX worker on
+CPU1. Each row has 16 accepted, balanced AB/BA pairs and a fresh Guest per
+state. The fixed-syscall campaign was collected separately; each table
+compares paired baseline and series runs from its own campaign. The host
+uses vhost-vsock.
+
+Accepted runs also passed byte-integrity, CPU-affinity/migration,
+IRQ-activity, host/Guest steal, I/O-wait and swap, sentinel,
+kernel-diagnostic, and applicable perf-validity checks.
+
+End-to-end RX throughput
+(64K Guest recv() size, SO_RCVLOWAT=1; Gbit/s):
+
+  payload  baseline RX  series RX  throughput change (95% CI)
+           (Gbit/s)     (Gbit/s)
+  64B          0.1212      0.2555  +110.81% [+106.99%, +114.70%]
+  256B         0.5551      1.0212  +83.95% [+79.94%, +88.06%]
+  512B         1.0568      1.8761  +77.53% [+73.02%, +82.15%]
+  1K           1.9260      3.1453  +63.31% [+58.58%, +68.17%]
+  4K           3.5175      6.3239  +79.78% [+72.79%, +87.06%]
+  8K           4.1183      5.6867  +38.08% [+31.06%, +45.48%]
+  16K          5.0155      6.8346  +36.27% [+31.12%, +41.62%]
+  64K          5.0541      5.8403  +15.56% [+11.12%, +20.17%]
+
+Fixed-syscall stress test
+(receiver recv() size = sender write size; Gbit/s):
+
+  payload  baseline RX  series RX  throughput change (95% CI)
+           (Gbit/s)     (Gbit/s)
+  64B          0.1435      0.2750  +91.60% [+82.19%, +101.50%]
+       recv() calls (baseline/series): 1048577/1048577
+  256B         0.4218      0.9659  +129.00% [+110.65%, +148.95%]
+       recv() calls (baseline/series): 1048577/1048577
+  512B         0.8062      1.6979  +110.60% [+94.49%, +128.04%]
+       recv() calls (baseline/series): 1048577/1048577
+  1K           1.5116      2.9585  +95.72% [+85.22%, +106.82%]
+       recv() calls (baseline/series): 1048577/1048577
+  4K           2.9234      6.3365  +116.75% [+110.78%, +122.89%]
+       recv() calls (baseline/series): 538537/525565
+  8K           4.0430      7.1193  +76.09% [+69.04%, +83.44%]
+       recv() calls (baseline/series): 276901/264412
+  16K          4.9182      7.7688  +57.96% [+54.40%, +61.60%]
+       recv() calls (baseline/series): 147674/132088
+  64K          5.6683      7.1636  +26.38% [+20.49%, +32.56%]
+       recv() calls (baseline/series): 50615/33343
+
+Request-response latency
+(ping-pong RTT, 10,000 requests per state):
+
+  payload  baseline mean RTT  series mean RTT  change (95% CI)
+           (us)               (us)
+  64B               121.067           120.977  -0.07% [-2.45%, +2.36%]
+  256B              120.733           120.809  +0.06% [-1.69%, +1.85%]
+  4K                123.161           121.525  -1.33% [-2.87%, +0.24%]
+
 ---
- net/switchdev/switchdev.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Compared with v5, the performance suite was rerun with stricter validity
+gates, including host/Guest scheduling, steal, I/O-wait and swap
+monitoring, plus QEMU affinity and migration checks. Runs affected by these
+sources of noise were rejected, so the current results better isolate the
+RX batching improvement.
 
-diff --git a/net/switchdev/switchdev.c b/net/switchdev/switchdev.c
-index 474df25e96a0..fbfb25cdfa80 100644
---- a/net/switchdev/switchdev.c
-+++ b/net/switchdev/switchdev.c
-@@ -59,7 +59,7 @@ struct switchdev_deferred_item {
- 	struct net_device *dev;
- 	netdevice_tracker dev_tracker;
- 	switchdev_deferred_func_t *func;
--	unsigned long data[];
-+	u8 data[] __aligned(sizeof(unsigned long));
- };
- 
- static struct switchdev_deferred_item *switchdev_deferred_dequeue(void)
+Changes since v5:
+
+- keep patch 1 unchanged apart from Stefano's blank-line nit, and add his
+  Reviewed-by tag
+- drop the metadata-budget helper and the rx_buf_full() batch boundary
+- apply Bobby's receive tracepoint refactor in the batching patch
+- remove the locked helper's batch-specific parameters; return packet
+  validation status and keep the continuation check in the batch caller
+- keep sockmap eligibility checks at packet boundaries without taking
+  sk_callback_lock
+- move notification coalescing and deferral to a separate follow-up series
+- update the performance measurements and add fixed-syscall stress results
+
+v5: https://lore.kernel.org/netdev/20261103041134.33310-1-physicalmtea@gmail.com/
+
+Jia Jia (2):
+  vsock/virtio: split socket lookup from locked RX processing
+  vsock/virtio: amortize RX socket locking for stream packets
+
+ include/linux/virtio_vsock.h                  |  23 ++
+ .../events/vsock_virtio_transport_common.h    |  40 +-
+ net/vmw_vsock/virtio_transport.c              |   7 +-
+ net/vmw_vsock/virtio_transport_common.c       | 368 +++++++++++++++---
+ 4 files changed, 359 insertions(+), 79 deletions(-)
+
+
+base-commit: 8df0638138d3e0344fd1fb36cf2d1ca1cf5028f0
 -- 
-2.47.3
-
+2.53.0
