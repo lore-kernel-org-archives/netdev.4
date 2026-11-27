@@ -1,65 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795769876;
-	b=VBpc4ViQGoG0J45W3rBky9tIel183hFUli4HdBXnNNLxxSn9crNw9XIGlE9npnozlfla
-	 6YaG8BguwO7ATtEPrKt+Js8UWQX6LtqNGqUue3fgSviW/Pa9nkT/oyyevVg4TypzIWyGp
-	 m8UU/hbsyYojEZ+ZmMG4X/i6i04T5fJVmlFgLNi5SM5ZW9B+tbZUAeFcs9od49D/j1M8q
-	 PNAFrWtAxtoPd7TxQ8SykDDwnPwN+rKq8vvCAaLjXXCgIBJm3R2qqoWcenitlkdEI+RvQ
-	 BRHaD7QXQrQxA+nbDeWhyI5HQcFEihvdxDAOjlc3HMPgu7ZoSl9z72k+murxMbfYWUA==
+	t=1795769883;
+	b=EyHXT8YiOo+RWL9eAoDno9SfZgrmMVHBFi+2QlOjJY7ruXFVh7yqf9afMMMHG+OgAfjq
+	 nmoUuXnHW6ebX3IPkNyjixNs5dlAfFKEGhVB8eFMoeGNzhpZcoKj4GGA2TM72G6laGK1s
+	 tfhP3snyHDXa/knpaUo48RGalLk/LlxJWLZkBuTnnJdd1Er/an+JcgqJmpxniW30bci17
+	 WVggs/WShnh3JXf/uE5fBhRpVWm+NA/skdoBCu94Hwm3yQ7t8EogToKfNwqKFKlIbFRTG
+	 9BKef8Q0vr8uJGnVleYSQqis8I4g2nXV39Wmy5mf2y7XUxLhPTlBtXytRpP3OO0WvNg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795769876;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795769883;
 	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
 	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
 	 Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=pGItFsxuB0+ywnPwyerD8G3BjwdYG0IkHkd0t9qWHVc=;
-	b=NOQ2mNEB9XPjrw/S51l7vN2qBUOjKZF1acD0hTOhqkJibFeYfxzbmprsOhSqM4KmxdD9
-	 w2dgCZnDazzdK0+2qQgqndktYkHaKkpQxFzuqQWLBO8zZzEutdOv/xPQ/vF0HnRvOp5XG
-	 rLE36IjPNX5Wke094RCQajNW7x0cNPSlgn3sBVsFhd7Om7iagjUga8fiUfOGzytECKpSk
-	 0YRhqBSRe5Df1JAWZNNE8Vbq9fXXpXmkO2wDmLa9eT5c0eEC4VdC6ck4U7dYCawRggx4W
-	 mkwQjo9Y6i40TU4XXdePR9t2ORvIxqGDeQvXXJEtAzyJkUyuVq/fLbaiyBPpCOFlq1Q==
+	bh=2j8ifMVRlSo3mopi2EWSAjV4LqxvVKQKGhHs1B/SQio=;
+	b=HaYo7i88FiJt5pNlbIZ6VLcF5kLscoEfUWLuDwOwkmev2sG4cgJ3PbDzc01NYd6VpTes
+	 R90+vAUuJmNxRkY2E004TxSvyhZ4TI4BZE5HythVT46oqbbRON6tHWpWLEMcutHUcvQj3
+	 6SeGH5LFUPiOqlQxJ+8O+c/48/j51d8qzTXEGQnZXPjzBdVg5UDFc70Amqf41g2A4esQG
+	 BXzlCdIR0Gr0/0fhdaj6UoVGiWQF10n9DT7I9gNPTbnkNCk3Fky8eX+LUurq1tod13O6A
+	 yd+jI0rBxwX9Zki10XvKjSsbAiUe9EXe0K7JR2ypGptYLd5VwWet0e2jaG/BS4PYzqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=redhat.com;
 	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=JRFs6wB9;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="ccRas/ea";
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFB0A606A327
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 08:57:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFB0A606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AE5B606A32E
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 08:58:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9AE5B606A32E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=JRFs6wB9
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ccRas/ea
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795769875;
+	s=mimecast20190719; t=1795769881;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=pGItFsxuB0+ywnPwyerD8G3BjwdYG0IkHkd0t9qWHVc=;
-	b=JRFs6wB9G29WyUDT3QFezWbmEmpcrd8rPboLp6Vsgkn83zDZoO0GABQRvc8+fSrWGrR5Xs
-	ACHT9Y2rZu2wfzhf8ajpzGfptbB8l0Wqs1XSPrs5KvgDX87yyY3kSAPujuiqBTIsxuSYE6
-	TJTnLGTg/A6/5yZ4ZmRFhBKDijyTikU=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+	bh=2j8ifMVRlSo3mopi2EWSAjV4LqxvVKQKGhHs1B/SQio=;
+	b=ccRas/eaZBjmpdct2f/yQy2Y1K2kojJ/gbI/6+su2zc+SMZvLZ3lvcH9BczMkjY0g1vUkY
+	GBFuJUoixzr7NRSLr5n5UgWk913Cqofl63ysUcAl/jN3eioZvZUgzdC2WTtk6OafnmVf9U
+	TRudzKHzLyvkQBqfRLWHlrHaiAzLkRw=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-63-BPhrlezOO3C5l9N-nzhhdA-1; Fri,
- 27 Nov 2026 08:57:48 +0000
-X-MC-Unique: BPhrlezOO3C5l9N-nzhhdA-1
-X-Mimecast-MFC-AGG-ID: BPhrlezOO3C5l9N-nzhhdA_1795769865
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-480-JtZ597VVOYa0N4WQSKWePw-1; Fri,
+ 27 Nov 2026 08:57:55 +0000
+X-MC-Unique: JtZ597VVOYa0N4WQSKWePw-1
+X-Mimecast-MFC-AGG-ID: JtZ597VVOYa0N4WQSKWePw_1795769872
 Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4D6F41944A92;
-	Fri, 27 Nov 2026 08:57:45 +0000 (UTC)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D402A1955EB7;
+	Fri, 27 Nov 2026 08:57:51 +0000 (UTC)
 Received: from poros-thinkpadp16vgen1.tpbc.com (unknown [10.44.48.12])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 38A67428;
-	Fri, 27 Nov 2026 08:57:39 +0000 (UTC)
+	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 945AE428;
+	Fri, 27 Nov 2026 08:57:45 +0000 (UTC)
 From: Petr Oros <poros@redhat.com>
 To: netdev@vger.kernel.org
 Cc: Petr Oros <poros@redhat.com>,
@@ -87,9 +87,9 @@ Cc: Petr Oros <poros@redhat.com>,
 	Aaron Ma <aaron.ma@canonical.com>,
 	intel-wired-lan@lists.osuosl.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net v5 3/4] ice: resync uplink filters after a switchdev session
-Date: Fri, 27 Nov 2026 09:57:08 +0100
-Message-ID: <20261127085714.1207361-4-poros@redhat.com>
+Subject: [PATCH net v5 4/4] ice: use a VLAN agnostic multicast promisc rule pair for PF VSIs
+Date: Fri, 27 Nov 2026 09:57:09 +0100
+Message-ID: <20261127085714.1207361-5-poros@redhat.com>
 In-Reply-To: <20261127085714.1207361-1-poros@redhat.com>
 References: <20261127085714.1207361-1-poros@redhat.com>
 X-Mailing-List: netdev@vger.kernel.org
@@ -104,208 +104,417 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
 
-A switchdev session leaves the uplink filters out of sync with its
-netdev. ice_eswitch_setup_env() removes the multicast promisc rules and
-the address filters, and ice_eswitch_release_env() removes the default
-VSI (DFLT) Rx rule that a promiscuous uplink needs. ice_set_rx_mode()
-ignores the uplink during the session and nothing syncs it when the
-session ends, so these are not installed again, and flag changes made
-meanwhile are lost.
+An allmulticast or promiscuous PF VSI with VLANs is subscribed to
+multicast with an ICE_SW_LKUP_PROMISC_VLAN rule pair for every VID, and
+each rule takes an entry of the switch lookup table (FLU), which has 32K
+entries for all PFs of the device. A port of a vlan_filtering bridge is
+allmulticast, so a wide trunk (vid 2-4094) over several such ports
+overruns the table. Firmware then rejects Add Switch Rules with ENOSPC,
+the trunk of the last port is only partly installed, and the default VSI
+(DFLT) Rx rule fails to install when a port turns promiscuous:
 
-Let the eswitch own the uplink promisc configuration during a session.
-While the new ICE_VSI_ESWITCH_UPLINK bit is set, ice_vsi_sync_fltr()
-leaves it alone. When the session ends, after is_running is cleared,
-ice_eswitch_resync_uplink() clears the bit and queues a full filter
-sync, which programs the uplink from the netdev flags. Also subscribe a
-promiscuous VSI to multicast when it already holds the DFLT rule, and
-enable VLAN pruning on every promisc off, because it can be off without
-our DFLT rule after a session or with LAG.
+  ice 0000:5c:00.1: Failed to set VSI 14 as the default forwarding
+                    VSI, error -5
+  ice 0000:5c:00.1 ens1f1: Error -5 setting default VSI 14 Rx rule
 
-This does not restore the uplink VLAN filters that
-ice_eswitch_setup_env() removes, a separate problem that now also shows
-when promisc is cleared after a promiscuous session.
+Subscribe PF VSIs with the VLAN agnostic pair (ICE_SW_LKUP_PROMISC, vid
+0) only. Drop the per-VID handling from ice_vlan_rx_add_vid() and
+ice_vlan_rx_kill_vid(), and stop clearing the multicast rules in
+ice_eswitch_resync_uplink(), whose queued sync now reconciles them. The
+pair matches multicast on every VLAN. VLAN pruning still limits what it
+delivers to the VLANs of the VSI, and with pruning off, as for the DFLT
+holder, it delivers on every VLAN. The subscription now follows
+IFF_PROMISC and IFF_ALLMULTI in one place, so clearing allmulti no
+longer unsubscribes a promiscuous VSI unless another VSI holds the DFLT
+rule, and a failed DFLT install does not remove it before the retry.
+ice_set_promisc() adds the Rx and the Tx rule one at a time, so a rule
+left by an earlier failure does not keep the other one from being added.
 
-Found by AI code review, starting with the Sashiko review of v4, and
-reproduced on an E810-C (FW 8.1.1, ICE COMMS package 1.3.55.0) without
-kernel changes:
+A trusted VF that holds the DFLT rule no longer gets through it the
+multicast on VLANs the PF is not a member of, because the promisc recipe
+has a higher priority than the default one. It keeps what its own
+multicast promisc rules match.
 
-  ip link set $PF promisc on
-  devlink dev eswitch set pci/$BDF mode switchdev
-  echo 1 > /sys/class/net/$PF/device/sriov_numvfs
-  echo 0 > /sys/class/net/$PF/device/sriov_numvfs
+The overrun was observed on a machine in real use, and the allmulti
+problem was found by the Sashiko review of v4. The overrun reproduces on
+an E810-C (FW 8.1.1, ICE COMMS package 1.3.55.0) without kernel changes:
 
-after which unknown unicast no longer reaches the PF, and with this
-patch it does again. Also tested on that E810-C with promisc changed
-before, during and after sessions, allmulti across a session, and PF
-resets and driver removal during sessions. LAG and switchdev setup
-errors were not tested. No kernel selftests cover this.
+  for p in $P0 $P2 $P3; do
+          ip link add br-$p type bridge vlan_filtering 1
+          ip link set br-$p up
+          ip link set $p master br-$p
+          bridge vlan add vid 2-4094 dev $p
+  done
+  ip link set br-$P0 promisc on
 
-Fixes: 1a1c40df2e80 ("ice: set and release switchdev environment")
-Fixes: 2571a3fa6251 ("ice: Prohibit rx mode change in switchdev mode")
-Fixes: 5c07be96d8b3 ("ice: Avoid setting default Rx VSI twice in switchdev setup")
-Fixes: 776fe19953b0 ("ice: block default rule setting on LAG interface")
+With the per-VID pairs a trunked port took 12292 FLU entries, the third
+bridge vlan add failed part way and the promisc on logged the errors
+above. With this patch a trunked port takes 4104 entries, all three
+trunks fit with 20387 of the 32768 entries free, and the DFLT rule
+installs. The FLU numbers come from a test-only debugfs file that issues
+Get Resource Allocation (AQ 0x0204). Also tested with multicast to
+joined and unjoined groups on member and non-member VLANs, with promisc
+and allmulti changed in every order, with VLANs added and removed while
+allmulticast, with a trusted promiscuous VF, and with the DFLT install
+made to fail by a test-only change. No kernel selftests cover this.
+
+Fixes: 1273f89578f2 ("ice: Fix broken IFF_ALLMULTI handling")
+Fixes: 43fbca02c2dd ("ice: fix lost multicast packets in promisc mode")
 Signed-off-by: Petr Oros <poros@redhat.com>
 ---
 v5:
-- Reworked after the Sashiko review of the v4 pull. Instead of keeping
-  the Rx DFLT rule on release, the eswitch now owns the uplink promisc
-  configuration during a session, and the uplink filters are resynced
-  from the netdev flags when the session ends.
-- A new VSI state bit keeps filter syncs away from the uplink promisc
-  configuration during a session. The sync queued at the end of a
-  session relies on patch 1 when the PF goes away.
-- A promiscuous VSI that already holds the DFLT rule is subscribed to
-  multicast, and VLAN pruning is re-enabled on every promisc off.
-- New title, was "ice: preserve uplink DFLT Rx rule on switchdev
-  release". Moved before the multicast patch.
-- Added Fixes tags for 1a1c40df2e80, 2571a3fa6251 and 776fe19953b0.
+- Reworked after the Sashiko review of the v4 pull. PF VSIs now always
+  use the VLAN agnostic multicast pair, and the per-VID multicast rules
+  and their handling in ice_vlan_rx_add_vid() and ice_vlan_rx_kill_vid()
+  are gone.
+- The multicast subscription is reconciled from IFF_PROMISC and
+  IFF_ALLMULTI in one place, so clearing allmulti keeps the subscription
+  of a promiscuous VSI unless another VSI holds the DFLT rule.
+- ice_set_promisc() adds the Rx and the Tx rule separately.
+- New title, was "ice: skip per-VLAN promisc rules when default VSI Rx
+  rule is set".
+- Added the Fixes tag for 43fbca02c2dd.
 - Dropped the Reviewed-by and Tested-by tags because of the rework.
 
-v4: https://lore.kernel.org/all/20260708125755.706263-3-poros@redhat.com/
-v3: https://lore.kernel.org/all/20260701133601.2118382-3-poros@redhat.com/
-v2: https://lore.kernel.org/all/20260622113428.2565255-3-poros@redhat.com/
-v1: https://lore.kernel.org/all/deef5756e534ef06c12d910c5305d3fd205d30a0.1781786935.git.poros@redhat.com/
+v4: https://lore.kernel.org/all/20260708125755.706263-2-poros@redhat.com/
+v3: https://lore.kernel.org/all/20260701133601.2118382-2-poros@redhat.com/
+v2: https://lore.kernel.org/all/20260622113428.2565255-2-poros@redhat.com/
+v1: https://lore.kernel.org/all/89efbea9831175e6f57e9fe8557f7a0e48e050b7.1781786935.git.poros@redhat.com/
 ---
- drivers/net/ethernet/intel/ice/ice.h         |  1 +
- drivers/net/ethernet/intel/ice/ice_eswitch.c | 40 ++++++++++++++++++++
- drivers/net/ethernet/intel/ice/ice_main.c    | 17 +++++++--
- 3 files changed, 55 insertions(+), 3 deletions(-)
+ drivers/net/ethernet/intel/ice/ice_eswitch.c |   8 -
+ drivers/net/ethernet/intel/ice/ice_main.c    | 232 ++++++-------------
+ 2 files changed, 77 insertions(+), 163 deletions(-)
 
-diff --git a/drivers/net/ethernet/intel/ice/ice.h b/drivers/net/ethernet/intel/ice/ice.h
-index 432da05c48c08a..a1b373e04bab30 100644
---- a/drivers/net/ethernet/intel/ice/ice.h
-+++ b/drivers/net/ethernet/intel/ice/ice.h
-@@ -321,6 +321,7 @@ enum ice_vsi_state {
- 	ICE_VSI_MMAC_FLTR_CHANGED,
- 	ICE_VSI_PROMISC_CHANGED,
- 	ICE_VSI_REBUILD_PENDING,
-+	ICE_VSI_ESWITCH_UPLINK,		/* eswitch owns the promisc config */
- 	ICE_VSI_STATE_NBITS		/* must be last */
- };
- 
 diff --git a/drivers/net/ethernet/intel/ice/ice_eswitch.c b/drivers/net/ethernet/intel/ice/ice_eswitch.c
-index c96b201901f48c..d55c70edb7f7f6 100644
+index d55c70edb7f7f6..5202c43fa969bd 100644
 --- a/drivers/net/ethernet/intel/ice/ice_eswitch.c
 +++ b/drivers/net/ethernet/intel/ice/ice_eswitch.c
-@@ -10,6 +10,34 @@
- #include "devlink/devlink.h"
- #include "ice_tc_lib.h"
+@@ -20,14 +20,6 @@ static void ice_eswitch_resync_uplink(struct ice_vsi *uplink_vsi)
+ 
+ 	while (test_and_set_bit(ICE_CFG_BUSY, uplink_vsi->state))
+ 		usleep_range(1000, 2000);
+-
+-	/* VLAN changes during the session may have added these */
+-	ice_fltr_clear_vlan_vsi_promisc(&pf->hw, uplink_vsi,
+-					ICE_MCAST_VLAN_PROMISC_BITS);
+-	ice_fltr_clear_vsi_promisc(&pf->hw, uplink_vsi->idx,
+-				   ICE_MCAST_PROMISC_BITS, 0);
+-	uplink_vsi->current_netdev_flags &= ~IFF_ALLMULTI;
+-
+ 	clear_bit(ICE_VSI_ESWITCH_UPLINK, uplink_vsi->state);
+ 	set_bit(ICE_VSI_PROMISC_CHANGED, uplink_vsi->state);
+ 	set_bit(ICE_VSI_UMAC_FLTR_CHANGED, uplink_vsi->state);
+diff --git a/drivers/net/ethernet/intel/ice/ice_main.c b/drivers/net/ethernet/intel/ice/ice_main.c
+index 2ce2b7138f6682..ea6da46bf7955b 100644
+--- a/drivers/net/ethernet/intel/ice/ice_main.c
++++ b/drivers/net/ethernet/intel/ice/ice_main.c
+@@ -269,21 +269,18 @@ static bool ice_vsi_fltr_changed(struct ice_vsi *vsi)
+  */
+ static int ice_set_promisc(struct ice_vsi *vsi, u8 promisc_m)
+ {
+-	int status;
++	unsigned long bits = promisc_m;
++	int status, bit;
+ 
+ 	if (vsi->type != ICE_VSI_PF)
+ 		return 0;
+ 
+-	if (ice_vsi_has_non_zero_vlans(vsi)) {
+-		promisc_m |= (ICE_PROMISC_VLAN_RX | ICE_PROMISC_VLAN_TX);
+-		status = ice_fltr_set_vlan_vsi_promisc(&vsi->back->hw, vsi,
+-						       promisc_m);
+-	} else {
++	for_each_set_bit(bit, &bits, BITS_PER_BYTE) {
+ 		status = ice_fltr_set_vsi_promisc(&vsi->back->hw, vsi->idx,
+-						  promisc_m, 0);
++						  BIT(bit), 0);
++		if (status && status != -EEXIST)
++			return status;
+ 	}
+-	if (status && status != -EEXIST)
+-		return status;
+ 
+ 	netdev_dbg(vsi->netdev, "set promisc filter bits for VSI %i: 0x%x\n",
+ 		   vsi->vsi_num, promisc_m);
+@@ -303,20 +300,30 @@ static int ice_clear_promisc(struct ice_vsi *vsi, u8 promisc_m)
+ 	if (vsi->type != ICE_VSI_PF)
+ 		return 0;
+ 
+-	if (ice_vsi_has_non_zero_vlans(vsi)) {
+-		promisc_m |= (ICE_PROMISC_VLAN_RX | ICE_PROMISC_VLAN_TX);
+-		status = ice_fltr_clear_vlan_vsi_promisc(&vsi->back->hw, vsi,
+-							 promisc_m);
+-	} else {
+-		status = ice_fltr_clear_vsi_promisc(&vsi->back->hw, vsi->idx,
+-						    promisc_m, 0);
+-	}
++	status = ice_fltr_clear_vsi_promisc(&vsi->back->hw, vsi->idx,
++					    promisc_m, 0);
+ 
+ 	netdev_dbg(vsi->netdev, "clear promisc filter bits for VSI %i: 0x%x\n",
+ 		   vsi->vsi_num, promisc_m);
+ 	return status;
+ }
  
 +/**
-+ * ice_eswitch_resync_uplink - hand the uplink filters back after switchdev
-+ * @uplink_vsi: the uplink VSI
++ * ice_vsi_wants_mc_promisc - check if the VSI needs the multicast promisc rules
++ * @vsi: the VSI
++ *
++ * Return: true if the VSI needs the multicast promisc rules.
 + */
-+static void ice_eswitch_resync_uplink(struct ice_vsi *uplink_vsi)
++static bool ice_vsi_wants_mc_promisc(struct ice_vsi *vsi)
 +{
-+	struct ice_pf *pf = uplink_vsi->back;
-+
-+	while (test_and_set_bit(ICE_CFG_BUSY, uplink_vsi->state))
-+		usleep_range(1000, 2000);
-+
-+	/* VLAN changes during the session may have added these */
-+	ice_fltr_clear_vlan_vsi_promisc(&pf->hw, uplink_vsi,
-+					ICE_MCAST_VLAN_PROMISC_BITS);
-+	ice_fltr_clear_vsi_promisc(&pf->hw, uplink_vsi->idx,
-+				   ICE_MCAST_PROMISC_BITS, 0);
-+	uplink_vsi->current_netdev_flags &= ~IFF_ALLMULTI;
-+
-+	clear_bit(ICE_VSI_ESWITCH_UPLINK, uplink_vsi->state);
-+	set_bit(ICE_VSI_PROMISC_CHANGED, uplink_vsi->state);
-+	set_bit(ICE_VSI_UMAC_FLTR_CHANGED, uplink_vsi->state);
-+	set_bit(ICE_VSI_MMAC_FLTR_CHANGED, uplink_vsi->state);
-+	clear_bit_unlock(ICE_CFG_BUSY, uplink_vsi->state);
-+
-+	set_bit(ICE_FLAG_FLTR_SYNC, pf->flags);
-+	ice_service_task_schedule(pf);
++	if (vsi->current_netdev_flags & IFF_ALLMULTI)
++		return true;
++	if (!(vsi->current_netdev_flags & IFF_PROMISC))
++		return false;
++	return ice_is_vsi_dflt_vsi(vsi) ||
++	       !ice_is_dflt_vsi_in_use(vsi->port_info);
 +}
 +
  /**
-  * ice_eswitch_setup_env - configure eswitch HW filters
-  * @pf: pointer to PF struct
-@@ -28,6 +56,12 @@ static int ice_eswitch_setup_env(struct ice_pf *pf)
- 		if (ice_down(uplink_vsi))
- 			return -ENODEV;
+  * ice_vsi_sync_fltr - Update the VSI filter list to the HW
+  * @vsi: ptr to the VSI
+@@ -332,6 +339,8 @@ static int ice_vsi_sync_fltr(struct ice_vsi *vsi)
+ 	struct ice_pf *pf = vsi->back;
+ 	struct ice_hw *hw = &pf->hw;
+ 	u32 changed_flags = 0;
++	bool dflt_err = false;
++	bool promisc_changed;
+ 	int err;
  
-+	/* the eswitch owns the uplink promisc config until the resync */
-+	while (test_and_set_bit(ICE_CFG_BUSY, uplink_vsi->state))
-+		usleep_range(1000, 2000);
-+	set_bit(ICE_VSI_ESWITCH_UPLINK, uplink_vsi->state);
-+	clear_bit_unlock(ICE_CFG_BUSY, uplink_vsi->state);
+ 	if (!vsi->netdev)
+@@ -399,91 +408,65 @@ static int ice_vsi_sync_fltr(struct ice_vsi *vsi)
+ 		goto exit;
+ 
+ 	/* check for changes in promiscuous modes */
+-	if (changed_flags & IFF_ALLMULTI) {
+-		if (vsi->current_netdev_flags & IFF_ALLMULTI) {
+-			err = ice_set_promisc(vsi, ICE_MCAST_PROMISC_BITS);
+-			if (err) {
+-				vsi->current_netdev_flags &= ~IFF_ALLMULTI;
+-				goto out_promisc;
+-			}
+-		} else {
+-			/* !(vsi->current_netdev_flags & IFF_ALLMULTI) */
+-			err = ice_clear_promisc(vsi, ICE_MCAST_PROMISC_BITS);
+-			if (err) {
+-				vsi->current_netdev_flags |= IFF_ALLMULTI;
+-				goto out_promisc;
+-			}
+-		}
+-	}
+-
+-	if (((changed_flags & IFF_PROMISC) || promisc_forced_on) ||
+-	    test_bit(ICE_VSI_PROMISC_CHANGED, vsi->state)) {
+-		clear_bit(ICE_VSI_PROMISC_CHANGED, vsi->state);
+-		if (vsi->current_netdev_flags & IFF_PROMISC) {
+-			/* Apply Rx filter rule to get traffic from wire */
+-			if (!ice_is_dflt_vsi_in_use(vsi->port_info)) {
+-				err = ice_set_dflt_vsi(vsi);
+-				if (err && err != -EEXIST) {
+-					netdev_err(netdev, "Error %d setting default VSI %i Rx rule\n",
+-						   err, vsi->vsi_num);
+-					vsi->current_netdev_flags &=
+-						~IFF_PROMISC;
+-					goto out_promisc;
+-				}
++	promisc_changed = test_and_clear_bit(ICE_VSI_PROMISC_CHANGED,
++					     vsi->state);
++	if ((changed_flags & IFF_PROMISC) || promisc_forced_on)
++		promisc_changed = true;
 +
- 	ice_remove_vsi_fltr(&pf->hw, uplink_vsi->idx);
- 	ice_vsi_cfg_sw_lldp(uplink_vsi, true, false);
++	if (promisc_changed && (vsi->current_netdev_flags & IFF_PROMISC)) {
++		/* Apply Rx filter rule to get traffic from wire */
++		if (!ice_is_dflt_vsi_in_use(vsi->port_info)) {
++			err = ice_set_dflt_vsi(vsi);
++			if (err && err != -EEXIST) {
++				netdev_err(netdev, "Error %d setting default VSI %i Rx rule\n",
++					   err, vsi->vsi_num);
++				vsi->current_netdev_flags &= ~IFF_PROMISC;
++				set_bit(ICE_VSI_PROMISC_CHANGED, vsi->state);
++				dflt_err = true;
++			} else {
+ 				err = 0;
+ 				vlan_ops->dis_rx_filtering(vsi);
+-
+-				/* promiscuous mode implies allmulticast so
+-				 * that VSIs that are in promiscuous mode are
+-				 * subscribed to multicast packets coming to
+-				 * the port
+-				 */
+-				err = ice_set_promisc(vsi,
+-						      ICE_MCAST_PROMISC_BITS);
+-				if (err)
+-					goto out_promisc;
+-			} else if (ice_is_vsi_dflt_vsi(vsi)) {
+-				/* still the default VSI, so subscribe it */
+-				err = ice_set_promisc(vsi,
+-						      ICE_MCAST_PROMISC_BITS);
+-				if (err)
+-					goto out_promisc;
+ 			}
+-		} else {
+-			/* Clear Rx filter to remove traffic from wire */
+-			if (ice_is_vsi_dflt_vsi(vsi)) {
+-				err = ice_clear_dflt_vsi(vsi);
+-				if (err) {
+-					netdev_err(netdev, "Error %d clearing default VSI %i Rx rule\n",
+-						   err, vsi->vsi_num);
+-					vsi->current_netdev_flags |=
+-						IFF_PROMISC;
+-					goto out_promisc;
+-				}
++		}
++	} else if (promisc_changed) {
++		/* Clear Rx filter to remove traffic from wire */
++		if (ice_is_vsi_dflt_vsi(vsi)) {
++			err = ice_clear_dflt_vsi(vsi);
++			if (err) {
++				netdev_err(netdev, "Error %d clearing default VSI %i Rx rule\n",
++					   err, vsi->vsi_num);
++				vsi->current_netdev_flags |= IFF_PROMISC;
++				set_bit(ICE_VSI_PROMISC_CHANGED, vsi->state);
+ 			}
++		}
  
-@@ -77,6 +111,8 @@ static int ice_eswitch_setup_env(struct ice_pf *pf)
- 	if (if_running)
- 		ice_up(uplink_vsi);
- 
-+	ice_eswitch_resync_uplink(uplink_vsi);
+-			/* pruning can be off even without our DFLT rule */
+-			if (vsi->netdev->features & NETIF_F_HW_VLAN_CTAG_FILTER)
+-				vlan_ops->ena_rx_filtering(vsi);
+-
+-			/* disable allmulti here, but only if allmulti is not
+-			 * still enabled for the netdev
+-			 */
+-			if (!(vsi->current_netdev_flags & IFF_ALLMULTI)) {
+-				err = ice_clear_promisc(vsi,
+-							ICE_MCAST_PROMISC_BITS);
+-				if (err) {
+-					netdev_err(netdev, "Error %d clearing multicast promiscuous on VSI %i\n",
+-						   err, vsi->vsi_num);
+-				}
+-			}
++		/* pruning can be off even without our DFLT rule */
++		if (!(vsi->current_netdev_flags & IFF_PROMISC) &&
++		    vsi->netdev->features & NETIF_F_HW_VLAN_CTAG_FILTER)
++			vlan_ops->ena_rx_filtering(vsi);
++	}
 +
- 	return -ENODEV;
- }
- 
-@@ -318,6 +354,7 @@ static int ice_eswitch_enable_switchdev(struct ice_pf *pf)
- 
- err_br_offloads:
- 	ice_eswitch_release_env(pf);
-+	ice_eswitch_resync_uplink(uplink_vsi);
- 	return -ENODEV;
- }
- 
-@@ -331,6 +368,9 @@ static void ice_eswitch_disable_switchdev(struct ice_pf *pf)
- 	ice_eswitch_release_env(pf);
- 
- 	pf->eswitch.is_running = false;
++	/* promiscuous mode implies allmulticast */
++	if (promisc_changed || (changed_flags & IFF_ALLMULTI)) {
++		int mc_err = 0;
 +
-+	/* after is_running is cleared, so no rx mode change is lost */
-+	ice_eswitch_resync_uplink(pf->eswitch.uplink_vsi);
- }
- 
- /**
-diff --git a/drivers/net/ethernet/intel/ice/ice_main.c b/drivers/net/ethernet/intel/ice/ice_main.c
-index 6dede87b78944f..2ce2b7138f6682 100644
---- a/drivers/net/ethernet/intel/ice/ice_main.c
-+++ b/drivers/net/ethernet/intel/ice/ice_main.c
-@@ -394,6 +394,10 @@ static int ice_vsi_sync_fltr(struct ice_vsi *vsi)
++		/* a failed DFLT install leaves the netdev promiscuous */
++		if (ice_vsi_wants_mc_promisc(vsi))
++			mc_err = ice_set_promisc(vsi, ICE_MCAST_PROMISC_BITS);
++		else if (!dflt_err)
++			mc_err = ice_clear_promisc(vsi, ICE_MCAST_PROMISC_BITS);
++		if (mc_err) {
++			netdev_err(netdev, "Error %d syncing multicast promiscuous on VSI %i\n",
++				   mc_err, vsi->vsi_num);
++			/* retried by the next sync, with the allmulti change */
++			vsi->current_netdev_flags ^=
++				changed_flags & IFF_ALLMULTI;
++			set_bit(ICE_VSI_PROMISC_CHANGED, vsi->state);
++			if (!err)
++				err = mc_err;
  		}
  	}
- 	err = 0;
-+	/* the eswitch owns the uplink promisc config during a session */
-+	if (test_bit(ICE_VSI_ESWITCH_UPLINK, vsi->state))
-+		goto exit;
-+
- 	/* check for changes in promiscuous modes */
- 	if (changed_flags & IFF_ALLMULTI) {
- 		if (vsi->current_netdev_flags & IFF_ALLMULTI) {
-@@ -438,6 +442,12 @@ static int ice_vsi_sync_fltr(struct ice_vsi *vsi)
- 						      ICE_MCAST_PROMISC_BITS);
- 				if (err)
- 					goto out_promisc;
-+			} else if (ice_is_vsi_dflt_vsi(vsi)) {
-+				/* still the default VSI, so subscribe it */
-+				err = ice_set_promisc(vsi,
-+						      ICE_MCAST_PROMISC_BITS);
-+				if (err)
-+					goto out_promisc;
- 			}
- 		} else {
- 			/* Clear Rx filter to remove traffic from wire */
-@@ -450,11 +460,12 @@ static int ice_vsi_sync_fltr(struct ice_vsi *vsi)
- 						IFF_PROMISC;
- 					goto out_promisc;
- 				}
--				if (vsi->netdev->features &
--				    NETIF_F_HW_VLAN_CTAG_FILTER)
--					vlan_ops->ena_rx_filtering(vsi);
- 			}
+ 	goto exit;
+-
+-out_promisc:
+-	set_bit(ICE_VSI_PROMISC_CHANGED, vsi->state);
+-	goto exit;
+ out:
+ 	/* if something went wrong then set the changed flag so we try again */
+ 	set_bit(ICE_VSI_UMAC_FLTR_CHANGED, vsi->state);
+@@ -3686,17 +3669,6 @@ int ice_vlan_rx_add_vid(struct net_device *netdev, __be16 proto, u16 vid)
+ 	while (test_and_set_bit(ICE_CFG_BUSY, vsi->state))
+ 		usleep_range(1000, 2000);
  
-+			/* pruning can be off even without our DFLT rule */
-+			if (vsi->netdev->features & NETIF_F_HW_VLAN_CTAG_FILTER)
-+				vlan_ops->ena_rx_filtering(vsi);
-+
- 			/* disable allmulti here, but only if allmulti is not
- 			 * still enabled for the netdev
- 			 */
+-	/* Add multicast promisc rule for the VLAN ID to be added if
+-	 * all-multicast is currently enabled.
+-	 */
+-	if (vsi->current_netdev_flags & IFF_ALLMULTI) {
+-		ret = ice_fltr_set_vsi_promisc(&vsi->back->hw, vsi->idx,
+-					       ICE_MCAST_VLAN_PROMISC_BITS,
+-					       vid);
+-		if (ret && ret != -EEXIST)
+-			goto finish;
+-	}
+-
+ 	vlan_ops = ice_get_compat_vsi_vlan_ops(vsi);
+ 
+ 	/* Add a switch rule for this VLAN ID so its corresponding VLAN tagged
+@@ -3704,22 +3676,7 @@ int ice_vlan_rx_add_vid(struct net_device *netdev, __be16 proto, u16 vid)
+ 	 */
+ 	vlan = ICE_VLAN(be16_to_cpu(proto), vid, 0);
+ 	ret = vlan_ops->add_vlan(vsi, &vlan);
+-	if (ret)
+-		goto finish;
+-
+-	/* If all-multicast is currently enabled and this VLAN ID is only one
+-	 * besides VLAN-0 we have to update look-up type of multicast promisc
+-	 * rule for VLAN-0 from ICE_SW_LKUP_PROMISC to ICE_SW_LKUP_PROMISC_VLAN.
+-	 */
+-	if ((vsi->current_netdev_flags & IFF_ALLMULTI) &&
+-	    ice_vsi_num_non_zero_vlans(vsi) == 1) {
+-		ice_fltr_clear_vsi_promisc(&vsi->back->hw, vsi->idx,
+-					   ICE_MCAST_PROMISC_BITS, 0);
+-		ice_fltr_set_vsi_promisc(&vsi->back->hw, vsi->idx,
+-					 ICE_MCAST_VLAN_PROMISC_BITS, 0);
+-	}
+ 
+-finish:
+ 	clear_bit(ICE_CFG_BUSY, vsi->state);
+ 
+ 	return ret;
+@@ -3748,46 +3705,11 @@ int ice_vlan_rx_kill_vid(struct net_device *netdev, __be16 proto, u16 vid)
+ 	while (test_and_set_bit(ICE_CFG_BUSY, vsi->state))
+ 		usleep_range(1000, 2000);
+ 
+-	ret = ice_clear_vsi_promisc(&vsi->back->hw, vsi->idx,
+-				    ICE_MCAST_VLAN_PROMISC_BITS, vid);
+-	if (ret) {
+-		netdev_err(netdev, "Error clearing multicast promiscuous mode on VSI %i\n",
+-			   vsi->vsi_num);
+-		vsi->current_netdev_flags |= IFF_ALLMULTI;
+-	}
+-
+ 	vlan_ops = ice_get_compat_vsi_vlan_ops(vsi);
+ 
+-	/* Make sure VLAN delete is successful before updating VLAN
+-	 * information
+-	 */
+ 	vlan = ICE_VLAN(be16_to_cpu(proto), vid, 0);
+ 	ret = vlan_ops->del_vlan(vsi, &vlan);
+-	if (ret)
+-		goto finish;
+-
+-	/* Remove multicast promisc rule for the removed VLAN ID if
+-	 * all-multicast is enabled.
+-	 */
+-	if (vsi->current_netdev_flags & IFF_ALLMULTI)
+-		ice_fltr_clear_vsi_promisc(&vsi->back->hw, vsi->idx,
+-					   ICE_MCAST_VLAN_PROMISC_BITS, vid);
+-
+-	if (!ice_vsi_has_non_zero_vlans(vsi)) {
+-		/* Update look-up type of multicast promisc rule for VLAN 0
+-		 * from ICE_SW_LKUP_PROMISC_VLAN to ICE_SW_LKUP_PROMISC when
+-		 * all-multicast is enabled and VLAN 0 is the only VLAN rule.
+-		 */
+-		if (vsi->current_netdev_flags & IFF_ALLMULTI) {
+-			ice_fltr_clear_vsi_promisc(&vsi->back->hw, vsi->idx,
+-						   ICE_MCAST_VLAN_PROMISC_BITS,
+-						   0);
+-			ice_fltr_set_vsi_promisc(&vsi->back->hw, vsi->idx,
+-						 ICE_MCAST_PROMISC_BITS, 0);
+-		}
+-	}
+ 
+-finish:
+ 	clear_bit(ICE_CFG_BUSY, vsi->state);
+ 
+ 	return ret;
 -- 
 2.56.1
 
