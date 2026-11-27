@@ -1,70 +1,63 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795798907;
-	b=yV0iaQPOTGoOLmohLBGyC/51bQPZ60MRTUB0Khs+n6T3rmdTsuXdES+Vuq/bFo7muDjL
-	 iukwf08B8sDAN7Aa4tI0jibD606aIRRN2T59cAMoqQ6Gexs2QZXks6GuX0BjzkNuqY+dq
-	 /iRJnat19QVtcMBlb2yMSAVb2cXtGwz6EdViuAKdNCG6D/YVCud4ZAhELlISbT1YeVgXd
-	 Cqw2clW3GYhRDMrbIHTdtxsKEtXB69eUbTgZoAAY5Ofc91w9f8OWRQqsT/2Ffk2Xm5t/w
-	 OsJJJGGwHUy1XG3Sent31Dn+C5ghtbgNtMeH+6PKBbIOgxOIfI75SctvOZ6eaMp4Y5g==
+	t=1795798911;
+	b=2NRFAIfJTPqkUQiHf4ANYcFhLNAGCg6qrnGQnfp/asPfVxBdLE998xVDMq2e7yNNuirU
+	 ovV/EYm6hnN1eOMK9/hcXo10r74STCgn3wqe88JbHYoxcF7FCCbpjshAeWCLD2PMQSfTK
+	 dQuJrjGErhP96EDKEVnXdHUyTuSonq4nj4w45BoXPN/nUDCHPmu1MoeatvUsU2wouYcE8
+	 cOOU/CGH6Uh4uriumeT8SxYzkLRQky4BRYto4M+hm2vk5LRKlwn++jdE4eCyoaUWjomeo
+	 X3NmJzggd2Ga49xXT4TlU3g8hL09o90J7LI9C9BNhldcyGFuAZBix4XSSeCVy5Xi0PQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795798907;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795798911;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=vVsVRgy0gzJIVDd0T7YDpsF3P6XzAm9x5p8uBrrFcdc=;
-	b=krudM9+KhQ2nHNeY3SP1x0SPZ4KCHrONIHZydcZ90AOJKkuaMPEtqykYIMViZUttOZ/4
-	 kfmwoOMuY4Djurdj4SjXVAKKqb72cdTwkGu556jPdSzN7leXnTH2XNKXki8eujsG15uVJ
-	 mh1kBvLEiJkYvJ1RH+y6Feie2GQ4/CjNfeP2sQjdMnJyh8dxUXDu9MKhuMmI05e5rAdYh
-	 9uFfANuYA3yTM/NYVfTzyKr9XakPTKTb5Ayb8UeDNfUe04ShVd6yuv8QVJi90t80vJjfB
-	 G/4rEfMdEWaQgUFEAM0FC0jm/IUL1F0mjDWh3AE+B7O7AYt5gbWxHMrxWo2FOQ60oKg==
+	bh=RaqfmynnzRNGBkAoS9G9liwZ+JXnLKg6qpzs52o9Vvs=;
+	b=y7aOqmUlQ7zDLbEOoO9UKUvp7nexwZqg5rGr4/fL2KwF2izBupUwl7xSVKekLsnleVjE
+	 maA+O45puUBeXrrvSQfG8pazAuZM1Br8cpz4KGb81P/fMGCq8wrRk2X642lIfDABABhJQ
+	 0kfgndE1k2hks94khpsYsQCayUUSjcQu5GQ8IJJNVRkzq061w/kZ06UAcpgoxY6X80eWg
+	 D+KNc31mRkpBzd2VqCHMk8quouH+01LrOwoYf4RH+Cxx/GFUeo6fIHh5BCGwv2nVeE2SO
+	 psqV5Cn0RIDu4M2YdAcCY+dVsRma2c0H3DK+EjPBhQoEmXpNcIddQwI9Wffln8c9XEA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j1lnJqeD;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="TX/yrNhz";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBBB6606A31E;
-	Fri, 27 Nov 2026 17:01:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE6AD606A321;
+	Fri, 27 Nov 2026 17:01:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j1lnJqeD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 480461F00929;
-	Fri, 27 Nov 2026 17:01:45 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TX/yrNhz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC3E01F0089F;
+	Fri, 27 Nov 2026 17:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795798907;
-	bh=vVsVRgy0gzJIVDd0T7YDpsF3P6XzAm9x5p8uBrrFcdc=;
+	s=k20260515; t=1795798911;
+	bh=RaqfmynnzRNGBkAoS9G9liwZ+JXnLKg6qpzs52o9Vvs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=j1lnJqeDQcN3bSQX8EgH6876QrL/pyyQu/V3KVMH9zUpD2SKisPEK3vOI2+heZwSy
-	 ttoqJuPMJa2zSQ7HwI5tcg++bo+BovgbdjfYo2ed+z8LWwbEhyhZYfz6DJChsMl6z4
-	 v1zXmV032pnbEp4ReDBCS6yFF18GB2qR0GSqXiWh12I6LPaM1kOvPyX7zekxV6AUhg
-	 uTGugYY6Esjk+rfagoJnqXKslXDRlGzYASwlrjCK+JONFXKQnpGcPHQ1oqkh11Tliu
-	 kzc9NDwppkYzr/FEtBvr/x64YYdhbSnNWLHkyHliWitufWHFNCY44R40dLUwKjlWpc
-	 syX/CYtviEBNA==
+	b=TX/yrNhzEDFKe6mixfiEdpV47FAKutlhara5QRfPfcrd6FFDveUNup1UaGB3c2tO9
+	 cf7mrffIgoIPYIJlJ6ALDHFnaaV5+RGkcem4BMtN8paVS83q/ITd2tZ1HnpkKgmXZJ
+	 oh3VTDvEciSV+0vIc+RwB6tMFudyjY3udljsJsYyUQpJ3ZjlUmfQi6fkD/YQO3STnv
+	 FfNK9snLZS5bnYhwAlO0EAkD/QVDfjsko1EkDHI0KVEcqGJ01JzkIVShUXE523CIAN
+	 5aTNfZClEzajEWdvD4adjNGSgrKMpr+hAeUor8gmyUKPFtAlbmo5REEX4QFIY+s6UL
+	 vmfnz1huQBWCQ==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org
 Cc: Sasha Levin <sashal@kernel.org>,
-	ast@kernel.org,
-	cratiu@nvidia.com,
 	davem@davemloft.net,
 	edumazet@kernel.org,
-	herbert@gondor.apana.org.au,
 	horms@kernel.org,
-	ipsec@lists.linux.dev,
 	jhs@mojatatu.com,
-	joe@dama.to,
 	kuba@kernel.org,
-	mst@redhat.com,
 	netdev@vger.kernel.org,
 	pabeni@redhat.com,
-	shawnq1@163.com,
-	steffen.klassert@secunet.com,
-	willemb@google.com,
+	toke@toke.dk,
+	victor@mojatatu.com,
 	Artem Dinaburg <artem@trailofbits.com>
-Subject: Re: [PATCH 6.18.y 0/5] net: validate GSO headers and preserve XFRM inner offsets
-Date: Fri, 27 Nov 2026 12:00:56 -0500
-Message-ID: <2026-11-26-1-daily-reply-0008@kernel.org>
+Subject: Re: [PATCH 6.18.y] net/sched: codel: bound the dropping loop per dequeue call
+Date: Fri, 27 Nov 2026 12:00:58 -0500
+Message-ID: <2026-11-26-1-daily-reply-0010@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261125195735.57472-1-artem@trailofbits.com>
-References: <20261125195735.57472-1-artem@trailofbits.com>
+In-Reply-To: <20261125204850.72393-1-artem@trailofbits.com>
+References: <20261125204850.72393-1-artem@trailofbits.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,16 +69,17 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-> Please apply these five patches to 6.18.y. Patch 2 fixes CVE-2026-53091;
-> the others are its prerequisite and the upstream fixes that followed it.
+> The CoDel control law schedules the next drop one interval/sqrt(count)
+> after the previous drop, using the configured interval
+> (codel_params.interval). For very small intervals the scheduled step
+> rounds down to zero, so the dropping loop in codel_dequeue() never
+> advances and drains the entire backlog under the qdisc lock in one
+> call - an unprivileged user can trigger a soft lockup this way.
 
-Queued the series for 6.18, thanks.
+Queued for 6.18, thanks.
 
-> 3/5 fa90a3145c03 stops xfrm from overwriting inner header offsets set
->     by a tunnel. Without it, patch 2 drops VXLAN-over-IPsec GSO traffic.
-
-6.12 and 6.6 already carry patch 2 without this one, so I queued it
-for those two as well.
+6.12, 6.6, 6.1, 5.15 and 5.10 lack this fix as well. Could you send
+backports for those trees too?
 
 -- 
 Thanks,
