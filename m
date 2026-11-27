@@ -1,98 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795807389;
-	b=jnFQNTNVne+ovNfZjc8hEdIzPhfPQpap+kWU+4Hx7ExDC5HdBbZbQrRtpB6tJlsDBCeP
-	 p+72amt5L5ErrONDAWCXcPaHfhTTV00QR13m/oGlmcHSB16rYZN5QqD2iynCe7oZUeW1W
-	 qLwcyDUCaxLjbvZz2xEYxvrOJmPf4J64QOCZ2Cr17XmaQVut9gaRX3QEXlW4dy7tjYDfm
-	 +8fLaOt1iih2pNzjJBW4o9dZgc218N9Fpvq720m0Ul92Xr0RA32OlsvOAgIbYm/37T9F+
-	 dgkuYbb6R3kPujygJetxS952Pgbmx43jZ3R05yowF++f0C8vwhY8YNartj6wQXP/+1g==
+	t=1795807391;
+	b=QFKzzFV1hM8/8fn4sPOsBgVisunB7Nu/kh5vkChkykjtXHNZNQZNvVb///c9RE+92saL
+	 Su1F0/HISS5Myee66PUBxS1fckdNEv4KKeYT3EAkqNfJy163i7ADGEzuKUFwk2mulfOOO
+	 I58U3PtNfK9a0gVQZSsxOZgOuLeRnwqFSeSXNvj8fPzaI8Uup+lbyZqoonrxDpEv7NOEE
+	 GT/2gDzL9kc/6YGQgyvu93GXh/aCfC4Gpo8Yhx82ICq+r1gjiX33rsx7P6yzA7Aa7FGij
+	 Y/vJ4IveFp6ZvweFuZff6MOyPt26R48YFKpwuvchUmgeIko267hc/H6+XTh1X11apXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795807389;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795807391;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=S/vNdooL3kBpcYXzJjA/Fa93LMhEj3225SgZBUEBphM=;
-	b=kjqSEJPlk2fc8d3Eca5CqDhZJbOxBYMenvBONeNykJ02T9IaXM+9PMWlEZkH+Y6DkmFI
-	 R817mdtgtV0ysTfKDA+VZRY1jHH89N5pjxkKMxwVYoIJpnYKmrkhdgYY/Vy2xwy5//WsD
-	 2Tta3rHnGm4jf+e3k9KzbaTm7XPJGR4gkGlW/2znovW7R6hCQ+3OJvpFY5EpHOMAu/QLa
-	 1Hf9ZLC3NZgACbaPVTJMSL87Tk+S+SY96MKFTXkTt2w0e3vpd8cqTOuVs5HDg97Q+Ig1y
-	 lI3Z9dZm5G8mMy/e1MWtjq2TV1JDt5NySmBwlAkg9I8mXkPhgaWZNIXvf4mUi0Ml7xg==
+	bh=hAfjzrAnWOvVhSH7jNkmz4JMPLTz15NAUJ6Sxn4cWNA=;
+	b=tG8ORvedkbcD9ifTDDCnTnaLg/eDkkNMCbzPXh+6QwTwAjlD30RQ1cOtrhB3hpx17jiI
+	 +jnZVq84sfv+MDgSumFrNK71JApp9s5E+34wynCjxcKk/iVnMG+sUrUIu4vfsO3YFNqmr
+	 ftFcC0zhriIC7tfuq3BqrObP9rmmASnra5J6agMddJkJCCLOieW256PTsDzXxG+2meieP
+	 rIbKaYIoreGqgqDWzULpsrk3p5eQYScs4peeiD+GfQJOGNpCWOLg2wSahy7ygl8oXx4MY
+	 rIhshRv6LEOi3vIaXw4e0tIZeQ/Utx8RzX5sQYUHZf1IBFoP+UyrUYGH4LK4ziMetog==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=P2Go0tvm;
-	arc=none smtp.remote-ip=74.125.82.51
-Received: from mail-dl1-f51.google.com (mail-dl1-f51.google.com [74.125.82.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OQjU8dlt;
+	arc=none smtp.remote-ip=74.125.82.43
+Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 727DE606A6AF
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 19:23:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 727DE606A6AF
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB47C606A6BB
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 19:23:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB47C606A6BB
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=P2Go0tvm
-Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-15ea896ddc8so13789666c88.0
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 11:23:09 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OQjU8dlt
+Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-14394530ec6so2576916c88.1
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 11:23:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795807389; x=1796412189; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795807390; x=1796412190; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=S/vNdooL3kBpcYXzJjA/Fa93LMhEj3225SgZBUEBphM=;
-        b=P2Go0tvmmMiDu1/Ueuje+5HCHj2UB0FsocoX1bFFuv0fb01f9phN8lLwOFE5pAzzMu
-         0WToH5L6ajgkMdTxdGbeLb3WzsbHGXqmqXJW2TVt7PFIKMaC4Q2WwVOAwOj/41QMfRCA
-         WTxlJkeAKSTh/bPgCTwYiz+5lwNNE0CJuvuuiTX1yJk+FG4I6Mv/qgagCitEPT+g4/X3
-         r+eN2qU0qMOo4XFROhh4XAGQQjMoF5TpYN7QOm39B8Cc1Qqyg4zUimAnfTmEQDTxsXrU
-         sd3ZjOG83reRIF/Rf46AKeJWc2eRtWSmu3TA5prd344GyqWRb+Cq5DqUZjs0ubiv//NQ
-         1rdg==
+        bh=hAfjzrAnWOvVhSH7jNkmz4JMPLTz15NAUJ6Sxn4cWNA=;
+        b=OQjU8dlt0JxjaPDMoT3DI9wTP3dsJC5PX2aV8qMk9fORyqvle1Uxc06rUB0aty96EZ
+         kRLYdGeqX+xT9oeNSzPMp19Z5BVZNq3jZiBGT+zc3VMLDMua6vIzilxmHHMT5kB6iPVY
+         aI2lw3UeklvuGd1enWo1wyaK6vfOMTEJtvzBJWOR8KoNAMr8zcDCzwq/7CcgW9iDn0Dz
+         QxaGP1pIqLEXPUwzy29V3fekLpJ/jX8hxNYR5+1/YFEJFb1hHR093D4/IPTJKXzO5wvq
+         sORdstKrvaVdiD4B4mqR0TPbjJnzPd7a+3NH+240E/1i1mbsYKehiDzx1FlXZAhUfK0T
+         UNgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795807389; x=1796412189;
+        d=1e100.net; s=20260707; t=1795807390; x=1796412190;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=S/vNdooL3kBpcYXzJjA/Fa93LMhEj3225SgZBUEBphM=;
-        b=MnQynrEHXL80ssOWbtAyjo5pnzegvj5GHLCvmM/1Qr3jGTqATlBL/IQYgpvVVxvOm/
-         OeUjOWNeYNuUiG/MAfcWQ4/YOoGFDg7oHa/+c0QUqUbu9PIp5RiPDFoSl6OH2MeRzb9f
-         ZwK7pwMDyyEhV01dShUVtWjhxtW1Ue+RQAWA6IPvWc0ujoxpkJQaxQk7Et5pQKJf4r8q
-         vv4RdHO+mlX0ToaobLGcmZGnxLqcJ5QL/41OGcbpEdqpUFlb8gQ3/vVx9WWP4fIcqzkC
-         ljUj62KsQHJwmKB7HeEHiuKxwiCNmTa6kZ/pVvccsjTRSrg1E91gdhYjXtBp8Y0sMxal
-         iaqA==
-X-Gm-Message-State: APuU4Z8cCUtfpR2BXbc6TGZsfQh0S+q+bFQe5o29yAwVtmRXhDPmPXu5
-	TZXljq0sUWLewB+CCBr9/l6/NtppoeBWXbUQfXaBhvcnHTatLkwFVtxxjxFaxz2zIo0=
-X-Gm-Gg: AZFdTZfgNipoLSsQnJGdhWyLsTjYaS4MBoXW3Ox2KKajt8rClWMl1mxDS5R1KIpXOSq
-	GbXRXbFcO9lq9qmf3/dQz81BuX9WxlttJYw6B3HzttRB1uZFr9bX5KXG8ECG9dREfyGoNYE7zJU
-	UmSJKnK3K5R9Ht+uK/CrzI5YfTT4DdxZEXVk1pEd+cjUDONQglIMoH9pGlRisQBytgM2EPoAiZC
-	sg60Q/b63dFFOtWyYXlFZuGlfBSM6mQm4nq1npefa9Pia9oh6k6cS2QQDpaqCmgZNskPdQP3G7d
-	NnvXL8Xq2kuB0Z8F0TVPHaup1ksWpH3N5xwysWFo5xYiMBXBdqbVOcQDQletR+nN+iRdRgU6DYZ
-	Fw84wJgqtAJGg4Jv1kXJuNTakf0iDRZgE5xhr1cF6gPHGDVWOn2g+6+xbZp7dG0zQa9iLIVHBcp
-	AhbblIRIFelc6ktg4bHJUSd0nWh25JzSIJYcxmizOoYjqXFEi9FgABmPB4w3XoCnJIaNlpbh04R
-	e1eLYL9R694hwfSQnC4BUXJeP0bGqaJmW4jExnwf63N3va7RgTQvEbCuQQeY22TBP/SVksg/2c5
-	eDr++AoOXm8945MDSFRBQDEJCtY8Sp5e1OxYXaCmvGPiZOnZq4wpHvYxLeiIq2V6FhGCgm5e/BR
-	TclhYxQ5piapJLeUL2tXOrN8DpGRIIcus8jxTCOt19spglDo/gBDvl750qIGLEA==
-X-Received: by 2002:a05:701b:204f:10b0:1b3:a05f:892d with SMTP id a92af1059eb24-1b556903388mr24726407c88.40.1795807388536;
-        Fri, 27 Nov 2026 11:23:08 -0800 (PST)
+        bh=hAfjzrAnWOvVhSH7jNkmz4JMPLTz15NAUJ6Sxn4cWNA=;
+        b=CW+kgkocAMvv+hhO+OCsEF8Xm1zgNdvg0vu2a00XsMWuX1SNxZgIM2P9NbD7OiwqH8
+         15mkbEvPt7bSjOV6QGf7TKZ9zD0I1XkeasRaKmLwKe1WXJZyND2abFS3TsALHbeXYAJl
+         dphXCk6kOPkoVPof4QAis7dhzf1ZBg1vQfhSjqm1WFsRNy1ZGjSlDGAfUz95o+qI+gIj
+         2PZ2a8PKyywxKy6MgRKRgEd5zM5eVXheuEcI1x4RVNnvEZmkl4xQjtTpizuqOaotoi7S
+         t+VR4SRClwPvb5dUeUoRLWWhJjhEbDWaUCctCnAVLOqbFnAXgMl6lmil7Mn+HiTjIhqv
+         yUyw==
+X-Gm-Message-State: APuU4Z+TCt3zrrrD/PKcpfruUEgwoDvPVgTo95zb2BmSuQ/1HCGyOpSt
+	WjDdBaBKaW66I2bImJq0ViX8+6SXnAG3AoA0+2otTnc5k7XVxUapa/sQPgUUng2uhug=
+X-Gm-Gg: AZFdTZdteztaCiReeP3qZLX2PGJQEQMQrZOPM1eb7HzLqVU8AubEKtKkocvAv9eprCD
+	qiFuPn44lJ5KBYjsCwMEPgPvNgiM5ssXyuCmojbS/tILwx2AOdVEK7HmhqObAGEx4f/8pdRU8W3
+	d9+jFW4OjIrGcBRvs6Dojj79L/VK/1IGeF1bLNa/oxe102eb8w5mrkiOb3yrY79oZdIWwPXP5Pn
+	RbrNz5+86BaMhQI32OEKhl6f5JUoEgXyXAEYzx+j82Vk3zBzck5KpFY2wxhxf3X2N17rg+neJ+V
+	mo3qLDYlrmtjA7XG4Mirb0/cxTkDFVGYcZ2qvwXVvHdc5ZCPEVTRXMi35ZPV9Lj3Icf6pvWMlSl
+	7mYadvbZ0poLIT9SQQGqWZcI0Gnk6qcQTFZ3gcGWfrKPNlKSAD6tVURNmjYpv/dH6rtPuOEuhVH
+	uyu8zOmTtQWf80Ntm7q5+CQQrjpRlrvcDhqTEqqs8UIakv0T+HgYcLBsVA0/vRNiappckZLM7vW
+	6J0cw+2WMqk1KImWy3u/Fs4fGvm9GCm0vwk88L8F+TPXJMDOMU2SNwxEs8l0eueohxu+2DSUIV0
+	sj9LbC7vT8hP2Irn9uefxGZEjC2hhlo73aJhMTeOSVoXgO4XUxhtFph/z+hDqvQzCvmPkc6KIqf
+	OYu/FcitC6nGzvMSQI5wU8LousYuNTB1uMDvNjDDqOA+PB+RakTUbZqQWfIaH+BbyyMcTC7PylP
+	1b6FgSB+8=
+X-Received: by 2002:a05:7022:e886:b0:1ac:2f6d:e1c6 with SMTP id a92af1059eb24-1b5568a4f42mr32400786c88.6.1795807389923;
+        Fri, 27 Nov 2026 11:23:09 -0800 (PST)
 Received: from Mac.net (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm97005883c88.9.2026.11.27.11.23.07
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm97005883c88.9.2026.11.27.11.23.08
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 27 Nov 2026 11:23:07 -0800 (PST)
+        Fri, 27 Nov 2026 11:23:09 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
 To: netdev@vger.kernel.org
 Cc: andrew+netdev@lunn.ch,
-	arkadiusz.kubalewski@intel.com,
 	davem@davemloft.net,
 	edumazet@kernel.org,
-	jiri@resnulli.us,
+	jonathan.lemon@gmail.com,
 	kuba@kernel.org,
-	milena.olech@intel.com,
 	pabeni@redhat.com,
 	richardcochran@gmail.com,
 	vadim.fedorenko@linux.dev
-Subject: [PATCH net v7 3/7] ptp: ocp: preserve timestamp routes on DPLL frequency changes
-Date: Fri, 27 Nov 2026 11:22:58 -0800
-Message-ID: <20261127-timecard-driver-v7-3-ahmadexp@gmail.com>
+Subject: [PATCH net v7 4/7] ptp: ocp: recover SMA direction from both enable bits on bind
+Date: Fri, 27 Nov 2026 11:22:59 -0800
+Message-ID: <20261127-timecard-driver-v7-4-ahmadexp@gmail.com>
 In-Reply-To: <20261127-timecard-driver-v7-0-ahmadexp@gmail.com>
 References: <20261127-timecard-driver-v7-0-ahmadexp@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
@@ -106,176 +105,58 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-DPLL frequency set uses a table index as a hardware selector and can
-replace timestamp or counter destinations selected through sysfs.
-Use the encoded selector on inputs and outputs, including ART. Keep
-auxiliary input routes while replacing the frequency-bearing source.
-Reject a zero-encoded 10 MHz selection when auxiliary routes make it
-unrepresentable, without changing the register or connector state.
+An IN: None request clears the input register. On bind, interpreting
+a clear input enable bit as an enabled output (SMA1/SMA2) loses the
+disabled state that is already represented by the register pair.
 
-Serialize the read and write against sysfs, PTP pin assignments and
-DPLL direction changes. Keep the existing MMIO spinlock inside the
-register accessors.
-
-For readback, mask out the enable bit and report the configured nominal
-frequency when combined input routes agree. Report zero when there is
-no unambiguous frequency. This does not measure the input signal.
+For configurable FB and ADVA connectors, use both enable bits. An
+enabled input or output selects the corresponding direction. If
+both are clear, report the disabled connector as IN: None. Keep
+the existing per-connector default if both bits are set, and leave
+fixed-direction hardware unchanged. Probe does not rewrite the mux.
 
 Developed with coding-assistant support using v6 review feedback.
 
-Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
-Link: https://lore.kernel.org/r/179579808134.3135.14342336954222031404@kernel.org
+Fixes: b2c4f0ac53f3 ("ptp: ocp: Add ability to disable input selectors.")
+Link: https://lore.kernel.org/r/179579808276.3135.5382400825629748441@kernel.org
 Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
 ---
- drivers/ptp/ptp_ocp.c | 64 +++++++++++++++++++++++++++++++++++++++----
- 1 file changed, 59 insertions(+), 5 deletions(-)
+ drivers/ptp/ptp_ocp.c | 21 +++++++++++++++------
+ 1 file changed, 15 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-index 625a85b2dc7e..3781f6582b7b 100644
+index 3781f6582b7b..6cf060d3b1a1 100644
 --- a/drivers/ptp/ptp_ocp.c
 +++ b/drivers/ptp/ptp_ocp.c
-@@ -417,6 +417,7 @@ struct ptp_ocp {
- 	u32			ts_window_adjust;
- 	u64			fw_cap;
- 	struct ptp_ocp_signal	signal[OCP_SIGNAL_NUM];
-+	struct mutex		sma_lock; /* serializes routing and connector state */
- 	struct ptp_ocp_sma_connector sma[OCP_SMA_NUM];
- 	const struct ocp_sma_op *sma_op;
- 	struct dpll_device *dpll;
-@@ -3384,6 +3385,7 @@ ptp_ocp_sma_show(struct ptp_ocp *bp, int sma_nr, char *buf,
- 	const struct ocp_selector * const *tbl;
- 	u32 val;
+@@ -2926,13 +2926,22 @@ ptp_ocp_sma_fb_init(struct ptp_ocp *bp)
+ 		for (i = 0; i < OCP_SMA_NUM; i++)
+ 			bp->sma[i].fixed_dir = true;
+ 	} else {
+-		reg = ioread32(&bp->sma_map1->gpio1);
+-		bp->sma[0].mode = reg & BIT(15) ? SMA_MODE_IN : SMA_MODE_OUT;
+-		bp->sma[1].mode = reg & BIT(31) ? SMA_MODE_IN : SMA_MODE_OUT;
++		u32 inputs[] = { ioread32(&bp->sma_map1->gpio1),
++				 ioread32(&bp->sma_map2->gpio1) };
++		u32 outputs[] = { reg, ioread32(&bp->sma_map1->gpio2) };
  
-+	guard(mutex)(&bp->sma_lock);
- 	tbl = bp->sma_op->tbl;
- 	val = ptp_ocp_sma_get(bp, sma_nr) & SMA_SELECT_MASK;
- 
-@@ -3433,6 +3435,7 @@ ptp_ocp_sma_store_val(struct ptp_ocp *bp, int val, enum ptp_ocp_sma_mode mode, i
- {
- 	struct ptp_ocp_sma_connector *sma = &bp->sma[sma_nr - 1];
- 
-+	lockdep_assert_held(&bp->sma_lock);
- 	if (sma->fixed_dir && (mode != sma->mode || val & SMA_DISABLE))
- 		return -EOPNOTSUPP;
- 
-@@ -3473,6 +3476,7 @@ ptp_ocp_sma_store(struct ptp_ocp *bp, const char *buf, int sma_nr)
- 	enum ptp_ocp_sma_mode mode;
- 	int val;
- 
-+	guard(mutex)(&bp->sma_lock);
- 	mode = sma->mode;
- 	val = sma_parse_inputs(bp->sma_op->tbl, buf, &mode);
- 	if (val < 0)
-@@ -5838,7 +5842,9 @@ static int ptp_ocp_dpll_direction_get(const struct dpll_pin *pin,
- 				      struct netlink_ext_ack *extack)
- {
- 	struct ptp_ocp_sma_connector *sma = pin_priv;
-+	struct ptp_ocp *bp = priv;
- 
-+	guard(mutex)(&bp->sma_lock);
- 	*direction = sma->mode == SMA_MODE_IN ?
- 				  DPLL_PIN_DIRECTION_INPUT :
- 				  DPLL_PIN_DIRECTION_OUTPUT;
-@@ -5857,6 +5863,7 @@ static int ptp_ocp_dpll_direction_set(const struct dpll_pin *pin,
- 	enum ptp_ocp_sma_mode mode;
- 	int sma_nr = (sma - bp->sma);
- 
-+	guard(mutex)(&bp->sma_lock);
- 	if (sma->fixed_dir)
- 		return -EOPNOTSUPP;
- 	mode = direction == DPLL_PIN_DIRECTION_INPUT ?
-@@ -5873,16 +5880,39 @@ static int ptp_ocp_dpll_frequency_set(const struct dpll_pin *pin,
- 	struct ptp_ocp_sma_connector *sma = pin_priv;
- 	struct ptp_ocp *bp = dpll_priv;
- 	const struct ocp_selector *tbl;
-+	u32 val, aux = 0;
- 	int sma_nr = (sma - bp->sma);
--	int i;
-+	int i, j;
- 
-+	guard(mutex)(&bp->sma_lock);
- 	if (sma->fixed_fcn)
- 		return -EOPNOTSUPP;
- 
- 	tbl = bp->sma_op->tbl[sma->mode];
--	for (i = 0; tbl[i].name; i++)
--		if (tbl[i].frequency == frequency)
--			return ptp_ocp_sma_store_val(bp, i, sma->mode, sma_nr + 1);
-+	for (i = 0; tbl[i].name; i++) {
-+		if (tbl[i].frequency != frequency)
-+			continue;
+-		reg = ioread32(&bp->sma_map1->gpio2);
+-		bp->sma[2].mode = reg & BIT(15) ? SMA_MODE_OUT : SMA_MODE_IN;
+-		bp->sma[3].mode = reg & BIT(31) ? SMA_MODE_OUT : SMA_MODE_IN;
++		for (i = 0; i < OCP_SMA_NUM; i++) {
++			u32 mask = SMA_ENABLE << (16 * (i & 1));
++			bool input = inputs[i / 2] & mask;
++			bool output = outputs[i / 2] & mask;
 +
-+		if (sma->mode == SMA_MODE_IN) {
-+			val = bp->sma_op->get(bp, sma_nr + 1) & SMA_SELECT_MASK;
-+			if (sma->disabled)
-+				val = 0;
-+
-+			for (j = 0; tbl[j].name; j++) {
-+				if (!tbl[j].frequency && (val & tbl[j].value))
-+					aux |= tbl[j].value;
-+			}
-+
-+			/* Some boards encode 10 MHz as an empty selector. */
-+			if (!tbl[i].value && aux) {
-+				NL_SET_ERR_MSG(extack,
-+					       "10 MHz cannot coexist with the current SMA routes");
-+				return -EBUSY;
-+			}
++			bp->sma[i].disabled = !input && !output;
++			/* If both are active, retain this connector's default. */
++			if (!output)
++				bp->sma[i].mode = SMA_MODE_IN;
++			else if (!input)
++				bp->sma[i].mode = SMA_MODE_OUT;
 +		}
-+		return ptp_ocp_sma_store_val(bp, tbl[i].value | aux,
-+					     sma->mode, sma_nr + 1);
-+	}
- 	return -EINVAL;
+ 	}
  }
  
-@@ -5899,7 +5929,9 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
- 	u32 val;
- 	int i;
- 
-+	guard(mutex)(&bp->sma_lock);
- 	val = bp->sma_op->get(bp, sma_nr + 1);
-+	val &= SMA_SELECT_MASK;
- 	tbl = bp->sma_op->tbl[sma->mode];
- 	for (i = 0; tbl[i].name; i++)
- 		if (val == tbl[i].value) {
-@@ -5907,7 +5939,28 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
- 			return 0;
- 		}
- 
--	return -EINVAL;
-+	if (sma->mode == SMA_MODE_OUT)
-+		return -EINVAL;
-+
-+	/* Inputs can feed several destinations, including timestampers. */
-+	*frequency = 0;
-+	for (i = 0; tbl[i].name; i++) {
-+		if (!(val & tbl[i].value))
-+			continue;
-+		val &= ~tbl[i].value;
-+		if (!tbl[i].frequency)
-+			continue;
-+		if (*frequency && *frequency != tbl[i].frequency) {
-+			*frequency = 0;
-+			return 0;
-+		}
-+		*frequency = tbl[i].frequency;
-+	}
-+	/* Unknown destinations do not establish a frequency either. */
-+	if (val)
-+		*frequency = 0;
-+
-+	return 0;
- }
- 
- static const struct dpll_device_ops dpll_ops = {
-@@ -5981,6 +6034,7 @@ ptp_ocp_probe(struct pci_dev *pdev, const struct pci_device_id *id)
- 	 * ptp_ocp_register_resources(), so this sentinel cannot overwrite an
- 	 * adapter number the i2c notifier stores during registration.
- 	 */
-+	mutex_init(&bp->sma_lock);
- 	mutex_init(&bp->cpld_lock);
- 	spin_lock_init(&bp->cpld_adap_lock);
- 	bp->cpld_i2c_adap_nr = -1;
 -- 
 2.54.0 (Apple Git-157)
 
