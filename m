@@ -1,58 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795809012;
-	b=LtJOiCVT09P0yiTIdKQaz3mz4X7Gv04lCfwZ5WXBbSoJElhP46EVQJeCNMOwXtLvoL5b
-	 ag+MAVTktjt5uqZf23utwKiObqEjpVCTOLdrK6BsZEBIrxQqLFLgBbsyX4ppY5l1WaiYr
-	 HGDvUFHhW3xV7F9yuG5T1vMuBcx31s6yojuxJ7iLRIZUNcKboBjC9dLSpjtB86zlPV1NA
-	 zqEEvWxbfbW1TAdqTnxuj/zk0dZ/BNLHGByECwrXtc4axNF2xM4xKP2OOMoQSsMj2zNo6
-	 gIG6PXjMrqjF9wVXNknebaaiSaLm7mwreSdlPzIUvubIO/SRvfIjFDIEitzeXWM7h/w==
+	t=1795809013;
+	b=GOD6c46LOBD/htXF9nFttMVOPEDW6PnwhorCOGDYqDaGmQnsp7ZC4/imIowu9ql+44tT
+	 /+4jbmjXGedI5SDWnEWJw9IN7A1ocpGNab4RvIkLW2FHILyOZgfuj+slZ6P8900GUDvcM
+	 MAxONJFujvXNnFZcGsSYrc12jaDbFwgTw5AIHJlPngepcgxZomP3D3sd5LDP8qsRgIO36
+	 UbPauCgzszfMyDSUaYjwnXAgINDjDc9BTlVf4Ku3y1erOXwj41GDUtaLBB9HbBFDr3Pwg
+	 TBxSmTCuiJO+fyPqA4lvF1ZWxruHU2dokvf/+ubIUoEjsEg2jeXs5JJYy7d1SfoBLkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795809012;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795809013;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=ynGsjLupb9ezEYSfFRC4jvrQAD8ixCMYdXAFP0DySR0=;
-	b=ZUG5Zh9lX2LEoSxMJ8wrBCsoEalt5L/APpze2f3ECy49X3WRC4HH0NhGpTFn3kMiRBxL
-	 NvEbw7FaBF3c8xGpfb6f0P66aAyFiU0KvEnLx1EKWYHv3SzjcmNoXLTb+lzm00KhFP8T6
-	 zr3kJJvze2vfYP90F+1Sxd6i2RvXomBDJOcCu3WTspzhR072LRcpm7j4hx3yL7iZ5WqjE
-	 q5cPPhiw2wP6EH5QSgB94nXzP4suGqm85p6PnN+DcYhprSrXZEpnDvCxAP1XlzUza3u5e
-	 VC5SyWOUStt0dN81l68/FgE/8JpWSaisDDC2TE8m68rTehII4cgnNmaPIVSYZ9K/rGQ==
+	bh=tAoNRwCUUs+SKndxh9duNpJNWIxpt019qbZxASsdh2w=;
+	b=WXZeLy8hD1P7BuFDFjdnLG3j+JW9dxBMyXcALqHiEhvXYaEUJlbUU6hWYEe0BSjEJsn0
+	 IIzh9lnHO/3D0xpgtRbUtIKolvlzWUE1DEs3m+qxrmFXWDgOmwt8c40vIHUq0GCYi89HP
+	 iwsowOAjURDuYGx/+xbpQznu6RbwsjCo55d6cZOdIpc1woslWUahtJaQlz6TSVCRt6MeK
+	 cyezDqgkqTn7AO5OFoz9ATRRzmaTdMdb+dgkvCVbEovdHApb64FBa4luZC0spwQTqiqH9
+	 XrOoCeFJlUBhNXr3rJ9H5g1a+0lr89ZmIv9CwL0wifLdBZsp3SEB8L97D4DyCGehLLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iuIK5XBd;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bbgoOBLF;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCD87606A31E
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 19:50:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3A10606A326
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 19:50:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iuIK5XBd
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F0721F00897;
-	Fri, 27 Nov 2026 19:50:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bbgoOBLF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF3211F00898;
+	Fri, 27 Nov 2026 19:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795809012;
-	bh=ynGsjLupb9ezEYSfFRC4jvrQAD8ixCMYdXAFP0DySR0=;
+	s=k20260515; t=1795809013;
+	bh=tAoNRwCUUs+SKndxh9duNpJNWIxpt019qbZxASsdh2w=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=iuIK5XBdf1arqw2c/AKhNwMazBIcyIRoRvlZeWsKKuF7Og2JzchF7K1JbAr3wji3S
-	 CH7o1/KUo8B6jLKjtA37VMRYay3rizHoIqIcpQ1x0hoKcg+c/gBnluVQH8sfcpefKO
-	 5i36ppmW54wGuy+zuG3Kl5tq9U0dahRgJkd0jjWFrcF50YeM3V4ZFj+p8YvR4w9fY2
-	 ViaMos2FqxpKYMJ2WmKUNuvPuUqnbkTAmzp+rs4zyZGddHK7+Yu8wsCT1ogDb4Ta0f
-	 htc8c6YbBgf64JgAsCWMbLu7GbRHI15+3IpyNZzYwZk1jAsgmmBGR1VlovZmIyVdtu
-	 Xt4yuy9s86jfQ==
-Subject: Re: [PATCH net v3 1/2] net: wwan: iosm: free the MUX after the
- netdevs that use it
+	b=bbgoOBLFBv5dFWMzK5aNvGYInb3eHBtv/lBbrHbzfyY7uPWSpR/waVZ5CDkkwyxLF
+	 48VDPYUqbiP9mYiig3qU/QoeFDFtGoIHzrSEF/+AXoKewWoEJeAGFlCEAl/5wRr3EP
+	 ba8yGHflaJmqhXx+ngDdhMAo3qnOl6xARuY1oUmNzBuZFwLNu+Hk/jCO/w1MwrkuMW
+	 E7LCewdHzAIAUislW1EftCeqFLgX1QhoXg0hqC3VhlOfmjcPhro0S6LEDieIo5vifL
+	 LvHo3WntH5mOcG4ezIuFZ0YFijIsBCZOowUQNz1CjKz4A07JrAIBJh4xiYvcWTivFb
+	 oj12k2picrsww==
+Subject: Re: [PATCH net v3 2/2] net: wwan: iosm: re-bind the driver when the
+ modem rebooted during S3
 From: netdev-bot+sashiko@kernel.org
 To: davidlwesten@gmail.com
 Cc: netdev@vger.kernel.org, loic.poulain@oss.qualcomm.com,
  ryazanov.s.a@gmail.com, johannes@sipsolutions.net, andrew+netdev@lunn.ch,
  davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
  m.chetan.kumar@intel.com, mail@maciej.szmigiero.name
-Date: Fri, 27 Nov 2026 19:50:10 +0000
-Message-ID: <179580901077.3135.14183564471297822250@kernel.org>
-In-Reply-To: <20261126194143.32283-2-davidlwesten@gmail.com>
-References: <20261126194143.32283-2-davidlwesten@gmail.com>
-X-sashiko-severity: Medium
+Date: Fri, 27 Nov 2026 19:50:12 +0000
+Message-ID: <179580901222.3135.1177117602258269899@kernel.org>
+In-Reply-To: <20261126194143.32283-3-davidlwesten@gmail.com>
+References: <20261126194143.32283-3-davidlwesten@gmail.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -65,10 +65,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 4 potential
+Thank you for your contribution! Sashiko AI review found 6 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 (1) · Medium: 4 (1) · Low: 0
+Critical: 0 · High: 1 · Medium: 1 · Low: 4
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,267 +76,323 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] During ipc_imem_cleanup(), each netdev that is up now runs a
-  blocking MUX CLOSE_SESSION command.
-- [Medium] The commit message says closing the netdev tells the modem to
-  close the session "so that it stops writing into the MUX buffers…
-- [Medium] The CLOSE_SESSION command issued by the netdev close runs
-  asynchronously in tasklet context, and nothing in ipc_imem_cleanup()…
-- [Medium] The new IPC_P_OFF_REQ branch in
-  ipc_imem_td_update_timer_start() assumes…
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but
-  ipc_mux_deinit() frees the MUX and nothing clears ipc_imem->mux.
-- [Medium] Concern: ipc_imem_cleanup() cancels td_alloc_timer,
-  tdupdate_timer, fast_update_timer and startup_timer but never…
+- [High] When IOSM_MODEM_GONE is set, the new early `return -EIO` in
+  ipc_protocol_msg_send() (iosm_ipc_protocol.c:72-73) removes the only…
+- [Medium] The re-bind runs synchronously inside the PM_POST_SUSPEND
+  notifier.
+- [Low] ipc_imem_wait_for_run() stops early only on RUN, CRASH or
+  CD_READY.
+- [Low] ipc_imem_wait_for_run() reuses IPC_MODEM_BOOT_TIMEOUT as its loop
+  bound.
+- [Low] ipc_pcie_resume_cb() sets IOSM_MODEM_GONE with a plain set_bit().
+- [Low] ipc_pcie_rebind_if_rebooted() holds device_lock(&pdev->dev) for
+  the whole ipc_imem_wait_for_run() poll, up to 500 x msleep(20), about…
 
 --
 
-net: wwan: iosm: free the MUX after the netdevs that use it
+net: wwan: iosm: re-bind the driver when the modem rebooted during S3
 
-This patch reorders ipc_imem_cleanup() so the MUX is freed after debugfs,
-the ports and the wwan netdevs. It fixes a KASAN use-after-free that hits
-when a netdev that is up gets closed during unbind. It also makes
-ipc_imem_td_update_timer_start() ring the doorbell directly during the
-IPC_P_OFF_REQ phase.
+On resume, this patch reads the exec stage from MMIO. If the modem
+booted again during S3, it sets a new IOSM_MODEM_GONE flag that stops
+doorbells, IRQ processing, messages and the pending-data waits. From the
+PM_POST_SUSPEND notifier it then waits for the modem to reach the run
+stage and re-binds the driver with device_reprobe().
 
 > diff --git a/drivers/net/wwan/iosm/iosm_ipc_imem.c b/drivers/net/wwan/iosm/iosm_ipc_imem.c
-> index 4405c85318880..3ab409166c506 100644
+> index 3ab409166c506..673c5ad403e79 100644
 > --- a/drivers/net/wwan/iosm/iosm_ipc_imem.c
 > +++ b/drivers/net/wwan/iosm/iosm_ipc_imem.c
-> @@ -178,7 +178,8 @@ void ipc_imem_msg_send_feature_set(struct iosm_imem *ipc_imem,
->  void ipc_imem_td_update_timer_start(struct iosm_imem *ipc_imem)
->  {
->  	/* Use the TD update timer only in the runtime phase */
-> -	if (!ipc_imem->enter_runtime || ipc_imem->td_update_timer_suspended) {
-> +	if (!ipc_imem->enter_runtime || ipc_imem->td_update_timer_suspended ||
-> +	    ipc_imem->phase == IPC_P_OFF_REQ) {
->  		/* trigger the doorbell irq on CP directly. */
->  		ipc_protocol_doorbell_trigger(ipc_imem->ipc_protocol,
->  					      IPC_HP_TD_UPD_TMR_START);
 
-[Severity: Medium]
-Does this doorbell reach the modem when the CP is in device sleep?
+[ ... ]
 
-ipc_protocol_doorbell_trigger() goes through ipc_pm_signal_hpda_doorbell()
-with host_slp_check=true. If the link is asleep, ipc_pm_trigger() calls
-ipc_pm_link_activate(). That function only sends the wakeup sleep-control
-IRQ and returns false:
-
-drivers/net/wwan/iosm/iosm_ipc_pm.c:ipc_pm_link_activate() {
-    ...
-			ipc_cp_irq_sleep_control(ipc_pm->pcie, IPC_MEM_DEV_PM_WAKEUP);
-			ipc_pm->ap_state = IPC_MEM_DEV_PM_ACTIVE_WAIT;
-
-			goto not_active;
-    ...
-}
-
-ipc_pm_signal_hpda_doorbell() then only latches the update:
-
-	if (!ipc_pm_trigger(ipc_pm, IPC_PM_UNIT_IRQ, true)) {
-		ipc_pm->pending_hpda_update = true;
-		...
-		return;
-	}
-
-Only ipc_pm_on_link_wake() flushes pending_hpda_update. It is reached via
-ipc_imem_slp_control_exec() from ipc_imem_handle_irq(), which returns early
-for the whole cleanup:
-
-	if (old_phase == IPC_P_OFF_REQ) {
-
-Take an idle wwan0 with the modem in device sleep, which is enabled by
-default via ipc_imem_msg_send_device_sleep(). In that state, would
-CLOSE_SESSION be written to the UL TD ring without the HP doorbell ever
-firing, and the PM handshake be left in IPC_MEM_DEV_PM_ACTIVE_WAIT?
-
-Whether the CP still processes the TD ring after the wakeup IRQ, without an
-HP doorbell, depends on the firmware.
-
-> @@ -1244,10 +1245,10 @@ void ipc_imem_cleanup(struct iosm_imem *ipc_imem)
->  	cancel_work_sync(&ipc_imem->run_state_worker);
+> @@ -1042,6 +1045,44 @@ void ipc_imem_pm_s2idle_sleep(struct iosm_imem *ipc_imem, bool sleep)
+>  	ipc_protocol_s2idle_sleep(ipc_imem->ipc_protocol, sleep);
+>  }
 >  
->  	if (test_and_clear_bit(FULLY_FUNCTIONAL, &ipc_imem->flag)) {
-> -		ipc_mux_deinit(ipc_imem->mux);
->  		ipc_debugfs_deinit(ipc_imem);
-> -		ipc_wwan_deinit(ipc_imem->wwan);
->  		ipc_port_deinit(ipc_imem->ipc_port);
-> +		ipc_wwan_deinit(ipc_imem->wwan);
+> +bool ipc_imem_modem_rebooted(struct iosm_imem *ipc_imem)
+> +{
+> +	if (!test_bit(FULLY_FUNCTIONAL, &ipc_imem->flag))
+> +		return false;
+> +
+> +	switch (ipc_mmio_get_exec_stage(ipc_imem->mmio)) {
+> +	case IPC_MEM_EXEC_STAGE_RUN:
+> +		return ipc_mmio_get_ipc_state(ipc_imem->mmio) ==
+> +		       IPC_MEM_DEVICE_IPC_UNINIT;
+> +	case IPC_MEM_EXEC_STAGE_CRASH:
+> +	case IPC_MEM_EXEC_STAGE_CD_READY:
+> +	case IPC_MEM_EXEC_STAGE_INVALID:
+> +		return false;
+> +	default:
+> +		return true;
+> +	}
+> +}
+> +
+> +bool ipc_imem_wait_for_run(struct iosm_imem *ipc_imem)
+> +{
+> +	int timeout = IPC_MODEM_BOOT_TIMEOUT;
 
-[Severity: Medium]
-Can this stall unbind for a full second per active session while RTNL is
+[Severity: Low]
+This isn't a bug, but iosm_ipc_imem.h documents IPC_MODEM_BOOT_TIMEOUT as
+the wait for the IPC_INIT handshake:
+
+/* Timeout in 20 msec to wait for the modem to boot up to
+ * IPC_MEM_DEVICE_IPC_INIT state.
+ * unit : milliseconds (500 * ipc_util_msleep(20))
+ */
+#define IPC_MODEM_BOOT_TIMEOUT 500
+
+Here the constant bounds a poll of the exec stage for RUN after a full
+reboot. The new kernel-doc, "Wait up to about 10 s for the run stage",
+only stays correct while the constant is 500.
+
+Would a separate constant for this wait be clearer?
+
+> +
+> +	for (;;) {
+> +		switch (ipc_mmio_get_exec_stage(ipc_imem->mmio)) {
+> +		case IPC_MEM_EXEC_STAGE_RUN:
+> +			return true;
+> +		case IPC_MEM_EXEC_STAGE_CRASH:
+> +		case IPC_MEM_EXEC_STAGE_CD_READY:
+> +			return false;
+> +		default:
+> +			break;
+> +		}
+
+[Severity: Low]
+Should IPC_MEM_EXEC_STAGE_INVALID also end this loop early?
+
+ipc_imem_modem_rebooted() above treats INVALID as a stage to leave
+alone. Here, INVALID (0xFFFFFFFF from a device that stopped responding),
+BOOT, PSI and EBL all fall into the default case. They are polled for the
+full 500 x msleep(20).
+
+ipc_pcie_rebind_if_rebooted() only warns when this returns false, and
+then reprobes anyway:
+
+	if (rebooted && !ipc_imem_wait_for_run(ipc_pcie->imem))
+		dev_warn(&pdev->dev, "modem not running after resume");
+	...
+	if (rebooted && device_reprobe(&pdev->dev))
+
+In these cases the wait adds about 10 s under device_lock, inside the PM
+notifier, and the outcome is the same.
+
+The loop also assumes every supported modem gets back to RUN on its own
+after losing power. That was tested on the XMM7360, but
+ipc_pcie_rebind_rebooted() also covers INTEL_CP_DEVICE_7560_ID.
+
+Would a device that stays in ROM waiting for the host hit the full
+timeout on every resume?
+
+While the flag is set, doorbells are suppressed and IRQs are dropped, so
+nothing on the driver side can move the stage forward. Probe already
+handles a device found in the BOOT stage in ipc_imem_init().
+
+> +		if (!--timeout)
+> +			return false;
+> +		msleep(20);
+> +	}
+> +}
+
+[ ... ]
+
+> diff --git a/drivers/net/wwan/iosm/iosm_ipc_pcie.c b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
+> index 49052eb511baa..767a609462b4f 100644
+> --- a/drivers/net/wwan/iosm/iosm_ipc_pcie.c
+> +++ b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
+> @@ -427,6 +427,10 @@ static int __maybe_unused ipc_pcie_resume_cb(struct device *dev)
+>  
+>  	ipc_pcie = pci_get_drvdata(pdev);
+>  
+> +	/* pm_notify() re-binds the driver for a modem that booted again */
+> +	if (ipc_imem_modem_rebooted(ipc_pcie->imem))
+> +		set_bit(IOSM_MODEM_GONE, &ipc_pcie->imem->flag);
+
+[Severity: Low]
+Is a plain set_bit() here enough to stop the driver from talking to the
+rebooted modem?
+
+Device interrupts are enabled again after the resume_noirq phase, before
+this callback runs. An MSI in that window makes ipc_imem_irq_process()
+queue ipc_imem_tq_irq_cb while the flag is still clear. That task, or one
+already queued or running on another CPU, then runs ipc_imem_handle_irq()
+against the stale shared memory.
+
+Every new reader does a lockless test_bit() and then acts. For example,
+in ipc_doorbell_fire():
+
+	if (ipc_pcie->imem && test_bit(IOSM_MODEM_GONE, &ipc_pcie->imem->flag))
+		return;
+
+	ipc_write_dbell_reg(ipc_pcie, irq_n, data);
+
+There is no synchronize_irq() and no drain of the IPC task queue after the
+bit is set. Does the commit message's "the driver then neither talks to
+it nor waits for it" actually hold?
+
+[ ... ]
+
+> @@ -532,6 +536,37 @@ void ipc_pcie_kfree_skb(struct iosm_pcie *ipc_pcie, struct sk_buff *skb)
+>  	dev_kfree_skb(skb);
+>  }
+>  
+> +static void ipc_pcie_rebind_if_rebooted(struct pci_dev *pdev)
+> +{
+> +	struct iosm_pcie *ipc_pcie;
+> +	bool rebooted = false;
+> +
+> +	device_lock(&pdev->dev);
+> +	if (pdev->dev.driver == &iosm_ipc_driver.driver) {
+> +		ipc_pcie = pci_get_drvdata(pdev);
+> +		rebooted = test_bit(IOSM_MODEM_GONE, &ipc_pcie->imem->flag);
+> +		/* Let probe find it in the run stage, as after a cold boot */
+> +		if (rebooted && !ipc_imem_wait_for_run(ipc_pcie->imem))
+> +			dev_warn(&pdev->dev, "modem not running after resume");
+> +	}
+> +	device_unlock(&pdev->dev);
+> +
+> +	if (rebooted && device_reprobe(&pdev->dev))
+> +		dev_err(&pdev->dev, "re-binding the driver failed");
+> +}
+
+[Severity: Low]
+Does the ipc_imem_wait_for_run() poll need to run with device_lock()
 held?
 
-ipc_imem_cleanup() sets ipc_imem->phase = IPC_P_OFF_REQ before it gets
-here, and the MUX is now still MUX_S_ACTIVE when the netdevs are closed:
+The poll only reads MMIO, but it can sleep for up to 500 x msleep(20)
+while holding the lock. Anything else that takes this device's lock
+blocks for that long. That includes sysfs bind/unbind and
+device_release_driver() from pciehp or AER removal.
 
-wwan_unregister_ops()   <- rtnl_lock()
-  unregister_netdevice_many()
-    ipc_wwan_link_stop()
-      ipc_imem_sys_wwan_close()
-        ipc_mux_close_session()
-          ipc_mux_schedule(MUX_E_MUX_SESSION_CLOSE)
-            ipc_mux_session_close()
-              ipc_mux_dl_acb_send_cmds(..., blocking=true)
-                ipc_mux_acb_send()
+The lock is then dropped before device_reprobe(). device_reprobe()
+re-reads dev->driver and detaches whatever is bound at that moment.
 
-ipc_mux_acb_send() waits on channel->ul_sem for up to
-IPC_MUX_CMD_RUN_DEFAULT_TIMEOUT (1000 ms). For a MUX command, only
-ipc_mux_dl_cmdresps_decode_process() completes ul_sem. It is reached only
-via ipc_imem_dl_pipe_process() from ipc_imem_handle_irq(), which drops
-every MSI in IPC_P_OFF_REQ:
+Userspace is already thawed at this point. Could a sysfs unbind/bind or
+a driver_override change between device_unlock() and device_reprobe()
+make the dev->driver check above stale?
 
-	if (old_phase == IPC_P_OFF_REQ) {
-		dev_dbg(... "Ignoring MSI. Deinit sequence in progress!" ...);
-		return;
+[ ... ]
 
-So the wait always runs out. After the timeout, ipc_mux_acb_send() logs
-"ch[%d] timeout" and sends UEVENT_MDM_TIMEOUT right after MDM_NOT_READY.
-ipc_mux_session_close() then logs "CLOSE_SESSION send failed".
-
-This repeats for each session that is up, up to
-IPC_MEM_MUX_IP_SESSION_ENTRIES, all under RTNL. Nothing gates it on the link
-being active, so surprise removal hits it too.
-
-The port closes behave much the same, since ipc_protocol_msg_send() waits
-500 ms per pipe. So "The reply is ignored, as for the port closes" is
-accurate, but those waits do not happen under RTNL.
-
-The later patch in the series ("re-bind the driver when the modem rebooted
-during S3") short-circuits ipc_mux_dl_acb_send_cmds() only when
-IOSM_MODEM_GONE is set, so a normal unbind still stalls.
-
-Should the session close be skipped or made non-blocking during cleanup?
-If not, should the commit message at least mention the stall?
-
-> +		ipc_mux_deinit(ipc_imem->mux);
+> @@ -551,6 +586,8 @@ static int pm_notify(struct notifier_block *nb, unsigned long mode, void *_unuse
+>  				pci_registered = true;
+>  			}
+>  		}
+> +	} else if (mode == PM_POST_SUSPEND) {
+> +		ipc_pcie_rebind_rebooted();
+>  	}
 
 [Severity: Medium]
-The commit message says closing the netdev "tells the modem to close the
-session, so that it stops writing into the MUX buffers before they are
-freed". Is that ordering actually enforced?
+Is it ok to do this work synchronously in the PM_POST_SUSPEND notifier?
 
-In IPC_P_OFF_REQ the CLOSE_SESSION reply is never decoded, so the host
-never learns whether the modem acted on it.
+The notifier runs after tasks are thawed and before the console is
+restored:
 
-The wait in ipc_mux_acb_send() is interruptible, and only a 0 return counts
-as failure. A pending signal makes it return -ERESTARTSYS at once:
+kernel/power/suspend.c:suspend_finish() {
+	suspend_thaw_processes();
+	filesystems_thaw();
+	pm_notifier_call_chain(PM_POST_SUSPEND);
+	pm_restore_console();
+}
 
-	if (wait_for_completion_interruptible_timeout
-		   (completion, msecs_to_jiffies(wait_time_milliseconds)) ==
-		   0) {
+enter_state() releases system_transition_mutex only after this returns.
 
-When the last session closes, ipc_mux_channel_close() calls
-ipc_imem_channel_close(). That skips the PIPE_CLOSE messages but still
-frees the TD buffers:
+Here, pm_notify()->ipc_pcie_rebind_rebooted()->
+ipc_pcie_rebind_if_rebooted() polls ipc_imem_wait_for_run() for up to
+about 10 s. Then device_reprobe() runs a full remove and probe, and probe
+can poll again for up to 500 x msleep(20) in ipc_imem_ipc_init_check().
 
-	if (ipc_imem->phase == IPC_P_RUN) {
-		ipc_imem_pipe_close(ipc_imem, &channel->ul_pipe);
-		ipc_imem_pipe_close(ipc_imem, &channel->dl_pipe);
-	}
+Several things can then wait up to about 20 s on the modem: the write to
+/sys/power/state, the console restore, and any new suspend attempt, which
+gets -EBUSY from mutex_trylock().
 
-	ipc_imem_pipe_cleanup(ipc_imem, &channel->ul_pipe);
-	ipc_imem_pipe_cleanup(ipc_imem, &channel->dl_pipe);
+During that window userspace is running against the old driver
+instance. ipc_imem_sys_port_open() still refuses opens because the stage
+it sees is stale or not RUN. That is the "PORT open refused" symptom from
+the commit message. Messages fail with -EIO. After that, all ports and
+wwan0 are torn down and created again.
 
-ipc_imem_pipe_cleanup() -> ipc_protocol_pipe_cleanup() unmaps and frees
-the UL and DL skbs. That includes the CLOSE_SESSION ACB that was just
-doorbelled and the DL buffers the reply would be written into. The modem
-is told IPC_UNINIT only later, in ipc_imem_device_ipc_uninit().
+Could the re-bind be deferred to a work item instead? The commit message
+also doesn't mention the delay or that wwan0 and the ports are recreated.
 
-Freeing the MUX pipe buffers without a device handshake predates this
-patch, but the patch adds a new TD that the device is told to process.
-
-If the modem reads the ACB or writes the response after these buffers are
-freed, can that cause an IOMMU fault? Without an IOMMU, can it cause a DMA
-write into freed memory?
-
-[Severity: Medium]
-Can the queued CLOSE_SESSION command still touch the MUX after
-ipc_mux_deinit() frees it?
-
-ipc_mux_acb_send() queues the command asynchronously:
-
-	int ret = ipc_task_queue_send_task(ipc_mux->imem, ipc_mux_tq_cmd_send,
-					   0, &ipc_mux->acb,
-					   sizeof(ipc_mux->acb), false);
-
-ipc_mux_tq_cmd_send() later does:
-
-	struct iosm_mux *ipc_mux = ipc_imem->mux;
-	...
-	skb_queue_tail(&ipc_mux->channel->ul_list, acb->skb);
-
-Only the interruptible wait above orders this before the free. If a signal
-is pending, that wait returns at once and the netdev teardown continues.
-ipc_mux_deinit() then calls kfree(ipc_mux) without clearing
-ipc_imem->mux.
-
-The tasklet is killed only later, in ipc_task_deinit(), which runs after
-the sleeping ipc_imem_device_ipc_uninit().
-
-If the ipc_task tasklet has not run by the time of the kfree,
-ipc_mux_tq_cmd_send() would dereference the freed MUX. That is the same
-class of bug this patch is fixing.
-
-Does the MUX free need to happen after the task queue is drained, rather
-than just later in the sequence?
-
-[Severity: Medium]
-This isn't a bug introduced by this patch, but ipc_imem_cleanup() cancels
-four of the hrtimers and never cancels adb_timer:
-
-	hrtimer_cancel(&ipc_imem->td_alloc_timer);
-	hrtimer_cancel(&ipc_imem->tdupdate_timer);
-	hrtimer_cancel(&ipc_imem->fast_update_timer);
-	hrtimer_cancel(&ipc_imem->startup_timer);
-
-ipc_imem_adb_timer_start() has no IPC_P_OFF_REQ guard like the one added to
-ipc_imem_td_update_timer_start(). ipc_imem_tq_adb_timer_cb() calls
-ipc_mux_ul_adb_finish(ipc_imem->mux) on a pointer that is never cleared.
-
-ipc_mux_tq_ul_trigger_encode() can still arm adb_timer if it was queued
-before the phase store, and the phase check is a plain, unordered load.
-
-This patch makes the window much smaller, because ipc_mux_deinit() now runs
-after the port and netdev teardown. A use-after-free would now need the
-tasklet to be starved for that whole period. Only the MUX_AGGREGATION
-(7560) path uses adb_timer.
-
-The later patch in the series only adds an IOSM_MODEM_GONE check to
-ipc_imem_adb_timer_start().
-
-Should adb_timer be cancelled along with the other timers?
+> diff --git a/drivers/net/wwan/iosm/iosm_ipc_protocol.c b/drivers/net/wwan/iosm/iosm_ipc_protocol.c
+> index 527355a671b64..a49a45ed0b0de 100644
+> --- a/drivers/net/wwan/iosm/iosm_ipc_protocol.c
+> +++ b/drivers/net/wwan/iosm/iosm_ipc_protocol.c
+> @@ -69,6 +69,9 @@ int ipc_protocol_msg_send(struct iosm_protocol *ipc_protocol,
+>  	/* Trap if called from non-preemptible context */
+>  	might_sleep();
+>  
+> +	if (test_bit(IOSM_MODEM_GONE, &ipc_protocol->imem->flag))
+> +		return -EIO;
 
 [Severity: High]
-This is a pre-existing issue, but ipc_mux_deinit() frees the MUX without
-clearing ipc_imem->mux. Does that leave a reachable use-after-free on the
-error path of ipc_imem_run_state_worker()?
+Can this early return let ipc_imem_pipe_close() free the pipe rings while
+the IPC tasklet is still writing into them?
 
-	err_ipc_mux_deinit:
-		ipc_mux_deinit(ipc_imem->mux);
-	err_out:
-		ipc_uevent_send(ipc_imem->dev, UEVENT_CD_READY_LINK_DOWN);
+Before this patch, ipc_imem_pipe_close() waited for the tasklet to run
+the IPC_MSG_PREP_PIPE_CLOSE task, because msg_send queues it with
+ipc_task_queue_send_task(..., wait=true). The task queue is FIFO and a
+tasklet never runs on two CPUs at once. So any earlier UL work on the
+channel had finished before the cleanup ran:
 
-ipc_imem_wwan_channel_init() can fail in three ways: the CP version reads
-back as -1, ipc_wwan_init() fails to allocate, or wwan_register_ops()
-fails. In each case the MUX is freed, FULLY_FUNCTIONAL is not set, and
-ipc_imem->mux is left dangling.
+drivers/net/wwan/iosm/iosm_ipc_imem.c:ipc_imem_pipe_close() {
+	...
+	pipe->is_open = false;
+	ipc_protocol_msg_send(ipc_imem->ipc_protocol, IPC_MSG_PREP_PIPE_CLOSE,
+			      &prep_args);
 
-The modem stays in the run phase, so later MSIs reach ipc_imem_handle_irq()
-in IPC_P_RUN:
+	ipc_imem_pipe_cleanup(ipc_imem, pipe);
+}
 
-	if (ipc_mux_ul_data_encode(ipc_imem->mux)) {
-		ipc_imem_td_update_timer_start(ipc_imem);
-		if (ipc_imem->mux->protocol == MUX_AGGREGATION)
+With IOSM_MODEM_GONE set, msg_send now returns -EIO right away. Then
+ipc_imem_pipe_cleanup()->ipc_protocol_pipe_cleanup() frees
+pipe->skbr_start with kfree() and pipe->tdr_start with
+dma_free_coherent(), and sets both to NULL.
 
-ipc_mux_ul_data_encode() handles a NULL pointer but not a dangling one. The
-ipc_imem->mux check in ipc_imem_sys_wwan_close() also assumes the pointer is
-cleared after the free.
+On the tasklet side, ipc_imem_ul_write_td() only does a lockless state
+check before using the rings:
 
-Would setting ipc_imem->mux to NULL after ipc_mux_deinit() fix this? It
-would also harden the cleanup path that this patch reorders.
+	if (channel->state != IMEM_CHANNEL_ACTIVE)
+		continue;
+	...
+	ipc_protocol_ul_td_send(ipc_imem->ipc_protocol, pipe, ul_list);
+
+and ipc_protocol_ul_td_send() writes into them:
+
+	td = &pipe->tdr_start[head];
+	...
+	pipe->skbr_start[head] = skb;
+
+The new goto close in ipc_imem_sys_port_close() does only a plain store,
+channel->state = IMEM_CHANNEL_CLOSING, just before the free. A tasklet
+that has already seen ACTIVE keeps going.
+
+UL tasklet work can still be queued while the flag is set.
+ipc_imem_sys_cdev_write() has no IOSM_MODEM_GONE check and queues
+ipc_imem_tq_cdev_write with wait=false. That task walks all active
+channels, not just the writer's:
+
+CPU1 (IPC tasklet)                     CPU2
+ipc_imem_tq_cdev_write()
+  (queued by a write to port A)
+  ipc_imem_ul_send()
+    ipc_imem_ul_write_td()
+      sees port B channel ACTIVE
+                                       port B closed (wwan_port_op_stop,
+                                       or ipc_port_deinit() in reprobe)
+                                       ipc_imem_sys_port_close()
+                                         goto close
+                                         ipc_imem_pipe_close()
+                                           ipc_protocol_msg_send() -> -EIO
+                                           ipc_protocol_pipe_cleanup()
+                                             frees tdr_start, skbr_start
+      ipc_protocol_ul_td_send()
+        writes pipe->tdr_start[head]
+        writes pipe->skbr_start[head]
+
+Wouldn't CPU1 then write into freed slab or DMA memory, or dereference
+NULL plus head, and also leak the stored skb?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126194143.32283-1-davidlwesten%40gmail.com
