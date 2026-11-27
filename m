@@ -1,79 +1,131 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795784035;
-	b=ytSmH0RfdOu2ZtVQZttqrgeZkc7G/Qfhkv/jrNBj8rsX1TJ8l/1A+Nys3QHv3oApJSU4
-	 eY1zGc4h2k+ROh0XArB8B3lRR8TnSVUWbbQvUrXmNsnxqgMDLV1C5bXHlyTORW+s6GVhX
-	 41o2KRYZkX9GZZjX00o0AklAHLW6+X8LiZTdw7+7TXwW7JW9O4yDQIHnNDp5Ew4iy8yAt
-	 kFP9PJD9SPeYGSSCpggDkAOHLynt4KjXu59DTSevBGpJOMoh6AlDrTS0GkC/xKeH8+GyP
-	 FDnG9JxQFYgJXlSKs2F3eBI84Dg/wwT4M5iLv+3KhvpQMwKFSrRsXYFdoZuh12GoJrA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795784035;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=jNPW/Pg0JpLswGfcRTLclR+xYs8LeJ8SC8w+XDaMugA=;
-	b=Nzl4lysMZM6Zpz7R8lTj6nKBAg5UUXGn3TPhUXf6xx5V4ytbCw0g1u8S9JkZqC9esA9Y
-	 TIpg4HQS6s7/nBGhSDbWEk3i6R1CW/1ZO80zvPIeYZ3KGws3CDayUWVIYkXyd57ZdehE/
-	 UnPWvLQbpFjAEmUx3SoFEbHdKtHc4t7L3vNOQh4vEwN9G2DtBRWiLJgxiHkkO1gk331v2
-	 ISs0GC6Ms0QUNaN8Eg2McUaoemzZqsFeNQPofH9g8zRK+OT/KDbyApBCmhyrYy3gZf+HC
-	 erHVVXJ9b3bb+Pi95lz7Wz1IVtRcO1fyYBJajd0gHtMAYlKO0rsZJJQzqMrEDW9DXxQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SSVWwg7z;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D85DB606A698;
-	Fri, 27 Nov 2026 12:53:55 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SSVWwg7z
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795784035;
-	b=U3SbJhjHMlaPwjdfye9YLBKsC6lZ/JIj3H0KltIK7twEfxWR95AllUMkf+4EEGmjgmH2
-	 jws6fw8+b8oVR8YOitgHhiYHulR5fFCwZWnq5DoZ6hNXf1osz6fvG8JRnx0o4v99QNYnB
-	 B60fYWie7T6K3WMp5RnGiKtaDdACQoqOQM+63LUl0QESHrtNlGCCLE/fkBfpuzYG3rj5Y
-	 lKHpAq4KQyN7FwIlJS8qksYG6FhgNf+oZXtWk9GMo81IaKThel8oJ7zonMNUzhWXFB/94
-	 u82UgGTZcLPPdLBtg/09eOE2v6ctytBvnzyBJErD9o3LFPn/4SPDmFiRbWLOryGzyQw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795784035;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=jNPW/Pg0JpLswGfcRTLclR+xYs8LeJ8SC8w+XDaMugA=;
-	b=HvOFH5kiYiC9bCABfom2DMhEsaVhuZeOKEf/UF6rlN1OvJc/n54FcvzmsdTSucf9No3D
-	 aaUGyyBG/xWxrb/HEG2utxqUE+LlzT7/vQSaX7eqQn5/bglPvhQFuADHSDXaQYj7VQFis
-	 WT6RJKXz7rEJW7l+MnlnESlAkT2Yf3LnJgShzFBvH7tQhcUEWkGfQv8PXi7pYeqsUD9UO
-	 IxZlz71wjpoQOJs4BpiCnsk9DSDyw0ZVGvQ5q/0lI9cRakjgnHPHcpz5Bk5dO56JpzXM2
-	 spVtozYTEzepWRjUvluh/0UXQQNWOWEHwZmxOLQueLPfy14HmKAUkPeBqP8Y3ZqDSIQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.174
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795784277;
+	b=BdpcjKOT8CfIyePCUv4B27uHXXC5Re9nKeLBVwuaChjNK3pzdi/jscf+Pr90tz9uipEW
+	 uWTjsTYogbzLodcTN7F9XBmYUe1SwoNH9CskZ1SKgNHWG7yEVt1amu7AQuzbj0SWazrTH
+	 zN0OGGVcvnwRwRnuQ2qaC1H/vDqg7DSo1e3rulMbTH2URB8PZMmnBPvhXB1Y8f5Gt5PFE
+	 JXuqDv1tgvmLjI2Ou0pGfJe6szMn74rhL74UGat2MgiW9LygCEAE5dPvtN9XWhX4PFxWN
+	 i20h0AH1YgJUeN0tDplROiQC75XaSjLEXHS4wCI4GZHP1zUmVA1jr2c/UNrX2B/NO9g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795784277;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=hpgxxji67KrMZBTg6jUjcNbfY5cNwEwJL3jB25wL4Zo=;
+	b=zXv/ollgXuTodY7Q/e0VM7caCZDcN6DuIIAyfBaBO7JWl0tpXCwLt4UbxHC2yMLjKsGZ
+	 SkbmT9bj+a2XI0XunzpCq9G9Q6Oybhwchw0PyiLVHlkKUm7KlOni/4qyE9BNH32ZQQk51
+	 S21NMg5MyPKzXIyZdeDkJO3vyERsK8BQvBEABopNx2rJtg2ppzMrIzvL0v+pE3UfUDv/Y
+	 aOiQwci4LoppgbdL/p0HKemCkfVfb7zIsriV4r15x7UqQozMYisvpbz6wWnkzY5q3E7AB
+	 AN5rvIq9MA6k571ikc1yYrA5Q73QPQO4xjYg4p8PKlMzdkyDlQh45bjyFcP+pjAfNFw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=ziepe.ca;
+	spf=pass smtp.mailfrom=ziepe.ca;
+	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=j7O+BfN8;
+	arc=none smtp.remote-ip=209.85.160.174
+Received: from mail-qt1-f174.google.com (mail-qt1-f174.google.com [209.85.160.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4702D1F00897;
-	Fri, 27 Nov 2026 12:53:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795784035;
-	bh=jNPW/Pg0JpLswGfcRTLclR+xYs8LeJ8SC8w+XDaMugA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=SSVWwg7zocvsz3XbGX9HmYewyBy5TBnwBR8I2wDNVAHoailOuWWlGj+YwMI/SuJe+
-	 QcapfLNGIbJxIIYgWTU46ulw5/s7TeTxFTstPLutJI4qyaBxLA/NlTKRIqnhOUSLbF
-	 jWxPGogVt0dqPRWI2L2mufs0kZO1skglYHg38az1LSsfYdNYNOVsXEX1pjX1rM0BpW
-	 fpzpSEZjIkTK55cKtas8NpN0BDCW7yV0wTI3jqGaUeofwmo0jbxkS8685NMraf0k++
-	 nGEFu7OrMhutzpaLgkWpOLCUiBBh0GEBLR0J6XwShH/2jIxvmvKtWdBRZk4oRDDCPJ
-	 sp//XZUjj5uTg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id CA98D4B7A9;
-	Fri, 27 Nov 2026 12:53:44 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Fri, 27 Nov 2026 15:53:44 +0300
-Subject: [PATCH net-next v4 1/3] dt-bindings: net: Add Cortina CS7542
- network engine
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1B3F606A31F
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 12:57:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1B3F606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=j7O+BfN8
+Received: by mail-qt1-f174.google.com with SMTP id d75a77b69052e-55dc111ae86so15898181cf.1
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 04:57:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1795784275; x=1796389075; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hpgxxji67KrMZBTg6jUjcNbfY5cNwEwJL3jB25wL4Zo=;
+        b=j7O+BfN8/f6PwjasmxVhCBoceSC0sabwtMYxOvl/V+So2Mtlli7upfWXQOxdcMdwlP
+         kdbWoj9wMH2VLhhxx9/W4qCwnXSv4SqCJA4dPFpucC+JLWjduqow4FxZ+HWokuT7I32r
+         ZWkzzsm9oj4IR+X9hFXovpTueZ77GXxtTqpSEnUit2eZjN+4tGNr/uSL7JrpEgDwlfsZ
+         gb6ILQTqqyaZeZUvLD8uZG2VKKCPgLdNfX2MOIWU/36VOy9usYwIOe5sNoISKHnEYyvA
+         l0mQ01iQ4VywPJOhfdj9Spm6TD5MFnNoXSCtVssrDxM7oa6Cq3wIYpgkEkUlt2jLsmWD
+         VJ/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795784275; x=1796389075;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=hpgxxji67KrMZBTg6jUjcNbfY5cNwEwJL3jB25wL4Zo=;
+        b=k70mCE1H6dRqOEcf5OqdobdgkqVBaP2yq/ClP8CIQwjSYwqTPE2F16m/7QAunwBtCs
+         MjB+04jth/CET1h5xptAdlIJ3o8NnSfNXAwtdVOa7cdBCvDBSygnLs3cmLSWeU9DX8Gf
+         3MtELCeNM+9mkQt0lkgdLlfOlBWoekqb2vVG7uUYLEsq/cn/Mr5/1iIDZ8ftYqGmVDHD
+         jzrs5qAsF+r5tHiFqpaMF5RRAVuaq8lWsVpKWBj74hOiANkzz5pY+lpqQn4t7Pov42i0
+         O3GFjsgXvsdtBS35b2IIrFEp2a2BFHIsTo0+sO4i3RXo0nrPZA7v9rEaYmduq+fzWh1G
+         +Gfw==
+X-Forwarded-Encrypted: i=1; AL+hErHitUhEd8KEGmOWYyFuoM2JLmm1ZlsntbGutdSl9SFiFjiqMWAORuD1BK5VG4ysZocndiyCxmI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+euztMQpsYt8ltyRBDtI92NjC9r2zPMOoYzmcKg/z+6y9NRafp
+	BkON4opyDNpxq1e8FqmJr+7jDnpnYIvbhWkqN+aEhbJDr+CaWaBzLjZiYpqpukop4To=
+X-Gm-Gg: AZFdTZfPh3mYhWLdCRZwZC8ZKn03AupAdci9JLLR8PczgkHWxr7EKwMFQLsK9aN4TxX
+	kvs9KGC8Iv+8lMokOBJP2e3NII22Y6zo2sFTPkLp4Qnzke8KF661QLG1BS/DEGQ/zTEULdF0RAi
+	nUPRvz4b4F9jWHUPT3OPlkiMq2LhQxu/CesMFho2yDdvCcFsbLR2tJjP41dzeDS+N1RBCFsjQlL
+	LBoWHzBprXzCLlxCDg+hZepi8kTu/9wR2QBTagh/PptyDxKdYY0KMGuJMkzVVnMVC5OQQdWWyFn
+	hBvgYS+v4g/hWX1OzV/Z7ohlDtle8LctrR6eMP5mWJO6GF5Ajv3kpqQTs9QUC6IXJqieJb9p2Ye
+	tAJM8QKjwOSpzNB6FtFn1dNmr3+no7oKS0+ZYN6sgmcfJLgb05B6BVCKMWqdd1UthRRuaePkxgw
+	OJqF+q7bkhqa6C/cQUfZhjYxrSD1Mh+4xTW0cGKo6OFfZhEnip2U1CvkEcfOK5sW0NaBx1eScc7
+	g8IZWlQTzGBzyIeZecTc7tqB+SXcgT7xxJFpJlz0TvcOskt11q9iChM3XeAz/IPGIdSEMX/pxDG
+	YT+wUQ==
+X-Received: by 2002:a05:622a:48d:b0:55d:3689:913 with SMTP id d75a77b69052e-55d76aad14fmr455567241cf.77.1795784275571;
+        Fri, 27 Nov 2026 04:57:55 -0800 (PST)
+Received: from ziepe.ca ([142.177.118.84])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55dbeae112bsm55627651cf.8.2026.11.27.04.57.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 04:57:55 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xWvWT-00000006hYF-3LIW;
+	Fri, 27 Nov 2026 08:57:53 -0400
+Date: Fri, 27 Nov 2026 08:57:53 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>
+Cc: Dave Airlie <airlied@gmail.com>, Alistair Popple <apopple@nvidia.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Thomas =?utf-8?Q?Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	Matthew Brost <matthew.brost@intel.com>,
+	Vivek Kasireddy <vivek.kasireddy@intel.com>,
+	Dongwon Kim <dongwon.kim@intel.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	Karl Mehltretter <kmehltretter@gmail.com>,
+	Baolu Lu <baolu.lu@linux.intel.com>,
+	Felix Kuehling <felix.kuehling@amd.com>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
+	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+	linux-rdma@vger.kernel.org, iommu@lists.linux.dev,
+	Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
+	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
+	linux-nvme@lists.infradead.org,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Mina Almasry <almasrymina@google.com>, netdev@vger.kernel.org,
+	Alexey Kardashevskiy <aik@amd.com>, zhipingz@meta.com,
+	treding@nvidia.com, jhubbard@nvidia.com, chaitanyak@nvidia.com,
+	Leon Romanovsky <leon@kernel.org>
+Subject: Re: [PATCH v3 03/24] dma-buf: Add the SGT DMA mapping type
+Message-ID: <20261127125753.GS246011@ziepe.ca>
+References: <20261120-dma_mapping_type_v4-v3-0-c0183a409bdf@nvidia.com>
+ <20261120-dma_mapping_type_v4-v3-3-c0183a409bdf@nvidia.com>
+ <ad46d60a-189d-4dd5-9ad8-ecfd3c90f9d9@amd.com>
+ <20261123165716.GM179082@ziepe.ca>
+ <7ac7edd0-5c38-440a-b26a-21bcbb6f4702@amd.com>
+ <awT8prWsj11TBdmP@nvdebian.thelocal>
+ <63eb7b6e-e0a8-4443-a434-0301ed59beae@amd.com>
+ <CAPM=9txheaE3=fp7=n4fYh-xshxOm+Tv=eQn9wvHVAc-b1JKDQ@mail.gmail.com>
+ <79d62f9a-cea8-4149-a673-7ef86942410d@amd.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,221 +135,72 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-b4-cs7542-ethernet-v4-1-ea4d8cd6ef18@gmail.com>
-References: <20261127-b4-cs7542-ethernet-v4-0-ea4d8cd6ef18@gmail.com>
-In-Reply-To: <20261127-b4-cs7542-ethernet-v4-0-ea4d8cd6ef18@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- "David S. Miller" <davem@davemloft.net>, 
- Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Russell King <linux@armlinux.org.uk>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, 
- Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
- Russell King <linux@armlinux.org.uk>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795784023; l=5895;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=gW8wVv5EV4Zs86pnqMUV410Pvkh5hZkkf0TYPGZzyKQ=;
- b=rydaq6M37exzwTMABHibeNXrQCRh+Ws4WtRNELtWTCKMia89Dt/dgQe8nYkGQdnqN/+Fz5nek
- ddpd3QcgfUaDVUL1a55HHYySFlgTeqkMkRICXw+fxbhR5nnJnxXlE5q
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
-Reply-To: filipp.dunsky@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <79d62f9a-cea8-4149-a673-7ef86942410d@amd.com>
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
+On Fri, Nov 27, 2026 at 09:04:15AM +0100, Christian König wrote:
 
-Describe the CS7542 network engine register windows, interrupts, GMACs
-and reserved queue-manager memory. Require exclusive ownership of the
-seven NI/FE/TM/SCH/QM/DMA/NI-XRAM reset controls from the global provider.
-The shared DMA line includes both LSO and SSP. Use rgmii-id for the
-example switch peer which inserts RX and TX clock delays.
+> If we somehow prevent the CPU physical address from being casted to
+> a struct page and/or used with vmf_insert_pfn/page/dma_map_page
+> etc.. then there is not much of a problem with passing around
+> physical addresses.
 
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
----
- .../bindings/net/cortina,cs7542-ethernet.yaml      | 162 +++++++++++++++++++++
- 1 file changed, 162 insertions(+)
+I already offered that in v1 of the series using limits on
+EXPORT_SYMBOL and you NAK'd it too.
 
-diff --git a/Documentation/devicetree/bindings/net/cortina,cs7542-ethernet.yaml b/Documentation/devicetree/bindings/net/cortina,cs7542-ethernet.yaml
-new file mode 100644
-index 000000000..c5ba9b30e
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/cortina,cs7542-ethernet.yaml
-@@ -0,0 +1,162 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/cortina,cs7542-ethernet.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Cortina Systems CS7542 network engine
-+
-+maintainers:
-+  - Fil Dunsky <filipp.dunsky@gmail.com>
-+
-+description: |
-+  The CS7542 network engine contains three GMACs, the network interface (NI),
-+  forwarding engine (FE), queue manager (QM), traffic manager (TM), scheduler,
-+  CPU XRAM interface and packet DMA. The CPU datapath uses the DMA-LSO TX
-+  queue and QM-managed RX buffers. The complete DMA-LSO/SSP register block
-+  and the combined reset domain must be exclusively owned by this device;
-+  a separate SSP DMA consumer cannot operate concurrently. A NAND controller
-+  using PIO does not consume that DMA block.
-+  The three GMAC station addresses share their first five bytes in NI
-+  registers; only the last byte is independent for each port.
-+
-+properties:
-+  compatible:
-+    const: cortina,cs7542-ethernet
-+
-+  reg:
-+    items:
-+      - description: NI registers
-+      - description: Complete DMA-LSO and DMA-SSP registers
-+      - description: FE registers and indirect table interfaces
-+      - description: QM registers
-+      - description: TM registers
-+      - description: Scheduler registers
-+      - description: CPU XRAM
-+
-+  reg-names:
-+    items:
-+      - const: ni
-+      - const: dma
-+      - const: fe
-+      - const: qm
-+      - const: tm
-+      - const: sch
-+      - const: xram
-+
-+  interrupts:
-+    items:
-+      - description: GMAC0 CPU receive queue interrupt
-+      - description: GMAC1 CPU receive queue interrupt
-+      - description: GMAC2 CPU receive queue interrupt
-+
-+  interrupt-names:
-+    items:
-+      - const: eth0
-+      - const: eth1
-+      - const: eth2
-+
-+  cortina,global-syscon:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: Global control syscon for network drive strength and status.
-+
-+  resets:
-+    items:
-+      - description: Network interface reset.
-+      - description: Forwarding engine reset.
-+      - description: Traffic manager reset.
-+      - description: Scheduler reset.
-+      - description: Queue manager reset.
-+      - description: Shared DMA-LSO/SSP reset, exclusively owned by this consumer.
-+      - description: Network interface XRAM reset.
-+
-+  reset-names:
-+    items:
-+      - const: ni
-+      - const: fe
-+      - const: tm
-+      - const: sch
-+      - const: qm
-+      - const: dma
-+      - const: xram
-+
-+  memory-region:
-+    maxItems: 1
-+    description: |
-+      Reserved no-map DDR region used by the packet queue manager. Initial
-+      support uses the upper 64 MiB of the 512 MiB DDR layout at 0x1c000000.
-+
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 0
-+
-+patternProperties:
-+  "^ethernet-port@[0-2]$":
-+    type: object
-+    $ref: ethernet-controller.yaml#
-+    unevaluatedProperties: false
-+    properties:
-+      reg:
-+        maxItems: 1
-+      phy-mode:
-+        enum: [rgmii, rgmii-id, rgmii-rxid, rgmii-txid]
-+    required:
-+      - reg
-+      - phy-mode
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - interrupt-names
-+  - cortina,global-syscon
-+  - resets
-+  - reset-names
-+  - memory-region
-+  - "#address-cells"
-+  - "#size-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/reset/cortina,cs7542-reset.h>
-+
-+    ethernet@f0010000 {
-+        compatible = "cortina,cs7542-ethernet";
-+        reg = <0xf0010000 0x500>, <0xf0090000 0x800>,
-+              <0xf0020000 0x4000>, <0xf0030000 0x400>,
-+              <0xf0040000 0x800>, <0xf0060000 0x100>,
-+              <0xf0400000 0x100000>;
-+        reg-names = "ni", "dma", "fe", "qm", "tm", "sch", "xram";
-+        interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 38 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 39 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-names = "eth0", "eth1", "eth2";
-+        cortina,global-syscon = <&global>;
-+        resets = <&global CS7542_RESET_NI>,
-+                 <&global CS7542_RESET_FE>,
-+                 <&global CS7542_RESET_TM>,
-+                 <&global CS7542_RESET_SCH>,
-+                 <&global CS7542_RESET_QM>,
-+                 <&global CS7542_RESET_DMA>,
-+                 <&global CS7542_RESET_NI_XRAM>;
-+        reset-names = "ni", "fe", "tm", "sch", "qm", "dma", "xram";
-+        memory-region = <&qm_reserved>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        ethernet-port@1 {
-+            reg = <1>;
-+            /* Fixed MAC-to-switch link; peer inserts RX/TX clock delays. */
-+            phy-mode = "rgmii-id";
-+            fixed-link {
-+                speed = <1000>;
-+                full-duplex;
-+            };
-+        };
-+    };
+> > If we need to shared object backings and have clearly typed and
+> > negotiated on what the backing contains then we should allow it.
+> > However I mostly agree on the mapping thing, I'd want drivers to
+> > negotiate and natively support whatever backings they can rather than
+> > having an intermediate trying to handle the conversions Not saying the
+> 
+> Yes, exactly that's my concern as well. We need to avoid this middle
+> layer trap.
 
--- 
-2.53.0
+You avoid middle layers by having reasonable subsystem helpers for
+things to use to build their stuff, especially to encapsulate common
+patterns. These helpers are part of the subsystem, or in a related
+subysstem helper library.
 
+In Linux terms middle layer almost always means something wrapping a
+function pointer callback into a driver and enforcing specific actions
+on top of that. The recommended counter is to have the driver perform
+the actions with helpers and not wrapper the ops. It particularly came
+from the block world where they stuck something like SCSI after the
+block ops but before the driver.
 
+It is hard to see that DMABUF is anywhere close to a middle layer.
+
+This is also why we don't understand your remarks about
+dma_buf_phys_vec_to_sgt(). Of course it belongs in dmabuf, it produces
+the dmabuf spec'd mangled scatterlist that only dmabuf uses. Where
+else would you put this code?
+
+> > code doing the conversions can't be a helper, bit it shouldn't ever be
+> > autoamtic or outside driver control.
+
+I think you do want it automatic, if an exporter is new and makes,
+say, a dma_addr_t[] and the importer is old and wants a sgt, why
+should we be open coding anything in every driver to deal with this?
+
+You can argue if it is automatic because the driver called a very
+general helper or automatic because the helper is wrapping a callback,
+but that should be a fairly minor quibble not a huge thread full of
+NAKs.
+
+Ultimately DMABUF has a fairly simple flow:
+ 1) Allow importer/exporter to negotiate what kind of interconnect
+    they want to use (PCI, ualink, etc)
+ 2) Give the exporter enough information about the interconect path to
+    make a placement decision
+ 3) Describe the exporter's buffer so any mappings/translation/etc can
+    be setup for the importer
+ 4) Program the importers HW.
+
+Many of these have very common patterns, like PCI GPUs always make the
+same kind of VRAM placement decision in #2 based on P2P support. This
+should all be in helpers under the dmabuf umbrella and not open coded.
+
+Jason
