@@ -1,99 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795763867;
-	b=Dmq4tmEw7xXgB5QFazrZz4SiE5+ObiGUtxuF3w4Vmyi4q+cxs1WnpUxtXflStkZz4G+3
-	 UGuF4XVYsw5d8UrhhghdEnl2banLNayY10ub15ZM5mO/YEQr1/fkmYjuMGT/TsU8iQsTs
-	 FveFo7IKEh832Q/9ItDr08dDY1JuOG3MvgIW0c76VrYCcI9oXRA0OpSaFBQeGmi929bQm
-	 1aVW/qWYrvffjyFqaJCY1dC5G25DGtnhNxQ6oGnh1Z0sRKcOdHshHX92clqs+WrwMqUHN
-	 yvwaIPgyq4H9UBMDY2JTeHYk44RhgcH7yQiCXdPCQINTvQSC40zUG1YoXIB1EulHDcA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795763867;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=sBfs1qfDj+NHMwewALTWDBF+xyD4zUqTQJbFv+XxnAA=;
-	b=foTf7CBMsAdB6hxHVMhGjDprb2LqY+7kiQmwKcoAuTbJv8uYdGJRf21Iz79Uj+UWUNGB
-	 MBs8qODhm/aXOHSs+0unqhhfV//LtaaIIjfcGmZXgcSOioXPtJey2+ClVOVyxRV9RHPgM
-	 n/YTDMBDwm1cS62pMbe9U2gHVQVxOPW+3IPB1g/4zCrQEEfO8d8K30djXahkUMKh1LesY
-	 3KO8ivuBSYz/zbCB82wieaWYdPux2MS4tCqqrwt0XPUsH4HpwkALvFKrtBmHTbSQE0oJp
-	 QhogGYZbgPj3MSDMo9xB1RmHH8fcYnF2ng2qrHtz7yh4ZpxoOVCu6qirJ1po8CQMzFA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oocRs+XQ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.54
-Received: from mail-oa1-f54.google.com (mail-oa1-f54.google.com [209.85.160.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5FEA606A31C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 07:17:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5FEA606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oocRs+XQ
-Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-48e94879f02so2496164fac.0
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 23:17:46 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795763866; cv=none;
-        d=google.com; s=arc-20260327;
-        b=OinPuub54oR4709x7OzW8wtp62iTSM5xxqrqPguuEvLOpeyM9gJayS66RX5rVb0Lkp
-         exApgXk0BMjLGa95XT9yeUwS08JXAOwGQV90IdrNyjZ5zQUhaUIEOPyUUWEMPC1P27bT
-         HIigDgfl0CpT5S1Adw3PXs8kOR2t12HOR4oX577x2//j0HfOXYuDgOx8rtj534ASAuFz
-         W9frIQYd0E9cES4RhQkhP1Up94fuLTacJxKNvq2cpmThddyvYN9Wgdj3+Fm7C6sst3Yh
-         GjBivYJJW0ZQe8mR5o339KgB+p2JOaMIeoiMgkY2B16bKISikkgXwdmm8ab3zsifXIMg
-         S6jw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=sBfs1qfDj+NHMwewALTWDBF+xyD4zUqTQJbFv+XxnAA=;
-        fh=ETyMDPt3t0hLL74Rjkpk80XYeQAXRUjJTuQdk2T1NN0=;
-        b=k33SNYAhAsD8VQ0jNAqrbLb5XGV/LncdXUf8xsI1vckFBs3T1Y4A2CfYNTNHVoN2Z7
-         y8T/5Wk9D16T/hpRAs0hJFFmG0Hf9/ERtBRQG93CjFqtY25qrnzflfsQEadurMrYc2Ne
-         1EVnDncnxoW3T3UX6/OmB9bTPcSmTJ/SdL23SxthH2x7FRh6dZEciVbw8B5bcndl/TQh
-         ACcGuZOoG69xOzx7mm6YJt2ffwRk7aqu+0mYaYKjNxGa3pvby0yiHk+Rn4ESERDR2+Xg
-         S/Z+6NedSMiisLFAnxYcJJArnQKiSZBcp4ptdBxrAmPDeUrLhuj+qVdgmAZrd4s4i8ri
-         BLRw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795764249;
+	b=A2+SSOByG6q2sxa/wki3t54o5x+gq0eiK4/rn57QJk4f5jMx1A5zciWCoDHM2UYk8x49
+	 Ono7uF0T6jZouzVOaY/FxMbd5YhkRrlzSekGkZHXofSIh0lTeSlkgtayOoYs8p+iyrb1x
+	 jUfbKpLmOOh2zqQxeu20X3U1V9uj4j8+fbskOu3RXjmwUVBLl0ITeDYk8IwOYP9l25J55
+	 DQELvHvHE2OPwr5yh/kl6jCoEnGbO7D2uRxiFUkoV6nHHO8aUABsOpZPGiUtJbtFrTXli
+	 m3kwErCxcUmpMyh6/Rd7eoBrK+B4pSwm8eqBDQTL+YUhw8AIxitgPGVsu1Du8VRv6ww==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795764249;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=6RU1oFKuMHhPcoUnNRgnbZ8lM/IXfFQubzFnoTFvHE0=;
+	b=wdBjrJapo5MzEJkFxkBP7GGjqKwoBbUl739wFaVyvSJyJd/dOS8+T10U91HuGIbtywPc
+	 +hpyzSEb9s7ccobvLQLJa08sK+xmiG8uXhb13wg+UBCcyie4wLMGe3zWCvim0cthGZCX1
+	 ikO1UC53bzZEjj3v1gd0vpUnJbOHErEaPxJAFY5sDeMwOyQpPSWY1AyVGUwxYR0djI9d8
+	 DLhFbAR6Jtk4tI96aq85qxAFi165l1ir0FnNg2H0dWB6pk8z16SuorQcKzKHVhdEmPGup
+	 V/0u83qtyO2VvfSn3cjWGbTAZXhXZ5xdK5mbwpQpUCfoLz4uJ23ZH1cFCiPzj4+7tLQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 138F3606A31E;
+	Fri, 27 Nov 2026 07:24:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 138F3606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795763866; x=1796368666; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=sBfs1qfDj+NHMwewALTWDBF+xyD4zUqTQJbFv+XxnAA=;
-        b=oocRs+XQom86AYc9F+GSpT5+CcbGoQHTjcwNAEeoOI59tQQ7SG3I+jItQAcOPyRBPM
-         TwVPSXFgIcsfc3RVvvikz7WNa3lLWxUG2PHEA/NtwQU3Iq+rALzDsrlcgOsbxg8EnMoM
-         TFKirg/HJ9StG151IPSoTgYp1hDt4LYK5mWZmGA/mF0GK642TX18u6xndpaVVMW9q1TY
-         KRLjHM+pwd1d/qusT/yIfNLkkPQ0w35Y9D1UBx2UdSdB8KAcI7nSQnKnHDZYMbnayxHK
-         6JNZ22yO6thXpMF2MebdIKB22bCIWjU0wCljv67HCyVOqHYEDnYSpUBXnzr5P7qxzwde
-         G6Cg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795763866; x=1796368666;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=sBfs1qfDj+NHMwewALTWDBF+xyD4zUqTQJbFv+XxnAA=;
-        b=unG9IfLXSX58WTvh2/u1CruE71vjIWEpY+5wb8nEEHBCiWp5DgiZYAgGIILbSHiYEa
-         Fsa88JN4RnDwtHtJHNPkMn2MfvfI5QrWD6u5i3az4TeeFM/2C8V0k0l5ZMSKZJUzj1Gp
-         JRf2Udf3AIWVBegy3y0rawKGylCr/hua+HKEU8W9SUKoVZcVXvhlCYYMEBXH63Urb9Jd
-         72yQduVSZRwL+b90bzcyVj03oNHTjZMbGHeWKHvprr4u7x9kJf8Hn5bz8r9/xQBvaM+D
-         yeNy1Y+WnG8+8peb6Z/Z+U2W88RjPcsELIMUD5bPAcyae71pVIFkHNLv291vUKyYDrUt
-         wdCw==
-X-Gm-Message-State: APuU4Z89ZUGbYDdsLtKbXlk7PHbbiEAq1s1QpPmVHiqoW7Cibie3EWwc
-	LRvkLxOm1dhy5/YHTov9xbobYwztKzO8vSf/ANbh1wT/YXgNe+4bbdthSg75aJzeAM4R5+PFa9x
-	KaCIWGL+ccfo1lgLyzOHqwSyZUvIvqa4=
-X-Gm-Gg: AZFdTZdt6QRV8nM9YIXZ/c/b9XXQkOpATdDPusDxtmmueIyc6SrYgXD2SQ+enWmNbpx
-	RmAviQAPM4INJm3ddT4oJOo5BWZLrCMqsmz+k2CLVBn69NX+t9WjF4X+aLKFjme1Bq55Uxehaj6
-	w2D7jTfSaWymik9+pRfKEdziONyj965nFu1gn1kcW753+jr0rf4kDnBchS6AZVfagNt7qRArT8p
-	u/EDRTs7PhxXwBrTRyOfknPrOzgv+jwmT78/hFJsUmiT0yQIvwR/z8OjTAPHM3Uvarhy0VTWooA
-	e9sP2WhEUEF99UL/Sg7kDMQzMzXFu5+HkAIJAwkEHj2Utl2ag5t/L1YcOaAFEWUntRfZxCnUWYD
-	YO9709mMMRirM5VLuS/CrqWSyzz0I6Bya7ejNDJePDcNEo32Syx2FWuSobnGk7FvLc6h7AY4=
-X-Received: by 2002:a05:6808:244e:b0:53c:5052:ea07 with SMTP id
- 5614622812f47-57a06a105b2mr23575713b6e.5.1795763865546; Thu, 26 Nov 2026
- 23:17:45 -0800 (PST)
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=6RU1oFKuMH
+	hPcoUnNRgnbZ8lM/IXfFQubzFnoTFvHE0=; b=owH5JISdvvG0SUXayBD8kcOzNr
+	lqVgBU0zOWSuCCKOAQ5WcgKxSHm5PrAIjkCOd/ph1PdlGGgiXH56MNhJ8AadszdN
+	lo+Nq69/jApb6trm1Soh3FM9rlPAigE6XVRCkIRMGIGHmywT3Z2j4rZw2Bq/nvE4
+	OOOCh1U9/nO6i2IRE=
+Received: from user-virtual-machine.localdomain (unknown [113.200.174.43])
+	by hzbj-edu-front-4.icoremail.net (Coremail) with UTF8SMTPA id BrQMCkDG6wEEMAlrz9pRAg--.37545S2;
+	Fri, 27 Nov 2026 15:23:49 +0800 (CST)
+From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Simon Horman <horms@kernel.org>,
+	Bin Yu <byu@xidian.edu.cn>,
+	Cheng Wen <wencheng@xidian.edu.cn>
+Subject: [PATCH v4] net: ethtool: do not call get_regs() for zero-length dumps
+Date: Fri, 27 Nov 2026 15:23:48 +0800
+Message-Id: <20261127072348.5277-1-25031212351@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,52 +61,85 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261127070354.550198-1-mmyangfl@gmail.com> <179576327645.3294.112285886879692747@kernel.org>
-In-Reply-To: <179576327645.3294.112285886879692747@kernel.org>
-From: David Yang <mmyangfl@gmail.com>
-Date: Fri, 27 Nov 2026 15:17:09 +0800
-X-Gm-Features: Aa3M54qJYjMk0h_YDrz0gL3uKh4njhTmpI3Hhu8SpudrPXuJO4YNtlv6JT_nGsQ
-Message-ID: <CAAXyoMP-qAtN0fmySFEU9=4WBg1akhoJOSjXkU6Fk2Q8-N5Q6g@mail.gmail.com>
-Subject: Re: [PATCH net-next v2] net: dsa: motorcomm: Unregister the MDIO
- buses on teardown
-To: netdev-bot+sinfo@kernel.org
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>, 
-	Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Russell King <linux@armlinux.org.uk>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:BrQMCkDG6wEEMAlrz9pRAg--.37545S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxZr45uryrtFyrJF17GFWUXFb_yoW5Xr4xpF
+	Z5Way7JrWjqrykCw4UJa17try5A39xXFWxCry8tw15Zrn8Za18CFy8Ka9F9r13JrWv9Fy0
+	vFWvyF95Cas8CaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBKb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
+	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r
+	15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vI
+	r41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r
+	4xMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_
+	Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x
+	0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8
+	JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIx
+	AIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8FPfDUUUUU=
+	=
+X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUKD2sIS1mViwAAsu
 
-On Fri, Nov 27, 2026 at 3:07=E2=80=AFPM <netdev-bot+sinfo@kernel.org> wrote=
-:
->
-> Hi!
->
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
->
->  - How the issue was discovered, e.g. hit in production, hit during
->    development, syzbot report, manual code inspection, LLM or static
->    analysis tool scan.
->
->  - Whether the issue was actually triggered, or is only theoretical
->    (e.g. found by LLM and not proven at runtime). If it was triggered
->    please include the symptoms, like the stack trace or kernel messages.
->
-> Please do not repost the series just to address the above. Instead,
-> reply to this email with the missing information, so that reviewers
-> can take it into account.
->
-> *IMPORTANT*: If you do repost (for other reasons) - please include
-> the relevant info in the cover letter or commit messages.
-> --
-> The evaluation is done by an LLM so it may be wrong, if you think
-> that is the case please reply and explain.
+ethtool_get_regs() passes the user-supplied regs.len to the driver
+unchanged, including zero.  A zero-length dump has nothing to fill in,
+but the driver callback still runs and may use that length for its own
+I/O.  A zero-length transfer cannot move any data, and some transports
+report a warning for it, which becomes a denial of service when
+panic_on_warn is set.
 
-Not a fix, explained in the message.
+Return success without calling into the driver when the requested dump
+length is zero.  The check comes after get_regs_len() so that drivers
+which cannot provide a dump still return their error to userspace:
+ethtool(8) sends a zero-length request when ETHTOOL_GDRVINFO reported
+no regdump_len, which is what happens when get_regs_len() fails.
 
-Sorry, I missed the changelog:
+This does not remove a way to query the dump size: the uAPI tells users
+to obtain it from ETHTOOL_GDRVINFO.regdump_len, and the core only clamps
+an oversized regs.len down to get_regs_len().  Since a zero-length dump
+returns no data, the driver also cannot fill in regs.version; callers
+that need the version have to request the dump.
 
-v1: https://lore.kernel.org/r/20261126034725.64709-1-mmyangfl@gmail.com
-- fix err path for yt921x_devlink_setup
-- make NULL checks explict
+The problem was found while testing the ethtool register dump path of
+an MCS7830 adapter.
+
+Co-developed-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Bin Yu <byu@xidian.edu.cn>
+Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+---
+v4: drop Fixes: and the stable Cc; there is no report behind this
+    (Andrew Lunn).  Move the zero-length check after the get_regs_len()
+    result check so drivers which fail get_regs_len() keep reporting the
+    error to ethtool -d, and document that a zero-length dump returns
+    neither data nor the version.
+v3: describe the ethtool behaviour instead of the USB stack, and document
+    that ETHTOOL_GREGS has no zero-length size query (the size comes from
+    ETHTOOL_GDRVINFO.regdump_len) (Andrew Lunn).
+v2: handle this in the ethtool core instead of the mcs7830 driver.
+    https://lore.kernel.org/r/20261126015239.6038-1-25031212351@stu.xidian.edu.cn/
+v1: https://lore.kernel.org/r/20261125071649.7052-1-25031212351@stu.xidian.edu.cn/
+
+ net/ethtool/ioctl.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/net/ethtool/ioctl.c b/net/ethtool/ioctl.c
+index 80b7930b3fe0..4839ef141b21 100644
+--- a/net/ethtool/ioctl.c
++++ b/net/ethtool/ioctl.c
+@@ -1783,6 +1783,10 @@ static int ethtool_get_regs(struct net_device *dev, char __user *useraddr)
+ 	if (reglen <= 0)
+ 		return reglen;
+ 
++	/* A zero-length dump has nothing to fill in. */
++	if (!regs.len)
++		return 0;
++
+ 	if (regs.len > reglen)
+ 		regs.len = reglen;
+ 
+-- 
+2.34.1
+
