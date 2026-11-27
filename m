@@ -1,59 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.100
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795743800;
-	b=2KjAqcY7vHS7WjsfwV+pc/bjPUSp/OjgE0nH7Rf2kIpiNr2f+QFtQp48ev42jKa4fskH
-	 Gbo6SBbBM6d9q2dblsWusg73Rm0VFtrd3ZHyDb85oupRc74UOiM6x/LasJNzKV7+9mFU4
-	 XvcJ/lrsyo8d2h6J5lbYgrx979emzk3exp41cXkpDNs+zwJl6e6USNycBq55MThMK4UZW
-	 EX6/IDVkmvAEJOKORXs0/RC6KJo/B1iJ8C8J/9KpxXA1aoSgMoLCg8TLdnCibPOZgzibT
-	 nqwNPYSIbNBhiafBM43cIfb1aDzPL80TOjBovrvJjklxZPxLMfDHh6V9aPgMsRB7Iug==
+	t=1795744075;
+	b=a2SJXW22wP0dLaF7YC++1MUL2brKNEaYpINCqrNfQZkKVzoVIQe8aJV9b8l0Iwx7ktLM
+	 nM8BS6NBJEdEfWIgvyvbawJor6ZEoL8WvrIo5ZT7K5dod58juQwYYWJD8cNncMDZ+YWvW
+	 oy1IJhSjt3MP//U42tB9uZspclx9/y6tY6BDOS7pfMKFyxr8S10ib+Y88cmicwTvXH+wA
+	 dDy+9WFCjPzWfLtSUMJql+GGeoGxeKxsth3BXGEmyWdUfrIm6nJJqefsOSLl4nS8NEyjT
+	 pqEcTv8gt2+X441VZDzJJxCrFhiZFp83hV0C8Sv5Atijjyyht1MAHLJEDteUAa+ObOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795743800;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Y/ZQbh30QVryTCiZlteV2hYSBClLcTqEk7Mc1ddXGBE=;
-	b=5GBS+OXvPwhW+C+WZJ0DEuCxwYorwBElBTBQivW3cKGEb0ab3UT1oCuF6bSNfyLEXDCT
-	 f/XgtBBwT/OaPv+6z8Vannvwy8NBjYxugE3UN5BfHj8EBjZlmL5pny01ZNbm0HDCOGQ1N
-	 G9iqQP8AG97Cxb7mb7MZ4bRdjtwJDHrnPs0pyi6w+PKBG3YrW1HusOb8gW8BwcKqYAKKp
-	 6Efjjuw6zomEjJ86KddwdoLPZcL6FYwd2nSdhyM208Xrs7UfNX1WT1jXIhHlNnjK28fxz
-	 eW1ixJx56z96zkuxDhbK/ujvDsu9FAcLeexCLJn+bblMOjMI6kNMHF42YBoxWTEnDbg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795744075;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=9rpdsm/VQNjI+QZyvQZysG3z/mkS8qpvjAF0HDQXOiw=;
+	b=1xgSMKFGMqDdswQMnzUwiyMjzyCJbsLv9WB/zBfSG8RnZ0EnGKsFUa24m29QVKCeKgpb
+	 72I3VGKW8lDU+2a4S4kTh+65GcJGLu5DXF0GVZabSxGIgzgb4mzcDysVSx/ZozoNkldCR
+	 ljxjW+1UfbE4Ppt9cl9QGye5DQ1vJOiinn77TjcYp/owCJzG2bM68QUM3XWR9funm3WuY
+	 vUUYHP+wvOqCQ2K9CJIUyDVBcXQCbUJbrdUJjiMqYglC3Ymu8+ueRQZjMOo3txYN9G5b2
+	 Ul6D6+A6rSd1JwVBE0Y0kaubVAXY0RAz1enr0+6svtFCqJn2XA8tt6zg8Aj+WiW6DWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m9OOVRIm;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=andrii.net;
+	spf=pass smtp.mailfrom=andrii.net;
+	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=W9umYR6B;
+	arc=none smtp.remote-ip=209.85.216.100
+Received: from mail-pj1-f100.google.com (mail-pj1-f100.google.com [209.85.216.100])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 335FD606A31E;
-	Fri, 27 Nov 2026 01:43:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2217B606A323
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 01:47:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2217B606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m9OOVRIm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B3A31F000C1;
-	Fri, 27 Nov 2026 01:43:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795743799;
-	bh=Y/ZQbh30QVryTCiZlteV2hYSBClLcTqEk7Mc1ddXGBE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=m9OOVRIm3/j5XNAoOLQcydd9DwOMZxWAAoo9RJWN88EJ7pZ9jO+AQgLoyWiA8WBKg
-	 otKEKjIN0O9beYXaY8as7F/c4qESGjjgt7sJwXutVXu5i9eov03sbDdP50dxay26B4
-	 aYaBF5MQ0fAhNp3nHUipV8QoCtofIPaBfcUMte7MklFIlNz9DaCL0ao4P0t3ZfIcpQ
-	 1+SRJOo2uQoE/fBhQ+xNIW3mL9+NxsY8RJOW4u2G6CrfIhmo9uEw5Ed8G+AZx53bW2
-	 VUHr8FU4AQ/GVMkmofn8fwkOrCaFTsgg4f7kYBfu2HNwuLm1aciOF/0xZ7xaQ2IrDE
-	 7wR111cYEhnlA==
-Subject: Re: [PATCH net-next v4 5/5] net: hix5hd2_gmac: Support fixed-link
-From: netdev-bot+sashiko@kernel.org
-To: mmyangfl@gmail.com
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, shenjian15@huawei.com,
- shaojijie@huawei.com, devicetree@vger.kernel.org
-Date: Fri, 27 Nov 2026 01:43:18 +0000
-Message-ID: <179574379856.3135.451399791466560621@kernel.org>
-In-Reply-To: <20261126005524.4156940-6-mmyangfl@gmail.com>
-References: <20261126005524.4156940-6-mmyangfl@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=W9umYR6B
+Received: by mail-pj1-f100.google.com with SMTP id 98e67ed59e1d1-3b3a914e4c8so4298571a91.0
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 17:47:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=andrii.net; s=gmail-2025; t=1795744074; x=1796348874; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=9rpdsm/VQNjI+QZyvQZysG3z/mkS8qpvjAF0HDQXOiw=;
+        b=W9umYR6Bu05MAqt8vQxTPaZuHIj8L7nkoqY7roaXz/KTOuU0vid4imCewE5ztw/rXx
+         h4KetozT0hoS7sXnuW/fq85mVt9zpfR6JRkVpxBfKZkcRQlrHikdfsoDem8IJnaM2Cj4
+         9cwe8pDu65JPoWmf0uzO1mhZztzErO6vjL9Wzp+Aj76Z945LQaXM0fNNY02GCDcU07YP
+         OuVlLLTbQtV2Z4OO5pwSCXDAwml/8Gr44oxlyeR3eoes0VA6EFJ8wE/XMGz6oap/ipfF
+         1uDzFiDy+c8Txk+tjbKX9kIFMgYRczn2nrzTPthOc0yICs2VWsF8YdjxqI1A235TPWks
+         KeoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795744074; x=1796348874;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9rpdsm/VQNjI+QZyvQZysG3z/mkS8qpvjAF0HDQXOiw=;
+        b=ZjWvm3tYBuH6/G3NZYWEJi6IgDZC8xriO/1USeKKdBbs2RMP0oMzGXCIFGfdxemGbz
+         w8GU0andN8W+O8iVPn7HVvf2GOAB3C+iq5355TVrLVHgV3uVQUwXVcL5GstveOhzwt2/
+         CFtjZL/I70MJ9Oy3K3dBqxoODFYYg/XV0064ze4txRjcEaYsKT5alBZGi1JvNW8EojoJ
+         0043r0QNxRa84VAcqIjIAQatRmvyjT5fVaAouSIXLhgYbdP4wltXisDloTamnLKQ1p+X
+         /sCGPvSdSNQ4lz/Y9q0P46HgPcSzREdwEbNXOpWaUQ1lEFtwmy96HO3BBTga8a80J5z5
+         IUYw==
+X-Forwarded-Encrypted: i=1; AL+hErF7+HqDj9+mAxLKgxrdcvdwU27zbwsewrkmLAuAfXpIyl9DaMis7m1qegMVlsv0J/PIfBcWSQI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+T24rQ4g3t7/CsGABG/81WCtcOYyy9nSQhkxVz3NQrEiWsW55B
+	kk4yEzfzTejZfejzW3aggzVwAN5P6Uk9yz+YavtzBG7+r3tqHV6XDJVPdJrxLB+GpLi8XTk/mqv
+	ljRNmWux+w6AP3xTQ20t3nUIBxPUsvP2C0ashGVfx2CI2zxlB2Q+q
+X-Gm-Gg: AZFdTZfu4TaW9tlVd2pwVtJo1wlVx4KJF+1o8NXcEELIlXT5AkwczZif/DL7Z6AXzM+
+	P+fGSeQLOKPNc7KyCcmFm20CbtO7VdpwlNRPq9pL4PQNz+wJ1vbxMu8ZKlrT5dSn0wf01JQvgXZ
+	IdYcvKArBc97Usem7ghn8S09u40HFGmWDR2m6XgV+5Ed9J6zsLvsNHMPo6dw5dKVvP+TXBX4Flk
+	rpajrID5d2KUErksM7snpqx34/mfaGqBwLkBm+fT+bS7Swoco/zmvgh+3IYOsR0pb+AiqIW/OZ8
+	yaS4KijUFJLScei0UR/4WwmFwnlLQvR2ny8rJtM/HRIrAjxGGwDumoOSI2/13LSUIj0dpYzzXyt
+	gl0NeXXe66ryBaSrUQB3bK157W0Q=
+X-Received: by 2002:a17:90b:288e:b0:3b3:ab75:c94f with SMTP id 98e67ed59e1d1-3b41c92a098mr21400073a91.31.1795744074328;
+        Thu, 26 Nov 2026 17:47:54 -0800 (PST)
+Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b4062a77f5sm16585106a91.6.2026.11.26.17.47.53
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 26 Nov 2026 17:47:54 -0800 (PST)
+X-Relaying-Domain: andrii.net
+From: Andrii Tereshchenko <opensource@andrii.net>
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S . Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Christian Hopps <chopps@labn.net>,
+	netdev@vger.kernel.org,
+	ipsec@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	security@kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH ipsec 1/2] xfrm: iptfs: don't modify the shared info of cloned skbs on output
+Date: Thu, 26 Nov 2026 17:47:51 -0800
+Message-ID: <5ea528c8-ec02-4f2d-bc59-50700be8216a@mid.andrii.net>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <179531150722.3135.5639628464200463791@kernel.org>
+References: <c1e999b5-15ee-468d-81c5-530a560e84df@mid.andrii.net> <179531150722.3135.5639628464200463791@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,133 +106,36 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Sun, 22 Nov 2026, Sashiko AI review wrote:
+> [Severity: High]
+> Does this guard hold the "they are never appended" rule from the comment
+> above? It only tests skb_cloned(skb). It also runs after
+> iptfs_first_skb(), which may already have uncloned the head.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
+Yes, this is a real gap. A head that is not cloned can still share its
+frag_list members: after skb_checksum_help() as you describe, after
+pskb_copy(), and after skb_cow() of a clone. v2 tests skb_has_frag_list()
+instead of skb_cloned(): a first skb with a frag_list is sent on its own,
+aggregation stops at a following skb that has one, and
+iptfs_rehome_fraglist() is removed. That also covers a deferred skb2 that
+becomes the next first skb.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+I drove your route directly in a test VM: a cloned CHECKSUM_PARTIAL skb
+with a frag_list sent into an IP-TFS SA, then a small packet behind it.
+With v1 the original's frag_list was written into every time; with v2
+never.
 
-- [High] hix5hd2_dev_remove() in
-  drivers/net/ethernet/hisilicon/hix5hd2_gmac.c still calls…
-- [Medium] The commit message says phy-handle takes precedence over
-  of_phy_is_fixed_link() (for managed = "in-band-status").
+> [Severity: Low]
+> The commit message says: "ESP copies a cloned head anyway, so this
+> moves that copy earlier and does not add one." That is not true...
 
---
+Agreed, with aggregation ESP can reallocate the head again. v2's
+changelog no longer says it.
 
-net: hix5hd2_gmac: Support fixed-link
+v2 follows as a new thread.
 
-This patch adds fixed-link support to hix5hd2_gmac. When the node has no
-phy-handle, the driver now registers a fixed PHY from the MAC node. It
-also skips MDIO bus registration for a fixed link unless an "mdio" child
-node is present.
+Andrii Tereshchenko
 
-> diff --git a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-> index b3b2aa1b76988..eeb7221c0cde8 100644
-> --- a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-> +++ b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-
-[ ... ]
-
-> +	bus = NULL;
->  	mdio_np = of_get_available_child_by_name(node, "mdio");
-> -	ret = of_mdiobus_register(bus, mdio_np ?: node);
-> +	if (mdio_np || (priv->phy_node != node &&
-> +			!of_phy_is_fixed_link(node))) {
-
-[Severity: Medium]
-The commit message says:
-
-    of_phy_is_fixed_link() also returns true for managed = "in-band-status";
-    give phy-handle precedence over it, like fec and gianfar.
-
-Does this condition keep that precedence for bus registration?
-
-priv->phy_node == node only happens when the fixed-link branch ran, and
-of_phy_is_fixed_link(node) is already true there. So the test reduces to
-"mdio_np || !of_phy_is_fixed_link(node)".
-
-of_phy_is_fixed_link() in drivers/net/mdio/of_mdio.c returns true for any
-managed value other than "auto":
-
-	err = of_property_read_string(np, "managed", &managed);
-	if (err == 0 && strcmp(managed, "auto") != 0)
-		return true;
-
-Consider a node with phy-handle, managed = "in-band-status", and the PHY
-as a direct child of the MAC node with no "mdio" subnode. The
-hisilicon,hisi-gmac-v1.yaml binding only forbids direct PHY children
-when fixed-link is present, so this layout is allowed.
-
-For that node of_mdiobus_register() is never called, so the PHY is never
-created. hix5hd2_net_open() then fails here:
-
-	phy = of_phy_connect(dev, priv->phy_node,
-			     &hix5hd2_adjust_link, 0, priv->phy_mode);
-	if (!phy) {
-		...
-		return -ENODEV;
-
-Before this patch the bus was always registered on mdio_np ?: node, and
-this layout worked. This configuration also leaves priv->bus NULL, which
-leads to the remove issue below.
-
-Would "mdio_np || priv->phy_node != node" be the intended test here?
-
-> +		bus = devm_mdiobus_alloc(dev);
-> +		if (!bus) {
-> +			ret = -ENOMEM;
-> +			of_node_put(mdio_np);
-> +			goto out_phy_node;
-> +		}
-> +
-> +		bus->priv = priv;
-> +		bus->name = "hix5hd2_mii_bus";
-> +		bus->read = hix5hd2_mdio_read;
-> +		bus->write = hix5hd2_mdio_write;
-> +		bus->parent = &pdev->dev;
-> +		snprintf(bus->id, MII_BUS_ID_SIZE, "%s-mii",
-> +			 dev_name(&pdev->dev));
-> +		priv->bus = bus;
-
-[ ... ]
-
-> @@ -1294,6 +1314,8 @@ static void hix5hd2_dev_remove(struct platform_device *pdev)
->  	if (HAS_CAP_TSO(priv->hw_cap))
->  		hix5hd2_destroy_sg_desc_queue(priv);
->  	hix5hd2_destroy_hw_desc_queue(priv);
-> +	if (priv->phy_node == pdev->dev.of_node)
-> +		of_phy_deregister_fixed_link(pdev->dev.of_node);
->  	of_node_put(priv->phy_node);
->  }
-
-[Severity: High]
-Can hix5hd2_dev_remove() dereference a NULL priv->bus now?
-
-Just above this hunk, remove still does:
-
-	unregister_netdev(ndev);
-	cancel_work_sync(&priv->tx_timeout_task);
-	mdiobus_unregister(priv->bus);
-
-With this patch, hix5hd2_dev_probe() only allocates the bus and sets
-priv->bus inside the new conditional block. Take the fixed-link case
-this patch adds support for, with no phy-handle and no "mdio" child.
-Probe succeeds and priv->bus stays NULL, because the private area from
-devm_alloc_etherdev() is zeroed.
-
-On unbind or rmmod, mdiobus_unregister() dereferences bus right away:
-
-	if (WARN_ON_ONCE(bus->state != MDIOBUS_REGISTERED))
-		return;
-
-The probe error path gained an "if (bus)" check. Does remove need the
-same check on priv->bus?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126005524.4156940-1-mmyangfl%40gmail.com
+pw-bot: cr
