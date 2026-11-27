@@ -1,59 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795763127;
-	b=JTRv9nMqbL/BXazGgEgT6qnShChXanWQuUKIM21npAeT0ifCiKlGaJvr75AlZVuzIM9y
-	 EQ6SLH4PNwTC0Dm3DV0c02NJvhKOyVuhSUM0bUfYzDy0JO5CgF1rxAIGoomBsyLCqMcul
-	 FRzAtaj1loJlN4o+ASLlw+vQkMwCIuomdMEzCf4JI57JnkUGyRXSXlHMWXD24DPbtJZAv
-	 9xGJAFoH6+f2TkSSM9wdJnuGfLNgKIv3JILHU5tPIDHyeBH7ReKC1nmwS9IpFcXj+MhuB
-	 b7Gx73TDdsQjcvzKetj+s7vtQQiHpa+x5xy87fIcabTN9OWCI9LP/0lI2fh7lOLaIQw==
+	t=1795763278;
+	b=UZH0psoTZX1b2Y/1DKIkkO3UycdALfTUW642hGW/k+sPMETmALb6DE3wtrwk0RVDrGps
+	 VOPgKkdoDRLuIwrl5DXZOjPQKDen9qXTTPTAWmWJ3noWHMJcNJH6/1SdUWkuBC4tezLrx
+	 b73c7Zh/20+bfpdv7mhCrS6wY4Re3yRVvJTqr6qoGKj+uSoAAJ/NTjqWpILhAyWxuB0tc
+	 pY4+nZTrMphCSGIWNFKLVex2wEpVka0lxQTPGhqjVkREtbl8uHEc5ZqNb+0d43daa7ahU
+	 P6cV+WVXPW+8cZJ/t53haGvQnS/Spumx/dBj2bvhP/oqeWddfAi4K2J74X4AEaHKLXQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795763127;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=fFOwbPhYtG2VA+fvtjG+N9SEnNkXpuXFk3FuyEsjnUY=;
-	b=narmtruu+kRZgqQQa/B4Srwm5U/5SlBoY4Q3RrNeOD3ihZjKUN287PWTbdKT0HJKEprH
-	 0Sqm4p2VALTC67ZNF24L12+2Rg4tNopRhdKG6Hk9GbQSpS+rdjHgfpDZk7t38ChvWhce8
-	 5gIcZ2r+IlzJhkNrcwUPJQlG8rRgs1XoaOq1pRJE7Cnix26JaaIPFZRoMMH4ZZ+Kb7/es
-	 xpY7k467TtDXHopo5twEu1cfFlNGthFRVnybmqun4SAjYkGdaClZrw35ABpSx3EVO1gWv
-	 NUiZT0wjw+WXJxQiH4GjaOTYGIWLjGBC5dhDMJgMUcS5+nuEYhEnL/MeJ0s3dOg5i7Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795763278;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=jMvU2TXRlYB4LpEcwjWrOfgBC/i5ZWDNQ4dUyDXrYsuobw+380/lnlFFzekNCT8vtHTb
+	 yGJd3ox/+c6HXpw38IdupH3TsCzIFUmNDl18PfU+cp9ZI1H2uqQLGaNi4KX31zHW00YGA
+	 IFQcesTFTZZcSFO2NOlJ6fj4Qral0BPFFgd14FO+Mjx/yXvWh6x+qtvCKzFmAALkpGy9L
+	 icLRLPKNXogBAJTzS9rpQR3ViDWNr0by+y8KsT1mKNWjSKtN4ZbNhtQQdYHlv8NDw9pfc
+	 KPW6rWzyb7j+ftrY/qApY9TBsaVarH2FyUgrYAPckMrGPZDz3TZVC7ax7FJJVxRQMbg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dGEuhynH;
-	arc=none smtp.remote-ip=95.215.58.56
-Received: from mta1.migadu.com (out-56.mta1.migadu.com [95.215.58.56])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ka7NgbsX;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78BFD606A31C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 07:05:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78BFD606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 031D5606A31C
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 07:07:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dGEuhynH
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=odMuhZyhTxb63ua+fYRErxMQX4wCePsPK5HbcEK85TY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795763124; v=1; x=1796367924;
- b=dGEuhynHzpnjRcWSmhXa2B9DjkK63AGOK7QAk5a+M8KPsAfI1wUCr8iPYZGy9jTjWuKN04ns
- d6+Etnvt87OKdVBfmH3/yawcVAFgDbF0vXj9+Ml0xHqH75G9CpqYAzOjlkR3AnNVQijfvAESnfU
- s/9/3o1QWbgeoRV+9sEWMVt4=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id c4d1fd8a6993fb10;
-	Fri, 27 Nov 2026 07:05:24 +0000
-X-Mizu-Trace-ID: c4d1fd8a6993fb10
-X-Migadu-Flow: FLOW_OUT
-Date: Fri, 27 Nov 2026 15:05:16 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Stephen Hemminger <stephen@networkplumber.org>
-Cc: netdev@vger.kernel.org, dsahern@kernel.org
-Subject: Re: [PATCH iproute2] names: terminate the name returned by
- id_to_name()
-Message-ID: <awkrrM2Tu0tveZMv@fedora>
-References: <20261125164721.1942828-1-stephen@networkplumber.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ka7NgbsX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0B911F00893;
+	Fri, 27 Nov 2026 07:07:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795763277;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Ka7NgbsX0PcrU4c2zlh8Xh247MGfILsOzIz8JA3dti2x5VGti+y6utFUmyo+JkKRD
+	 5Riddrrnb/8M4CjOqqpLWimjWldh/RlgB5B/EcPmI9+kXL5Y0CAT9zVRmwehxK/O3Z
+	 ALO+w1xP5r19+IY5qR75leOVaUVjkbRxfwD3H0GaySB/aOFa0Ckh3g3NWf/omobYLH
+	 gKAHEX0vsPbm0M0KnsglNtoMlU9WiKOy38vnRqWLuvuxxJ12VcYyxOSKbTJQOJIhyk
+	 0sHZ1FiugczRBUX+9UaPws61NUHudLetTb5ybb6b5fzNAUxB2CJniGKWxJqgmHhRRe
+	 bfsz8yEBlWg2w==
+From: netdev-bot+sinfo@kernel.org
+To: David Yang <mmyangfl@gmail.com>
+Cc: netdev@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>
+Subject: Re: [PATCH net-next v2] net: dsa: motorcomm: Unregister the MDIO
+ buses on teardown
+Date: Fri, 27 Nov 2026 07:07:56 +0000
+Message-ID: <179576327645.3294.112285886879692747@kernel.org>
+In-Reply-To: <20261127070354.550198-1-mmyangfl@gmail.com>
+References: <20261127070354.550198-1-mmyangfl@gmail.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,39 +64,26 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125164721.1942828-1-stephen@networkplumber.org>
 
-On Wed, Nov 25, 2026 at 08:47:21AM -0800, Stephen Hemminger wrote:
-> strncpy() does not terminate when the source is as long as the limit,
-> and the tc class name from tc_cls may be up to NAME_MAX_LEN while the
-> caller's buffer is IDNAME_MAX. A name of 256 characters or more filled
-> the buffer with no room for the NUL, so the snprintf() that formats it
-> read past the end.
-> 
-> Use strlcpy(), which always terminates.
-> 
-> Signed-off-by: Stephen Hemminger <stephen@networkplumber.org>
-> ---
->  lib/names.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/lib/names.c b/lib/names.c
-> index 4ecae92b..697942d2 100644
-> --- a/lib/names.c
-> +++ b/lib/names.c
-> @@ -142,7 +142,7 @@ char *id_to_name(struct db_names *db, int id, char *name)
->  		entry = entry->next;
->  
->  	if (entry) {
-> -		strncpy(name, entry->name, IDNAME_MAX);
-> +		strlcpy(name, entry->name, IDNAME_MAX);
->  		return name;
->  	}
->  
-> -- 
-> 2.53.0
-> 
+Hi!
 
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
+
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
+
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
+
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
