@@ -1,46 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795795084;
-	b=escVnzD90qwBiAWyGigVv92s/paZEHbijw9oRe29398gZcmCmhrWeFEaq55ogeutbQx7
-	 L2tkVl/phq/FTgh5GaoiE88Iprb7WwBkZ5AlJGamaCKQ5a3ZpaR24RIA2viZ7mKaqO63U
-	 M9q+mHkBBBa7K5LAEguYrrpIfBRhSCHupar2U7oo8IAgHQTysPUzdbfjEnGR12xJstZKw
-	 t3sMu0wlDbnFgbTDluTL5zHq2tm/DReQXUZAQ0QMEHriLRGE7x/mFc79gw0FYN2sOathe
-	 jsme1ekp4xP4WflpYCHpZyLxn6RXrB/bZ+m8WxWH6zKAVCA8Ikj8dxQ/SeHDNeXCmrQ==
+	t=1795795080;
+	b=KTORLsLZe9NS1X33i70oUmyfdIonhLdyXmbG7l5ACmPnDH2ufgNSsribRDcvEnXP9lMh
+	 z4uNzgf3f2cGYOf219l8w1W7FHosDnYn9ngROKETAFSkEQj13VabDyezuCK72UxiE2hI9
+	 34SNVbHlGRccOIETTLdE9KtxaysnzqWKlOGQuo/8QbQdOu5V/pWU6Du3e1dkFgOPSZEQs
+	 tmgS17XsGCYwmDkgYT7G0XbH9RJN/rr6r4XwAeHDxufxM6fNUB3uAthkOjYxf/W2OnqjB
+	 8PHU/EJbtBRBBI1Zyi2fAZEvafKfU6dMb1E8jP3qL5r0xsV8asbRQAK+JW1EUVBEciA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795795084;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795795080;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=CeZRPXeRorY9T3lOBlDRy3V+DbTeNZvNb7pbJXo/C8c=;
-	b=H6rMiNKMDKJMllqW+Uj/ROe80DvNy6YD6bd5h70kI3bXEFJddyX5VFCTv+K5ZvFZxxYq
-	 04AvTkgLQTVdc+lNeTzmO668QZNkNSK+OmusY8uErGYP3RzZg3Y7GuU1+linP1aDab6V8
-	 5RDEe6Lg11G3GNpGfGVLVaLqUAxVc2tp2EHlquc+kE8fK3naBolrfxILEYGhZRlDsKIYB
-	 eJ4aPH35UlO0AAnBD4OIdcXgyFc9o/3drV8/1AZ1kbmW0gb+n2M1AVQUWXgHhkdd/Q2+p
-	 CUO6ePA3VOYjCkWbWhsY98YP2xsESUajylRaXWZg/E5p8xUAM9elDeZ+WeBjK5dDe2A==
+	bh=+OsaqsCkNdK9D8OyjJZhYRSnDVykyRA4x+r6AKpq0wk=;
+	b=mpAnIM8zfW4gsj0mJWdwN7s5CgaqxFn/OA9I8lnU0VhZ/tdsclCgVaeIvVW0k7E5nQOy
+	 7O5B+HuFeBn41hmvvdLTJMBHSlTK6GFwaX0ND73CvB/fMW+VKjo5WsDvGiOscyHw48cjL
+	 15pgKFhU1aPDXT6KSGkBSGsIq8Fpndt70MCI7pDuTT0g50sntcIZLyAAW/paLaCdHmwgX
+	 7ENXCvUMntJ+8Meg5s11aVUUe65fHAciSGbntTMKeGXhFUkE3DGRKacHD1+9T8KBLbHZc
+	 nqgN3A1qsSHkst4pwwd5vU/RUIHp1f0cZNdQEzLd3jGRHcQafkH6yFUgEP1FICTVnFw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=McG2s3X1;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QGl5RZKP;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34D1C606A695;
-	Fri, 27 Nov 2026 15:58:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B329E606A69B;
+	Fri, 27 Nov 2026 15:58:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=McG2s3X1
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F21B11F00923;
-	Fri, 27 Nov 2026 15:58:02 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QGl5RZKP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 741181F00A21;
+	Fri, 27 Nov 2026 15:57:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795795083;
-	bh=CeZRPXeRorY9T3lOBlDRy3V+DbTeNZvNb7pbJXo/C8c=;
+	s=k20260515; t=1795795080;
+	bh=+OsaqsCkNdK9D8OyjJZhYRSnDVykyRA4x+r6AKpq0wk=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=McG2s3X1bwhR7VwyKzxxFj8/Fd2sQdClyCHEDCbRhiO8bJxebnqsTcVeF1gvttj5o
-	 +JwtD73mnvcdkz0mbTHBE4imi88P9LEjd7rlUZW3z1S/jXx2hBlhnDjZ0vXdczWG25
-	 au7lVMv/+jZI/N+/tWiV5xdQseUEzZkzyTqM++n16zY56SJUrwXXgwllV2az+k7khM
-	 /QiDipDrYv7XlqOzTkzQ++YX5zSCE6nw8mt7yTBXptu+h+XGq9HQ+Gw65EJWnaMJAf
-	 pIqQ9/ueYeZArOaN6uSxK9F22nV45XXxmJlkI/qXg2uT7eS8rMg4qvu5aMG3eTGtUI
-	 p/JzqimxL1vsg==
-Subject: Re: [PATCH v2 09/11] net/xsc: report link state changes
+	b=QGl5RZKPp3CqfzSCKUEx27+hGxnSyeqhLXDG3IkFsoM3N0uM4ltV/sYYQECiAnpN3
+	 H6RjcAol9UcH+jyHiQhpv5W+Vb01woTiVgrNeFlBlAQwBY4YRB1dLN8dobqybHaY1P
+	 KGuWNqopWDnBPZJsCwGEP/k2rGNpZPRPcT5YCIofjnlaHOv0j+Tr2msQbpftr2jCmp
+	 Hx2bIDjLwTmCWMn6KUHJBKfiJ9LXv6Dg4mUEA/KjQlQU2kmhgwoHN0M9b2kXTz8DL1
+	 ANhsgm6+M7K3KnSOjSkfqn9kDotMioQxy3sxd39hLEULQlBZ/lgvBe0cqDwDQBRiED
+	 bHZ3rzRuDiYqg==
+Subject: Re: [PATCH v2 07/11] net/xsc: add the ethernet netdev
 From: netdev-bot+sashiko@kernel.org
 To: tianx@yunsilicon.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -48,10 +48,10 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  huangjunxian6@hisilicon.com, weihg@yunsilicon.com,
  linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
  linux-rdma@vger.kernel.org, kerneljasonxing@gmail.com
-Date: Fri, 27 Nov 2026 15:58:02 +0000
-Message-ID: <179579508256.3135.6252294453824096365@kernel.org>
-In-Reply-To: <20261126145736.70868-10-tianx@yunsilicon.com>
-References: <20261126145736.70868-10-tianx@yunsilicon.com>
+Date: Fri, 27 Nov 2026 15:57:58 +0000
+Message-ID: <179579507899.3135.7831191822723271418@kernel.org>
+In-Reply-To: <20261126145730.70868-8-tianx@yunsilicon.com>
+References: <20261126145730.70868-8-tianx@yunsilicon.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -65,10 +65,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 4 potential
+Thank you for your contribution! Sashiko AI review found 5 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 1
+Critical: 0 · High: 0 · Medium: 1 · Low: 4
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,227 +76,234 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] In xsc_eth_open()
-  (drivers/net/ethernet/yunsilicon/xsc/net/main.c), the initial carrier…
-- [Medium] xsc_eth_link_event_handler() (main.c:765-778) runs from
-  xsc_event_work() on xdev->event_wq with no lock held.
-- [Medium] xsc_eth_open() (main.c:883-893) samples the link state with
-  xsc_eth_get_link_status() and sets the carrier before it sets…
-- [Low] The comment above xsc_event_work() in
-  drivers/net/ethernet/yunsilicon/xsc/pci/pci_irq.c (lines 164-169) says…
+- [Medium] At this commit, xsc_eth_probe() registers a netdev whose ops
+  table (xsc_netdev_ops in…
+- [Low] This patch adds calls to the auxiliary bus API.
+- [Low] At this commit, xsc_eth_wq.h declares xsc_eth_cqwq_create(),
+  xsc_eth_wq_cyc_create(), xsc_eth_wq_destroy() and…
+- [Low] Several comments do not match the code.
+- [Low] xsc_eth_l2_addr_init()
+  (drivers/net/ethernet/yunsilicon/xsc/net/main.c:156) declares `char…
 
 --
 
-net/xsc: report link state changes
+net/xsc: add the ethernet netdev
 
-This commit adds xsc_core_query_vport_state() and uses it to set the
-netdev carrier in xsc_eth_open(). It also registers a link event callback
-with the PCI layer, so the port is re-queried and the carrier updated on
-every XSC_CMD_EVENT_RESP_CHANGE_LINK event.
+This patch registers an ethernet auxiliary device from the xsc PCI core and
+adds an auxiliary driver that creates a netdev. The netdev queries the MAC
+address, sets the hardware MTU, and implements ndo_open/ndo_stop. The queue
+and data path are left to follow-up patches.
 
-> diff --git a/drivers/net/ethernet/yunsilicon/xsc/net/main.c b/drivers/net/ethernet/yunsilicon/xsc/net/main.c
-> index 1c7bbc27d8c4f..75a6abd6ed136 100644
-> --- a/drivers/net/ethernet/yunsilicon/xsc/net/main.c
-> +++ b/drivers/net/ethernet/yunsilicon/xsc/net/main.c
-> @@ -721,6 +721,62 @@ static void xsc_eth_sw_deinit(struct xsc_adapter *adapter)
+> diff --git a/drivers/net/ethernet/yunsilicon/xsc/net/Kconfig b/drivers/net/ethernet/yunsilicon/xsc/net/Kconfig
+> new file mode 100644
+> index 0000000000000..7428b26295b66
+> --- /dev/null
+> +++ b/drivers/net/ethernet/yunsilicon/xsc/net/Kconfig
+> @@ -0,0 +1,17 @@
 
 [ ... ]
 
-> +static int xsc_eth_change_link_status(struct xsc_adapter *adapter)
-> +{
-> +	bool link_up;
-> +	int err;
-> +
-> +	err = xsc_eth_get_link_status(adapter, &link_up);
-> +	if (err) {
-> +		netdev_err(adapter->netdev, "failed to query link status, err=%d\n",
-> +			   err);
-> +		return err;
-> +	}
-> +
-> +	if (link_up && !netif_carrier_ok(adapter->netdev)) {
-> +		netdev_info(adapter->netdev, "Link up\n");
-> +		netif_carrier_on(adapter->netdev);
-> +	} else if (!link_up && netif_carrier_ok(adapter->netdev)) {
-> +		netdev_info(adapter->netdev, "Link down\n");
-> +		netif_carrier_off(adapter->netdev);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +/*
-> + * Registered with the PCI layer, which runs it on its own workqueue for
-> + * every XSC_CMD_EVENT_RESP_CHANGE_LINK event.
-> + */
-> +static void xsc_eth_link_event_handler(void *arg)
-> +{
-> +	struct xsc_core_device *xdev = arg;
-> +	struct xsc_adapter *adapter = xdev->eth_priv;
-> +	int err;
-> +
-> +	if (!adapter || !adapter->opened)
-> +		return;
-> +
-> +	err = xsc_eth_change_link_status(adapter);
-
-[Severity: Medium]
-Can this race with xsc_eth_close() and leave the carrier on for a closed
-device?
-
-The handler runs from xsc_event_work() on xdev->event_wq with no lock
-held. Its only guard is a plain read of adapter->opened. After that it
-sends a sleeping firmware command and then checks and sets the carrier
-in two separate steps.
-
-xsc_eth_close() writes opened and the carrier under RTNL. It does not
-exclude or wait for a handler that has already passed the check:
-
-event_wq                              ip link set down (RTNL)
-xsc_eth_link_event_handler()
-  adapter->opened == true
-  xsc_eth_change_link_status()
-    xsc_core_query_vport_state()
-                                      xsc_eth_close()
-                                        adapter->opened = false;
-                                        netif_carrier_off()
-                                        xsc_eth_sw_deinit()
-                                        ...
-    link_up && !netif_carrier_ok()
-    netif_carrier_on()
-
-On the next xsc_eth_open(), the "Link down" branch never calls
-netif_carrier_off(). If the link is down at reopen, the interface comes
-up with carrier and operstate up and stays that way until the next link
-transition.
-
-The opened bool acts as a gate guard rather than a real lock. It is also
-read and written without READ_ONCE()/WRITE_ONCE().
-
-Would it work to take rtnl_lock() in the handler, or a driver state mutex
-that open and close also hold (like state_lock in
-mlx5e_update_carrier_work()), and re-check opened under it? Remove and
-the probe error path call xsc_irq_event_unregister() without RTNL, so
-its flush_workqueue() should not deadlock against that.
-
-> +	if (err)
-> +		netdev_err(adapter->netdev, "failed to change linkstatus, err=%d\n",
-> +			   err);
-> +}
+> +config YUNSILICON_XSC_ETH
+> +	tristate "Yunsilicon XSC ethernet driver"
+> +	depends on YUNSILICON_XSC_PCI
+> +	depends on NET
+> +	select PAGE_POOL
 
 [Severity: Low]
-This isn't a bug, but once this handler is registered, the comment above
-xsc_event_work() in drivers/net/ethernet/yunsilicon/xsc/pci/pci_irq.c no
-longer matches what the work does:
 
-/*
- * Handle an asynchronous event. This runs on the PCI layer's own workqueue,
- * so it outlives any auxiliary driver: the driver only ever registers a
- * callback here, and the memory this touches belongs to xsc_core_device
- * rather than to the eth private area.
- */
+Should this entry select AUXILIARY_BUS? xsc_eth uses
+module_auxiliary_driver(). xsc_pci now builds adev.o, and xsc_adev_add()
+in that file calls auxiliary_device_init() and auxiliary_device_add().
 
-xsc_event_work() calls the callback inline:
+AUXILIARY_BUS is a bool with no prompt in drivers/base/Kconfig:
 
-	handler = READ_ONCE(xdev->link_event_handler);
-	if (handler)
-		handler(xdev);
+config AUXILIARY_BUS
+	bool
 
-xsc_eth_link_event_handler() dereferences xdev->eth_priv,
-adapter->opened and adapter->netdev. All of these live in the
-alloc_etherdev() private area that free_netdev() frees.
+auxiliary.o is only built under obj-$(CONFIG_AUXILIARY_BUS), and
+include/linux/auxiliary_bus.h has no stubs for the disabled case.
 
-What actually keeps this safe is that xsc_eth_remove() and the probe
-error path call xsc_irq_event_unregister() before free_netdev().
+If nothing else in the config selects AUXILIARY_BUS, won't the link or
+modpost fail with undefined references to __auxiliary_device_add() and
+__auxiliary_driver_register()?
 
-Could the comment say that callbacks may touch client-owned memory, and
-that clients must unregister before freeing it?
+At the end of the series, neither YUNSILICON_XSC_PCI nor YUNSILICON_XSC_ETH
+selects it.
+
+> diff --git a/drivers/net/ethernet/yunsilicon/xsc/net/main.c b/drivers/net/ethernet/yunsilicon/xsc/net/main.c
+> new file mode 100644
+> index 0000000000000..b9e75d7e14e78
+> --- /dev/null
+> +++ b/drivers/net/ethernet/yunsilicon/xsc/net/main.c
+> @@ -0,0 +1,263 @@
 
 [ ... ]
 
-> @@ -823,6 +880,16 @@ static int xsc_eth_open(struct net_device *netdev)
->  	if (ret)
->  		goto err_sw_deinit;
->  
-> +	ret = xsc_eth_get_link_status(adapter, &link_up);
-> +	if (ret) {
-> +		netdev_warn(netdev, "failed to query link status, err=%d\n", ret);
-> +	} else if (link_up) {
-> +		netdev_info(netdev, "Link up\n");
-> +		netif_carrier_on(adapter->netdev);
-> +	} else {
-> +		netdev_info(netdev, "Link down\n");
-> +	}
+> +static const struct net_device_ops xsc_netdev_ops = {
+> +	.ndo_open		= xsc_eth_open,
+> +	.ndo_stop		= xsc_eth_close,
+> +};
+
+[Severity: Medium]
+
+The commit message says the netdev "must not be brought up in this state".
+Does anything enforce that?
+
+xsc_netdev_ops has no ndo_start_xmit. xsc_eth_open() always returns 0, so
+the interface can be brought up once xsc_eth_probe() has called
+register_netdev().
+
+Carrier stays off at this commit, so the qdisc path drops packets. netpoll
+does not check carrier, though:
+
+__netpoll_send_skb()
+    if (!npinfo || !netif_running(dev) || !netif_device_present(dev)) {
+    ...
+    netpoll_start_xmit()
+        netdev_start_xmit()
+            ops->ndo_start_xmit()    <- NULL here
+
+__netpoll_setup() only rejects IFF_DISABLE_NETPOLL devices. Can
+configuring netconsole on this interface end in a NULL function pointer
+call?
+
+Later in the series, "net/xsc: report link state changes" adds
+netif_carrier_on() while xsc_netdev_ops still has no ndo_start_xmit. At
+that commit, a plain "ip link set up" with the link up seems to be enough
+to hit this.
+
+"net/xsc: add the transmit path" adds .ndo_start_xmit = xsc_eth_xmit, so
+the end of the series is fine. The intermediate commits are still
+bisectable, though.
+
+Would a stub ndo_start_xmit that drops the skb work until the transmit
+patch lands? Failing ndo_open with an error would be another option.
+
+[ ... ]
+
+> +static void xsc_eth_l2_addr_init(struct xsc_adapter *adapter)
+> +{
+> +	struct net_device *netdev = adapter->netdev;
+> +	char mac[6] = {0};
+> +	int ret = 0;
 > +
->  	adapter->opened = true;
+> +	ret = xsc_eth_get_mac(adapter->xdev, mac);
 
-[Severity: Medium]
-Can a link change event get lost between the query and this assignment?
+[Severity: Low]
 
-The link state is sampled before adapter->opened is set. While opened is
-false, xsc_eth_link_event_handler() returns early and records nothing:
+Is mac[] guaranteed to be u16 aligned here?
 
-	if (!adapter || !adapter->opened)
-		return;
+xsc_eth_get_mac() fills it with ether_addr_copy(mac, out->mac). It is then
+passed to is_valid_ether_addr(), which calls is_zero_ether_addr().
+include/linux/etherdevice.h documents that both need u16 alignment:
 
-Suppose the link changes after the firmware answers QUERY_VPORT_STATE,
-and the CHANGE_LINK work reaches that check before adapter->opened is
-set to true. The event is dropped. Nothing re-queries afterwards, so the
-carrier stays wrong until the next link transition, which may never come
-on a stable link. This looks reachable at least on the first open after
-probe.
+ * Please note: dst & src must both be aligned to u16.
 
-Also, if xsc_eth_get_link_status() fails here, for example because
-xsc_cmd_exec() times out, open only warns and returns 0. The carrier
-stays off and the query is never retried. A link that is up and stays
-up would then be reported down indefinitely.
+A char[6] on the stack is only 1-byte aligned. Without
+CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS, could these become unaligned u16
+accesses?
 
-Would either of these close the window and let a later event correct a
-failed query?
-
-  - set opened before the query, as mlx5e_open_locked() does with
-    MLX5E_STATE_OPENED before updating the carrier
-  - re-query once opened and admin-up are both set
-
->  
->  	xsc_set_port_admin_status(adapter, XSC_PORT_UP);
-
-[Severity: Medium]
-Does the oper state read above mean anything while the port is still
-admin-down?
-
-xsc_eth_close() always ends with:
-
-	xsc_set_port_admin_status(adapter, XSC_PORT_DOWN);
-
-So on every re-open, xsc_eth_get_link_status() queries a port the driver
-has just set admin-down. XSC_PORT_UP is only sent after the carrier has
-been decided.
-
-The reply carries separate admin and oper nibbles:
-
-#define XSC_QUERY_VPORT_ADMIN_STATE_MASK	GENMASK(3, 0)
-#define XSC_QUERY_VPORT_STATE_MASK		GENMASK(7, 4)
-
-xsc_core_query_vport_state() returns the oper nibble.
-
-If the firmware reports oper-down while the port is admin-down, open
-takes the "Link down" branch. After that, only a later
-XSC_CMD_EVENT_RESP_CHANGE_LINK event can turn the carrier on.
-
-Does the firmware raise that event when admin-up changes the oper state?
-If it does not, the netdev stays carrier-off after ip link set down
-followed by ip link set up, even though the physical link is up. It
-would stay that way until the link next flaps.
-
-mlx5e queries the state before admin-up in the same way and relies on
-firmware port change events. So this may be fine if the xsc firmware
-behaves the same way.
-
-Would setting opened, then sending XSC_PORT_UP, and only then sampling
-the link state make the initial sample match the real link?
+Would u8 mac[ETH_ALEN] __aligned(2), with xsc_eth_get_mac() taking a u8 *,
+avoid this? The code is unchanged at the end of the series.
 
 [ ... ]
+
+> diff --git a/drivers/net/ethernet/yunsilicon/xsc/net/xsc_eth_wq.h b/drivers/net/ethernet/yunsilicon/xsc/net/xsc_eth_wq.h
+> new file mode 100644
+> index 0000000000000..35206ddf42f46
+> --- /dev/null
+> +++ b/drivers/net/ethernet/yunsilicon/xsc/net/xsc_eth_wq.h
+> @@ -0,0 +1,150 @@
+
+[ ... ]
+
+> +u32 xsc_wq_cyc_get_size(struct xsc_wq_cyc *wq);
+> +
+> +int xsc_eth_cqwq_create(struct xsc_core_device *xdev,
+> +			struct xsc_wq_param *param,
+> +			u8 q_log_size,
+> +			u8 ele_log_size,
+> +			struct xsc_cqwq *wq,
+> +			struct xsc_wq_ctrl *wq_ctrl);
+> +
+> +int xsc_eth_wq_cyc_create(struct xsc_core_device *xdev,
+> +			  struct xsc_wq_param *param,
+> +			  u8 q_log_size,
+> +			  u8 ele_log_size,
+> +			  struct xsc_wq_cyc *wq,
+> +			  struct xsc_wq_ctrl *wq_ctrl);
+> +void xsc_eth_wq_destroy(struct xsc_wq_ctrl *wq_ctrl);
+
+[Severity: Low]
+
+This isn't a bug, but these prototypes have no definitions at this commit.
+The net Makefile only builds main.o:
+
+xsc_eth-y := main.o
+
+Several other items are also unused here:
+
+  xsc_queue.h
+  the queue parameter structs
+  the CQE/WQE layouts
+  XSC_INVALID_LKEY and XSC_QUEUE_TYPE_RAW*
+  adapter->channel
+  select PAGE_POOL
+
+Nothing calls these functions, so this commit builds and links. Later in
+the series, "net/xsc: add the single TX/RX channel" adds xsc_eth_wq.c, and
+the transmit and receive patches use the rest.
+
+Could these definitions move into the patches that first use them?
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/yunsilicon/xsc/pci/adev.c b/drivers/net/ethernet/yunsilicon/xsc/pci/adev.c
+> new file mode 100644
+> index 0000000000000..3376ed10ba6ca
+> --- /dev/null
+> +++ b/drivers/net/ethernet/yunsilicon/xsc/pci/adev.c
+> @@ -0,0 +1,133 @@
+
+[ ... ]
+
+> +static void xsc_adev_del(struct xsc_core_device *xdev, int idx)
+> +{
+
+[ ... ]
+
+> +	/* Clear the slot before teardown: the driver's remove callback runs
+> +	 * synchronously inside auxiliary_device_delete() and may re-enter
+> +	 * xsc_adev_add() for this index.
+> +	 */
+> +	xdev->xsc_adev_list[idx] = NULL;
+
+[Severity: Low]
+
+Is this comment accurate? xsc_adev_add() is static, and its only caller is
+xsc_adev_init(). xsc_adev_init() is only called from xsc_pci_init().
+
+xsc_eth_remove() never calls back into the PCI layer. It doesn't look like
+the remove callback can re-enter xsc_adev_add(). The comment is unchanged
+at the end of the series.
+
+A couple of other descriptions don't seem to match the code at this commit
+either. xsc_eth_remove() has:
+
+	/* Runs ndo_stop(), so the queues and the HCA are shut down first. */
+
+xsc_eth_close() only clears adapter->opened, turns the carrier off and
+sends XSC_PORT_DOWN. Queue and HCA teardown only arrive in later patches.
+
+The commit message says:
+
+  create the device, program the MAC address and MTU
+
+xsc_eth_l2_addr_init() only queries the MAC with XSC_CMD_OP_QUERY_ETH_MAC
+and calls eth_hw_addr_set(). Nothing is written to the device.
+
+The commit message also doesn't mention that ndo_open sets the port admin
+status to up.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126145711.70868-1-tianx%40yunsilicon.com
