@@ -1,102 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.100
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.6
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795744075;
-	b=a2SJXW22wP0dLaF7YC++1MUL2brKNEaYpINCqrNfQZkKVzoVIQe8aJV9b8l0Iwx7ktLM
-	 nM8BS6NBJEdEfWIgvyvbawJor6ZEoL8WvrIo5ZT7K5dod58juQwYYWJD8cNncMDZ+YWvW
-	 oy1IJhSjt3MP//U42tB9uZspclx9/y6tY6BDOS7pfMKFyxr8S10ib+Y88cmicwTvXH+wA
-	 dDy+9WFCjPzWfLtSUMJql+GGeoGxeKxsth3BXGEmyWdUfrIm6nJJqefsOSLl4nS8NEyjT
-	 pqEcTv8gt2+X441VZDzJJxCrFhiZFp83hV0C8Sv5Atijjyyht1MAHLJEDteUAa+ObOw==
+	t=1795744129;
+	b=bd6ynzj299AWZGiZJTM6Md1m2AWwPpc0eLp0IBYffNIfrY6pK3wph1ulIVp/GE1RWkws
+	 MG7GgUKWcOMw5vohOgYTqxUwSRipN2JRzclobq11uUu1ODEmld5Kh1v2+QQQqPihrVC2+
+	 obCssgv1iTXlvjoPCxn6uER5DUsSlB0PtoOhddO5YVY5nF/hQfZ4qu9H3Eix82xJSKhId
+	 noaGM2gQsX+H8Bi70lPBU/EKDHcGXrEmg0iyq1jLAPQToO8c0olqJ7ikJUtnNbEVSMlI8
+	 KAVP1MWoDv9+ZecfAGG01j0nF8LXgPZQ6GXdhaMyH8GP0YYII0btfwvHjpwa3q/DSsw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795744075;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=9rpdsm/VQNjI+QZyvQZysG3z/mkS8qpvjAF0HDQXOiw=;
-	b=1xgSMKFGMqDdswQMnzUwiyMjzyCJbsLv9WB/zBfSG8RnZ0EnGKsFUa24m29QVKCeKgpb
-	 72I3VGKW8lDU+2a4S4kTh+65GcJGLu5DXF0GVZabSxGIgzgb4mzcDysVSx/ZozoNkldCR
-	 ljxjW+1UfbE4Ppt9cl9QGye5DQ1vJOiinn77TjcYp/owCJzG2bM68QUM3XWR9funm3WuY
-	 vUUYHP+wvOqCQ2K9CJIUyDVBcXQCbUJbrdUJjiMqYglC3Ymu8+ueRQZjMOo3txYN9G5b2
-	 Ul6D6+A6rSd1JwVBE0Y0kaubVAXY0RAz1enr0+6svtFCqJn2XA8tt6zg8Aj+WiW6DWw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795744129;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=F9bJgw3Rq+nxWnesx6NpE3jyyip8FQiNM7chh1BiCko=;
+	b=bl2LZq1F+ubM20aVhHMl7ujgGvRphkAdOiJDNbZw7S0e6c6tADtOxF8F82XQGMbBo0QJ
+	 HY9iA8xoljW9YjH3O8ZQgO2H3FKq+ghwR1sbaViyoBwHIUWehncKEnuVtn6YBu3VbuEGg
+	 iFBnsGFDJwifAEK50IeZiK4uk1cs6tbrC60XsGlmPBoOVyDulBIEeh6Na44nibZGsrsEx
+	 2+jIwYKtxzEp/U92SMzA7cES+DhvZjQIlOTHy1sAg0uDr+MFhlVbIj8a2tbFfkpP4z75N
+	 +WqvGeRmKm/oIdmFwGzpxxiKpiT72ppFyDS0uW/WRK/0RBYGfdoSUqElLroopV+ImVQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=andrii.net;
-	spf=pass smtp.mailfrom=andrii.net;
-	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=W9umYR6B;
-	arc=none smtp.remote-ip=209.85.216.100
-Received: from mail-pj1-f100.google.com (mail-pj1-f100.google.com [209.85.216.100])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=126.com;
+	spf=pass smtp.mailfrom=126.com;
+	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=PhiHP0nG;
+	arc=none smtp.remote-ip=117.135.210.6
+Received: from m16.mail.126.com (m16.mail.126.com [117.135.210.6])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2217B606A323
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 01:47:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2217B606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 293CF606A31C;
+	Fri, 27 Nov 2026 01:48:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 293CF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=W9umYR6B
-Received: by mail-pj1-f100.google.com with SMTP id 98e67ed59e1d1-3b3a914e4c8so4298571a91.0
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 17:47:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=andrii.net; s=gmail-2025; t=1795744074; x=1796348874; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9rpdsm/VQNjI+QZyvQZysG3z/mkS8qpvjAF0HDQXOiw=;
-        b=W9umYR6Bu05MAqt8vQxTPaZuHIj8L7nkoqY7roaXz/KTOuU0vid4imCewE5ztw/rXx
-         h4KetozT0hoS7sXnuW/fq85mVt9zpfR6JRkVpxBfKZkcRQlrHikdfsoDem8IJnaM2Cj4
-         9cwe8pDu65JPoWmf0uzO1mhZztzErO6vjL9Wzp+Aj76Z945LQaXM0fNNY02GCDcU07YP
-         OuVlLLTbQtV2Z4OO5pwSCXDAwml/8Gr44oxlyeR3eoes0VA6EFJ8wE/XMGz6oap/ipfF
-         1uDzFiDy+c8Txk+tjbKX9kIFMgYRczn2nrzTPthOc0yICs2VWsF8YdjxqI1A235TPWks
-         KeoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795744074; x=1796348874;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9rpdsm/VQNjI+QZyvQZysG3z/mkS8qpvjAF0HDQXOiw=;
-        b=ZjWvm3tYBuH6/G3NZYWEJi6IgDZC8xriO/1USeKKdBbs2RMP0oMzGXCIFGfdxemGbz
-         w8GU0andN8W+O8iVPn7HVvf2GOAB3C+iq5355TVrLVHgV3uVQUwXVcL5GstveOhzwt2/
-         CFtjZL/I70MJ9Oy3K3dBqxoODFYYg/XV0064ze4txRjcEaYsKT5alBZGi1JvNW8EojoJ
-         0043r0QNxRa84VAcqIjIAQatRmvyjT5fVaAouSIXLhgYbdP4wltXisDloTamnLKQ1p+X
-         /sCGPvSdSNQ4lz/Y9q0P46HgPcSzREdwEbNXOpWaUQ1lEFtwmy96HO3BBTga8a80J5z5
-         IUYw==
-X-Forwarded-Encrypted: i=1; AL+hErF7+HqDj9+mAxLKgxrdcvdwU27zbwsewrkmLAuAfXpIyl9DaMis7m1qegMVlsv0J/PIfBcWSQI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+T24rQ4g3t7/CsGABG/81WCtcOYyy9nSQhkxVz3NQrEiWsW55B
-	kk4yEzfzTejZfejzW3aggzVwAN5P6Uk9yz+YavtzBG7+r3tqHV6XDJVPdJrxLB+GpLi8XTk/mqv
-	ljRNmWux+w6AP3xTQ20t3nUIBxPUsvP2C0ashGVfx2CI2zxlB2Q+q
-X-Gm-Gg: AZFdTZfu4TaW9tlVd2pwVtJo1wlVx4KJF+1o8NXcEELIlXT5AkwczZif/DL7Z6AXzM+
-	P+fGSeQLOKPNc7KyCcmFm20CbtO7VdpwlNRPq9pL4PQNz+wJ1vbxMu8ZKlrT5dSn0wf01JQvgXZ
-	IdYcvKArBc97Usem7ghn8S09u40HFGmWDR2m6XgV+5Ed9J6zsLvsNHMPo6dw5dKVvP+TXBX4Flk
-	rpajrID5d2KUErksM7snpqx34/mfaGqBwLkBm+fT+bS7Swoco/zmvgh+3IYOsR0pb+AiqIW/OZ8
-	yaS4KijUFJLScei0UR/4WwmFwnlLQvR2ny8rJtM/HRIrAjxGGwDumoOSI2/13LSUIj0dpYzzXyt
-	gl0NeXXe66ryBaSrUQB3bK157W0Q=
-X-Received: by 2002:a17:90b:288e:b0:3b3:ab75:c94f with SMTP id 98e67ed59e1d1-3b41c92a098mr21400073a91.31.1795744074328;
-        Thu, 26 Nov 2026 17:47:54 -0800 (PST)
-Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b4062a77f5sm16585106a91.6.2026.11.26.17.47.53
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Nov 2026 17:47:54 -0800 (PST)
-X-Relaying-Domain: andrii.net
-From: Andrii Tereshchenko <opensource@andrii.net>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S . Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Christian Hopps <chopps@labn.net>,
+	dkim=pass (1024-bit key, unprotected) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=PhiHP0nG
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=F9
+	bJgw3Rq+nxWnesx6NpE3jyyip8FQiNM7chh1BiCko=; b=PhiHP0nGKC2c1MLuLc
+	c74gOAk6ZcSzAGB/5gYpcjBizGFjvxHEZsB7yi4GGVL4sobaWl5MhhK+M8/a4xCE
+	GwtXwiJX+QWC+rO6oSKZujwL/I+LuU1pGVSQgZ8/mcqF4MW1/uSuF4/Yq90QcnYC
+	phokEaNyokAz0fOaZdailA7Lc=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD3F6dS4QhrP9d9EA--.22888S2;
+	Fri, 27 Nov 2026 09:48:02 +0800 (CST)
+From: Linkui Xiao <xiaolinkui@126.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: andrew+netdev@lunn.ch,
 	netdev@vger.kernel.org,
-	ipsec@lists.linux.dev,
+	andrew@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	rosenp@gmail.com,
+	chunkeey@gmail.com,
+	jacob.e.keller@intel.com,
+	kees+treewide@kernel.org,
+	daniel.machon@microchip.com,
+	hkallweit1@gmail.com,
 	linux-kernel@vger.kernel.org,
-	security@kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH ipsec 1/2] xfrm: iptfs: don't modify the shared info of cloned skbs on output
-Date: Thu, 26 Nov 2026 17:47:51 -0800
-Message-ID: <5ea528c8-ec02-4f2d-bc59-50700be8216a@mid.andrii.net>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <179531150722.3135.5639628464200463791@kernel.org>
-References: <c1e999b5-15ee-468d-81c5-530a560e84df@mid.andrii.net> <179531150722.3135.5639628464200463791@kernel.org>
+	Linkui Xiao <xiaolinkui@kylinos.cn>
+Subject: Re: [PATCH net v3] net: ibm: emac: attach and start the fixed-link PHY
+Date: Fri, 27 Nov 2026 09:48:00 +0800
+Message-Id: <20261127014800.2909048-1-xiaolinkui@126.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <179559730279.3135.7318334257799287238@kernel.org>
+References: <20261124083941.2480237-1-xiaolinkui@126.com> <179559730279.3135.7318334257799287238@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,35 +76,123 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wD3F6dS4QhrP9d9EA--.22888S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3Gr43Cw13XF1DXFyDCFy7Awb_yoW7ZrWrpa
+	yftF98Jr1kGrsaqrsrCF48WFy8ZFs7G345A340krWY9r1Y9ryfZrW7K34Utay5CrZ3X345
+	tr40va9rAa90vaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRvtCxUUUUU=
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqRJpQGsI4VIPvAAA3x
 
-On Sun, 22 Nov 2026, Sashiko AI review wrote:
-> [Severity: High]
-> Does this guard hold the "they are never appended" rule from the comment
-> above? It only tests skb_cloned(skb). It also runs after
-> iptfs_first_skb(), which may already have uncloned the head.
+Thanks for the review. All four are legitimate. v4 is posted as a new
+thread; it also starts the fixed PHY through emac_mdio_init_phy(), which is
+what Andrew asked for in his review of v3.
 
-Yes, this is a real gap. A head that is not cloned can still share its
-frag_list members: after skb_checksum_help() as you describe, after
-pskb_copy(), and after skb_cow() of a clone. v2 tests skb_has_frag_list()
-instead of skb_cloned(): a first skb with a frag_list is sent on its own,
-aggregation stops at a following skb that has one, and
-iptfs_rehome_fraglist() is removed. That also covers a deferred skb2 that
-becomes the next first skb.
+- [High] Unbind can leave a freed net_device queued on the linkwatch list.
 
-I drove your route directly in a test VM: a cloned CHECKSUM_PARTIAL skb
-with a frag_list sent into an IP-TFS SA, then a small packet behind it.
-With v1 the original's frag_list was written into every time; with v2
-never.
+Correct, including the chain, and the reason is not that the reference is
+weak. unregister_netdev() -> netdev_run_todo() drains lweventlist through
+linkwatch_sync_dev(), and it is also the only place that waits for the
+refcount, in netdev_wait_allrefs_any(); it returns as soon as the count
+reaches one. A carrier change after that queues an event nobody will ever
+wait for again: linkwatch_add_event() does list_add_tail() + netdev_hold(),
+and netdev_hold() is a real __dev_hold(), but free_netdev() does not wait
+for refs and never takes dev->link_watch_list back off, it goes straight to
+ref_tracker_dir_exit(), free_percpu(dev->pcpu_refcnt) and put_device() ->
+netdev_release() -> kvfree(). devres frees the netdev as soon as
+emac_remove() returns, and __linkwatch_run_queue() then walks the list,
+calling netdev_tracker_free() and __dev_put() on freed memory.
 
-> [Severity: Low]
-> The commit message says: "ESP copies a cloned head anyway, so this
-> moves that copy earlier and does not add one." That is not true...
+Fixed by stopping the PHY before unregister_netdev():
 
-Agreed, with aggregation ESP can reallocate the head again. v2's
-changelog no longer says it.
+	if (dev->ndev->phydev)
+		phy_stop(dev->ndev->phydev);
 
-v2 follows as a new thread.
+phy_stop() is what turns the carrier off, so the event is queued while the
+netdev is still registered and unregister_netdev() drains it.
+phy_disconnect() stays below it: it only stops the PHY when
+phy_is_started(), which is false by then, and moving it up would detach
+from a registered netdev without RTNL, which phy_detach_internal() only
+tolerates once reg_state != NETREG_REGISTERED.
 
-Andrii Tereshchenko
+I did not move phy_start()/phy_stop() into emac_open()/emac_close(). Andrew
+asked for the fixed PHY to be started the way this driver starts a real
+PHY, and that is emac_mdio_init_phy() from emac_init_phy(), not from
+ndo_open. Splitting the two belongs to the phylib/phylink rewrite he also
+asked for.
+
+err_detach_tah keeps its order, with one caveat. A failure before
+register_netdev() leaves reg_state at NETREG_UNINITIALIZED, where
+netif_carrier_off() returns before it reaches linkwatch, so the
+phy_disconnect() there cannot queue anything.
+
+The caveat is a failed register_netdev(). It leaves the netdev
+NETREG_UNREGISTERED, whether netdev_register_kobject() failed or the
+NETDEV_REGISTER veto ran the rollback, so netif_carrier_off() no longer
+returns early. If the state machine brought the carrier up between the
+probe's own netif_carrier_off() and the failure, the phy_stop() inside
+that phy_disconnect() queues one more event: after netdev_run_todo() has
+drained the queue on the veto path, with no drain at all on the other.
+That takes register_netdev() to fail, so I did not widen the error path
+for it.
+
+- [Medium] dev->phy is now filled in asynchronously.
+
+The ordering is real: phy_start() only does phy_queue_state_machine(phydev,
+0) and emac_adjust_link() just copies the resolved values into dev->phy, so
+emac_open() can win the race and build MR1 from the probe defaults, and
+since a fixed link never changes state again the callback will not fire a
+second time to correct it.
+
+I left the code alone in v4, but the commit message no longer implies the
+speed is settled. It now carries this paragraph:
+
+> phy_start() only queues the state machine, so an emac_open() that wins the
+> race against the first emac_adjust_link() still builds MR1 from the probe
+> defaults, and a fixed link never changes state again for a second callback
+> to correct it. That window is the one the phy-handle path has always had,
+> this driver starts its PHY at probe time rather than in ndo_open, and the
+> next ifdown/ifup closes it.
+
+Two things bound the window. It is not new: this driver has always started
+its PHY from emac_init_phy() at probe time and never from ndo_open, so the
+phy-handle path has the same race against its first ifup. And it is not
+permanent: emac_open() runs emac_configure() on every open, so an
+ifdown/ifup picks up the dev->phy values the callback filled in meanwhile.
+What is permanent is the behaviour before this patch, where dev->phy.speed
+stays SPEED_UNKNOWN, emac_configure() takes the default case, and the port
+is programmed 10 Mbit/s half duplex with flow control off whatever the
+fixed-link property says.
+
+Making it deterministic means reading the link under link_lock before
+emac_configure(), or reconfiguring from the callback, and the ethtool paths
+already take link_lock before calling into phylib. That is the same
+rewrite; I would rather do it there than bolt it onto a crash fix.
+
+- [High, pre-existing] NULL mdio_read on the gpcs path.
+
+Also correct. The branch returns before dev->phy.mdio_read, mdio_write and
+gpcs_address are assigned, and emac_configure() reaches
+emac_mii_reset_gpcs() -> gpcs_phy_read() on every open and reset_work, so a
+sgmii/tbi/rtbi port in that branch dereferences NULL. arches.dts EMAC0
+(sgmii, phy-map 0xffffffff, gpcs-address 0xa) is exactly that case. It is
+untouched by this patch and predates it; I will send a separate fix.
+
+- [Low] name baab9de385a8 in the commit message.
+
+Done. The v4 commit message now says that baab9de385a8 ("net: ibm: emac:
+use netdev's phydev directly") dropped
+
+	if (dev->phy_dev)
+		phy_disconnect(dev->phy_dev);
+
+from emac_remove() along with dev->phy_dev, and that the emac_remove() hunk
+restores it.
+
+Cross compiled for powerpc out of ppc44x_defconfig with W=1, clean. No
+hardware here, so no runtime test.
+
+Regards,
+Linkui
 
 pw-bot: cr
+
