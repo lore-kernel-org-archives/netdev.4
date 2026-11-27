@@ -1,63 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795771954;
-	b=tUsqdjKIcYLmxK8ykmVjp6MlmqcvtSsTl9+KT0f46tMVA63vJYKBLJdkDSdKvnGKZo08
-	 fSrNS6hq8U3VpqMCWosuHjVpTL0FbpUpY3JrAnU3DAtKAuA9wjy4qiXtLiEK7Vh5SI1rS
-	 q7AtV+R95NZ26g4pkJ4kLhMPTkh8iFt5tSOAWn4wSaURB/csy3tfwa+tH7yD26A5em4uH
-	 fD2etB9wKmlZUjWd4t4ZDBfkGC4V8ExCTId6ZmgB0+CVKJLBNOZiEvh5e6UORwr9zjcvS
-	 nqKTzJgxPE6LmLNVhtTK05+l6yzcMISyknWXuRLFIcQT+3H09/d4V8UO5DHhGyJWG6w==
+	t=1795772141;
+	b=V6GZaCrdVnPLDZ1nmx+zevIZHbg7owpQ+twh91ZsTrCW2CyIlgiEphGo8d7DcHK/cLJP
+	 KExHk5hsRVeGJ2DztL75JwONH0iskicpXTIIk8v2raKM+RjHF16gL5S+z1ydQDKTSQt/O
+	 chnSTAg28NKRvv7KNlrYTv256rxLSGKUcyb2qwmuveVSsTcaQxr4D0YozbSqVOTlOBoLl
+	 kre+2gMkK7IRgHkaZ5B5gK5OLOE3gS875DMnug8yNTyrf0S7v4c36ApjwIKauJHelfvgU
+	 ZxCCG2k45Z/VwGasZMlMbE1yX2ekah1L8qif17YsbbIKw57WnLN51FqXo4gyyuJay+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795771954;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795772141;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=I+yexljqZ8dH7oYYYT3kCGp9Kqah9eMG4Yd5LvFz2ME=;
-	b=GjS+w6+RkxK9eIJYsN8SEaQqct0SKuuSEun3rb75MHxJNxbmg9vVcj8HydmJ77BksUZb
-	 zIz6gO4SvPhUu19ivpXiG+nldBXoMQVN6VzEchHuOg1qk3yiIW0z0UcSDljPeFueV2JKF
-	 AFVERp8657PuWt8wA8v3qW/EZGlBx0lTkzo4vhuztmWGzPIYTGPtnX0lgfmKpzxP6st90
-	 E7XlFkDjXYF5VVUqwUMrGSxoKD9RA/JxdkcjV4IM90Qh+qnMX20szPdqjP1ZpX84iFUAF
-	 3Yw/46JnL24iYprLnmfi3zyuotZqnbPUNS2tQL/KguOxYmQkYoIQTR9+NnbcPh9XGvQ==
+	bh=hwQ67UPDDBpBlNdOHdQzfI33A0euocSSF71ObVKBPMQ=;
+	b=pbFrFuNfJtdTcpyy80EaZ7KrtRNHKf2rEX5NkEC1p5ADsib1xxdtgl1GrXCy9mN8FhOB
+	 UEvytnDRYA9j58w9v6+BWzQg4QCEPD9uPeGfkJdLN8JzBNbAedQvPpL9ULj/CqkYCAOBd
+	 C5RXrSTPA3/MpBFbBZvvu5IBFVL9iEpA05RgUt3SNMKijDrFPvZsqEeiAwQmRBR6dB51B
+	 DLSNhIyApluigUazLElGq3KE6T1DblBzbF9s6h6qf7OFTsTf3f81eLYyML5NgqgYyLK9H
+	 nipmhFiQy64wde1d7F6nvOsfEk/k10FVE1wHPke5pW1KEkVlbsEpix6tzIAZ0dd9Rvw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ORCVgFvy;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KT02Zom2;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93B98606A32E;
-	Fri, 27 Nov 2026 09:32:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53E9E606A321;
+	Fri, 27 Nov 2026 09:35:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ORCVgFvy
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA6641F00899;
-	Fri, 27 Nov 2026 09:32:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KT02Zom2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7C7B1F0089A;
+	Fri, 27 Nov 2026 09:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795771954;
-	bh=I+yexljqZ8dH7oYYYT3kCGp9Kqah9eMG4Yd5LvFz2ME=;
+	s=k20260515; t=1795772140;
+	bh=hwQ67UPDDBpBlNdOHdQzfI33A0euocSSF71ObVKBPMQ=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ORCVgFvyxPS3SGECYpWmuQnGPSJL0E3pCF182JH+3BKzttCpfgBbADUiDiWQgqWbu
-	 yWdVpQZY15U6TRaviH7GFNS5nYVhVgK7dpwmQG2vNFb4mkBIJ0TscMmQkEMOYbo/R4
-	 wELCniGx/SRLWwiKAwDyvjvRpm67PDOc46Frl5Stic1+gEhEeGAceRGjdIpwjfBDPU
-	 4W16JsUyM5f6lJyK8/fdRWJ5Ggc7TaMWknRV3KIIK1eU91mLFfG6AJogk8jJjdHghG
-	 7nPyF8RX1+fqn+ueXC9z5YB+p02tyCvaro98txq5O7Wv1ITibNR8oWuRihLBDPrQSY
-	 vIx3ZwVWphoWA==
-Subject:
- Re: [PATCH net v5] net: mana: Avoid waiting on dead HWC after device reset
+	b=KT02Zom2To/SSGxUt7pByiwxpkW4tayb6INs8CYUn3wwvvldjtiWAUtfnJbL4yr6E
+	 /YBg+LmKFBf36XYHDw99BG4wO2v+3fT1yBRsFjowboqCglXMD3Q6xOKIVDZTFJkgP6
+	 Nuihh+rrD3OoUmS8lSF2lgtfhbVJNUUL/s45/8OO8tizYPYSPXJAHGXuYTP4wj+YRn
+	 i/mdnc6KT5PfzyiUODza2ZOuhJKhL8hJuY4HzIGqmffTI04E1XVRKrY8Q8LfUZ5u/U
+	 o3ahufR3CDlQe/03dgy5BiAnASU428/4Rtz6vjh8afPqWfu5K6ZF1bNhaKCDJYWTMx
+	 ErWGGqOjnGNWw==
+Subject: Re: [PATCH v2] idpf: fix vport_id used as array index in MAC filter
+ async handler
 From: netdev-bot+sashiko@kernel.org
-To: sahilchandna@linux.microsoft.com
-Cc: haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
+To: guohongyu@cmss.chinamobile.com
+Cc: intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
+ anthony.l.nguyen@intel.com, przemyslaw.kitszel@intel.com,
  andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, kotaranov@microsoft.com, horms@kernel.org,
- ernis@linux.microsoft.com, gargaditya@linux.microsoft.com,
- mawasthi@linux.microsoft.com, kees+treewide@kernel.org,
- schakrabarti@linux.microsoft.com, leitao@debian.org,
- linux-hyperv@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org,
- stable@vger.kernel.org
-Date: Fri, 27 Nov 2026 09:32:32 +0000
-Message-ID: <179577195250.3135.5489299451914207495@kernel.org>
-In-Reply-To: <20261126093032.816436-1-sahilchandna@linux.microsoft.com>
-References: <20261126093032.816436-1-sahilchandna@linux.microsoft.com>
-X-sashiko-severity: Medium
+ kuba@kernel.org, pabeni@redhat.com, alan.brady@intel.com,
+ stable@vger.kernel.org, 13057616121@163.com
+Date: Fri, 27 Nov 2026 09:35:39 +0000
+Message-ID: <179577213934.3135.4441263933524263637@kernel.org>
+In-Reply-To: <20261126092627.255454-1-guohongyu@cmss.chinamobile.com>
+References: <20261126092627.255454-1-guohongyu@cmss.chinamobile.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -70,10 +66,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 0
+Critical: 0 · High: 1 (1) · Medium: 0 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -81,175 +77,157 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] mana_dealloc_queues()
-  (drivers/net/ethernet/microsoft/mana/mana_en.c) used to wait up to 120…
-- [Medium] mana_dealloc_queues() sets hwc_dead only when
-  mana_gd_dev_reset() returns 0.
+- [High] The new `test_bit(IDPF_REMOVE_IN_PROG)` check in
+  idpf_mac_filter_async_handler()…
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the commit
+  message's own reasoning ('during driver removal the vports are freed…
 
 --
 
-net: mana: Avoid waiting on dead HWC after device reset
+idpf: fix vport_id used as array index in MAC filter async handler
 
-This patch drops the 120s sleep-based TX drain in mana_dealloc_queues().
-It now polls each queue's CQ synchronously for about 300 ms and resets
-the device if sends are still outstanding. A successful reset sets a new
-hwc_dead flag, which makes mana_hwc_send_request() fail fast and skips
-mana_fence_rqs() and the SHM teardown handshake.
+This commit changes idpf_mac_filter_async_handler() so that it indexes
+adapter->vport_config[] with vport->idx instead of the raw vport_id from
+the message. It also returns early if IDPF_REMOVE_IN_PROG is set. It fixes
+the filter removal loop so that removed entries are freed and never
+deleted twice.
 
-> diff --git a/drivers/net/ethernet/microsoft/mana/mana_en.c b/drivers/net/ethernet/microsoft/mana/mana_en.c
-> index 95bf153c3e1a8..cf0409704b08b 100644
-> --- a/drivers/net/ethernet/microsoft/mana/mana_en.c
-> +++ b/drivers/net/ethernet/microsoft/mana/mana_en.c
-
-[ ... ]
-
-> @@ -3802,31 +3813,83 @@ static int mana_dealloc_queues(struct net_device *ndev)
->  	 * to false, but it doesn't matter since mana_start_xmit() drops any
->  	 * new packets due to apc->port_is_up being false.
->  	 *
-> -	 * Drain all the in-flight TX packets.
-> -	 * A timeout of 120 seconds for all the queues is used.
-> -	 * This will break the while loop when h/w is not responding.
-> -	 * This value of 120 has been decided here considering max
-> -	 * number of queues.
-> +	 * Drain the in-flight TX completions for each queue. TX is already
-> +	 * stopped, so pending_sends can no longer grow. For each queue,
-> +	 * disable NAPI so it cannot run at the same time as this drain,
-> +	 * then poll its CQ for up to 300 ms. If sends are still missing,
-> +	 * the hardware is not responding: reset the device.
-
-[ ... ]
-
-> +				tx_cq->budget = 0;
-> +				for (retry = 0; retry <= MANA_TX_DRAIN_RETRIES;
-> +				     retry++) {
-> +					do {
-> +						tx_cq->work_done = 0;
-> +						mana_poll_tx_cq(tx_cq);
-> +					} while (tx_cq->work_done);
+> diff --git a/drivers/net/ethernet/intel/idpf/idpf_virtchnl.c b/drivers/net/ethernet/intel/idpf/idpf_virtchnl.c
+> index c89783966bae3..4ffb8f9df2797 100644
+> --- a/drivers/net/ethernet/intel/idpf/idpf_virtchnl.c
+> +++ b/drivers/net/ethernet/intel/idpf/idpf_virtchnl.c
+> @@ -3837,6 +3837,10 @@ static void idpf_mac_filter_async_handler(void *ctx,
+>  	if (!status || status == -ETIMEDOUT)
+>  		return;
+>  
+> +	/* vports are freed during removal, before this work is cancelled */
+> +	if (test_bit(IDPF_REMOVE_IN_PROG, adapter->flags))
+> +		return;
 > +
-> +					if (!atomic_read(&txq->pending_sends) ||
-> +					    trigger_flr ||
-> +					    READ_ONCE(hwc->hwc_dead))
-> +						break;
-> +					if (retry < MANA_TX_DRAIN_RETRIES)
-> +						msleep(100);
->  				}
-
-[Severity: Medium]
-Is 300 ms long enough to decide that the hardware is unresponsive?
-
-mana_dealloc_queues() runs on every mana_detach() path, not only on
-unload or after a hang:
-
-  - ndo_close
-  - mana_change_mtu()
-  - XDP install in mana_bpf.c
-  - the ethtool channel, ring and priv-flag paths
-  - mana_per_port_queue_reset_work_handler()
-
-The driver itself expects TX to stall for seconds on working hardware:
-
-mana_init_net_dev() {
-    ...
-	/* Recommended timeout based on HW FPGA re-config scenario. */
-	ndev->watchdog_timeo = 15 * HZ;
-    ...
-}
-
-Say a slow but working device still has completions outstanding 300 ms
-after TX is stopped. An MTU change or ethtool -L would then go:
-
-mana_detach()
-  mana_dealloc_queues()
-    mana_gd_dev_reset()   /* pcie_flr() on PCI, cdx_dev_reset() on CDX */
-    WRITE_ONCE(hwc->hwc_dead, true)
-mana_attach()
-  -> fails with -ETIMEDOUT from mana_hwc_send_request()
-
-The reset covers the whole function. Would the other vPorts and mana_ib
-on the same gdma_context lose their HWC as well?
-
-On PCI, recovery seems to depend on mana_gf_stats_work_handler() seeing
--ETIMEDOUT and calling mana_schedule_serv_work(gc,
-GDMA_EQE_HWC_RESET_REQUEST). That runs a full suspend, 10 s sleep and
-resume cycle, which also tears down RDMA.
-
-mana_cdx_bus_ops has .dev_reset but no .schedule_serv_work, so
-mana_schedule_serv_work() returns -EOPNOTSUPP there. Does that leave the
-CDX netdev unusable until the device is unbound and rebound?
-
-Nothing is logged in mana_dealloc_queues() when the reset succeeds. Also,
-mana_need_log() now suppresses -ETIMEDOUT logging while hwc_dead is set.
-Could these resets be hard to diagnose?
-
-The commit message says the 300 ms "is not based on a hardware limit".
-The commit being fixed, a7dfeda6fdec, picked 120 seconds as "more than
-long enough for functional hardware to complete any sends".
-
-This patch is tagged for stable. Could the commit message say that a
-routine reconfiguration of one port can now reset the whole function?
+>  	ma_list = buff->iov_base;
+>  	/* make sure at least struct is there */
+>  	if (buff->iov_len < sizeof(*ma_list))
 
 [ ... ]
 
-> +		if (trigger_flr && !READ_ONCE(hwc->hwc_dead)) {
-> +			/* Completions never arrived: the device is
-> +			 * unresponsive, so reset it. Mark the HWC dead only
-> +			 * if the reset succeeds, so that later HWC commands
-> +			 * fail fast. If it fails, the device may still access
-> +			 * memory, so the teardown commands are still posted
-> +			 * and the first one waits the full hwc_timeout.
-> +			 */
-> +			err = mana_gd_dev_reset(gd->gdma_context);
-> +			if (err) {
-> +				netdev_err(ndev, "device reset failed %d with %d pkts pending in txq %u\n",
-> +					   err, flr_pending, flr_txq_id);
-> +			} else {
-> +				WRITE_ONCE(hwc->hwc_dead, true);
->  			}
->  		}
+> @@ -3852,7 +3856,7 @@ static void idpf_mac_filter_async_handler(void *ctx,
+>  	if (!vport)
+>  		goto invalid_payload;
+>  
+> -	vport_config = adapter->vport_config[le32_to_cpu(ma_list->vport_id)];
+> +	vport_config = adapter->vport_config[vport->idx];
 
-[Severity: Medium]
-Is it right to treat every non-zero return from mana_gd_dev_reset() as
-meaning the device may not have been reset?
+[Severity: High]
 
-pcie_flr() can fail after the FLR has already been issued:
+Does the IDPF_REMOVE_IN_PROG check close the removal race described in the
+commit message? The test_bit() is a lockless snapshot. Nothing keeps the
+vport alive once the check has passed.
 
-drivers/pci/pci.c:pcie_flr() {
-    ...
-	pcie_capability_set_word(dev, PCI_EXP_DEVCTL, PCI_EXP_DEVCTL_BCR_FLR);
-    ...
-	msleep(100);
+The handler runs from mbx_task, and the only lock held is xn->xn_lock:
 
-	ret = pci_dev_wait(dev, "FLR", PCIE_RESET_READY_POLL_MS);
-done:
-	pci_dev_reset_iommu_done(dev);
-	return ret;
+idpf_mbx_task()
+  libie_ctlq_xn_recv()
+    libie_ctlq_xn_process_recv()
+      xn->resp_cb() -> idpf_mac_filter_async_handler()
+
+If the handler sees the bit clear, idpf_remove() can set it right after
+and carry on:
+
+idpf_remove()
+  set_bit(IDPF_REMOVE_IN_PROG, adapter->flags);
+  idpf_vc_core_deinit()
+    idpf_deinit_task()
+      idpf_vport_dealloc()
+        idpf_vport_rel()
+          kfree(vport);
+        adapter->vports[i] = NULL;
+
+idpf_vid_to_vport() reads adapter->vports[i] without a lock. It can
+therefore return a vport that has already been freed but whose slot has
+not been cleared yet. The new vport->idx read would then come from freed
+memory. The spin_lock_bh(), list_del() and kfree(f) that follow would act
+on whatever vport_config that stale index selects.
+
+Before this patch, the handler only NULL-checked vport and never
+dereferenced it.
+
+Normally the synchronous DESTROY_VPORT in idpf_vport_rel() bounds this
+window, because only mbx_task completes sync transactions. But there are
+two cases where teardown doesn't wait on mbx_task:
+
+  - idpf_send_mb_msg() returns -EBUSY right away when
+    idpf_is_reset_detected() is true.
+  - libie_ctlq_xn_send() can fail fast with -EAGAIN when no xn is free.
+
+On PREEMPT_RT, or under vCPU preemption, the handler can also stall between
+the test_bit() and the vport->idx read.
+
+Could the handler avoid touching the vport at all? idpf_vid_to_vport()
+already finds the slot i where adapter->vport_ids[i] == v_id, and
+vport->idx == i. adapter->vport_config[i] stays allocated until after
+mbx_task is cancelled. Using the matched slot index would fix the out of
+bounds read without needing the flag check.
+
+Another option is to shut down xn and flush mbx_task before the vports are
+freed.
+
+[Severity: High]
+
+This isn't a bug introduced by this patch, but the commit message's
+reasoning ("During driver removal the vports are freed before the mailbox
+work is cancelled") applies equally to idpf_handle_event_link(). That
+handler runs from the same mbx_task, via idpf_recv_event_msg(), for
+VIRTCHNL2_EVENT_LINK_CHANGE:
+
+drivers/net/ethernet/intel/idpf/idpf_virtchnl.c:idpf_handle_event_link() {
+	vport = idpf_vid_to_vport(adapter, le32_to_cpu(v2e->vport_id));
+	...
+	np = netdev_priv(vport->netdev);
+
+	np->link_speed_mbps = le32_to_cpu(v2e->link_speed);
+	...
+	vport->link_up = v2e->link_status;
+	...
 }
 
-Only two failures happen before the reset starts: the -ENOTTY return
-when pci_dev_config_accessible() is false, and a failing
-pci_dev_reset_iommu_prepare().
+In idpf_vport_dealloc(), idpf_decfg_netdev() frees the netdev and sets
+vport->netdev = NULL. adapter->vports[i] stays published until
+idpf_vport_rel() returns:
 
-If pci_dev_wait() times out, the function's state, including the HWC
-queues, has already been reset, or the function is stuck in reset. In
-that case hwc_dead stays false.
+drivers/net/ethernet/intel/idpf/idpf_lib.c:idpf_vport_dealloc() {
+	...
+		idpf_decfg_netdev(vport);
+	...
+	idpf_vport_rel(vport);
 
-The driver will already have spent up to PCIE_RESET_READY_POLL_MS in
-pci_dev_wait(). Would it then also:
+	adapter->vports[i] = NULL;
+	...
+}
 
-  - post MANA_CONFIG_VPORT_RX and wait the full hwc_timeout
-  - run mana_fence_rqs(), which sleeps 100 ms per RX queue on error
-  - run mana_smc_teardown_hwc() from mana_hwc_destroy_channel()
-    against a function that cannot answer
+That window includes the synchronous DESTROY_VPORT round trip, and mbx_task
+keeps dispatching ARQ events during it.
 
-RTNL could then be held for well over 120 s. That is the hung-task
-symptom this patch sets out to remove.
+Could a link change event processed in that window hit netdev_priv(NULL)
+and oops on the np->link_speed_mbps write? If the event arrives after
+kfree(vport) in idpf_vport_rel(), the vport->link_up write would also land
+in freed memory.
 
-The commit message says "If the reset fails, the device may not have
-been reset and may still access memory". Could the case where the FLR
-was issued but the wait failed be told apart, or the device's reset
-state be checked, so that this path also fails fast?
+Neither idpf_mbx_task() nor idpf_recv_event_msg() checks
+IDPF_REMOVE_IN_PROG. Copying the test_bit() check here would leave the same
+race as above.
+
+Either of these might cover both handlers:
+
+  - clear adapter->vports[i] before tearing down the netdev and the vport
+  - stop mbx event dispatch before the vports are freed
+
+>  	ma_list_head = &vport_config->user_config.mac_filter_list;
+>  
+>  	/* We can't do much to reconcile bad filters at this point, however we
+
+[ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126093032.816436-1-sahilchandna%40linux.microsoft.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126092627.255454-1-guohongyu%40cmss.chinamobile.com
