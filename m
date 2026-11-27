@@ -1,61 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795772141;
-	b=V6GZaCrdVnPLDZ1nmx+zevIZHbg7owpQ+twh91ZsTrCW2CyIlgiEphGo8d7DcHK/cLJP
-	 KExHk5hsRVeGJ2DztL75JwONH0iskicpXTIIk8v2raKM+RjHF16gL5S+z1ydQDKTSQt/O
-	 chnSTAg28NKRvv7KNlrYTv256rxLSGKUcyb2qwmuveVSsTcaQxr4D0YozbSqVOTlOBoLl
-	 kre+2gMkK7IRgHkaZ5B5gK5OLOE3gS875DMnug8yNTyrf0S7v4c36ApjwIKauJHelfvgU
-	 ZxCCG2k45Z/VwGasZMlMbE1yX2ekah1L8qif17YsbbIKw57WnLN51FqXo4gyyuJay+w==
+	t=1795772396;
+	b=QkyOStZzfZfOMQWy/RrWpaVdpP1CpTbRzctRRncLjnG/JAVaBezkRgjqO82IHbiwNP7U
+	 YjvZc/I5ihwFbFVa/clARRXXUDCvHQsejmfIWKQbWbNs1Xtn9tm1bdHMMybbHq+7mamto
+	 sh79gxJXeS+ZVMrXukpTJL4Tadw+3lwSzIa3wkBHV8DU6GWGXXH1ZTxBjEgL5d+Sk/EoC
+	 NNFht6bmMe15ypsBkvz77TSllIBO/E1D1Hszf55hEuabkWXIExzF7V1eXfx749mQKR7Zh
+	 mK2qaVyieg0n4lhMQQZdBPw+pkmBZIkMrYmvPZWx+ysPhsBQCz7dm8w+SEDY7FQqeFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795772141;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=hwQ67UPDDBpBlNdOHdQzfI33A0euocSSF71ObVKBPMQ=;
-	b=pbFrFuNfJtdTcpyy80EaZ7KrtRNHKf2rEX5NkEC1p5ADsib1xxdtgl1GrXCy9mN8FhOB
-	 UEvytnDRYA9j58w9v6+BWzQg4QCEPD9uPeGfkJdLN8JzBNbAedQvPpL9ULj/CqkYCAOBd
-	 C5RXrSTPA3/MpBFbBZvvu5IBFVL9iEpA05RgUt3SNMKijDrFPvZsqEeiAwQmRBR6dB51B
-	 DLSNhIyApluigUazLElGq3KE6T1DblBzbF9s6h6qf7OFTsTf3f81eLYyML5NgqgYyLK9H
-	 nipmhFiQy64wde1d7F6nvOsfEk/k10FVE1wHPke5pW1KEkVlbsEpix6tzIAZ0dd9Rvw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795772396;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=q27QeHoS7UR2882yH+xfPYckzF6Be62Y/DrY6dpeN0c=;
+	b=JzNWY0dZzk2jrzP4ceyNum/Wp937XvckqNJsQE04Qd1kuG/t46o5tjpRGEvjlsnoKZ96
+	 hQ+O21QdjbKPVU05OXga61oXxKs65iEC585SDqwjtXrZUAFLveM5z8yBi42fq9J8Zf3mp
+	 5AXFSaPoqSSqaYji3gIZkBH3SpjdumPJrxGVAM90h/6Qh3zISUzg0m5UKOI/BZB3OZRWI
+	 bR+9stCByI41wXOyZtlahmeQ/kA+tMDR+/IiF/OFOlGiG8RU2vfhPmVNUV7Rq7OIdiUnT
+	 Up+h1uRqYrEOmcN+HhJQIIha5JSUTHEyFVMUqssGTGNnKDHlJK5d1dT7+pV+eKcd+KQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KT02Zom2;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.198
+Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53E9E606A321;
-	Fri, 27 Nov 2026 09:35:41 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KT02Zom2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7C7B1F0089A;
-	Fri, 27 Nov 2026 09:35:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795772140;
-	bh=hwQ67UPDDBpBlNdOHdQzfI33A0euocSSF71ObVKBPMQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=KT02Zom2To/SSGxUt7pByiwxpkW4tayb6INs8CYUn3wwvvldjtiWAUtfnJbL4yr6E
-	 /YBg+LmKFBf36XYHDw99BG4wO2v+3fT1yBRsFjowboqCglXMD3Q6xOKIVDZTFJkgP6
-	 Nuihh+rrD3OoUmS8lSF2lgtfhbVJNUUL/s45/8OO8tizYPYSPXJAHGXuYTP4wj+YRn
-	 i/mdnc6KT5PfzyiUODza2ZOuhJKhL8hJuY4HzIGqmffTI04E1XVRKrY8Q8LfUZ5u/U
-	 o3ahufR3CDlQe/03dgy5BiAnASU428/4Rtz6vjh8afPqWfu5K6ZF1bNhaKCDJYWTMx
-	 ErWGGqOjnGNWw==
-Subject: Re: [PATCH v2] idpf: fix vport_id used as array index in MAC filter
- async handler
-From: netdev-bot+sashiko@kernel.org
-To: guohongyu@cmss.chinamobile.com
-Cc: intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
- anthony.l.nguyen@intel.com, przemyslaw.kitszel@intel.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, alan.brady@intel.com,
- stable@vger.kernel.org, 13057616121@163.com
-Date: Fri, 27 Nov 2026 09:35:39 +0000
-Message-ID: <179577213934.3135.4441263933524263637@kernel.org>
-In-Reply-To: <20261126092627.255454-1-guohongyu@cmss.chinamobile.com>
-References: <20261126092627.255454-1-guohongyu@cmss.chinamobile.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AF2A606A321
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 09:39:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5AF2A606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4fb73e868aaso8411071b6e.0
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 01:39:56 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795772395; x=1796377195;
+        h=content-type:to:from:subject:message-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=q27QeHoS7UR2882yH+xfPYckzF6Be62Y/DrY6dpeN0c=;
+        b=1dZqSPxwV256rWb+2yBhyG8CLtqCQ7AspUJ9cN2q8uNyPI91vzugd5Ct+zJ+vyqKda
+         HXhq+ywYtLzosROzm2aXJie9l+w0no/E2TTIwK02wC5TwJFmYab37U6T3k6/tIFQ0WsX
+         pHDNO0T0xoBcO0ZGPJ2Lh8+XQAHUR6ih6OisDnyz/lVKFAJUwu4j08EduvRB6O2HAkyw
+         boQYE2lV8vfx1zvcon6QUDEUIbnnUV1WGmv626gb7waJgPB+nZKx9cf8AjqXIx5aHRAE
+         W2MSyAM6N4vMnEbg8G4DiyMKKWR2E0WliAQPI0PL33tcdeRSIA44z70T3/AMk7cDIYpH
+         QcKA==
+X-Forwarded-Encrypted: i=1; AL+hErErkts/WbCb4ftWlsluoOSLWP6wYeK6eBfwpvwd/J7q0FygkEY/nDBjETxH4RX0Zw0OscsKpow=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/n4TDczrKmbS/NUDvV+dbUDNtrdHbh9n+NpvuHMkoQgE4MmDuX
+	lX60bIidpD9QAS7nRgbiRtiEFZ1Bz5M7yWDqlIElyBvwiUd83opsGekYY8JEOhHxyUzmp+GZ8kp
+	A1mQt/lzEh76u8HQlxkvYLSvY2J26GTCO+BU0H1pSPmGwwmDhPC9sJjLbvls=
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,169 +58,171 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-Received: by 2002:a05:6808:319b:b0:4f5:eaac:5173 with SMTP id
+ 5614622812f47-57a0b84fa3dmr21639331b6e.57.1795772395289; Fri, 27 Nov 2026
+ 01:39:55 -0800 (PST)
+Date: Fri, 27 Nov 2026 01:39:55 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b094feb.b83081fb.4cb0e.0020.GAE@google.com>
+Subject: [syzbot] [net?] KCSAN: data-race in xa_set_mark / xas_find_marked
+From: syzbot <syzbot+cc64b6bdf649b54047e0@syzkaller.appspotmail.com>
+To: davem@davemloft.net, edumazet@kernel.org, horms@kernel.org, 
+	jiri@resnulli.us, kuba@kernel.org, linux-kernel@vger.kernel.org, 
+	netdev@vger.kernel.org, pabeni@redhat.com, syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Hello,
 
-Critical: 0 · High: 1 (1) · Medium: 0 · Low: 0
+syzbot found the following issue on:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+HEAD commit:    ebb7a8dc1e74 Merge tag 'soc-fixes-7.4' of git://git.kernel..
+git tree:       upstream
+console output: https://syzkaller.appspot.com/x/log.txt?x=105ce153580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=dc99102739636b09
+dashboard link: https://syzkaller.appspot.com/bug?extid=cc64b6bdf649b54047e0
+compiler:       Debian clang version 22.1.8 (1~deb13u5), Debian LLD 22.1.8
 
-- [High] The new `test_bit(IDPF_REMOVE_IN_PROG)` check in
-  idpf_mac_filter_async_handler()…
+Unfortunately, I don't have any reproducer for this issue yet.
 
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but the commit
-  message's own reasoning ('during driver removal the vports are freed…
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/be1abd72bd4e/disk-ebb7a8dc.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/317ea0b3db13/vmlinux-ebb7a8dc.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/4ec18c47ec34/bzImage-ebb7a8dc.xz
 
---
+AI-generated root cause summary:
+KCSAN reports a data race on `xa_node->marks` between `xa_set_mark()`
+(`lib/xarray.c`) and `xas_find_marked()` / `xas_find_chunk()`
+(`include/linux/xarray.h`). While writers hold `xa_lock` and update
+`node->marks` using the non-atomic bitop `__test_and_set_bit()` in
+`node_set_mark()`, lockless RCU readers in `xa_find()` -> `xas_find_marked()`
+call `xas_find_chunk()`, which performs an unmarked plain read (`*addr & (~0UL
+<< offset)`) without `READ_ONCE()` or `data_race()`. Because
+`CONFIG_KCSAN_ASSUME_PLAIN_WRITES_ATOMIC` is disabled, KCSAN flags the
+concurrent unmarked read against the non-atomic read-modify-write bitop.
 
-idpf: fix vport_id used as array index in MAC filter async handler
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=cc64b6bdf649b54047e0
 
-This commit changes idpf_mac_filter_async_handler() so that it indexes
-adapter->vport_config[] with vport->idx instead of the raw vport_id from
-the message. It also returns early if IDPF_REMOVE_IN_PROG is set. It fixes
-the filter removal loop so that removed entries are freed and never
-deleted twice.
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+cc64b6bdf649b54047e0@syzkaller.appspotmail.com
 
-> diff --git a/drivers/net/ethernet/intel/idpf/idpf_virtchnl.c b/drivers/net/ethernet/intel/idpf/idpf_virtchnl.c
-> index c89783966bae3..4ffb8f9df2797 100644
-> --- a/drivers/net/ethernet/intel/idpf/idpf_virtchnl.c
-> +++ b/drivers/net/ethernet/intel/idpf/idpf_virtchnl.c
-> @@ -3837,6 +3837,10 @@ static void idpf_mac_filter_async_handler(void *ctx,
->  	if (!status || status == -ETIMEDOUT)
->  		return;
->  
-> +	/* vports are freed during removal, before this work is cancelled */
-> +	if (test_bit(IDPF_REMOVE_IN_PROG, adapter->flags))
-> +		return;
-> +
->  	ma_list = buff->iov_base;
->  	/* make sure at least struct is there */
->  	if (buff->iov_len < sizeof(*ma_list))
+==================================================================
+BUG: KCSAN: data-race in xa_set_mark / xas_find_marked
 
-[ ... ]
+read-write to 0xffff888106b77228 of 8 bytes by task 3329 on cpu 1:
+ instrument_read_write include/linux/instrumented.h:56 [inline]
+ __instrument_read_write_bitop include/asm-generic/bitops/instrumented-non-atomic.h:84 [inline]
+ ___test_and_set_bit include/asm-generic/bitops/instrumented-non-atomic.h:99 [inline]
+ node_set_mark lib/xarray.c:95 [inline]
+ xas_set_mark lib/xarray.c:894 [inline]
+ __xa_set_mark lib/xarray.c:2088 [inline]
+ xa_set_mark+0xda/0x1b0 lib/xarray.c:2155
+ devl_register+0x4c/0x70 net/devlink/core.c:413
+ nsim_drv_probe+0x1e1/0x7c0 drivers/net/netdevsim/dev.c:1607
+ nsim_bus_probe+0x15/0x20 drivers/net/netdevsim/bus.c:419
+ call_driver_probe drivers/base/dd.c:-1 [inline]
+ really_probe+0x1ba/0x600 drivers/base/dd.c:707
+ __driver_probe_device+0x176/0x1e0 drivers/base/dd.c:869
+ driver_probe_device+0x63/0x380 drivers/base/dd.c:899
+ __device_attach_driver+0x24e/0x350 drivers/base/dd.c:1027
+ bus_for_each_drv+0x1c0/0x230 drivers/base/bus.c:500
+ __device_attach+0x1d1/0x2a0 drivers/base/dd.c:1131
+ device_initial_probe+0x6a/0xb0 drivers/base/dd.c:1190
+ __bus_probe_device+0xfd/0x1b0 drivers/base/bus.c:614
+ bus_probe_device+0x15/0x20 drivers/base/bus.c:632
+ device_add+0x601/0x7c0 drivers/base/core.c:3778
+ device_register+0x1d/0x30 drivers/base/core.c:3860
+ nsim_bus_dev_new drivers/net/netdevsim/bus.c:468 [inline]
+ new_device_store+0x2b0/0x460 drivers/net/netdevsim/bus.c:191
+ bus_attr_store+0x57/0x80 drivers/base/bus.c:172
+ sysfs_kf_write+0xfe/0x120 fs/sysfs/file.c:145
+ kernfs_fop_write_iter+0x1d2/0x2e0 fs/kernfs/file.c:345
+ new_sync_write fs/read_write.c:575 [inline]
+ vfs_write+0x57a/0x9b0 fs/read_write.c:667
+ ksys_write+0xdc/0x1a0 fs/read_write.c:719
+ __do_sys_write fs/read_write.c:730 [inline]
+ __se_sys_write fs/read_write.c:727 [inline]
+ __x64_sys_write+0x40/0x50 fs/read_write.c:727
+ x64_sys_call+0x154e/0x2550 arch/x86/include/generated/asm/syscalls_64.h:2
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
 
-> @@ -3852,7 +3856,7 @@ static void idpf_mac_filter_async_handler(void *ctx,
->  	if (!vport)
->  		goto invalid_payload;
->  
-> -	vport_config = adapter->vport_config[le32_to_cpu(ma_list->vport_id)];
-> +	vport_config = adapter->vport_config[vport->idx];
+read to 0xffff888106b77228 of 8 bytes by task 3324 on cpu 0:
+ xas_find_chunk include/linux/xarray.h:1752 [inline]
+ xas_find_marked+0x211/0x650 lib/xarray.c:1516
+ xa_find+0xa4/0x140 lib/xarray.c:2204
+ __devlinks_xa_find_get+0x99/0xe0 net/devlink/core.c:375
+ devlinks_xa_find_get+0x24/0x30 net/devlink/core.c:396
+ devlink_get_from_attrs_lock+0xd8/0x390 net/devlink/netlink.c:225
+ devlink_nl_inst_single_dumpit net/devlink/netlink.c:397 [inline]
+ devlink_nl_dumpit+0x26d/0x300 net/devlink/netlink.c:456
+ devlink_nl_port_get_dumpit+0x24/0x30 net/devlink/port.c:631
+ genl_dumpit+0xac/0x110 net/netlink/genetlink.c:1026
+ netlink_dump+0x46a/0x880 net/netlink/af_netlink.c:2360
+ __netlink_dump_start+0x483/0x570 net/netlink/af_netlink.c:2475
+ genl_family_rcv_msg_dumpit+0x1a5/0x210 net/netlink/genetlink.c:1075
+ genl_family_rcv_msg net/netlink/genetlink.c:1191 [inline]
+ genl_rcv_msg+0x3fd/0x470 net/netlink/genetlink.c:1209
+ netlink_rcv_skb+0x11e/0x220 net/netlink/af_netlink.c:2585
+ genl_rcv+0x28/0x40 net/netlink/genetlink.c:1218
+ netlink_unicast_kernel net/netlink/af_netlink.c:1336 [inline]
+ netlink_unicast+0x6fd/0x7e0 net/netlink/af_netlink.c:1362
+ netlink_sendmsg+0x605/0x760 net/netlink/af_netlink.c:1921
+ sock_sendmsg_nosec net/socket.c:800 [inline]
+ __sock_sendmsg net/socket.c:818 [inline]
+ __sys_sendto+0x429/0x480 net/socket.c:2283
+ __do_sys_sendto net/socket.c:2290 [inline]
+ __se_sys_sendto net/socket.c:2286 [inline]
+ __x64_sys_sendto+0x76/0x90 net/socket.c:2286
+ x64_sys_call+0x200c/0x2550 arch/x86/include/generated/asm/syscalls_64.h:45
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
 
-[Severity: High]
+Reported by Kernel Concurrency Sanitizer on:
+CPU: 0 UID: 0 PID: 3324 Comm: syz-executor Not tainted syzkaller #0 PREEMPT(lazy) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+==================================================================
+netdevsim netdevsim1 netdevsim0: renamed from eth0
+8021q: adding VLAN 0 to HW filter on device netdevsim0
+netdevsim netdevsim1 netdevsim1: renamed from eth1
+8021q: adding VLAN 0 to HW filter on device netdevsim1
+netdevsim netdevsim1 netdevsim2: renamed from eth2
+8021q: adding VLAN 0 to HW filter on device netdevsim2
+netdevsim netdevsim1 netdevsim3: renamed from eth3
+8021q: adding VLAN 0 to HW filter on device netdevsim3
+8021q: adding VLAN 0 to HW filter on device bond0
+8021q: adding VLAN 0 to HW filter on device team0
+hsr0: Slave A (hsr_slave_0) is not up; please bring it up to get a fully working HSR network
+hsr0: Slave B (hsr_slave_1) is not up; please bring it up to get a fully working HSR network
+8021q: adding VLAN 0 to HW filter on device batadv0
+veth0_vlan: entered promiscuous mode
+veth1_vlan: entered promiscuous mode
+veth0_macvtap: entered promiscuous mode
+veth1_macvtap: entered promiscuous mode
+batman_adv: batadv0: Interface activated: batadv_slave_0
+batman_adv: batadv0: Interface activated: batadv_slave_1
+soft_limit_in_bytes is deprecated and will be removed. Writing any value to this file has no effect. Please report your usecase to linux-mm@kvack.org if you depend on this functionality.
 
-Does the IDPF_REMOVE_IN_PROG check close the removal race described in the
-commit message? The test_bit() is a lockless snapshot. Nothing keeps the
-vport alive once the check has passed.
 
-The handler runs from mbx_task, and the only lock held is xn->xn_lock:
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
 
-idpf_mbx_task()
-  libie_ctlq_xn_recv()
-    libie_ctlq_xn_process_recv()
-      xn->resp_cb() -> idpf_mac_filter_async_handler()
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
 
-If the handler sees the bit clear, idpf_remove() can set it right after
-and carry on:
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
 
-idpf_remove()
-  set_bit(IDPF_REMOVE_IN_PROG, adapter->flags);
-  idpf_vc_core_deinit()
-    idpf_deinit_task()
-      idpf_vport_dealloc()
-        idpf_vport_rel()
-          kfree(vport);
-        adapter->vports[i] = NULL;
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
 
-idpf_vid_to_vport() reads adapter->vports[i] without a lock. It can
-therefore return a vport that has already been freed but whose slot has
-not been cleared yet. The new vport->idx read would then come from freed
-memory. The spin_lock_bh(), list_del() and kfree(f) that follow would act
-on whatever vport_config that stale index selects.
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
 
-Before this patch, the handler only NULL-checked vport and never
-dereferenced it.
-
-Normally the synchronous DESTROY_VPORT in idpf_vport_rel() bounds this
-window, because only mbx_task completes sync transactions. But there are
-two cases where teardown doesn't wait on mbx_task:
-
-  - idpf_send_mb_msg() returns -EBUSY right away when
-    idpf_is_reset_detected() is true.
-  - libie_ctlq_xn_send() can fail fast with -EAGAIN when no xn is free.
-
-On PREEMPT_RT, or under vCPU preemption, the handler can also stall between
-the test_bit() and the vport->idx read.
-
-Could the handler avoid touching the vport at all? idpf_vid_to_vport()
-already finds the slot i where adapter->vport_ids[i] == v_id, and
-vport->idx == i. adapter->vport_config[i] stays allocated until after
-mbx_task is cancelled. Using the matched slot index would fix the out of
-bounds read without needing the flag check.
-
-Another option is to shut down xn and flush mbx_task before the vports are
-freed.
-
-[Severity: High]
-
-This isn't a bug introduced by this patch, but the commit message's
-reasoning ("During driver removal the vports are freed before the mailbox
-work is cancelled") applies equally to idpf_handle_event_link(). That
-handler runs from the same mbx_task, via idpf_recv_event_msg(), for
-VIRTCHNL2_EVENT_LINK_CHANGE:
-
-drivers/net/ethernet/intel/idpf/idpf_virtchnl.c:idpf_handle_event_link() {
-	vport = idpf_vid_to_vport(adapter, le32_to_cpu(v2e->vport_id));
-	...
-	np = netdev_priv(vport->netdev);
-
-	np->link_speed_mbps = le32_to_cpu(v2e->link_speed);
-	...
-	vport->link_up = v2e->link_status;
-	...
-}
-
-In idpf_vport_dealloc(), idpf_decfg_netdev() frees the netdev and sets
-vport->netdev = NULL. adapter->vports[i] stays published until
-idpf_vport_rel() returns:
-
-drivers/net/ethernet/intel/idpf/idpf_lib.c:idpf_vport_dealloc() {
-	...
-		idpf_decfg_netdev(vport);
-	...
-	idpf_vport_rel(vport);
-
-	adapter->vports[i] = NULL;
-	...
-}
-
-That window includes the synchronous DESTROY_VPORT round trip, and mbx_task
-keeps dispatching ARQ events during it.
-
-Could a link change event processed in that window hit netdev_priv(NULL)
-and oops on the np->link_speed_mbps write? If the event arrives after
-kfree(vport) in idpf_vport_rel(), the vport->link_up write would also land
-in freed memory.
-
-Neither idpf_mbx_task() nor idpf_recv_event_msg() checks
-IDPF_REMOVE_IN_PROG. Copying the test_bit() check here would leave the same
-race as above.
-
-Either of these might cover both handlers:
-
-  - clear adapter->vports[i] before tearing down the netdev and the vport
-  - stop mbx event dispatch before the vports are freed
-
->  	ma_list_head = &vport_config->user_config.mac_filter_list;
->  
->  	/* We can't do much to reconcile bad filters at this point, however we
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261126092627.255454-1-guohongyu%40cmss.chinamobile.com
+If you want to undo deduplication, reply with:
+#syz undup
