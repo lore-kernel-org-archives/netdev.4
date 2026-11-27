@@ -1,23 +1,23 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.216.20.220
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795745180;
-	b=1SsxGClAmPLDW4RHNT+5r7XFMwDF4w1j4Fss+WrGGEhaqAU7qtjbEPmPb5YzP8iUGHnI
-	 S132jRRCx1VgykPgZeCbcXAmjxMF+1fnjGDN8K+07RiJjQFivbFIENW5bo+IQ1nZ7cuhy
-	 8mDH+7p5hWAn9PgsMEMYYVqVN1TZPet0p9prHhOTKgPNBCHnlpJo9I+DQ1ZzEjTWoQRNn
-	 7DB53kVUsAfA6V55W65xr3addgFAw2nxwC0oswRuP67YktYZg3vbmMz9ouvITMSqHbJBQ
-	 forp+MK/QAqdQNX7dKSNau1s9gfmjIHcA95ElwoshP/s3kvqo8YW+/w2enliKggf3QQ==
+	t=1795745181;
+	b=F7pDeGyxP0M+w8ZWnfVj2jEhqJQ/gWi0HHjte30WtRiX8LzFlxYnXvdbpXApoe1vTXDZ
+	 pmbQRfC3AFGsCoUHCPuz9Pd+KsSlSeiqXGuXl+MKuAklW7x1DKAcSHHi4xV9kxjrs880m
+	 ud5fz67NpiiIYOCjpxGzkP3SGc1TbcnINxrnbwFTKSWZ3AyTKuZFcmen4WcUt2l788HTO
+	 SqIb6Xtq+85LVdMPwTnyPJHoG/QZAJjiHghB8GDbtOygaXy/Yk9QMbYXciNATunvz83qF
+	 y54wCrerceOnnTKyYRV9dw6t4ynZsQToJ1MwJQbOXFKtggxPxef60x+PhhNU/kFa4XQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795745180;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795745181;
 	h=DMARC-Filter:Received-SPF:Received:From:To:Cc:Subject:
-	 X-TERRACE-DUMMYSUBJECT:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:X-TERRACE-SPAMMARK:
-	 X-TERRACE-SUPERWHITEIP:X-TERRACE-SID:X-TERRACE-CLASSID;
-	bh=1KQwmcwphZq919r47d7b00A/kdgyKtkTtdtloI9GrsI=;
-	b=lCcEaZbKpU0iXGp6GIULlnqkTx/1k2qB5fQ10EfnT1/lfhZwJA0/J6fi9/O4YFk/VaLz
-	 YX8Zr1aey5ozRi9DMbTv1Tqv/CKzYFkEqT3gomEeNBlpNQQemkci17xbYokieFBKWYLz0
-	 ucs5REKUS2L6droB+2MjvSkI8e70M75+DuDgVvM5agh6kU8+2+i86SeyTnH71Bwj0wG4d
-	 RyPzXiqdvwByG9Ng2t0A8HQ4B//SAABFfa2/uhswp/wuBWTdwnXoHsu9ZH01neVKFsfDZ
-	 UjbJxCZEA0CN67rjORuSUxbdjK1Eq98Ra6626baFtkboKRWIhHjb4c1KOAgmIE193Fw==
+	 X-TERRACE-DUMMYSUBJECT:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-TERRACE-SPAMMARK:X-TERRACE-SUPERWHITEIP:
+	 X-TERRACE-SID:X-TERRACE-CLASSID;
+	bh=2EpZrtGEMPK9NWnN0bs8rXBtgCgd9BHgE1mJXOO9qGw=;
+	b=iS9nVGYQWgQeBQwYgwLEJV0bFJ2u6oSxEDzyXklyaYyPpWBZZb39omyh/dkYrelnhoFY
+	 CpGzqmK9aLVQ0DqHg6yokxvPOLfcVoWo3R1U1A5TKymGKa32yeaCLlBPsKZERnpaJuSNF
+	 M1/8I6JRSye37W3PaGvylu7ADnO8zbYmrStaCntNQMhyIuj/KJiYWeDQJBsnMtJIwri8t
+	 vH056qYZ5JHgBk8dk8WXQNljcNssUimUXfRLIsSvXfkm7U9LDlGVTBaiZJxf/hdkmhesm
+	 fWuOXksGr5YOn1tael+tp5uFcm+1KT234XkazwIBCp2p86kmzqiYVwmjrg0BNvHn3lQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=pribit.com;
 	spf=pass smtp.mailfrom=pribit.com;
@@ -26,16 +26,16 @@ Received: from prod-dose-smtp-3.daouoffice.com (prod-dose-smtp-3.daouoffice.com 
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B6F8606A321;
-	Fri, 27 Nov 2026 02:06:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B6F8606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD3D4606A323;
+	Fri, 27 Nov 2026 02:06:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD3D4606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=pribit.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pribit.com
 Received-SPF: SoftFail 
 	client-ip="106.245.249.210" envelope-from="his1415@pribit.com" 
 Received: from [106.245.249.210] ([106.245.249.210]) 
           by prod-dose-smtp-3.daouoffice.com ([10.37.10.10]) 
-          with ESMTP id 1795745089.89229.140503668266560.prod-dose-smtp-3
+          with ESMTP id 1795745088.533197.140503668266560.prod-dose-smtp-3
           for <>; 
           Fri, 27 Nov 2026 11:04:48 +0900 (KST) 
 From: Hong In-su <his1415@pribit.com>
@@ -51,13 +51,11 @@ Cc: davem@davemloft.net,
 	ipsec@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	his1415@pribit.com
-Subject: [PATCH ipsec-next v3 1/2] xfrm: add ARIA CBC and CTR support
+Subject: [PATCH ipsec-next v3 0/2] xfrm: add ARIA algorithm support
 X-TERRACE-DUMMYSUBJECT: Terrace Spam system                                  *
-Date: Fri, 27 Nov 2026 02:04:47 +0000
-Message-ID: <20261127020448.55891-2-his1415@pribit.com>
+Date: Fri, 27 Nov 2026 02:04:46 +0000
+Message-ID: <20261127020448.55891-1-his1415@pribit.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261127020448.55891-1-his1415@pribit.com>
-References: <20261127020448.55891-1-his1415@pribit.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,63 +66,51 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-TERRACE-SPAMMARK: NO       (SR:11.57)                     
+X-TERRACE-SPAMMARK: NO       (SR:12.27)                     
   (by Terrace)                                                  
 X-TERRACE-SUPERWHITEIP: pribit_com_packetgoOS
-X-TERRACE-SID: 1795745089.89229.140503668266560.prod-dose-smtp-3
+X-TERRACE-SID: 1795745088.533197.140503668266560.prod-dose-smtp-3
 X-TERRACE-CLASSID: Terrace Spam system                                      
 
 The kernel crypto API already provides ARIA implementations, but XFRM
-does not have algorithm descriptors for them. Consequently, ARIA cannot
-be selected for ESP through XFRM.
+does not have the corresponding algorithm descriptors.
 
-Add XFRM algorithm descriptors for CBC and RFC3686 CTR modes using the
-existing cbc(aria) and rfc3686(ctr(aria)) crypto algorithms.
+This series adds support for ARIA CBC, RFC3686 CTR and GCM modes in
+XFRM, allowing them to be used for ESP.
 
-The CBC and CTR modes have been tested with IPsec using strongSwan.
+Following the feedback on v2, the CBC compatibility alias has been
+removed. ARIA GCM support has also been added as a separate patch
+after completing testing with strongSwan.
 
-Signed-off-by: Hong In-su <his1415@pribit.com>
----
- net/xfrm/xfrm_algo.c | 26 ++++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+CBC and CTR have been tested with strongSwan. GCM has been tested
+with 256-bit ARIA keys and all three ICV lengths (64, 96 and 128 bits).
 
-diff --git a/net/xfrm/xfrm_algo.c b/net/xfrm/xfrm_algo.c
-index 70434495f23f..98ef2c48982a 100644
---- a/net/xfrm/xfrm_algo.c
-+++ b/net/xfrm/xfrm_algo.c
-@@ -512,6 +512,32 @@ static struct xfrm_algo_desc ealg_list[] = {
- 		.sadb_alg_maxbits = 256
- 	}
- },
-+{
-+	.name = "cbc(aria)",
-+
-+	.uinfo = {
-+		.encr = {
-+			.geniv = "echainiv",
-+			.blockbits = 128,
-+			.defkeybits = 128,
-+		}
-+	},
-+
-+	.pfkey_supported = 0,
-+},
-+{
-+	.name = "rfc3686(ctr(aria))",
-+
-+	.uinfo = {
-+		.encr = {
-+			.geniv = "seqiv",
-+			.blockbits = 128,
-+			.defkeybits = 160, /* 128-bit key + 32-bit nonce */
-+		}
-+	},
-+
-+	.pfkey_supported = 0,
-+},
- {
- 	.name = "cbc(twofish)",
- 	.compat = "twofish",
+Both patches pass checkpatch with --strict, and xfrm_algo.o builds
+successfully against ipsec-next.
+
+Changes in v3:
+- Rebase onto ipsec-next.
+- Change the patch prefix from net-next to ipsec-next.
+- Remove the CBC compatibility alias.
+- Add ARIA GCM support as a separate patch.
+
+Changes in v2:
+- Remove the CTR compatibility alias.
+- Change the CBC default key length to 128 bits.
+- Add a comment explaining the 32-bit nonce in the CTR key length.
+
+v2: https://lore.kernel.org/netdev/20260916023135.26043-1-his1415@pribit.com/
+v1: https://lore.kernel.org/netdev/20260909054530.7861-1-his1415@pribit.com/
+
+Hong In-su (2):
+  xfrm: add ARIA CBC and CTR support
+  xfrm: add ARIA GCM support
+
+ net/xfrm/xfrm_algo.c | 62 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 62 insertions(+)
+
+
+base-commit: 4d12fa4df5c15cebc587644e84b8f972874e66f1
 -- 
 2.43.0
 
