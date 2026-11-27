@@ -1,58 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795753628;
-	b=ZfSTb9hLBmM0CYryHjSa+pW/VS2zGEr2EDmYKUTIHZMG8VOvAxK3WDBmihh6fPvEYBkw
-	 JHVsKAIDHqebuuShWttVr8uI6/1TajTouoOo+Q3DAP7aXAK07ddfq94ObylVZtv+jCbZ6
-	 4ydZfMVAbsdhr+KaBxUxG0RqFXHYVGsliQJ7TClVH6+2FYwErtVEj5OUr9Tc1R2tVbEP2
-	 QzSipuJOAOI7Fr8fbL+2KHa7zR1GLoaEInbaAO4CnW3vgeMeu83FXf6TGGJmH3QEfqV61
-	 2guYFfrgbANX4YvVvbuPmj0+6T6V1/3w7Sfs0ovMjoQIGY1FJEFvc3B8eJIIw1x/XIA==
+	t=1795753621;
+	b=YDSfBFWTCeESxNheWCyjf199IwFiXynbw7LHeMo9KjxIrGniA2WWSsJoq/W6pt9aPprK
+	 0eUr3J9kfaHXIaBV8VPX1cJTx4oHoXMAARZOEHv0gv61+TQztrLBjC1KHs4NyAKqkDZay
+	 ci3hioxUnE9xqbU0xar6N6MtB8xbL/IFyll39Dd6wqFforRWjkyvrxjB8kVH+a7zCflet
+	 kK8mMAX1XtBdQ6XjfCCvFQ8m9mFyC58NQDHAAlU015O8kuLVmNFveUi84EBQlaWrdUMGz
+	 M3chnfPby3MyhAXGNYLWqXf6QqLH71MTW9uacJuVdhW9ajZYAlEmBOLYkKB6EpaNK/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795753628;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795753621;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=owiT0dO+NAJLzkZxl1vWyr3zL3I8AJW2WvC6QRl0yjY=;
-	b=yfjS/EfRj/LuJyZCLECAKHiiRl6FzENUYK6XkdXkp6hBQJbugHGyLCN0XRwSnQEPALf0
-	 JDK9NCVmvUtxQFRkO57bzYaCA3Cmm9pNXPQUMiDaXw3HnxfFe1crOxHGaZm0mStXBH2Gw
-	 3Oj3Njat2M+o4FoH46KSCTwAB0iyPqogsgxdLVOil0q4kcGZ4JG6xsDLpVUpU82lMk1wj
-	 vPnuWvAYQSfa5jPvUYNjyojBbKrrbd7P0ZehCLIUTFxoSSWbw7qORcYJlxDpj0r8TXiNl
-	 ZD3w4qg25WAsMXMivWgcpGSGlBf4dtzPq58ddqBf0nzEypm5/45FGMqyas3Syrjf+LQ==
+	bh=9qlfoltgQZQLTiaNigWx976hqgBrcBMxN+/iUMS2pNs=;
+	b=HTlcWlx+JoDcIaar07VV1kBVn4ODPJtwe4hI5mMk1IhTygQZldB8b39qeLaxzzJ3G3ne
+	 OLaiJDvGjV2CAWEebXK+CLHJG4JzWObQ+U5+0Q4xdtcf+1HkDg8/gSJUFfHmx939iR8Sc
+	 5PJxVlFWMupTUuXarHyRvDNynhELmrwas+WqFyuhIpYOY1R8ifyvbYk7hhv02C1EV+YK4
+	 iW9zGLX7fLDrgN4MY32s+IKqUcUjU1Jq6I5ZeHSCzr2drmSqD/HJNQb7MpuM8+gXXAvNP
+	 wk2Aw0qf5fgUf5MDU3nqvIduNeY6fvENxx6rc5vrpCY4FSviqFfq1ny1kBpSoioB7ug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FKLQFYwr;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RSWx4UlP;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C6FD606A69B;
-	Fri, 27 Nov 2026 04:27:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B715606A31C;
+	Fri, 27 Nov 2026 04:27:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FKLQFYwr
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 764441F00926;
-	Fri, 27 Nov 2026 04:27:07 +0000 (UTC)
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RSWx4UlP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 642961F00893;
+	Fri, 27 Nov 2026 04:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795753628;
-	bh=owiT0dO+NAJLzkZxl1vWyr3zL3I8AJW2WvC6QRl0yjY=;
+	s=k20260515; t=1795753621;
+	bh=9qlfoltgQZQLTiaNigWx976hqgBrcBMxN+/iUMS2pNs=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=FKLQFYwrAH+EK0XxHET4H4zNIs3liEM6NKAhA27pTqVleF1upC9TE7adprNru+isv
-	 IRIPOc/BAfLCyf71FK5QN5FfbVv3wdrLFxAIrTXikxGVX3rA8GacIdGufhzlbXmel1
-	 l28eMLlkPRD0iUfAFtadbJKYrvVM7H1xUgGTfpn3f+Dy2J+p/6nitN6A5o/sZh7RCz
-	 +GnctvuZEgVk0renH0tzlpBdwH4XENJ8fggAeWLRVhZ2+382Im8yBFMfpFV+yqN3SL
-	 bhf3Q7DA017ipc/9/lysNqMAhpD5gEtGBZe+oVMy3hdUvIFr2i+zunqsNP+M5OzfTa
-	 CYj5YinQIMYWQ==
-Subject: Re: [PATCH net-next v9 11/12] r8152: add TGPHY register access for
- RTL8157 and RTL8159
+	b=RSWx4UlPFGUJk3/BB5u/lJSuSOmV+Jrz2ByaJXYYzZDwtSmwexebhTNkshEsEood4
+	 +ccga8k7gQlSzerZwyYsmswtYmb9BvB80QBkgIzExJlh7tx4Qw6sy5z15BGhswzpXT
+	 nER3WpLBHxT9Q7tA5r2BinxBwuvtb9xLtU8dKHjLdXnBJZQlLVQR4cX+dWkPeSBqTb
+	 M22zm0lda0k4e3krkTgk4uJM7eB4JCenONquy2b6/akfgeGqs156zLprcGchp+5pzQ
+	 uQEPNpQXQ0u+x0h7ZXxpQgX+0A6a8y5YaEJOUCjRRs/ACC9NgrsBPrcNa5+UvZUeuH
+	 T4WAqkBL7XKKg==
+Subject: Re: [PATCH net-next v9 01/12] r8152: fix
+ RTL8156/RTL8156B/RTL8157/RTL8159 up and down settings
 From: netdev-bot+sashiko@kernel.org
 To: hsu.chih.kai@realtek.com
 Cc: davem@davemloft.net, kuba@kernel.org, netdev@vger.kernel.org,
  nic_swsd@realtek.com, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
  edumazet@google.com, bjorn@mork.no, pabeni@redhat.com, andrew+netdev@lunn.ch,
  mail@birger-koblitz.de
-Date: Fri, 27 Nov 2026 04:27:07 +0000
-Message-ID: <179575362702.3135.11502039200918587671@kernel.org>
-In-Reply-To: <20261126033211.51850-12-nic_swsd@realtek.com>
-References: <20261126033211.51850-12-nic_swsd@realtek.com>
-X-sashiko-severity: Medium
+Date: Fri, 27 Nov 2026 04:26:59 +0000
+Message-ID: <179575361990.3135.4466986058036107796@kernel.org>
+In-Reply-To: <20261126033211.51850-2-nic_swsd@realtek.com>
+References: <20261126033211.51850-2-nic_swsd@realtek.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -65,282 +65,118 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 6 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 5
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] set_carrier() now returns early when the BMSR read fails, and
-  the link-change event is lost.
-- [Low] rtl_tgphy_access() reports a write as successful once the command
-  has been posted.
-- [Low] Two statements in the commit message are not quite right.
-- [Low] read_mii_word() now returns 0 for a failed PHY read, and the MII
-  library callers in drivers/net/mii.c take that 0 as real register…
-- [Low] rtl_tgphy_access() relies on the comment 'A failed control
-  transfer latches RTL8152_INACCESSIBLE' and ignores the return values…
-- [Low] After writing BMCR_RESET, rtl8152_set_speed() polls BMCR for up
-  to 50 x 20 ms, but the new loop stops on the first failed read: `if…
+- [Low] The commit message of "r8152: fix
+  RTL8156/RTL8156B/RTL8157/RTL8159 up and down settings" carries three…
+- [Low] Six independent register fixes, attributed to three different
+  original commits, are squashed into one patch.
 
 --
 
-r8152: add TGPHY register access for RTL8157 and RTL8159
+r8152: fix RTL8156/RTL8156B/RTL8157/RTL8159 up and down settings
 
-This patch adds a TGPHY command channel for PHY register access on
-RTL8157/RTL8159 and routes ocp_reg_read()/ocp_reg_write() through new
-per-chip rtl_ops.phy_read/phy_write hooks. The PHY accessors and helpers
-now return int, and a number of callers are changed to act on a failed
-access.
+This commit adjusts rtl8156_up() and rtl8156_down() so that several
+datasheet-required register settings are applied to the right
+RTL8156-family chip versions. It changes the version gates for PLA_RCR1,
+USB_SPEED_OPTION and PLA_MCU_SPDWN_EN and adds Clear_SDR writes. It also
+sets ALDPS_PROXY_MODE and DIS_MCU_CLROOB on OOB entry and uses different
+OOB RMS/MTPS values for RTL8157/RTL8159.
 
-> - read_mii_word() reports a failed read as 0, because the MII library
->   takes the return value for register content.  A TGPHY timeout
->   returned as an errno would look like a BMCR with autonegotiation
->   enabled, and mii_nway_restart() would write it back; with 0 it
->   returns without writing.  -ENODEV for an inaccessible device is
->   still returned, as the writes that follow are blocked then.
+> Several settings the datasheet requires for these chips were either
+> missing or gated on the wrong version range in the shared
+> rtl8156_up()/rtl8156_down():
 
 [ ... ]
 
-> Older chips are unaffected, as r8152_phy_read() always succeeds.
+> Fixes: 195aae321c82 ("r8152: support new chips")
+> Fixes: fd3c7d080df5 ("r8152: Add support for the RTL8157 hardware")
+> Fixes: ad2a55b63b41 ("r8152: Add support for the RTL8159 chip")
 
 [Severity: Low]
-Is this last statement accurate? A few paths also change on the OCP-path
-chips.
+Could the commit message say what goes wrong on real hardware without
+these settings?
 
-In r8156_hw_phy_cfg() for RTL_VER_11, the 0xd068 PHY read now always runs,
-and it runs before the MID_REVERSE test. Before, it only ran when
-MID_REVERSE was set:
+Each item is justified only as something the datasheet requires. None of
+them names a symptom someone would see, such as WoL/OOB wake failures,
+RX stalls after resume, wrong OOB frame size limits, or link loss after
+ifdown/ifup. The message also doesn't say whether any of the changes
+fixes a reported problem.
 
-    ocp_reg_read(tp, 0xd068, &data);
-    if ((ocp_read_word(tp, MCU_TYPE_USB, USB_UPS_CFG) & MID_REVERSE) &&
-        (data & BIT(1))) {
+Some of the changes affect every RTL8156-family chip:
 
-rtl8152_set_pauseparam() now reads BMCR even when pause->autoneg is 0.
+- ALDPS_PROXY_MODE in PLA_BDC_CR, set in rtl8156_down().
+- DIS_MCU_CLROOB in PLA_OOB_CTRL, set in rtl8156_down().
+- The PLA_RCR1 BIT(3) clear in rtl8156_up(), which now also runs on
+  RTL8156/RTL8156B.
 
-rtl_pre_ram_code() now returns the errno from rtl_phy_patch_request()
-instead of always returning -ETIME. rtl_phy_patch_request() now also tries
-a release on the -ENODEV path.
-
-None of these look harmful. Should the commit message mention them?
-
-In the read_mii_word() bullet, -ENODEV is only still returned by the
-test_bit(RTL8152_INACCESSIBLE) check at entry. If the device becomes
-inaccessible during the access, r8152_mdio_read() returns -ENODEV and
-read_mii_word() turns it into 0:
-
-    return ret < 0 ? 0 : ret;
-
-Could the wording be changed to match the code?
+195aae321c82 dates back to 2021, so these Fixes: tags will pull the patch
+into several stable trees. Backporters need to know which bug this fixes.
 
 > diff --git a/drivers/net/usb/r8152.c b/drivers/net/usb/r8152.c
-> index 2f3d97e2400c3..e6a5d35403a28 100644
+> index 4815235e8e730..d00cc911ae135 100644
 > --- a/drivers/net/usb/r8152.c
 > +++ b/drivers/net/usb/r8152.c
+> @@ -6820,8 +6820,7 @@ static void rtl8156_up(struct r8152 *tp)
+>  
+>  	ocp_byte_clr_bits(tp, MCU_TYPE_PLA, PLA_OOB_CTRL, NOW_IS_OOB);
+>  
+> -	if (tp->version >= RTL_VER_16)
+> -		ocp_word_clr_bits(tp, MCU_TYPE_PLA, PLA_RCR1, BIT(3));
+> +	ocp_word_clr_bits(tp, MCU_TYPE_PLA, PLA_RCR1, BIT(3));
+>  
+>  	ocp_word_clr_bits(tp, MCU_TYPE_PLA, PLA_SFF_STS_7, MCU_BORW_EN);
+>  
 
 [ ... ]
 
-> @@ -1822,7 +1866,10 @@ static int read_mii_word(struct net_device *netdev, int phy_id, int reg)
+> @@ -6860,6 +6860,23 @@ static void rtl8156_up(struct r8152 *tp)
+>  	if (tp->version < RTL_VER_16)
+>  		r8153_u2p3en(tp, true);
 >  
->  	ret = r8152_mdio_read(tp, reg);
->  
-> -	return ret;
-> +	/* The MII library takes the return value for register content,
-> +	 * so a failed read must not be passed on as an errno.
-> +	 */
-> +	return ret < 0 ? 0 : ret;
->  }
-
-[Severity: Low]
-With a failed read reported as 0, the MII library callers in
-drivers/net/mii.c treat it as real register content.
-
-mii_nway_restart() sees BMCR_ANENABLE clear and returns -EINVAL. On
-RTL8157/RTL8159, a TGPHY timeout on that BMCR read therefore reaches
-userspace as -EINVAL from rtl8152_nway_reset() (ethtool -r). The same
-happens in rtl_ethtool_set_eee(), after eee_set() has already written the
-EEE registers.
-
-mii_ethtool_get_link_ksettings() returns void. With BMCR=0 it reports
-AUTONEG_DISABLE with SPEED_10/DUPLEX_HALF, and BMSR=0 gives SPEED_UNKNOWN.
-It also overwrites mii->full_duplex.
-
-In rtl8152_get_link_ksettings(), the new OCP_10GBT_CTRL/STAT reads
-propagate the error. If only the MII library reads fail, though, the
-function returns 0 with made-up link settings. Is this split intended?
-
-The commit message explains the 0 mapping for mii_nway_restart(). It does
-not mention the misleading -EINVAL or the get_link_ksettings output.
-
-[ ... ]
-
-> +static int rtl_tgphy_access(struct r8152 *tp, u16 addr, u16 *data, bool write)
-> +{
-> +	u16 cmd = 0;
-> +	int ret;
-> +
-> +	ret = wait_tgphy_cmd_ready(tp);
-> +	if (ret < 0)
-> +		goto out;
-> +
-> +	if (write) {
-> +		cmd |= TGPHY_CMD_WR;
-> +		ocp_write_word(tp, MCU_TYPE_USB, USB_TGPHY_DATA, *data);
+> +	switch (tp->version) {
+> +	case RTL_VER_13:
+> +	case RTL_VER_15:
+> +		/* Enable Clear_SDR */
+> +		ocp_word_set_bits(tp, MCU_TYPE_USB, 0xd3ca, BIT(15));
+> +		break;
+> +	case RTL_VER_16:
+> +	case RTL_VER_17:
+> +		/* Enable Clear_SDR */
+> +		ocp_byte_set_bits(tp, MCU_TYPE_USB, 0xd378, BIT(7));
+> +		/* Clear SDR bit */
+> +		ocp_word_clr_bits(tp, MCU_TYPE_USB, 0xcd06, BIT(15));
+> +		break;
+> +	default:
+> +		break;
 > +	}
->  
-> -	return data & clear;
-> +	ocp_write_word(tp, MCU_TYPE_USB, USB_TGPHY_ADDR, addr);
 > +
-> +	cmd |= TGPHY_CMD_BUSY;
-> +	ocp_write_word(tp, MCU_TYPE_USB, USB_TGPHY_CMD, cmd);
-> +
-> +	if (!write) {
-> +		ret = wait_tgphy_cmd_ready(tp);
-> +		if (ret < 0)
-> +			goto out;
-> +
-> +		*data = ocp_read_word(tp, MCU_TYPE_USB, USB_TGPHY_DATA);
-> +	}
 
 [Severity: Low]
-For a write, the only busy wait happens before the command is issued. Once
-DATA/ADDR/CMD have been posted, ret is still 0. If the busy bit never
-clears for that write, the function still returns 0. The -ETIMEDOUT is then
-reported by whichever TGPHY access comes next.
+This isn't a bug, but could this be split into separate patches, one per
+Fixes: target?
 
-The commit message says rtl8152_set_speed() updates the cached
-speed/duplex state only once the final BMCR write succeeds. When
-PHY_RESET is not pending, nothing reads the PHY after that write. So
-tp->ups_info.speed_duplex, tp->mii.full_duplex and tp->mii.force_media
-are committed even if the PHY never took the write. SIOCSMIIREG in
-rtl8152_ioctl() now also returns this status to userspace.
+These parts only affect RTL8156/RTL8156B and fix 195aae321c82:
 
-ocp_adv_write() uses the same posted-write pattern, so this may be the
-intended hardware protocol.
+- The PLA_RCR1 BIT(3) clear.
+- The 0xd3ca Clear_SDR write for RTL_VER_13/RTL_VER_15.
+- ALDPS_PROXY_MODE and DIS_MCU_CLROOB on OOB entry in rtl8156_down().
 
-Should the write path wait for TGPHY_CMD_BUSY to clear after posting the
-command? If not, should it be documented that write success only means
-the command was issued?
+The rest, including the PLA_RMS/PLA_MTPS switch in rtl8156_down(), only
+matters for code added by fd3c7d080df5 and ad2a55b63b41.
 
-> +
-> +out:
-> +	/* A failed control transfer latches RTL8152_INACCESSIBLE */
-> +	if (!ret && test_bit(RTL8152_INACCESSIBLE, &tp->flags))
-> +		ret = -ENODEV;
-> +
-> +	return ret;
-> +}
+The RCR1 hunk above removes the "if (tp->version >= RTL_VER_16)" gate,
+which came from ad2a55b63b41. This switch in rtl8156_up() also puts the
+RTL_VER_13/15 and RTL_VER_16/17 cases side by side. As a result, the
+patch won't apply to stable trees that have 195aae321c82 but not the
+RTL8157/RTL8159 support.
 
-[Severity: Low]
-Is this comment true for every failed transfer? r8152_control_msg() returns
--ENODEV early, without setting the flag:
-
-    if (ret == -ENODEV)
-        return ret;
-
-generic_ocp_read() and generic_ocp_write() then call rtl_set_unplug(). That
-function only latches the flag once the USB core has marked the device
-detached:
-
-    static void rtl_set_unplug(struct r8152 *tp)
-    {
-        if (tp->udev->state == USB_STATE_NOTATTACHED)
-            rtl_set_inaccessible(tp);
-    }
-
-get_registers()/set_registers() can also return -ENOMEM on an allocation
-failure without touching the flag.
-
-In these cases a DATA/ADDR/CMD write can be dropped, or the final
-USB_TGPHY_DATA read can return 0xffff. For -ENOMEM it can return an
-uninitialised value from the local tmp in ocp_read_word(). Either way,
-rtl_tgphy_access() still returns 0.
-
-This is no worse than the OCP path. Still, do the comment and the commit
-message ("returns an errno (-ENODEV if the device is inaccessible)")
-overstate what is detected here?
-
-[ ... ]
-
->  	if (bmcr & BMCR_RESET) {
->  		int i;
->  
->  		for (i = 0; i < 50; i++) {
->  			msleep(20);
-> -			if ((r8152_mdio_read(tp, MII_BMCR) & BMCR_RESET) == 0)
-> +			ret = r8152_mdio_read(tp, MII_BMCR);
-> +			if (ret < 0 || !(ret & BMCR_RESET))
->  				break;
->  		}
-> +
-> +		/* The new settings are already applied and cached. */
-> +		ret = 0;
->  	}
-
-[Severity: Low]
-Does a single failed read here end the reset wait early? On
-RTL8157/RTL8159, a TGPHY -ETIMEDOUT breaks out of the loop as if
-BMCR_RESET had cleared, and ret is then forced to 0. Callers such as
-rtl_hw_phy_work_func_t() then continue PHY setup while the PHY may still
-be in reset.
-
-r8153_phy_status() in this patch treats a failed read as not ready and
-keeps polling. Would it be more consistent to stop here only on -ENODEV,
-and keep polling on a timeout?
-
-The commit message says a failed read is not reported. It does not say
-that the read also ends the wait.
-
-[ ... ]
-
-> @@ -7240,8 +7480,13 @@ static void set_carrier(struct r8152 *tp)
->  {
->  	struct net_device *netdev = tp->netdev;
->  	struct napi_struct *napi = &tp->napi;
-> +	int bmsr;
->  
-> -	if (r8152_mdio_read(tp, MII_BMSR) & BMSR_LSTATUS) {
-> +	bmsr = r8152_mdio_read(tp, MII_BMSR);
-> +	if (bmsr < 0)
-> +		return;
-> +
-
-[Severity: Medium]
-Can this lose the link change event? rtl_work_func_t() has already
-consumed the flag before it calls set_carrier():
-
-    if (test_and_clear_bit(RTL8152_LINK_CHG, &tp->flags))
-        set_carrier(tp);
-
-On a link down, intr_callback() has also already stopped the queue:
-
-    if (netif_carrier_ok(tp->netdev)) {
-        netif_stop_queue(tp->netdev);
-        set_bit(RTL8152_LINK_CHG, &tp->flags);
-        schedule_delayed_work(&tp->schedule, 0);
-    }
-
-Suppose the BMSR read then times out on RTL8157/RTL8159 in
-rtl_tgphy_access(). Neither the netif_carrier_off() path nor
-netif_wake_queue() runs, and RTL8152_LINK_CHG is not set again.
-
-The netdev then keeps the carrier on with the TX queue stopped. This lasts
-until another interrupt shows a mismatch, or until the TX watchdog calls
-rtl8152_tx_timeout(). A link up can be missed the same way.
-
-Could this error path set RTL8152_LINK_CHG again and reschedule
-tp->schedule? The LINK_STATUS branch at the end of set_carrier() already
-does that.
-
->  	if (bmsr & BMSR_LSTATUS) {
->  		if (!netif_carrier_ok(netdev)) {
->  			tp->rtl_ops.enable(tp);
->  			netif_stop_queue(netdev);
+Separate patches would also let a bisect show which of the six register
+changes is at fault if one of them causes a regression.
 
 [ ... ]
 
