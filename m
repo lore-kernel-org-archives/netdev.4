@@ -1,98 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795786816;
-	b=Z4Nkn9EA2rPeUA+JkkC0uK4V+y4A/LCtjzPXNNcqjqdTupx96ibw+C/vL/8z+eUsvfVv
-	 LWDJWh1sSGxFoNVlKyCeRaqqKfBYNSwNwMFGPHwH/J6QbdCUEOaya/vJRFkIMVIVgJJUD
-	 HyunHNPZbMCWjMcp/AqS1kNdhVYjJ/SeyhYUScHxE46Iyopi6AwYyZ02TcwSN71coUgMM
-	 GV205/AEANFpCcHFxN5bzDGlTuoCtLS0l+2vaTV1SGAxoaZq3jraU7EteNePHqOMbS4pR
-	 W/+9k0xluu3J6KpAG6Qf98SrvryebCV9kvPWbLCI1oSr5LXvX1+XYbuFSIg/ddi5i3A==
+	t=1795786838;
+	b=bQeTNlA5wJzkCdzRYEwdj6OEBCxTLLrDnShsE3U4o/4Llsk0c0jMT93Hvon3XE/aDmeU
+	 RQ7ovDzffxHX/uh8qcRnl2ptVxc1Nvh2DWOv9Vo/Iy99mO+8VPlOh4BcL+5MVq/CnymNy
+	 hifiijXvGDy5UrRhCmKFWgIReGsjZaAHj+jY19oILIjG0lipevJ1dU5wpGM75Gesmf/iy
+	 EXaqZqz8zg2DPNQYS5V91cdjRSoKrTWoEe0tufCv3E9whJS/rJD4OR8/NDRsPwc2+M8mN
+	 5TEkOUurBDOQQrcAoMWAOVDzD4Vg3t3MyedN5gEEteuq7rmhyUMS/xsIgoXpH533zXw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795786816;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795786838;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=o9GE8vDlp9gU9s3R8Ex0+u5RMjrkAIYFGp6DQiySOuQ=;
-	b=nubnQr3Sv3+YNbdbBj2oFMCoen9P0G2WbqwzUmGvE6vl+hwoZYwq7nwo9lqiFlh+vJyU
-	 xxSg06Egl8BYOqH8QvP92kH30NBIvcci+MPueE3y3pcyy7+bzOkDpziXS/rwPN22QvR09
-	 hsitleOIdqOKj58LMoW9oOxOhkHw8I1CrzvJZXyX9HVh7tmvQsYyjYWWowz4C3Zq5+a08
-	 +CZg96toghAMbcswd5NHyyXSQwmfWaV4p08Oxm8o6BFaedWTR8HIJ7mBDVvzFLkVTCDp8
-	 0dwvMExzVGb2/eXiM/VsCuBVgxGGeMFMgjx8Id4Th7dK3QS+lZCDlEXuMMgKVYvVNFQ==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=CoVAookeqxpBctfLqaghk9pJLGpO39zMMXshAYvBqc0=;
+	b=O2OmloyvuaSSl0UeTDRJArTX615JE5Mp2YxQwoifWgQ2/WXYJcmqSb0G/ChQjCwRolu6
+	 uZKT0mtcNA3zvF4GTrTT7WJbbTymatV0aAnYXHOIHfBud2O6oDJav18Wv+rnKBJ7ealus
+	 yUcHoMTYxnwiHMNbIfTBpGsvKFzlgadACrCFSPVcgbnLEisBVUv+MokXkWvOXXqlB8zKM
+	 d63GoJcgR6M5C8IiQdLz64sqeHZ+mxs71TkEc7tFzqSfyGpjvZwAPQTEBR//gtUPvJDka
+	 GqVVvCUL7HzUnxuc75HUABOnJkztpSWg5hxr/YqBpK95nEcpeON+Rm99HT0eMqSRrMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="AYkfG/C6";
-	arc=none smtp.remote-ip=209.85.216.53
-Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mUgt5qQG;
+	arc=none smtp.remote-ip=209.85.210.170
+Received: from mail-pf1-f170.google.com (mail-pf1-f170.google.com [209.85.210.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD84B606A31F
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:40:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD84B606A31F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CE86606A321
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 13:40:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CE86606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AYkfG/C6
-Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3b51a9606e8so1099455a91.3
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:40:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mUgt5qQG
+Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-8a070755c8cso3925140b3a.0
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 05:40:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795786815; x=1796391615; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=o9GE8vDlp9gU9s3R8Ex0+u5RMjrkAIYFGp6DQiySOuQ=;
-        b=AYkfG/C6L2RSZDFrxfFu1xldeipnwkONvOye16n2DNK+Xiq7v5uSqj+5O66/ri8sV2
-         wWue02vHgQh1WpO+IgEA+mcN1qiKssX6B1W+a/cHu8Ch6tqC7i1MV86W3dU+ifiItSn0
-         Yj0C3yx5vHmvYE6x0ssk5RVAgcCcAj0ozh7oGkFz1vCNV0fdJvogA5RmkMEgpDu8ht0L
-         +eeLcTvkzFz/5/zGdGtXVkye99pW7ERIQSsk8s7QiFE+bg4areoNku/ai7ZjC0Reh7iH
-         yk9A2iOQlGGhp+2iSkeU+WFp5t0cOLcf6RYOdI7P3zO2JhIiGnSmVTHUnl9pxBdVDXTs
-         /g9w==
+        d=gmail.com; s=20260707; t=1795786837; x=1796391637; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CoVAookeqxpBctfLqaghk9pJLGpO39zMMXshAYvBqc0=;
+        b=mUgt5qQGm5AAB4TrA9kpm4OZFjMZlLV6nefj31RrX5jE0mItObR+shV4hfCDLk4mHo
+         ptMNuwC9mYwlK6M4NzmIYYwdtaHhtG+gUN88K3N1rcJ622iTFxHRQZyKs/sit7mxlotI
+         rJ1S/lT1gr4q9bzmcbQwW+yHA39taNmakDkMjVFYuDriJ3s2BvfTy14+xv08aI2C7ppZ
+         pAV2Z5KWBQal8D5xH8VO1GHtDpPriZTfgmbAZ4YNqBONblPyL6iFxi4sLugLxvMt5c25
+         O3GXwlggEJYYvcWrF4aUpCJoEdQ3jhctSiaIkb4K+s9W5d+Q/MNrKVHRyyh+08m7H8Bz
+         WTlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795786815; x=1796391615;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=o9GE8vDlp9gU9s3R8Ex0+u5RMjrkAIYFGp6DQiySOuQ=;
-        b=vlmSfkfV31UUX7UKA++HKQrcarYBFNQaHPWK1iehl95fpDEUc5dyP9D+R4Te8RkBLu
-         G1SsOsuwnKzf8pUhOAa8gltpretvG/Z9CJOAISIIA43PHg+y/tsb3Vz5Sddu5vZ+bbxH
-         xsyxI+rwaCL6z2PPX5u32ECBUY5Oi/wKRnPNzbdPPbGUubsJLd7Plw9VIMmOa6m1AJCs
-         NtZ4j5xxfvS5qDr3nVov6Xn7KwblPicj/PmvqbmBSlqiaMiEViOE3MNykbdtzhuVHByb
-         fqDDm7Z2e0vNuRW3AtM4WA3dSKKQThZocaS1mJpWsJaqfQSUMF3I9/+n9wRszGpSO++r
-         KaTw==
-X-Forwarded-Encrypted: i=1; AL+hErFnB97pXqH44PpvZ1X0Hk9nBt5Rgm/1PeiQqPi3THEYfjQHfQ9dxmWWCA1i4kVOjzqtCTqu3sg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9DmuVNgCx6n5sD9KqB475KS4NQD5f+Zo+CXSlElp7RSZ2oaR4F
-	XI5xLlZ28odmE0gaJNnRzFJe+5hqFIZaw4tISrAIOaNoSieDqN+C0xDKbu8mcw==
-X-Gm-Gg: AZFdTZf32qJhPk4wXo1GYcIL47m9+jJdROhJQgnqB5pOWf4A4jJHO6DXRpN5IPnV7v/
-	mOMM9uzCGRDYozSwvPBqHoVtvJqhokfIB5DlvG+S6Uz8QetLVyK0SbrS6u7c6WzaeWM+MhmuaqQ
-	cq9fhXnhwtoC6qmcgi8eohSYX2GwoPhrsNP68Z5D8wKmME7g2jmaVbs2zH6t5GUnhfKe5WxP2sN
-	UAppUuQp9jebgMXXJpJslcGGYBbTyK4POMwMf4CO4l6ZsySREGKgARb31dCjWtQHX2ws0PUtvo2
-	8kcAS146Ho8rfFQXPQw2ahaeoAWWjcA9lnE0QivibNtBnb5aqEmeHuas7ob8OUYBs9H+88vtQsO
-	cjSE8qQ0/jXOBMoTRbRqkQFrkRKqgJCLvnyMZci7JqM5cmiDLR2AOKNYkPvjZBs4JUcPMcIlHSz
-	Rdg3stdecQQi+AcKHLjydsWzSi1OWXC0gpYZ66zFQ7XSdIGvYodUROR+CPYCmjI8BlvhXWFoXCL
-	VnwE4mGypyeyCyqNeOnHJ7+8MgYhjD7bFRWETPT1O7GRuUE0+usyFCRCqshM/F5DH/o6psradFx
-	RpZtuM9quPljOy95LC57EwGT1Ct8PhUZ/CGFkOeGhG260jdq2kQG4KasEEXPmVMYwYRP46v+Nmo
-	RAMQ/rbc9RYkQHxCTcNoAv7fOc2PoxQo0UAVym8WhTzwKh8qHKVeCC88EfZvC6uTVwhFZ6fswlE
-	jEojFOF4lABIUOq3Vq8M7qxTY2zfzjI7GtvFZMryM=
-X-Received: by 2002:a17:90b:2e47:b0:3b4:1884:9846 with SMTP id 98e67ed59e1d1-3b41c7e0d55mr21957170a91.6.1795786814843;
-        Fri, 27 Nov 2026 05:40:14 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795786837; x=1796391637;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CoVAookeqxpBctfLqaghk9pJLGpO39zMMXshAYvBqc0=;
+        b=NnLUYD40b4W4KrX3cpJHFBu1FMiYIf0vXsexoHOJ2N3QjGP/SvJa31oPGVHf2kMFWO
+         aXZTToAheDyEo1FFtnv7oijV6HSNKoNtsAdu7Tq1kZ1yeUgTBypFfEK/2bE2OpmyOxpy
+         FO+NHYLCKa30fkG//oW2LHNvVE8BxyZKlR7ZYhQye1UmCcXdO6rp5cq5g9idmP0KxTqr
+         jQF2KmoNBl19j1r4cCuSsdir2lcKE5K0A8PGjC0qr22WKBiTjikJmdV79ovwCon8Lf7z
+         roB+CYqty1/gp1IM15BmWGhxTXyXgwJVqzvU9QyP4+gAFn/kni46+nMEY8+0EOiBCisJ
+         TVfg==
+X-Forwarded-Encrypted: i=1; AL+hErFL7dg39ONwVNtxnfcf0i3j7bRDHognj51tU0RhbgP/itSmPW0p8uDZtK0zt5lLTdu7/8UzFzs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/FNbIOIpI2SQQ0xMx74Y2zBxsEBSMsCXHysAAf1+5XGN/jjC+j
+	B9UKhBXuQwyxBE8eStDYwsMGF7xpQge4IKq9DsVCgvFeonb+5+3NzUQhIXXNWa+4R+FX8K0J
+X-Gm-Gg: AZFdTZcHHguTstNy96b0OG8gmNANl69O92Eed0JGdiGKyKzarjfDhu+IrTLB6uSovEh
+	TQdXuh+6AvtbQZ7deSQRh3BjoizpETha1DTGPbd0dxn0Yuh8Z26Abb5c7p6A4TPApIEWXESqvcM
+	yhcnMz651KSLat+UV0WAvDAhrRNB22KTBsef5zjdeK1EpoXXOuS1JChfp5LUdaZWVAEzVVsMoEj
+	MEHDpCsWQfKHyFYfu/psivLKX28oEUAHJr87Nv9Vw1b+ZFbd1F08PN7lKZ3kgWzF9egUrCCNir/
+	LiEM8TdQOg06PmToj6ky2UFecEYCdB49L4A6rDKutBPbpg7AkgZz3ScQdiELGR36tCMLo72t3yH
+	IfKDG5sBkxZfV356C1kWkBsNWvdS+VqUQ5rRE0tggZcNe5ZH/5sZuK/bgZ5N8+/nY4zT4qFlygX
+	yl8Pxz8SvlJHlV2Oly7LatxuUV4KiJB02KB0UcGfxo28HUrzWKRhg3iMKZBylqfodjmRgrCCt8F
+	2khS0056dFkHOFVHdqobnE/4QNOMNYwHxfF3jBuFb1TJ4+gkRUp4xhnpdVmyQf36Y05kzOGheZ4
+	0jVlinlfr+QMG+3kZiviSvqQ15kBlE+S+XUh4qHfoyuBcgCQ6LGjUzliqdKZp7Gc7WmRyAosA3c
+	0fJTlaRll5cRUd3kvOXKYRV8c1cKQrqSbyFrf0YtbJARLs4/qqdGp+Kj5++gg1T+zlbYezHYgXo
+	EWM7/wZJno4y0WlPo5H6T5FTaGVRpFH9eyyO3y7Tc=
+X-Received: by 2002:a05:6a00:ab8b:b0:8a0:1dab:fd50 with SMTP id d2e1a72fcca58-8c87b8da580mr22941464b3a.20.1795786837347;
+        Fri, 27 Nov 2026 05:40:37 -0800 (PST)
 Received: from LAPTOP-3B99V33A (ec2-18-138-229-8.ap-southeast-1.compute.amazonaws.com. [18.138.229.8])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b50234fb25sm5241386a91.2.2026.11.27.05.40.12
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285b60csm12705838b3a.9.2026.11.27.05.40.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 05:40:14 -0800 (PST)
+        Fri, 27 Nov 2026 05:40:36 -0800 (PST)
 From: "Bin Luo (University of Electronic Science and Technology of China)" <luob87709@gmail.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: oe-linux-nfc@lists.linux.dev,
-	johan@kernel.org,
+To: oe-linux-nfc@lists.linux.dev
+Cc: johan@kernel.org,
 	david@ixit.cz,
 	kuba@kernel.org,
 	netdev@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] net/nfc: fix skb ownership on data exchange errors
-Date: Fri, 27 Nov 2026 21:40:05 +0800
-Message-ID: <20261127134005.1762-1-luob87709@gmail.com>
+Subject: [PATCH v5 0/5] net/nfc: fix skb ownership, reassembly cleanup, and NCI status errors
+Date: Fri, 27 Nov 2026 21:40:24 +0800
+Message-ID: <20261127134029.1813-1-luob87709@gmail.com>
 X-Mailer: git-send-email 2.51.0.windows.1
-In-Reply-To: <179576491145.3135.10392815197154160858@kernel.org>
-References: <20261126063911.353-1-luob87709@gmail.com> <20261126063911.353-2-luob87709@gmail.com> <179576491145.3135.10392815197154160858@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,50 +102,79 @@ Content-Transfer-Encoding: 8bit
 
 Hi,
 
-Thank you for the review. All four findings are valid and will be
-addressed in v5:
+This v5 series addresses all four findings from the Sashiko AI review on
+v4 and includes the discovery method requested by netdev-bot+sinfo:
 
-1. nci_nfcc_loopback_cb() and NCI_DATA_EXCHANGE:
-   Agreed. The old nci_nfcc_loopback_cb() defect on nonzero err with a
-   NULL skb was reporting NCI_STATUS_OK with a NULL *resp (risking a
-   NULL pointer dereference in st_nci_loopback()), plus leaking skb
-   when conn_info lookup fails, rather than leaking skb on the normal
-   error path. Also agreed that current mainline
-   nci_data_exchange_complete() requires NCI_DATA_EXCHANGE to be set
-   (which loopback and NCI-HCI send paths do not currently set). In v5
-   we update the commit description to accurately state both the NULL
-   dereference / !conn_info leak and this mainline gating nuance while
-   keeping the callbacks consistent with the data_exchange_cb_t
-   contract for stable trees and future fixes.
+Changes in v5:
+- Split the former v4 Patch 1/2 into four single-purpose patches with
+  accurate problem descriptions and complete Fixes: tags covering each
+  affected driver/layer:
+  - 1/5: Document the data_exchange_cb_t ownership contract and fix
+    callback skb leaks across rawsock, LLCP, HCI/NCI-HCI, Microread,
+    PN544, and ST21NFCA (explicitly covering ST21NFCA DEP success-path
+    leaks on READER_F, r < 0, and unknown PFB types), synchronize
+    HCI/NCI-HCI rx_hcp_frags with a local splice, and accurately
+    describe the nci_nfcc_loopback_cb() NULL-dereference / !conn_info
+    leak (noting the current mainline NCI_DATA_EXCHANGE gating nuance).
+  - 2/5: Fix double-free of resp after queueing to dev->resp_q in PN533
+    (both pn533_data_exchange_complete() and
+    pn533_tm_get_data_complete()).
+  - 3/5: Fix missing completion callbacks on terminal errors in Digital
+    DEP (preventing hangs and socket refcount leaks).
+  - 4/5: Drop stale ndev->rx_data_reassembly on NCI data-status errors,
+    unconditionally on CORE_INTERFACE_ERROR_NTF (outside the
+    NCI_DATA_EXCHANGE check, covering listen/target mode), on
+    data-exchange timeouts, and in nci_close_device() after
+    flush_workqueue(ndev->rx_wq) on both close paths (guarded by
+    req_lock and !NCI_UP).
+  - 5/5: Preserve signed errno codes in nci_add_rx_data_frag() (former
+    v4 Patch 2/2).
+- Document the discovery method in every commit message (static
+  call-chain audit and code inspection, with QEMU KASAN+kmemleak
+  reproduction for the NCI status truncation and rawsock leak).
 
-2. nci_close_device() and stale ndev->rx_data_reassembly:
-   Agreed. In v5 we free and clear ndev->rx_data_reassembly after
-   flush_workqueue(ndev->rx_wq) on both close paths in
-   nci_close_device() (guarded by req_lock and !NCI_UP).
-
-3. nci_core_conn_intf_error_ntf_packet() in target mode:
-   Agreed. In v5 we move the ndev->rx_data_reassembly drop outside the
-   test_bit(NCI_DATA_EXCHANGE, &ndev->flags) check, matching
-   nci_rf_deactivate_ntf_packet().
-
-4. Patch scope, accurate descriptions, and Fixes tags:
-   In v5 we split the series cleanly so each bug class has its own
-   patch and accurate Fixes tags:
-   - Patch 1/5: data_exchange_cb_t contract and callback skb leaks
-     (explicitly calling out ST21NFCA success-path leaks and the
-     nci_nfcc_loopback_cb() NULL-dereference / !conn_info leak).
-   - Patch 2/5: PN533 double-free after queueing resp to dev->resp_q
-     (in both pn533_data_exchange_complete() and
-     pn533_tm_get_data_complete()).
-   - Patch 3/5: Digital DEP missing completion callback on terminal
-     errors (hang + socket refcount leak).
-   - Patch 4/5: NCI rx_data_reassembly cleanup on data-status errors,
-     interface errors (unconditional), timeouts, and device close.
-   - Patch 5/5: Preserve signed errno in nci_add_rx_data_frag().
-
-I will respin and post v5 as a new thread shortly.
+Validation:
+- All 5 patches apply cleanly on v7.4-rc5 (4dce97c6c265) and pass
+  full-tree scripts/checkpatch.pl --strict (0 errors, 0 checks; the
+  only 2 warnings in 1/5 are checkpatch codespell false positives on
+  the verbatim upstream commit subject of Fixes: 97f18414af39).
+- W=1 compilation of all 13 modified NFC object files (rawsock,
+  llcp_core, digital_dep, hci/core, nci/{core,data,hci,ntf}, pn533,
+  pn544, microread, st21nfca/{core,dep}) passed with 0 warnings and
+  0 errors.
+- Full x86_64 KASAN + kmemleak bzImage build and real QEMU TCG
+  verification (32 NCI 1.0 MIFARE status-error 0x01 exchanges as
+  euid 65534 over virtual_ncidev): all 32 iterations reported
+  SO_ERROR_OBSERVED=16 (expected=16) with SELFTEST_STATUS=0, 0 KASAN
+  reports, and 0 kmemleak unreferenced objects.
+- Real PN533/PN544/Microread/ST21NFCA hardware was not exercised.
 
 Best regards,
 Bin Luo
 
-pw-bot: cr
+Bin Luo (University of Electronic Science and Technology of China) (5):
+  net/nfc: fix skb ownership on data exchange errors
+  nfc: pn533: clear resp after queueing to avoid double free
+  nfc: digital: complete DEP data exchange on terminal errors
+  nfc: nci: drop stale rx_data_reassembly on errors, timeout, and close
+  nfc: preserve NCI data status error codes
+
+ drivers/nfc/microread/microread.c |  3 +--
+ drivers/nfc/pn533/pn533.c         |  2 ++
+ drivers/nfc/pn544/pn544.c         |  3 +--
+ drivers/nfc/st21nfca/core.c       |  3 +--
+ drivers/nfc/st21nfca/dep.c        | 26 ++++++++++++-------------
+ include/net/nfc/nfc.h             |  5 ++++-
+ net/nfc/digital_dep.c             | 32 ++++++++++++++-----------------
+ net/nfc/hci/core.c                | 25 +++++++++++++++++-------
+ net/nfc/llcp_core.c               |  4 +++-
+ net/nfc/nci/core.c                | 25 ++++++++++++++++++++++--
+ net/nfc/nci/data.c                |  8 ++++----
+ net/nfc/nci/hci.c                 | 23 +++++++++++++++++-----
+ net/nfc/nci/ntf.c                 |  4 ++++
+ net/nfc/rawsock.c                 |  5 ++++-
+ 14 files changed, 110 insertions(+), 58 deletions(-)
+
+base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
+-- 
+2.51.0.windows.1
