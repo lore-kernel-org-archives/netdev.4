@@ -1,59 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.47.171.185
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795772965;
-	b=o5FRvA0fxur2ZH0Lm5Lgdv2tJ9lINcdnbjOVN6A/O+MfvIstD4Z+m3E7a/tP7u2TXXBS
-	 dl42GB6SZrj+koUzA1xK4D5lTlgC1MNcYhMZ3WDiBeSZe1UcUlCcHoX+imowls5lXVKWY
-	 SXSn1TT1vIvIZNmvqGROGAa3uRy/01dt57WFkxk0qFYG9bxFVOGY4pu49dZisDnh0039x
-	 siAFvZq3S4NbT/ruUrx9Pw5WhzzO2ytFuH6C/t1kR+ck61BCK15y6c6PC7xHPCeABF6a8
-	 uq32FVuCQe8v4c34L0KUC5fND4kbWbK9BbaCacq352wOp+nzueTeuJYkX3pyNwhGuyA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795772965;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=Vd7ZQm1Iub6VBWC9SEDsd/uEgDH56WnOYPS/1GTzNX0=;
-	b=0nT2gUIgVi/xBCTbz9Nv1mXOiqnjh8phZ8NcR5DlQClk6noeJfZ+lALqCKb4c0FusFKo
-	 lYNy7SogQAfxqrNz7W/+ffmWs7LabO3sNesv8qBc8MsAgj7ZwPGZSENs5Qmldznx27goo
-	 5jTtzBj1k8adiRGpRfgpIbnDfz1+n/FlqbeC+/wm81yWGkX5OJVgjYZ5t7t7PIa1FfK2t
-	 ngNaCOMHwyCB5ROeY9He2AeCnYFDxePTM98XMrDdnWFt8UJDgxzvADIDxK0gaG2l11irR
-	 f7+qU8luSgqYsrW/krQRswScdyLlEvCnWj56o9eGXRCZjs9yvCWxSdCJBL4IR8AExZA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=datenfreihafen.org;
-	spf=pass smtp.mailfrom=datenfreihafen.org;
-	dkim=pass header.d=datenfreihafen.org header.i=@datenfreihafen.org header.a=rsa-sha256 header.s=2021 header.b=kuIe27Rk;
-	arc=none smtp.remote-ip=78.47.171.185
-Received: from proxima.lasnet.de (proxima.lasnet.de [78.47.171.185])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.21
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795772987;
+	b=Az1H34SKz0t4+X/lXdEZRBF+GwUdsYsuuiwuaJ1MpQMOPtKFkRLy3WVDKAXFWr0GUC22
+	 lcgbKnegtLmQvF7NBeIDi1aXTDNpBqFSYLlIcrIYAOmFRSuanSCBl6XO6FXGY2Vsd85V7
+	 c12/kTya5FLm7PQYPPRTWurbDRJQMb00kFg8P8trBXK9p8wvmMu802yJ20VeWaSjd6M6l
+	 k6FTIs8MhCOPKqPkrkF5kbF9FMqr6bBCP7WTyjfb/Mzw2sH3I5yi2OJ2uavMfuPmTW0AL
+	 qQlK49VcFrZO8Gcz4oJFkLvt1mnE+K4vJ2XalFPIOVU+pfR6fr8IA8/t8jiWN8cZEoQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795772987;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=dNt33f0lPXUGVjd4RjIPp3s7kYQaYGmYbx5TxdAcS3Q=;
+	b=anZ4ZHcAFtQUkloPNPV8y0K6cqjEYatMZboDOI/JqCNCHKyC7XjDGUT1VFvFDG8M+yVZ
+	 JVSQtsPRpo1L+pTqDRPSl2HKt9enoVzFA831DwUziIlYgU9VpighdRQYlO2VQBET/1dIA
+	 G3HWHVnxRsncqLxDGIIqzliQc+Jt6IfFlscIcV416TLzklB+3nWVSz2TwRLAdDKDkJ7hH
+	 IRCKrW7JtpiugdGxYkHK/slLis/ml3VYOMNGZMYg8qPyBWicVKrV3Xq+ybDOpVHg8zxZz
+	 bxtKQSVeveJC42ho6ZIvTwqqmPscPIq6eZ+oIpQS07D+4poBd3dzD8jj2yeblostxsg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=oOWvijBb;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.21
+Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazon11013021.outbound.protection.outlook.com [40.107.159.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E81B6606A31C;
-	Fri, 27 Nov 2026 09:49:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E81B6606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=datenfreihafen.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=datenfreihafen.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00A51606A324;
+	Fri, 27 Nov 2026 09:49:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00A51606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=datenfreihafen.org header.i=@datenfreihafen.org header.a=rsa-sha256 header.s=2021 header.b=kuIe27Rk
-Received: from [192.168.2.30] (unknown [46.253.254.165])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: stefan@datenfreihafen.org)
-	by proxima.lasnet.de (Postfix) with ESMTPSA id 9258AC03CB;
-	Fri, 27 Nov 2026 10:49:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=datenfreihafen.org;
-	s=2021; t=1795772955;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Vd7ZQm1Iub6VBWC9SEDsd/uEgDH56WnOYPS/1GTzNX0=;
-	b=kuIe27Rk37jREZkdWxM1emblDWN6XmlzvqdZ9n8DQpziqtDucavvfStVCVRNszuYLLu1k/
-	o9u5LbEUvfAtvLqRA+MJ0wQ9UxsEPVxMAXE6jC6ft/dREA2RoWwpFyHOQhFtrsArdfDCNk
-	sH+4cY/+7GVKDQ9zhsP6Syyd2Hlh8LXAVGu0S/66VPKAcxKNcM/q4yZUlW+YZ529rg/j71
-	MKlHglwY/fQmRF8G51m8Q9AnV5KkmUS/PdlgDhgE/X2CijCg7VS+VA6vDTLI3TiPbEeW/O
-	H9Fl9etRvKHtCrth/2GJlvg+XBoDm87rmQxPaRGtNf9PTW0alnLV+8dNX6jp6w==
-Message-ID: <9609d9b9-9dfa-40bd-8d67-27a7f8d64806@datenfreihafen.org>
-Date: Fri, 27 Nov 2026 10:49:14 +0100
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=oOWvijBb
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aXJEUG+GxdGY+MZ36m6k0i2Ezh6dJyoFJc5hxqVxyfaOqZZT9v9hn5Q1DxnNctPsGzKQP2DGVz+oUL4mA55F+sj5QKnw+6fPUed1rqYZyMOAZavIokhayfAMXc+YBb3Ai9KsE63yajda9jU0ASmypNQYdddIdk6bvF5clYouhP+kHfKq89mB4ZlfsLZDwNPD2AujMbCLc3toectmGsZDrM+yqB2+DdnNxUtQ9EiRMzca5gPZFPxVVy6Qhq/Hr25L6sqFKnENyx4O/lwtq8DzGIyXBXTLyN6eQhawLVpSLxyvBMFuY+CF9jJD4dnI7+tpl3T5UgcT9MISzuiRksXaZw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dNt33f0lPXUGVjd4RjIPp3s7kYQaYGmYbx5TxdAcS3Q=;
+ b=gZEMLkt6C7LfkYJDJiWqJhddXfOGA9rgpF134aJTVOSsqZPjhiP76An82Csy3vSlmvNL26hyDVcpyaA22yZfY0tNGBS70UN1fiYWhd8/suadkHLXfe4JzRTs2sUQnaLGapGV1eo9OC2BcscipKEG3yBXpGev2ZUk7DRO6QgZXSi/YmhcarOMSCBJ+M/HS76MLEH0ufB4QgR9yXO0lx60Zs6ukuZXMGICTG+hcz01GyHLvtbCry+KI335LIHACRDtBLeI4ajCd882xoJNGNRXwTXrZwEdmP7gCikLM6wE73M8i11AMcqlNHDh3fB03pxKOG1eJetADPFGo8U4dHuP6Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dNt33f0lPXUGVjd4RjIPp3s7kYQaYGmYbx5TxdAcS3Q=;
+ b=oOWvijBb4KzQ8YF15lfbQYHMum+KvBGtQrDnb2SXpWVquGLSU6VIVzJTDU6XdKsU0OS2KoUNXXXA7Kw7MvKgoVsARo4oYbUBkywoKuukFP7jJcHc8RWYXbnYxlEKvV5j1+vu935Npi6jnspG3aVWivsfo1DoH0QWyfQvXkXcjzIM4nZH9o3XAZbBfDjjwD/GgJdmouJyCodKKlwmyTo+wUzHEEei+Z2yIJFd+MTPSrmJFAEiVH9D99wJio1PZeztV33WlzmZGnI05yMsTnekUKxF+juoJq5wFH6gQW3rrDqL6dpYpqwLKp4JsRyEWVXf/PlptIDFSJmHB72SX2GmWw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from BR2PPF9D47B45B4.eurprd04.prod.outlook.com (2603:10a6:2d0::cd)
+ by MI3PR04MB088318.eurprd04.prod.outlook.com (2603:10a6:290:99::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.9; Fri, 27 Nov
+ 2026 09:49:44 +0000
+Received: from BR2PPF9D47B45B4.eurprd04.prod.outlook.com
+ ([fe80::6e42:6ee4:6b13:69cd]) by BR2PPF9D47B45B4.eurprd04.prod.outlook.com
+ ([fe80::6e42:6ee4:6b13:69cd%7]) with mapi id 15.21.0639.012; Fri, 27 Nov 2026
+ 09:49:44 +0000
+From: xiaoning.wang@oss.nxp.com
+To: netdev@vger.kernel.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	daniel.baluta@oss.nxp.com,
+	frieder.schrempf@kontron.de
+Cc: Claudiu Manoil <claudiu.manoil@nxp.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Wei Fang <wei.fang@nxp.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	imx@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Clark Wang <xiaoning.wang@nxp.com>
+Subject: [PATCH net-next V2 1/7] dt-bindings: net: netc-blk-ctrl: add compatible string for i.MX952 platforms
+Date: Fri, 27 Nov 2026 17:47:23 +0800
+Message-ID: <20261127094729.1061755-2-xiaoning.wang@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261127094729.1061755-1-xiaoning.wang@oss.nxp.com>
+References: <20261127094729.1061755-1-xiaoning.wang@oss.nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0024.apcprd02.prod.outlook.com
+ (2603:1096:4:1f4::12) To BR2PPF9D47B45B4.eurprd04.prod.outlook.com
+ (2603:10a6:2d0::cd)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,73 +113,84 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mac802154: Cancel scan work synchronously during hardware
- teardown
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
- Jakub Kicinski <kuba@kernel.org>
-Cc: Aryan Arora <aryanarora.w1@gmail.com>,
- Alexander Aring <alex.aring@gmail.com>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, David Girault <david.girault@qorvo.com>,
- linux-wpan@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- syzbot+19cbce4cc656ecd4febc@syzkaller.appspotmail.com
-References: <20261012120934.64632-1-aryanarora.w1@gmail.com>
- <87v77626rq.fsf@bootlin.com> <20261019190736.33bc37e6@kernel.org>
- <87a4n8rczw.fsf@bootlin.com>
-From: Stefan Schmidt <stefan@datenfreihafen.org>
-Content-Language: en-US
-In-Reply-To: <87a4n8rczw.fsf@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BR2PPF9D47B45B4:EE_|MI3PR04MB088318:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3e8a50f5-1120-447d-3033-08df4c6bc409
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|23010399003|1800799024|19092799006|376014|7416014|56012099006|10067099003|261026121527099003|261021121427099003|261102123227099003|261009223027099003|18002099003|22082099003|11063799006;
+X-Microsoft-Antispam-Message-Info:
+	ZcY3KHZL0kAr2gTOwP1HcF0NWyHnwqTDkhl5lmsiOYXaDzAFAaWIZa19u7rG6nkyvFPTFpgeyphyzXtgtRqIB0iRPnrRx8btWPGlpc3XnJu7KKlKDvpF6degfD2NOUi6pTNqsSjnfdyksvNOJ9dJduyU084tq9MhSNZqq7zfvDW9B+G44YStPeMnATgX/kN0T15NlJbX84LeTlaIppgsicMD+Jt5qJ0fqAiG3Vb3kHqUjAg31N7mCzHCAn5orhrnPucsxaqeSKZhIp5p0yurPlpKEuabhqBfToLF715wmW6Xa3lFtephMgHMGf9r8NQMwi/W8QojOGm7lgqemmlTtVIB+0aVtKrshS4cZyt2r3PWpDd3zFakpOF6l9HA/oOKLjWBsJgYl/gHJlgnNJPsXs8mK0BJzongqSgfd+I9geNOe81CPWXdPN1qK8grNkgj3OnzW9ApBk8W7sbMVN2FwA8jytfs5RulQqKFH+rszWdRmbPlOFcv2HM1DZEkJAVNx7a0h+vcW8TxA95bsGasG9jgjB4WiWR0fbngq78ekBy7poSyyl+fa7NFDRTW9fZg3HPtZ9efe39z3tmoBt2RKglsl36wIDbuw/CVCHFjLF1jOyXOg0X8EGNXBEwf53mFiswoHY2zjRd4KHLPDiR/VOqz2C/8CqYPU/ZlDC7L6SA=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BR2PPF9D47B45B4.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(19092799006)(376014)(7416014)(56012099006)(10067099003)(261026121527099003)(261021121427099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?z8qBjiiX9lFB8b10s74biknYH1mRoeK6PlL5QTtjGnOFoQjHrAAY8tz81bDM?=
+ =?us-ascii?Q?ND0p8T08b56GsPWLBzSYgyGW1p1gUK87ea0XOZPqgwZKsryEs8SDfJtX+Wze?=
+ =?us-ascii?Q?g2l6yF+7OHyf5uNmcr52EEQ0f85nQ/CsxWe1qDArXZN/gVc8KHleYdVjMUq+?=
+ =?us-ascii?Q?nzt3f1KGofbdziEoz9uvwqXgoKReQnphCYx8mMOnKgjllbjcsJlOoGjt04R2?=
+ =?us-ascii?Q?ibcbDYS9b3f4TiZCE8wimquqxjz0/FyQmWhHzFTCH6NPEKJaJs31dyp1/pAN?=
+ =?us-ascii?Q?Bjz9IUp1aswJZL6m6+nhMaNhrK99VbL83LShh5YJ3C/zSFiq4R6xIMZJK/5B?=
+ =?us-ascii?Q?VOAiwQ4VZjByUftCHGZ1Qn78qt6+xjFtJztZlwP2bwqZO/8ejrTVA2XEJBTG?=
+ =?us-ascii?Q?zhOXPas1cKyv4OYvKIV8JSf+iDdz9IMfjuzEV2GXrS3ZQT7rwxtkVZAc9sXI?=
+ =?us-ascii?Q?ookUZvk1qxf0tkimE7/q7Woi26WxK2iykd3OMeiloUIkMGxzwSZ0NSr6XJFR?=
+ =?us-ascii?Q?kZUFDNu4GY4eEi4mvRxMh7BgF0VCaG9pqysIkvL3YmjE8hd5KA83vJ+rYbRK?=
+ =?us-ascii?Q?YB/pR8KW11dfBnx+V3sDEIuP9pad75a4sUMGZFTOBRsoahCq6WEgWabGdR/i?=
+ =?us-ascii?Q?+JIYcFx0ovCXItkR1tpZ2u3l9w46+WfTOMBRV8MuSCrlvtqP3JZPEAyAve05?=
+ =?us-ascii?Q?qPxiWyJigVIKD4ceoy7z2sx54efW/FkvKRThGIXeJiBqbthsMiH2nSGRVRkH?=
+ =?us-ascii?Q?DSCFtGclRusf0FxqaTTu2NLSt3qvrBlAuoSemAdq82pgHCk1Qy04rt+4bESM?=
+ =?us-ascii?Q?5fhJJBxvwAMmcPws9yyZQu1GKVERRvIcf4tpthwvXeVl4Mz4pIYSnqnJSHCR?=
+ =?us-ascii?Q?E2bBXkRLY1SX8HKJCUuZaZhuWhMV8gUdMUoAkZ9R/30LPcRJHmUj9oEUdfgP?=
+ =?us-ascii?Q?NxQ0J7rq2++5IpnLYcflHmDjSEto93xf9yZAn5I1DsHs4pVcewFUqtlQcEQe?=
+ =?us-ascii?Q?MTXV1HAdoVDq3jeGhAgAC5LiAzrT5SeHaH/CBOLH+F0f2Xa8X/vQ1fN+MJXb?=
+ =?us-ascii?Q?PmkLXCLD95Q4yKj8Q0AjH8Gfdev6TDhzU76S4iBoxa1mWectAnftIemIKPON?=
+ =?us-ascii?Q?NYueGI5O46JZ74uxvzFOiColKGt4FAtqTHnFDVF8MGtlqy+ajq2g/+UZXkfQ?=
+ =?us-ascii?Q?DiImosXuOPJZlL9zvHwq3BmRY1ziNrJcALPIgAjSFHgYJ9wAzM2okM1QtQi5?=
+ =?us-ascii?Q?DZsagILs/0nW7xooD8xsTTBASjHxrxs91S7tPrM0JUPhmMt5U0IyegFN7Veg?=
+ =?us-ascii?Q?3/uZPTWDJoAn5XLoDmfFQcj5virfJyhwGoOf+VIs/5jKUjMmOiCE0BMN1Mog?=
+ =?us-ascii?Q?LRBiQpv2B+/Xd6OjTVMy0zs62IagVG4tYTrpNSZrV56LK10WBP4SJ56e6VtX?=
+ =?us-ascii?Q?v7C5MXtxfB7535ySBD4sKck+8eg5eLJ/ksxGKcrooz5k7jeN7T7ZzqLMy8Mz?=
+ =?us-ascii?Q?REdCSK86QPTMBOwxJgCPol6wMzTc5/qzwz2pd6EHhcO7Am2QtFn5RWgOWRQs?=
+ =?us-ascii?Q?5wvl93xOa4viYKTiOjXqJTI4BlbfFxt/TlwpRRd7W+mtMXyaDKpn+9GhL5qg?=
+ =?us-ascii?Q?N8tLLVuAUvlxpw/fPbqW9JgbGeUYFqr7hM5pzvZm61iQK9MuyhvgUg0q2NXi?=
+ =?us-ascii?Q?EFVsnxgU0IL3YfvK2LSlivHygoaF47Y8FB3gADxgQRga21WhOiGxotJGC0Oh?=
+ =?us-ascii?Q?vP4+3121pFVfvsLHj/f0v8Ai9Eo+Wd5cAOEY/XyrjAS1BNJkT4qimfOfhIbN?=
+X-MS-Exchange-AntiSpam-MessageData-1: pXTDHmzqU6kSJQ==
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3e8a50f5-1120-447d-3033-08df4c6bc409
+X-MS-Exchange-CrossTenant-AuthSource: BR2PPF9D47B45B4.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2026 09:49:44.4866
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: P+rGN7dCuBM77zc2TvCrVHWxgtw4nsRD7mqTwCxAaVyUwOiJNcXGsCK2m/933jo/XIVTlpsJq8osLpMUetVNzdIDpcfUiDRJYko7OhF9e1ztY+q9UyD19rjOBjiWFLEc
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI3PR04MB088318
 
-Hello Jakub, Miquel, Alex,
+From: Clark Wang <xiaoning.wang@nxp.com>
 
-On 11/16/26 16:51, Miquel Raynal wrote:
-> On 19/10/2026 at 19:07:36 -07, Jakub Kicinski <kuba@kernel.org> wrote:
-> 
->> On Mon, 12 Oct 2026 19:00:41 +0200 Miquel Raynal wrote:
->>> I thought this had already been fixed but apparently not.
->>
->> FWIW / in case it's falling thru the cracks - we're expecting Stefan
->> to pick up mac802154 patches. Please shout if that's incorrect.
-> 
-> Stefan will probably explain it better than me, but he has been our main
-> "sink point" :-) and has been handling the pull requests for many
-> years. Unfortunately he reached out to us recently stating that he was
-> lacking time for the maintainance.
+Add the compatible string "nxp,imx952-netc-blk-ctrl" for i.MX952
+platforms.
 
-Indeed. Very obviously I have been missing in action on this role again 
-and again. Reality is that I simply do not have the time for this 
-anymore. :/ Time to hand over.
+Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
+---
+ Documentation/devicetree/bindings/net/nxp,netc-blk-ctrl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-I sent a pull request yesterday with some of the pending patches that 
-had been reviewed by Miquel already.
-
-There is another one coming up next week. (currently ~30 patches pending 
-in patchwork). Once I am done through them I will send my last pull 
-request. And afterwards the removal from MAINTAINERS.
-
-> Right now there is a bit of backlog since I was off the past weeks, I am
-> catching up on the ieee/mac802154 reviews (except llsec and 6lowpan,
-> where Alexander has a lot more knowledge).
-> 
-> I believe the flow that works best is if you (net maintainers)
-> "continue" applying the patches directly, especially since these days
-> there are only AI bug fixes. We can definitely re-instate a formal
-> pull-request relationship between us as soon as there are new "features"
-> being discussed. We (wpan folks) will do our best to respond with timely
-> feedback/reviews.
-
-As you already discussed it would be good if Alex and Miquel review for 
-their respective areas, add the tag and net team picks up the fixes 
-directly into the net tree.  Miquel also already offered pull-request 
-for new functionality and bigger changes, when they appear.
-
-Thanks to everyone taking on some of these!
-
-regards
-Stefan Schmidt
+diff --git a/Documentation/devicetree/bindings/net/nxp,netc-blk-ctrl.yaml b/Documentation/devicetree/bindings/net/nxp,netc-blk-ctrl.yaml
+index deea4fd73d76..c443fe0b4693 100644
+--- a/Documentation/devicetree/bindings/net/nxp,netc-blk-ctrl.yaml
++++ b/Documentation/devicetree/bindings/net/nxp,netc-blk-ctrl.yaml
+@@ -23,6 +23,7 @@ properties:
+     enum:
+       - nxp,imx94-netc-blk-ctrl
+       - nxp,imx95-netc-blk-ctrl
++      - nxp,imx952-netc-blk-ctrl
+ 
+   reg:
+     maxItems: 3
+-- 
+2.43.0
 
