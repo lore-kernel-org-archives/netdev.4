@@ -1,63 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.215
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795748433;
-	b=Bhm5QRytyAK1tP2Civ9UZWxt4DhwwqMHFmfsBlAwBzlGASTKGvm512TDQP6NSeMLWKzg
-	 3295vx9KLX87QcCqc+WA2TX/CAYIh/KBQllFgroVPuSsvXVbUzJPK7mgCjBFULx0QJuZe
-	 ITB67a8r9dfcgSTVNGYKGq5r9z7wGmPiyOw1F4+w5/v42t1WbZk1vGANN98FKFNiC7Z19
-	 ltBs4h4FBhj4+1C2YoIHYG6RmDjtMyPULFKPW4iCbdZTSb0GFej6AoGskUB4q7SaS2tt1
-	 CPworkYmWEkIfY23V8JpKTgOXfqoJJhxPYJbymieohnsmd978OqaWVPJLq94W33AWBw==
+	t=1795748949;
+	b=hqWFkx/JWQwCiOv0P/w9qAodrDqfP7jU0B3iQKA29MBpaOwBLWCBcoiqVoevAPWBw2CM
+	 NAoSx5OBjrfqJURyAA9lka/Ra9TUq1Qvyb3EJRsBX2vJPe0cJeO5T8ro58qmTbG2l/X9D
+	 7BiGS3bYy/1iyJCxf0bSj8ilGb8AATfXh+6+1cDPRrsT3yYeRXPtK6PYetnpsz37Q6Liz
+	 6CIzlaiZONVrg765ylQHdUVsF2qPoXhDyFl55y6eXgnw5DqvYzrEqKx84vRP/Gc3rgwej
+	 mHGm4V+DD00ik9hd6e63uOyE9AAYaeBE6iqr994zda8VWRPZdiXORRllTNFr5vceWOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795748433;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=jXFQ0K89s9Gh1OqiFSLVns5VpXQ4VzKQdNsk9uLikbE=;
-	b=Kp8pY+F55U3abacwsTR+8AN370nKINVoVPRguPSpAH/XSBnJBlZMxASZy7jkhwlK4GYI
-	 yuf8nhAMCjaVRSSS/TS37Kh5ohnc4+iwtYq0Kk18C4A8LClJM4OlsUt6fZy055BxsMfU1
-	 tcFDjoL42HXhaLUcBFfuhQaG2sLgIfa4BLK1wJLtY8cVCKGTnCZJgAuOxkqxMl+6oQzmL
-	 CNZ0XeZtpSOQzdsst+YIiWEMISLcyl+1CmPEp1gM+8eltak3A/b+rrIqQddv4ETcPiy9s
-	 /a0BebQtWdVZBB+OoyxUGcDP+VevzL11BTmpxZedkB06M9ZouQDclhLYOaS5IgfZj/Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795748949;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer;
+	bh=T6qnIZ7knEuhMvn/FGLmk9K4xZfB2NGqdkhivjTYbDY=;
+	b=HO4O3OWvSmy992mXtadqTNsdoI2cLIs2hOZlaBN5CeDBKGePJw/0COM8YBzqccd4Wip8
+	 eREg4gK5Rr+8y+Z12HejufuXuVMRuhJ7dVmFQ66T/YmakkL5RUVeqLb8f7KaKPp5s8cpC
+	 G+a7Eo4oIrI42GBRD5ssG1u6fYMTLmKSwlnRrPPxHCHbAtpJS7h2V/F0XXNNXuumsiRZT
+	 L9W8FDJ2OuPLn7DTHebGtBzt8jHNV+3VR5exDepRuUPh0bDgPezIo9H0TYrUBV57zbxzK
+	 nh/qkBuxaqX1e6FjjKJLwrR5M9YUtImDeghm7fGgXsk1nHy7GZNkmm1zc5xKc/lre/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oByRuSRc;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=s0BSqbI+;
+	arc=none smtp.remote-ip=91.218.175.215
+Received: from mta0.migadu.com (out-215.mta0.migadu.com [91.218.175.215])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7ED01606A326;
-	Fri, 27 Nov 2026 03:00:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 596E7606A327
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 03:09:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 596E7606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oByRuSRc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4857D1F0093A;
-	Fri, 27 Nov 2026 03:00:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795748433;
-	bh=jXFQ0K89s9Gh1OqiFSLVns5VpXQ4VzKQdNsk9uLikbE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=oByRuSRc/lgE9bYBaYZ6M4fLAF5suAe+IcHO+QjBfOtFQb3CGrsx+4d4t73ocjzdw
-	 wzOUGov8O3DCZiREJ0Mh2vTkv+4AHCNe1kgMDAPYM6ae+hjzSzbX6IcD/hxIabiPna
-	 rQV1oBacgSzHO7ipy6ULQ7xSLPrEKDqmhi2LBFBR0ws7QBXm2b8Q1TZMY7nyDU++v3
-	 NoXvDj0XZo6zQs+pCXPoZ9x0i4o5U8jXR1ZPC4OV4LHX56wM5gtLhwq+Nq4c7tE2DP
-	 HDHBfg/op/p3cV78lK/NiP1r26nVQQB48/2CwrNh4e2tPvzCyBUm3+pB0k3jtlF5Mq
-	 tqUfl/he7LEWw==
-Subject: Re: [PATCH net-next v14 15/15] net: dsa: realtek: rtl8365mb: add
- support for RTL8367S-VB
-From: netdev-bot+sashiko@kernel.org
-To: namiltd@yahoo.com
-Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
- fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev,
- o.rempel@pengutronix.de
-Date: Fri, 27 Nov 2026 03:00:31 +0000
-Message-ID: <179574843188.3135.8470436383588006481@kernel.org>
-In-Reply-To: <abe7ed42-694c-435b-b573-b0341aa10971@yahoo.com>
-References: <abe7ed42-694c-435b-b573-b0341aa10971@yahoo.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=s0BSqbI+
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=mCX+dAX2Y234AOj5HIr3xihBIeZcfHva9jzek9gcGfU=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795748945; v=1; x=1796353745;
+ b=s0BSqbI+eAbIQqC7WMFoNdn47RylD755qd0VR+036T8m52Ar8tR63oEecIsgItGiKgs2C/vv
+ UkxVguf2TdE07mwDwTK1ddkUxop3ynfH9Gb/V2tdjk05xa9Bd1RrZ/x+RCM8U8pKjJNsqNwstsa
+ 72nOPI+k3ushVLwMUPQOzHrQ=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by mta11.migadu.com with ESMTPS id cfccce07b52ac0bc;
+	Fri, 27 Nov 2026 03:09:04 +0000
+X-Mizu-Trace-ID: cfccce07b52ac0bc
+X-Migadu-Flow: FLOW_OUT
+From: Hangbin Liu <hangbin.liu@linux.dev>
+Date: Fri, 27 Nov 2026 11:08:54 +0800
+Subject: [PATCH net] bonding: check slave xdp_features in bond_xdp_xmit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,108 +59,101 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261127-bond_xdp_xmit-v1-1-c2a7b622b95d@kylinos.cn>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMUQqDMBAFryLvuwETsGKvUoqY7Gq30ChJlIB49
+ 6b6OQMzOyIH4YhHtSPwJlFmX0DfKrj34CdWQoVhanPX2rTKzp76TEufv5JUQyM3tutI1w6lWQK
+ Pks/fE54TXpeMq/2wS/8TjuMHzHcuNnYAAAA=
+X-Change-ID: 20261127-bond_xdp_xmit-5dfe5b99d10c
+To: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+ Jesper Dangaard Brouer <hawk@kernel.org>, 
+ John Fastabend <john.fastabend@gmail.com>, 
+ Stanislav Fomichev <sdf@fomichev.me>, Jussi Maki <joamaki@gmail.com>
+Cc: Hangbin Liu <hangbin.liu@linux.dev>, netdev@vger.kernel.org, 
+ bpf@vger.kernel.org, stable@vger.kernel.org, 
+ Hangbin Liu <hangbin.liu@linux.dev>
+X-Mailer: b4 0.16.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+From: Hangbin Liu <liuhangbin@kylinos.cn>
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+bond_xdp_xmit() may select a slave that bond_enslave() made visible
+before bond_xdp_set_features() republished the bond's xdp_features.
+Frames enqueued in that window pass __xdp_enqueue()'s bond-level
+checks, and the bulk-queue flush later calls bond_xdp_xmit() without
+rechecking anything. The selected slave may be unable to transmit
+XDP frames:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+  - NETDEV_XDP_ACT_NDO_XMIT appears only once the driver's XDP TX
+    queues are up.
+  - a linear-only slave receives multi-buffer frames enqueued while
+    the bond still advertised NETDEV_XDP_ACT_NDO_XMIT_SG.
+  - with no bond->xdp_prog, bond_enslave() skips the capability
+    check: a slave without XDP joins while the bond still
+    advertises NETDEV_XDP_ACT_NDO_XMIT (built from the other
+    slaves; __xdp_enqueue() never looks at dev->xdp_prog) and
+    bond_xdp_set_features() drops the flag only afterwards.
 
-- [Medium] In drivers/net/dsa/realtek/rtl8365mb_main.c, the new
-  rtl8365mb_family_d sets .jam_table = rtl8365mb_init_jam_8365mb_vc.
+Apply the __xdp_enqueue() contract to the selected slave at xmit
+time: require NETDEV_XDP_ACT_NDO_XMIT and, for fragmented frames,
+NETDEV_XDP_ACT_NDO_XMIT_SG, failing with -ENXIO otherwise (the
+caller frees the frames).
 
---
+Fixes: 9e2ee5c7e7c3 ("net, bonding: Add XDP support to the bonding driver")
+Cc: stable@vger.kernel.org # b9d460c92455 ("bpf: devmap: check XDP features in __xdp_enqueue routine")
+Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
+---
+The issue was identified when sashiko review other patches.
+The issue is theoretical and only happen in a race window, I didn't
+reproduce it.
 
-net: dsa: realtek: rtl8365mb: add support for RTL8367S-VB
+For Sashiko,
+Please ignore the error out issues during bond_enslave. They will
+be addressed in other patches.
+---
+ drivers/net/bonding/bond_main.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-This adds the RTL8367S-VB (chip ID 0x6642, version 0x0010) to the chip
-table as the first family D chip. It also adds a rtl8365mb_family_d
-family_info that selects the family D code added earlier in the series.
-The chip reuses the RTL8365MB-VC init jam table, followed by the common
-jam table.
+diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+index 042d7c75548f..6ceefb0bfc20 100644
+--- a/drivers/net/bonding/bond_main.c
++++ b/drivers/net/bonding/bond_main.c
+@@ -5664,6 +5664,7 @@ static int bond_xdp_xmit(struct net_device *bond_dev,
+ 		struct xdp_frame *frame = frames[nxmit];
+ 		struct xdp_frame *frames1[] = {frame};
+ 		struct net_device *slave_dev;
++		xdp_features_t feats;
+ 		struct xdp_buff xdp;
+ 
+ 		xdp_convert_frame_to_buff(frame, &xdp);
+@@ -5674,6 +5675,18 @@ static int bond_xdp_xmit(struct net_device *bond_dev,
+ 			break;
+ 		}
+ 
++		/* The slave can be selected before bond_xdp_set_features()
++		 * republishes the bond's xdp_features, so apply the
++		 * __xdp_enqueue() contract to the slave itself.
++		 */
++		feats = READ_ONCE(slave_dev->xdp_features);
++		if (unlikely(!(feats & NETDEV_XDP_ACT_NDO_XMIT) ||
++			     (!(feats & NETDEV_XDP_ACT_NDO_XMIT_SG) &&
++			      xdp_frame_has_frags(frame)))) {
++			err = -ENXIO;
++			break;
++		}
++
+ 		err = slave_dev->netdev_ops->ndo_xdp_xmit(slave_dev, 1, frames1, flags);
+ 		if (err < 1)
+ 			break;
 
-> diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
-> index 639e6b62a2fc3..eef591eed0c91 100644
-> --- a/drivers/net/dsa/realtek/rtl8365mb_main.c
-> +++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
+---
+base-commit: e1055cbfd6eb578417f3ce983cf44462e8465267
+change-id: 20261127-bond_xdp_xmit-5dfe5b99d10c
 
-[ ... ]
+Best regards,
+--  
+Hangbin Liu <liuhangbin@kylinos.cn>
 
-> @@ -835,6 +847,27 @@ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
->  	.qos_set_untag_pcp = rtl8365mb_c_qos_set_untag_pcp,
->  };
->  
-> +static const struct rtl8365mb_family_info rtl8365mb_family_d = {
-> +	.family = RTL8365MB_FAMILY_D,
-> +	.jam_table = rtl8365mb_init_jam_8365mb_vc,
-> +	.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
-
-[Severity: Medium]
-Is it safe to write the RTL8365MB-VC jam table to family D silicon?
-
-With this change, rtl8365mb_setup()->rtl8365mb_switch_init() writes
-rtl8365mb_init_jam_8365mb_vc and then rtl8365mb_init_jam_common to the
-RTL8367S-VB. It does this with plain regmap_write() right after the reset,
-and nothing filters the writes for family D.
-
-The new header comment says family D registers differ in the VLAN table,
-the ext interface and RGMII setup, the SerDes and the LUT. The
-RTL8365MB_D_LUT_CFG2_REG comment also says 0x0A32 is the EFID register on
-family C but the aging timer on family D.
-
-Some jam writes hit registers that family D only partly reprograms later.
-The common table writes the LUT config:
-
-rtl8365mb_init_jam_common[] = {
-    ...
-	{ 0x03Fa, 0x0007 }, { 0x08C8, 0x00C0 }, { 0x0A30, 0x020E },
-    ...
-	{ 0x1D32, 0x0002 },
-};
-
-rtl8365mb_d_lut_init() then clears only two bits of it:
-
-	ret = regmap_update_bits(priv->map, RTL8365MB_D_LUT_CFG_REG,
-				 RTL8365MB_D_LUT_CFG_IPMC_HASH_MASK |
-				 RTL8365MB_D_LUT_CFG_BCAM_DISABLE_MASK, 0);
-
-That means bits 1, 2, 3 and 9 of 0x0A30 keep their family C values on a
-family D LUT.
-
-The VC table also writes the interface select register:
-
-	{ 0x18E0, 0x4004 }, { 0x122B, 0x241C }, { 0x1305, 0xC000 },
-
-On family D, rtl8365mb_pcs_config() skips that register:
-
-	if (!is_d) {
-		val = sds_mode << RTL8365MB_DIGITAL_INTERFACE_SELECT_MODE_OFFSET(id);
-		...
-
-So the EXT0 mode field and bits 15:14 stay as the jam left them.
-
-Other entries, such as 0x1303, 0x1304, 0x13EB, 0x121E..0x123A, 0x18E0,
-0x1349, 0x0301 and 0x1D32, have no family D definition in the driver.
-
-The commit message says neither table was compared with the vendor RTL8367D
-init, and testing covered only SGMII/HSGMII on port 6.
-
-Could a wrong pad, MAC or LUT control value here break untested setups such
-as RGMII/MII on port 7? Could it leave the LUT configured differently from
-what the driver assumes?
-
-The 0x13F9 entry mentioned in the commit message looks less worrying. The
-family D RGMII path clears the EXT1 RGMII TX delay field (bits 5:3), and
-the other value lands in the EXT2 field (bits 8:6), which family D does not
-have.
-
-Would it make sense to give family D its own jam table, or none, until it
-can be checked against the vendor RTL8367D init sequence?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/874b29a3-f47f-4bf2-a0f6-2f9fea712f4c%40yahoo.com
