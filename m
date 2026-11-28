@@ -1,61 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.161.220
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795834987;
-	b=qe4TC/9IEYpxA97ivO1PePvjf4+3QB8g9VVMFAjjnQYcdrFAUXoH4xPwmKqtt1Af3iRp
-	 O2ldHKePKZIqScZ1hTYsHrt8CFkt/iGuhZMTVVG36gNdpQsiRRNMMK7mzjXLDnDjc/QO1
-	 +6Ih5nZEB+UJgP2eGVWjVtoi52EyhjtxobjibltnFLimi1GSY2CaSEVxKqS6ap5V6yVqn
-	 jxJapA3Yvp1Bh+040YfNuCRg2HdCMP7DXIM24/oxvkGWYOSFj10qNHi8UvJF2JLcLuPFo
-	 fkNaMm7QinT3MRXJWmWKp2vzuWpYOiLdeJuBf6JEYJI3F/sSEpSWhiqyo6lKNAWppvw==
+	t=1795835526;
+	b=xomTtLBYCxn2h3wCo+QHTf/fKKZFO2ICzVY26hyVTLrEEpK5iotDQW2+qE5+Z7DK+vqs
+	 zW2Y3ahJJklJ0ojBDOG407Yb7c6z3MOc7fnvDEW1KLum97a+S4Ibofi3CJLr0rExNrCDC
+	 QOLhOz0PL9jIIo3Iw0A/qmXHdNqC2xvqikO6MUO/pI6rjUNenmZbxWWIs6OIKnctKQC/g
+	 5Eg/E+7M77eir5il1zR839ejqaeMOadj/Gb0SHDR4IOOnZqAlK9HeSYINvVDriiGXzu9a
+	 Ic2VLS+fFNrIz80zydk/4b2TYN5zWyKQklWrlQoqKK2VZUfzB01V4ntpaKPuIr9LwUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795834987;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
-	b=2GrREzqpYKhvPzWw3sP87ROPveapaUVaLD4Q+q4y0rIAKgeK3dXIhUuuX8Q7wu2HhNF7
-	 LnMOONq5FNUFvOXaDEAb2NDOW2+My+0ltfGpixy18VJwmHtg859jik94EvwPoWwErwQgA
-	 oKb5uzCfHiaLzBuyEa25v+UvQUaM7DGFjYDxcoKbjxGKfuvnnL06629wYRK67ni21Gspu
-	 hPEh/4Q6uFtyfFcDOrjZl9Gz04V5EeSUG0/YtjmNDem/Ktl/DS/sFQdG9UzqUZio4z9TT
-	 St0cH/sfDzM4dYfVRlSGRpKWEcJHxWTIJFxNpXDtmCqHj/6cOcNo7rGLy+4lW9ct8Sw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795835526;
+	h=DMARC-Filter:DKIM-Signature:Received:DKIM-Signature:Received:From:To:
+	 Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:X-CM-SenderInfo:
+	 X-CM-DELIVERINFO:X-Coremail-Antispam;
+	bh=YPudr/Hggpmjs/xYzR8erBUxpfbvAuaUdr+Kq6Vp2tY=;
+	b=CD0FTkTR7PEtdhGabzI0DyDMx8g6MhwLnAGOBD/WxHowD6FOvzbvurR/SMHPKZFUyfjn
+	 twRahYcdxf0wA3HDfEVz6OJRVR9Mqv1agFkCC6g5Z36zwRE0V60XEzO+HtocXsOWQ8XmJ
+	 R/rmejbhJDKB7PouccZlk3M4nVRyTVGGk1oATq9Ss1981VG3QjlwMWSy80FhiPaR2wfkY
+	 Dvi/cG34DiDmz8sXTez5dGPwezC+Hz+POT983ebfzpHQJb0IrK0fkoa/xnmoIPWZ2cYVX
+	 nGYggsC36Cjh6L7uFc8x0UcXEnyqwVfgr9+2SiEQga+q259hx2qKdKvPSDyAjh76mWQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QkFQYqdo;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59331606A31C;
-	Sat, 28 Nov 2026 03:03:07 +0000 (UTC)
+	dmarc=none header.from=zju.edu.cn;
+	spf=pass smtp.mailfrom=zju.edu.cn;
+	dkim=pass header.d=zju.edu.cn header.i=@zju.edu.cn header.a=rsa-sha256 header.s=gw2610 header.b=OCNTb6zr;
+	dkim=pass header.d=zju.edu.cn header.i=@zju.edu.cn header.a=rsa-sha256 header.s=cm2610 header.b=XI5uvqup;
+	arc=none smtp.remote-ip=162.243.161.220
+Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net (zg8tmtyylji0my4xnjeumjiw.icoremail.net [162.243.161.220])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 70816606A31C
+	for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 03:12:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70816606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=zju.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zju.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QkFQYqdo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EEBC1F000C1;
-	Sat, 28 Nov 2026 03:03:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795834987;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=QkFQYqdo8UgFBhKbrNq5M48rcRcPI0+ZZI3YBrf/nGyQN+eKRn86sboBFGn1pXu/2
-	 A9zY9YIdSEsXW6OKHmLNh08PCyvyTNEnoUqDz9DZKBT5jjPmYxk6iQnN3UOVuB6HJz
-	 ifVsOExDVt9T1pUaJanvmSknI1lDrl2CksoLcAexIQxvTd9VTer0l4E2AxyLIbXkyj
-	 WEqjHa8/Xkv/k+IiGhfffBveWF7R5Ilues8dkp0EwWN8chVSLJPVHtcru/MQE0Tam3
-	 C5+1jnDUpWfLTUj0E+8Cmxwke8iF+QF00HHE5zao6x05RkdmaaVpExTINGxZ1KTkcg
-	 Ypy0LaAk2b2Lg==
-From: netdev-bot+sinfo@kernel.org
-To: Jaeyeong Lee <lee@jaeyeong.cc>
-Cc: linux-rdma@vger.kernel.org, Michal Kalderon <mkalderon@marvell.com>,
- Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>,
- netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
- David Miller <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Subject: 
- Re: [PATCH] RDMA/qedr: prevent listener teardown from racing MPA requests
-Date: Sat, 28 Nov 2026 03:03:06 +0000
-Message-ID: <179583498616.3294.3592532320610708040@kernel.org>
-In-Reply-To: <179583482032.4059708.5194029012702478533@jaeyeong.cc>
-References: <179583482032.4059708.5194029012702478533@jaeyeong.cc>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key, unprotected) header.d=zju.edu.cn header.i=@zju.edu.cn header.a=rsa-sha256 header.s=gw2610 header.b=OCNTb6zr;
+	dkim=pass (2048-bit key, unprotected) header.d=zju.edu.cn header.i=@zju.edu.cn header.a=rsa-sha256 header.s=cm2610 header.b=XI5uvqup
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=zju.edu.cn; s=gw2610; h=Received:DKIM-Signature:Received:From:
+	To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	MIME-Version:Content-Transfer-Encoding; bh=YPudr/Hggpmjs/xYzR8er
+	BUxpfbvAuaUdr+Kq6Vp2tY=; b=OCNTb6zrlhbdDzG4bBRfL23OGTnTFI0295/23
+	5UCvN8kLu2yPLmfMm5xRUh5MCBare/prF+bk+tfGBRea2ZzYJBVBgfQY6d0B2LH9
+	aPJvyKtWNaNzX/lR+/oPyJFH3dKRgYm91H+HHRpfViO1oCiqXigUpTScfyG5YwQl
+	ut176c=
+Received: from zju.edu.cn (unknown [123.60.231.41])
+	by mtasvr (Coremail) with SMTP id _____wAHLYR_RgprNLI7Ag--.3353S3;
+	Sat, 28 Nov 2026 11:12:00 +0800 (CST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=zju.edu.cn; s=cm2610; h=From:To:Subject:Date:Message-ID; bh=YP
+	udr/Hggpmjs/xYzR8erBUxpfbvAuaUdr+Kq6Vp2tY=; b=XI5uvqupYWdTgH3rYH
+	9Qc6VRkNh0kznYk6R61ilK8DfmUM4Qvipd+QT+xgOkP4xZ2+c3yGM+HpVugl3EEl
+	VVx81hyyzD1Fe5BVvu07yi2nMZ0ar6GhktoCJOghZJSMdJx5qcbhb5DmzfceUdcz
+	qEdvuzoc/loNT+CdqJego76ZAxNAE8sNJNwc5foO7DcXaYnnoPW8pJNYs+O+tNJ+
+	nhYXl75wlsL5Smue+OYkh4pytpQaiztgOIcsmCcmYlPOQLoIuGU76lVlscP377mG
+	SjD12er7cFP9P1USfPM0uzVC+9c48A9dgehw6SXMMqhhH3Vx6IaycYH73Hycjg/j
+	uiMA==
+Received: from ubuntu2404-234226.. (unknown [123.60.231.41])
+	by mail-app1 (Coremail) with UTF8SMTPSA id yy_KCgCnsX5+Rgprgyk1AQ--.12069S4;
+	Sat, 28 Nov 2026 11:11:59 +0800 (CST)
+From: Lin Ma <linma@zju.edu.cn>
+To: Simon Horman <horms@kernel.org>
+Cc: David Howells <dhowells@redhat.com>,
+	Marc Dionne <marc.dionne@auristor.com>,
+	netdev@vger.kernel.org,
+	linux-afs@lists.infradead.org,
+	Lin Ma <linma@zju.edu.cn>
+Subject: Re: [PATCH] net: rxrpc: Validate RxGK security level before allocating context
+Date: Sat, 28 Nov 2026 11:11:02 +0800
+Message-ID: <20261128031102.308036-1-linma@zju.edu.cn>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261125145018.GX31322@horms.kernel.org>
+References: <20261119030622.1017012-1-linma@zju.edu.cn> <20261125145018.GX31322@horms.kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,22 +78,34 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:yy_KCgCnsX5+Rgprgyk1AQ--.12069S4
+X-CM-SenderInfo: qtrwiiyqvtljo62m3hxhgxhubq/1tbiAwAMEmryeh4flABSs4
+X-CM-DELIVERINFO: =?B?Vn5KaAXKKxbFmtjJiESix3B1w3tPqcowV1L23Bze5QtIr9Db75bEBiiEybVhThS0pI
+	APHnkvfpsecr7gZmVpD/pedGdgTuL1H8rZ2yYyUA7pDNxB4OTwODXeTj78V0xNx34uzldz
+	QkKWFzlSn0HGzFdEYz2s+iEE9YgheSmT9Kw5/UWGOZ2kiOU0OJ0GvZwrfg0m+Q==
+X-Coremail-Antispam: 1Uk129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7
+	ZEXasCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29K
+	BjDU0xBIdaVrnRJUUUvmb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26c
+	xKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IE4IxF12IF4wA2F7IY1VAKz4vE
+	j48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxV
+	AFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x02
+	67AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI
+	0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280
+	aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0Y48Icx
+	kI7VAKI48G6xCjnVAKz4kxMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4U
+	MI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67
+	AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0
+	cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z2
+	80aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI
+	43ZEXa7IU8VMKtUUUUU==
 
-Hi!
+Hi Simon,
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Thanks, that makes sense.  I'll move the check before
+conn->security_ix and conn->security_level are set, so the error path
+doesn't touch the connection state, and send a v2.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+Thanks,
+Lin Ma
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
