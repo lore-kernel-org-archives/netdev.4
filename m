@@ -1,66 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795860243;
-	b=lLlNABcAWYs9uHafAQVUpr76XfHyk8DkpYRsRqPRYWndwropvO5gWFDsBLLzgelfA7c9
-	 wC2LTAQx9poNftu2gNPfDoaYF/knzfkuaYAK98/+oiFSCJ8hB3wSg47Ek+totlytKKthG
-	 r5DJkE220OxLMvJxRyZV/WAZ3+ltYuBYodqxR1HpCPywm0MGkn8j7bE6wsCXMgtLn9iTg
-	 uewxkFOoIJQsW3y78qZLRhHp/D1Hn+5FWT4EWFQs/TVNZ9Y+DewCqYXhECS3dDtqpOZvM
-	 1fICvT5f3vGTM3SJLak9Q/KO8MuvBqp3CrhUZIyAw5jUTOT42FLE76nJiDEiv7SNcYA==
+	t=1795860404;
+	b=hD2h8c9YyD75dH74mt3pgNlp8LfsnEceQdbT+hp77dkASga6qEzhD8sWn/9ED4xn9ezp
+	 r4TW/vr+zbhtPwFZ8jMZBWBNvTJsLJLeCHR4OlP96XT+MELzG9o9EPkoMQN5npL3gScO0
+	 SDrJaKT5K+D9wY4gjdrpj4b8lrZZ4lLeonrd63x1tEs9YZsnM887tU+iRyy0Pf09bFtKC
+	 CG8mVEvqaB2P8+5cURoVn1X3M0ZQjL/EkQDK3Jju39rmnaGbk7FaA3uL2BI3WCGIsFSva
+	 CriQItxI2kvnNS4mgMfSWvQrmEEpp2FzbfDo8YY+7inAdzfQspqP7L8IcgAsa+GVeuw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795860243;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=AckfiB/PsuekiwntPXxRDCpzpFz7XpY97JL9ReygHEE=;
-	b=FUARNHu1SgU8YhTqD5Yw+0FMCGlTYkmivmy0MBqqL3kiQA3tgw9l/4EeOzEVLtcnV2O9
-	 L6Sx6qp/HMttm52pVB46jeKYGZBYllRbJBZUPBSfsRps2jB99qKtiFGIXtghyYLHZv2sO
-	 OkSaSDTCz/2ejXTKtixLu+8zdgTqRAD2hg1ZyA7TAX92KRWRt3IG0hvRol3ehNTI688lr
-	 zVO8jQnuQdKiNZvG5j/G37hoDgIxqsyxgwz184oXz3z/6YVncYo5wwWyANyJPwaUDTF6h
-	 DEAmNckc9GvEBa75zIzodPR9lwcndKFnYl1hulgdmlo3XUaon73rPSaAt02tNzARWRw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795860404;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=iz6Gu4wn9ZaRJSQkHTUhpD32M0zUUPn/QQt70p/DYZM=;
+	b=kyDGWw8vgWuadpZin5ijDJI4fIyRMvYR0wHHGi+KB9CCqRUGxWcyk5OdHn6oBTJY1LCO
+	 7l7aPPsUiU8wodcxHJJVn1V8zz/54NR0piUpeb6XV5tDhpuzzfvYNm/BVHt1h8tVYfjpM
+	 QRH1bI+lDcDZPsBJ+g6Vg3vkUJTcY0fM+W0mOTRnW7lcCrqkCL0viccEIcB3NAJ9T2G4U
+	 IW8+FOYZsumUoYQzHO96KydcMArRSTiOPBB49aFiVrjxudOUlJrPBkz/gLkQ61R7MqAsN
+	 pdQa7MRBX7VI6iC0CfStelsrmm/KYNr/0hJJAd0nSxxnJviWopVISd185bIzpClN7tQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qn3MHb7i;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=gD0Ehy16;
+	arc=none smtp.remote-ip=95.215.58.51
+Received: from mta1.migadu.com (out-51.mta1.migadu.com [95.215.58.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2EDE606A689;
-	Sat, 28 Nov 2026 10:04:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E02A606A31C
+	for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 10:06:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E02A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qn3MHb7i
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBF3D1F0092C;
-	Sat, 28 Nov 2026 10:04:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795860242;
-	bh=AckfiB/PsuekiwntPXxRDCpzpFz7XpY97JL9ReygHEE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Qn3MHb7iEK0mbwVa0j45fPpeCVJjoZw3H4QInwCsSYNblW7zUepDSO6ls7+eYPphc
-	 oYmGDLIMiboIAjTgDwBjA1wtFFXT1dowtDStv4xPyGcrlQQGR0DM0YH6CR4oCP5kQQ
-	 95gismR17z5gO2mISumhHcXCQpEcvssO7Yb6CTHSeqMTiTNLdBo7LQStHpaYJFm7bj
-	 FSjqqsTKsL2MR9DA4nBMSXgQ4FGCKU4A+JC4kZ3J33RsA1irnd4B12t7wKjeGfO2aQ
-	 XpXPi0XDBqdDgMGiXy/Q5y9eQfv+64+Y+O3moNewidUiTaHGYAebD9dX0G4lLMsMKN
-	 5dZZdlJvGx/zw==
-Subject: Re: [PATCH net v9 5/6] selftests/bpf: add xdp_shrink_frags
-From: netdev-bot+sashiko@kernel.org
-To: sst@poczta.fm
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
- john.fastabend@gmail.com, sdf@fomichev.me, bpf@vger.kernel.org,
- netdev@vger.kernel.org, jiayuan.chen@linux.dev, phx0fer@gmail.com,
- maciej.fijalkowski@intel.com, tianyi@cloudflare.com, tavip@google.com,
- toke@redhat.com, aleksander.lobakin@intel.com, lorenzo@kernel.org,
- lorenzo.bianconi@oss.qualcomm.com, ihor.solodrai@linux.dev,
- andrew+netdev@lunn.ch, willemb@google.com, horms@kernel.org,
- andrii@kernel.org, martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org,
- yonghong.song@linux.dev, jolsa@kernel.org, memxor@gmail.com,
- emil@etsalapatis.com, shuah@kernel.org, linux-kselftest@vger.kernel.org
-Date: Sat, 28 Nov 2026 10:04:00 +0000
-Message-ID: <179586024048.3135.6988798909394815405@kernel.org>
-In-Reply-To: <20261127100132.1977890-6-sst@poczta.fm>
-References: <20261127100132.1977890-6-sst@poczta.fm>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=gD0Ehy16
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=B1BQI8TVJ5YOFZ9fLb4U/KOixQDi/tIiE4rpBEGQYfs=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795860401; v=1; x=1796465201;
+ b=gD0Ehy16phiZI6qT9tUU9S1ADrfI/N9jYqTfSZ5tzU7IubuebSx0NBbBfvf7INdD8ACpL8fP
+ mif/D+kTLM8YvahW3wR907hXJsV7KSiaU/14oAnRZBoNs05V8JDS/yqwqX0+IT5MD4Yf1G0cMyJ
+ lHwJAxlhv6BDYTcq8Eaj8KoI=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id f0f0a4959e8da5e8;
+	Sat, 28 Nov 2026 10:06:41 +0000
+X-Mizu-Trace-ID: f0f0a4959e8da5e8
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <bf1323d7-cbfd-4826-b3c7-52ad9d9a36c1@linux.dev>
+Date: Sat, 28 Nov 2026 10:06:38 +0000
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,207 +58,162 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v6 6/6] ionic: Add .get_fec_stats ethtool handler
+To: Brett Creeley <brett.creeley@amd.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Shannon Nelson <sln@onemain.com>
+Cc: netdev@vger.kernel.org, Simon Horman <horms@kernel.org>,
+ "Nikhil P. Rao" <nikhil.rao@amd.com>, Eric Joyner <eric.joyner@amd.com>,
+ Breno Leitao <leitao@debian.org>,
+ Arun Kumar Prakash <ArunKumar.Prakash@amd.com>
+References: <20261125-ionic-get-fec-stats-v6-0-1ab49c729c00@amd.com>
+ <20261125-ionic-get-fec-stats-v6-6-1ab49c729c00@amd.com>
+Content-Language: en-US
+From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+In-Reply-To: <20261125-ionic-get-fec-stats-v6-6-1ab49c729c00@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
-
-Critical: 0 · High: 0 · Medium: 1 · Low: 3
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] None of the three subtests in
-  tools/testing/selftests/bpf/prog_tests/xdp_shrink_frags.c can fail on…
-- [Low] The commit message lists the three subtests and then says 'A
-  kernel without the fix will report "Bad page state ... page_pool…
-- [Low] The comment in xdp_shrink()
-  (tools/testing/selftests/bpf/progs/xdp_shrink_frags.c) says the…
-- [Low] Two comments say the veth path starts from a nonlinear skb.
-
---
-
-selftests/bpf: add xdp_shrink_frags
-
-This adds a selftest with an xdp.frags program that shrinks the tail by
-3000 bytes, so that bpf_xdp_shrink_data() releases a page_pool frag on the
-skb-backed XDP paths. Three subtests cover generic XDP on a tap device,
-the veth skb path, and a veth XDP_TX bounce to the peer, and all three
-skip on systems without 4K pages.
-
-> test_veth_tx bounces the cow'd buff with XDP_TX so the peer runs a frags
-> program on the resulting frame, covering the buff -> frame -> buff path.
->
-> A kernel without the fix will report "Bad page state ... page_pool leak".
-
-[Severity: Low]
-Is this true for test_veth_tx?
-
-On the baseline kernel, the XDP_TX branch of veth_xdp_rcv_skb() already
-restores the rxq mem type before the buff is converted to a frame:
-
-drivers/net/veth.c:veth_xdp_rcv_skb() {
-    ...
-	case XDP_TX:
-		veth_xdp_get(xdp);
-		consume_skb(skb);
-		xdp->rxq->mem = rq->xdp_mem;
-		if (unlikely(veth_xdp_tx(rq, xdp, bq) < 0)) {
-    ...
-}
-
-rq->xdp_mem comes from the MEM_TYPE_PAGE_SHARED registration, and the
-xdp_tx program on LOCAL does not shrink anything.
-
-So the frame that reaches PEER is PAGE_SHARED, and PEER's rxq is
-PAGE_SHARED too. xdp_shrink on PEER then frees a plain page through
-page_frag_free(), which is correct. An unfixed kernel would report nothing
-for this subtest.
-
-It looks like test_veth_tx only guards the reset that the veth skb-path fix
-in this series adds to veth_xdp_get():
-
-	/* the buff holds plain page references from here on */
-	xdp->rxq->mem.type = MEM_TYPE_PAGE_SHARED;
-
-If that reset went missing, the symptom would not be a "page_pool leak"
-splat. A page whose pp was cleared would be sent down the page_pool return
-path instead.
-
-Every frame veth builds from the skb path is PAGE_SHARED. That means the
-page_pool frame case handled by "veth: use the frame mem type when running
-XDP on an xdp_frame" is not reached either, despite the "covering the
-buff -> frame -> buff path" wording.
-
-The series has four fixes, so "the fix" is also ambiguous. Could the commit
-message say which fix each subtest covers and what failure it protects
-against?
-
-> diff --git a/tools/testing/selftests/bpf/prog_tests/xdp_shrink_frags.c b/tools/testing/selftests/bpf/prog_tests/xdp_shrink_frags.c
-> new file mode 100644
-> index 0000000000000..789dfdd51b579
-> --- /dev/null
-> +++ b/tools/testing/selftests/bpf/prog_tests/xdp_shrink_frags.c
-> @@ -0,0 +1,288 @@
-
-[ ... ]
-
-> +static void test_tun(struct xdp_shrink_frags *skel)
-> +{
-
-[ ... ]
-
-> +	n = writev(tap_fd, iov, ARRAY_SIZE(iov));
-> +	ASSERT_EQ(n, sizeof(head) + sizeof(frag1) + sizeof(frag2), "writev");
+On 25/11/2026 23:22, Brett Creeley wrote:
+> From: Eric Joyner <eric.joyner@amd.com>
+> 
+> Reports FEC statistics totals and an 802.3ck FEC histogram. Per-lane
+> counts currently aren't supported. Every counter reported here comes
+> from the RS decoder, including fec_corrected_bits_total despite its
+> name, and the only histogram format firmware produces is the 16-bin one
+> from RS(544,514), so nothing is reported unless RS is the active FEC
+> mode. The only devices whose firmware reports the histogram do not
+> support RS(528,514), so RS on those devices is always RS(544,514).
+> 
+> These are physical port counters, so virtual functions are skipped the
+> same way ionic_get_link_ext_stats() skips them, rather than reporting the
+> port's counters as if they belonged to the VF.
+> 
+> The reporting of these statistics is gated by DEV_CAP_EXTRA_STATS and
+> checks for IONIC_STAT_INVALID, since only the newest devices support
+> reporting all of these stats. Older devices can only report some of the
+> statistics or not at all, and so the output will properly exclude those
+> unsupported statistics.
+> 
+> The firmware writes these counters by DMA while they are being read.
+> Use READ_ONCE() to ensure that the IONIC_STAT_INVALID test and the store
+> see the same value. Counters are still read one at a time, so the set
+> reported can span more than one firmware update.
+> 
+> Co-developed-by: Nikhil P. Rao <nikhil.rao@amd.com>
+> Signed-off-by: Nikhil P. Rao <nikhil.rao@amd.com>
+> Signed-off-by: Eric Joyner <eric.joyner@amd.com>
+> Signed-off-by: Brett Creeley <brett.creeley@amd.com>
+> ---
+>   .../net/ethernet/pensando/ionic/ionic_ethtool.c    | 86 ++++++++++++++++++++++
+>   1 file changed, 86 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c b/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
+> index 3b6c436104d1..ceb029dae0fa 100644
+> --- a/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
+> +++ b/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
+> @@ -466,6 +466,91 @@ static int ionic_get_fecparam(struct net_device *netdev,
+>   	return 0;
+>   }
+>   
+> +#define IONIC_FEC_STAT(dst, src)			\
+> +	do {						\
+> +		__le64 __val = READ_ONCE(src);		\
+> +							\
+> +		if (__val != IONIC_STAT_INVALID)	\
+> +			(dst) = le64_to_cpu(__val);	\
+> +	} while (0)
 > +
-> +	wait_for_prog(skel);
-> +	/* a buggy kernel only splats "page_pool leak", it does not fail here */
-> +	ASSERT_GT(skel->bss->shrink_ran, 0, "xdp_prog_ran");
-
-[Severity: Medium]
-Can any of the three subtests fail on a kernel without the fixes?
-
-This ASSERT_GT() is the only check here, and test_veth() and test_veth_tx()
-use the same one. xdp_shrink() increments shrink_ran whenever
-bpf_xdp_adjust_tail(ctx, -3000) returns 0:
-
-	if (bpf_xdp_adjust_tail(ctx, -3000) == 0)
-		__sync_fetch_and_add(&shrink_ran, 1);
-
-That happens on fixed and buggy kernels alike. It also happens on any
-linear buff longer than about 3014 bytes, where there is no frag at all.
-
-The regression only shows up as "BUG: Bad page state ... page_pool leak"
-from bad_page(). Nothing in the test reads /proc/sys/kernel/tainted or
-scans kmsg, so unless the harness scans dmesg, test_progs reports PASS on
-a regressed kernel.
-
-The subtests would also keep passing, without testing anything, if a later
-change to skb_pp_cow_data() or veth stopped leaving a frag after the cow.
-
-bad_page() calls add_taint(TAINT_BAD_PAGE, LOCKDEP_NOW_UNRELIABLE) even when
-its printk is rate-limited. Would it work to compare the TAINT_BAD_PAGE bit
-(bit 5) of /proc/sys/kernel/tainted before and after each subtest?
-
-Another option is for xdp_shrink() to count only when the buff had frags
-before the shrink and lost one. It could compare bpf_xdp_get_buff_len()
-against data_end - data to tell.
-
+> +static const struct ethtool_fec_hist_range ionic_fec_hist_ranges[] = {
+> +	{ 0, 0},
+> +	{ 1, 1},
+> +	{ 2, 2},
+> +	{ 3, 3},
+> +	{ 4, 4},
+> +	{ 5, 5},
+> +	{ 6, 6},
+> +	{ 7, 7},
+> +	{ 8, 8},
+> +	{ 9, 9},
+> +	{ 10, 10},
+> +	{ 11, 11},
+> +	{ 12, 12},
+> +	{ 13, 13},
+> +	{ 14, 14},
+> +	{ 15, 15},
+> +	{ 0, 0},
+> +};
 > +
-> +	bpf_xdp_detach(ifindex, 0, NULL);
-
-[ ... ]
-
-> +/* A large ping builds a nonlinear skb that veth cow's into its page_pool. */
-> +static void test_veth(struct xdp_shrink_frags *skel)
-
-[Severity: Low]
-Is the skb here actually nonlinear?
-
-With MTU 8000 and a 5000-byte ping, __ip_append_data() puts the payload in
-the linear area. paged is false because ping has no gso_size, zerocopy or
-MSG_SPLICE_PAGES. Also fraglen + alloc_extra < SKB_MAX_ALLOC, so
-alloclen = fraglen.
-
-veth_convert_skb_to_xdp_buff() then cows the skb only because of the
-headroom check, or because the skb is shared or its head is locked:
-
-	if (skb_shared(skb) || skb_head_is_locked(skb) ||
-	    skb_is_nonlinear(skb) ||
-	    skb_headroom(skb) < XDP_PACKET_HEADROOM) {
-
-The skb only becomes nonlinear as a result of skb_pp_cow_data(). The file
-header comment ("skb-backed XDP first cow's the nonlinear skb into
-page_pool memory") has the same problem for the veth path.
-
-If the sender ever left at least XDP_PACKET_HEADROOM of headroom, veth
-would run the program on the linear skb without a cow. The 3000-byte
-shrink would still succeed, and this subtest would pass without reaching
-the page_pool frag path.
-
-Could the comment describe the headroom dependency instead?
-
-[ ... ]
-
-> diff --git a/tools/testing/selftests/bpf/progs/xdp_shrink_frags.c b/tools/testing/selftests/bpf/progs/xdp_shrink_frags.c
-> new file mode 100644
-> index 0000000000000..5d8e26f1b3a63
-> --- /dev/null
-> +++ b/tools/testing/selftests/bpf/progs/xdp_shrink_frags.c
-> @@ -0,0 +1,34 @@
-
-[ ... ]
-
-> +SEC("xdp.frags")
-> +int xdp_shrink(struct xdp_md *ctx)
+> +static void
+> +ionic_fill_fec_hist(const struct ionic_port_extra_stats *port_extra_stats,
+> +		    struct ethtool_fec_hist *hist)
 > +{
-> +	/*
-> +	 * Runs on both skb-backed XDP paths (generic XDP via tun, and veth):
-> +	 * the nonlinear skb is cow'd into page_pool memory before we run, so
-> +	 * shrinking the tail releases a whole frag that has to go back to that
-> +	 * pool. The counter only tells us the program ran and the helper
-> +	 * succeeded -- a linear buff returns 0 as well -- it does not prove a
-> +	 * frag was released.
-> +	 */
+> +	int i;
+> +
+> +	for (i = 0; i < ARRAY_SIZE(port_extra_stats->fec_codeword_error_bin); i++) {
+> +		__le64 val = READ_ONCE(port_extra_stats->fec_codeword_error_bin[i]);
+> +
+> +		if (val == IONIC_STAT_INVALID)
+> +			return;
+> +
+> +		hist->values[i].sum = le64_to_cpu(val);
+> +	}
+> +
+> +	hist->ranges = ionic_fec_hist_ranges;
+> +}
+> +
+> +static void ionic_get_fec_stats(struct net_device *netdev,
+> +				struct ethtool_fec_stats *fec_stats,
+> +				struct ethtool_fec_hist *hist)
+> +{
+> +	struct ionic_lif *lif = netdev_priv(netdev);
+> +	struct ionic_port_info *port_info;
+> +	u8 config_fec_type;
+> +
+> +	if (lif->ionic->pdev->is_virtfn)
+> +		return;
+> +
+> +	if (test_bit(IONIC_LIF_F_FW_RESET, lif->state))
+> +		return;
+> +
+> +	if (!(lif->ionic->ident.dev.capabilities &
+> +	      cpu_to_le64(IONIC_DEV_CAP_EXTRA_STATS)))
+> +		return;
+> +
+> +	port_info = lif->ionic->idev.port_info;
+> +	if (!port_info) {
+> +		netdev_err_once(netdev, "port_info not initialized\n");
+> +		return;
+> +	}
+> +
+> +	config_fec_type = READ_ONCE(port_info->config.fec_type);
+> +	if (ionic_active_fec_type(port_info, config_fec_type) !=
+> +	    IONIC_PORT_FEC_TYPE_RS)
+> +		return;
+> +
+> +	IONIC_FEC_STAT(fec_stats->corrected_blocks.total,
+> +		       port_info->extra_stats.rsfec_correctable_blocks);
+> +	IONIC_FEC_STAT(fec_stats->uncorrectable_blocks.total,
+> +		       port_info->extra_stats.rsfec_uncorrectable_blocks);
+> +	IONIC_FEC_STAT(fec_stats->corrected_bits.total,
+> +		       port_info->extra_stats.fec_corrected_bits_total);
+> +
+> +	ionic_fill_fec_hist(&port_info->extra_stats, hist);
+> +}
+> +
+>   static int ionic_set_fecparam(struct net_device *netdev,
+>   			      struct ethtool_fecparam *fec)
+>   {
+> @@ -1200,6 +1285,7 @@ static const struct ethtool_ops ionic_ethtool_ops = {
+>   	.get_module_eeprom_by_page	= ionic_get_module_eeprom_by_page,
+>   	.get_pauseparam		= ionic_get_pauseparam,
+>   	.set_pauseparam		= ionic_set_pauseparam,
+> +	.get_fec_stats		= ionic_get_fec_stats,
+>   	.get_fecparam		= ionic_get_fecparam,
+>   	.set_fecparam		= ionic_set_fecparam,
+>   	.get_ts_info		= ionic_get_ts_info,
+> 
 
-[Severity: Low]
-This comment only describes the skb-backed case, but test_veth_tx() also
-attaches xdp_shrink to VETH_PEER:
-
-	if (veth_attach(ns1, VETH_PEER, bpf_program__fd(skel->progs.xdp_shrink)))
-
-On PEER the program runs from veth_xdp_rcv_one() on the xdp_frame that
-LOCAL bounced with XDP_TX, not on a cow'd skb.
-
-By then veth_xdp_get() has switched those frags to plain page references
-with MEM_TYPE_PAGE_SHARED. The released frag must go through
-page_frag_free() rather than back to a pool. The comment above
-test_veth_tx() itself says that freeing it "as page_pool memory" is the
-bug.
-
-Should this comment mention the frame case on PEER?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127100132.1977890-1-sst%40poczta.fm
+Reviewed-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
