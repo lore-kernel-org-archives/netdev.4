@@ -1,77 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795861060;
-	b=POWyKOiGbEwS9YOnEOh3kcR+FONHfLsd+me7obnbjl0qEBS1N1rNnfUDarCcfgbK6n4C
-	 8LwcvK1O3ybh0dkk2n2QYhpFfdVP3Awk4EWQzEicDjHbCFkNcCLUZMi7fpkH3rvDvve6n
-	 V57ZSTQ+3/eNZk5KA7ZGxteNrC39jWFUpwdjt8RmGUL4l0D4K0zMH3QumauwU2nzgebSP
-	 c4Vrru/2aNTegisY6idG+cLqiPXkq04T1RHVvmHO7KOeVvsdNw+lbg8MtIV1+6e0H1BEM
-	 BignbnTj4CfMohH2tPg8MCiN48qZH63IDAtNaKrNa6jJ/+YUv9dEaURa/VO0ilJxcIg==
+	t=1795861518;
+	b=1/DRK7y5m98ywB3/YsPQalIE7t+JxTmmaBC1lq5PCtT6+c2swK2slLBE78mPqyWbrrDh
+	 Hfu7okaAFiCFUGS+fOEuNkQMSjhSqfpZ8JMyF+nmi0pmEn3Pn8msGQ1CZToesRTLFs7PW
+	 WEYWuhXIoqyQxvgCMqJR5UL6JXHtIWdEWWFRXNusNwukJZfKlMdfyXlCqdeU3vbabmfiZ
+	 zTJwnDbPN6dwrVxkNCNFoeNhCFN8xKDKfgBDLdlDH1EKAFN1OdiaXkhZ5a7hUmPyRUJzA
+	 Jvha2tNK2d9xSzCOsqgp/S3AhJ2PWi7f+fexAZbeWvpkqp3ykBWZbAAnYjN5ZCpeknw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795861060;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=PlNJtfQJO2+ddsgoMnwmoYZ6WgTRRQQ5xgP2X5wVeT4=;
-	b=N4sWVY1k0nJAsKrIXqrxKhmTH7FVVh9zYfs2oQqqQ0EWUpmc59u0OP6nJ/4cRiK8RMuD
-	 cqGpdKFbmPUV6RcBeYH3gNsPMD2D6mzwEoJOqdf8y/u+jTHL49F/ysO03A/YrIbmjgNlk
-	 HLEYonxwEJxakVILGhl/Ug84N8g4mIH2I7T8aBZ5APW3hAh3VAe8u7wfgdn4e2MklUI9G
-	 owdPdwr0UeePIjqvb3LiVUlH1E1zTFJ5LtAOuIm2eoHI3yQGpvjt3EtDX6SW69x4yYImP
-	 aVYC45DwWn87W15ba0eImFOqzZtrJl5lHnxSAroPKnysE4SDuGEs2BDmvIob0yRcxjQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795861518;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=HG/kFYl5oDMkfPL6aHfHn98/45lFfto87m3QqcW7mkE=;
+	b=UUyUcyjRKzVRbZ/XHxI4APwaAydFZa3YrCcQpMFsTH/MT0AWcmZpJ5dz5V5EXCwPU6JG
+	 RhrC8PNhMcRrOejCa82Q0tLDLlxNGO4brJHBvpVivhbJFBCdhQKFJptV1mqzkc+euYPNd
+	 E1NyGj2FRO1y/MFN3jg9iYxGZza4vPircQ+Now5+Q/zhagubCHMFlUqdRA/UEeUBuJ9+y
+	 mehfEcA1jdOLqxpYVdZVC2Pd5xHpQ56Iq3cE2weG/rAE1DsTLt+vDwSFWXA4j9+k6uDTW
+	 RAT4e6AFlVuGpQ2bsmyp4wI1ZE5p25u2GjQX7wq52eAvBsIm51izxJ6u9M4PSf2NMjw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=VgShlheu;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="B8yx/Y+G";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02261606A31C;
-	Sat, 28 Nov 2026 10:17:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02261606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FAEB606A31C;
+	Sat, 28 Nov 2026 10:25:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=VgShlheu
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id CC0F34E417BE;
-	Sat, 28 Nov 2026 10:17:35 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 83AB8604C0;
-	Sat, 28 Nov 2026 10:17:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6B33F11E91158;
-	Sat, 28 Nov 2026 11:17:26 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795861054; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=PlNJtfQJO2+ddsgoMnwmoYZ6WgTRRQQ5xgP2X5wVeT4=;
-	b=VgShlheuODqYx7kLiLqJesuy1J8Fg8VMhzLpo2d6lFs6XjdpNv/FU42ybcVk5OoaFaEIet
-	p1v9nxJtrxVJg8pZeHNWiRbFMa/8BUqBAvkvrBJChOAwwLpQTjdw25E+WSpAc4NgxDTakX
-	ULL7EvABQIssUhfHqIHCgSFmxj9w5wrLMuxn4W0+I4KP3hQhgusamhGSwBbtDiBLlwkZzC
-	Br3ydusaT6O+DmIpQsirupSRcPA8JBkskeMDPwJ5HEgAccZ6apK+fXIxNumThVJtT9PtvD
-	hRXJV1M+xEeKqkX/kcB4CHYtk/alYbwkrdymNBSVljGrZrR9KgsIUKr/PYeyjA==
-From: "Maxime Chevallier (Netdev Foundation)" <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@kernel.org>,
-	Willem de Bruijn <willemb@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Bobby Eshleman <bobbyeshleman@meta.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Breno Leitao <leitao@debian.org>,
-	matttbe@kernel.org
-Cc: "Maxime Chevallier (Netdev Foundation)" <maxime.chevallier@bootlin.com>,
-	thomas.petazzoni@bootlin.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH net v2] selftests: drv-net: pause: ensure the link partner sees the link when probed
-Date: Sat, 28 Nov 2026 11:17:24 +0100
-Message-ID: <20261128101725.17398-1-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B8yx/Y+G
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C2F51F00897;
+	Sat, 28 Nov 2026 10:25:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795861518;
+	bh=HG/kFYl5oDMkfPL6aHfHn98/45lFfto87m3QqcW7mkE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=B8yx/Y+Gi/rauFSFQuimTHfVzTrLgLz27hZvBYirftc95e+3u2rJLVexBJHc0h7VF
+	 1gdKCJ7MbQVwUoEVvdDsX3kYJB00q+oEZFRxWqqIs6g0qRls+iYK0N74j/+2FAI5YG
+	 qv9jq6GPbtOiA4fvy34WHoDqq4yzH83ePE0td8nd9WLrNKTnrGMZc/limShX2usjQ3
+	 BrfTyVSxlsurj8x2OJF5MOmCO0iOwvMAZV2fvXL0d1AZY+JptAPFXi4mDLGX8uXpwk
+	 /SWw78yw6wwpy95zv49gkkEoUfiYjfdteVUnE6VMkGKrTV9GWRzBAXt6KKTlzwyBoc
+	 otVtf9cicOOBQ==
+Subject: Re: [PATCH net v3 1/2] wireguard: peer: free packets left on the
+ receive queue on removal
+From: netdev-bot+sashiko@kernel.org
+To: apasichnik9@gmail.com
+Cc: Jason@zx2c4.com, wireguard@lists.zx2c4.com, netdev@vger.kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, shuah@kernel.org,
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Sat, 28 Nov 2026 10:25:16 +0000
+Message-ID: <179586151692.3135.13303430947283381708@kernel.org>
+In-Reply-To: <20261127102243.49405-2-apasichnik9@gmail.com>
+References: <20261127102243.49405-2-apasichnik9@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -81,77 +64,164 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
 
-When probing for the kselftest remote in the Pause test, we try to
-detect if it is directly connected to the DUT, or if it's reached
-through switches.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-For that, we trigger a renegotiation on the DUT, and check if the link
-flaps on the remote end. The current implementation may hit a race
-condition if the link flap happens so fast that we don't see it when
-checking on the remote.
+Critical: 0 · High: 1 · Medium: 0 · Low: 2
 
-Let's rework the logic by measuring the number of link state changes on
-the remote, then triggering the renegotiation, then re-checking on the
-remote if the link change counter has changed, or changes within the
-timeout window.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-While at it, do a small refactor to store the "get the link change
-counter" command into at dedicated variable that we re-use afterwards.
+- [High] The patch skips purging tx_queue.
+- [Low] The new comment in peer_remove_after_dead() says a
+  transmit_packet_work queued during the second flush of packet_crypt_wq…
+- [Low] The commit message describes the bug only as a refcount/memory
+  leak ('leaks a peer and its keypair').
 
-This has been found while running the stmmac kernel selftest suite
-between an imx8mp + ksz9131 PHY and a Intel i350-T4 card, the
-renegotiation happened too fast to reliably see it on the intel card
-side.
+--
 
-Fixes: 8f897f26ef34 ("selftests: drv-net: pause: Validate the pause autonegotiation with a partner")
-Signed-off-by: Maxime Chevallier (Netdev Foundation) <maxime.chevallier@bootlin.com>
----
- tools/testing/selftests/drivers/net/hw/pause.py | 15 +++++++++++----
- 1 file changed, 11 insertions(+), 4 deletions(-)
+wireguard: peer: free packets left on the receive queue on removal
 
-diff --git a/tools/testing/selftests/drivers/net/hw/pause.py b/tools/testing/selftests/drivers/net/hw/pause.py
-index ca4a55e59c30..5d7518f33e83 100755
---- a/tools/testing/selftests/drivers/net/hw/pause.py
-+++ b/tools/testing/selftests/drivers/net/hw/pause.py
-@@ -8,6 +8,7 @@ Driver-related behavior tests for Pause-based Flow Control.
- import errno
- import json
- import os
-+import time
- 
- from lib.py import KsftFailEx, KsftNamedVariant, KsftSkipEx
- from lib.py import NetDrvEpEnv
-@@ -99,8 +100,8 @@ def controllable_lp(cfg):
-     if controllable is not None:
-         return controllable
- 
--    before = int(cmd(f"cat /sys/class/net/{cfg.remote_ifname}/carrier_changes",
--                     host=cfg.remote).stdout)
-+    carrier_changes_cmd = f"cat /sys/class/net/{cfg.remote_ifname}/carrier_changes"
-+    before = int(cmd(carrier_changes_cmd, host=cfg.remote).stdout)
- 
-     ret, _ = ethtool_ret(f"-r {cfg.ifname}", is_get=False)
-     if ret != 0:
-@@ -108,8 +109,14 @@ def controllable_lp(cfg):
- 
-     wait_for_aneg(cfg, link_drop=True)
- 
--    cfg.lp_controllable = int(cmd(f"cat /sys/class/net/{cfg.remote_ifname}/carrier_changes",
--                                  host=cfg.remote).stdout) > before
-+    link_changed = False
-+    end = time.monotonic() + 5
-+    while not link_changed and time.monotonic() < end:
-+        time.sleep(0.1)
-+        after = int(cmd(carrier_changes_cmd, host=cfg.remote).stdout)
-+        link_changed = after > before
-+
-+    cfg.lp_controllable = link_changed
-     return cfg.lp_controllable
- 
- def require_controllable_lp(cfg):
+This commit adds peer_purge_rx_queue() and calls it from
+peer_remove_after_dead() after netif_napi_del(). It frees packets left on
+rx_queue when a NAPI that is being disabled completes without draining
+the queue, and drops each entry's keypair and peer references. tx_queue
+is intentionally left alone.
+
+> rx_queue keeps the rest there. Each entry holds a keypair and a peer
+> reference, so the peer is never released; the WARN_ON in rcu_release()
+> that checks for leftovers is never reached either.
+
+[Severity: Low]
+
+This isn't a bug in the code, but could the message also mention the
+other effects of the leak? A stranded rx_queue entry pins the peer, so
+kref_release() never runs.
+
+As a result, rcu_release() never calls memzero_explicit(peer,
+sizeof(*peer)). That call clears the remaining handshake key material,
+such as the preshared key and the precomputed static-static DH value.
+
+The pinned keypairs also never reach kfree_sensitive() in
+keypair_free_rcu(), so the session keys stay in slab memory as well.
+
+peer->handshake.entry is only removed from index_hashtable in
+kref_release(), and peer_remove_after_dead() doesn't call
+wg_noise_handshake_clear(). The removed peer therefore stays reachable
+through wg_index_hashtable_lookup(). That contradicts this comment in
+peer_remove_after_dead():
+
+    and in wg_cookie_message_consume, the lookup eventually gets a peer
+    with a refcount of zero, so no new reference is taken.
+
+As written, the message describes only a memory leak. The Fixes: tag
+should be enough for stable selection.
+
+> diff --git a/drivers/net/wireguard/peer.c b/drivers/net/wireguard/peer.c
+> index 1cb502a932e07..6bafe572469ca 100644
+> --- a/drivers/net/wireguard/peer.c
+> +++ b/drivers/net/wireguard/peer.c
+
+[ ... ]
+
+> @@ -122,6 +136,13 @@ static void peer_remove_after_dead(struct wg_peer *peer)
+>  	 * here from process context.
+>  	 */
+>  	netif_napi_del(&peer->napi);
+> +	/* A NAPI that is being disabled completes after the poll in progress,
+> +	 * even if that poll used its whole budget, so rx_queue may still hold
+> +	 * packets, and nothing reads it any more. tx_queue is left alone: a
+> +	 * transmit_packet_work queued during the second flush may still be
+> +	 * draining it, and its entries keep the peer alive until it has.
+> +	 */
+
+[Severity: High]
+
+Do tx_queue entries really keep the peer alive until draining is done?
+The commit message makes the same claim:
+
+  tx_queue needs no such step: transmit_packet_work drains it without a
+  budget, and its entries keep the peer alive until then.
+
+If transmit_packet_work is still running after peer_remove_after_dead()
+drops the base reference, the put for the last entry in
+wg_packet_tx_worker() can be the final one:
+
+drivers/net/wireguard/send.c:wg_packet_tx_worker() {
+	while ((first = wg_prev_queue_peek(&peer->tx_queue)) != NULL &&
+	       ...
+		wg_noise_keypair_put(keypair, false);
+		wg_peer_put(peer);
+		if (need_resched())
+			cond_resched();
+	}
+}
+
+That final put goes through kref_release()->call_rcu(&peer->rcu,
+rcu_release). The worker runs in process context outside any RCU
+read-side section, so a grace period can complete during cond_resched(),
+or while the worker is preempted under PREEMPT_RCU.
+
+rcu_release() then runs memzero_explicit() and kmem_cache_free() on the
+peer. After that, the worker evaluates wg_prev_queue_peek(&peer->tx_queue)
+again on freed memory.
+
+Couldn't this lead to a NULL dereference on the zeroed object, or to
+writes into a reused slab object via wg_prev_queue_dequeue()?
+
+The new comment itself says the work can outlive the flushes. The
+packet_crypt_wq encrypt workers share one ring across peers. An encrypt
+worker queued after the first flush_workqueue() began, for example by
+another peer's traffic, can take this peer's packet. It can then reach
+this point after the second flush has advanced the flush colour:
+
+drivers/net/wireguard/queueing.h:wg_queue_enqueue_per_peer_tx() {
+	...
+	queue_work_on(wg_cpumask_choose_online(&peer->serial_work_cpu, peer->internal_id),
+		      peer->device->packet_crypt_wq, &peer->transmit_packet_work);
+}
+
+The second flush does not wait for that work.
+
+rcu_release() also peeks tx_queue in its WARN_ON() while the worker may
+still be in its loop. That makes it a second consumer of a
+single-consumer queue.
+
+wg_packet_tx_worker() predates this patch, but the new comment relies on
+this lifetime guarantee to skip tx_queue. Does something need to wait for
+transmit_packet_work before the final wg_peer_put() in
+peer_remove_after_dead()?
+
+> +	peer_purge_rx_queue(peer);
+>  
+>  	/* Ensure any workstructs we own (like transmit_handshake_work or
+>  	 * clear_peer_work) no longer are in use.
+
+[Severity: Low]
+
+This isn't a bug, but the new comment contradicts two comments that this
+patch leaves unchanged in peer_remove_after_dead(). The marker before the
+second flush says it covers the send side:
+
+	/* b.1) For send (but not receive, since that's napi). */
+	flush_workqueue(peer->device->packet_crypt_wq);
+
+The block before the final wg_peer_put() lists which contexts may still
+use the peer after the flushes:
+
+	/* After the above flushes, a peer might still be active in a few
+	 * different contexts: 1) from xmit(), before hitting is_dead and
+	 * returning, 2) from wg_packet_consume_data(), before hitting is_dead
+	 * and returning, 3) from wg_receive_handshake_packet() after a point
+	 ...
+
+That list does not include a wg_packet_tx_worker() that is still
+running, even though the new comment says one can be. Should these two
+comments be updated to match?
+
 -- 
-2.56.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127102243.49405-1-apasichnik9%40gmail.com
