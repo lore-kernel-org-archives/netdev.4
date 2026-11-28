@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795858210;
-	b=xSnOJb1xjRCC6+ri/jjHKpw/D0WsKzeddQYCM15xQQlgg1G1fVepFAQFLjuJ3sQH59UI
-	 YLDD6X3Tg+0fOowHil/nlMf5BLzvWOmV6IxhggyypcFW/IGZNuu1iZa2vVXoQb+roaNWL
-	 jTP8OElT14/bYvVj4j+0PsWYSlSsI2c2pIMCOYFgJVEFg66z/JakDS82f6XFKt+7sK1O3
-	 iiCbhppD491xsiMLhH17HLF81uv0ioXE+hwJYb1s9VrciX6GpwbF19E1dXgfDMxToQ2EH
-	 DOJh2Nt3axsmifoyN0YEwQItKS3PyQBkTqTSzbPEA3BmsKlTdpI9ym50axes9EzcMNQ==
+	t=1795858208;
+	b=Ryr8gKaJ2QH8ivjoSNgT4c0DxDar61HF2Zu5Q5TGOU/C+vjvTXO8GGBm1va8CF4GVnuw
+	 KQlTEBgF/7HG7pWXikwB5UqNSMpvZlfN2NxnvM/PSd5/EOUBPnvkLSdz7pBVoIyd9/Efx
+	 De8T6o/G2osmjxKTrLskXbouBJ+FwAmLnATwGY2psEsxA0sOZOuHT/ZD0Va6ZSYhJt3jG
+	 VAGr8wvP924zXYdnXREcUDOTeF/dyo8fwIFbImCK52NB7Db8YGj03OY+ruTxrtneACerL
+	 /KUhIF8BTk2dxW8Ccaoozyn5aABVhbY2Cvr4zguGblYz+BIHd40x3x7w9RWOMmC/viA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795858210;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795858208;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=A5rYtmofrvIUFyhmWGcR3PlpZPgkJO+PijhIDMldm2Y=;
-	b=CQ2fFfQdrd6UMnWENCbsW2MT01Li/P/3fvo6Bo71P2/l3bakThw+9kUBiXTOlvXlU0qN
-	 avQGm65gNFw1uCUbE/1OfwM6TPMjYlOaodZF7RDD0fbK5L3XxsDRBbqW+SN+ZXlnxQ9tl
-	 p7qBoYrM168l+kYotW/Lw1OwYxU89ZswB88xyISQc/gmK+ToTJEvmznyvUYrME1rKlQqr
-	 51o9md/lXQPOJI3GyvjBSk6f2BsqVLBeHrZn3xJY28UjmusDGndXvGREvVbF/+JiPL3n1
-	 1Q7iYxYHSTv/8BwmAzQ2IUVCJoOi8CpzUb8EbFGUaJKgZJ/gFGglVILm8OmgNb+VYtw==
+	bh=zgOM8vAhf19+9a0t5JbrihfRnYtAHBHB03GFJ5Sqe8M=;
+	b=Aw617Yr5kw1gT5Mf5uEooPGK13ZovaRx+PzJowJznmWplEwj97afNHBdg4QLgOueRQws
+	 U+Sg2Dxim+vh6HlwghOHZI0uGQkkpJx3BThrrYZ+r/nrji76yxqc8J3UZtIJxvEcDUwQV
+	 RHq37SAIbwthTlhuy8NOKMkLWLqf6Iqu5wKn35/qCS1UKel4UW0Hg/DBc2XavUsId5qQC
+	 RimDCWmyE1NWY0VFiu678ylJ0k0Gr3xV4NUaVzRBmIH7oYwTULG5OPzYTng/AF3m2btKf
+	 k14J+fCjQU/pifs7E9BnFBkk+mHz959FyVHSoyVwSsaGVLL07nqN/M+z3SrzU44YWXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dHvm+u5R;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=etxzu4GT;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BBC6606A324;
-	Sat, 28 Nov 2026 09:30:10 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dHvm+u5R
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A34981F00898;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85BD7606A31F;
 	Sat, 28 Nov 2026 09:30:08 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=etxzu4GT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9F6D1F000C1;
+	Sat, 28 Nov 2026 09:30:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795858209;
-	bh=A5rYtmofrvIUFyhmWGcR3PlpZPgkJO+PijhIDMldm2Y=;
+	s=k20260515; t=1795858208;
+	bh=zgOM8vAhf19+9a0t5JbrihfRnYtAHBHB03GFJ5Sqe8M=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=dHvm+u5RvRSNSfxYyIJNDgl1oVQS4z17YRrU6ZdKkhUMLZGtcJVJFMSH69avJWPiA
-	 7mYaddu5flKEAvjr+oya3/xIEXlPpEDLAfbqojDD7ar0J+ceZh0KVuDzJQSimwseXz
-	 rEjq421poQEOaychfqxvmkhkri1jVsvqegU3t8uPQI1KfqafvI411fNNHQhUAGRBMb
-	 Fs+SNNl3jgjtiH2cnCjYWayZs9O5FXOBtTeX2A7HsDKGBtEoJAYOwARBSZhdHfz6wy
-	 wdzXvnQDtaJyFZLSDTL3Y1CwzObeRYdE6z8u1KqKGoLBlRq440Pm2THHzShpREzFTx
-	 d5xZD52m2LhwA==
-Subject: Re: [PATCH net v5 2/4] ice: do not leave switchdev mode while
- representors exist
+	b=etxzu4GTQ3UAhayP6IwZ0T6LF9L1qSUo19CaH3iTmZJVZH5ESTqVbkZN1Vz0PxMaS
+	 2wBVe5sdp5u2WvEf9kxs8tEk56YVDrE1bHB6B7n08bE1kHEGaXkVcOOfNC3jgQ/5xc
+	 yfWMDm82Vg9ytJwKzhgAMEWJAJ9yvfDP0HKRFbwM7NIBnN5AR2F7vjwVMXXKRaLlEv
+	 bgDLY941y3JoOtLsHp7FN6R/7AjhTau+ObJnq7euXJXEvjk/IdcVTmWgW5MtLvzOpV
+	 qWbKKk6p4XzCq9UtK4o5u9Vg97vYnsBAgEvvFJzjgCKtuc1cNRHKRLPN2UUPSxwih6
+	 Ae19c48Z5xojw==
+Subject:
+ Re: [PATCH net v5 1/4] ice: stop the service task before the PF is unloaded
 From: netdev-bot+sashiko@kernel.org
 To: poros@redhat.com
 Cc: netdev@vger.kernel.org, anthony.l.nguyen@intel.com,
@@ -55,11 +55,11 @@ Cc: netdev@vger.kernel.org, anthony.l.nguyen@intel.com,
  jbrandeb@kernel.org, patryk.holda@intel.com, sx.rinitha@intel.com,
  aaron.ma@canonical.com, intel-wired-lan@lists.osuosl.org,
  linux-kernel@vger.kernel.org
-Date: Sat, 28 Nov 2026 09:30:08 +0000
-Message-ID: <179585820824.3135.14448452752875011743@kernel.org>
-In-Reply-To: <20261127085714.1207361-3-poros@redhat.com>
-References: <20261127085714.1207361-3-poros@redhat.com>
-X-sashiko-severity: Medium
+Date: Sat, 28 Nov 2026 09:30:06 +0000
+Message-ID: <179585820637.3135.16053674648760900756@kernel.org>
+In-Reply-To: <20261127085714.1207361-2-poros@redhat.com>
+References: <20261127085714.1207361-2-poros@redhat.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -72,10 +72,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 4 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 3
+Critical: 0 · High: 2 · Medium: 1 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -83,185 +83,193 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The new `xa_empty(&pf->eswitch.reprs)` check in
-  ice_eswitch_mode_set() is protected only by the PF devlink lock, which…
-- [Low] The commit message understates what this patch fixes.
-- [Low] In ice_eswitch_mode_set(), the new
-  `!xa_empty(&pf->eswitch.reprs)` check (ice_eswitch.c:358) runs before…
-- [Low] The new gate checks whether pf->eswitch.reprs is empty, not
-  whether SF ports exist.
+- [High] The patch moves the early ice_service_task_stop() only in
+  ice_remove().
+- [High] The patch handles the "last run re-arms the service timer after
+  the stop, and the timer fires after the PF is freed" race only in the…
+- [Medium] The early ice_service_task_stop() in ice_remove()
+  (ice_main.c:5390) does not stop the service work from being queued…
 
 --
 
-ice: do not leave switchdev mode while representors exist
+ice: stop the service task before the PF is unloaded
 
-This patch makes ice_eswitch_mode_set() refuse an eswitch mode change
-while the representor xarray is not empty. Before the patch, switching to
-legacy mode with DCB active could destroy the xarray under a running
-switchdev session that still had a subfunction port representor.
+This patch moves ice_service_task_stop() and ice_aq_cancel_waiting_tasks()
+in ice_remove() back to right after ice_free_vfs(). The service task is then
+stopped before the aRFS filters, netdev, LAG and VSIs are freed. The stop
+in ice_deinit_dev() is kept so that it deletes a timer re-armed by the last
+run.
 
-> the representors export, but ice exports none while DCB is active. A
-> switch to legacy then destroys the representor xarray under the running
-> session, the representors leak, and the uplink stays in its switchdev
-> configuration.
-
-[Severity: Low]
-
-Does "the representors leak" describe the whole consequence? Before this
-patch, the later SF port deletion looks like it ends in a use-after-free
-of dyn_port.
-
-Once the switch to legacy has run xa_destroy(&pf->eswitch.reprs), a
-devlink port del on the SF port goes through
-ice_devlink_port_del()->ice_dealloc_dynamic_port(), which calls:
-
-drivers/net/ethernet/intel/ice/ice_eswitch.c:ice_eswitch_detach_sf() {
-	struct ice_repr *repr = xa_load(&pf->eswitch.reprs, sf->repr_id);
-
-	if (!repr)
-		return;
-	...
-}
-
-So ice_repr_rem_sf() never runs. That means neither
-unregister_netdev(repr->netdev) nor
-ice_devlink_destroy_sf_port()->devl_port_unregister() is called.
-ice_dealloc_dynamic_port() then does:
-
-	ice_eswitch_detach_sf(pf, dyn_port);
-	xa_erase(&pf->dyn_ports, dyn_port->vsi->idx);
-	ice_vsi_free(dyn_port->vsi);
-	kfree(dyn_port);
-
-The embedded dyn_port->devlink_port is still registered in devlink->ports.
-The representor netdev is also still registered, and it keeps pointers
-into the freed dyn_port: repr->sf, and the devlink port set through
-SET_NETDEV_DEVLINK_PORT(). Driver removal takes the same path through
-ice_remove()->ice_dealloc_all_dynamic_ports().
-
-The code change closes this path. Could the commit message mention the
-use-after-free, so stable and CVE triage can weigh the fix correctly?
-
-> diff --git a/drivers/net/ethernet/intel/ice/ice_eswitch.c b/drivers/net/ethernet/intel/ice/ice_eswitch.c
-> index 6e7bba4738989..c96b201901f48 100644
-> --- a/drivers/net/ethernet/intel/ice/ice_eswitch.c
-> +++ b/drivers/net/ethernet/intel/ice/ice_eswitch.c
-> @@ -354,6 +354,13 @@ ice_eswitch_mode_set(struct devlink *devlink, u16 mode,
->  		return -EOPNOTSUPP;
+> diff --git a/drivers/net/ethernet/intel/ice/ice_main.c b/drivers/net/ethernet/intel/ice/ice_main.c
+> index 47c6798c97e8f..6dede87b78944 100644
+> --- a/drivers/net/ethernet/intel/ice/ice_main.c
+> +++ b/drivers/net/ethernet/intel/ice/ice_main.c
+> @@ -5387,6 +5387,9 @@ static void ice_remove(struct pci_dev *pdev)
+>  		ice_free_vfs(pf);
 >  	}
 >  
-> +	/* subfunction ports have representors too */
-> +	if (!xa_empty(&pf->eswitch.reprs)) {
+> +	ice_service_task_stop(pf);
+> +	ice_aq_cancel_waiting_tasks(pf);
+> +
+
+[Severity: High]
+The same ordering problem seems to remain on the other paths that unload
+the PF. ice_devlink_reinit_down() in devlink/devlink.c does:
+
+	ice_unload(pf);
+	rtnl_lock();
+	ice_vsi_decfg(ice_get_main_vsi(pf));
+	rtnl_unlock();
+	ice_deinit_pf(pf);
+	ice_deinit_hw(&pf->hw);
+	ice_deinit_dev(pf);
+
+Nothing sets ICE_SERVICE_DIS before ice_deinit_dev(), so the service timer
+keeps queueing serv_task during this whole sequence:
+
+  - ice_unload()->ice_decfg_netdev() calls free_netdev(vsi->netdev).
+  - ice_deinit_pf() destroys sw_mutex, tc_mutex and lag_mutex, frees the
+    avail_txqs/avail_rxqs bitmaps and frees the misc IRQ.
+  - ice_deinit_hw() destroys the control queues.
+
+Can a run of ice_sync_fltr_subtask()->ice_vsi_sync_fltr() that has already
+read vsi->netdev keep using netdev->flags and netif_addr_lock_bh(netdev)
+after free_netdev()?
+
+A devlink dev reload with action driver_reinit can trigger this while a
+filter sync is pending, for example after a promisc or multicast change
+through ice_set_rx_mode().
+
+The probe error unwind in ice_probe() looks similar:
+
+unroll_load:
+	ice_unload(pf);
+unroll_init:
+	devl_unlock(priv_to_devlink(pf));
+	ice_deinit(pf);
+[ ... ]
+unroll_hw_init:
+	ice_deinit_hw(hw);
+	if (need_dev_deinit)
+		ice_deinit_dev(pf);
+
+When this unwind runs, ice_init() has already cleared ICE_SERVICE_DIS and
+armed serv_tmr. ice_load() has also queued serv_task through
+ice_service_task_restart().
+
+ice_deinit() only sets ICE_SERVICE_DIS, which does not wait for a running
+work item, and then ice_dealloc_vsis() frees pf->vsi. After that come
+ice_adapter_put() and ice_deinit_hw(), and only then the stop in
+ice_deinit_dev().
+
+Commit 8a37f9e2ff40, named in the Fixes: tag, is also the commit that moved
+ice_deinit_dev() after ice_deinit_hw() in this unwind. Should
+ice_devlink_reinit_down() and the probe unwind also stop the service task
+before they tear down the PF? Neither path seems to change later in the
+series.
 
 [Severity: Medium]
+Does a single ice_service_task_stop() here prevent serv_task from being
+queued again before ice_remove_arfs(), ice_unload() and ice_deinit() run?
 
-Is the result of xa_empty(&pf->eswitch.reprs) stable under the lock held
-here? devlink core holds only the PF devlink lock around
-ice_eswitch_mode_set(). However, ice_eswitch_update_repr() changes the
-same xarray from ice_sf_dev_probe(), and that path holds only the SF's
-own devlink lock:
+ice_service_task_schedule() tests ICE_SERVICE_DIS without a lock and only
+calls queue_work() afterwards:
 
-drivers/net/ethernet/intel/ice/ice_sf_eth.c:ice_sf_dev_probe() {
-	...
-	devlink = priv_to_devlink(priv);
+	if (!test_bit(ICE_SERVICE_DIS, pf->state) &&
+	    !test_and_set_bit(ICE_SERVICE_SCHED, pf->state) &&
+	    !test_bit(ICE_NEEDS_RESTART, pf->state))
+		queue_work(ice_wq, &pf->serv_task);
 
-	devl_lock(devlink);
+Also, ice_service_task() does not check ICE_SERVICE_DIS when it starts.
 
-	err = ice_vsi_cfg(vsi);
-	...
-	ice_eswitch_update_repr(&dyn_port->repr_id, vsi);
-	...
-}
+At this point the netdev is still registered and the misc IRQ is still
+live. That means ice_set_rx_mode(), ice_rx_flow_steer(), ice_misc_intr()
+and the VF fdir handlers can all still reach ice_service_task_schedule().
 
-drivers/net/ethernet/intel/ice/ice_eswitch.c:ice_eswitch_update_repr() {
-	...
-	if (repr->id != vsi->vsi_num) {
-		xa_erase(&pf->eswitch.reprs, repr->id);
-		repr->id = vsi->vsi_num;
-		if (xa_insert(&pf->eswitch.reprs, repr->id, repr, GFP_KERNEL))
-	...
-}
+One possible interleaving:
 
-ice_sf_dev_remove() does not delete the hardware VSI. So if the ice.sf.N
-auxiliary device is unbound and then rebound through sysfs, ice_vsi_cfg()
-runs with ICE_VSI_FLAG_INIT and allocates a new VSI number. That takes
-the erase/insert branch above.
+CPU0 (ice_set_rx_mode)              CPU1 (ice_remove)
+set ICE_FLAG_FLTR_SYNC
+test_bit(ICE_SERVICE_DIS) == 0
+                                    ice_service_task_stop()
+                                      test_and_set_bit(ICE_SERVICE_DIS)
+                                      timer_delete_sync()
+                                      cancel_work_sync() /* idle */
+                                      clear_bit(ICE_SERVICE_SCHED)
+queue_work(ice_wq, &pf->serv_task)
+                                    ice_remove_arfs()
+                                    ice_unload()  /* free_netdev() */
+                                    ice_deinit()  /* ice_dealloc_vsis() */
 
-With a single SF representor and no VFs, can a concurrent eswitch mode
-change see the xarray empty between the erase and the insert?
+The worker would then run ice_sync_fltr_subtask(), ice_sync_arfs_fltrs()
+and the other subtasks against the state being freed. The second stop in
+ice_deinit_dev() only runs after the VSIs are already gone.
 
-CPU1 (SF rebind, SF devlink lock only)
-ice_eswitch_update_repr()
-  xa_erase(&pf->eswitch.reprs, old_id);
+The window is only a few instructions wide. Would a check of
+ICE_SERVICE_DIS at the start of ice_service_task(), or quiescing these
+scheduling sources first, be needed to close it?
 
-CPU2 (PF devlink lock held)
-ice_eswitch_mode_set(LEGACY)
-  !xa_empty(&pf->eswitch.reprs) is false, check passes
-  xa_destroy(&pf->eswitch.reprs);
-  pf->eswitch_mode = mode;
+>  	if (!ice_is_safe_mode(pf))
+>  		ice_remove_arfs(pf);
+>  
+> @@ -5407,7 +5410,6 @@ static void ice_remove(struct pci_dev *pdev)
+>  	ice_deinit_hw(&pf->hw);
+>  
+>  	ice_deinit_dev(pf);
+> -	ice_aq_cancel_waiting_tasks(pf);
+>  	set_bit(ICE_DOWN, pf->state);
+>  }
 
-CPU1
-  xa_insert(&pf->eswitch.reprs, new_id, repr, GFP_KERNEL);
+[Severity: High]
+The commit message says the stop in ice_deinit_dev() "stays and deletes a
+timer armed by the last run". The ordering inside ice_service_task_stop()
+has not changed, though:
 
-The result is legacy mode with a live SF representor, and
-pf->eswitch.is_running stays true because ice_eswitch_disable_switchdev()
-is never called. The uplink keeps its switchdev configuration until the
-SF port is deleted. This same check then refuses a switch back to
-switchdev.
+	ret = test_and_set_bit(ICE_SERVICE_DIS, pf->state);
 
-Would checking pf->dyn_ports instead close this? Its writers,
-ice_alloc_dynamic_port() and ice_dealloc_dynamic_port(), run under the PF
-devlink lock, so they would be serialized with mode_set.
+	if (pf->serv_tmr.function)
+		timer_delete_sync(&pf->serv_tmr);
+	if (pf->serv_task.func)
+		cancel_work_sync(&pf->serv_task);
 
-[Severity: Low]
+A work item that is running during the stop can re-arm the timer after
+timer_delete_sync():
 
-A related case: if that xa_insert() fails, ice_eswitch_update_repr() only
-logs an error:
+  - ice_service_task() calls mod_timer(&pf->serv_tmr, jiffies) at its tail
+    when a run was long or an *_EVENT_PENDING bit is set.
+  - ice_service_task_recovery_mode() always calls
+    mod_timer(&pf->serv_tmr, jiffies + msecs_to_jiffies(100)).
 
-		if (xa_insert(&pf->eswitch.reprs, repr->id, repr, GFP_KERNEL))
-			dev_err(ice_pf_to_dev(pf), "Failed to reload port representor %d",
-				repr->id);
+Once that happens, ice_service_timer() keeps re-arming itself.
 
-If that was the only SF representor, pf->eswitch.reprs is now empty. The
-SF devlink port is still in pf->dyn_ports, and pf->eswitch.is_running is
-still true.
+Some paths still stop only once. The first is the recovery-mode branch
+of ice_remove():
 
-Would ice_eswitch_mode_set(LEGACY) then pass both ice_has_vfs() and the
-new xa_empty() check? If so, it would run xa_destroy() and switch to
-legacy without calling ice_eswitch_disable_switchdev(), leaving the same
-orphaned session this patch is meant to prevent.
+	if (ice_is_recovery_mode(&pf->hw)) {
+		ice_service_task_stop(pf);
+		scoped_guard(devl, priv_to_devlink(pf)) {
+			ice_deinit_devlink(pf);
+		}
+		return;
+	}
 
-The dropped-entry handling in ice_eswitch_update_repr() predates this
-patch, but a check on pf->dyn_ports would also cover this case.
+After this, devres frees the PF (the devlink priv), and the recovery-mode
+work re-arms every 100ms. Can serv_tmr then fire on freed memory, or, after
+rmmod, on unloaded module text?
 
-> +		NL_SET_ERR_MSG_MOD(extack,
-> +				   "Remove all subfunction ports before changing eswitch mode");
-> +		return -EOPNOTSUPP;
-> +	}
-> +
->  	switch (mode) {
+The probe error unwind also calls ice_deinit_dev() only once before devres
+frees the PF.
 
-[Severity: Low]
+In ice_devlink_reinit_down(), the single stop in ice_deinit_dev() is
+followed by ice_devlink_reinit_up()->ice_init_dev()->
+ice_start_service_task(). That calls timer_setup(&pf->serv_tmr, ...) on a
+timer that may still be enqueued. Could this corrupt the timer wheel list
+once mod_timer() enqueues it again?
 
-Should the requested mode be validated before the representor check? The
-devlink policy accepts DEVLINK_ATTR_ESWITCH_MODE values up to 2
-(NLA_POLICY_MAX(NLA_U16, 2) in net/devlink/netlink_gen.c). So
-DEVLINK_ESWITCH_MODE_SWITCHDEV_INACTIVE reaches the driver, and ice
-rejects it only in the default branch:
-
-	default:
-		NL_SET_ERR_MSG_MOD(extack, "Unknown eswitch mode");
-		return -EINVAL;
-
-With the PF in switchdev mode and an SF port present, a switchdev_inactive
-request now fails with -EOPNOTSUPP and "Remove all subfunction ports
-before changing eswitch mode". If the SF ports are removed as the message
-says, the retry still fails, this time with -EINVAL.
-
-The existing ice_has_vfs() check has the same ordering, but this patch
-adds a new path that reports the wrong reason. Would it be better to
-validate the mode first, or to apply the representor check only to
-supported transitions?
+Would it be better to fix this inside ice_service_task_stop()? One option
+is a second timer_delete_sync() after cancel_work_sync(). Another is to
+skip the tail mod_timer() calls when ICE_SERVICE_DIS is set. Either would
+avoid relying on a double stop at the call site.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127085714.1207361-1-poros%40redhat.com
