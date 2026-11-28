@@ -1,57 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795852179;
-	b=5bnsBUjeS1nFcLf2scyDRzknthNqQ0uJUqlw8qQ90NVyY4O8/N5DivOVANbUGavYqgsv
-	 MMLnHKm/vM2nI4uAoxJBgkamrmioOCKX/srcBXmfMX3bBOm30sJZbxGcAHZLVlYdIXIuf
-	 x91x3VlETMO2nQc12jYKLwk9IgnuWhUici8T3cqeh1DpACoS9AVxARAtUuLX1PsRBYy8+
-	 wwJPKrVfKHYHOUkrahVl2N0ES76W6qI1PeyianepOeHINY0HLiuBkUyp2Xw8cMySrlgdH
-	 TfaZ3VFvMiWvNTU/HYwBudVj8R+/tWfI6TpzBXQHkmuDrH8NNBn+CUeNt7RbKhxRdCw==
+	t=1795853090;
+	b=5Je+e9Cs7NIXf/QHYLoEiWwF/iTMNkUSX8L6TxfQXR3BQe4/HwF77OBX0YoO4y/JRy+C
+	 Ft66niTaDE6WkycZSs5WYajYtKqUpv4XhWoICPT2AVa7YAKxSlxwL8s8kvqp2+Qonwr/T
+	 WqOf2gfkmZGSA+srXDbEvvjG4+y9VephYperVxRKCJzf7HBcvy7XNs3f3pukM3zpdI0Zl
+	 jVOi0N7uwf0MkGk129WIdcunGnHOdYbnOshrkoFa6PFx8edtrzbjOQBqOVHjgTDyW/1m7
+	 1VMsF6wt3sth6RjPWgWPSxZicStgL3mGssiHAWwDKUm0IOqn6weqaBWlcgaco5hP0NA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795852179;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795853090;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=Y2CkVKlJv9q8tIcTk64or8wHGvQhFgWI4FBCczrgvuk=;
-	b=KZ5PQ3ZJKGyIp76HYIcmIZFLAC/82u7A7eksE/kn7IIor4jM//2sXJMHscvX94eZZ370
-	 T5SV/Y3Bv0JIItE/eIiTOCF45hxi77L/hDl/Oq+r51grPRp0qxmeOBsK7h+bietFs7bYU
-	 Vc08ZXOn90l3/+xO1KUdIzx4dO0HBKPMsDHFyqOCslSUgBct3zZygRZu9WXdrqY/oXwoW
-	 DV41pUkZOr/W+FzUGFIWXmLGJmubOEVb+zySEaUTCyygIh18054816HFyTzEtE3Qw7/a+
-	 CTIFNfmyknUHSrlMEfHoY85sABe3yNTdS3S9PM7LFuYzGU4yRlKe7yQUA+jlJl0CL6w==
+	bh=MEmK62uLXuWw4WdQtZl8BjBNwRsMM/P7sRqpkRfqtuc=;
+	b=SxA3uxbxscM+1e7UTNSsptzhCQ2gcvEs4tNgVvp1GcJAwzlzfJORefaVclW+BAFJnpxM
+	 W82eefEDzlIutUuxA2YFZ4Ma7+/bGg0jhhBwuDbupMQmrfjYLR+9Zi3pvh9iX+//j4H7O
+	 r0gfC0ynGin5LA+3WHxQElVlVeF85jGoJMrXyltTltL2EU8dS8GvvP9g8qrp+/eWYHq2/
+	 1BzU3QtK+udnjn0PTBfgUMpsm0Lz7LxFuMwpnytfabYY75uYnE4U5Hk4/P5mTP/TK+OB/
+	 iXSa17USU4JyFQ8VgaTPPQ82x+2MLojx2x8ZKLUUlipfbdti0Xr8Tb9xSroDC7scCrA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I0vOHecQ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ftYq+aB3;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 298E5606A31F;
-	Sat, 28 Nov 2026 07:49:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2856A606A31C;
+	Sat, 28 Nov 2026 08:04:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I0vOHecQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 268751F00893;
-	Sat, 28 Nov 2026 07:49:38 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ftYq+aB3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 752A61F00893;
+	Sat, 28 Nov 2026 08:04:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795852178;
-	bh=Y2CkVKlJv9q8tIcTk64or8wHGvQhFgWI4FBCczrgvuk=;
+	s=k20260515; t=1795853089;
+	bh=MEmK62uLXuWw4WdQtZl8BjBNwRsMM/P7sRqpkRfqtuc=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=I0vOHecQV/wHc5kazkWzvIkJy1qsJ4shaHWLmvJKjTL7VYHJYfkc+dv5XMexB9ZFz
-	 oJbZ9/F03jrJBIdwmc+KjAnT29rJ2L86YGtYNzcV4iM9zc18uKJQC3HnJdgrF7u6b2
-	 YcdsiwlgIg37hLa9Z6Km7aFnEc3fb6/TXP/D/QWctoP7ip5B1I7ofT33oV40Q1clGL
-	 m3UCOWuHzfdieEBcbgWrZ87z8K26ELNhT0M84XbrHljPNa2UX/LdF9ViGZa3TWERJ3
-	 F6cGt8E4mFxxtgcohgxNBE7TQCB+PshRzNDkl4TSho76xf+puWoVzTLVGG1hI3AgFD
-	 jzIP+vLd3l9HA==
-Subject: Re: [PATCH net] sctp: don't count pending-deleted addresses as
- survivors on bindx del
+	b=ftYq+aB3NOJ2EeyX8dRMQVMIIMpcSorM4DO5VbjACov9P/d7USAeqEq8S+XeP8Cma
+	 qyEzIQCXFjh+ihegTlZZi3eE0bN8Ysqb3gnvLlMQDhQuRJh4XD7PyKALFF7YaN4bLl
+	 5z8RvK9gH7sUXLw3dRwsBc4IrygVq2+/x4gf5E39nT7yK1ISSmXfA1RxQ3OKf4n7cG
+	 t4dRiQUYKGtsKROStjhUnptfiTdmNU5uWjSgo4mK0AbGKyHv87fbQoghXiPScQs94v
+	 MZ8DeMyqqJc3RctfkIcyryZbZx3KUJmdFNDT+Jw8CdZr5TAoeIBXKqcyPR/AcXnurq
+	 +xlZh/11UDSAQ==
+Subject: Re: [PATCH] net: ethernet: sunplus: spl2sw: fix OF node leak in
+ spl2sw_probe()
 From: netdev-bot+sashiko@kernel.org
-To: bsdhenrymartin@gmail.com
-Cc: lucien.xin@gmail.com, marcelo.leitner@gmail.com, vladislav.yasevich@hp.com,
- davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, edumazet@kernel.org,
- horms@kernel.org, linux-sctp@vger.kernel.org, netdev@vger.kernel.org,
- stable@vger.kernel.org
-Date: Sat, 28 Nov 2026 07:49:37 +0000
-Message-ID: <179585217768.3135.9630756221208198819@kernel.org>
-In-Reply-To: <20261127065017.2922776-1-bsdhenrymartin@gmail.com>
-References: <20261127065017.2922776-1-bsdhenrymartin@gmail.com>
+To: zhaofeng2@cmss.chinamobile.com
+Cc: wells.lu@sunplus.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kuba@kernel.org
+Date: Sat, 28 Nov 2026 08:04:49 +0000
+Message-ID: <179585308901.3135.3807804002976380282@kernel.org>
+In-Reply-To: <20261127074228.268-1-zhaofeng2@cmss.chinamobile.com>
+References: <20261127074228.268-1-zhaofeng2@cmss.chinamobile.com>
 X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -68,7 +66,7 @@ MIME-Version: 1.0
 Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 1
+Critical: 0 · High: 1 · Medium: 0 · Low: 2
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,171 +74,121 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The patch only partly closes the bug class it claims to fix.
-- [Medium] The patch sends a second delete into the keep-last branch of
-  sctp_send_asconf_del_ip() (net/sctp/socket.c:863-896) while the first…
-- [Low] Two comments no longer match the patched code: - The header
-  comment of sctp_find_unmatch_addr() (net/sctp/bind_addr.c:429-431)…
+- [High] The fix is incomplete.
+- [Low] The patch fixes a reference leak that dates back to the original
+  driver, but it has no Fixes: tag.
+- [Low] The diffstat in the patch notes does not match the diff.
 
 --
 
-sctp: don't count pending-deleted addresses as survivors on bindx del
+net: ethernet: sunplus: spl2sw: fix OF node leak in spl2sw_probe()
 
-This patch makes sctp_find_unmatch_addr() skip entries that are already
-marked SCTP_ADDR_DEL. Two bindx deletes in a row, with unacknowledged
-ASCONFs, should then no longer be able to empty the association's bind
-address list. When no undeleted survivor is left, the keep-last handling
-in sctp_send_asconf_del_ip() is used instead.
+In spl2sw_probe(), the "ethernet-ports" node comes from
+of_get_child_by_name(). This patch adds an of_node_put() for it after
+the port setup loop, to fix a leaked reference on the probe path.
 
-> diff --git a/net/sctp/bind_addr.c b/net/sctp/bind_addr.c
-> index 31737f144c7f0..e20006b9f12e4 100644
-> --- a/net/sctp/bind_addr.c
-> +++ b/net/sctp/bind_addr.c
-> @@ -445,6 +445,12 @@ union sctp_addr *sctp_find_unmatch_addr(struct sctp_bind_addr	*bp,
->  	 * can't change.
->  	 */
->  	list_for_each_entry(laddr, &bp->address_list, list) {
-> +		/* An address already being deleted cannot serve as the
-> +		 * one remaining address.
-> +		 */
-> +		if (laddr->state == SCTP_ADDR_DEL)
-> +			continue;
-
-[Severity: High]
-Can the SCTP_ADDR_DEL mark be overwritten while its delete is still
-queued?
-
-The new check relies only on laddr->state. However,
-sctp_asconf_param_success() sets the state back to SRC on a successful
-ADD_IP ack, without checking the current state:
-
-net/sctp/sm_make_chunk.c:sctp_asconf_param_success() {
-    ...
-	case SCTP_PARAM_ADD_IP:
-		...
-		list_for_each_entry(saddr, &bp->address_list, list) {
-			if (sctp_cmp_addr_exact(&saddr->a, &addr))
-				saddr->state = SCTP_ADDR_SRC;
-		}
-    ...
-}
-
-Take an association whose list is only A(SRC). The endpoint also holds a
-third address D, which is needed to pass the endpoint-level check in
-sctp_bindx_rem(). The reproducer in the commit message needs the same
-thing.
-
-  bindx ADD B
-    B is SCTP_ADDR_NEW, ASCONF1 (ADD B) sent
-  bindx DEL B
-    sctp_find_unmatch_addr() returns A
-    ASCONF2 (DEL B) queued behind ASCONF1, B marked SCTP_ADDR_DEL
-  peer acks ASCONF1
-    sctp_asconf_param_success() sets B back to SCTP_ADDR_SRC
-    ASCONF2 sent, peer holds the ack
-  bindx DEL A
-    B is SRC, so the new check doesn't skip it; B returned as survivor
-    keep-last branch skipped, ASCONF3 (DEL A) queued, A marked DEL
-  peer acks ASCONF2 and ASCONF3
-    sctp_del_bind_addr() runs for B and A, asoc list is now empty
-
-sctp_sf_do_asconf_ack() matches acks by serial number only.
-
-The next bindx ADD then reaches sctp_send_asconf_add_ip(). It takes the
-first entry without checking whether the list is empty:
-
-net/sctp/socket.c:sctp_send_asconf_add_ip() {
-    ...
-		bp = &asoc->base.bind_addr;
-		p = bp->address_list.next;
-		laddr = list_entry(p, struct sctp_sockaddr_entry, list);
-		chunk = sctp_make_asconf_update_ip(asoc, &laddr->a, addrs,
-    ...
-}
-
-Wouldn't this hit the same NULL af dereference in sctp_make_asconf(), and
-the same diag leak, that the commit message describes?
-
-Could pending deletes be tracked in a way the ADD-ack path can't reset?
-For example, sctp_asconf_param_success() could skip entries that are
-SCTP_ADDR_DEL. Or the survivor check could look at the queued and
-outstanding DEL params.
-
-[Severity: Medium]
-Is the keep-last branch really the same as the single-address case here?
-
-With this change, a second delete issued while the first DEL ASCONF is
-still outstanding goes into the keep-last branch of
-sctp_send_asconf_del_ip(), which does:
-
-			asoc->src_out_of_asoc_ok = 1;
-			stored = 1;
-			goto skip_mkasconf;
-
-sctp_process_asconf_ack() clears that flag on any error-free ack, even if
-asconf_addr_del_pending is still set:
-
-net/sctp/sm_make_chunk.c:sctp_process_asconf_ack() {
-    ...
-	if (no_err && asoc->src_out_of_asoc_ok) {
-		asoc->src_out_of_asoc_ok = 0;
-		sctp_transport_immediate_rtx(asoc->peer.primary_path);
-	}
-    ...
-}
-
-Take an association with [A(SRC), B(SRC)]:
-
-  bindx DEL A
-    ASCONF(DEL A) sent, A marked DEL
-  bindx DEL B
-    patched sctp_find_unmatch_addr() skips A, returns NULL
-    keep-last: pending = B, src_out_of_asoc_ok = 1, B marked DEL
-  peer acks DEL A, delayed only by normal RTT
-    A removed, pending B kept (no match), src_out_of_asoc_ok cleared
-
-That leaves the association with [B(DEL)] and src_out_of_asoc_ok == 0.
-
-sctp_v4_get_dst() then rejects every candidate source address, and the
-IPv6 version does the same:
-
-			if (!laddr->valid || (laddr->state == SCTP_ADDR_DEL) ||
-			    (laddr->state != SCTP_ADDR_SRC &&
-			    !asoc->src_out_of_asoc_ok))
-				continue;
-
-sctp_packet_transmit() drops packets when tp->dst is NULL.
-
-Keep-last relies on a later bindx ADD C to recover, by sending
-ASCONF(ADD C, DEL B). That ASCONF doesn't look like it can be sent
-either:
-
-  - C is SCTP_ADDR_NEW, so it can't be a source address without
-    src_out_of_asoc_ok.
-  - The transport reset block in sctp_send_asconf_add_ip() runs only when
-    asoc->src_out_of_asoc_ok is set, so it is skipped.
-
-Can the association do anything other than stall until the
-retransmission limits abort it?
-
-The clear-on-any-ack logic is older than this patch. Still, the commit
-message's "same as it already does for a single-address delete" relies on
-it.
+> spl2sw_probe() calls of_get_child_by_name() to obtain the
+> "ethernet-ports" child node and uses it as the parent for
+> spl2sw_get_eth_child_node() in a loop, but never releases
+> the reference, leaking it on every probe (and on every
+> goto error path).
+>
+> Drop the reference with of_node_put() once the node is no
+> longer needed.
+>
+> Signed-off-by: Zhao Feng <zhaofeng2@cmss.chinamobile.com>
 
 [Severity: Low]
-This isn't a bug, but the header comment of sctp_find_unmatch_addr() still
-says:
+Should this have a Fixes: tag? The of_get_child_by_name("ethernet-ports")
+call in spl2sw_probe() arrived with the original driver:
 
-/* Find the first address in the bind address list that is not present in
- * the addrs packed array.
- */
+Fixes: fd3040b9394c ("net: ethernet: Add driver for Sunplus SP7021")
 
-With this change the function also skips SCTP_ADDR_DEL entries. It can
-return NULL even when an unmatched address exists.
+> ---
+> Verified against current tree. Leak found by code inspection
+> (OF reference-counting audit of spl2sw_probe()).
+>
+>  net/ethernet/sunplus/spl2sw.c | 2 +--++
+>  1 file changed, 2 insertions(+), 0 deletion(-)
 
-Should this comment be updated? The same applies to the "Find one address
-in the association's bind address list that is not in the packed array of
-addresses" comment in sctp_send_asconf_del_ip().
+[Severity: Low]
+This isn't a bug, but the diffstat doesn't match the diff. The patch
+changes drivers/net/ethernet/sunplus/spl2sw_driver.c, and
+net/ethernet/sunplus/spl2sw.c does not exist. The bar also shows
+deletions, but the diff has none.
+
+Was this diffstat written by hand rather than generated by git
+format-patch? With the error paths noted below, is the "Verified against
+current tree" note accurate?
+
+> diff --git a/drivers/net/ethernet/sunplus/spl2sw_driver.c b/drivers/net/ethernet/sunplus/spl2sw_driver.c
+> index b5ae950f6d5b0..ce1045813f9cc 100644
+> --- a/drivers/net/ethernet/sunplus/spl2sw_driver.c
+> +++ b/drivers/net/ethernet/sunplus/spl2sw_driver.c
+> @@ -476,6 +476,8 @@ static int spl2sw_probe(struct platform_device *pdev)
+>  		spl2sw_mac_rx_mode_set(mac);
+>  	}
+>  
+> +	of_node_put(eth_ports_np);
+> +
+
+[Severity: High]
+The commit message says the reference leaks "on every goto error path".
+Does this release cover those paths?
+
+Only a normal exit from the port loop reaches this of_node_put(). Three
+exits inside the loop jump straight to out_unregister_dev:
+
+drivers/net/ethernet/sunplus/spl2sw_driver.c:spl2sw_probe() {
+    ...
+		ret = spl2sw_nvmem_get_mac_address(&pdev->dev, port_np, mac_addr);
+		if (ret == -EPROBE_DEFER) {
+			goto out_unregister_dev;
+    ...
+		ret = spl2sw_init_netdev(pdev, mac_addr, &ndev);
+		if (ret)
+			goto out_unregister_dev;
+    ...
+		ret = spl2sw_mac_addr_add(mac);
+		if (ret)
+			goto out_unregister_dev;
+    ...
+out_unregister_dev:
+	for (i = 0; i < MAX_NETDEV_NUM; i++)
+		if (comm->ndev[i])
+			unregister_netdev(comm->ndev[i]);
+
+out_free_mdio:
+	spl2sw_mdio_remove(comm);
+
+out_clk_disable:
+	clk_disable_unprepare(comm->clk);
+	return ret;
+}
+
+None of these labels drop eth_ports_np. Doesn't the reference on the
+ethernet-ports node still leak whenever one of these gotos is taken?
+
+The -EPROBE_DEFER case happens routinely. of_nvmem_cell_get() returns
+-EPROBE_DEFER until the nvmem provider binds. Each deferred probe retry
+would then leak one more reference on the node.
+
+Could this use an unwind label that drops eth_ports_np before falling
+through to out_unregister_dev? Declaring eth_ports_np with
+__free(device_node) would also work.
+
+The next leaks are pre-existing and were not introduced by this patch:
+
+- spl2sw_get_eth_child_node() returns early from inside
+  for_each_child_of_node(), and the port_np reference it returns is never
+  released.
+- phy_np leaks on the error exits.
+
+Would a respin be a good time to fix those as well?
+
+>  	/* Find first valid net device. */
+>  	for (i = 0; i < MAX_NETDEV_NUM; i++) {
+>  		if (comm->ndev[i])
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127065017.2922776-1-bsdhenrymartin%40gmail.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127074228.268-1-zhaofeng2%40cmss.chinamobile.com
