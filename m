@@ -1,80 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.185.148
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795824708;
-	b=X3tt1TftuXR4TLQZf7H6JAt7CUemvwAhHJKnEkhXq6SdmTdjrWFKkLByL6b14wTu1JEk
-	 FFXCI5iwUBVpy3joF5ZCA9OBto6qfGItlGnsGWeEV00miPG8MLqgKpIEOM2wxXJd0vMRM
-	 vHkRIo+t62fzwshnNwKUyq8YLjyXgrVGfGjyfA4qTExfIGK9AWvKJurt6Df8LOWlrLe+O
-	 S9MPrKjm/hQtB+J16sbrWtr/2d8fHRy6XYYBeb46mnhyiRoBUALZg6TlSZkvszNCgAx2U
-	 BksULy4nNeD3J/JJTYFeRFuFvsfCqkqMvMrVczUrBbuU1FJD1QZYOQvm6fbaInt0QnQ==
+	t=1795825498;
+	b=c3wcQWJyZe2joeNlzlKEhAN9fPDOHpUf9TSjTIcLRBWNKUOeljF1SOQ/WYoOe0akYq7D
+	 bRPt9gDyCxFFE12rjaBjTyUYl1kOkAXoXQmCFMw/YLetNsyA25JD6tmj1nqwuZ7ipdEh0
+	 7U1aGwGQxp3mEaGWRDfzL8mKmV/Id03aDXTcEBi+vi6VwmeISsUXIm9h6ERR6kRhdqOSK
+	 OQMv02M6FOjd4Ty7i35sbsdvWrspd28usgQ28nUrcFkVnRffQCTgCNSgF6R/ebHVqLg8T
+	 wPbaiaU17mIxAkDvHOgTXO2QcEEMjPe45atSab08pIhprdk2j/LHv+b7uMXJJD7Vssg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795824708;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Mailer;
-	bh=syl8z+fGJReCETcQSL1fbSQ4yMhWfwJdu8YJxP6hi/c=;
-	b=Q7zwoFqCq2jyD8iXXaDfkom1uUVgK8aH3VaTI8u/QLyU0vGRzYKA9ZmBCIyybp0ECJFo
-	 N5gpevhg5vY1t0A0D7lenvTrzXBASytLQMXZ6yEiS1INDQKWy6L7roFOvo4Hhgb3vytCj
-	 pXCVnd5VxSc+btkkGK7+7FZpGjQVj4nvp1eHaiiVQShb8qKI44Yf0q2VAXGlVh+2Q4TsL
-	 AluYHNmeMLtVMTtGlfywiesEALy0Zg/WKJJuKTAg5Nd4npWDf7KNiuiLGrmvWCVKW7Abx
-	 uI1tqG/3mknqrzGBM6HS3rLYaPRGhsW2ciubG3QQWt9/7kvOuTB0hSMe7ujvo78oVLg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795825498;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=09L5HUBZ1BCUQ/t+HM1IWNj9IGTex2TWwdvNuHDcgtE=;
+	b=crBt1jTij/B6VXWJRLO53mnUCzVpeZv4m0gbgXMHQsLXZgmo4SVHZS3uiPp+WXJWpyMW
+	 3n9P8pI2hm9S3e5ptUmILllEJU1LzTM7xhK1YHd7efRTYJhqbJPRLXaj8j8hmFfOSqqLa
+	 ny7ZPXeZ+HpOetn3OLQ5xLmP0q56XMMsjPXew1xQacJLdITT/vPzd/18xgqFPE4KV0af8
+	 wOejdx3uEjeGvtlAVKPfr0W3nP1x1Apd6uWg5RIJw1gtHspLnJNbaFMKt8xWK+F/BLWu7
+	 4rwXQetOhZdhbqYnrR03BRHbZjAYEi01IvyEJGFE8sy24UC20OWMrToaRndG97Eb0mA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.com;
-	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=R6EuRgJN;
-	arc=none smtp.remote-ip=66.163.185.148
-Received: from sonic305-22.consmr.mail.ne1.yahoo.com (sonic305-22.consmr.mail.ne1.yahoo.com [66.163.185.148])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D7DA+YQU;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4502606A31E
-	for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 00:11:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4502606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39F79606A31E
+	for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 00:24:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=R6EuRgJN
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795824707; bh=syl8z+fGJReCETcQSL1fbSQ4yMhWfwJdu8YJxP6hi/c=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=R6EuRgJNEFvB9uYCk7iVFOzc+rq8fFO9l1sQCvI1nifYPCL7g8A+MWDVwwGWp42IZ2zkhDoPS1Lys+RGEgBVeUGx23O50pjt0iCnrj3Xi6vNxtFAiIDXYaPHop/4Biu42nwLZxRRv4c3HdRTrqCcGUTX3txaF1WLcRXr7q0oaiOHKsCq7IAS5qxp+vO4ofEVjaEXIOZncU8Hd1LkRqXFZmKs8wEVksAzVi5k0abRP4GT1AlYMpZChHF7fB6dc54C0LClGKN3HCn/sPwLXmixDYiZ4SinQ2ahTo4fN5dfFi65lSXLzdKHDzGFKc5gpFsLAzV+X7LbeFSv2HbfmHXQCw==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795824707; bh=lcMRXOZMXQxMcR9LqBMiXNPzjcvyocncsAVh/MLXS2d=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=PZAor1I630VXAhA5FjPgvaMkJ5H936+sJesEl/tX1j6nO0I19VVFA9aJG4oSPV4r4DVTXCEYnh57dUW5J0Kn27HOr9v27Qzl0cgPjpbeAxtrwHdf7deE6X1s8EnSOGBoMqNORL9BSCKbSLtNFaVMyR4gvRv12F6JFXT/kc1VESdun5c6Zo/VEbC9wzI7gWIQgDuevMgVKkX0HiE4bm88ZgJ2MUT4gDWlEd0E/NWcM2QOU5fTCEM/am41rkCOCTJGig2yRuUgyPMOqVzs2MUUPtT658GKYMQjFz/Rmaes93OJP+eezwb5dpzKNOV2nupvyV18dV6zcWyKwW4tc3z9bA==
-X-YMail-OSG: .PGiI6QVM1n4._ho6S_BqqDvlgy.mxpMFtcPYzlrWdbDpIGIfSQKizEJBUVH1Dw
- 0tOIR.hS8LXisY6hzeDi9MizO1xByw7rHVrn3es33XR8h1Jb6q0FVaPADGpYZmnWNttPDPG1ahEG
- OyqfUsU.WU9bbKP5iKts6vdDEk8eCoTKRcwqjrYLKQ4yS8kr2iM1lIDcBqfploCs2E.tJLqURnwM
- WJP8P8GnInTe8ECeeNDPjtKFZy_sRq2VtAgURwFs2.fSpHJM54Gz.Roz8TOTNUzNxMrc24OxBdcR
- ssSzMySLN4ykGTRaWIrcTWgPgscYL31j9cpZwzoC3GmSOe8MPoO6pHFT9vjnsr06vj7ylxmlrp9v
- vwyVtTDcz_i8oRwEkh_P7YQaSGnyS1neIiX2V_3NpWHqdtUYSlTOzWz6dbNELvtL8aNcc3W_Awe.
- 9Emgbg1B2venv5XPtLOiVBvhPaTqqxj8ZLLYUqMPwgoObtO.BR0IYhPXYY_kDWrmazPy0CXbAjGv
- yBbF4NyuLeTNTDxRT0CQilhU6HTDd6MKzEXcovY6EBRQ.MhEcRIrVq3U9hFWoH9NXF2bLF3Ey6iU
- JOMZSRNnNGdjB8qHqh12RIXp5akcsyycN8YmT4heMX8rCJPqUzH9Sz5ck9TuyVaZX.R63ysC4dlR
- KF5JTBB.BcnGNjolPlAveanmJPeo.EtPv8L8N9hNC4K_iCcsV1DTF9kNAICURrOgSwy9H0kceaVu
- 7.jLVd2vMnmayLlHH89ynpQFiB1Cf5D3M8V4R1fhPd89gyfc9Gvw7AtXucECaODvCF0PaGnw.JzY
- VdnHfy3g5.kvkomW.yvWrdxYRcWP3RJVQAkAs5tZPgR37dhd_YEnKbHLuPpCceRHNxc.FnzN6CSf
- cEaysvug8xvb4hAWtpekwhvv5.54QVtclRPzphpkhTs8wciKtGqo7SDyS7JX8YjI_Z8M4DYkPdFn
- bEt9PqwKclwZ1PRfDx7.eH.wrfwKfHz2QQcr5NBKwgCEq.WeLi3tJ4VEbj3_UQLdOoir7.baik7Y
- QUrtn6ZsfSr0wNlEoUf_TXG8Bpc0C3z8dVy2BWM.GyyWWBuFhUmQimo6AbrZsBUFbduMzA1qjsqX
- 6DFOZfxRSE4G2N9SyPzb2135jbsnKxBb.HT9e1rCrRY2ZReZwqPgkn3nyFEEFPM1tLQdPF52mHvS
- ln.3JYFEsePG43CAoauHo.osaM5JOSC..jtyEemM.wK4bEt_AyCZ9QvCttI6m5vXnFfJO1qNxPf6
- VD8EUlgrS_qSekWCPz9yZXxyv4gazrQ1pg.5K8uvfd7lPJyR8NbNKCwZy.fefvrLzdh3saDuJuYD
- TcSFpVkL2k5t4m0WOTQ8wX9xWbKyrEUdhDbHPfVg0k.wzi4FO8qUwrWLMNRGnTiiLJfIQNzJga1L
- 1zkhE9HmOaUw8CLbKM8TT0FOzP5IEvSNcAUs3Qqu.JTiY8EikeZfCbGKlFXGtaEC81dDiR0TPd0W
- nhgFFv3Vs4KcWSiXT34gnLyWoCD__dJBauoajumXN4X330X205A4npIa1X1TPVNlduwbLc64ho6x
- v6oW_HT_Btq_FVE.DC8ht_ALuFrrNeA8zRbrB7ZpD8_E1ZaTmeAj32GPFTFzuTmZ2VBQDlzjDL2s
- WcrKzXfk.ngyM.klfJWJyCFUMdrt6kEMcWTOt3HK8dtTa3DvTtOpT5hL4N6q625xHzVLPF_YbJ6P
- h3sJb9MXvwaVDicMxIS2hvXgy4WU5sU9y7TiNULMNy64IyHSzQgZyF6cS1pdfXm.bcKNiSIVlZyV
- i1.mo3X3MWzz1aRmJVCJuuR86RLLztKMb9ujgFCdroF_L4jFqARxtL9_r96CoPMGiRE6dp3VHjab
- LUthQnHCax_T8xDmxBtkskFOxONPawzSDy0Il5_titZsti8xqWo7NiOhAeG6GQmco6d4bF1K3.Mg
- 8P728iDO7nJJ6whHQA9s8fOvTmBMZAlnuEeFs6EGcxk0z35x0runu_QV6wztQN9Ic8OZq7o8T7bi
- nFU9VcJhoIGvTZqHeZqJF6AZVsTp2pSiRIDJKLlZq.UQSvFp.hWqDwaTFzOH3Qq.72tUrfFYWl17
- 55ICMshLeYEM9.iZkSA18VnC2jaRV2GZN52kfKR3pR9Qss9NMDQaNpSp5OkXZMKoF0pnnkbPi9iP
- Om6iuwrVWLqFKvZCgzp7m9wge2Tw0g1oelEkCykqhwxIKQjyov0RhPiZjrm32UhlSHaDfpWUsKY3
- ZEpAvZBN4F1_bWoy42MACcSl7DvVVM75xLIIkJgRrJ5tkjoEpfVoM0bw6rEBwC.ZyAMBHkehQLk2
- zugLb3VvcB_0k4ihRqxJeFxYttd5ZU1scral98Kh4og--
-X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: 31a28056-8112-4000-92a6-24ece894b72d
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic305.consmr.mail.ne1.yahoo.com with HTTP; Sat, 28 Nov 2026 00:11:47 +0000
-Received: by hermes--production-ir2-7c4859dc89-qhgqd (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 5995495912d2a81d0473510ef3344d23;
-          Sat, 28 Nov 2026 00:11:41 +0000 (UTC)
-Message-ID: <53029d03-873e-4799-8982-290f4f912750@yahoo.com>
-Date: Sat, 28 Nov 2026 01:11:39 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D7DA+YQU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 263381F000C1;
+	Sat, 28 Nov 2026 00:24:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795825497;
+	bh=09L5HUBZ1BCUQ/t+HM1IWNj9IGTex2TWwdvNuHDcgtE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=D7DA+YQUc+Iys2PNYLV0X5cMtL87crcPRffaJ2xMo/8ESV8BK1IkasQMCp5roRz3w
+	 cUAkys3g92rXfItcs3r6G3jFUWJvtBs2J1P+kD68tHOSlKsvtCyNNXnhF24snOfHnE
+	 PtJG4up9FbCYqj+DAX2dyZx3+Drio6/ds74mV72nvO7/SZJJFPVCziYb64hhJt1HBk
+	 hnEK0BKNWzpcXt64Chp0pa25o9OqsK+ttBNepMuObfI5PqLh2hj1Gh1ToIiZm441uY
+	 Q2bWytahJGu9ANsNCHUjGj996nYVj2HGJxsDAlnsb78H2QmyQOXMHE/PdiRgbm+8zE
+	 pg+eQIM9RNwRw==
+Subject:
+ Re: [PATCH net] net/ncsi: validate GMCMA address_count against packet length
+From: netdev-bot+sashiko@kernel.org
+To: yuxiaozhang@google.com
+Cc: sam@mendozajonas.com, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, willemb@google.com, fercerpav@gmail.com,
+ horms@kernel.org, peter@pjd.dev, patrick@stwcx.xyz, netdev@vger.kernel.org
+Date: Sat, 28 Nov 2026 00:24:56 +0000
+Message-ID: <179582549670.3135.13198667418552327597@kernel.org>
+In-Reply-To: <20261124211830.3298822-1-yuxiaozhang@google.com>
+References: <20261124211830.3298822-1-yuxiaozhang@google.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,192 +63,181 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: [PATCH net-next v15 15/15] net: dsa: realtek: rtl8365mb: add support
- for RTL8367S-VB
-From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
- fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev,
- o.rempel@pengutronix.de
-References: <790b9ea4-09d9-4a57-a393-cf10d58ed8cf@yahoo.com>
-Content-Language: pl
-In-Reply-To: <790b9ea4-09d9-4a57-a393-cf10d58ed8cf@yahoo.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-Add the RTL8367S-VB (chip ID 0x6642, version 0x0010) to the chip table.
-It is the first chip of family D, whose handling was added in the
-preceding patches, so this is the patch that makes it reachable.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-The SGMII/HSGMII SerDes of this chip sits on port 6 and the
-MII/TMII/RMII/RGMII interface on port 7, as on family C, but the external
-interface indices are one lower (EXT0 and EXT1 instead of EXT1 and EXT2).
-Unlike family C, rtl8365mb_family_d leaves jam_table unset (NULL), so no
-family C initialization jam sequence is run during switch setup; the
-subsystems touched by family D program their required registers
-explicitly.
+Critical: 0 (1) · High: 1 · Medium: 0 · Low: 0
 
-The chip exposes seven ports, numbered 0-4, 6 and 7. This is described
-by port_mask in its chip info, as for the other chips.
-rtl8365mb_family_d selects the family D implementations added in the
-preceding patches: the force-mode configuration, the VLAN 4k accessors,
-the PVID handling, the L2 entry (de)serializers and the QoS priority
-numbering.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-The L2 learning limit is the same as on family C (2112 entries), as
-given by the Realtek rtl8367 common API (rtl8367_common V1.4.2), so
-RTL8365MB_LEARN_LIMIT_MAX needs no per-family handling; only its
-comment is updated.
+- [High] The patch does not close the GMCMA out-of-bounds read it
+  describes.
 
-Tested on a TP-Link Archer AX55 v1 (RTL8367S-VB, CPU port over HSGMII
-(2500base-x) to an IPQ5018) with bridge VLAN filtering and per-port
-PVIDs, and on a TP-Link EX511 v2 (RTL8367S-VB, CPU port over 1G SGMII
-to an IPQ5018). RGMII mode has not been tested. See the cover letter for
-details.
+Pre-existing issues:
+- [Critical] This problem wasn't introduced by this patch, but the
+  sibling variable-length handler ncsi_rsp_handler_gp() (net/ncsi/ncsi-…
 
-Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
-Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
----
- drivers/net/dsa/realtek/Kconfig          |  3 +-
- drivers/net/dsa/realtek/rtl8365mb.h      |  4 --
- drivers/net/dsa/realtek/rtl8365mb_main.c | 55 +++++++++++++++++++++---
- 3 files changed, 51 insertions(+), 11 deletions(-)
+--
 
-diff --git a/drivers/net/dsa/realtek/Kconfig b/drivers/net/dsa/realtek/Kconfig
-index f1530ba..e366632 100644
---- a/drivers/net/dsa/realtek/Kconfig
-+++ b/drivers/net/dsa/realtek/Kconfig
-@@ -35,7 +35,8 @@ config NET_DSA_REALTEK_RTL8365MB
- 	depends on NET_DSA_REALTEK_SMI || NET_DSA_REALTEK_MDIO
- 	select NET_DSA_TAG_RTL8_4
- 	help
--	  Select to enable support for Realtek RTL8365MB-VC and RTL8367S.
-+	  Select to enable support for Realtek RTL8365MB-VC, RTL8367S and
-+	  RTL8367S-VB.
- 
- config NET_DSA_REALTEK_RTL8366RB
- 	tristate "Realtek RTL8366RB switch driver"
-diff --git a/drivers/net/dsa/realtek/rtl8365mb.h b/drivers/net/dsa/realtek/rtl8365mb.h
-index 4ebc46d..e3d5b07 100644
---- a/drivers/net/dsa/realtek/rtl8365mb.h
-+++ b/drivers/net/dsa/realtek/rtl8365mb.h
-@@ -71,10 +71,6 @@ struct rtl8365mb_family_info {
- const struct rtl8365mb_family_info *
- rtl8365mb_get_family_info(struct realtek_priv *priv);
- 
--int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
--				     bool link, int speed, int duplex,
--				     bool tx_pause, bool rx_pause);
--
- static inline bool rtl8365mb_is_d(struct realtek_priv *priv)
- {
- 	return rtl8365mb_get_family_info(priv)->family == RTL8365MB_FAMILY_D;
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
-index 81c35f4..d84b27b 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_main.c
-+++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
-@@ -89,6 +89,14 @@
-  * things will work out-of-the-box for other chips, and a careful review of the
-  * vendor driver may be needed to expand support. The RTL8365MB-VC seems to be
-  * one of the simpler chips.
-+ *
-+ * The RTL8367S-VB (chip ID 0x6642) is not part of the family listed above. It
-+ * belongs to a newer generation, which this driver calls family D. Its
-+ * registers differ in the VLAN table, the external interface speed and RGMII
-+ * configuration, the SerDes, the L2 lookup table (FDB/MDB entry layout, no
-+ * EFID, LUT configuration registers) and the table access control register,
-+ * so the code paths specific to it are selected with rtl8365mb_is_d() or
-+ * through struct rtl8365mb_family_info.
-  */
- 
- #include <linux/bitfield.h>
-@@ -119,9 +127,9 @@
- #define RTL8365MB_NUM_PHYREGS		32
- #define RTL8365MB_PHYREGMAX		(RTL8365MB_NUM_PHYREGS - 1)
- #define RTL8365MB_MAX_NUM_PORTS		11
--/* Valid for the whole family except RTL8370B, which has 4160 entries.
-- * RTL8370B is mentioned in vendor code but it might not even belong
-- * to the same RTL8367C family.
-+/* Valid for the whole RTL8367C family (and for family D, RTL8367S-VB)
-+ * except RTL8370B, which has 4160 entries. RTL8370B is mentioned in
-+ * vendor code but it might not even belong to the same RTL8367C family.
-  */
- #define RTL8365MB_LEARN_LIMIT_MAX	2112
- #define RTL8365MB_MAX_NUM_EXTINTS	3
-@@ -824,6 +832,10 @@ static int rtl8365mb_c_ext_config_forcemode(struct realtek_priv *priv, int port,
- 					    bool link, int speed, int duplex,
- 					    bool tx_pause, bool rx_pause);
- 
-+static int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
-+					    bool link, int speed, int duplex,
-+					    bool tx_pause, bool rx_pause);
-+
- static const struct rtl8365mb_family_info rtl8365mb_family_c = {
- 	.family = RTL8365MB_FAMILY_C,
- 	.jam_table = rtl8365mb_c_init_jam,
-@@ -845,6 +857,24 @@ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
- 	.qos_set_untag_pcp = rtl8365mb_c_qos_set_untag_pcp,
- };
- 
-+static const struct rtl8365mb_family_info rtl8365mb_family_d = {
-+	.family = RTL8365MB_FAMILY_D,
-+	.ext_config_forcemode = rtl8365mb_d_ext_config_forcemode,
-+	.vlan_4k_read = rtl8365mb_d_vlan_4k_read,
-+	.vlan_4k_write = rtl8365mb_d_vlan_4k_write,
-+	.vlan_port_get_pvid = rtl8365mb_d_vlan_port_get_pvid,
-+	.vlan_port_reset_pvid = rtl8365mb_d_vlan_port_reset_pvid,
-+	.vlan_pvid_port_set = rtl8365mb_d_vlan_pvid_port_set,
-+	.vlan_pvid_port_clear = rtl8365mb_d_vlan_pvid_port_clear,
-+	.l2_entry_size = RTL8365MB_D_L2_ENTRY_SIZE,
-+	.l2_data_to_uc = rtl8365mb_d_l2_data_to_uc,
-+	.l2_uc_to_data = rtl8365mb_d_l2_uc_to_data,
-+	.l2_data_to_mc = rtl8365mb_d_l2_data_to_mc,
-+	.l2_mc_to_data = rtl8365mb_d_l2_mc_to_data,
-+	.qos_iprio_to_hw = rtl8365mb_d_qos_iprio_to_hw,
-+	.qos_hw_to_iprio = rtl8365mb_d_qos_hw_to_iprio,
-+};
-+
- /**
-  * struct rtl8365mb_chip_info - static chip-specific info
-  * @name: human-readable chip name
-@@ -935,6 +965,19 @@ static const struct rtl8365mb_chip_info rtl8365mb_chip_infos[] = {
- 		},
- 		.num_tx_queues = 8,
- 	},
-+	{
-+		.name = "RTL8367S-VB",
-+		.chip_id = 0x6642,
-+		.chip_ver = 0x0010,
-+		.family_info = &rtl8365mb_family_d,
-+		.port_mask = PORT_MASK(GENMASK(4, 0) | BIT(6) | BIT(7)),
-+		.extints = {
-+			{ 6, 0, PHY_INTF(SGMII) | PHY_INTF(HSGMII) },
-+			{ 7, 1, PHY_INTF(MII) | PHY_INTF(TMII) |
-+				PHY_INTF(RMII) | PHY_INTF(RGMII) },
-+		},
-+		.num_tx_queues = 8,
-+	},
- };
- 
- enum rtl8365mb_stp_state {
-@@ -2018,9 +2061,9 @@ static int rtl8365mb_c_ext_config_forcemode(struct realtek_priv *priv, int port,
- 	return 0;
- }
- 
--int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
--				     bool link, int speed, int duplex,
--				     bool tx_pause, bool rx_pause)
-+static int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
-+					    bool link, int speed, int duplex,
-+					    bool tx_pause, bool rx_pause)
- {
- 	u32 r_tx_pause;
- 	u32 r_rx_pause;
+net/ncsi: validate GMCMA address_count against packet length
+
+This patch adds pskb_may_pull() and NC-SI length checks to
+ncsi_rsp_handler_gmcma(), so that address_count can no longer index past
+the received data. It also unshares the skb in ncsi_rcv_rsp() with
+skb_share_check(), and logs nrh->type instead of hdr->type after the
+handler runs.
+
+> diff --git a/net/ncsi/ncsi-rsp.c b/net/ncsi/ncsi-rsp.c
+> index 33921dc169e3d..df915fdbbf276 100644
+> --- a/net/ncsi/ncsi-rsp.c
+> +++ b/net/ncsi/ncsi-rsp.c
+> @@ -1085,8 +1085,19 @@ static int ncsi_rsp_handler_gmcma(struct ncsi_request *nr)
+>  	struct sockaddr_storage *saddr = &ndp->pending_mac;
+>  	struct net_device *ndev = ndp->ndev.dev;
+>  	struct ncsi_rsp_gmcma_pkt *rsp;
+> +	size_t hdr_len, needed;
+>  	int i;
+>  
+> +	hdr_len = offsetof(struct ncsi_rsp_gmcma_pkt, addresses);
+> +	if (!pskb_may_pull(nr->rsp, hdr_len))
+> +		return -EINVAL;
+> +
+> +	rsp = (struct ncsi_rsp_gmcma_pkt *)skb_network_header(nr->rsp);
+> +	needed = hdr_len + (size_t)rsp->address_count * ETH_ALEN;
+> +	if (ntohs(rsp->rsp.common.length) < needed - sizeof(struct ncsi_pkt_hdr) ||
+> +	    !pskb_may_pull(nr->rsp, needed))
+> +		return -EINVAL;
+
+[Severity: High]
+Do these checks run too late to stop the short-skb out-of-bounds read
+that the commit message describes?
+
+GMCMA is registered with a variable payload:
+
+net/ncsi/ncsi-rsp.c:ncsi_rsp_handlers[] {
+    ...
+	{ NCSI_PKT_RSP_GMCMA,  -1, ncsi_rsp_handler_gmcma   },
+    ...
+}
+
+So ncsi_rcv_rsp() takes the payload length from the packet and passes it
+to the validator before it calls the handler:
+
+net/ncsi/ncsi-rsp.c:ncsi_rcv_rsp() {
+    ...
+	payload = nrh->payload;
+	if (payload < 0)
+		payload = ntohs(hdr->length);
+	ret = ncsi_validate_rsp_pkt(nr, payload);
+    ...
+}
+
+The validator's length check compares hdr->length with itself, so it
+always passes. The validator then reads a checksum word at an offset
+derived from that length, and may checksum the whole range. Neither step
+is compared against skb->len:
+
+net/ncsi/ncsi-rsp.c:ncsi_validate_rsp_pkt() {
+    ...
+	pchecksum = (__be32 *)((void *)(h + 1) + ALIGN(payload, 4) - 4);
+	if (ntohl(*pchecksum) == 0)
+		return 0;
+
+	checksum = ncsi_calculate_checksum((unsigned char *)h,
+					   sizeof(*h) + payload - 4);
+    ...
+}
+
+For example, take a 60-byte GMCMA frame with address_count = 255 and
+length = 1538. It passes the new length check here. The checksum load
+lands about 1552 bytes past the network header. That is beyond the skb
+data and beyond the 1536-byte ftgmac100 RX buffer.
+
+With length = 0xffff the read can reach about 64 KiB past the buffer,
+which can hit unmapped memory in softirq context. If the out-of-bounds
+word is non-zero, it is also printed through netdev_dbg().
+
+The pskb_may_pull(nr->rsp, needed) above fails only after that read has
+already happened.
+
+Would it be better to check or pull sizeof(struct ncsi_rsp_pkt_hdr) +
+ALIGN(payload, 4) bytes in ncsi_rcv_rsp() before calling
+ncsi_validate_rsp_pkt()? The new skb_share_check() makes a pull safe at
+that point.
+
+A central check would also cover the other payload == -1 handlers (OEM,
+PLDM, QPNPR, SNPR, GP). With it in place, this handler would only need to
+check address_count against the length.
+
+> +
+>  	rsp = (struct ncsi_rsp_gmcma_pkt *)skb_network_header(nr->rsp);
+>  	ndev->priv_flags |= IFF_LIVE_ADDR_CHANGE;
+>  
+> @@ -1174,6 +1185,10 @@ int ncsi_rcv_rsp(struct sk_buff *skb, struct net_device *dev,
+>  		goto err_free_skb;
+>  	}
+>  
+> +	skb = skb_share_check(skb, GFP_ATOMIC);
+> +	if (!skb)
+> +		return -ENOMEM;
+> +
+
+[Severity: Critical]
+This isn't a bug introduced by this patch, but ncsi_rsp_handler_gp() has
+the same kind of packet-supplied count problem. There it also writes past
+heap allocations. Can a GP response overflow ncmf->addrs and ncvf->vids?
+
+GP is also registered with payload -1, so its length is never bounded.
+The handler loops over u8 counts taken from the packet:
+
+net/ncsi/ncsi-rsp.c:ncsi_rsp_handler_gp() {
+    ...
+	for (i = 0; i < rsp->mac_cnt; i++, pdata += 6) {
+		assign_bit(i, bitmap, enable & (0x1 << i));
+
+		memcpy(&ncmf->addrs[i * ETH_ALEN], pdata, ETH_ALEN);
+	}
+    ...
+	for (i = 0; i < rsp->vlan_cnt; i++, pdata += 2) {
+		assign_bit(i, bitmap, enable & (0x1 << i));
+
+		ncvf->vids[i] = ntohs(*(__be16 *)pdata);
+	}
+    ...
+}
+
+ncmf->addrs was sized from the earlier GC response:
+
+net/ncsi/ncsi-rsp.c:ncsi_rsp_handler_gc() {
+    ...
+	size = (rsp->uc_cnt + rsp->mc_cnt + rsp->mixed_cnt) * ETH_ALEN;
+	nc->mac_filter.addrs = kzalloc(size, GFP_ATOMIC);
+    ...
+}
+
+ncvf->vids was sized from the vlan_cnt in the GC response. GP never
+compares its own mac_cnt or vlan_cnt with those sizes. So the memcpy()
+and the vids[i] stores can write past the end of both allocations.
+
+bitmap points at a single u64 (ncmf->bitmap or ncvf->bitmap). When
+i >= 64, assign_bit() writes past it into the next members of struct
+ncsi_channel_mac_filter. That includes the addrs pointer, which the
+following memcpy() calls then use.
+
+pdata can also read up to 48 + 255 * 6 + 255 * 2 = 2088 bytes past the
+network header, beyond the 1536-byte ftgmac100 RX buffer.
+
+ncsi_rcv_rsp() picks the handler from hdr->type and the request from
+hdr->id. It never checks that the response type matches the command that
+was sent, so a GP-typed response to any outstanding request reaches this
+code. If GC has not run yet, addrs is NULL and the memcpy() would oops.
+
+[ ... ]
+
 -- 
-2.53.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124211830.3298822-1-yuxiaozhang%40google.com
