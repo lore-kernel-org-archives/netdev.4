@@ -1,80 +1,80 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.184.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795856704;
-	b=MWCubv6pLQEVH071HRgQSb0u5iLA8VGUbaRxQRapVYghWk7BA91IndoQcl4EfT3cVtKI
-	 hTis32bhEa88uW326pMyvGNIrmfcklbjsa4CuMCq88cwJEj/Wr+WdH1Q7pbPCRT194CNt
-	 x1ZKDHuOIFRTsS3KpOqPQ5M0EzY77BmPjicTrxCCDSqgvabwI8i29AlDpPmcQ686XAMDW
-	 3+4/Zh0z2r5yIHUGhA7/EknkC8ayAER3603rMsW+HJbvw7dGp1ogzzvUIIo2li80+oqTu
-	 a35ujbvvKmAivtVL/E2xXhgqwsRNLQNH9opxU/pUiH2kPY6o7SDi+ljVGbbQkuwmI3g==
+	t=1795857249;
+	b=iKMKZUI2inRwdqCJIeCOphq+qgDAmE7q1TKwnF7DVMasVoodV5FTVIXUQVt7BmUKhPeN
+	 hm+9serF98I4V+nkgaYNCiR2vX0JQNTOYOdU/Ayy+31jTGwRzeJxaWFo2j37BaOoXTEiC
+	 RYsqZleO+QSOX/FsrM2CwLp5h4jqgRt1I4kUMrPUg8yc5sEI6R2q+cSVio1nTlHwG3Hnc
+	 4o14b5g42Ek3vwGGGOYkyY6+PsNuPZWQGqfYniUh7aX88IR9Ip1Zowst5EyjyhWzeWvS0
+	 HC7zIH6kguAKQladGAUJAIMRh77fiO2Rvr1YPJ6LvwSJA/dwV4ug4fSUYWru07tWhcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795856704;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795857249;
 	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
 	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Mailer;
-	bh=Ws1sPlRhEyO0CsA3PQRzDm2gcjCnVnMcPxGK28A0+7c=;
-	b=UCex8YY1ZLQujZECafLACn5P5AhWVQBuZ0MwqBdHrAnjOnRMh32dUGyk805a1x7iHQw/
-	 5IepP3YXNthyP38lKsr6cOwKc6ZSvQcq28vZsybYP2MOeaOmyxs+uMuGtmwRX0kqoRTmZ
-	 3B3u2a1PprEnVW43jEDs0Yb2kwr1sbicsImqVkI3R3nSci7k8WfWmM/odaUvhN3BOXzVy
-	 iNGWWpaJpQIbBPVhR2tHk9B155kIU1XFysMgpubkyovGDnBnRnY1oXu0Y+lPTkr6YGM2c
-	 B/SZq954vl+8S8J7/CgQdtEIJiYqpLI0lvY3MF/XZFdCaoozw2a9BA/5Thx8RvgEVIw==
+	 Content-Language:To:Cc:From:Subject:Content-Type:
+	 Content-Transfer-Encoding:References:X-Mailer;
+	bh=GX2Rf7/hfUCqlpu4BsYl1qE6pH500A8R/ALqqh3LuPg=;
+	b=aaHQNv9IxyGdl1FbzJKey9//R5S3/MNsMA5kxT6ziste6Cp5u7NhzZ+8eqEWam0vD79i
+	 4QioguFWnsAaps/15zCwHmj+QiSytS2GZYvuxvE+yzOT6DQ0SNSs3fw+4ZtlbbWl31RcE
+	 EIUXSPondTJ8wiy7h2CSfqDTM7gAGFQy0mlm191icHOWtc/5c28bDT4XEHpnO+Tau6PCl
+	 MXtLu3FqGXnr3lSHhfDgepAigBIpcMx+JKquTpNO/81wRHvso9XbHGEus7sQBfzzWt7au
+	 HInyJ32zT8kx5l79eF28aReo1syG0GjrEzNgAhBfVg4+IJidDC43rFaGLj5alfDdtgQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=yahoo.com;
 	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=ljty4lfS;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=WaKepx2c;
 	arc=none smtp.remote-ip=66.163.184.200
 Received: from sonic301-31.consmr.mail.ne1.yahoo.com (sonic301-31.consmr.mail.ne1.yahoo.com [66.163.184.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35FEF606A31C
-	for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 09:05:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35FEF606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E91F606A324
+	for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 09:14:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E91F606A324
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=ljty4lfS
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795856703; bh=Ws1sPlRhEyO0CsA3PQRzDm2gcjCnVnMcPxGK28A0+7c=; h=Date:Subject:To:Cc:References:From:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=ljty4lfSuHR8WakW4jAflCYCCBySOdeKiwKzjOhjuwMS1EuTOhQ16FlIGxcg7tLbUN1TS4PyFxHNwzFjIr7Aj8tKHrEKfOmal2ixyUKCljEhnNwpcHw/ilwDGXas1f1ZK0dYq4DTC3EYxEieQZVc/60i2Q/j9BkjmHb9iUN5ocbxkD3nrElLfzu22ZB1/+Xs6hYhOyMZHRdq8uYMamADIbhJEFtH9E89VldT3xixeJWGDOFe3XoUtA5riLOMVErXOtSFs+Iu42Xojia+oeoZj/UHVF5JFZiM7tg67Npc0ZJ2E661hk1AXuzZrsz9nNbtNAzLETjUpSnn+6Qa7q8/Vw==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795856703; bh=/QklLCAkD7T02GY6P+2YhS0+rMn0peNE2vF1O3BA3vL=; h=X-Sonic-MF:Date:Subject:To:From:From:Subject; b=KbhGJZUEuDsrSyQaU4MwTpJ/SB7tw/ebFp2IdCPVApZxb5YQtUH91flDOAtbBR9N1fIdVAd3y1N87HZjNteM2uZDsZHyBhWyM60uwbZHoOMPwTMtWXQRpHe7EKagmwl8uv1+bZuQqlX8IqVWvDvQQnOMiQ+QhB56SGDYthWvQs62444X1xeXIcUKH6f5sMYMTmmAWES3xj3aU0ndgUyfx++F576v2OKIfchkwR61V1wFBnalS9dDOZzhD51iVMiGpumyDAjraUYMaM/ekykCklYpe1H7SUayoS/i7qVdwWEIQiqwQRY1FOe6gEddp1gvZD3FoEmOGzNnX3+3sGQ8qQ==
-X-YMail-OSG: BSR0cucVM1nQKLLehYtnDu.DS.pnXDk_rdh4pomyQet4aG5HzOqgo0xUa5BeQt4
- XUpj5s28Qp.JzXcdFccdAsQOxxUbq3DL48PQVLfywlrU8K6MpiMZjWC0sIbxkiemOrVRko9tkIMG
- gcvw8gIYHVuRpRQCr1ZyY2RhS8XpVlQ66T2U26a2fVkFlUfF.JvGP9k3PchOE_vk1_zmKsoinhP8
- pr1eyWc61uhN8UhFOjV6fRROS4eJw1sSOW6HdY2aTbeS7cPMRdvoswY9OqPCJ8HiTW1Oal2wJh8M
- d9fKGrm6bJ893IJ0AnOY6GCUzG9YbtJg._iZ86EKVBxcISOGBLYB.gHLYOjpZ6ZafhQQyo4a6wp6
- xmO.RltXqbaQiNJMDm1neNGZZ5OlE3LpCn0etHr14NqYTAHXbr4Q2LsuLz1LQPbSBro5IqnUVtO6
- L1Kby39WC.D1plGQlMW9WklTNDGfO088c57PcMtJ_SSOZ0NMA3pKYsjOoOi2c4gQRI2YMudjdrG1
- OVfBGrJ1Oxx7i5CU5Grnp8M97rM2R1iuMEOeQ8VmKJjFKYShoFlQri3Grxv4Gvm8JG.ZiDv995Wt
- 3NqfGOKTp6zLVWWDbVqQ8DZkcNP4uwMscKcZ2aWo5y4ufaE76m.SaXoXVuULWG1rkfssQdjcL5WJ
- UqIBe_odQTNa4cIJxyFj7of9OEtnYcf0CRpZlZLUk18b_lnTrfWcm8yoUZBZk5Ylo2OPeTmqpvWF
- aVJuQ2pvxpdzZ44QF.30faHYrSCPCPrqBRH4KvM3ehKhqG0dGntB9QaGAU.9wDoOyppfPGZM9pW3
- OsFC9sTkeyTGx1lwci95SQ_y1u0.3b2f4tNPmfJ7AofbiWyRRons11Zlyu2fISKbp6lOx4MMSkve
- PybMyxZtQ5CvZE1ogB2QUrKdFyMdYOBGy9UWoaBleQJVGv8DfTjVmJYdZmhqCmNSDx2V470B4DBQ
- 3GHBBCsVNDFV_ukQrVih0Dg2CrcWpSV2w.9hg_8CqHVKzLKkqe5TTVN4beGyy3W7TSeJLrWZ32V9
- NBr0_KDdpXT6re_p90ztZ8LiL05MkqSArJt5FbN8zKqSpR_Bq70oGF2oCI4iQCsm6Y7UCxhFyMhY
- KaMMEu1klUlEBf9V5m75n56kWONvBS.j8rQ22SirT4y4gbpY0zyy9ra.TBqLkAll2wykhDM..5y2
- 8KPjyViGrEYPByLJJSmLxRitw1l.3oOmjHM8WmCBrmWSm6s7_BiVY5JkAhNNszpT9kVb_unyQQoi
- QsXV..wAPDLC58kXpGhIZFagQ.ZYgAn7ICPvqFy_sGaVpiVuC7zQukGNeP8QIwMyVEB0hb3F1riA
- xTbxnVLYdHvkvO4KNwiGqv3R2ICYGNBSKarZtz2kXANHKQ02fUN0YvzVy.H5HwaA9agqQKjO3LyJ
- EWieP3eGhDjsfIXeRJSw9wkuI_y8G_v6utabBUcbu9Z5RbSLCx1B7Nuf__V22gGona5M1naV81Sc
- FOYizUteFIcd0hw4n.JzOwa2W7nJRfdRVvAANGJBGyeQifbjuxr6ckIS4kUJ.YztyxjXvoFmC.Jo
- ByajX4UoGnow711SwQD0BSZ2_.1WxQxmmfhuXoB0dvcB.SDi3ZiqYgmnd38PwTuQle2DExnhtqC0
- LAxIR02mYUsrCgbCCjQKAYWH6VtpkJ697y9TAgNFaHcZeTuhGy2Xa1TTZgDDVqtzD_1koTx7rWHZ
- YH_AbQFPhhrNS5sqqZ25nQZb.bKnwOelpz8HOb3M4vgZYt3jeLPecE_s_HHGXWs.L5zANDgP8wPa
- L4Ol3LSBpXQZgEuBqns70fT3kQpT9F.7MVuxT91l33NeKUWtMZ4VgN1twq0jFToh9apo7Wo_HeIR
- ukwg.5RyFApFTWK0ckmHQ7czn.1GhdtnrgZcouZjpmqTViZQhKX7rYOT.g0PL6p01xuYVAvPfEjH
- 1ElZmIVpzuxkKmte.TdpFSv8D7Eo5xnUtgjsyOIATTSgXgYnG260y67f8ZYAsUf4KF8i2VyspwST
- WxXQJW1UgkouPcz8Tixbi4OtzB9aqSm30iJCKQEcSUJPnkBaF454W3faTPrEvRa97Sj.WYx4b7tM
- sSQjiC9GqCw0DuROdwU55ZMgmksf5RMBrkd29o7cdRBhNenPwPbEQHiZ1pgGmPIz0kt7uw1A.uR4
- gxYfyAkyZnBu3dq15v.pydQDa5haBnrc6voxNI6TOkROo9ia40RIVFeWo9rbnMguQEHD9QKhdjet
- CyOhGQSPa6H9kVdBGWLwd4qk4s3JWWB9eIKWi6O5P73cBUAI_GZssHCcn75T8d.w169Cccn6EfBv
- CYYj5jFnM6mNdviLPn.OBDPlbTTsHv82h9eNZeU_JYoeqqeGM
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=WaKepx2c
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795857248; bh=GX2Rf7/hfUCqlpu4BsYl1qE6pH500A8R/ALqqh3LuPg=; h=Date:To:Cc:From:Subject:Content-Type:References:From:Subject:Reply-To:Content-Type; b=WaKepx2cJ+ccQVZuIEENPmYgDI3tF2IvjzB4VkM+43Cr283WK55L4y5Qp9OwPeZ0SItaeMrigs0ChSbP5wT8XPq0LAwTiax7FKjTyNaQUGsKg4DiqdCyughwp8xRMg7R7VPGZdHfnBL4YmYDXCUqJyqAzAeg0OhoYqK0aWHT1UJkNnNg3HZu+8nw4LMjQc/23wVs9YX22THc5/02aO3OABrhHz0vj1/P7MY0/0XwOX2E8j/anMTjewaSlqkcbY7a2UGW51vVZPLzaqPoQJm0r4TWzSX9sUeYzwZUnOUB6NwP6L5POxOS1f4NBYwips3UfhmHYuSBXL5sesLPBteHJw==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795857248; bh=ZWX0bifnsSUc08UUGD82fuTYGACN+zArMSdUlT3uiRa=; h=X-Sonic-MF:Date:To:From:Subject:From:Subject; b=DfWPgPimt4WCr2QhXObFeYdvAOxanPp8ufFqraiGK1hIU99KEkEbHSJnsjzyX6irLKI6fMe7g0IJAb4mRn+jXpdaoitAaXiRLFReF7XZT0Y1HTtqPMPAjPK1VBRJYJdOYKZByO6RYktT7y6HqUKVZk6umSr/XGON13wbnhkfaahpwHiATKX5fnU2OGiKNzpvRB1DIawDssHYHkejzvapREuOu5VXIJzOC5fcnQZSQxYrADMRBInMHji4pxW361aAag4aSGR478rm/tnnf41NF+JaDdNKHrQYyLjeQfrtWPp/zs9KGKva0Iy/w1yNmhdwRlGTD7GUThhy6LyRV5Lu/Q==
+X-YMail-OSG: RUjnEz8VM1kIoxmBZXGpaeLK2sWTUfUQt3iFVXMpVDG7ky1yFqLEYkQG9JYhnQx
+ 0nNGsO5kY7EZxKhLP1frEI2kpBYyyQnpfuMg6WrjbleOaRioP7XvaR.8E988r0Wp0QSUN6xtsgv3
+ lymhoLEUQXVW1ZIqlOeg9hvGTE4PmS7mWhjHkIbc_NYFPlTbODS5r36GlI_GiDBzKUo3qkjyPg1H
+ ZvXdxLhQIL_nWdjVdOrSJcB90k6pUxSku3mBo2RT3XzJHRdCZapmmba9AOskhnGv2HGFQdoacncf
+ 7zQItbFkLQBgTQTcGLm2JSOlcnD6FI.WPzFxlVT.TUvs8cEh5par22DxwSaYsmr_j7A7248Iiky1
+ wDKwIHJlyICwtbPi6ph9_NmXGBJEAU0wVAtSKzgDn1_o2g6SmWflx08C7hIEu79n23NDEnipfdam
+ PVax6RqBc17eViR2Wtq.6XQadMCZldRAezEd7QSwogn92iMNJRj9iXNNVMUnX8j1P7fEwm5.42r8
+ q.hx0Dh9A6cZKUiSrv5zA1RDJfm3I6JdbJs9s_WmmY_MEUhwPTlOSSJ7T6F1dmCYJCYOyiG3rGrR
+ 1OcmjTAKvSIQs7aJ.bi2C6rycFrYDeoJbeR_a9USsBtW8GR4OHS7cZfu0.5jkmXGiKXjGYnDWpLF
+ 2gjKDlpAC4kO0d0ycgF73.7.ypRgg6QT.LWsOCDzVTOlDofCr6cm.GKhvJkzK9JVfTynv5l3U2vq
+ 571bB5X.VUcfsRnvPzlc5g_Vm6PvYYXva6Ne0aTDl6pJWNuTejRoN7C0JHrknePydTA0y0.JsHV7
+ 6PiSc8Lbtb_topgfO0UHcG2Op_bcoAX8DjT6l.3S.1D2yCBqziPSIn6NqC9AYNisoMNJXgw0Y7VX
+ ZJUUtDR7xKsOcSsvU5ar5t8E445__proWex1I82wjhMKWYOcUJOpbL.jqYhrUDvU0ryXgoHomyht
+ OuDsqL9j8DJ3MaGtM9b3GAI55rhBP6ng1mob5XMvLrh.D75tJzdRUqCV3xTw3qYMBhkurRKiuNTv
+ A9WjHc6IaPA7FUo3DMb81E3FLlfSsAAcw6Hbc5wRo6h_w3mr1h3fEzorq7bb.omv3nQ9dmFj8xHi
+ cOpL0tpCpJlcPsTvGjmGYZz2Y8dTKjhAz._UKBNaHYioIFdtvMRYPXUjPcWv8pBphkVciN38ef4t
+ P2GbBWd3Km8EORjW14J7HH0NUo1mN.xWL8fD4jZfzzSb6.ULTI6uZuQlcqrCV8QFMKYLyKuXRVlZ
+ CbXxUnf2c8ctLp09bOUe5tUlLnJgeofC6CWh1Yr76OChcEQWtkMzOZWqmjjn2lF21X7uMRgSvOEW
+ 660VPdlOhdvmYcXfrMjxFcVynK5zHkyg_bZmBYJoPGoPSm7_xdbPAv.xPcjgHIHXUOYuf3fAWm2D
+ k9ZdGhj592a8aefi8W.fSRHJWcJoBtXY58zmQSm9Rc4yVI10X_bkenUqK0b3Hz1l9koLAkNiDxH2
+ ZVGLAU81auk3ERVQTpCAXuFvzTtKFB0EtdVnCKn6birM1g0frpM_KHemoBjZUUkgoIqulTxsIS1g
+ XHHnG0RV_qaqc3seoIPDMF_.3mS2T40V8T0I03HGH4eAfQBEdYJN.iYZ_Zy3k.rFW6W1.EQaGPYg
+ Ha8E97qmwXR.S3ozWcy_SvoEyKHeORFoSbPwM3qjDgLrsrVKXrWkTA1QzFpReqrd53AYbSnTUUWP
+ bL6eWk.0dGvrKrJ_lHlo4GqZUT18_CDyIaeJX3Y30S43UR6U3u2WBwn.S5ihwreud19iJ0JtX.Jp
+ Cm5p9VG_MfQMGEFvHPCD0AUmWWeU7j1gg1IAYeJlf8CdOBuVRVhsynn8CCEuwbKmIyIzt2UsEFD2
+ QtF6oqqGEtNHNUqz6StzQIVXTamhPUHK07JilWAT3DfwJPX4YsdKKGvcEVaSqmX8JLwtNqZ9ND5N
+ QkVhcj5.m8Gu.JOMr55wRJ8Y0XpTiw9gFWR4SiksM3U6eScPNEkBIx3HsiJGl8xI1eud0jUD4GdA
+ F2brdJbMTt0RoyrHeMB3QGIiIiYqFURaL8VQNrIm0gOD6sI4o9MAifYbEOgA4MexprR78manczE4
+ rp_8Ua6GsoJG.lTuZ.kctW5DfLoOgKAXqbvk6sYbx3eICjn2LVIRNyMDYSmSRWm6srn7j_m_rMvF
+ b1HRiweYbACNc7OvyTmiy2nsX0fROniWSBp5JVXj4M8cJHbSrn3geidsVoSAEsrQUn3UM9MQi0sW
+ T9NvYqAk5Z7fpwLF5Zt6eOdYX0kWMVKTrtBc44lDk8wdCo_s2rVpSvtQh.i6x3IV0QdZFbRyrwJ9
+ FH75b8vEoKwwLnarBrSwrrDiIjEb1XH6b2Nm826n2
 X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: bfa1a860-1422-48d4-b121-c14d919ae6f8
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic301.consmr.mail.ne1.yahoo.com with HTTP; Sat, 28 Nov 2026 09:05:03 +0000
-Received: by hermes--production-ir2-7c4859dc89-8drgr (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 6b996786ecc33bb6504e19b58277aecc;
-          Sat, 28 Nov 2026 09:05:01 +0000 (UTC)
-Message-ID: <6ac53dff-d215-4f47-b820-1a9d9a6d757f@yahoo.com>
-Date: Sat, 28 Nov 2026 10:04:58 +0100
+X-Sonic-ID: fbfba199-36c6-47b6-9980-6a77d65c0cda
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic301.consmr.mail.ne1.yahoo.com with HTTP; Sat, 28 Nov 2026 09:14:08 +0000
+Received: by hermes--production-ir2-7c4859dc89-526xz (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID d3f34b57b9a41945a933ce2b7da0ed52;
+          Sat, 28 Nov 2026 09:14:04 +0000 (UTC)
+Message-ID: <90f997b8-9862-41f2-9577-f935fad75041@yahoo.com>
+Date: Sat, 28 Nov 2026 10:14:02 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,64 +85,27 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 1/2] net: dsa: realtek: rtl8365mb: reset SerDes data
- path when conduit comes up
-To: =?UTF-8?Q?Juraj_Sl=C3=A1dek?= <juraj.sladek@littleit.sk>,
- Linus Walleij <linusw@kernel.org>,
- Luiz Angelo Daros de Luca <luizluca@gmail.com>,
- =?UTF-8?Q?Alvin_=C5=A0ipraga?= <alvin.sipraga@analog.com>,
- Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Russell King <linux@armlinux.org.uk>
-Cc: Johan Alvarado <contact@c127.dev>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>
-References: <20261127-rtl8365mb-hsgmii-fix-v1-0-f2827126aa6a@littleit.sk>
- <20261127-rtl8365mb-hsgmii-fix-v1-1-f2827126aa6a@littleit.sk>
- <447ca9fd-5f70-4e70-b080-d0d2b74478b9@yahoo.com>
- <AS8P193MB1782B891C4E946067E79990F81402@AS8P193MB1782.EURP193.PROD.OUTLOOK.COM>
 Content-Language: pl
+To: "kuba@kernel.org" <kuba@kernel.org>
+Cc: netdev@vger.kernel.org, sashiko@lists.linux.dev
 From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-In-Reply-To: <AS8P193MB1782B891C4E946067E79990F81402@AS8P193MB1782.EURP193.PROD.OUTLOOK.COM>
+Subject: [BUG] netdev-ai Sashiko instance failing to fetch threads (Failed)
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+References: <90f997b8-9862-41f2-9577-f935fad75041.ref@yahoo.com>
 X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
+Hi Jakub,
 
-On 11/28/2026 9:19 AM, Juraj Sládek wrote:
-> Hi,
-> 
-> Following up with the test results for OpenWrt PR #26597 on the TP-Link
-> Archer AX55 v1 (IPQ5018 + RTL8367S, 2500base-x CPU port).
-> 
-> Setup: OpenWrt snapshot r38565 (kernel 6.18.64), kernel rebuilt with the
-> PR applied and nothing else changed. The rtl8365mb driver is stock, without
-> my two patches. Each test boot is a reboot with the switch held in hardware
-> reset (rtl8365mb unbind before reboot), which reproduces the problem without
-> power cycling. A boot counts as broken if the router doesn't answer ping on
-> lan1 at ~50 s.
-> 
->   without any fix (earlier series):  14 of 70 boots broken
->   with PR #26597:                     0 of 40 boots broken
-> 
-> Fisher's exact test, one-sided: p = 0.001.
-> 
-> The PR fixes the problem on this board, so please drop this series:
-> 
->   [PATCH net 0/2] net: dsa: realtek: rtl8365mb: fix CPU port on HSGMII after boot
-> 
-> I'll add the AX55 results to the OpenWrt PR as well.
-> 
-> Tested-by: Juraj Sladek <juraj.sladek@littleit.sk>   (for OpenWrt PR #26597)
-> 
-> Best regards,
-> Juraj
+It looks like the netdev-ai Sashiko instance (https://netdev-ai.bots.linux.dev/sashiko/) at linux.dev is currently failing to fetch incoming threads from the mailing list (while the main sashiko.dev instance is working fine).
+All recent entries are stuck in the "Fetching thread ..." state and immediately end up with "0/0 Failed" (author: unknown).
+Recent examples from today (2026-11-28):
+• 20261128080700.3828378-1-kuniyu@google.com
+• 20261128083639.1404522-1-yuyanghuang@google.com
+• 20261127-mptcp-cmason-fixes-v4-0-3f393ea8c48d@kernel.org
 
-Hi Juraj,
+Could you take a look at the fetcher service / logs on netdev-ai?
 
-Thanks for testing this thoroughly and sharing the results.
-Now we just need to ask the author of OpenWrt PR #26597 to submit the fix upstream as well.
-
-Best regards,
+Thanks!
 
 Mieczyslaw Nalewaj
