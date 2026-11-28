@@ -1,60 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795864069;
-	b=2WKHCxAY33hunsHNidNF3SzDNPHSopNTJnJdMXTr19E/qyfLYSlrHhphcftAWZYS/twQ
-	 qHMOV0w+3zwo1SPDko68qdyIyLDBPAbJqVJMNo4ESfCFN1N2ekeer7wH0SLykjmccMu2F
-	 ZoZ8CJyNwE4Bj4MhgOzynoBcb/rvUFVxAxW4U8XDmBTWEKJCpn1/6mn8wmqnEuMdFUGH7
-	 yu+t91auVVwemURjkYrZ1/6MQ14Gfgm4z6JwR9CLtTdSZywbhc2VmT3TXNTnpZclLez5a
-	 rPpZLbJ4ZAVu28b4sHnCUdAoECq7wdIm689v4ma7DuiasKW8L6/T0ptNMN1WjFlfAyg==
+	t=1795864463;
+	b=AiRy9H3jYs20cBFrnt/7gYm/fAor5nYPWtCbaSz3t2AfHZEirzQkDTcQmrM9TV8LSdqi
+	 uyPsmDAzhKyUYEVBb4NT8GElbnULn2jM9+CSy/3EPR4tD3Wb07doCOToEyWxmOF0J/Nar
+	 5GgoQYW1VlpYiG7N0dL0T9DukpkYiEDSomjCRIIHDwXTWPCoDtGxYcJjq6Set58J3cZur
+	 +/XfCi6UvOceXkjpxt042CNE9YlngGd3xZI1yQm0IaaXslJJC5IIQB/tPJgZxWBEBENwO
+	 rQn5GwvJEvEfE8iYKL7BfGyt5hiYY3WuPCSlG6mOJGuXG+5HH9x3Ud5mKIVg0FqP7rQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795864069;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=dhEpXUDwJ1KCU+C5f7ZI1vtRh4Q+NQI9jx4jEzwEGOE=;
-	b=ntEdobkL2aTgE6cEJ1RB54vh5yaxM0ovdS9uERjPog2IZqIcSU9AGPWRIVrZjAKZddNX
-	 khhUcSCzMdn16hz1PuhWQN9Bwssfc3tg5jpxOZGTuHdhnBPLQBfEgSsWijXstuMH7ncwb
-	 63jkS5ilFdASUPoOmMRfyUFRnkGwYWv0Qi/MTA06/rmFIUYWSJM3dqP5K6DoTn12y8mTM
-	 iDBQgYi+m9c1fhiYAAi77+UaRrxR9SKyNgMVkXWvYFwEmNgbUAoLxWo+8vUoTJYJRqXKt
-	 fWO9v00xuvIi/nqA/Kvi9GIZg3faenydmkBhPcsEyNtz3z/BzuQBXa4aaJ90H/OuuCQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795864463;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=WLFznbBsCf+Ohaj/eYLW/BFxVjrxtoJhvpBPo1wlj3o=;
+	b=x9cBdy3gHfVBD5KLF1yF3vJqrrJw7uiSCRGsGXT/Y0Vs+rNz3azHQCtbmpNq+ojvHwlG
+	 JIA8Nun7MceWMNry9pPxNDwvz2/jChQNu0SbRc30r/U/sxjKcjLclmsozqZHwYx6L6sUH
+	 xSmvf7Isz6UeatlIAtGQaKq+xKH5WPrPijezwYioXxRn5N7TCW9qbJOyVZYMTQe5jrzGy
+	 eAtzQ3KzIJFbLOFOXnDQyF2iDptFi/N6Ihj5JsaemaC124gurgBnVJbhHO8H9GWWs2Af/
+	 zTF9P3OoftYbk8iRgL4xQNY2B4fZlHQqp+iF+ZErkn8d8LWzv81DN6n9zxFQa2f/LqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LnUKfdOe;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=reYsfbOc;
+	arc=none smtp.remote-ip=209.85.210.169
+Received: from mail-pf1-f169.google.com (mail-pf1-f169.google.com [209.85.210.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 551F7606A31C;
-	Sat, 28 Nov 2026 11:07:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF48A606A31C
+	for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 11:14:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF48A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LnUKfdOe
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 529AC1F000C1;
-	Sat, 28 Nov 2026 11:07:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795864068;
-	bh=dhEpXUDwJ1KCU+C5f7ZI1vtRh4Q+NQI9jx4jEzwEGOE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=LnUKfdOecEKCcF+AqM0TU/K7CxUt4GYRJHG2Fn/10CsvxinCtO61w57MVH3s/yWsB
-	 ZLQ8A07ZfXXh+6MxRvr726IPEdj5J97Yow/HpGm6Slw8fqg7G3CKSlDE/p9Sa3GbL8
-	 AntxMdzXXksMjO2TsyzZu8eXyS6VKZHKQ0oH+ZeR84P/hEWvoR9PYSnxnT4P2ZrRBz
-	 ZmeWM5hSambf9zgZmH419ul15lEX5Dy56TE4VQdEpqWGj+a+k9Pbwv0SUnJIhb7Uez
-	 fZQBGksC9GsUNBHytXWJNuxfkOqx5KGoKWWr91mih4HVpqCexUgZyHAibdAkkRnsDX
-	 rrdsPctiKu9tQ==
-Subject: Re: [PATCH net v2] net: usb: cdc_ncm: send the NTB once another
- datagram would not fit
-From: netdev-bot+sashiko@kernel.org
-To: william@wkennington.com
-Cc: oliver@neukum.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-usb@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Sat, 28 Nov 2026 11:07:47 +0000
-Message-ID: <179586406785.3135.9027128089065565502@kernel.org>
-In-Reply-To: <20261127110521.1235409-1-william@wkennington.com>
-References: <20261127110521.1235409-1-william@wkennington.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=reYsfbOc
+Received: by mail-pf1-f169.google.com with SMTP id d2e1a72fcca58-8b2f59de176so6389318b3a.2
+        for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 03:14:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795864462; x=1796469262; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=WLFznbBsCf+Ohaj/eYLW/BFxVjrxtoJhvpBPo1wlj3o=;
+        b=reYsfbOcevyEPcTyOPXCcG2U8sPe0la73CEHLrRAEiJLWhsvGWTlkWR4GFslXT7vKb
+         kZYvRP0Qv1N+mRThAN82Ya4eAE1FrWSefjhu5iL0DWT7WBSztCSjACc8HLIFaBBZS75X
+         NXmX5mgS1ib0zVNhIqoqxsoUFvbfsN3fq5HJn01rmJDkIp0JcDCddVe2zgr/0aXv4UpR
+         LDQkzlb6/7lNBsDLfP9tCJwcsRmGD/QC7KukP4eRd/lkwZFdvsIbN9co8ouYkCz5fSod
+         CGus3H8XHYkQwdRv5SnDX6yZ48aXKmGnN4b0rJDwDSp657DN20OUClpkeTOxWoPf056c
+         QvxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795864462; x=1796469262;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=WLFznbBsCf+Ohaj/eYLW/BFxVjrxtoJhvpBPo1wlj3o=;
+        b=oK7Ewfh7WfoQotR0uU6cOXqiVz04zDdRKGbi0by5X/qOujUDFT6pcOSVQs92tQvQPD
+         vfQ7XKwnuFBITWc5F0PB+iDOdP6JrdN/QVW2CezkFup+fEuH47WrssM32bYL0h0dZFG9
+         9jx0QGnQRrowwmoRYeUldYKrvc7z/rW4iR6eNh5CIHTVzEWRw62QFdMwVPrhraiJmxRl
+         ZkbtcwOE499d3xbI5NUpHslyvAe9mYshH4Saeuo5+5K6vU2lk0jkDSdEiUZCizouNBf5
+         kla7Kvh6Bq5CVqRjHsyhOqL/iIpm7vzdR5V2yoJrsjzogANd05S9E6eAiY/lNgUXO8DD
+         oARw==
+X-Forwarded-Encrypted: i=1; AL+hErH+zrL/9nQUm6XNWfWzFkQxRpPGcUWIP1d+VJb5qgXmYes1eYVXS6zoiBtbr2ClePrclAh8IAs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+qiezR53RkTK37tTdTHLvPrkRuK9LYY6q61bEWNtvI24DVsExH
+	r0GhEm9dTWSsyTQwu5gJ2DsExjNMWGkkrFWCAAD/GumLQHxhtOmogpvk
+X-Gm-Gg: AZFdTZegkgVcyBtLORq2ivalwlncNKa/JF3e3uKalTsVcFEVk0lLDhE0T7R4RIvFm4x
+	dAVjIr2YyKp+tcR4Ph4q1B/yjOY+YhfpjlVFNdcWuG1R/q+QkQx4WV2M2yRWrJIWxynr6Hv2M//
+	kkKXUvC3+4PG/Z4gNc6GgQgF95RaZYB0NUOaKjQ1eJIjrZuq+1FJQLvmOXC5h9NNAhBnVzjrzwa
+	LrEGHJp+VHRLBMBAmWogDGqV7XQ8qPvemDbgG3D8antLnJJ80MCsWEJ+7ZYw8/omdWEfYGzqo3a
+	6MLKuLWu1IobSmDXZUzEorHhR/dVM8Qg4XyAjLvlVa86uLyYzxg7MGX07erkAq49unFxOXwH15m
+	O7Z6Z8sYS5/Vcr4YwvrFhSEfRTjIgeHe3a0+xMcVR+NdsCVqrZOAptbn9ea3eqbUESNTrxNPF4q
+	ciUVySebMDDF1wbjtOq13p1q+ah4WpWGM97CRjDiirjjOZhcpNaHvVuKTCf+FrwwAs02CTV48jn
+	v2Za563rtsKYt4Tg55vmx3MlfZhJ2qLXIAdmXYNf+8ReyEuqnOzGTmnjqp7FFPaF19wiHy8H7B8
+	w2MTAn3vnrEk8GtUYuGChPtWUTIIupPVsGPpicNzbkOFTiQVeU22XEd9XxvfOdAS3mlEbiZrZ6C
+	T8IvPwbPvUBQ7yeXMLjRCt24nB+Gpgh/OPJDeuuUmSxZcwAcI0vtx85u7
+X-Received: by 2002:a05:6a00:1253:b0:8b5:7fc8:8679 with SMTP id d2e1a72fcca58-8c87bcb7868mr27155835b3a.21.1795864461901;
+        Sat, 28 Nov 2026 03:14:21 -0800 (PST)
+Received: from [169.254.3.1] ([143.248.188.96])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077bff6sm14098236b3a.3.2026.11.28.03.14.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Nov 2026 03:14:21 -0800 (PST)
+From: SeungJong Ha <engineer.jjhama@gmail.com>
+Date: Sat, 28 Nov 2026 20:14:15 +0900
+Subject: [PATCH] e100: fix use-after-free of the CB list in
+ e100_clean_cbs()
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,189 +92,144 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261128-e100-cbs-uaf-v1-1-efda575f56e5@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAIa3CmsC/yXMMQ6DMAxA0asgz1iKIwKiV6kYkuBQd4AqLggJc
+ XfSMr7h/wOUs7DCozog8yYqy1xAdQXx5eeJUcZisMa2RLZDJmMwBsXVJzRu7KzrY9sEgpJ8Mif
+ Z/7vncFvX8Ob4/T3gPC9V9Df1cAAAAA==
+X-Change-ID: 20261127-e100-cbs-uaf-05d7259c64b1
+To: Tony Nguyen <anthony.l.nguyen@intel.com>, 
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org, 
+ SeungJong Ha <engineer.jjhama@gmail.com>
+X-Mailer: b4 0.15.2
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+ndo_set_rx_mode() can run without RTNL. An unprivileged IPv6 multicast
+join reaches it that way since commit 1767bb2d47b7 ("ipv6: mcast: Don't
+hold RTNL for IPV6_ADD_MEMBERSHIP and MCAST_JOIN_GROUP."):
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 1
+  setsockopt(IPV6_JOIN_GROUP)
+    __ipv6_sock_mc_join()
+      dev_mc_add()
+        e100_set_multicast_list()
+          e100_exec_cb()
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+e100_exec_cb() queues a CB under cb_lock if cbs_avail is non-zero.
+e100_clean_cbs() frees the CB list without cb_lock and zeroes cbs_avail
+only afterwards, so a concurrent e100_exec_cb() writes to freed CBs.
+This hits every e100_down(), not only ndo_stop.
 
-- [High] The patch only narrows one way that a datagram ends up parked in
-  ctx->tx_rem_skb.
-- [Medium] Other usbnet queue stops cause the same drop, and a heuristic
-  based on NTB size cannot prevent them.
-- [Low] The new early-close check in cdc_ncm_fill_tx_frame()
-  (drivers/net/usb/cdc_ncm.c:1382-1383) adds VLAN_HLEN to every reserved…
+Looping IPV6_JOIN_GROUP/IPV6_LEAVE_GROUP as an unprivileged user while
+toggling the link down and up crashes within seconds (QEMU -device
+i82557b, SLUB_DEBUG_ON):
 
---
+  Oops: general protection fault, ... address 0xf4f4f0f4f4f4f53a
+  KASAN: maybe wild-memory-access in range [0xa7a7a7a7a7a7a9d0-...]
+  RIP: 0010:e100_exec_cb+0x219/0x410
+  Call Trace:
+   e100_set_multicast_list+0xf1/0x2b0
+   dev_mc_add+0xb3/0x100
+   igmp6_group_added+0x145/0x5e0
+   __ipv6_dev_mc_inc+0x60e/0x8a0
+   __ipv6_sock_mc_join+0x3da/0x620
+   do_ipv6_setsockopt+0x16cf/0x1f80
 
-net: usb: cdc_ncm: send the NTB once another datagram would not fit
+Clear cbs_avail under cb_lock before freeing the list, so a later
+e100_exec_cb() fails with -ENOMEM, and publish a new list in
+e100_alloc_cbs() under cb_lock as well, so cbs_avail is never seen
+before the list pointers.
 
-With this patch, cdc_ncm_fill_tx_frame() sends the current NTB as soon
-as another MTU-sized datagram (with Ethernet and VLAN headers) would no
-longer fit, as long as nothing is parked in tx_rem_skb. The goal is
-that no datagram is held in tx_rem_skb when usbnet stops the TX queue,
-so the timer flush in cdc_ncm_txpath_bh() no longer drops it into a
-stopped queue.
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Signed-off-by: SeungJong Ha <engineer.jjhama@gmail.com>
+---
+Fixes points at the initial import: dev_mc_add() was called without
+RTNL before 1767bb2d47b7 too (rxe, DSA, and IPv6 itself before v3.17).
 
-> diff --git a/drivers/net/usb/cdc_ncm.c b/drivers/net/usb/cdc_ncm.c
-> index e92dc7f011ea7..7fbce4846a044 100644
-> --- a/drivers/net/usb/cdc_ncm.c
-> +++ b/drivers/net/usb/cdc_ncm.c
+I found this with a prototype static analysis tool I am developing. It
+flags drivers whose ndo_set_rx_mode() and ndo_stop() share no lock
+while ndo_stop() frees state.
 
-[ ... ]
+The analysis, the reproducer and the fix were written with Claude Code
+(Claude Opus 5.5). I reviewed every line of the patch and the commit
+message, and re-ran the reproducer myself.
 
-> @@ -1369,6 +1370,22 @@ cdc_ncm_fill_tx_frame(struct usbnet *dev, struct sk_buff *skb, __le32 sign)
->  			ctx->tx_reason_ndp_full++;	/* count reason for transmitting */
->  			break;
->  		}
-> +
-> +		/* Send now if another full size datagram would not fit.
-> +		 * Accepting one more would park it in tx_rem_skb after
-> +		 * this NTB has been handed to usbnet. If that NTB fills
-> +		 * the TX queue, usbnet stops the queue and drops the NTB
-> +		 * the timer builds for the parked datagram.
-> +		 */
-> +		if (!ctx->tx_rem_skb && n + 1 < ctx->tx_max_datagrams &&
-> +		    skb_out->len + ctx->tx_modulus + ctx->tx_remainder +
-> +		    READ_ONCE(dev->net->mtu) + cdc_ncm_eth_hlen(dev) +
-> +		    VLAN_HLEN + delayed_ndp_size > ctx->tx_curr_size) {
+The tool flags more legacy ndo_set_rx_mode() drivers with the same
+pattern; tulip is also confirmed in QEMU. Would a core change that keeps
+ndo_set_rx_mode() from running concurrently with ndo_stop() be preferred
+over fixing drivers one by one? This patch is needed either way, since
+e100 also frees the list in its other e100_down() paths.
 
-[Severity: High]
-Does this check cover every way a datagram can still be parked in
-ctx->tx_rem_skb? It only reserves room for a same-signature datagram of
-up to mtu + eth_hlen + VLAN_HLEN. The "no room for skb - store for
-later" branch in cdc_ncm_fill_tx_frame() still looks reachable:
+Tested in QEMU (-device i82557b) only. Before: 5/5 runs crash within
+seconds. After: 0/5 in 5 x 120 s (12,809 down/up cycles). No real
+8255x hardware was tested.
+---
+ drivers/net/ethernet/intel/e100.c | 16 +++++++++++++---
+ 1 file changed, 13 insertions(+), 3 deletions(-)
 
-	ctx->tx_rem_skb = skb;
-	ctx->tx_rem_sign = sign;
-	skb = NULL;
-	ready2send = 1;
+diff --git a/drivers/net/ethernet/intel/e100.c b/drivers/net/ethernet/intel/e100.c
+index 29960762e64a..7923239a2b35 100644
+--- a/drivers/net/ethernet/intel/e100.c
++++ b/drivers/net/ethernet/intel/e100.c
+@@ -1849,8 +1849,16 @@ static int e100_tx_clean(struct nic *nic)
+ 
+ static void e100_clean_cbs(struct nic *nic)
+ {
++	unsigned int avail;
++	unsigned long flags;
++
++	spin_lock_irqsave(&nic->cb_lock, flags);
++	avail = nic->cbs_avail;
++	nic->cbs_avail = 0;
++	spin_unlock_irqrestore(&nic->cb_lock, flags);
++
+ 	if (nic->cbs) {
+-		while (nic->cbs_avail != nic->params.cbs.count) {
++		while (avail != nic->params.cbs.count) {
+ 			struct cb *cb = nic->cb_to_clean;
+ 			if (cb->skb) {
+ 				dma_unmap_single(&nic->pdev->dev,
+@@ -1860,11 +1868,10 @@ static void e100_clean_cbs(struct nic *nic)
+ 				dev_kfree_skb(cb->skb);
+ 			}
+ 			nic->cb_to_clean = nic->cb_to_clean->next;
+-			nic->cbs_avail++;
++			avail++;
+ 		}
+ 		dma_pool_free(nic->cbs_pool, nic->cbs, nic->cbs_dma_addr);
+ 		nic->cbs = NULL;
+-		nic->cbs_avail = 0;
+ 	}
+ 	nic->cuc_cmd = cuc_start;
+ 	nic->cb_to_use = nic->cb_to_send = nic->cb_to_clean =
+@@ -1875,6 +1882,7 @@ static int e100_alloc_cbs(struct nic *nic)
+ {
+ 	struct cb *cb;
+ 	unsigned int i, count = nic->params.cbs.count;
++	unsigned long flags;
+ 
+ 	nic->cuc_cmd = cuc_start;
+ 	nic->cb_to_use = nic->cb_to_send = nic->cb_to_clean = NULL;
+@@ -1894,8 +1902,10 @@ static int e100_alloc_cbs(struct nic *nic)
+ 			((i+1) % count) * sizeof(struct cb));
+ 	}
+ 
++	spin_lock_irqsave(&nic->cb_lock, flags);
+ 	nic->cb_to_use = nic->cb_to_send = nic->cb_to_clean = nic->cbs;
+ 	nic->cbs_avail = count;
++	spin_unlock_irqrestore(&nic->cb_lock, flags);
+ 
+ 	return 0;
+ }
 
-Here are a few cases where that seems to happen.
+---
+base-commit: d4a07bc573c33e72a69445741f53b9105579328a
+change-id: 20261127-e100-cbs-uaf-05d7259c64b1
 
-MBIM with several IPS/DSS sessions, without NDP_TO_END. The first
-datagram of a new session needs NDP alignment plus max_ndp_size, which
-cdc_ncm_ndp16() and cdc_ncm_ndp32() check:
+Best regards,
+--  
+SeungJong Ha <engineer.jjhama@gmail.com>
 
-	if (skb->len + reserve + ctx->max_ndp_size > ctx->tx_curr_size)
-		return NULL;
-
-The new check doesn't reserve that space, so an MTU-sized datagram for
-a new session can still be parked.
-
-Devices with CDC_NCM_FLAG_NDP_TO_END, such as cdc_mbim_info_ndp_to_end
-or any device with the ndp_to_end sysfs flag set. cdc_ncm_ndp16() and
-cdc_ncm_ndp32() return NULL for any second signature, whatever the free
-space:
-
-	else if (ctx->delayed_ndp16->dwSignature)
-		return NULL;
-
-The comment above cdc_mbim_info_ndp_to_end says multiplexed sessions
-cannot share an NTB. So each session switch parks a datagram.
-
-Frames longer than mtu + ETH_HLEN + VLAN_HLEN on plain cdc_ncm. cdc_ncm
-doesn't set NETIF_F_HW_VLAN_CTAG_TX. Stacked 802.1ad/802.1Q devices
-inherit the real device's MTU, so they send inline frames of mtu + 22
-bytes. Frames queued before an MTU decrease also qualify, because
-READ_ONCE(dev->net->mtu) returns the new, smaller value. These pass the
-new check and then fail the real fit check, which uses skb->len.
-
-In each case, the NTB returned with ready2send = 1 can be the one that
-brings txq.qlen up to TX_QLEN in usbnet_start_xmit():
-
-	if (dev->txq.qlen >= TX_QLEN (dev))
-		netif_stop_queue (net);
-
-The hrtimer then fires, and the following runs:
-
-cdc_ncm_txpath_bh()
-  usbnet_start_xmit(NULL, dev->net)
-    info->tx_fixup()    /* builds an NTB from the parked datagram */
-    netif_queue_stopped(net) -> goto drop
-
-Isn't this the same tx_dropped path that the commit message and the
-Fixes tag describe? cdc_mbim and huawei_cdc_ncm share this code.
-
-The commit message also says:
-
-  tx_rem_skb is still used when a datagram needs a new NDP that does not
-  fit, as with several MBIM sessions.
-
-For NDP_TO_END devices the datagram is parked whether or not it fits.
-Is "does not fit" accurate there?
-
-Would it be more robust to fix this in the flush path? One option is to
-check netif_queue_stopped() in cdc_ncm_txpath_bh() under netif_tx_lock
-and re-arm the timer instead of flushing. Another is to keep usbnet
-from consuming tx_fixup(NULL) data while the queue is stopped.
-
-[Severity: Low]
-Should VLAN_HLEN be added for MBIM? cdc_ncm_eth_hlen() returns 0 for
-MBIM because the datagrams are raw L3. cdc_mbim sets
-NETIF_F_HW_VLAN_CTAG_TX. Also, cdc_mbim_tx_fixup() strips the L2 header
-before calling cdc_ncm_fill_tx_frame():
-
-	if (vlan_get_tag(skb, &tci) < 0 && skb->len > VLAN_ETH_HLEN &&
-	    __vlan_get_tag(skb, &tci) == 0) {
-		...
-		skb_pull(skb, VLAN_ETH_HLEN);
-	} else {
-		...
-		skb_pull(skb, ETH_HLEN);
-	}
-
-So the largest MBIM datagram is mtu, but this check reserves mtu + 4.
-Inside a 4-byte window, an MBIM NTB gets closed even though another
-full-size datagram would still fit.
-
-Would adding VLAN_HLEN only when cdc_ncm_eth_hlen(dev) is non-zero
-match the header model that the helper encodes?
-
-> +			ready2send = 1;
-> +			ctx->tx_reason_ntb_full++;	/* count reason for transmitting */
-> +			n++;
-> +			break;
-> +		}
->  	}
-
-[Severity: Medium]
-Can other kinds of queue stop still lose datagrams through the same
-flush path? For -EPROTO, -ETIME and -EILSEQ, tx_complete() stops the
-queue and arms dev->delay for THROTTLE_JIFFIES (HZ/8). EHCI hosts can
-report these errors:
-
-	case -EPROTO:
-	case -ETIME:
-	case -EILSEQ:
-		...
-		netif_stop_queue(dev->net);
-		break;
-
-usbnet_start_xmit() also stops the queue on -EPIPE and for
-EVENT_DEV_ASLEEP.
-
-After this patch, cdc_ncm_fill_tx_frame() still holds partially filled
-NTBs in ctx->tx_curr_skb with the hrtimer armed. The flush interval is
-about 400 us plus a few re-arms through tx_timer_pending. That is much
-shorter than the 125 ms throttle window, so
-cdc_ncm_txpath_bh()->usbnet_start_xmit(NULL) would build an NTB from
-every held datagram and drop it at the netif_queue_stopped() check.
-
-The commit message says "every drop came from cdc_ncm_txpath_bh()
-calling usbnet_start_xmit(NULL, ...) into a stopped TX queue". That
-diagnosis and the Fixes tag cover these stops too, since ad70411a978d
-added the stopped-queue drop for every stop reason. This patch only
-addresses stops caused by a full TX queue.
-
-Would a flush-path fix that re-arms the timer instead of flushing into
-a stopped queue cover these cases as well?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127110521.1235409-1-william%40wkennington.com
