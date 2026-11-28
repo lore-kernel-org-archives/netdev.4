@@ -1,64 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795858212;
-	b=JSvBCsL8Pl/IiYk6bbZfPwIRlPnBye+jazvm0cqSiL8svDnmfADDhMci63MviQFFXYY6
-	 IhWIMy9sYeBQy/PZg2O88KLE4TA9L0I5wVxe6jISeJTDQGuebcrkfoJFTa6p8ikqeZR0Z
-	 16UvAmtomsXQzNUTfGdrNjk/rMJ7xuEG9HvhQHqMiSwyaQc3LaIOe7LY5syGS4iXztpvK
-	 mYLsgycvsgH71HEQOgABG3q2wvQ1rqZDzw7X+4fa7Bgq/ceC/uCbdMa7yauTMkCsVLvC9
-	 q/zXGxe4HPr3YhyHtLQyUGR4EhihyntKTTyWLojBWNM/VMXJ8RTyqjFwX+UaKXhnLpg==
+	t=1795858217;
+	b=Xu2vwPwGYom+7wdE91Yc2730RJ2q1cTyppqLLzvUVZaQKHCPj+gKn9e2mL23AWGYs57U
+	 HVR2SpCtG6g1PRNsFUZSdpMbHomCncOgSA5nRkk1EWpKbRfiQvS3Uenw/nq6XJ1VJvvoJ
+	 uOwbQq1WaWXNXZ/rB9y+5Mu8ZVghuD7exMNy/hQTpnYVloct6qSX/Ft/nM/aAYDHejGvq
+	 rAAGrq2lFZqBd4HVRitSMRQryE5Ln528ZtVegxODo8SQvg3T/PqNMa/HliwT7LmFNS/Ta
+	 8ZBoQWYqKHsniDFZm5eHG9AIgC/e5gdEaVnZ8+ZYulMhVQ0L8ZLhxXpjvMYsOlqNjrw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795858212;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795858217;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=0E50zM9a4bvLU3GTf4CVJ0IWGjMHMzi4/Gl2IyHbiDg=;
-	b=jINXj9r5lw3o4V9kpVS+5wc62lQgPqPDNgeP95qYPIU94uojKqBcraioqhEfuUK5WBcZ
-	 nsPNzL+89uZUJd/p5pVH9xj2WrdLxCRsfatiHskxVNFCE5ErLzlrYloIluUDJshLIbIwb
-	 CSMryjit/9ckf1+30guyhr5psu7egX7m1WmffEFUmd27rmkeYgRdioZ7ncI8HVt9+MxVA
-	 NMYpSPBzsSLCOnv+iA3isNpUBrhc16vlJigayYvTO/41tsVBnOE8Bdwp7XWMtjIE6Lyzi
-	 i7Jz4rOniqTNQKpP6pddP0J8WULxAukUD7/V/fgmhagTTYSF4B18mSBkr4L2AgjCqVg==
+	bh=ve+5CH97uTTdCLlTiN5TMu7Nlx9WYgQwzC3gLJiJwfc=;
+	b=LnYNXLqbq1xS5irWrP/PHA35OjZH/w1AKdzRuvzdyHGTQhfO/YZ4IzkmTz9puT2/u4/X
+	 ageyGJHjncZYPKAiYAViJwkUNFgyrNn/4/kG2XonUT39R6WQrRRGD5J1JoRXivWwVOy04
+	 lE7e+tbIYOTgPtu5V6oX9DsVA/go+PXI8Ntw/afwDW5tkcIY9XOIT1LHbgDiip5GWSq9V
+	 6DWWvAfFLQXb61orQX/wiW9J0gLj7kTQ3+S95BSsshOfSMckb4kWgrUPEK1GsHie8TPPt
+	 yWMax8Qyym4XQarEZuiJG99KVHnlK0nLn3QPHkfGOI3HOr9lr3Rw2KNoV23AvSwjyBQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W3SI0uNJ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LTlGCzTx;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5421C606A334;
-	Sat, 28 Nov 2026 09:30:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBB56606A327;
+	Sat, 28 Nov 2026 09:30:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W3SI0uNJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5CF31F00893;
-	Sat, 28 Nov 2026 09:30:10 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LTlGCzTx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FB411F00893;
+	Sat, 28 Nov 2026 09:30:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795858212;
-	bh=0E50zM9a4bvLU3GTf4CVJ0IWGjMHMzi4/Gl2IyHbiDg=;
+	s=k20260515; t=1795858217;
+	bh=ve+5CH97uTTdCLlTiN5TMu7Nlx9WYgQwzC3gLJiJwfc=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=W3SI0uNJohDuz6RxTNGTisoaauR7xcJ0tZGQ6AhI42XiQ22rR3f+GRcGOZhso8nSp
-	 H5+Fby3WN4GnPuWOMi/gpuC9hxyMtKnxD15yphdJe/PCraDoyaA/aGVhv+asBITGs5
-	 tv/LmRsmcsb3jbGUkZaGShmeB8FEAxWl2eLENfyyt3GemwmT0VURacQb7j/kTZEN7i
-	 V3nsg6bNxU5KOy3EPn5vfkeTAVoccauZFWgLHsR75nPTMByDrZdIZzTfx9q0Owu6Tj
-	 Ie7a/X/muyj9o1wLDXhUX86DSxqqGYP0LYM/8ApjcBBegEfHvVOdpeaPb8u729vUZT
-	 JW4ukqiKQNfag==
-Subject:
- Re: [PATCH net v5 3/4] ice: resync uplink filters after a switchdev session
+	b=LTlGCzTxQolpNlW+R4Uuw1DbzUDjtSSF5x6kx7rKYHGdF54YgUcUOY5RzHb/Fyh6a
+	 J44axoSDMG16FPG1WcxNwtNStIUHcYm5yQRs580IJTyZSdXWOQZ/h6GXfSXZFQWcdo
+	 UZKEKF8eiefQp+XwgNHTTf37x/o0ySAUzE3uHhlOQPILN6huhi19VAk05o6wTJmViw
+	 Yl/EasCKj8oWKkIJJ/1aZ64mzztADDXo1jA55h/ScScC8xvHiukAf6yiA+OX47+mOo
+	 Qe6PmTmenqn/2Y+WLFGXR8hqI3KA9XO7oJL/RFe46XNonJDxR6x6mGtSVckqNVuxrB
+	 Xk06KRliSDEIg==
+Subject: Re: [PATCH net-next v2 4/5] net: dsa: lan9645x: add mdb management
 From: netdev-bot+sashiko@kernel.org
-To: poros@redhat.com
-Cc: netdev@vger.kernel.org, anthony.l.nguyen@intel.com,
- przemyslaw.kitszel@intel.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- aleksandr.loktionov@intel.com, horms@kernel.org,
- michal.swiatkowski@linux.intel.com, grzegorz.nitka@intel.com,
- pmenzel@molgen.mpg.de, wojciech.drewek@intel.com,
- marcin.szycik@linux.intel.com, martyna.szapar-mudlaw@linux.intel.com,
- ivecera@redhat.com, alice.michael@intel.com, jacob.e.keller@intel.com,
- jbrandeb@kernel.org, patryk.holda@intel.com, sx.rinitha@intel.com,
- aaron.ma@canonical.com, intel-wired-lan@lists.osuosl.org,
- linux-kernel@vger.kernel.org
-Date: Sat, 28 Nov 2026 09:30:10 +0000
-Message-ID: <179585821029.3135.15212524449373068553@kernel.org>
-In-Reply-To: <20261127085714.1207361-4-poros@redhat.com>
-References: <20261127085714.1207361-4-poros@redhat.com>
+To: jensemil.schulzostergaard@microchip.com
+Cc: UNGLinuxDriver@microchip.com, andrew@lunn.ch, olteanv@gmail.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux@armlinux.org.uk, linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Date: Sat, 28 Nov 2026 09:30:16 +0000
+Message-ID: <179585821603.3135.8897851570267495148@kernel.org>
+In-Reply-To: <20261127-dsa-lan9645x-add-vlan-and-bridge-offload-v2-4-84adcd919dac@microchip.com>
+References: <20261127-dsa-lan9645x-add-vlan-and-bridge-offload-v2-4-84adcd919dac@microchip.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -72,10 +63,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 7 potential
+Thank you for your contribution! Sashiko AI review found 5 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 4
+Critical: 0 · High: 0 · Medium: 2 · Low: 3
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -83,330 +74,275 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The end-of-session uplink resync is not retried if its promisc
-  step fails.
-- [Medium] The patch adds two more open-coded `while
-  (test_and_set_bit(ICE_CFG_BUSY, vsi->state)) usleep_range(1000,…
-- [Medium] When a session ends, the uplink's primary unicast MAC filter
-  is rebuilt for port_info->mac.perm_addr, not for netdev->dev_addr, and…
-- [Low] The commit message does not say that this patch needs the earlier
-  patch in the series, "ice: stop the service task before the PF is…
-- [Low] In ice_vsi_sync_fltr(), the ICE_VSI_ESWITCH_UPLINK gate sits
-  after the uc/mc MAC-list sync, and ice_eswitch_resync_uplink() leaves…
-- [Low] A promiscuous VSI that already holds the DFLT Rx rule never has
-  VLAN pruning turned off.
-- [Low] The new comment in ice_eswitch_disable_switchdev(), "after
-  is_running is cleared, so no rx mode change is lost", assumes…
+- [Medium] Per-port MDB membership is a single bit per (MAC, hw VID),
+  with no refcount for IP groups that map to the same multicast MAC.
+- [Medium] When the general-purpose PGIDs (48 PGIDs, 9..56, shared by all
+  bridges and the standalone host MDB entries) are used up,…
+- [Low] When the last member leaves, lan9645x_mdb_del() calls
+  lan9645x_mdb_entry_destroy().
+- [Low] L2 (non-IP) MDB groups are written to the MAC table as
+  ENTRYTYPE_LOCKED at key (addr, hw_vid) with DEST_IDX=pgid.
+- [Low] For IPv4/IPv6 MDB entries, lan9645x_mdb_write_ports() passes the
+  full `ports` mask, including BIT(num_phys_ports) (the CPU port module,…
 
 --
 
-ice: resync uplink filters after a switchdev session
+net: dsa: lan9645x: add mdb management
 
-This patch adds a new VSI state bit, ICE_VSI_ESWITCH_UPLINK. While it is
-set, the eswitch owns the uplink promisc configuration and
-ice_vsi_sync_fltr() leaves it alone. When the session ends,
-ice_eswitch_resync_uplink() clears the bit and queues a full filter sync,
-and the patch also changes how ice_vsi_sync_fltr() handles multicast
-subscription and VLAN pruning for promiscuous VSIs.
+This adds the DSA port_mdb_add/port_mdb_del callbacks for lan9645x. IP
+multicast groups store the port mask inline in the MAC table entry. Each
+L2 multicast group allocates one general purpose PGID. IGMP/MLD frames
+are redirected to the CPU, and IPv4 multicast control frames are copied
+to it.
 
-> diff --git a/drivers/net/ethernet/intel/ice/ice_eswitch.c b/drivers/net/ethernet/intel/ice/ice_eswitch.c
-> index c96b201901f48..d55c70edb7f7f 100644
-> --- a/drivers/net/ethernet/intel/ice/ice_eswitch.c
-> +++ b/drivers/net/ethernet/intel/ice/ice_eswitch.c
-> @@ -10,6 +10,34 @@
->  #include "devlink/devlink.h"
->  #include "ice_tc_lib.h"
->  
-> +/**
-> + * ice_eswitch_resync_uplink - hand the uplink filters back after switchdev
-> + * @uplink_vsi: the uplink VSI
-> + */
-> +static void ice_eswitch_resync_uplink(struct ice_vsi *uplink_vsi)
+> diff --git a/drivers/net/dsa/microchip/lan9645x/lan9645x_mdb.c b/drivers/net/dsa/microchip/lan9645x/lan9645x_mdb.c
+> new file mode 100644
+> index 0000000000000..6864b89d5a2d4
+> --- /dev/null
+> +++ b/drivers/net/dsa/microchip/lan9645x/lan9645x_mdb.c
+
+[ ... ]
+
+> +static int lan9645x_mdb_write_ports(struct lan9645x *lan9645x,
+> +				    struct lan9645x_mdb_entry *mdb_entry,
+> +				    u16 ports)
 > +{
-> +	struct ice_pf *pf = uplink_vsi->back;
+> +	unsigned char mac[ETH_ALEN] __aligned(2);
+> +	bool cpu_copy;
 > +
-> +	while (test_and_set_bit(ICE_CFG_BUSY, uplink_vsi->state))
-> +		usleep_range(1000, 2000);
+> +	lockdep_assert_held(&lan9645x->mdb_lock);
 > +
-> +	/* VLAN changes during the session may have added these */
-> +	ice_fltr_clear_vlan_vsi_promisc(&pf->hw, uplink_vsi,
-> +					ICE_MCAST_VLAN_PROMISC_BITS);
-> +	ice_fltr_clear_vsi_promisc(&pf->hw, uplink_vsi->idx,
-> +				   ICE_MCAST_PROMISC_BITS, 0);
-> +	uplink_vsi->current_netdev_flags &= ~IFF_ALLMULTI;
+> +	if (mdb_entry->type == ENTRYTYPE_LOCKED) {
+> +		lan_rmw(ANA_PGID_PGID_SET(ports), ANA_PGID_PGID, lan9645x,
+> +			ANA_PGID(mdb_entry->pgid));
+> +		return 0;
+> +	}
+> +
+> +	lan9645x_mdb_encode_mac(mac, mdb_entry->mac, ports, mdb_entry->type);
+> +	cpu_copy = !!(ports & BIT(lan9645x->num_phys_ports));
+
+[Severity: Low]
+Should the CPU bit be masked out of ports before it is encoded inline
+here?
+
+As written, lan9645x_mdb_encode_mac() writes BIT(num_phys_ports) into the
+inline destination bytes, and MAC_CPU_COPY is also set from the same bit.
+The commit message says IP host membership is carried in MAC_CPU_COPY.
+
+L2 groups reach the CPU through the PGID CPU bit, and that path is gated
+per VLAN. ANA_PGID_CFG.OBEY_VLAN is set, and lan9645x_vlan_hw_wr() sets
+VLAN_PGID_CPU_DIS when the CPU is not in the VLAN portmask. IP entries
+use the dummy DEST_IDX 0, so they don't get that gating.
+
+The lan966x driver keeps the CPU out of the inline mask. It only sets
+cpu_copy when the CPU is a member of the VLAN. DSA doesn't add user-port
+VLANs to the CPU port, so a host MDB entry can exist in a VID the CPU
+isn't a member of. One example is a static "bridge mdb add dev br0 port
+br0 ... vid V" where br0 isn't in V.
+
+In that VID, would IP host groups still be copied to the CPU while L2
+host groups are not? This is inferred from lan966x. I couldn't confirm
+from the LAN9645x documentation what inline bit 9 means, or whether
+MAC_CPU_COPY follows VLAN membership.
+
+> +
+> +	/* For IP multicast, the hardware lookup uses the DMAC
+> +	 * (01:00:5E:.. / 33:33:..) as the (mac, vid) key, not the encoded mac.
+> +	 * Therefore, this CMD_LEARN will atomically rewrite the existing
+> +	 * hardware entry. We intentionally do not do a forget before learn
+> +	 * sequence, as that would not be atomic, and leave a forwarding gap.
+> +	 */
+> +	return lan9645x_mact_learn(lan9645x, IP_ENTRY_PGID, mac, mdb_entry->vid,
+> +				   mdb_entry->type, cpu_copy);
+> +}
+> +
+> +static int lan9645x_mdb_entry_create(struct lan9645x *lan9645x, int chip_port,
+> +				     const unsigned char addr[ETH_ALEN],
+> +				     u16 vid)
+> +{
+
+[ ... ]
+
+> +	if (mdb_entry->type == ENTRYTYPE_LOCKED) {
+> +		mdb_entry->pgid = find_next_zero_bit(lan9645x->mdb_pgids,
+> +						     PGID_GP_END,
+> +						     PGID_GP_START);
+> +		if (mdb_entry->pgid >= PGID_GP_END) {
+> +			kfree(mdb_entry);
+> +			return -ENOSPC;
+> +		}
+> +	}
 
 [Severity: Medium]
-Is a state bit the right tool to lock this? This patch adds two more
-open-coded ICE_CFG_BUSY sections, here and in ice_eswitch_setup_env():
+Does returning -ENOSPC here make a bridge join fail, instead of just
+leaving the group unoffloaded?
 
-    while (test_and_set_bit(ICE_CFG_BUSY, uplink_vsi->state))
-        usleep_range(1000, 2000);
+The commit message says:
+
+  When they are exhausted, adding a new group fails with -ENOSPC and the
+  group is not offloaded.
+
+lan9645x_port_mdb_add() returns this code unchanged, but
+br_switchdev_mdb_replay() only tolerates -EOPNOTSUPP:
+
+net/bridge/br_switchdev.c:br_switchdev_mdb_replay() {
     ...
-    clear_bit_unlock(ICE_CFG_BUSY, uplink_vsi->state);
+		if (err == -EOPNOTSUPP)
+			err = 0;
+		if (err)
+			goto out_free_mdb;
+    ...
+}
 
-These sections pass ownership of ICE_VSI_ESWITCH_UPLINK, and the
-current_netdev_flags read-modify-write above, back and forth with
-ice_vsi_sync_fltr(). Lockdep cannot see them, and the eswitch side
-sleep-polls on the bit while it holds the devlink instance lock.
+The error then goes through nbp_switchdev_sync_objs() to
+br_switchdev_port_offload(). That function fails the offload without
+unsyncing the entries that were already replayed.
 
-The section they pair with in ice_vsi_sync_fltr() releases the bit with a
-plain clear_bit(), which has no release ordering:
+The 48 general purpose PGIDs are shared by all bridges and by the
+standalone host entries. Once they are all in use, would "ip link set
+swpN master br0" fail entirely? Would the PGIDs and port bits of the
+entries replayed before the failure stay programmed in the driver?
 
-exit:
-	clear_bit(ICE_CFG_BUSY, vsi->state);
-	return err;
+lan9645x_port_mdb_add() already returns -EOPNOTSUPP for the reserved VID
+case. Could PGID exhaustion, and the -ENOSPC that lan9645x_mact_learn()
+returns on CPU_LEARN_FAILED, be handled the same way?
 
-So the store "vsi->current_netdev_flags = vsi->netdev->flags" made inside
-ice_vsi_sync_fltr() may not be visible to the next holder. Could the
-current_netdev_flags &= ~IFF_ALLMULTI here then write back a stale value?
-
-The last patch in the series drops that read-modify-write, but the ad-hoc
-lock sections are still there in the final state. Would a real mutex or
-spinlock fit better here?
-
-> +
-> +	clear_bit(ICE_VSI_ESWITCH_UPLINK, uplink_vsi->state);
-> +	set_bit(ICE_VSI_PROMISC_CHANGED, uplink_vsi->state);
-> +	set_bit(ICE_VSI_UMAC_FLTR_CHANGED, uplink_vsi->state);
-> +	set_bit(ICE_VSI_MMAC_FLTR_CHANGED, uplink_vsi->state);
-> +	clear_bit_unlock(ICE_CFG_BUSY, uplink_vsi->state);
-
-[Severity: Medium]
-What happens if the promisc stage of the queued sync fails? This function
-queues one ice_vsi_sync_fltr() pass and relies on it to install the DFLT
-Rx rule and multicast promisc from the netdev flags.
-
-ice_vsi_sync_fltr() clears UMAC/MMAC_FLTR_CHANGED at the top. If
-ice_set_dflt_vsi(), ice_clear_dflt_vsi() or
-ice_set_promisc()/ice_clear_promisc() then fails, it only re-arms
-PROMISC_CHANGED:
-
-out_promisc:
-	set_bit(ICE_VSI_PROMISC_CHANGED, vsi->state);
-	goto exit;
-
-ice_sync_fltr_subtask() then sets ICE_FLAG_FLTR_SYNC again. But the next
-run only syncs VSIs for which ice_vsi_fltr_changed() is true:
-
-	if (pf->vsi[v] && ice_vsi_fltr_changed(pf->vsi[v]) &&
-	    ice_vsi_sync_fltr(pf->vsi[v])) {
-		/* come back and try again later */
-		set_bit(ICE_FLAG_FLTR_SYNC, pf->flags);
-
-ice_vsi_fltr_changed() only tests UMAC/MMAC_FLTR_CHANGED.
-
-Wouldn't the uplink be skipped then? Its DFLT and multicast state would
-stay out of sync with netdev->flags until some unrelated rx mode or
-address change.
-
-The final state of the series does the same through
-set_bit(ICE_VSI_PROMISC_CHANGED) in the DFLT and mc_err branches. The last
-patch adds the comment "retried by the next sync, with the allmulti
-change", and its commit message says a failed DFLT install is kept "before
-the retry". There doesn't seem to be an automatic retry, though. That same
-commit message shows ice_set_dflt_vsi() failing with -EIO once the switch
-lookup table is full, so this failure can happen in practice.
+This becomes reachable once "net: dsa: lan9645x: add bridge support"
+adds .port_bridge_join later in the series. That commit doesn't change
+this error handling.
 
 > +
-> +	set_bit(ICE_FLAG_FLTR_SYNC, pf->flags);
-> +	ice_service_task_schedule(pf);
+> +	err = lan9645x_mdb_write_ports(lan9645x, mdb_entry, mdb_entry->ports);
+> +	if (!err && mdb_entry->type == ENTRYTYPE_LOCKED)
+> +		err = lan9645x_mact_learn(lan9645x, mdb_entry->pgid, addr, vid,
+> +					  mdb_entry->type, false);
+
+[Severity: Low]
+Can this collide with a static FDB entry for the same multicast MAC and
+VID?
+
+lan9645x_fdb_add() also learns ENTRYTYPE_LOCKED at (addr, hw_vid), with
+DEST_IDX set to a port:
+
+drivers/net/dsa/microchip/lan9645x/lan9645x_main.c:lan9645x_fdb_add() {
+    ...
+	return lan9645x_mact_learn(lan9645x, dest, addr,
+				   lan9645x_fdb_vid(vid, &db),
+				   ENTRYTYPE_LOCKED, false);
+}
+
+br_fdb_add() only rejects all-zero MACs, so a command like "bridge fdb
+add 01:xx:... dev swpN master static vid V" reaches it.
+
+Whichever of the FDB entry and the L2 MDB entry is learned last
+overwrites the other's destination. Deleting either one sends CMD_FORGET
+for the shared key, which also removes the other's hardware entry.
+
+For ENTRYTYPE_LOCKED, lan9645x_mdb_write_ports() only rewrites ANA_PGID
+and never re-learns the MAC entry. Doesn't that leave the MDB state out
+of sync with the hardware until the group is deleted and recreated?
+
+[ ... ]
+
+> +static void lan9645x_mdb_entry_destroy(struct lan9645x *lan9645x,
+> +				       struct lan9645x_mdb_entry *mdb_entry)
+> +{
+
+[ ... ]
+
+> +	err = lan9645x_mact_forget(lan9645x, mdb_entry->mac, mdb_entry->vid,
+> +				   mdb_entry->type);
+> +	if (err)
+> +		dev_err(lan9645x->dev, "Forgetting %pM vid %u returned %pe\n",
+> +			mdb_entry->mac, mdb_entry->vid, ERR_PTR(err));
+> +	else if (mdb_entry->type == ENTRYTYPE_LOCKED)
+> +		clear_bit(mdb_entry->pgid, lan9645x->mdb_pgids);
+> +
+> +	list_del(&mdb_entry->list);
+> +	kfree(mdb_entry);
 > +}
 
 [Severity: Low]
-Should the commit message say that this patch depends on the earlier
-patch in the series? On driver removal this schedule runs inside
-ice_free_vfs():
+What happens to the hardware entry if lan9645x_mact_forget() fails here?
 
-ice_remove()
-  ice_free_vfs()
-    ice_eswitch_detach_vf()
-      ice_eswitch_detach()
-        ice_eswitch_disable_switchdev()
-          ice_eswitch_resync_uplink()
-            ice_service_task_schedule()
+lan9645x_mdb_del() clears the port from mdb_entry->ports and calls this
+function. It does not first write an empty ANA_PGID(pgid) or an empty
+inline mask.
 
-In this tree that is only safe because the earlier patch, "ice: stop the
-service task before the PF is unloaded", added ice_service_task_stop()
-right after ice_free_vfs(). Since 8a37f9e2ff40, the only other stop on the
-remove path is in ice_deinit_dev() at the very end of ice_remove().
+The forget can fail with a bus error, or with -ETIMEDOUT from
+lan9645x_rd_poll_timeout() in __lan9645x_mact_forget(). In that case the
+MAC table entry stays valid and keeps forwarding to the departed port
+through the old mask. The tracking entry is freed anyway.
 
-Without that patch, wouldn't the queued ice_sync_fltr_subtask() walk
-pf->vsi[] and the uplink netdev while
-ice_unload()/ice_deinit()/ice_vsi_release_all() free them?
+For L2 groups the PGID bit is intentionally left set, so that PGID is
+lost permanently. A later re-add allocates a new PGID and CMD_LEARN
+repoints the same MAC slot at it. The old PGID is then orphaned, and the
+pool has only 48.
 
-The dependency is only mentioned below the cut line ("relies on patch 1
-when the PF goes away"), and that text is dropped on apply. The Fixes:
-tags go back to 1a1c40df2e80, so stable could pick this patch up on its
-own. The earlier patch does carry Fixes: 8a37f9e2ff40, which helps.
+Would clearing ANA_PGID(pgid) with a register write before CMD_FORGET
+stop the stale forwarding? That would also make it safe to release the
+PGID whatever the forget returns.
 
-[ ... ]
+The partial removal path in lan9645x_mdb_del() has a similar ordering
+problem. mdb_entry->ports is updated before lan9645x_mdb_write_ports().
+For IP entries that call is a CMD_LEARN, and if it fails the old inline
+port set stays in hardware.
 
-> @@ -77,6 +111,8 @@ static int ice_eswitch_setup_env(struct ice_pf *pf)
->  	if (if_running)
->  		ice_up(uplink_vsi);
->  
-> +	ice_eswitch_resync_uplink(uplink_vsi);
 > +
->  	return -ENODEV;
->  }
+> +int lan9645x_mdb_add(struct lan9645x *lan9645x, int chip_port,
+> +		     const unsigned char addr[ETH_ALEN], u16 vid)
+> +{
+> +	struct lan9645x_mdb_entry *mdb_entry;
+> +	u16 new_ports;
+> +	int err = 0;
+> +
+> +	mutex_lock(&lan9645x->mdb_lock);
+> +
+> +	mdb_entry = lan9645x_mdb_entry_lookup(lan9645x, addr, vid);
+> +	if (!mdb_entry) {
+> +		err = lan9645x_mdb_entry_create(lan9645x, chip_port, addr, vid);
+> +		goto out;
+> +	}
+> +
+> +	if (mdb_entry->ports & BIT(chip_port))
+> +		goto out;
 
 [Severity: Medium]
-Does the resync restore the uplink's primary unicast filter for
-netdev->dev_addr?
+Does this need a per-port refcount for IP groups that map to the same
+multicast MAC?
 
-ice_eswitch_setup_env() removes every ICE_SW_LKUP_MAC rule on the uplink
-with ice_remove_vsi_fltr(). That includes the dev_addr filter installed by
-ice_set_mac_address(). This error path and ice_eswitch_release_env() only
-add back the permanent address:
+The bridge sends one SWITCHDEV_OBJ_ID_PORT_MDB object per IP group.
+br_switchdev_mdb_populate() turns each group into a MAC address with
+ip_eth_mc_map()/ipv6_eth_mc_map(). For example, 224.1.1.1 and 225.1.1.1
+both become 01:00:5e:01:01:01.
 
-	ice_fltr_add_mac_and_broadcast(uplink_vsi,
-				       uplink_vsi->port_info->mac.perm_addr,
-				       ICE_FWD_TO_VSI);
+DSA doesn't refcount these for user ports:
 
-ice_set_mac_address() never updates port_info->mac.perm_addr. Only
-ice_aq_manage_mac_read() fills it, at init. The sync queued by
-ice_eswitch_resync_uplink() only walks dev->uc and dev->mc, and dev_addr
-is in neither list.
+net/dsa/switch.c:dsa_port_do_mdb_del() {
+    ...
+	/* No need to bother with refcounting for user ports */
+	if (!(dsa_port_is_cpu(dp) || dsa_port_is_dsa(dp))) {
+		err = ds->ops->port_mdb_del(ds, port, mdb, db);
+    ...
+}
 
-Suppose a locally administered MAC was set on the PF, with ip link set
-address or by bonding. After the session, wouldn't the switch forward
-only the factory MAC to the uplink? Unicast to the address the netdev
-actually uses would then be dropped while promisc is off.
+Take two receivers behind one port that join 224.1.1.1 and 225.1.1.1.
+The second join is a no-op here.
 
-The perm_addr restore predates this patch. Still, the commit message says
-setup_env removes "the address filters" and that "these are not installed
-again", and the resync leaves the primary address out.
+When one of them leaves or times out, lan9645x_mdb_del() does:
 
-[ ... ]
+	mdb_entry->ports &= ~BIT(chip_port);
 
-> @@ -331,6 +368,9 @@ static void ice_eswitch_disable_switchdev(struct ice_pf *pf)
->  	ice_eswitch_release_env(pf);
->  
->  	pf->eswitch.is_running = false;
-> +
-> +	/* after is_running is cleared, so no rx mode change is lost */
-> +	ice_eswitch_resync_uplink(pf->eswitch.uplink_vsi);
->  }
+It then either rewrites the mask without the port or destroys the entry.
 
-[Severity: Low]
-Does this ordering give the guarantee the comment describes?
+Would the port then stop receiving the group it is still a member of?
+Bridge refreshes of the remaining group don't re-notify switchdev, so
+the loss would last until the bridge recreates that port group.
 
-pf->eswitch.is_running is cleared with a plain store. The caller holds
-only the devlink lock, not rtnl. ice_set_rx_mode() reads the flag with a
-plain load:
-
-	if (!vsi || ice_is_switchdev_running(vsi->back))
-		return;
-
-On the rtnl side, __dev_change_flags() stores dev->flags and then reaches
-ice_set_rx_mode() via
-dev_set_rx_mode()->netif_addr_lock_bh()->__dev_set_rx_mode(). The acquire
-in spin_lock does not order the earlier dev->flags store before the later
-is_running load.
-
-This looks like the store-buffering pattern:
-
-CPU A (rtnl)                 CPU B (teardown)
-W dev->flags                 W is_running = false
-R is_running (true)          test_and_set_bit(ICE_CFG_BUSY)
-return early                 queue_work()
-                             service task reads old netdev->flags
-
-On weakly ordered CPUs such as arm64 or ppc, couldn't a promisc or
-allmulti change made during teardown be lost, with nothing scheduling
-another sync?
-
-Would smp_store_release()/smp_load_acquire() plus a full barrier work
-here? Or could the is_running early return in ice_set_rx_mode() be dropped
-now that the ICE_VSI_ESWITCH_UPLINK check exists?
-
-> diff --git a/drivers/net/ethernet/intel/ice/ice_main.c b/drivers/net/ethernet/intel/ice/ice_main.c
-> index 6dede87b78944..2ce2b7138f668 100644
-> --- a/drivers/net/ethernet/intel/ice/ice_main.c
-> +++ b/drivers/net/ethernet/intel/ice/ice_main.c
-> @@ -394,6 +394,10 @@ static int ice_vsi_sync_fltr(struct ice_vsi *vsi)
->  		}
->  	}
->  	err = 0;
-> +	/* the eswitch owns the uplink promisc config during a session */
-> +	if (test_bit(ICE_VSI_ESWITCH_UPLINK, vsi->state))
-> +		goto exit;
-> +
->  	/* check for changes in promiscuous modes */
-
-[Severity: Low]
-Should this check come before the uc/mc address list sync above it?
-
-ice_eswitch_resync_uplink() leaves UMAC/MMAC_FLTR_CHANGED and
-ICE_FLAG_FLTR_SYNC pending, and nothing clears them when the next session
-starts. ice_reset_all_vfs() runs detach and attach for each VF back to
-back:
-
-ice_eswitch_detach_vf()
-  ice_eswitch_disable_switchdev()
-    ice_eswitch_resync_uplink()   <- sets UMAC/MMAC, FLTR_SYNC
-ice_eswitch_attach_vf()
-  ice_eswitch_enable_switchdev()
-    ice_eswitch_setup_env()       <- sets ICE_VSI_ESWITCH_UPLINK,
-                                     ice_remove_vsi_fltr(),
-                                     __dev_uc_unsync()/__dev_mc_unsync()
-
-The stale sync then runs inside the new session. ice_vsi_fltr_changed()
-is true, and __dev_uc_sync()/__dev_mc_sync() rebuild tmp_sync_list from
-every address. ice_fltr_add_mac_list() then installs them as FWD_TO_VSI
-rules on the uplink before this goto exit is reached.
-
-Doesn't that leave per-address forwarding rules on the uplink during the
-session, after setup_env meant to remove them?
-
-The same thing already happens when the uplink is admin-up, because
-setup_env's ice_up()->ice_vsi_cfg_lan()->ice_set_rx_mode() runs while
-is_running is still false. The stale resync adds a trigger that also fires
-when the uplink is admin-down.
-
-> @@ -438,6 +442,12 @@ static int ice_vsi_sync_fltr(struct ice_vsi *vsi)
->  						      ICE_MCAST_PROMISC_BITS);
->  				if (err)
->  					goto out_promisc;
-> +			} else if (ice_is_vsi_dflt_vsi(vsi)) {
-> +				/* still the default VSI, so subscribe it */
-> +				err = ice_set_promisc(vsi,
-> +						      ICE_MCAST_PROMISC_BITS);
-> +				if (err)
-> +					goto out_promisc;
->  			}
-
-[Severity: Low]
-This subscribes an already-default VSI to multicast. Should it also turn
-off VLAN pruning, as the ice_set_dflt_vsi() branch above does?
-
-The commit message says DFLT ownership and pruning can get out of step,
-and fixes the promisc-off direction. The opposite case, DFLT held with
-pruning on, looks reachable at the end of a session.
-ice_eswitch_release_env() enables pruning first, then removes the DFLT Rx
-rule and ignores the result:
-
-	vlan_ops->ena_rx_filtering(uplink_vsi);
-	ice_cfg_dflt_vsi(uplink_vsi->port_info, uplink_vsi->idx, false,
-			 ICE_FLTR_TX);
-	ice_cfg_dflt_vsi(uplink_vsi->port_info, uplink_vsi->idx, false,
-			 ICE_FLTR_RX);
-
-The err_override_local_lb path in ice_eswitch_setup_env() does the same.
-
-If that removal fails, the resync sees ice_is_dflt_vsi_in_use() return
-true for a promiscuous netdev. It then takes this branch and skips
-dis_rx_filtering().
-
-Wouldn't tagged frames for VLANs without a filter be pruned even though
-the netdev is promiscuous? After a session that is every non-zero VLAN,
-because setup_env wiped the VLAN filter table.
-
-The last patch in the series replaces this branch with
-ice_vsi_wants_mc_promisc(). The final promisc-on path still only calls
-dis_rx_filtering() when it installs the DFLT rule itself.
+This becomes reachable with .port_bridge_join from "net: dsa: lan9645x:
+add bridge support", which doesn't change lan9645x_mdb.c.
 
 [ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127085714.1207361-1-poros%40redhat.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127-dsa-lan9645x-add-vlan-and-bridge-offload-v2-0-84adcd919dac%40microchip.com
