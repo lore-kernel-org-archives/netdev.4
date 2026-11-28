@@ -1,80 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.184.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795857249;
-	b=iKMKZUI2inRwdqCJIeCOphq+qgDAmE7q1TKwnF7DVMasVoodV5FTVIXUQVt7BmUKhPeN
-	 hm+9serF98I4V+nkgaYNCiR2vX0JQNTOYOdU/Ayy+31jTGwRzeJxaWFo2j37BaOoXTEiC
-	 RYsqZleO+QSOX/FsrM2CwLp5h4jqgRt1I4kUMrPUg8yc5sEI6R2q+cSVio1nTlHwG3Hnc
-	 4o14b5g42Ek3vwGGGOYkyY6+PsNuPZWQGqfYniUh7aX88IR9Ip1Zowst5EyjyhWzeWvS0
-	 HC7zIH6kguAKQladGAUJAIMRh77fiO2Rvr1YPJ6LvwSJA/dwV4ug4fSUYWru07tWhcQ==
+	t=1795858210;
+	b=xSnOJb1xjRCC6+ri/jjHKpw/D0WsKzeddQYCM15xQQlgg1G1fVepFAQFLjuJ3sQH59UI
+	 YLDD6X3Tg+0fOowHil/nlMf5BLzvWOmV6IxhggyypcFW/IGZNuu1iZa2vVXoQb+roaNWL
+	 jTP8OElT14/bYvVj4j+0PsWYSlSsI2c2pIMCOYFgJVEFg66z/JakDS82f6XFKt+7sK1O3
+	 iiCbhppD491xsiMLhH17HLF81uv0ioXE+hwJYb1s9VrciX6GpwbF19E1dXgfDMxToQ2EH
+	 DOJh2Nt3axsmifoyN0YEwQItKS3PyQBkTqTSzbPEA3BmsKlTdpI9ym50axes9EzcMNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795857249;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Content-Language:To:Cc:From:Subject:Content-Type:
-	 Content-Transfer-Encoding:References:X-Mailer;
-	bh=GX2Rf7/hfUCqlpu4BsYl1qE6pH500A8R/ALqqh3LuPg=;
-	b=aaHQNv9IxyGdl1FbzJKey9//R5S3/MNsMA5kxT6ziste6Cp5u7NhzZ+8eqEWam0vD79i
-	 4QioguFWnsAaps/15zCwHmj+QiSytS2GZYvuxvE+yzOT6DQ0SNSs3fw+4ZtlbbWl31RcE
-	 EIUXSPondTJ8wiy7h2CSfqDTM7gAGFQy0mlm191icHOWtc/5c28bDT4XEHpnO+Tau6PCl
-	 MXtLu3FqGXnr3lSHhfDgepAigBIpcMx+JKquTpNO/81wRHvso9XbHGEus7sQBfzzWt7au
-	 HInyJ32zT8kx5l79eF28aReo1syG0GjrEzNgAhBfVg4+IJidDC43rFaGLj5alfDdtgQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795858210;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=A5rYtmofrvIUFyhmWGcR3PlpZPgkJO+PijhIDMldm2Y=;
+	b=CQ2fFfQdrd6UMnWENCbsW2MT01Li/P/3fvo6Bo71P2/l3bakThw+9kUBiXTOlvXlU0qN
+	 avQGm65gNFw1uCUbE/1OfwM6TPMjYlOaodZF7RDD0fbK5L3XxsDRBbqW+SN+ZXlnxQ9tl
+	 p7qBoYrM168l+kYotW/Lw1OwYxU89ZswB88xyISQc/gmK+ToTJEvmznyvUYrME1rKlQqr
+	 51o9md/lXQPOJI3GyvjBSk6f2BsqVLBeHrZn3xJY28UjmusDGndXvGREvVbF/+JiPL3n1
+	 1Q7iYxYHSTv/8BwmAzQ2IUVCJoOi8CpzUb8EbFGUaJKgZJ/gFGglVILm8OmgNb+VYtw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.com;
-	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=WaKepx2c;
-	arc=none smtp.remote-ip=66.163.184.200
-Received: from sonic301-31.consmr.mail.ne1.yahoo.com (sonic301-31.consmr.mail.ne1.yahoo.com [66.163.184.200])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dHvm+u5R;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E91F606A324
-	for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 09:14:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E91F606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BBC6606A324;
+	Sat, 28 Nov 2026 09:30:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=WaKepx2c
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795857248; bh=GX2Rf7/hfUCqlpu4BsYl1qE6pH500A8R/ALqqh3LuPg=; h=Date:To:Cc:From:Subject:Content-Type:References:From:Subject:Reply-To:Content-Type; b=WaKepx2cJ+ccQVZuIEENPmYgDI3tF2IvjzB4VkM+43Cr283WK55L4y5Qp9OwPeZ0SItaeMrigs0ChSbP5wT8XPq0LAwTiax7FKjTyNaQUGsKg4DiqdCyughwp8xRMg7R7VPGZdHfnBL4YmYDXCUqJyqAzAeg0OhoYqK0aWHT1UJkNnNg3HZu+8nw4LMjQc/23wVs9YX22THc5/02aO3OABrhHz0vj1/P7MY0/0XwOX2E8j/anMTjewaSlqkcbY7a2UGW51vVZPLzaqPoQJm0r4TWzSX9sUeYzwZUnOUB6NwP6L5POxOS1f4NBYwips3UfhmHYuSBXL5sesLPBteHJw==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795857248; bh=ZWX0bifnsSUc08UUGD82fuTYGACN+zArMSdUlT3uiRa=; h=X-Sonic-MF:Date:To:From:Subject:From:Subject; b=DfWPgPimt4WCr2QhXObFeYdvAOxanPp8ufFqraiGK1hIU99KEkEbHSJnsjzyX6irLKI6fMe7g0IJAb4mRn+jXpdaoitAaXiRLFReF7XZT0Y1HTtqPMPAjPK1VBRJYJdOYKZByO6RYktT7y6HqUKVZk6umSr/XGON13wbnhkfaahpwHiATKX5fnU2OGiKNzpvRB1DIawDssHYHkejzvapREuOu5VXIJzOC5fcnQZSQxYrADMRBInMHji4pxW361aAag4aSGR478rm/tnnf41NF+JaDdNKHrQYyLjeQfrtWPp/zs9KGKva0Iy/w1yNmhdwRlGTD7GUThhy6LyRV5Lu/Q==
-X-YMail-OSG: RUjnEz8VM1kIoxmBZXGpaeLK2sWTUfUQt3iFVXMpVDG7ky1yFqLEYkQG9JYhnQx
- 0nNGsO5kY7EZxKhLP1frEI2kpBYyyQnpfuMg6WrjbleOaRioP7XvaR.8E988r0Wp0QSUN6xtsgv3
- lymhoLEUQXVW1ZIqlOeg9hvGTE4PmS7mWhjHkIbc_NYFPlTbODS5r36GlI_GiDBzKUo3qkjyPg1H
- ZvXdxLhQIL_nWdjVdOrSJcB90k6pUxSku3mBo2RT3XzJHRdCZapmmba9AOskhnGv2HGFQdoacncf
- 7zQItbFkLQBgTQTcGLm2JSOlcnD6FI.WPzFxlVT.TUvs8cEh5par22DxwSaYsmr_j7A7248Iiky1
- wDKwIHJlyICwtbPi6ph9_NmXGBJEAU0wVAtSKzgDn1_o2g6SmWflx08C7hIEu79n23NDEnipfdam
- PVax6RqBc17eViR2Wtq.6XQadMCZldRAezEd7QSwogn92iMNJRj9iXNNVMUnX8j1P7fEwm5.42r8
- q.hx0Dh9A6cZKUiSrv5zA1RDJfm3I6JdbJs9s_WmmY_MEUhwPTlOSSJ7T6F1dmCYJCYOyiG3rGrR
- 1OcmjTAKvSIQs7aJ.bi2C6rycFrYDeoJbeR_a9USsBtW8GR4OHS7cZfu0.5jkmXGiKXjGYnDWpLF
- 2gjKDlpAC4kO0d0ycgF73.7.ypRgg6QT.LWsOCDzVTOlDofCr6cm.GKhvJkzK9JVfTynv5l3U2vq
- 571bB5X.VUcfsRnvPzlc5g_Vm6PvYYXva6Ne0aTDl6pJWNuTejRoN7C0JHrknePydTA0y0.JsHV7
- 6PiSc8Lbtb_topgfO0UHcG2Op_bcoAX8DjT6l.3S.1D2yCBqziPSIn6NqC9AYNisoMNJXgw0Y7VX
- ZJUUtDR7xKsOcSsvU5ar5t8E445__proWex1I82wjhMKWYOcUJOpbL.jqYhrUDvU0ryXgoHomyht
- OuDsqL9j8DJ3MaGtM9b3GAI55rhBP6ng1mob5XMvLrh.D75tJzdRUqCV3xTw3qYMBhkurRKiuNTv
- A9WjHc6IaPA7FUo3DMb81E3FLlfSsAAcw6Hbc5wRo6h_w3mr1h3fEzorq7bb.omv3nQ9dmFj8xHi
- cOpL0tpCpJlcPsTvGjmGYZz2Y8dTKjhAz._UKBNaHYioIFdtvMRYPXUjPcWv8pBphkVciN38ef4t
- P2GbBWd3Km8EORjW14J7HH0NUo1mN.xWL8fD4jZfzzSb6.ULTI6uZuQlcqrCV8QFMKYLyKuXRVlZ
- CbXxUnf2c8ctLp09bOUe5tUlLnJgeofC6CWh1Yr76OChcEQWtkMzOZWqmjjn2lF21X7uMRgSvOEW
- 660VPdlOhdvmYcXfrMjxFcVynK5zHkyg_bZmBYJoPGoPSm7_xdbPAv.xPcjgHIHXUOYuf3fAWm2D
- k9ZdGhj592a8aefi8W.fSRHJWcJoBtXY58zmQSm9Rc4yVI10X_bkenUqK0b3Hz1l9koLAkNiDxH2
- ZVGLAU81auk3ERVQTpCAXuFvzTtKFB0EtdVnCKn6birM1g0frpM_KHemoBjZUUkgoIqulTxsIS1g
- XHHnG0RV_qaqc3seoIPDMF_.3mS2T40V8T0I03HGH4eAfQBEdYJN.iYZ_Zy3k.rFW6W1.EQaGPYg
- Ha8E97qmwXR.S3ozWcy_SvoEyKHeORFoSbPwM3qjDgLrsrVKXrWkTA1QzFpReqrd53AYbSnTUUWP
- bL6eWk.0dGvrKrJ_lHlo4GqZUT18_CDyIaeJX3Y30S43UR6U3u2WBwn.S5ihwreud19iJ0JtX.Jp
- Cm5p9VG_MfQMGEFvHPCD0AUmWWeU7j1gg1IAYeJlf8CdOBuVRVhsynn8CCEuwbKmIyIzt2UsEFD2
- QtF6oqqGEtNHNUqz6StzQIVXTamhPUHK07JilWAT3DfwJPX4YsdKKGvcEVaSqmX8JLwtNqZ9ND5N
- QkVhcj5.m8Gu.JOMr55wRJ8Y0XpTiw9gFWR4SiksM3U6eScPNEkBIx3HsiJGl8xI1eud0jUD4GdA
- F2brdJbMTt0RoyrHeMB3QGIiIiYqFURaL8VQNrIm0gOD6sI4o9MAifYbEOgA4MexprR78manczE4
- rp_8Ua6GsoJG.lTuZ.kctW5DfLoOgKAXqbvk6sYbx3eICjn2LVIRNyMDYSmSRWm6srn7j_m_rMvF
- b1HRiweYbACNc7OvyTmiy2nsX0fROniWSBp5JVXj4M8cJHbSrn3geidsVoSAEsrQUn3UM9MQi0sW
- T9NvYqAk5Z7fpwLF5Zt6eOdYX0kWMVKTrtBc44lDk8wdCo_s2rVpSvtQh.i6x3IV0QdZFbRyrwJ9
- FH75b8vEoKwwLnarBrSwrrDiIjEb1XH6b2Nm826n2
-X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: fbfba199-36c6-47b6-9980-6a77d65c0cda
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic301.consmr.mail.ne1.yahoo.com with HTTP; Sat, 28 Nov 2026 09:14:08 +0000
-Received: by hermes--production-ir2-7c4859dc89-526xz (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID d3f34b57b9a41945a933ce2b7da0ed52;
-          Sat, 28 Nov 2026 09:14:04 +0000 (UTC)
-Message-ID: <90f997b8-9862-41f2-9577-f935fad75041@yahoo.com>
-Date: Sat, 28 Nov 2026 10:14:02 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dHvm+u5R
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A34981F00898;
+	Sat, 28 Nov 2026 09:30:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795858209;
+	bh=A5rYtmofrvIUFyhmWGcR3PlpZPgkJO+PijhIDMldm2Y=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=dHvm+u5RvRSNSfxYyIJNDgl1oVQS4z17YRrU6ZdKkhUMLZGtcJVJFMSH69avJWPiA
+	 7mYaddu5flKEAvjr+oya3/xIEXlPpEDLAfbqojDD7ar0J+ceZh0KVuDzJQSimwseXz
+	 rEjq421poQEOaychfqxvmkhkri1jVsvqegU3t8uPQI1KfqafvI411fNNHQhUAGRBMb
+	 Fs+SNNl3jgjtiH2cnCjYWayZs9O5FXOBtTeX2A7HsDKGBtEoJAYOwARBSZhdHfz6wy
+	 wdzXvnQDtaJyFZLSDTL3Y1CwzObeRYdE6z8u1KqKGoLBlRq440Pm2THHzShpREzFTx
+	 d5xZD52m2LhwA==
+Subject: Re: [PATCH net v5 2/4] ice: do not leave switchdev mode while
+ representors exist
+From: netdev-bot+sashiko@kernel.org
+To: poros@redhat.com
+Cc: netdev@vger.kernel.org, anthony.l.nguyen@intel.com,
+ przemyslaw.kitszel@intel.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ aleksandr.loktionov@intel.com, horms@kernel.org,
+ michal.swiatkowski@linux.intel.com, grzegorz.nitka@intel.com,
+ pmenzel@molgen.mpg.de, wojciech.drewek@intel.com,
+ marcin.szycik@linux.intel.com, martyna.szapar-mudlaw@linux.intel.com,
+ ivecera@redhat.com, alice.michael@intel.com, jacob.e.keller@intel.com,
+ jbrandeb@kernel.org, patryk.holda@intel.com, sx.rinitha@intel.com,
+ aaron.ma@canonical.com, intel-wired-lan@lists.osuosl.org,
+ linux-kernel@vger.kernel.org
+Date: Sat, 28 Nov 2026 09:30:08 +0000
+Message-ID: <179585820824.3135.14448452752875011743@kernel.org>
+In-Reply-To: <20261127085714.1207361-3-poros@redhat.com>
+References: <20261127085714.1207361-3-poros@redhat.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,28 +71,197 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: pl
-To: "kuba@kernel.org" <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, sashiko@lists.linux.dev
-From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-Subject: [BUG] netdev-ai Sashiko instance failing to fetch threads (Failed)
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-References: <90f997b8-9862-41f2-9577-f935fad75041.ref@yahoo.com>
-X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-Hi Jakub,
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-It looks like the netdev-ai Sashiko instance (https://netdev-ai.bots.linux.dev/sashiko/) at linux.dev is currently failing to fetch incoming threads from the mailing list (while the main sashiko.dev instance is working fine).
-All recent entries are stuck in the "Fetching thread ..." state and immediately end up with "0/0 Failed" (author: unknown).
-Recent examples from today (2026-11-28):
-• 20261128080700.3828378-1-kuniyu@google.com
-• 20261128083639.1404522-1-yuyanghuang@google.com
-• 20261127-mptcp-cmason-fixes-v4-0-3f393ea8c48d@kernel.org
+Critical: 0 · High: 0 · Medium: 1 · Low: 3
 
-Could you take a look at the fetcher service / logs on netdev-ai?
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Thanks!
+- [Medium] The new `xa_empty(&pf->eswitch.reprs)` check in
+  ice_eswitch_mode_set() is protected only by the PF devlink lock, which…
+- [Low] The commit message understates what this patch fixes.
+- [Low] In ice_eswitch_mode_set(), the new
+  `!xa_empty(&pf->eswitch.reprs)` check (ice_eswitch.c:358) runs before…
+- [Low] The new gate checks whether pf->eswitch.reprs is empty, not
+  whether SF ports exist.
 
-Mieczyslaw Nalewaj
+--
+
+ice: do not leave switchdev mode while representors exist
+
+This patch makes ice_eswitch_mode_set() refuse an eswitch mode change
+while the representor xarray is not empty. Before the patch, switching to
+legacy mode with DCB active could destroy the xarray under a running
+switchdev session that still had a subfunction port representor.
+
+> the representors export, but ice exports none while DCB is active. A
+> switch to legacy then destroys the representor xarray under the running
+> session, the representors leak, and the uplink stays in its switchdev
+> configuration.
+
+[Severity: Low]
+
+Does "the representors leak" describe the whole consequence? Before this
+patch, the later SF port deletion looks like it ends in a use-after-free
+of dyn_port.
+
+Once the switch to legacy has run xa_destroy(&pf->eswitch.reprs), a
+devlink port del on the SF port goes through
+ice_devlink_port_del()->ice_dealloc_dynamic_port(), which calls:
+
+drivers/net/ethernet/intel/ice/ice_eswitch.c:ice_eswitch_detach_sf() {
+	struct ice_repr *repr = xa_load(&pf->eswitch.reprs, sf->repr_id);
+
+	if (!repr)
+		return;
+	...
+}
+
+So ice_repr_rem_sf() never runs. That means neither
+unregister_netdev(repr->netdev) nor
+ice_devlink_destroy_sf_port()->devl_port_unregister() is called.
+ice_dealloc_dynamic_port() then does:
+
+	ice_eswitch_detach_sf(pf, dyn_port);
+	xa_erase(&pf->dyn_ports, dyn_port->vsi->idx);
+	ice_vsi_free(dyn_port->vsi);
+	kfree(dyn_port);
+
+The embedded dyn_port->devlink_port is still registered in devlink->ports.
+The representor netdev is also still registered, and it keeps pointers
+into the freed dyn_port: repr->sf, and the devlink port set through
+SET_NETDEV_DEVLINK_PORT(). Driver removal takes the same path through
+ice_remove()->ice_dealloc_all_dynamic_ports().
+
+The code change closes this path. Could the commit message mention the
+use-after-free, so stable and CVE triage can weigh the fix correctly?
+
+> diff --git a/drivers/net/ethernet/intel/ice/ice_eswitch.c b/drivers/net/ethernet/intel/ice/ice_eswitch.c
+> index 6e7bba4738989..c96b201901f48 100644
+> --- a/drivers/net/ethernet/intel/ice/ice_eswitch.c
+> +++ b/drivers/net/ethernet/intel/ice/ice_eswitch.c
+> @@ -354,6 +354,13 @@ ice_eswitch_mode_set(struct devlink *devlink, u16 mode,
+>  		return -EOPNOTSUPP;
+>  	}
+>  
+> +	/* subfunction ports have representors too */
+> +	if (!xa_empty(&pf->eswitch.reprs)) {
+
+[Severity: Medium]
+
+Is the result of xa_empty(&pf->eswitch.reprs) stable under the lock held
+here? devlink core holds only the PF devlink lock around
+ice_eswitch_mode_set(). However, ice_eswitch_update_repr() changes the
+same xarray from ice_sf_dev_probe(), and that path holds only the SF's
+own devlink lock:
+
+drivers/net/ethernet/intel/ice/ice_sf_eth.c:ice_sf_dev_probe() {
+	...
+	devlink = priv_to_devlink(priv);
+
+	devl_lock(devlink);
+
+	err = ice_vsi_cfg(vsi);
+	...
+	ice_eswitch_update_repr(&dyn_port->repr_id, vsi);
+	...
+}
+
+drivers/net/ethernet/intel/ice/ice_eswitch.c:ice_eswitch_update_repr() {
+	...
+	if (repr->id != vsi->vsi_num) {
+		xa_erase(&pf->eswitch.reprs, repr->id);
+		repr->id = vsi->vsi_num;
+		if (xa_insert(&pf->eswitch.reprs, repr->id, repr, GFP_KERNEL))
+	...
+}
+
+ice_sf_dev_remove() does not delete the hardware VSI. So if the ice.sf.N
+auxiliary device is unbound and then rebound through sysfs, ice_vsi_cfg()
+runs with ICE_VSI_FLAG_INIT and allocates a new VSI number. That takes
+the erase/insert branch above.
+
+With a single SF representor and no VFs, can a concurrent eswitch mode
+change see the xarray empty between the erase and the insert?
+
+CPU1 (SF rebind, SF devlink lock only)
+ice_eswitch_update_repr()
+  xa_erase(&pf->eswitch.reprs, old_id);
+
+CPU2 (PF devlink lock held)
+ice_eswitch_mode_set(LEGACY)
+  !xa_empty(&pf->eswitch.reprs) is false, check passes
+  xa_destroy(&pf->eswitch.reprs);
+  pf->eswitch_mode = mode;
+
+CPU1
+  xa_insert(&pf->eswitch.reprs, new_id, repr, GFP_KERNEL);
+
+The result is legacy mode with a live SF representor, and
+pf->eswitch.is_running stays true because ice_eswitch_disable_switchdev()
+is never called. The uplink keeps its switchdev configuration until the
+SF port is deleted. This same check then refuses a switch back to
+switchdev.
+
+Would checking pf->dyn_ports instead close this? Its writers,
+ice_alloc_dynamic_port() and ice_dealloc_dynamic_port(), run under the PF
+devlink lock, so they would be serialized with mode_set.
+
+[Severity: Low]
+
+A related case: if that xa_insert() fails, ice_eswitch_update_repr() only
+logs an error:
+
+		if (xa_insert(&pf->eswitch.reprs, repr->id, repr, GFP_KERNEL))
+			dev_err(ice_pf_to_dev(pf), "Failed to reload port representor %d",
+				repr->id);
+
+If that was the only SF representor, pf->eswitch.reprs is now empty. The
+SF devlink port is still in pf->dyn_ports, and pf->eswitch.is_running is
+still true.
+
+Would ice_eswitch_mode_set(LEGACY) then pass both ice_has_vfs() and the
+new xa_empty() check? If so, it would run xa_destroy() and switch to
+legacy without calling ice_eswitch_disable_switchdev(), leaving the same
+orphaned session this patch is meant to prevent.
+
+The dropped-entry handling in ice_eswitch_update_repr() predates this
+patch, but a check on pf->dyn_ports would also cover this case.
+
+> +		NL_SET_ERR_MSG_MOD(extack,
+> +				   "Remove all subfunction ports before changing eswitch mode");
+> +		return -EOPNOTSUPP;
+> +	}
+> +
+>  	switch (mode) {
+
+[Severity: Low]
+
+Should the requested mode be validated before the representor check? The
+devlink policy accepts DEVLINK_ATTR_ESWITCH_MODE values up to 2
+(NLA_POLICY_MAX(NLA_U16, 2) in net/devlink/netlink_gen.c). So
+DEVLINK_ESWITCH_MODE_SWITCHDEV_INACTIVE reaches the driver, and ice
+rejects it only in the default branch:
+
+	default:
+		NL_SET_ERR_MSG_MOD(extack, "Unknown eswitch mode");
+		return -EINVAL;
+
+With the PF in switchdev mode and an SF port present, a switchdev_inactive
+request now fails with -EOPNOTSUPP and "Remove all subfunction ports
+before changing eswitch mode". If the SF ports are removed as the message
+says, the retry still fails, this time with -EINVAL.
+
+The existing ice_has_vfs() check has the same ordering, but this patch
+adds a new path that reports the wrong reason. Would it be better to
+validate the mode first, or to apply the representor check only to
+supported transitions?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127085714.1207361-1-poros%40redhat.com
