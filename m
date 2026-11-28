@@ -1,83 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=43.163.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795832361;
-	b=sy4KJmEt4JedkS6ooFec8z5WJ/4pQW38P867fyIKeA11n81pQYawTvfRW3rv/dBcgBBe
-	 P82idYOeZYgQ7N0/MuPAjzeuij1CeOXa/RcXCkNktikWtNd5uOQkXxjiEx++XrKIyyaeO
-	 pTs155DQD5OkbOX15egPYLyM3IQs+LgvFJKD9jDbpqrirgkts1KelJzra6lNmsf6PxOpk
-	 oo0lx6hNHQ9CpQ/wXPr4bJV3dbX+mQ+ehawMHZ2z4XkD2uOo8exi1P7tDC8srHYQsiNzJ
-	 3x3FsMWVZcZa0tCwzfcghgA7JN0nunT7y3jD/gc6WYbe/X5bGaukNuSd07Q5zUzFSFg==
+	t=1795833191;
+	b=46zUZS3NncKzZ3eRCRd80qWKGkLbwn0BGil7k9J/NnrjkdgT8jx0Z5XgJUtdXerM1b+M
+	 ribXibDj90AbBWPOIK/PWZy4+5rvdPre+3NQMqM4oWMEW1eIGKPEpFCvJ1AVCCkRjIMjp
+	 SoJfbQ1vRs9wNC5SD/bQ6hU5hH4ToLcj4ar4Rj/mgBKhjctFZl+xPyoxthThd1GH5Xz2+
+	 Xdg5M+rY7jsRHMDxVeaL5nE4l1HMkFnvjmaiNQWeGwgBzsUvK+GDMiaNz3in6OGkhaXAH
+	 sLPMLm9wJO53CfMkBbS5xt9jtkS3Hlm1Ho7RCT0Jo7hXtmcZf+6j9N8Yaj/26oGi18g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795832361;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=eRSttAXdxOyKYsK514hhSq/XSILs89vHnhuz76dJ1MQ=;
-	b=Msk+U7+n2e2NgMkvAnBZv/cw23A7g6RBKZMhvq0Yv5jnzUNkmYhM08RxjM9cA/ns9SBo
-	 E1pinQ0cuF/Rls4nt5ITLY89YD6mnu3MI7irjHz5hNoFmNBBrjTin4eaBz1uCB3Keaztx
-	 fvMVAOogcmW2C1oTzW86H+SwldtTOITrnvbkFrznBE4MpUUsHoc/PQ1ZfWM6rN13gYTaF
-	 ykhFlFUlbVUC1+wiERdTbX9FUbsFAq/55RheIpQwHPmQlk1U/CGIL7De93cgjzD67iJRB
-	 IEx70K3Cm/R9TpwxGdTXdRSm5oL1+BdPJmVGFjAKOdNawqSv5kUIPwGfSyBbZlhc1Xg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795833191;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=4qn0uyCItDbl/DfLGGMPD5QWobg00imW5lBzN8AtDn4=;
+	b=TmlvF9dCX8cAkrLhX0WKGsqTWZsmXKvOUFhEQ5IsVVIFMI4DCnS0vcHRKu34Yi6ng/kD
+	 Z8FusaAVILTdeZ0lu3wLpO1rSFlmDSEf3StQxfDrLrku6LGXUrCPefuPb44OyQdhnBDkz
+	 xYfLWZ6ahw6p+pPAeKeNlpQmARTpmV7iVWHq6gzF8+DIbe1/3o9k4b8IenagZSN8KFje1
+	 wmeNdnprYbPiH1x3c5XHLZAvXOsW+Za3UUDFtFfXNxEGFkzXFITRTbegshRQLbVqBGSKl
+	 Sp9aTzZ0x+/8DEY6v5fxV6GU/3xi4Yl9vZ0q4a8e92y85ntAok2DgOAENS6dPhWIQ3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ycSLmqKK;
-	arc=none smtp.remote-ip=43.163.128.53
-Received: from xmbghk7.mail.qq.com (xmbghk7.mail.qq.com [43.163.128.53])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LGrCyPAX;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EABF606A681;
-	Sat, 28 Nov 2026 02:19:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8EABF606A681
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE43D606A32D;
+	Sat, 28 Nov 2026 02:33:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ycSLmqKK
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795832347; bh=eRSttAXdxOyKYsK514hhSq/XSILs89vHnhuz76dJ1MQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ycSLmqKKMQasCPOBuR8RhDm//qmIfg3OrivUWR1y+bncG51ym7TY88QTu3XVow+ms
-	 JEXEl/tO8BuGg6VciJS+H5Tv+KKGv3qXPpRPAgffAY9E4h8+uYZMRHS7Ite4fjugtQ
-	 LpG+x+dzKnwR44ywV3QzhqWEzIgjU9loPjySM0C4=
-Received: from shuai-VMware-Virtual-Platform.. ([39.165.245.102])
-	by newxmesmtplogicsvrszb43-0.qq.com (NewEsmtp) with SMTP
-	id 4C4B324C; Sat, 28 Nov 2026 10:19:04 +0800
-X-QQ-mid: xmsmtpt1795832344to655yx6z
-Message-ID: <tencent_000906974D2C6D42C81D56BA85C54F3EAE05@qq.com>
-X-QQ-XMAILINFO: MRMtjO3A6C9X5ZoXj9lGCq202fzCPp8a0pUF3fAkl+2i7f98xR1HL6PGsWmipC
-	 JwsiP/hTOpDPPwoLFAUeuHcoaK1VB0JWLaj8EgDleWSks+HOpGy8GBlL6yYQ/DrhMdtzR823fvDN
-	 JpkMZZHUPohz4YTv5ezZQC+6NsdfydUqd5z7xiI3ynTwAqLdyDwzjmnlcPZdb/giLnFCWba1l8uE
-	 nq39e2tlukc0BNc8Zwk8CE2wwxojLPjHgxpBinxGoeynmzKaj7OcCC3Y56fonTWgjweLsEk+3sqy
-	 kz/GWbxvJoAbXPYd8v9gATv7QoKiVkMJHGbvWrV91kbrE+jgv5qdCz79gGGr4gKpqLxmzbTDFI5A
-	 uLjF93lX0cwBB6ruAjRnM+FoXw6FuuJXDM85vj1FouwIYafikC2iG8yTdkl7/FtxLZEWciMle635
-	 8IkvdKHmQdsAU9buTID75OatI6RXW1YjZsx4qupi5o18sVPQhWpPb0tgMnOo+/1uHTve9P5eRoXW
-	 b+ftN+ZVh41zTiCW6LOkeMH3r8hwUsr8llfTX/rbPm0V+Z/Fnhqm/8zKtk4RWGupCKUW7lPApJO2
-	 3mFc2gdl1Mx4Z3SnLJczg/nFEqugTBdoW6w+OvQaKmzX21uzkjh6kEuzwrZCXmn9wb0RP9BKbAHj
-	 j/cEqQ22ZmmvMA5wWoG7X8QbQhSVgMVqAcxRzmW9t+EB71r2IQmBWiuTSI9G0WZMUSjZBBi/x9Pr
-	 0v+HD7PBaZbb8Hp+QNQpm6zTm4KZ0GqMBHKV7RLgJxM5RjgXG21JPjHNqsUTldSyumfqbHxMiOyi
-	 UhfdGKkJMQhUqzYCgO8g8xKxcx+dRF7HXEzPQI9gK8TJzjopZPE0PqIooXES7DjkOlDSPSU/7kzb
-	 t1Te1C8wwPmfleD47Yd/ruZ4Vm0Pp1V3Ga1TSbjDtE9cNzT8/xaQ+YbN4pB0drTEnRiWqWUPbbJk
-	 ydPZtVTWlfyPC+yvQB0KUJLz04IaJfPssiJ6ILq7d6gPO9VC9HR5N/aINxJp6W+SEFnX6CXhh2OW
-	 sj4EcsCSrcLfSj39qT1YfUKGtK0n3OBsb0Mg6oqrzqzp1aly9C3P3/KtDl5p6+m8esMQ9FLxeZ/9
-	 COwvX8i/FrUDZHJUY1Rhye4Hu7XTfT6bHRkvXa
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-From: Shuai Liu <847807867@qq.com>
-To: Martin Schiller <ms@dev.tdt.de>,
-	Krystian Kaniewski <krystianmkaniewski@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Shuai Liu <847807867@qq.com>,
-	linux-x25@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2 0/2] net/x25: don't call lock_sock() from softirq in x25_kill_by_neigh()
-Date: Sat, 28 Nov 2026 10:19:04 +0800
-X-OQ-MSGID: <20261128-x25-v2-tested-847807867@qq.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261127-x25-kill-by-neigh-v2-0-c7cdcc9f1320@dev.tdt.de>
-References: <20261127-x25-kill-by-neigh-v2-0-c7cdcc9f1320@dev.tdt.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LGrCyPAX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE4BB1F00897;
+	Sat, 28 Nov 2026 02:33:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795833191;
+	bh=4qn0uyCItDbl/DfLGGMPD5QWobg00imW5lBzN8AtDn4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=LGrCyPAX0bY+vp+mzgO97bJwexv7z/Hq5pJcsBgyNtmk6Vk/153Bay1O/+1bfNb8Y
+	 tmUf33q9kJm7VKz50UiowplGk8Pos2699SbMHCDskjpnziVMvJ2mYjJ/WclSMLyZ9h
+	 gFFBnFi6c6qh703nWBICWr+DCE8PKKnooYyoI7Fb80GCKyL8IV6T2sh2+DlRbCPV8W
+	 LyuWsirNVJc/BCyDO28q+8AZ/vOegjGGUv0u8U2HPI1avy7PHdnFrmKZY5faqsrNGg
+	 dt3IBYtyPFpTc+jabQk1bLLs4yjLs+FdXXRhBN3+rHRytU0/28HGIu2K9se7Iodo2J
+	 dUBgf00wLwmew==
+Subject: Re: [PATCH ipsec-next v3 2/2] xfrm: add ARIA GCM support
+From: netdev-bot+sashiko@kernel.org
+To: his1415@pribit.com
+Cc: steffen.klassert@secunet.com, herbert@gondor.apana.org.au,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, sd@queasysnail.net, netdev@vger.kernel.org,
+ ipsec@lists.linux.dev, linux-kernel@vger.kernel.org
+Date: Sat, 28 Nov 2026 02:33:10 +0000
+Message-ID: <179583319029.3135.1719122173893517950@kernel.org>
+In-Reply-To: <20261127020448.55891-3-his1415@pribit.com>
+References: <20261127020448.55891-3-his1415@pribit.com>
+X-sashiko-severity: Critical
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -87,15 +63,116 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Hi Martin, Krystian,
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-I tested v2 on my tree as well. Patches 1/2 and 2/2 apply cleanly on
-top of current linus/master, compile with no warnings with LOCKDEP and
-DEBUG_ATOMIC_SLEEP enabled, and the x25 softirq->lock_sock splat is gone.
-All looks good.
+Critical: 1 · High: 0 · Medium: 0 · Low: 0
 
-Tested-by: Shuai Liu <847807867@qq.com>
-Reviewed-by: Shuai Liu <847807867@qq.com>
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
+- [Critical] This patch adds rfc4106(gcm(aria)) AEAD descriptors to
+  aead_list in net/xfrm/xfrm_algo.c (lines 85-120).
+
+--
+
+xfrm: add ARIA GCM support
+
+This commit adds XFRM AEAD algorithm descriptors for rfc4106(gcm(aria))
+with 64-bit, 96-bit and 128-bit ICV lengths. The kernel crypto API
+already supports the algorithm.
+
+> diff --git a/net/xfrm/xfrm_algo.c b/net/xfrm/xfrm_algo.c
+> index 98ef2c48982a2..d74f86d4e6722 100644
+> --- a/net/xfrm/xfrm_algo.c
+> +++ b/net/xfrm/xfrm_algo.c
+> @@ -82,6 +82,42 @@ static struct xfrm_algo_desc aead_list[] = {
+>  		.sadb_alg_maxbits = 256
+>  	}
+>  },
+> +{
+> +	.name = "rfc4106(gcm(aria))",
+> +
+> +	.uinfo = {
+> +		.aead = {
+> +			.geniv = "seqiv",
+> +			.icv_truncbits = 64,
+> +		}
+> +	},
+> +
+> +	.pfkey_supported = 0,
+> +},
+
+[Severity: Critical]
+Can an ARIA-GCM SA end up offloaded to Netronome hardware with a NULL
+cipher?
+
+These descriptors have no .desc, so desc.sadb_alg_id is 0. attach_aead()
+in net/xfrm/xfrm_user.c copies it straight into the state:
+
+	x->props.ealgo = algo->desc.sadb_alg_id;
+
+That leaves x->props.ealgo == SADB_EALG_NONE.
+
+nfp_net_xfrm_add_state() in drivers/net/ethernet/netronome/nfp/crypto/ipsec.c
+assumes chacha20-poly1305 is the only AEAD with that id:
+
+	case SADB_EALG_NONE:
+		/* The xfrm descriptor for CHACAH20_POLY1305 does not set the algorithm id, which
+		 * is the default value SADB_EALG_NONE. In the branch of SADB_EALG_NONE, driver
+		 * uses algorithm name to identify CHACAH20_POLY1305's algorithm.
+		 */
+		if (x->aead && !strcmp(x->aead->alg_name, "rfc7539esp(chacha20,poly1305)")) {
+			...
+			break;
+		}
+		fallthrough;
+	case SADB_EALG_NULL:
+		cfg->ctrl_word.cimode = NFP_IPSEC_CIMODE_CBC;
+		cfg->ctrl_word.cipher = NFP_IPSEC_CIPHER_NULL;
+		break;
+
+"rfc4106(gcm(aria))" fails the strcmp, so the code falls through and
+programs NFP_IPSEC_CIPHER_NULL.
+
+The auth switch earlier in the same function doesn't reject it either.
+With aalgo == SADB_AALG_NONE and x->aead set, it only does:
+
+	case SADB_AALG_NONE:
+		if (x->aead) {
+			trunc_len = -1;
+
+ctrl_word.hash stays at NFP_IPSEC_HASH_NONE. The x->aead block after that
+just copies the ARIA key and salt into the config.
+
+net/xfrm/xfrm_device.c doesn't check aead or ealgo before calling the
+driver, and NFP registers no xdo_dev_offload_ok callback. So the call
+chain attach_aead() -> xfrm_dev_state_add() -> nfp_net_xfrm_add_state()
+returns success.
+
+Userspace (for example strongSwan with hw_offload=auto) then reports an
+ARIA-GCM SA, while the NIC applies no encryption and no ICV. Offloaded
+outbound ESP payloads would go out in plaintext, and inbound SAs would
+get no integrity check.
+
+The companion commit "xfrm: add ARIA CBC and CTR support" appears to have
+the same issue. cbc(aria) and rfc3686(ctr(aria)) are added to ealg_list
+without a sadb id. Since x->aead is NULL for them, they would always fall
+through to NFP_IPSEC_CIPHER_NULL, while any configured HMAC still applies.
+
+Could the NFP driver return -EINVAL for any SADB_EALG_NONE algorithm it
+doesn't recognize by name, instead of falling through to the NULL cipher,
+before these descriptors are added? Another option is to give the new
+algorithms an id that offload drivers can't mistake for NONE or NULL.
+
+> +{
+> +	.name = "rfc4106(gcm(aria))",
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127020448.55891-1-his1415%40pribit.com
