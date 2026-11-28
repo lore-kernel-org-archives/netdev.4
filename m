@@ -1,61 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=206.189.79.184
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795833559;
-	b=wL//NgeemSYqYCEb/NZtMTHJ4FGWls5REyBsc06j/UbCjwnGgCeDF+DOLLRQpyhgFvFO
-	 UqAKnGJgrM4316BR5lVovwAWc7FtzXTpupkVO0MIjsZEQZBKU1fbHr0qnU8z4aKwVb6qv
-	 2XFySl8p/ELt5Wdoe0Igw4a3BQmobK4/NnHP4F+3WbAPzJIBrkaHz0DlQtgwFiNme/kxA
-	 L4yFgRlOwyolr3GGrk6nl8UGrhgDtjwxOvNmHLRAgUYMaUBNsKBc4ZygjZ0pAHxGp2WHR
-	 eY8LlTKnpby6he2tcn556LWKGScBnJs4B3mxcyPUtcJB9mBGY+8CE/i8jtsdK2ksRYg==
+	t=1795833937;
+	b=uCXmV37vUXEC8KQW/cn3NgKrqO026bNTRqSaTSFO7c6A7ETxxLVnvvvsDhYYYzaFmN8p
+	 2RfuPtU4rGIf5q03+TfdcLzUjnR7IvD8m7Ru3dH0LUPk69CwUHOtSmrhnC0RgWe/Nt7ud
+	 rl4LyRw8h4Ra5VmwyGmiMfeb5Ei+3IbZE3+xm77Ku2OmdY+X9PeZwKYsYw7ntlTKw9Zp/
+	 926GTUTwSZfvHsBmI1x+g3Fe9JsawllgMkKqdn/0kFinauuDpNFkL/6XfFVy0xRjLnj/L
+	 8MvR4fEsLhOA/ZwfFbojMKAnECczydQYAIuegL6YuRxylqn50i24OvM5MgtoQGSSylQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795833559;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=LaV2SiinPK0tdVxX/NYL6LnBm8kBz/qgvPFNEtMsKmc=;
-	b=1bBaf56V88hzb6fBXFbzwsKhb+C8adiGU2e0MLq8T0OaabxlZVJN/9HroJZeDGthsg6i
-	 2phqIfffkvhh+bCFhmomxbWMbIEaGVP6ouaAJzP8/hdSjOBqdQmN32Sjt9qXD3T2dU4en
-	 8l6yJXdx2Jv7bSfDJDkhtcO2deAZnP05FVQkzAEVDTAyYuxSMrT3dfiEoj3F8cVt54z8n
-	 zD4JSIqAFD87RHU3UdbxR+IDYOcR67BpMQKN6DRLXL84J9sLd2cwg9Ol6WlYsFIggySHq
-	 Lk6MbwZRX82JHUdNXscJsmBGyPM7FCGjIHzS/A9A+7HinSMhDZ9lyYc4yJsMBYsY1FQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795833937;
+	h=DMARC-Filter:DKIM-Signature:Received:DKIM-Signature:Received:From:To:
+	 Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-CM-SenderInfo:
+	 X-CM-DELIVERINFO:X-Coremail-Antispam;
+	bh=C+MlJe8uTIZ2wjks8hDs0Rdvxu68dB+wIWc0TEGmk7E=;
+	b=h0/oCLyQWLI2i1q0UVAvvitcSBXej3Ve/8LX2xG2j7PYm21xAuHa/uTi/Xwtob4k0LF/
+	 MFUZh5nrfijG5t+W7DkUqXczexmEjT9Awlmbkc5JVNWlOYv4WYoIU5xCl3fN81XtLgDl3
+	 eMY6WF/7F10spjTPgQdZPmuFYCuu24Q5kCYU0X5M6JwzDdQL60ad8sfLakn4dCkYs6wAp
+	 R3odkrMhlq8ExxpMiaTVZbqARxIeGBTan0aQGmEnU9NgSIvluTMiKmc5UmJrqnv32P8Eo
+	 QrLDZJvPM9FxQ7KBCUyTQZDbQIMQ+uxeA7FpYejAOELC2pTmp2RBq7tLFqOcpV6LgCg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bggHE349;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4942B606A31C;
-	Sat, 28 Nov 2026 02:39:19 +0000 (UTC)
+	dmarc=none header.from=zju.edu.cn;
+	spf=pass smtp.mailfrom=zju.edu.cn;
+	dkim=pass header.d=zju.edu.cn header.i=@zju.edu.cn header.a=rsa-sha256 header.s=gw2610 header.b=kmaICSfS;
+	dkim=pass header.d=zju.edu.cn header.i=@zju.edu.cn header.a=rsa-sha256 header.s=cm2610 header.b="Vs/GBVo7";
+	arc=none smtp.remote-ip=206.189.79.184
+Received: from zg8tmja2lje4os43os4xodqa.icoremail.net (zg8tmja2lje4os43os4xodqa.icoremail.net [206.189.79.184])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id B8B67606A31C;
+	Sat, 28 Nov 2026 02:45:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8B67606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=zju.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zju.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bggHE349
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46EA01F000C1;
-	Sat, 28 Nov 2026 02:39:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795833559;
-	bh=LaV2SiinPK0tdVxX/NYL6LnBm8kBz/qgvPFNEtMsKmc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=bggHE349700cg4TW7e0fU8l2mhRtRj5mUN6EwxqOw/HX0K0m8VEeWxzaOdF4rTFKk
-	 N+tnHmYnL0czet0HyLN79iUeeZR8BTzZiZKzlx9bgY5tUC7PC/6ySnoCvLwJbCIfvC
-	 sIc3ByQiap5iOb4DuE1RjwYdMUhTc3QhWsiUwCPkt6fyAn8yloO8tRvTl4HkakmLyf
-	 LXZF4tG+ndtjTfdAMAIPseMj0ZH4mJuqtq0hS5JTrW8xfdFFtBcNXF8iwoA465x2xP
-	 gh3V0QPlsrqIA7MUParkinwwcptraFSKIYk1SlFJAqRF9d6vYBDEV29ducGbZm3teE
-	 PZdIMnLHsD9/w==
-Subject:
- Re: [PATCH net v4] net: ibm: emac: attach and start the fixed-link PHY
-From: netdev-bot+sashiko@kernel.org
-To: xiaolinkui@126.com
-Cc: andrew+netdev@lunn.ch, netdev@vger.kernel.org, andrew@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- rosenp@gmail.com, chunkeey@gmail.com, jacob.e.keller@intel.com,
- kees+treewide@kernel.org, daniel.machon@microchip.com, hkallweit1@gmail.com,
- linux-kernel@vger.kernel.org, xiaolinkui@kylinos.cn
-Date: Sat, 28 Nov 2026 02:39:17 +0000
-Message-ID: <179583355780.3135.1650054860252955858@kernel.org>
-In-Reply-To: <20261127014748.2908781-1-xiaolinkui@126.com>
-References: <20261127014748.2908781-1-xiaolinkui@126.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=zju.edu.cn header.i=@zju.edu.cn header.a=rsa-sha256 header.s=gw2610 header.b=kmaICSfS;
+	dkim=pass (2048-bit key, unprotected) header.d=zju.edu.cn header.i=@zju.edu.cn header.a=rsa-sha256 header.s=cm2610 header.b=Vs/GBVo7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=zju.edu.cn; s=gw2610; h=Received:DKIM-Signature:Received:From:
+	To:Cc:Subject:Date:Message-ID:MIME-Version:
+	Content-Transfer-Encoding; bh=C+MlJe8uTIZ2wjks8hDs0Rdvxu68dB+wIW
+	c0TEGmk7E=; b=kmaICSfS/6I2jeLTdqGMvJs/Ao7P22UjNMf8CqUN8GWO7jfWwy
+	hSUo041jbVH3c6sXU1IKU/y4GsnWbrKRwcDrZdyVNiBewUxkJzuIEy8ezw7TZlXC
+	hPQWDWZIT1Nzr3OyUw+eET/L4zQwwiR4l71ttFgMc8hM7wj4HMGSZ/sag=
+Received: from zju.edu.cn (unknown [123.60.231.41])
+	by mtasvr (Coremail) with SMTP id _____wAHYn1FQApr1qc7Ag--.2291S3;
+	Sat, 28 Nov 2026 10:45:26 +0800 (CST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=zju.edu.cn; s=cm2610; h=From:To:Subject:Date:Message-ID; bh=C+
+	MlJe8uTIZ2wjks8hDs0Rdvxu68dB+wIWc0TEGmk7E=; b=Vs/GBVo70ZkvhAqdeJ
+	xbLF3XnE1kHbwqGytfITommDh6bR0Xu1GzQhBwg38d5VnOj+yv+BdK9BlRy56b5f
+	hDiPn52TDK6pnFf3lpME1ZdiPU1CeB4sYJlAGaFcWSnCgqSEiQqOkLhjK/dxOSPs
+	gC0GsfNso4xs9aQW1oHrWOwig3UsjM9+9JZncXm1KODePQxsCpPDNDWkk/6ISC84
+	SwDB8stL7N4jdt5iG8vdzc3LV8fnE4g3BMiYW2z1rxWPgSME9ya87jHFkU1VTYw0
+	9iK11N3XzaRajtcCl5R8UO1MrQZmuw3TmyamMMKrVHW8NYeTkVx2NwQLG724RH2t
+	WV9A==
+Received: from ubuntu2404-234226.. (unknown [123.60.231.41])
+	by mail-app3 (Coremail) with UTF8SMTPSA id zS_KCgBXY6BDQApraoWZAQ--.50523S4;
+	Sat, 28 Nov 2026 10:45:24 +0800 (CST)
+From: Lin Ma <linma@zju.edu.cn>
+To: David Howells <dhowells@redhat.com>,
+	Marc Dionne <marc.dionne@auristor.com>
+Cc: netdev@vger.kernel.org,
+	linux-afs@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Lin Ma <linma@zju.edu.cn>
+Subject: [PATCH net v2] rxrpc: Fix NULL Tx buffer handling in the retransmission path
+Date: Sat, 28 Nov 2026 10:44:27 +0800
+Message-ID: <20261128024427.306409-1-linma@zju.edu.cn>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,266 +75,150 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:zS_KCgBXY6BDQApraoWZAQ--.50523S4
+X-CM-SenderInfo: qtrwiiyqvtljo62m3hxhgxhubq/1tbiAwAMEmryeh4flABNsn
+X-CM-DELIVERINFO: =?B?/l8dYwXKKxbFmtjJiESix3B1w3tPqcowV1L23Bze5QtIr9Db75bEBiiEybVhThS0pI
+	APHnkvfpsecr7gZmVpD/pedGe87gU8Umht5p0mFnlIkYSId2qXld9eGf+JCpvtZ3yUMajP
+	cobNANwHHvLV1Dey/saO2u6RLISSt++5xU6HXRuEtHoMJdN8ee+GckqBphoFGA==
+X-Coremail-Antispam: 1Uk129KBj93XoWxCw15Ary5uw17JF1Dtry5trc_yoW7Jw4xpa
+	yrGrsxKF4DJrnIyF4Syw4xZw45uF48J347Ww1Uuwna9r98GryY9Fs7Kay5KFyUCwsrJrWU
+	ZFWava45Aw4DJrgCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUvvb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IE4IxF12IF4wA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
+	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI0UMc
+	02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAF
+	wI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0Y48IcxkI7V
+	AKI48G6xCjnVAKz4kxMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I
+	3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxV
+	WUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8I
+	cVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aV
+	AFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuY
+	vjxU26pBDUUUU
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+rxrpc_retransmit_data() can be handed a NULL txb in two ways.
 
-Critical: 0 · High: 1 (1) · Medium: 1 · Low: 2
+First, rxrpc_transmit_fresh_data() commits the Tx queue state before
+rxrpc_send_data_packet() has prepared the packet.  If the wire header
+allocation fails, tx_transmitted is not advanced, and the next pass
+builds req.seq from tx_transmitted but req.tq from the new tail segment.
+Indexing that segment with the stale sequence number can select a NULL or
+wrong txbuf.  If the LAST packet was in the unsent batch, the Tx phase
+can also be closed with packets that were never sent.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Second, rxrpc_input_ackall() rotates the Tx window and frees txbufs up to
+tx_transmitted, but it doesn't advance acks_hard_ack.  A subsequent TLP
+expiry can therefore select an in-range but already-freed slot.
 
-- [High] Use-after-free on the probe error path.
-- [Medium] On the fixed-link path, the MAC link parameters are now filled
-  in asynchronously and without a lock shared with the readers.
-- [Low] Since the fixed-link PHY is now attached and started at probe,
-  two writers manage the carrier on the fixed-link path and nothing…
-- [Low] emac_remove() now calls phy_stop() before unregister_netdev().
+Fix the first by only committing tx_qtail and tx_top after
+rxrpc_send_data_packet() has advanced tx_transmitted, and by arming a
+short retry timer if it didn't.  Fix the second by advancing
+acks_hard_ack on ACKALL.  Also make rxrpc_retransmit_data() tolerate a
+missing txbuf as a final guard, and retain the lower-bound check in
+rxrpc_resend_tlp().
 
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but the PHY-
-  less/fixed-link branch of emac_init_phy() returns before it sets…
+Fixes: b341a0263b1b ("rxrpc: Implement progressive transmission queue struct")
+Fixes: 7c482665931b6 ("rxrpc: Implement RACK/TLP to deal with transmission stalls [RFC8985]")
+Signed-off-by: Lin Ma <linma@zju.edu.cn>
+---
+Changes in v2:
+  - Only commit tx_qtail and tx_top after rxrpc_send_data_packet() has
+    advanced tx_transmitted, and retry after a short delay if the wire
+    header allocation failed, instead of only guarding the TLP fast path.
+  - Advance acks_hard_ack on ACKALL and tolerate a missing txbuf.
 
---
+Link: https://lore.kernel.org/all/20261122135515.3989708-1-linma@zju.edu.cn/
+Link: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122135515.3989708-1-linma%40zju.edu.cn
 
-net: ibm: emac: attach and start the fixed-link PHY
+ net/rxrpc/call_event.c | 29 +++++++++++++++++++++++------
+ net/rxrpc/input.c      |  7 +++++++
+ 2 files changed, 30 insertions(+), 6 deletions(-)
 
-This patch attaches the fixed-link PHY in emac_init_phy() with
-of_phy_connect() and starts it through emac_mdio_init_phy(), so phylib
-fills in dev->phy via emac_adjust_link(). It also restores phy_disconnect()
-and of_phy_deregister_fixed_link() in emac_remove() and on the probe error
-path, and stops the PHY before unregister_netdev().
+diff --git a/net/rxrpc/call_event.c b/net/rxrpc/call_event.c
+index 21be9c86d7a7..2360e9289602 100644
+--- a/net/rxrpc/call_event.c
++++ b/net/rxrpc/call_event.c
+@@ -64,6 +64,9 @@ static bool rxrpc_retransmit_data(struct rxrpc_call *call,
+ 	unsigned int ix = req->seq & RXRPC_TXQ_MASK;
+ 	struct rxrpc_txbuf *txb = tq->bufs[ix];
+ 
++	if (!txb)
++		return false;
++
+ 	_enter("%x,%x,%x,%x", tq->qbase, req->seq, ix, txb->debug_id);
+ 
+ 	req->retrans = true;
+@@ -141,6 +144,7 @@ void rxrpc_resend_tlp(struct rxrpc_call *call)
+ 	/* There's a chance it'll be on the tail segment of the queue. */
+ 	req.tq = READ_ONCE(call->tx_qtail);
+ 	if (req.tq &&
++	    after_eq(call->tx_transmitted, req.tq->qbase) &&
+ 	    before(call->tx_transmitted, req.tq->qbase + RXRPC_NR_TXQUEUE)) {
+ 		rxrpc_retransmit_data(call, &req);
+ 		return;
+@@ -213,6 +217,7 @@ static void rxrpc_transmit_fresh_data(struct rxrpc_call *call, unsigned int limi
+ 		struct rxrpc_txbuf *txb;
+ 		rxrpc_seq_t send_top, seq;
+ 		int limit = min(space, max(call->peer->pmtud_jumbo, 1));
++		bool last;
+ 
+ 		/* Order send_top before the contents of the new txbufs and
+ 		 * txqueue pointers
+@@ -244,17 +249,29 @@ static void rxrpc_transmit_fresh_data(struct rxrpc_call *call, unsigned int limi
+ 				break;
+ 		} while (req.n < limit && before(seq, send_top));
+ 
++		last = txb->flags & RXRPC_LAST_PACKET;
++
+ 		if (__rxrpc_call_state(call) == RXRPC_CALL_CLIENT_PRE_SEND)
+ 			rxrpc_set_call_state(call, RXRPC_CALL_CLIENT_SEND_REQUEST);
+-		if (txb->flags & RXRPC_LAST_PACKET) {
+-			rxrpc_close_tx_phase(call);
+-			tq = NULL;
++
++		rxrpc_send_data_packet(call, &req);
++
++		if (call->tx_transmitted != seq) {
++			/* The wire header allocation failed; retry shortly. */
++			ktime_t delay = ms_to_ktime(100);
++
++			call->rack_timer_mode = RXRPC_CALL_RACKTIMER_TLP_PTO;
++			call->rack_timo_at = ktime_add(ktime_get_real(), delay);
++			trace_rxrpc_timer_set(call, delay,
++					      rxrpc_timer_trace_rack_tlp_pto);
++			break;
+ 		}
+-		call->tx_qtail = tq;
+-		call->tx_top = seq;
+ 
++		call->tx_qtail = last ? NULL : tq;
++		call->tx_top = seq;
++		if (last)
++			rxrpc_close_tx_phase(call);
+ 		space -= req.n;
+-		rxrpc_send_data_packet(call, &req);
+ 	}
+ }
+ 
+diff --git a/net/rxrpc/input.c b/net/rxrpc/input.c
+index 73cafe6bfa9f..ee1073951c8d 100644
+--- a/net/rxrpc/input.c
++++ b/net/rxrpc/input.c
+@@ -1242,6 +1242,13 @@ static void rxrpc_input_ackall(struct rxrpc_call *call, struct sk_buff *skb)
+ 
+ 	if (rxrpc_rotate_tx_window(call, call->tx_transmitted, &summary))
+ 		rxrpc_end_tx_phase(call, false, rxrpc_eproto_unexpected_ackall);
++
++	/* ACKALL acknowledges everything transmitted, but rotating the Tx
++	 * window only advances tx_bottom.  Advance the hard-ACK mark too so
++	 * that a subsequent TLP probe doesn't select a freed Tx buffer.
++	 */
++	if (after(call->tx_transmitted, call->acks_hard_ack))
++		call->acks_hard_ack = call->tx_transmitted;
+ }
+ 
+ /*
 
-> diff --git a/drivers/net/ethernet/ibm/emac/core.c b/drivers/net/ethernet/ibm/emac/core.c
-> index 1b95b4d5deff5..27b79f897e36f 100644
-> --- a/drivers/net/ethernet/ibm/emac/core.c
-> +++ b/drivers/net/ethernet/ibm/emac/core.c
-> @@ -2673,11 +2673,17 @@ static int emac_init_phy(struct emac_instance *dev)
->  				return res;
->  
->  			res = of_phy_register_fixed_link(np);
-> -			ndev->phydev = of_phy_find_device(np);
-> -			if (res || !ndev->phydev)
-> -				return res ? res : -EINVAL;
-> -			emac_adjust_link(dev->ndev);
-> -			put_device(&ndev->phydev->mdio.dev);
-> +			if (res)
-> +				return res;
-> +
-> +			if (!of_phy_connect(ndev, np, &emac_adjust_link, 0,
-> +					    dev->phy_mode))
-> +				return -ENODEV;
-> +
-> +			/* Start it the same way as a real PHY. */
-> +			res = emac_mdio_init_phy(&dev->phy);
-
-[Severity: Medium]
-Before this patch, emac_adjust_link() was called synchronously here, so
-dev->phy was filled in by the time probe returned. Now phy_start() only
-queues phy_state_machine(). The first emac_adjust_link() runs later from
-the workqueue, holding only phydev->lock:
-
-emac_adjust_link() {
-	dev->phy.autoneg = phy->autoneg;
-	dev->phy.speed = phy->speed;
-	dev->phy.duplex = phy->duplex;
-	dev->phy.pause = phy->pause;
-	dev->phy.asym_pause = phy->asym_pause;
-	...
-}
-
-On the fixed-link path, emac_open() holds RTNL and dev->link_lock but never
-refreshes these fields before it builds MR1:
-
-emac_open() {
-	...
-	if (dev->phy.address >= 0) {
-		...
-	} else
-		netif_carrier_on(dev->ndev);
-	...
-	emac_configure(dev);
-	...
-}
-
-emac_configure() reads dev->phy.speed, duplex, pause and asym_pause, and
-the two lock sets do not overlap. If emac_open() runs before the first
-state machine pass, MR1 gets the probe defaults (SPEED_100, DUPLEX_FULL).
-If it runs during that pass, it can see a mix of old and new fields.
-
-emac_adjust_link() never reprograms MR1, and a fixed link without
-link-gpios never changes state again. Can the wrong MR1 then stay in place
-until the next ifdown/ifup?
-
-The commit message says:
-
-  That window is the one the phy-handle path has always had,
-  this driver starts its PHY at probe time rather than in ndo_open, and the
-  next ifdown/ifup closes it.
-
-Is that accurate? On the phy-handle path (dev->phy.address >= 0),
-emac_open() reads the link synchronously through poll_link()/read_link(),
-which ends up in phy_read_status(). emac_link_timer() also reprograms the
-MAC on link changes. A fixed link has neither, so a fixed link can still
-be programmed with the wrong speed, duplex or pause, which is the bug this
-patch is meant to fix.
-
-[Severity: Low]
-Now that the fixed-link PHY is started here, two writers set the carrier
-on this path. phylib's phy_link_change() calls netif_carrier_on()/off()
-from the state machine work. The driver still calls netif_carrier_off() in
-emac_probe() before register_netdev(), netif_carrier_on() in emac_open()
-for dev->phy.address < 0, and netif_carrier_off() in emac_close().
-
-Nothing orders these writers. phy_start() here runs before the
-netif_carrier_off() in emac_probe(). If the work runs after that call but
-while reg_state is still NETREG_UNINITIALIZED, netif_carrier_on() clears
-__LINK_STATE_NOCARRIER without a linkwatch event. The netdev then
-registers with the carrier on while it is administratively down. The later
-netif_carrier_on() in emac_open() is a no-op, so no linkwatch event fires
-on open.
-
-Could operstate then stay at UNKNOWN instead of moving to UP?
-
-If the work runs first instead, the netif_carrier_off() in emac_probe()
-overrides phylib, and phylib then thinks the link is up while the carrier
-is off. With link-gpios, phylib could also turn the carrier back on for a
-closed interface.
-
-Should the driver leave the carrier to phylib in the fixed-link case?
-
-> +			if (res)
-> +				return res;
->  		}
->  		return 0;
->  	}
-
-[Severity: High]
-This isn't a bug introduced by this patch, but the PHY-less/fixed-link
-branch of emac_init_phy() returns before these assignments further down:
-
-	dev->phy.mdio_read = emac_mdio_read;
-	dev->phy.mdio_write = emac_mdio_write;
-	...
-		dev->phy.gpcs_address = dev->gpcs_address;
-
-The private area is zeroed, so for a fixed link dev->phy.mdio_read is NULL
-and dev->phy.gpcs_address is 0. With phy-mode sgmii, tbi or rtbi,
-emac_open()->emac_configure() reaches:
-
-	if (emac_phy_gpcs(dev->phy.mode)) {
-		if (dev->phy.gpcs_address != 0xffffffff)
-			emac_mii_reset_gpcs(&dev->phy);
-
-Then emac_mii_reset_gpcs()->gpcs_phy_read() does:
-
-	return phy->mdio_read(phy->dev, phy->gpcs_address, reg);
-
-Does this call a NULL function pointer with RTNL and dev->link_lock held?
-emac_reset_work() and the reinit path in emac_link_timer() reach
-emac_configure() the same way.
-
-There is a second effect now that the real fixed-link speed reaches
-dev->phy. For a 1000 Mbit/s GPCS fixed link, MR1 is programmed with
-EMAC_MR1_MF_IPPA(0) instead of the gpcs-address from DT. The oops above
-would happen first, though.
-
-> @@ -3190,6 +3196,10 @@ static int emac_probe(struct platform_device *ofdev)
->  	/* I have a bad feeling about this ... */
->  
->   err_detach_tah:
-> +	if (ndev->phydev)
-> +		phy_disconnect(ndev->phydev);
-> +	if (of_phy_is_fixed_link(np))
-> +		of_phy_deregister_fixed_link(np);
-
-[Severity: High]
-Can this unwind leave a linkwatch event queued on a netdev that devres
-then frees?
-
-The fixed-link PHY is started in emac_init_phy() before register_netdev(),
-so the state machine can run during registration:
-
-emac_init_phy()
-  emac_mdio_init_phy()
-    phy_start()
-phy_state_machine()
-  phy_link_up()->phy_link_change(true)
-    netif_carrier_on()       <- clears NOCARRIER, no event yet
-register_netdev()
-  register_netdevice()
-    netdev_register_kobject() fails  <- reg_state = NETREG_UNREGISTERED
-goto err_detach_tah
-  phy_disconnect()
-    phy_stop()
-      phy_link_down()->phy_link_change(false)
-        netif_carrier_off()
-          linkwatch_fire_event()  <- netdev_hold(), added to lweventlist
-emac_probe() returns the error
-  devm action: free_netdev()
-    put_device()             <- net_device freed
-
-netif_carrier_off() only suppresses the event for NETREG_UNINITIALIZED:
-
-	if (!test_and_set_bit(__LINK_STATE_NOCARRIER, &dev->state)) {
-		if (dev->reg_state == NETREG_UNINITIALIZED)
-			return;
-		atomic_inc(&dev->carrier_down_count);
-		linkwatch_fire_event(dev);
-
-free_netdev() does not wait for the linkwatch reference, so
-linkwatch_event() would later walk lweventlist and dereference the freed
-net_device. A NETDEV_REGISTER notifier veto ends in the same state. If the
-state machine first runs after the failure, its own netif_carrier_on()
-queues the event in the same way.
-
-The commit message describes this hazard for emac_remove(), but the probe
-unwind does not seem to be covered. Would starting the PHY only after
-register_netdev() succeeds, or from ndo_open/ndo_stop, avoid this?
-
-> @@ -3214,6 +3224,14 @@ static void emac_remove(struct platform_device *ofdev)
->  
->  	DBG(dev, "remove" NL);
->  
-> +	/* Stop the PHY first: phy_stop() turns the carrier off and queues a
-> +	 * linkwatch event, which unregister_netdev() then drains.
-> +	 * phy_disconnect() has to stay below, detaching a PHY from a
-> +	 * registered netdev wants RTNL and we do not hold it here.
-> +	 */
-> +	if (dev->ndev->phydev)
-> +		phy_stop(dev->ndev->phydev);
-
-[Severity: Low]
-For a phy-handle PHY, phy_stop() also powers the PHY down. PHY_HALTED
-returns PHY_STATE_WORK_SUSPEND, _phy_state_machine_post_work() calls
-phy_suspend(), and genphy_suspend() sets BMCR_PDOWN. Here that happens
-while the MAC is still running, since emac_close() only runs later inside
-unregister_netdev().
-
-emac_close() then calls emac_rx_disable()/emac_tx_disable(), which busy
-wait for the idle bits:
-
-		while (!(in_be32(&p->mr0) & EMAC_MR0_RXI) && n) {
-			udelay(1);
-			--n;
-		}
-		if (unlikely(!n))
-			emac_report_timeout_error(dev, "RX disable timeout");
-
-If the powered-down PHY stops supplying RX_CLK/TX_CLK, could these waits
-run to the full timeout and log "RX/TX disable timeout" on unbind?
-
-The link-loss handling in emac_link_timer() (emac_rx_clk_tx() and
-emac_reinitialize()) is also skipped here, because phylib has already
-cleared the carrier.
-
-Before commit baab9de385a8, the PHY was disconnected only after
-unregister_netdev(), so the MAC was stopped while the PHY still had power.
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127014748.2908781-1-xiaolinkui%40126.com
