@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795859322;
-	b=T6R5LGWulepMNiQzgwCMNzPLR86ZdwenmMv6ky+sKa7fgjsW+8hZ/mORZoyEURpK6R/N
-	 70lFhX+5fCfnj60uVdILLcV1bCib70ldnw5GS6SQ3tVz2EUVcxw3R2DJOlpReu5mk8heq
-	 zFADIPAgXVHbfSF0oltMuGpTwnWVU+JyJIHiuGdKhDoMzVU9Bzm63wtpRHivG3YWBxvbp
-	 D8mcSZL/I/MNesYs6ib/rjMGeM1yDUAZ42F2/cDkbjnHDZZyTS0+BdMuSM4t37k4trANJ
-	 xU2uhmb2z9mmmTJiww9ncPvKwVmQhcd6dSNwmUVYmmMcs22hHGNRZ38hEYVUxzXZkEw==
+	t=1795859324;
+	b=haeI1VJASOGtdmyzkzDvoEX6af4KNWGInpud0WE0mk2iHnlJGVR5JoVJnIqGB6HevPmU
+	 OHUAeneQg2qw+TFidYGOCCXrPj+vtXcUA6B1sP3nb2iwgsASAY2ZS12wze7jUv8GI01K9
+	 eA5TDHj25BC0GelJH7iGP6LJyOIH4auCUPWZRcO44+2b7XIxt26QD+zWLMbgsGA8IpyqU
+	 Bsi3P/tJFvnHoo9KEQ89pLLBnwjjMt7PN/h0H8sHfchfvZVAvaBT2BuVbmqCv+sHddtv/
+	 Ph961waiRiMT1jy+pX7qeUwOuVE3pvntV73BAbXo+/Wa17X/kr5ascDj3YTe6FOLifA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795859322;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795859324;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=6ifWf4j1d3G8lIodYGxBjWABGXQx7X8VTWGws64IYAE=;
-	b=yKUWhfpDwuavwzig5j+2tMf/IPsjboCBKZBiqy9/8QPpDrJ/Yzg+pSqjasU/dZWCOwCX
-	 T5Ll2XRSXc8jhSSU/4w3vuwBNo8sPrO5MqseAEdZIv54bKEm1JHbweN8ANfwhynh68LIH
-	 riiCl2A1Covmkod01uOsLmTtUHBZJTnJ8vHPHOaIrCPT1mcYjIkxM3dZ+RzuOiVTf01L5
-	 x2CxGjZpmyKmvL3JUnMzhkk84+sjhgrYv7JHdGNULLZo7PWwjMP9jjWAKKVi/DJgDUeEp
-	 IDOq0kF7JQBghCC3tVvG2d+bEzYBKrOH9YI4y2HOumJkHbBKJOhtLedNFNhieoqMbHg==
+	bh=uGVYCMVsHA6dEUJ8RKY83xz970x/aKFi/WGNeJ/AVcY=;
+	b=qWoYEhQA6wQbzVnmRA7WawKhVAZBw8FG7047m9CRzPYAoDNFVAlIl/ytp1lnQG6IlKaX
+	 VXgFC50P6eDDN+ter3oZexCe1nqmiLCSm0AukFyrz8AXk37wkpHNZkh0KbaN/3l2uimwv
+	 07qdO2hzEPfSaeEIy6riSZuEtgOmgn1FCW+RzYlgbdhKRHzpXkG7C460P5dfZ00YT+0t6
+	 ytuxS6SxsqeGDAvqBYlUDz1OE+koViZGOGjZNa6/ZP633uizCP9ozH+oW4/ragOmgdfc1
+	 chfvnGPbkiRy9XgsV48b2bJhon25ZjUtXfB1AcB5FPNLejidb/zGqkaLNrVKbNj/Hcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zxh8EQ5O;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hzcP2AXQ;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C280606A6AB;
-	Sat, 28 Nov 2026 09:48:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBEC8606A686;
+	Sat, 28 Nov 2026 09:48:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zxh8EQ5O
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE6801F00939;
-	Sat, 28 Nov 2026 09:48:40 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hzcP2AXQ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7A7A1F0093B;
+	Sat, 28 Nov 2026 09:48:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795859321;
-	bh=6ifWf4j1d3G8lIodYGxBjWABGXQx7X8VTWGws64IYAE=;
+	s=k20260515; t=1795859323;
+	bh=uGVYCMVsHA6dEUJ8RKY83xz970x/aKFi/WGNeJ/AVcY=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Zxh8EQ5OotkVkJR4KOzWl6P8qqSAz8YGdwAt1FbMjYE+ifp1NsF5ZJ+drPh8YgZl/
-	 QRBJfU3l5MFhHxaU2xI1uederw78aivdTG6+rCZV959mTTwCWJnvzXpEvdKJLNOS3Q
-	 X/vRruLquKBh7RpUoY+tmOfpuzqHyrYzRCLHTcMJHJB5jbX2Qjv5VuJL+nmU6l0jA1
-	 V7p/fb4zcLwivAJu4VSGiRemrTNHW1icZeLbptxoqEQXBqmVumOL4tz+BN9oJPioQv
-	 YnJP2J7JDdHyE8m8CTjJ3KLHqqdgrkAXsK44lcPLbaIki8a4EZ4Pd+3GHx0a9jpHuc
-	 8FTIm5MDDDqVw==
-Subject: Re: [PATCH net-next v3 08/12] amt: receive the AMT gateway control
- plane over IPv6
+	b=hzcP2AXQTw+k6I4VELIUECKg7K1IpzTCjykfU7y9gC/xt7FEjGQNpQjJKz4h7zNKa
+	 k/LPvWszGK6rVsxAhDb9mtVCMjQ6EBjnkvM7B97xMsLIyR0fm0uiCU6CmSk46oXZ4E
+	 FYc09FyYI/FTjmbqrnO1YJMOumM+VA7K8cZ/+BR07otTdq3H2qkgeypovFBJPGmCme
+	 MyMfampm35veAofwkOlOT2yhxTQVmHBHE+114BZUamZdoXmyUI9fFDzOb6kGRRSD9n
+	 SuuZ7MhI/W00VqPvr3qNEr0bwiJkduw5STdhvrEUJFJXJg0GPgMwzukh1WF9Tiwshl
+	 HOGFKfDcWbYyQ==
+Subject: Re: [PATCH net-next v3 11/12] selftests: net: add amt_v6.sh for an
+ IPv6 outer transport
 From: netdev-bot+sashiko@kernel.org
 To: omar@blockcast.net
 Cc: ap420073@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, shuah@kernel.org,
  horms@kernel.org, netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
  linux-kernel@vger.kernel.org, willemb@google.com
-Date: Sat, 28 Nov 2026 09:48:40 +0000
-Message-ID: <179585932045.3135.13937242522656754802@kernel.org>
-In-Reply-To: <20261127094703.3025517-9-omar@blockcast.net>
-References: <20261127094703.3025517-9-omar@blockcast.net>
+Date: Sat, 28 Nov 2026 09:48:42 +0000
+Message-ID: <179585932242.3135.16441032758888744822@kernel.org>
+In-Reply-To: <20261127094703.3025517-12-omar@blockcast.net>
+References: <20261127094703.3025517-12-omar@blockcast.net>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -71,146 +71,234 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] The new comment in amt_rcv() (drivers/net/amt.c), "IPv4 input
-  drops a 0.0.0.0 source as a martian, but IPv6 input delivers ::", is…
-- [Low] On an IPv6 gateway, amt_dev_xmit() reads
-  READ_ONCE(amt->ready4/ready6) without a lock and then calls…
+- [Low] In tools/testing/selftests/net/amt_v6.sh, the "none" mode of
+  test_forward() is what checks "a third gateway in a /64 at its cap…
+- [Low] In tools/testing/selftests/net/amt_v6.sh, disc_answer() starts
+  tcpdump in the background with stdout and stderr sent to /dev/null.
+- [Low] The comment in setup_links()
+  (tools/testing/selftests/net/amt_v6.sh) gives the wrong reason for…
+- [Low] In tools/testing/selftests/net/amt_v6.sh, the IPv4 and IPv6
+  halves of the query-egress check count different things.
+- [Low] The header and the driver now disagree on what a "source" is for
+  the tunnel cap.
 
 --
 
-amt: receive the AMT gateway control plane over IPv6
+selftests: net: add amt_v6.sh for an IPv6 outer transport
 
-This patch lets an IPv6 AMT gateway accept Advertisement, Membership Query
-and Multicast Data over an IPv6 outer header. It takes a snapshot of the
-outer source with amt_outer_saddr() and matches it through amt_from_relay().
-The learned IPv6 relay address is published under a new seqlock, and the
-IPv6 gateway socket now accepts a zero UDP checksum, but only for Multicast
-Data.
+This adds amt_v6.sh, a variant of amt.sh in which the AMT gateways and
+the relay talk over an IPv6 outer link. It checks:
 
-> diff --git a/drivers/net/amt.c b/drivers/net/amt.c
-> index 42de266f3ae3e..e9d5fb4c3634e 100644
-> --- a/drivers/net/amt.c
-> +++ b/drivers/net/amt.c
+- discovery through a secondary relay address
+- IPv4 and IPv6 forwarding over the tunnel
+- the per-/64 tunnel cap
+- that queries do not leave through amtr
+- tunnel MTU handling
+- that a Discovery sent to ff02::1 is not answered
+- gateway link down/up
 
-[ ... ]
-
-> @@ -1271,7 +1328,7 @@ static void amt_event_send_request(struct amt_dev *amt)
->  		amt->qi = AMT_INIT_REQ_TIMEOUT;
->  		WRITE_ONCE(amt->ready4, false);
->  		WRITE_ONCE(amt->ready6, false);
-> -		WRITE_ONCE(amt->remote_ip, 0);
-> +		amt_clear_remote(amt);
->  		amt_update_gw_status(amt, AMT_STATUS_INIT, false);
->  		amt->req_cnt = 0;
->  		amt->nonce = 0;
-> @@ -1424,7 +1481,7 @@ static bool amt_send_membership_update(struct amt_dev *amt,
->  	else
->  		skb_set_inner_protocol(skb, htons(ETH_P_IPV6));
->  	if (amt_v6(amt))
-> -		remote.ip6 = amt->remote_ipv6;
-> +		amt_get_remote_ipv6(amt, &remote.ip6);
->  	else
->  		remote.ip4 = remote_ip;
->  	if (amt_udp_xmit(amt, sk, skb, &remote, amt->gw_port,
-
-[Severity: Low]
-Can this send a Membership Update to the unspecified address?
-
-amt_dev_xmit() checks readiness without a lock, then calls
-amt_send_membership_update():
-
-    if ((!v6 && !READ_ONCE(amt->ready4)) ||
-        (v6 && !READ_ONCE(amt->ready6))) {
-        ...
-        goto free;
-    }
-    if (amt_send_membership_update(amt, skb,  v6))
-
-amt_wq is WQ_UNBOUND, not ordered, so the event worker can run at the same
-time. If amt_event_send_request() takes the req_cnt > AMT_MAX_REQ_COUNT
-branch, it clears ready6 and then publishes in6addr_any through
-amt_clear_remote():
-
-CPU1 (TX)                          CPU2 (amt_wq)
-amt_dev_xmit()
-  READ_ONCE(amt->ready6) == true
-                                   amt_event_send_request()
-                                     WRITE_ONCE(amt->ready6, false);
-                                     amt_clear_remote(amt);
-amt_send_membership_update()
-  amt_get_remote_ipv6() -> ::
-  amt_udp_xmit() -> amt_route6()
-
-The seqlock prevents a torn read, but it does not order the ready6 flag
-against the address. The snapshot then goes to amt_udp_xmit() with no
-ipv6_addr_any() check. The Update, which carries the nonce and response
-MAC, is either dropped on a failed route lookup or sent to the next hop
-with destination ::.
-
-The window is narrow. ready6 is normally already false by the time req_cnt
-exceeds AMT_MAX_REQ_COUNT. Hitting this needs a Query handled just as the
-request timer expires, or a TX path stalled between the ready check and
-the snapshot.
-
-The IPv4 path already has the same race with remote_ip == 0. The IPv6
-version only becomes reachable with this patch.
-
-Would it make sense for amt_send_membership_update() to return true when
-the snapshot is ipv6_addr_any() (or remote_ip is 0)? That would match the
-receive side, where amt_from_relay() treats :: as matching nothing.
+> diff --git a/tools/testing/selftests/net/amt_v6.sh b/tools/testing/selftests/net/amt_v6.sh
+> new file mode 100755
+> index 0000000000000..201e820cba683
+> --- /dev/null
+> +++ b/tools/testing/selftests/net/amt_v6.sh
 
 [ ... ]
 
-> @@ -3456,10 +3536,17 @@ static int amt_rcv(struct sock *sk, struct sk_buff *skb)
->  		kfree_skb(skb);
->  		goto out;
->  	}
-> -	remote_ip = READ_ONCE(amt->remote_ip);
->  
->  	skb->dev = amt->dev;
-> -	saddr = ip_hdr(skb)->saddr;
-> +	/* Snapshot the outer source before amt_parse_type() pulls. */
-> +	amt_outer_saddr(amt, skb, &saddr);
-> +	/* IPv4 input drops a 0.0.0.0 source as a martian, but IPv6 input
-> +	 * delivers ::, which no relay or gateway can be.
-> +	 */
-> +	if (amt_v6(amt) && ipv6_addr_any(&saddr.ip6)) {
-> +		err = true;
-> +		goto drop;
-> +	}
+> +setup_links()
+> +{
+> +	local ns
+> +
+> +	# No DAD: the relay sources its MLD General Query from amtr's
+> +	# link-local address, which must not be tentative when it is sent.
+> +	for ns in "$LISTENER" "$GATEWAY" "$GATEWAY2" "$RELAY" "$SOURCE"; do
+> +		ip netns exec "$ns" sysctl -wq \
+> +			net.ipv6.conf.all.accept_dad=0 \
+> +			net.ipv6.conf.default.accept_dad=0
+> +	done
 
 [Severity: Low]
-Is this comment accurate for all IPv4 input? In net/ipv4/route.c,
-ip_route_input_slow() sends a zero source addressed to limited broadcast
-to brd_input before it reaches the zeronet martian check:
+Is this the right reason for turning DAD off? amtr never goes through DAD,
+whatever accept_dad is set to, because amt_link_setup() marks the device
+NOARP:
 
-    if (ipv4_is_lbcast(daddr) || (saddr == 0 && daddr == 0))
-        goto brd_input;
+drivers/net/amt.c:amt_link_setup() {
+    ...
+	dev->flags		= IFF_POINTOPOINT | IFF_NOARP | IFF_MULTICAST;
+    ...
+}
 
-    /* Accept zero addresses only to limited broadcast;
-     * I even do not know to fix it or not. Waiting for complains :-)
-     */
-    if (ipv4_is_zeronet(saddr)) {
-        reason = SKB_DROP_REASON_IP_INVALID_SOURCE;
-        goto martian_source;
-    }
+addrconf_dad_begin() then completes DAD at once for that device:
 
-So a UDP datagram from 0.0.0.0 to 255.255.255.255 on the AMT port can
-reach the INADDR_ANY-bound IPv4 AMT socket.
+net/ipv6/addrconf.c:addrconf_dad_begin() {
+    ...
+	if (dev->flags&(IFF_NOARP|IFF_LOOPBACK) ||
+	    (READ_ONCE(net->ipv6.devconf_all->accept_dad) < 1 &&
+	     READ_ONCE(idev->cnf.accept_dad) < 1) ||
+    ...
+}
 
-On an IPv4 gateway, the relay4 check in amt_from_relay() covers this. The
-IPv4 relay paths, amt_discovery_handler() and amt_request_handler(), have
-no source check of their own. This patch doesn't change their behaviour,
-but the comment suggests they need no check. The comment is still the
-same at the end of the series.
+The sysctl seems to matter for the global addresses on gw_relay,
+gw2_relay, br_gw, gw3_relay and gw4_relay instead. Without it they would
+stay tentative, and the gateways could not bind to them or send from them.
 
-The commit message makes the same claim:
+Could the comment say that, so the sysctl doesn't later get dropped as
+redundant?
 
-  "IPv6 input does not drop a packet from the unspecified address, as
-  IPv4 input drops a 0.0.0.0 source as a martian."
+[ ... ]
 
-Could the comment and the commit message be reworded so they don't imply
-that IPv4 input never delivers a 0.0.0.0 source?
+> +	ip -n "$RELAY" link add amtr type amt mode relay local "$RELAY6" \
+> +		dev br_gw relay_port 2268 max_tunnels 16
+> +	# max_tunnels 16 allows two tunnels per source (max_tunnels / 8), and a
+> +	# source is a /64: test_source_cap relies on it.
+> +	# Count the IGMP and MLD queries that leave the relay through its own
+> +	# amt device; test_query_egress expects none.
+> +	ip netns exec "$RELAY" tc qdisc add dev amtr clsact
+> +	ip netns exec "$RELAY" tc filter add dev amtr egress pref 1 \
+> +		protocol ip flower ip_proto 0x2 action pass
+> +	ip netns exec "$RELAY" tc filter add dev amtr egress pref 2 \
+> +		protocol ipv6 flower ip_proto icmpv6 type 130 action pass
+
+[Severity: Low]
+The comment says these filters count IGMP and MLD queries, but only the
+IPv6 filter is narrowed to a query (type 130). The pref 1 filter matches
+every IGMP packet on amtr egress, including reports, leaves and MRD
+messages, not just Membership Queries (type 0x11).
+
+test_query_egress() still reports a non-zero pref 1 count as queries:
+
+	check_err $? "$n4 IGMP queries left through amtr"
+
+Should the IPv4 match be narrowed to type 0x11, for example with a u32
+match on the IGMP type byte? Otherwise, should the comment and the message
+say IGMP packets rather than queries?
+
+[ ... ]
+
+> +test_forward()
+> +{
+> +	local ns=$1 addr=$2 port=$3 grp=$4 src=$5 desc=$6 want=${7:-data}
+> +	local out pid i
+> +
+> +	RET=0
+> +	out=$(mktemp)
+> +	ip netns exec "$ns" timeout 20 \
+> +		socat -u "$addr,readbytes=128" - > "$out" &
+> +	pid=$!
+> +	wait_local_port_listen "$ns" "$port" udp
+> +	for i in $(seq 15); do
+> +		ip netns exec "$SOURCE" bash -c \
+> +			"printf '%s %128s' $src | nc -w 1 -u $grp $port"
+> +		[ "$want" = data ] && grep -q "$src" "$out" && break
+> +	done
+> +	wait "$pid"
+> +	if [ "$want" = data ]; then
+> +		grep -q "$src" "$out"
+> +		check_err $? "nothing from $src reached the listener"
+> +	else
+> +		! grep -q "$src" "$out"
+> +		check_err $? "$src reached a listener that should get no tunnel"
+> +	fi
+
+[Severity: Low]
+Can the "none" case pass when the listener never started? wait "$pid"
+throws away socat's exit status. If the port never appears,
+wait_local_port_listen() in lib.sh just leaves its loop without reporting
+a failure:
+
+tools/testing/selftests/net/lib.sh:wait_local_port_listen() {
+    ...
+	for i in $(seq 10); do
+		if ip netns exec "${listener_ns}" awk '{print $2" "$4}' \
+		   /proc/net/"${protocol}"* | grep -q "${pattern}"; then
+			break
+		fi
+		sleep 0.1
+	done
+}
+
+Suppose socat exits at once, for instance because the bind or the
+ip-add-membership on amtg4 fails. Then $out stays empty, and the only
+check, ! grep -q "$src" "$out", reports OK.
+
+test_source_cap() relies on this for "a third gateway in a /64 at its cap
+gets no tunnel", so the cap would never actually be exercised.
+
+A live listener in "none" mode always ends with status 124 from
+timeout 20. Would requiring that status here, or confirming the group
+join, close the gap? The commit message applies the rule "a broken
+capture cannot pass it" to the ff02::1 check only.
+
+[ ... ]
+
+> +# The relay allows two tunnels per source, and amtg and amtg2 hold both for
+> +# 2001:db8:a::/64: the relay counts the tunnels of one source per /64, not
+> +# per address. A third gateway in that /64, with an address of its own,
+> +# must get no Membership Query, so no tunnel and no multicast, while a
+> +# gateway in another /64 gets all three. Counting per address would let
+> +# the third one in, and let one host fill the table from its /64.
+> +test_source_cap()
+
+[Severity: Low]
+This isn't a bug in the script, but the header still describes the cap as
+per address:
+
+include/net/amt.h:
+/* Upper bound of amt_max_tunnels_per_src(), the per-address tunnel cap */
+#define AMT_MAX_TUNNELS_PER_SRC 16
+
+Meanwhile, amt_same_source() now compares only the /64 for IPv6:
+
+drivers/net/amt.c:amt_same_source() {
+	if (amt_v6(amt))
+		return !memcmp(&a->ip6, &b->ip6, AMT_SRC_PREFIX6_LEN);
+	return a->ip4 == b->ip4;
+}
+
+"amt: key relay tunnels on a union amt_addr endpoint" changed the
+kernel-doc of amt_max_tunnels_per_src() to say "one source (an IPv4
+address or an IPv6 /64)". It left this header comment as it was, and no
+later patch in the series touches it.
+
+Could it be updated to match what test_source_cap() checks?
+
+[ ... ]
+
+> +disc_answer()
+> +{
+> +	local dst=$1 filter=$2 pid i rc
+> +	local to="UDP6-SENDTO:[$dst]:2268,sourceport=40000"
+> +
+> +	ip netns exec "$GATEWAY" timeout 6 \
+> +		tcpdump -nni gw_relay -c 1 "$filter" > /dev/null 2>&1 &
+> +	pid=$!
+> +	sleep 1
+> +	# tcpdump stays up until it matches or times out, so it is gone here
+> +	# only if it failed to start.
+> +	kill -0 "$pid" 2> /dev/null || { wait "$pid"; return 2; }
+
+[Severity: Low]
+Is a fixed sleep 1 followed by kill -0 enough to know that the capture is
+ready? A running tcpdump process doesn't mean the packet socket is open
+and the filter attached. Its "listening on" line also goes to /dev/null,
+so the script can't wait for it.
+
+test_mcast_discovery() runs the unicast control and the ff02::1 check in
+two separate tcpdump instances:
+
+	disc_answer ff02::1 "udp and src port 2268 and dst port 40000"
+	[ $? -eq 1 ]
+
+So the control says nothing about whether the second capture was ready. A
+capture that attached too late also times out with 124, and disc_answer()
+then returns 1, which this check accepts.
+
+On a slow or heavily loaded machine (debug or KASAN builds), could the
+test pass even if the relay answered the ff02::1 Discovery? That would
+contradict the commit message's "so a broken capture cannot pass it".
+
+The same race could also make the unicast control fail when nothing is
+wrong.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127094703.3025517-1-omar%40blockcast.net
