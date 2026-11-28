@@ -1,95 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795837064;
-	b=PxLyEW64JvjU3iquj10EGWmcwabknIYm+m3PShXyHbE8uSQHyel0VNX9DOQyf5HzQaKF
-	 KMNXiO0EWVStbKpzvyViIvwfnD/Yx+sDJE/0J4Y0Sw5TfpOk0C+oNQkAocb8B4Sex+/IP
-	 pWeHDG8Phlmup0J+/kHId8oFhTuLejfugWFkcH6asc4qU2aP0g+jpihGjoZ9uaYyCQ0R1
-	 G+v23Eth41F4ujSKIfhw2wviGCj25mYaO1tGO505J/w8BLhIwnkKbAcK/4URnDK3TUf+f
-	 16/8Tba2eq05jUVj/mKg2pmt2l/uWEsMzXkWMAhSg0C/0as+uPBdfM+DkMZcEynRcRQ==
+	t=1795837415;
+	b=FWMAh2z8Kr6VnenChgvWVU6cq8hcuacHmA0N30l/VSIQITyOr8hNrSjCSh8LKQYHrpkX
+	 zACHfRbqELOxQb0nSjzZsphchdyWfx5jfiGog9c7EPq3ZaICjO82zXXrAhmBp4ZARPA8z
+	 4CMf8fAiQkB0UlhapbEfeR/7SSm0HenD3Ae+EKn7mI1e1YhwV+dxt4eRicFaDAAOWSmoV
+	 fYUMRbDMfQVnOBzAAUPl50HhPnQ2DP95VIcUsR/YMDBaY1DXypUZcNcDvjBLy/ARYcg3v
+	 FVOxkOIrW41BlOODHmAgHqnkFczQti4tJ4WoevYb8dFRXkEhIC7hVcOI0yPLLtutR7A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795837064;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=CoOSrxK+y3duBfRBPRX/cABY+OCMf/PDrt2oQl6NHUg=;
-	b=WK5g8j7xhhQuZRTrm27tBPQgT8TtOuPPxFDYKotkqUddcHocXztRSsLNLgKcFwAHRtzQ
-	 IqrUIih+KEypVehWPsuKj1zdlucGmG9HAV3MPP32RU8WXF1QxTXuxMinQFQ/axG4Q1gZR
-	 pe+SDbb1h/0FiNLmoGrH4dyGz5wtmCYtFfyDGGVCW+djQ6fjk12heWgSAAMTlJPz0G+js
-	 rp1JzuYL374Md+jnBzWog2IzSVk+l+P/l/UBo9IE9CnC4Xfp7szul+89qr5LAJf4V9iC+
-	 k7rORjb0+53EMZ3/36w3Mv12dSl6Ch7APnEBi16uA2vsN98uY5e8PbvzxHw/dKYo5gQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795837415;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type:Content-Transfer-Encoding;
+	bh=9YkEKVRMdYWD6c/49e8C95E9nDfqgN+hTEj+xU6faeI=;
+	b=Soym0jHhONCz4oXWykD6MojbyajzuNVUcsyVlscEZb8eZLlxgiIQWBgJLf7eINR4z/W2
+	 i+/08BIAm3SUxz3CCyUy0BF6kCFgP4MXemizsW6bHE5v6ouqtQw6LqsGvbfoBW1IZYPek
+	 k6ArXQj292LJokWcckivAxA3caQxETjNZDbTamy6/ld/7gMW9eCuP1a3jfXaE88OhC9kg
+	 Ho1ZgBxUHu7JELOegludSAhMQl4sDE82bwEBEUOpKlJBjpM/ez6ykY3RWqZIEA+IdA+q3
+	 N4S/G362VDyNRZhiZS+H+GOZVgPUqS9cBK4Wu5JHlgOix+J5EwntPS8zHiW55W537yw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=ZVqfHwS0;
-	arc=none smtp.remote-ip=209.85.210.174
-Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.160.69
+Received: from mail-oa1-f69.google.com (mail-oa1-f69.google.com [209.85.160.69])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D912B606A31F
-	for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 03:37:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D912B606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=ZVqfHwS0
-Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8b2382bf051so4629320b3a.3
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 19:37:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1795837063; x=1796441863; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CoOSrxK+y3duBfRBPRX/cABY+OCMf/PDrt2oQl6NHUg=;
-        b=ZVqfHwS0yY6hgOTchfvwgYvA39Vbn9CgOLbgnbOhlMuIrvLQo1S95FPGUYgXzRDkwi
-         R4jeXPmLTI8dz76eAd5GrGUHAOINYeuavetVDJRVWkUyqg1D4UzwTim1ZyS3k0N9nFAY
-         rbgGTTTZoVtxZDdwOXuDAMWkQ6EimirerceNA=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A94CB606A31C
+	for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 03:43:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A94CB606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oa1-f69.google.com with SMTP id 586e51a60fabf-4a68926c8c4so6866542fac.0
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 19:43:34 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795837063; x=1796441863;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795837413; x=1796442213;
+        h=content-transfer-encoding:content-type:to:from:subject:message-id
+         :date:mime-version:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=CoOSrxK+y3duBfRBPRX/cABY+OCMf/PDrt2oQl6NHUg=;
-        b=yXRLteJdJuPLCMTlmPTm40/w0a4zypLP0Dsq5uIA4YMQKWmUe/HbMmcCOxzh6IVgv6
-         7axLDWtg9fFN+eckehyCPB5zI/jhmOBj80SBHY7ljlDVbcAig53EslLz1XYFhB7K9x/4
-         vN3X8BNMH8e3ZE+HjCyNgGiAM10nVpM31Ad30Y8u6sy9YCmQ+W6LRiaAdVCT361Bt68u
-         AidbRBcpZ+DVxp3hxjEvpO7Yqin8aelOdc1zxztgU+xIBLpp6zvg7ryutk1ThW8kLqT1
-         +X4p9W/dUtIRsrZ6emFY+uZTT/5etS1y226U7tQhRxKKAxadK+VbiJyLgURRZFMNz71k
-         YRmg==
-X-Forwarded-Encrypted: i=1; AL+hErGhX16rb0d9pbaT+lxHqA6iBF+1iopHmWSLa6emAbsj3OR1eCGm3GQcMko6yG8KR5uLFYI+BvA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9/kNBJAl1M/wdPVN6MOybfVh3TgnHH2y+6Fh9dr4cJKBmjPDse
-	sJdoqH9rXyhB2xIA714VPH2SkOe36G8Uwz7ubWcuAJbafPqqg0zpZ8qVkvQIgMutRzs=
-X-Gm-Gg: AZFdTZd1ET4Gb1gT7lrCKZs96AUzPK+NRoM8UF1/EjC1xRLLYv1I3x9UZZw/jfFBPt3
-	vvM2h3BPnwp81WixVn+dRqlJhC7jhXIOBEFEnhDSElvD3gBIMp4sRhWx+Orvv4gp/2amLMnQ8a1
-	RgmZ6Q88el1D8hqsziKlQUPPdKFi7wdZNK45KD4yPHZjEdG403/1GrgU6ZyfS08To2/YfDkHPfo
-	T160gc2MrNCW2McUleWU7OYkdKHvCWVSfS3kYGr4jQmni4JbxCQqo+zZa2pTXHDZ5tbJGDMY79y
-	A+U3XamaGbJUQIDkoJZGc2MgbiqEqD4ox00JE6/l5cnSERLXR59UaIk0isxdCMv0q8Iyi/KVHst
-	pmkGt8qzy2jDi0nL/eghYJ/3CM8yCEUQpdnBaBHQVVA6mgKQ3HsOlOREEJzqLrmgOzl6GjUxuYD
-	DWc5UF7WgOj3gLQsSclFcrHEiny+zc6dcfRqzTO9B057QnX0BFmsSWnIjiG1okXMFvgnxhBeXCr
-	2NAJKDZIZF7pnzQ1zeKiXU49ijjgv3UJFrxtPcJ1pCfdVP8CWt7rmatuIoM3FswSqrDvMRgeiHG
-	USyma8xxJpeE5+pJVZYk6AwTSOJyR9R/G3WX4QWe6FnoJTAfm7pxXd3dUa6zyczoFlJ+PweK384
-	3W+PuD0WASI5HTDi3hpa341R7jvi5QE9YHpI4XvGSlrtkyq49p5KqPqtwBpSozOvwjg==
-X-Received: by 2002:aa7:88d4:0:b0:880:7dad:3e5 with SMTP id d2e1a72fcca58-8c87d12283bmr26030379b3a.51.1795837063176;
-        Fri, 27 Nov 2026 19:37:43 -0800 (PST)
-Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e4aca2sm13517969b3a.32.2026.11.27.19.37.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Nov 2026 19:37:42 -0800 (PST)
-From: Piyus Kedia <piyus@iiitd.ac.in>
-To: Allison Henderson <achender@kernel.org>,
-	netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Kapil Vaswani <kapil@presceralabs.ai>
-Subject: [PATCH net] net/rds: do not leave ic->i_cm_id pointing at a freed cm_id
-Date: Sat, 28 Nov 2026 09:07:37 +0530
-Message-Id: <20261128033737.467966-1-piyus@iiitd.ac.in>
-X-Mailer: git-send-email 2.34.1
+        bh=9YkEKVRMdYWD6c/49e8C95E9nDfqgN+hTEj+xU6faeI=;
+        b=fL5VDJy7zk4KcbFMmr5azBtlej+/a8OzCQwjENTOCftdUSBUbPeNp0bSIsryHUVR3V
+         Lb3IXuXF4C+evY127S1AvvLUieek0w8k+1qwHZLlxcgENhXGXemCfYIuNSTvuSa8qpPL
+         9HIdQj6dN0XN9tSZSji8OQjPark5K+DgL5oUE3jYDRYerLXFLhgSf1PJOGqY89Csmwrk
+         UlXzPveNJ824JyKONOmOcU0zYxmGOfR59evHJpsZPPi9QnZmrhQ7VGti05IljfVvtYP8
+         m1/J/p7fgn2Q8jg/t2H+ZRpQ5S8fnxrZ8EOH7rXxuIpbL00ZLznR01VsxaD3T0wXX/dL
+         IDoQ==
+X-Forwarded-Encrypted: i=1; AL+hErGPwdWvVpLU4iRtE+EZPyFm8AX+GFCirDidi/+StHgbLXdZJl9jaGutGqEV7Cu45zFwnh5gmsw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+wUKon+BruVlg24CGNZJWvSvM5QRWalInx5paAjgxyKh1b2Nnw
+	OHNMF8273zlT39it8DkqrIpFs5mBRYPh8caJ8HpJ6zHMAPE1vJnDrZGGYragEgZeSj7+X2EbOET
+	tV5QnGaiiUgmdY9UNqvESJlqQulBfgsRNjHnvPCz2AWHrGqfaaoTLBNah5X4=
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -99,134 +58,611 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Received: by 2002:a05:6808:1785:b0:543:50ad:baae with SMTP id
+ 5614622812f47-57a0d817ea9mr31916497b6e.63.1795837413719; Fri, 27 Nov 2026
+ 19:43:33 -0800 (PST)
+Date: Fri, 27 Nov 2026 19:43:33 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b0a4de5.ec6686d0.16faa.0148.GAE@google.com>
+Subject: [syzbot] [wireguard?] possible deadlock in wg_socket_clear_peer_endpoint_src
+From: syzbot <syzbot+fc3b1b923a16043b9d3c@syzkaller.appspotmail.com>
+To: Jason@zx2c4.com, andrew+netdev@lunn.ch, davem@davemloft.net, 
+	edumazet@kernel.org, jasowang@redhat.com, kuba@kernel.org, 
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, 
+	syzkaller-bugs@googlegroups.com, wireguard@lists.zx2c4.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-rds_ib_conn_path_shutdown() frees the connection's rdma_cm_id and only
-clears ic->i_cm_id afterwards:
+Hello,
 
-	rdma_destroy_id(ic->i_cm_id);
-	if (ic->rds_ibdev)
-		rds_ib_remove_conn(ic->rds_ibdev, conn);
-	ic->i_cm_id = NULL;
+syzbot found the following issue on:
 
-rds_ib_remove_conn() takes locks and can sleep, so the pointer is left
-pointing at freed memory for a while.  Both FRMR paths read it with
-nothing that excludes this teardown - rds_ib_get_mr() from sendmsg()'s
-RDS_CMSG_RDMA_MAP handling, and rds_ib_unreg_frmr() from the MR pool
-flush - and the NULL test in rds_ib_unreg_frmr() does not help, because
-the pointer is not NULL, it is dangling:
+HEAD commit:    18817028301d arm64: fixmap: fix missing break-before-make .=
+.
+git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.g=
+it
+console output: https://syzkaller.appspot.com/x/log.txt?x=3D159039bd580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=3Da611ef07a865057=
+9
+dashboard link: https://syzkaller.appspot.com/bug?extid=3Dfc3b1b923a16043b9=
+d3c
+compiler:       Debian clang version 22.1.8 (1~deb13u5), Debian LLD 22.1.8
+userspace arch: arm64
+C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=3D139039bd580000
 
-  BUG: KASAN: slab-use-after-free in rds_ib_unreg_frmr+0x119/0x860
-  Read of size 8 at addr ffff888022d67010
-   rds_ib_unreg_frmr+0x119/0x860
-   rds_ib_flush_mr_pool+0x685/0x9f0
-   rds_ib_flush_mrs+0x57/0xc0
-   rds_release+0xc9/0x220
-   __sock_release+0x65/0x160
+The issue was bisected by AI to:
 
-  Allocated by task 37:
-   __rdma_create_id+0x48/0x4f0
-   __rdma_create_kernel_id+0x3c/0x80
-   rds_ib_conn_path_connect+0xfa/0x320
+commit 362899b8725b35e32802882c67f99cbf42bce2af
+Author: Jason Wang <jasowang@redhat.com>
+Date:   Fri Jul 15 07:46:31 2016 +0000
 
-  Freed by task 9508:
-   kfree+0x1c7/0x660
-   rds_ib_conn_path_shutdown+0xc2b/0xd30
-   rds_conn_shutdown+0x3ca/0x940
+    macvtap: switch to use skb array
 
-The same dangling pointer reaches the registration side, where a fuzzer
-found it posting a work request to the QP of a cm_id already destroyed -
-rxe reports that as "qp has been destroyed" from its own
-WARN_ON_ONCE(!qp->valid) and then faults on qp->state_lock.
+reasoning:      https://syzkaller.appspot.com/ai_job?id=3Dcae91c6b-bec8-431=
+b-ad38-f9b2ab405640
 
-Clear ic->i_cm_id before destroying it, so a racing reader sees NULL
-rather than freed memory, and check the pointer in rds_ib_post_reg_frmr()
-the way rds_ib_unreg_frmr() already does - it is the one FRMR site that
-dereferenced it without a test.
+AI-generated root cause summary:
+In drivers/net/tap.c, tap_open() initializes struct tap_queue::ring via
+ptr_ring_init() and assigns tap_sock_destruct() to sk_destruct. While
+tap_poll(), tap_do_read(), tap_peek_len(), and vhost_net acquire
+&q->ring.consumer_lock in process context with softirqs enabled (marking th=
+at
+ptr_ring lockdep class SOFTIRQ-unsafe), tap_sock_destruct() calls
+ptr_ring_cleanup() -> ptr_ring_consume(), which acquires &q->ring.consumer_=
+lock
+without disabling BH. When the last outbound skb referencing a closed tap s=
+ocket
+is freed via sock_wfree() while holding a SOFTIRQ-safe lock=E2=80=94such as
+read_lock_bh(&peer->endpoint_lock) in wg_socket_send_skb_to_peer()=E2=80=94=
+lockdep
+detects a SOFTIRQ-safe -> SOFTIRQ-unsafe lock order violation.
 
-This does not serialise the two sides: a reader that has already loaded a
-non-NULL pointer can still be preempted before using it.  Closing that
-would mean giving the registration path the exclusion the other users of
-ic->i_cm_id have, which is a larger change than this one.
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=3Dfc3b1b923=
+a16043b9d3c
 
-We found this with a syzkaller-based fuzzing harness driven by an AI tool.
+IMPORTANT: if you fix the issue, please add the following tag to the commit=
+:
+Reported-by: syzbot+fc3b1b923a16043b9d3c@syzkaller.appspotmail.com
 
-Fixes: 1659185fb4d0 ("RDS: IB: Support Fastreg MR (FRMR) memory registration mode")
-Cc: stable@vger.kernel.org
-Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
-Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
+The bisection result may be wrong.
+If you agree with it, please also add:
+Fixes: 362899b8725b ("macvtap: switch to use skb array")
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D
+WARNING: SOFTIRQ-safe -> SOFTIRQ-unsafe lock order detected
+syzkaller #0 Not tainted
+-----------------------------------------------------
+kworker/1:4/4479 [HC0[0]:SC0[6]:HE1:SE0] is trying to acquire:
+ffff0000d6d40720 (&r->consumer_lock#4){+.+.}-{3:3}, at: spin_lock include/l=
+inux/spinlock.h:347 [inline]
+ffff0000d6d40720 (&r->consumer_lock#4){+.+.}-{3:3}, at: ptr_ring_consume in=
+clude/linux/ptr_ring.h:363 [inline]
+ffff0000d6d40720 (&r->consumer_lock#4){+.+.}-{3:3}, at: ptr_ring_cleanup in=
+clude/linux/ptr_ring.h:700 [inline]
+ffff0000d6d40720 (&r->consumer_lock#4){+.+.}-{3:3}, at: tap_sock_destruct+0=
+x40/0x3f8 drivers/net/tap.c:444
+
+and this task is already holding:
+ffff0000cdc16e70 (&peer->endpoint_lock){++-.}-{3:3}, at: wg_socket_send_skb=
+_to_peer+0x5c/0x19c drivers/net/wireguard/socket.c:172
+which would create a new lock dependency:
+ (&peer->endpoint_lock){++-.}-{3:3} -> (&r->consumer_lock#4){+.+.}-{3:3}
+
+but this new dependency connects a SOFTIRQ-irq-safe lock:
+ (&peer->endpoint_lock){++-.}-{3:3}
+
+... which became SOFTIRQ-irq-safe at:
+  lock_acquire+0x13c/0x320 kernel/locking/lockdep.c:5942
+  __raw_write_lock_bh include/linux/rwlock_api_smp.h:221 [inline]
+  _raw_write_lock_bh+0x48/0x60 kernel/locking/spinlock.c:369
+  wg_socket_clear_peer_endpoint_src+0x20/0x50 drivers/net/wireguard/socket.=
+c:309
+  wg_expired_retransmit_handshake+0xc8/0x2c0 drivers/net/wireguard/timers.c=
+:73
+  call_timer_fn+0x198/0x7f4 kernel/time/timer.c:1749
+  expire_timers kernel/time/timer.c:1800 [inline]
+  __run_timers kernel/time/timer.c:2375 [inline]
+  __run_timer_base+0x530/0x744 kernel/time/timer.c:2387
+  run_timer_base+0x84/0x1b8 kernel/time/timer.c:2396
+  run_timer_softirq+0x20/0x48 kernel/time/timer.c:2406
+  handle_softirqs+0x36c/0xce0 kernel/softirq.c:669
+  __do_softirq+0x14/0x20 kernel/softirq.c:703
+  ____do_softirq+0x10/0x1c arch/arm64/kernel/irq.c:78
+  call_on_irq_stack+0x30/0x48 arch/arm64/kernel/entry.S:901
+  do_softirq_own_stack+0x1c/0x28 arch/arm64/kernel/irq.c:83
+  invoke_softirq kernel/softirq.c:549 [inline]
+  __irq_exit_rcu+0x10c/0x324 kernel/softirq.c:786
+  irq_exit_rcu+0x14/0x84 kernel/softirq.c:809
+  __el1_irq arch/arm64/kernel/entry-common.c:570 [inline]
+  el1_interrupt+0x40/0x60 arch/arm64/kernel/entry-common.c:582
+  el1h_64_irq_handler+0x18/0x24 arch/arm64/kernel/entry-common.c:587
+  el1h_64_irq+0x78/0x7c arch/arm64/kernel/entry.S:602
+  __daif_local_irq_enable arch/arm64/include/asm/irqflags.h:26 [inline]
+  arch_local_irq_enable arch/arm64/include/asm/irqflags.h:48 [inline]
+  default_idle_call+0xa0/0xb8 kernel/sched/idle.c:129
+  cpuidle_idle_call kernel/sched/idle.c:199 [inline]
+  do_idle+0x1ec/0x450 kernel/sched/idle.c:355
+  cpu_startup_entry+0x5c/0x74 kernel/sched/idle.c:458
+  rest_init+0x390/0x3a8 init/main.c:789
+  start_kernel+0x374/0x3c0 init/main.c:1247
+  __primary_switched+0x8c/0x94 arch/arm64/kernel/head.S:245
+
+to a SOFTIRQ-irq-unsafe lock:
+ (&r->consumer_lock#4){+.+.}-{3:3}
+
+... which became SOFTIRQ-irq-unsafe at:
+...
+  lock_acquire+0x13c/0x320 kernel/locking/lockdep.c:5942
+  __raw_spin_lock include/linux/spinlock_api_smp.h:190 [inline]
+  _raw_spin_lock+0x48/0x60 kernel/locking/spinlock.c:173
+  spin_lock include/linux/spinlock.h:347 [inline]
+  ptr_ring_consume include/linux/ptr_ring.h:363 [inline]
+  ptr_ring_cleanup include/linux/ptr_ring.h:700 [inline]
+  tap_sock_destruct+0x40/0x3f8 drivers/net/tap.c:444
+  __sk_destruct+0x80/0x89c net/core/sock.c:2386
+  sk_destruct+0x8c/0xb8 net/core/sock.c:2448
+  __sk_free+0x264/0x328 net/core/sock.c:2459
+  sk_free+0x60/0xc4 net/core/sock.c:2470
+  sock_put include/net/sock.h:2024 [inline]
+  tap_put_queue drivers/net/tap.c:179 [inline]
+  tap_release+0x2d4/0x3b4 drivers/net/tap.c:517
+  __fput+0x338/0x74c fs/file_table.c:512
+  fput_close_sync+0x10c/0x278 fs/file_table.c:618
+  filp_close_sync+0x7c/0xb4 fs/open.c:1573
+  __do_sys_close fs/open.c:1596 [inline]
+  __se_sys_close fs/open.c:1583 [inline]
+  __arm64_sys_close+0x74/0x108 fs/open.c:1583
+  __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
+  invoke_syscall+0x98/0x244 arch/arm64/kernel/syscall.c:49
+  el0_svc_common+0xec/0x23c arch/arm64/kernel/syscall.c:121
+  do_el0_svc+0x4c/0x5c arch/arm64/kernel/syscall.c:140
+  el0_svc+0x60/0x1d8 arch/arm64/kernel/entry-common.c:797
+  el0t_64_sync_handler+0x44/0x104 arch/arm64/kernel/entry-common.c:816
+  el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:606
+
+other info that might help us debug this:
+
+ Possible interrupt unsafe locking scenario:
+
+       CPU0                    CPU1
+       ----                    ----
+  lock(&r->consumer_lock#4);
+                               local_irq_disable();
+                               lock(&peer->endpoint_lock);
+                               lock(&r->consumer_lock#4);
+  <Interrupt>
+    lock(&peer->endpoint_lock);
+
+ *** DEADLOCK ***
+
+locks held by kworker/1:4/4479: 7, last CPU#1:
+ #0: ffff0000d7ae6548 ((wq_completion)wg-crypt-wg0){+.+.}-{0:0}, at: proces=
+s_one_work kernel/workqueue.c:3470 [inline]
+ #0: ffff0000d7ae6548 ((wq_completion)wg-crypt-wg0){+.+.}-{0:0}, at: proces=
+s_scheduled_works+0x8c8/0x1250 kernel/workqueue.c:3578
+ #1: ffff800095277c20 ((work_completion)(&peer->transmit_packet_work)){+.+.=
+}-{0:0}, at: process_one_work kernel/workqueue.c:3470 [inline]
+ #1: ffff800095277c20 ((work_completion)(&peer->transmit_packet_work)){+.+.=
+}-{0:0}, at: process_scheduled_works+0x8d0/0x1250 kernel/workqueue.c:3578
+ #2: ffff0000cdc16e70 (&peer->endpoint_lock){++-.}-{3:3}, at: wg_socket_sen=
+d_skb_to_peer+0x5c/0x19c drivers/net/wireguard/socket.c:172
+ #3: ffff800089aa5780 (rcu_read_lock_bh){....}-{1:3}, at: rcu_lock_acquire =
+include/linux/rcupdate.h:309 [inline]
+ #3: ffff800089aa5780 (rcu_read_lock_bh){....}-{1:3}, at: rcu_read_lock_bh =
+include/linux/rcupdate.h:905 [inline]
+ #3: ffff800089aa5780 (rcu_read_lock_bh){....}-{1:3}, at: send4+0x1c0/0xcf4=
+ drivers/net/wireguard/socket.c:38
+ #4: ffff800089aa5720 (rcu_read_lock){....}-{1:3}, at: rcu_lock_acquire inc=
+lude/linux/rcupdate.h:309 [inline]
+ #4: ffff800089aa5720 (rcu_read_lock){....}-{1:3}, at: rcu_read_lock includ=
+e/linux/rcupdate.h:849 [inline]
+ #4: ffff800089aa5720 (rcu_read_lock){....}-{1:3}, at: ip_output+0x74/0x400=
+ net/ipv4/ip_output.c:432
+ #5: ffff800089aa5720 (rcu_read_lock){....}-{1:3}, at: rcu_lock_acquire inc=
+lude/linux/rcupdate.h:309 [inline]
+ #5: ffff800089aa5720 (rcu_read_lock){....}-{1:3}, at: rcu_read_lock includ=
+e/linux/rcupdate.h:849 [inline]
+ #5: ffff800089aa5720 (rcu_read_lock){....}-{1:3}, at: ip_finish_output2+0x=
+410/0xee4 net/ipv4/ip_output.c:229
+ #6: ffff800089aa5780 (rcu_read_lock_bh){....}-{1:3}, at: rcu_lock_acquire =
+include/linux/rcupdate.h:309 [inline]
+ #6: ffff800089aa5780 (rcu_read_lock_bh){....}-{1:3}, at: rcu_read_lock_bh =
+include/linux/rcupdate.h:905 [inline]
+ #6: ffff800089aa5780 (rcu_read_lock_bh){....}-{1:3}, at: __dev_queue_xmit+=
+0x220/0x2a68 net/core/dev.c:5000
+
+the dependencies between SOFTIRQ-irq-safe lock and the holding lock:
+-> (&peer->endpoint_lock){++-.}-{3:3} {
+   HARDIRQ-ON-W at:
+                    lock_acquire+0x13c/0x320 kernel/locking/lockdep.c:5942
+                    __raw_write_lock_bh include/linux/rwlock_api_smp.h:221 =
+[inline]
+                    _raw_write_lock_bh+0x48/0x60 kernel/locking/spinlock.c:=
+369
+                    wg_socket_set_peer_endpoint+0x3e8/0x760 drivers/net/wir=
+eguard/socket.c:282
+                    set_peer drivers/net/wireguard/netlink.c:-1 [inline]
+                    wg_set_device_doit+0xd8c/0x1a20 drivers/net/wireguard/n=
+etlink.c:569
+                    genl_family_rcv_msg_doit+0x1e4/0x2d4 net/netlink/genetl=
+ink.c:1114
+                    genl_family_rcv_msg net/netlink/genetlink.c:1194 [inlin=
+e]
+                    genl_rcv_msg+0x43c/0x620 net/netlink/genetlink.c:1209
+                    netlink_rcv_skb+0x238/0x414 net/netlink/af_netlink.c:25=
+84
+                    genl_rcv+0x38/0x50 net/netlink/genetlink.c:1218
+                    netlink_unicast_kernel net/netlink/af_netlink.c:1335 [i=
+nline]
+                    netlink_unicast+0x73c/0x934 net/netlink/af_netlink.c:13=
+61
+                    netlink_sendmsg+0x670/0x98c net/netlink/af_netlink.c:19=
+20
+                    sock_sendmsg_nosec net/socket.c:800 [inline]
+                    __sock_sendmsg+0xc8/0x188 net/socket.c:818
+                    __sys_sendto+0x250/0x328 net/socket.c:2283
+                    __do_sys_sendto net/socket.c:2290 [inline]
+                    __se_sys_sendto net/socket.c:2286 [inline]
+                    __arm64_sys_sendto+0xec/0x10c net/socket.c:2286
+                    __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline=
+]
+                    invoke_syscall+0x98/0x244 arch/arm64/kernel/syscall.c:4=
+9
+                    el0_svc_common+0xec/0x23c arch/arm64/kernel/syscall.c:1=
+21
+                    do_el0_svc+0x4c/0x5c arch/arm64/kernel/syscall.c:140
+                    el0_svc+0x60/0x1d8 arch/arm64/kernel/entry-common.c:797
+                    el0t_64_sync_handler+0x44/0x104 arch/arm64/kernel/entry=
+-common.c:816
+                    el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:606
+   HARDIRQ-ON-R at:
+                    lock_acquire+0x13c/0x320 kernel/locking/lockdep.c:5942
+                    __raw_read_lock_bh include/linux/rwlock_api_smp.h:192 [=
+inline]
+                    _raw_read_lock_bh+0x54/0x6c kernel/locking/spinlock.c:2=
+87
+                    wg_socket_send_skb_to_peer+0x5c/0x19c drivers/net/wireg=
+uard/socket.c:172
+                    wg_socket_send_buffer_to_peer+0x108/0x174 drivers/net/w=
+ireguard/socket.c:199
+                    wg_packet_send_handshake_initiation drivers/net/wiregua=
+rd/send.c:40 [inline]
+                    wg_packet_handshake_send_worker+0x1c0/0x2d8 drivers/net=
+/wireguard/send.c:51
+                    process_one_work kernel/workqueue.c:3495 [inline]
+                    process_scheduled_works+0x91c/0x1250 kernel/workqueue.c=
+:3578
+                    worker_thread+0x798/0xbd0 kernel/workqueue.c:3659
+                    kthread+0x304/0x3d4 kernel/kthread.c:436
+                    ret_from_fork+0x10/0x20 arch/arm64/kernel/entry.S:854
+   IN-SOFTIRQ-W at:
+                    lock_acquire+0x13c/0x320 kernel/locking/lockdep.c:5942
+                    __raw_write_lock_bh include/linux/rwlock_api_smp.h:221 =
+[inline]
+                    _raw_write_lock_bh+0x48/0x60 kernel/locking/spinlock.c:=
+369
+                    wg_socket_clear_peer_endpoint_src+0x20/0x50 drivers/net=
+/wireguard/socket.c:309
+                    wg_expired_retransmit_handshake+0xc8/0x2c0 drivers/net/=
+wireguard/timers.c:73
+                    call_timer_fn+0x198/0x7f4 kernel/time/timer.c:1749
+                    expire_timers kernel/time/timer.c:1800 [inline]
+                    __run_timers kernel/time/timer.c:2375 [inline]
+                    __run_timer_base+0x530/0x744 kernel/time/timer.c:2387
+                    run_timer_base+0x84/0x1b8 kernel/time/timer.c:2396
+                    run_timer_softirq+0x20/0x48 kernel/time/timer.c:2406
+                    handle_softirqs+0x36c/0xce0 kernel/softirq.c:669
+                    __do_softirq+0x14/0x20 kernel/softirq.c:703
+                    ____do_softirq+0x10/0x1c arch/arm64/kernel/irq.c:78
+                    call_on_irq_stack+0x30/0x48 arch/arm64/kernel/entry.S:9=
+01
+                    do_softirq_own_stack+0x1c/0x28 arch/arm64/kernel/irq.c:=
+83
+                    invoke_softirq kernel/softirq.c:549 [inline]
+                    __irq_exit_rcu+0x10c/0x324 kernel/softirq.c:786
+                    irq_exit_rcu+0x14/0x84 kernel/softirq.c:809
+                    __el1_irq arch/arm64/kernel/entry-common.c:570 [inline]
+                    el1_interrupt+0x40/0x60 arch/arm64/kernel/entry-common.=
+c:582
+                    el1h_64_irq_handler+0x18/0x24 arch/arm64/kernel/entry-c=
+ommon.c:587
+                    el1h_64_irq+0x78/0x7c arch/arm64/kernel/entry.S:602
+                    __daif_local_irq_enable arch/arm64/include/asm/irqflags=
+.h:26 [inline]
+                    arch_local_irq_enable arch/arm64/include/asm/irqflags.h=
+:48 [inline]
+                    default_idle_call+0xa0/0xb8 kernel/sched/idle.c:129
+                    cpuidle_idle_call kernel/sched/idle.c:199 [inline]
+                    do_idle+0x1ec/0x450 kernel/sched/idle.c:355
+                    cpu_startup_entry+0x5c/0x74 kernel/sched/idle.c:458
+                    rest_init+0x390/0x3a8 init/main.c:789
+                    start_kernel+0x374/0x3c0 init/main.c:1247
+                    __primary_switched+0x8c/0x94 arch/arm64/kernel/head.S:2=
+45
+   INITIAL USE at:
+                   lock_acquire+0x13c/0x320 kernel/locking/lockdep.c:5942
+                   __raw_write_lock_bh include/linux/rwlock_api_smp.h:221 [=
+inline]
+                   _raw_write_lock_bh+0x48/0x60 kernel/locking/spinlock.c:3=
+69
+                   wg_socket_set_peer_endpoint+0x3e8/0x760 drivers/net/wire=
+guard/socket.c:282
+                   set_peer drivers/net/wireguard/netlink.c:-1 [inline]
+                   wg_set_device_doit+0xd8c/0x1a20 drivers/net/wireguard/ne=
+tlink.c:569
+                   genl_family_rcv_msg_doit+0x1e4/0x2d4 net/netlink/genetli=
+nk.c:1114
+                   genl_family_rcv_msg net/netlink/genetlink.c:1194 [inline=
+]
+                   genl_rcv_msg+0x43c/0x620 net/netlink/genetlink.c:1209
+                   netlink_rcv_skb+0x238/0x414 net/netlink/af_netlink.c:258=
+4
+                   genl_rcv+0x38/0x50 net/netlink/genetlink.c:1218
+                   netlink_unicast_kernel net/netlink/af_netlink.c:1335 [in=
+line]
+                   netlink_unicast+0x73c/0x934 net/netlink/af_netlink.c:136=
+1
+                   netlink_sendmsg+0x670/0x98c net/netlink/af_netlink.c:192=
+0
+                   sock_sendmsg_nosec net/socket.c:800 [inline]
+                   __sock_sendmsg+0xc8/0x188 net/socket.c:818
+                   __sys_sendto+0x250/0x328 net/socket.c:2283
+                   __do_sys_sendto net/socket.c:2290 [inline]
+                   __se_sys_sendto net/socket.c:2286 [inline]
+                   __arm64_sys_sendto+0xec/0x10c net/socket.c:2286
+                   __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
+                   invoke_syscall+0x98/0x244 arch/arm64/kernel/syscall.c:49
+                   el0_svc_common+0xec/0x23c arch/arm64/kernel/syscall.c:12=
+1
+                   do_el0_svc+0x4c/0x5c arch/arm64/kernel/syscall.c:140
+                   el0_svc+0x60/0x1d8 arch/arm64/kernel/entry-common.c:797
+                   el0t_64_sync_handler+0x44/0x104 arch/arm64/kernel/entry-=
+common.c:816
+                   el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:606
+   INITIAL READ USE at:
+                        lock_acquire+0x13c/0x320 kernel/locking/lockdep.c:5=
+942
+                        __raw_read_lock_bh include/linux/rwlock_api_smp.h:1=
+92 [inline]
+                        _raw_read_lock_bh+0x54/0x6c kernel/locking/spinlock=
+.c:287
+                        wg_socket_send_skb_to_peer+0x5c/0x19c drivers/net/w=
+ireguard/socket.c:172
+                        wg_socket_send_buffer_to_peer+0x108/0x174 drivers/n=
+et/wireguard/socket.c:199
+                        wg_packet_send_handshake_initiation drivers/net/wir=
+eguard/send.c:40 [inline]
+                        wg_packet_handshake_send_worker+0x1c0/0x2d8 drivers=
+/net/wireguard/send.c:51
+                        process_one_work kernel/workqueue.c:3495 [inline]
+                        process_scheduled_works+0x91c/0x1250 kernel/workque=
+ue.c:3578
+                        worker_thread+0x798/0xbd0 kernel/workqueue.c:3659
+                        kthread+0x304/0x3d4 kernel/kthread.c:436
+                        ret_from_fork+0x10/0x20 arch/arm64/kernel/entry.S:8=
+54
+ }
+ ... key      at: [<ffff80008f85f240>] wg_peer_create.__key.5+0x0/0x20
+
+the dependencies between the lock to be acquired
+ and SOFTIRQ-irq-unsafe lock:
+-> (&r->consumer_lock#4){+.+.}-{3:3} {
+   HARDIRQ-ON-W at:
+                    lock_acquire+0x13c/0x320 kernel/locking/lockdep.c:5942
+                    __raw_spin_lock include/linux/spinlock_api_smp.h:190 [i=
+nline]
+                    _raw_spin_lock+0x48/0x60 kernel/locking/spinlock.c:173
+                    spin_lock include/linux/spinlock.h:347 [inline]
+                    ptr_ring_consume include/linux/ptr_ring.h:363 [inline]
+                    ptr_ring_cleanup include/linux/ptr_ring.h:700 [inline]
+                    tap_sock_destruct+0x40/0x3f8 drivers/net/tap.c:444
+                    __sk_destruct+0x80/0x89c net/core/sock.c:2386
+                    sk_destruct+0x8c/0xb8 net/core/sock.c:2448
+                    __sk_free+0x264/0x328 net/core/sock.c:2459
+                    sk_free+0x60/0xc4 net/core/sock.c:2470
+                    sock_put include/net/sock.h:2024 [inline]
+                    tap_put_queue drivers/net/tap.c:179 [inline]
+                    tap_release+0x2d4/0x3b4 drivers/net/tap.c:517
+                    __fput+0x338/0x74c fs/file_table.c:512
+                    fput_close_sync+0x10c/0x278 fs/file_table.c:618
+                    filp_close_sync+0x7c/0xb4 fs/open.c:1573
+                    __do_sys_close fs/open.c:1596 [inline]
+                    __se_sys_close fs/open.c:1583 [inline]
+                    __arm64_sys_close+0x74/0x108 fs/open.c:1583
+                    __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline=
+]
+                    invoke_syscall+0x98/0x244 arch/arm64/kernel/syscall.c:4=
+9
+                    el0_svc_common+0xec/0x23c arch/arm64/kernel/syscall.c:1=
+21
+                    do_el0_svc+0x4c/0x5c arch/arm64/kernel/syscall.c:140
+                    el0_svc+0x60/0x1d8 arch/arm64/kernel/entry-common.c:797
+                    el0t_64_sync_handler+0x44/0x104 arch/arm64/kernel/entry=
+-common.c:816
+                    el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:606
+   SOFTIRQ-ON-W at:
+                    lock_acquire+0x13c/0x320 kernel/locking/lockdep.c:5942
+                    __raw_spin_lock include/linux/spinlock_api_smp.h:190 [i=
+nline]
+                    _raw_spin_lock+0x48/0x60 kernel/locking/spinlock.c:173
+                    spin_lock include/linux/spinlock.h:347 [inline]
+                    ptr_ring_consume include/linux/ptr_ring.h:363 [inline]
+                    ptr_ring_cleanup include/linux/ptr_ring.h:700 [inline]
+                    tap_sock_destruct+0x40/0x3f8 drivers/net/tap.c:444
+                    __sk_destruct+0x80/0x89c net/core/sock.c:2386
+                    sk_destruct+0x8c/0xb8 net/core/sock.c:2448
+                    __sk_free+0x264/0x328 net/core/sock.c:2459
+                    sk_free+0x60/0xc4 net/core/sock.c:2470
+                    sock_put include/net/sock.h:2024 [inline]
+                    tap_put_queue drivers/net/tap.c:179 [inline]
+                    tap_release+0x2d4/0x3b4 drivers/net/tap.c:517
+                    __fput+0x338/0x74c fs/file_table.c:512
+                    fput_close_sync+0x10c/0x278 fs/file_table.c:618
+                    filp_close_sync+0x7c/0xb4 fs/open.c:1573
+                    __do_sys_close fs/open.c:1596 [inline]
+                    __se_sys_close fs/open.c:1583 [inline]
+                    __arm64_sys_close+0x74/0x108 fs/open.c:1583
+                    __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline=
+]
+                    invoke_syscall+0x98/0x244 arch/arm64/kernel/syscall.c:4=
+9
+                    el0_svc_common+0xec/0x23c arch/arm64/kernel/syscall.c:1=
+21
+                    do_el0_svc+0x4c/0x5c arch/arm64/kernel/syscall.c:140
+                    el0_svc+0x60/0x1d8 arch/arm64/kernel/entry-common.c:797
+                    el0t_64_sync_handler+0x44/0x104 arch/arm64/kernel/entry=
+-common.c:816
+                    el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:606
+   INITIAL USE at:
+                   lock_acquire+0x13c/0x320 kernel/locking/lockdep.c:5942
+                   __raw_spin_lock include/linux/spinlock_api_smp.h:190 [in=
+line]
+                   _raw_spin_lock+0x48/0x60 kernel/locking/spinlock.c:173
+                   spin_lock include/linux/spinlock.h:347 [inline]
+                   ptr_ring_consume include/linux/ptr_ring.h:363 [inline]
+                   ptr_ring_cleanup include/linux/ptr_ring.h:700 [inline]
+                   tap_sock_destruct+0x40/0x3f8 drivers/net/tap.c:444
+                   __sk_destruct+0x80/0x89c net/core/sock.c:2386
+                   sk_destruct+0x8c/0xb8 net/core/sock.c:2448
+                   __sk_free+0x264/0x328 net/core/sock.c:2459
+                   sk_free+0x60/0xc4 net/core/sock.c:2470
+                   sock_put include/net/sock.h:2024 [inline]
+                   tap_put_queue drivers/net/tap.c:179 [inline]
+                   tap_release+0x2d4/0x3b4 drivers/net/tap.c:517
+                   __fput+0x338/0x74c fs/file_table.c:512
+                   fput_close_sync+0x10c/0x278 fs/file_table.c:618
+                   filp_close_sync+0x7c/0xb4 fs/open.c:1573
+                   __do_sys_close fs/open.c:1596 [inline]
+                   __se_sys_close fs/open.c:1583 [inline]
+                   __arm64_sys_close+0x74/0x108 fs/open.c:1583
+                   __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
+                   invoke_syscall+0x98/0x244 arch/arm64/kernel/syscall.c:49
+                   el0_svc_common+0xec/0x23c arch/arm64/kernel/syscall.c:12=
+1
+                   do_el0_svc+0x4c/0x5c arch/arm64/kernel/syscall.c:140
+                   el0_svc+0x60/0x1d8 arch/arm64/kernel/entry-common.c:797
+                   el0t_64_sync_handler+0x44/0x104 arch/arm64/kernel/entry-=
+common.c:816
+                   el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:606
+ }
+ ... key      at: [<ffff80008f860080>] ptr_ring_init_noprof.__key.35+0x0/0x=
+20
+ ... acquired at:
+   __raw_spin_lock include/linux/spinlock_api_smp.h:190 [inline]
+   _raw_spin_lock+0x48/0x60 kernel/locking/spinlock.c:173
+   spin_lock include/linux/spinlock.h:347 [inline]
+   ptr_ring_consume include/linux/ptr_ring.h:363 [inline]
+   ptr_ring_cleanup include/linux/ptr_ring.h:700 [inline]
+   tap_sock_destruct+0x40/0x3f8 drivers/net/tap.c:444
+   __sk_destruct+0x80/0x89c net/core/sock.c:2386
+   sk_destruct+0x8c/0xb8 net/core/sock.c:2448
+   __sk_free+0x264/0x328 net/core/sock.c:2459
+   sock_wfree+0x234/0x6fc net/core/sock.c:-1
+   skb_orphan include/linux/skbuff.h:3413 [inline]
+   loopback_xmit+0x144/0x6cc drivers/net/loopback.c:81
+   __netdev_start_xmit include/linux/netdevice.h:5455 [inline]
+   netdev_start_xmit include/linux/netdevice.h:5464 [inline]
+   xmit_one net/core/dev.c:4068 [inline]
+   dev_hard_start_xmit+0x1dc/0x794 net/core/dev.c:4084
+   __dev_queue_xmit+0xed4/0x2a68 net/core/dev.c:5086
+   dev_queue_xmit include/linux/netdevice.h:3483 [inline]
+   neigh_hh_output include/net/neighbour.h:538 [inline]
+   neigh_output include/net/neighbour.h:552 [inline]
+   ip_finish_output2+0xa80/0xee4 net/ipv4/ip_output.c:236
+   __ip_finish_output+0x198/0x424 net/ipv4/ip_output.c:-1
+   ip_finish_output+0x44/0x2fc net/ipv4/ip_output.c:324
+   NF_HOOK_COND include/linux/netfilter.h:314 [inline]
+   ip_output+0x28c/0x400 net/ipv4/ip_output.c:437
+   dst_output include/net/dst.h:471 [inline]
+   ip_local_out+0x110/0x148 net/ipv4/ip_output.c:131
+   iptunnel_xmit+0x50c/0xd38 net/ipv4/ip_tunnel_core.c:97
+   udp_tunnel_xmit_skb+0x220/0x348 net/ipv4/udp_tunnel_core.c:187
+   send4+0x8cc/0xcf4 drivers/net/wireguard/socket.c:85
+   wg_socket_send_skb_to_peer+0xc0/0x19c drivers/net/wireguard/socket.c:174
+   wg_packet_create_data_done drivers/net/wireguard/send.c:251 [inline]
+   wg_packet_tx_worker+0x188/0x75c drivers/net/wireguard/send.c:276
+   process_one_work kernel/workqueue.c:3495 [inline]
+   process_scheduled_works+0x91c/0x1250 kernel/workqueue.c:3578
+   worker_thread+0x798/0xbd0 kernel/workqueue.c:3659
+   kthread+0x304/0x3d4 kernel/kthread.c:436
+   ret_from_fork+0x10/0x20 arch/arm64/kernel/entry.S:854
+
+
+stack backtrace:
+CPU: 1 UID: 0 PID: 4479 Comm: kworker/1:4 Not tainted syzkaller #0 PREEMPT=
+=20
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Goo=
+gle 11/06/2026
+Workqueue: wg-crypt-wg0 wg_packet_tx_worker
+Call trace:
+ show_stack+0x2c/0x3c arch/arm64/kernel/stacktrace.c:499 (C)
+ __dump_stack+0x30/0x40 lib/dump_stack.c:94
+ dump_stack_lvl+0xd8/0x12c lib/dump_stack.c:120
+ dump_stack+0x1c/0x28 lib/dump_stack.c:129
+ __lock_acquire+0x8f8/0x2b08 kernel/locking/lockdep.c:-1
+ lock_acquire+0x13c/0x320 kernel/locking/lockdep.c:5942
+ __raw_spin_lock include/linux/spinlock_api_smp.h:190 [inline]
+ _raw_spin_lock+0x48/0x60 kernel/locking/spinlock.c:173
+ spin_lock include/linux/spinlock.h:347 [inline]
+ ptr_ring_consume include/linux/ptr_ring.h:363 [inline]
+ ptr_ring_cleanup include/linux/ptr_ring.h:700 [inline]
+ tap_sock_destruct+0x40/0x3f8 drivers/net/tap.c:444
+ __sk_destruct+0x80/0x89c net/core/sock.c:2386
+ sk_destruct+0x8c/0xb8 net/core/sock.c:2448
+ __sk_free+0x264/0x328 net/core/sock.c:2459
+ sock_wfree+0x234/0x6fc net/core/sock.c:-1
+ skb_orphan include/linux/skbuff.h:3413 [inline]
+ loopback_xmit+0x144/0x6cc drivers/net/loopback.c:81
+ __netdev_start_xmit include/linux/netdevice.h:5455 [inline]
+ netdev_start_xmit include/linux/netdevice.h:5464 [inline]
+ xmit_one net/core/dev.c:4068 [inline]
+ dev_hard_start_xmit+0x1dc/0x794 net/core/dev.c:4084
+ __dev_queue_xmit+0xed4/0x2a68 net/core/dev.c:5086
+ dev_queue_xmit include/linux/netdevice.h:3483 [inline]
+ neigh_hh_output include/net/neighbour.h:538 [inline]
+ neigh_output include/net/neighbour.h:552 [inline]
+ ip_finish_output2+0xa80/0xee4 net/ipv4/ip_output.c:236
+ __ip_finish_output+0x198/0x424 net/ipv4/ip_output.c:-1
+ ip_finish_output+0x44/0x2fc net/ipv4/ip_output.c:324
+ NF_HOOK_COND include/linux/netfilter.h:314 [inline]
+ ip_output+0x28c/0x400 net/ipv4/ip_output.c:437
+ dst_output include/net/dst.h:471 [inline]
+ ip_local_out+0x110/0x148 net/ipv4/ip_output.c:131
+ iptunnel_xmit+0x50c/0xd38 net/ipv4/ip_tunnel_core.c:97
+ udp_tunnel_xmit_skb+0x220/0x348 net/ipv4/udp_tunnel_core.c:187
+ send4+0x8cc/0xcf4 drivers/net/wireguard/socket.c:85
+ wg_socket_send_skb_to_peer+0xc0/0x19c drivers/net/wireguard/socket.c:174
+ wg_packet_create_data_done drivers/net/wireguard/send.c:251 [inline]
+ wg_packet_tx_worker+0x188/0x75c drivers/net/wireguard/send.c:276
+ process_one_work kernel/workqueue.c:3495 [inline]
+ process_scheduled_works+0x91c/0x1250 kernel/workqueue.c:3578
+ worker_thread+0x798/0xbd0 kernel/workqueue.c:3659
+ kthread+0x304/0x3d4 kernel/kthread.c:436
+ ret_from_fork+0x10/0x20 arch/arm64/kernel/entry.S:854
+
+
 ---
- net/rds/ib_cm.c   | 12 ++++++++++--
- net/rds/ib_frmr.c | 12 +++++++++++-
- 2 files changed, 21 insertions(+), 3 deletions(-)
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
 
-diff --git a/net/rds/ib_cm.c b/net/rds/ib_cm.c
-index 16bfeaaf3b97..17d748f08607 100644
---- a/net/rds/ib_cm.c
-+++ b/net/rds/ib_cm.c
-@@ -1077,6 +1077,7 @@ void rds_ib_conn_path_shutdown(struct rds_conn_path *cp)
- {
- 	struct rds_connection *conn = cp->cp_conn;
- 	struct rds_ib_connection *ic = conn->c_transport_data;
-+	struct rdma_cm_id *cm_id;
- 	int err = 0;
- 
- 	rdsdebug("cm %p pd %p cq %p %p qp %p\n", ic->i_cm_id,
-@@ -1178,7 +1179,15 @@ void rds_ib_conn_path_shutdown(struct rds_conn_path *cp)
- 		if (ic->i_recvs)
- 			rds_ib_recv_clear_ring(ic);
- 
--		rdma_destroy_id(ic->i_cm_id);
-+		/* Clear the pointer before freeing what it points at.
-+		 * rds_ib_unreg_frmr() and rds_ib_get_mr() read ic->i_cm_id
-+		 * without holding anything that excludes this teardown, and
-+		 * rds_ib_remove_conn() below can sleep, so a pointer left
-+		 * behind here is one they dereference after the free.
-+		 */
-+		cm_id = ic->i_cm_id;
-+		ic->i_cm_id = NULL;
-+		rdma_destroy_id(cm_id);
- 
- 		/*
- 		 * Move connection back to the nodev list.
-@@ -1186,7 +1195,6 @@ void rds_ib_conn_path_shutdown(struct rds_conn_path *cp)
- 		if (ic->rds_ibdev)
- 			rds_ib_remove_conn(ic->rds_ibdev, conn);
- 
--		ic->i_cm_id = NULL;
- 		ic->i_pd = NULL;
- 		ic->i_send_cq = NULL;
- 		ic->i_recv_cq = NULL;
-diff --git a/net/rds/ib_frmr.c b/net/rds/ib_frmr.c
-index 8397aa4a17ac..09e732ac2324 100644
---- a/net/rds/ib_frmr.c
-+++ b/net/rds/ib_frmr.c
-@@ -124,6 +124,7 @@ static int rds_ib_post_reg_frmr(struct rds_ib_mr *ibmr)
- {
- 	struct rds_ib_frmr *frmr = &ibmr->u.frmr;
- 	struct ib_reg_wr reg_wr;
-+	struct rdma_cm_id *i_cm_id;
- 	int ret, off = 0;
- 
- 	while (atomic_dec_return(&ibmr->ic->i_fastreg_wrs) <= 0) {
-@@ -164,7 +165,16 @@ static int rds_ib_post_reg_frmr(struct rds_ib_mr *ibmr)
- 			IB_ACCESS_REMOTE_WRITE;
- 	reg_wr.wr.send_flags = IB_SEND_SIGNALED;
- 
--	ret = ib_post_send(ibmr->ic->i_cm_id->qp, &reg_wr.wr, NULL);
-+	/* Check it the way rds_ib_unreg_frmr() does: the teardown clears
-+	 * ic->i_cm_id, and nothing here excludes it.
-+	 */
-+	i_cm_id = ibmr->ic->i_cm_id;
-+	if (!i_cm_id || !i_cm_id->qp) {
-+		rds_transition_frwr_state(ibmr, FRMR_IS_INUSE, FRMR_IS_STALE);
-+		ret = -ECONNABORTED;
-+		goto out_inc;
-+	}
-+	ret = ib_post_send(i_cm_id->qp, &reg_wr.wr, NULL);
- 	if (unlikely(ret)) {
- 		/* Failure here can be because of -ENOMEM as well */
- 		rds_transition_frwr_state(ibmr, FRMR_IS_INUSE, FRMR_IS_STALE);
--- 
-2.34.1
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+For information about bisection process see: https://goo.gl/tpsmEJ#ai-bisec=
+tion
 
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
