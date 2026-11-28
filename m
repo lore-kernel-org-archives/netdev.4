@@ -1,59 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795858587;
-	b=qaC6qu31aNN0YPttU9bsXZTv/Hdc6Oy/uMbQ3oQA4yDZdfk+06FsCipYUBF1PNXNDJGy
-	 METkjfwUThRXiRFAkZYQNi+R/xoPj79xASblNLmxGj3ccflyZ54KOXfYbWs8sHdrrJcId
-	 WMlK6ltjJxGhVw47m6D8o4QoKwse78BHF0wlv3/UQuakhpw4BUK5hPGKY4wrd2fx+xgWx
-	 +tfaH1qWuo/jqDnrTUssOAGB45lxIa2YjXLJ2B3xSBNH2jntMygPptxyQXHPXf8bQMJea
-	 TuXZjRgpTAb8YHvbdBHtP4pDpYqMe78rGPAe9W1I9awPaWOU2zcW4yJCFzUTCqVlfgw==
+	t=1795859317;
+	b=f0Vq/f8cKa+tpxMDGzT5YXSU2GK0xvYV6iTL9Xp1iuxOQPW5F5CLUJHllWqV6qig6byx
+	 lxbW0JiNO49D6LCb8bJkw6IE0e1Kq7z2K3wlbaNluZqDut7eaG7f6IVe3/4SVRPLGLm8c
+	 076u+tV9iliUa/Qhgz3YTW2VO6k1FVzPknOjKHKnEx0SpArN2Rz5vli7gvhbykVHrFcZv
+	 vwvkMyhFmWzYJ9xXMwZ9akt8uDEwqsi+DmSCSvjGdfReBwtqgK3VZurzhzhsh6QKXELEK
+	 xtGTHS6dOID2FuEamkAPLhj3J/iaiVkz68lUWKV5BfvmOIN/tGMa+8o46LU7iLWZWEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795858587;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795859317;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=DVKtRB77pjKumLl0InNIzwfOdZ0b+h+a09XoRP57V3Q=;
-	b=s/SW89tSixlQ/AgAsUblyHL6wPKQmkU1o0LhdSDt08rSAGrLwhKZjsW1759bExErEBSx
-	 pRKFVGNQMuVidZYhWo5dWmUQL2Ae9AM/jI7iV3nfI+9RaiF6kF5l48kqmeXQi50G74i11
-	 x7td9pMLo4epIS29hXrLZmWQHl3oiTyHunsPQSOnMNnshNxT1bmW/qUcD3TfwEdPkfj17
-	 otCx7zPa+fKEqX5spMrJsQtistABrDMgyHXuSuW8GENZbCO1pFu8dvyOGjgvU2h89rKge
-	 zOUzGOopc/bDjQ6KU1ZaYV0zd4g/IaTdixbt7MVOwrKixFJmUT1QMaf0OBf+SpCbB1w==
+	bh=RZs+hLB39RJoNYD8vJAf6edaYJxDfKubtPKj/+Sx+cY=;
+	b=XvT3kekulUAQL1K2EycXBBpyah70U5uKvVAAL9cS5pelUrM+WfmiUt6xfybEX10LEkVN
+	 oDZ7uu7m7dmWiAYVIAu+53ez/XCIaM/7fTTEhX6ySH+Od1kSe7qmqBqN39iDUMbRB9N5e
+	 zOJxQIe9HyoWz+yvpK5WmsC7e3hfKGq+sf4mROVyOZXVVUWKpBaa5ieO/2cgD44BKRKXS
+	 9d0ilAGmgisU5TcfG48h5P0O9+uyWGL+UIb1mSmSaUjrjspbKHZoWRmSG0ihc13bfabDo
+	 YNNCTJ4oiIknCx8vmUWdGsf9ijcDwQ1KjqexWXlhT3NuGH39gUQDdWljcLYMYJ8txJg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e099H928;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K011nthr;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5123B606A32C;
-	Sat, 28 Nov 2026 09:36:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3888606A31C;
+	Sat, 28 Nov 2026 09:48:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e099H928
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C832F1F00898;
-	Sat, 28 Nov 2026 09:36:25 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K011nthr
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E60711F000C1;
+	Sat, 28 Nov 2026 09:48:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795858586;
-	bh=DVKtRB77pjKumLl0InNIzwfOdZ0b+h+a09XoRP57V3Q=;
+	s=k20260515; t=1795859317;
+	bh=RZs+hLB39RJoNYD8vJAf6edaYJxDfKubtPKj/+Sx+cY=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=e099H928jPFmoT7jqR3wrxa76wXy7PWyyLoc1j71uvisiJy1MxuLKx5ntf9l0Ng/C
-	 ckk/zIKeZR1qpgbA4JpysmKonK8ggAHz4JYG39A1B/hYLH20czOt0S01Z47Ywqs7RC
-	 0WeJHg/RgAGFapL2FQx18xgcwR4LND/DvlSOyac99Oj9M7h6e6A36e5jiz6bGzZNDM
-	 tPP6JeFPhl5giT8zlJHg26QAdDU5HxhjIoxFtw4sRNb8ivuqDymvUAhr9qtFBwaklU
-	 94i/fEo8+8lMJApsv+zE72vlGjbny23XsEgkhKzST+TCJkAkrYmjVJsJiQb0y/oESc
-	 uz3XmqRt4R//g==
-Subject:
- Re: [PATCH net 2/2] xfrm: fix use-after-free in xfrm_lookup_with_ifid()
+	b=K011nthr42Ejz0hTEP8cH2ToftWhnQiYQV9ud+pgvfrrueOqb18dPkleGKHOQPv4Z
+	 eobS/zgM3teU9+Sk5m9+GpXcpVgjJCyV1xloKtIku2bNa8C9LBqGU7EiMBnfhxCSKm
+	 vQUUczv1VukkXP74dYKM9BpyAqW7N6eWpX6vIKHv36QCSXx8imHb4DdDkFH7JxuIss
+	 TLYNnj1gCZyNTUoet+GHnDXEIZlCOqFfuXsvk9XIpaChAUiJfc7lBoES+ObJHWwyur
+	 U2HV0fc6ylTPAO1EUFgWrKnixK868OPws2nbFvsy2ymWrVJk1QSucVxRbB7LBCxWVX
+	 80jz41Istrv9w==
+Subject: Re: [PATCH net-next v3 03/12] amt: key relay tunnels on a union
+ amt_addr endpoint
 From: netdev-bot+sashiko@kernel.org
-To: n0ps1edzz@gmail.com
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- kuniyu@amazon.com, steffen.klassert@secunet.com, herbert@gondor.apana.org.au,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, willemb@google.com, liuhangbin@gmail.com,
- ipsec@lists.linux.dev, linux-kernel@vger.kernel.org
-Date: Sat, 28 Nov 2026 09:36:25 +0000
-Message-ID: <179585858536.3135.14235570619606863005@kernel.org>
-In-Reply-To: <624bf99e815ca1a98d13ef06684c86148166fe9b.1795769101.git.n0ps1edzz@gmail.com>
-References: <624bf99e815ca1a98d13ef06684c86148166fe9b.1795769101.git.n0ps1edzz@gmail.com>
-X-sashiko-severity: High
+To: omar@blockcast.net
+Cc: ap420073@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, shuah@kernel.org,
+ horms@kernel.org, netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, willemb@google.com
+Date: Sat, 28 Nov 2026 09:48:36 +0000
+Message-ID: <179585931643.3135.2851219283955870732@kernel.org>
+In-Reply-To: <20261127094703.3025517-4-omar@blockcast.net>
+References: <20261127094703.3025517-4-omar@blockcast.net>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -66,133 +65,150 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] The patch does not fix the use-after-free it claims to fix.
+- [Low] The commit message misdescribes the pre-patch behaviour on an
+  IPv6 outer transport.
+- [Low] The commit message says both `amt_update_handler()` and
+  `amt_request_handler()` pass the outer-source snapshot "to…
+- [Low] The patch changes what the per-source tunnel cap counts.
 
 --
 
-xfrm: fix use-after-free in xfrm_lookup_with_ifid()
+amt: key relay tunnels on a union amt_addr endpoint
 
-This patch changes the no-policy path of xfrm_lookup_with_ifid(). It now
-reads the device of dst_orig through dst_dev_rcu() inside an RCU read-side
-critical section, instead of dereferencing dst_orig->dev directly. The
-commit message says this depends on a netdev_run_todo() change that waits
-for RCU readers.
+This commit stores the relay tunnel endpoint as a union amt_addr instead
+of a __be32. It also adds the amt_outer_saddr(), amt_relay_mac() and
+amt_same_source() helpers. The per-source tunnel cap now counts IPv6
+sources per /64, and amt_v6() is still false for every device, so no
+functional change is intended.
 
-Link: https://lore.kernel.org/netdev/20260908224901.1591334-1-kuba@kernel.org/
+> A relay keeps one struct amt_tunnel_list per gateway endpoint and finds
+> it by the gateway's IPv4 address, stored as __be32 ip4 and taken from
+> ip_hdr(skb)->saddr, together with its UDP source port. On an IPv6 outer
+> transport that reads the traffic class and flow label of the IPv6
+> header as an address, and the field cannot hold the gateway's address
+> anyway.
 
-> diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
-> index cea6842e6454d..eafd090e3aebc 100644
-> --- a/net/xfrm/xfrm_policy.c
-> +++ b/net/xfrm/xfrm_policy.c
+[Severity: Low]
+Is this description of the old read accurate?
+
+In struct iphdr, saddr starts at byte 12. In struct ipv6hdr, version,
+traffic class and flow label take bytes 0-3, payload_len bytes 4-5,
+nexthdr byte 6 and hop_limit byte 7. The source address then runs from
+byte 8 to byte 23.
+
+So ip_hdr(skb)->saddr on an IPv6 header reads bytes 12-15, which are
+s6_addr[4..7] of the IPv6 source address. It never reads the traffic
+class or the flow label.
+
+The conclusion is still correct, since a __be32 cannot hold an IPv6
+gateway address. Could the reason given in the message be corrected?
+
+> amt_outer_saddr() copies the outer source address of a received message
+> by value into a zeroed union amt_addr. amt_update_handler() takes that
+> snapshot before pskb_may_pull() and iptunnel_pull_header() can
+> reallocate the header; amt_request_handler() takes it after its only
+> pskb_may_pull() and pulls nothing more. Both pass it to
+> amt_tunnel_lookup(), amt_tunnel_get_or_create() and amt_update_tunnel().
+
+[Severity: Low]
+Does amt_request_handler() actually call any of these helpers?
+
+Only the Update path does:
+
+amt_update_handler()->amt_update_tunnel()->amt_tunnel_get_or_create()
+    ->amt_tunnel_lookup()
+
+amt_request_handler() walks the tunnel list itself instead:
+
+    list_for_each_entry_rcu(tunnel, &amt->tunnel_list, list) {
+        if (!amt_same_source(amt, &tunnel->addr, &saddr) ||
+            READ_ONCE(tunnel->dead))
+            continue;
+        per_src++;
+        if (amt_addr_equal(&tunnel->addr, &saddr) &&
+            tunnel->source_port == udph->source)
+            have = true;
+    }
+
+It then uses saddr for amt_relay_mac() and saddr.ip4 for
+amt_send_igmp_gq() and amt_send_mld_gq().
+
+That loop is a separate copy of the matching in
+amt_tunnel_get_or_create(), and the two have to be kept in sync by hand.
+Could the message say that only amt_update_handler() passes the snapshot
+to these three helpers?
+
+> diff --git a/drivers/net/amt.c b/drivers/net/amt.c
+> index 52ccaca08b5ec..83e666a023c12 100644
+> --- a/drivers/net/amt.c
+> +++ b/drivers/net/amt.c
 
 [ ... ]
 
-> @@ -3312,7 +3314,12 @@ struct dst_entry *xfrm_lookup_with_ifid(struct net *net,
->  	return dst;
->  
->  nopol:
-> -	if ((!dst_orig->dev || !(dst_orig->dev->flags & IFF_LOOPBACK)) &&
-> +	rcu_read_lock();
-> +	dev = dst_dev_rcu(dst_orig);
-> +	is_loopback = dev && (dev->flags & IFF_LOOPBACK);
-> +	rcu_read_unlock();
+> @@ -2728,20 +2777,22 @@ static bool amt_membership_query_handler(struct amt_dev *amt,
 
-[Severity: High]
-In this tree, does this RCU section close the race?
+[ ... ]
 
-The commit message says:
+> -/* Most tunnels one source address may hold: an eighth of the table, at
+> - * least one and at most AMT_MAX_TUNNELS_PER_SRC.
+> +/* Most tunnels one source (an IPv4 address or an IPv6 /64) may hold: an
+> + * eighth of the table, at least one and at most AMT_MAX_TUNNELS_PER_SRC.
+>   */
+>  static u32 amt_max_tunnels_per_src(const struct amt_dev *amt)
+>  {
+> @@ -2759,7 +2810,7 @@ static u32 amt_max_tunnels_per_src(const struct amt_dev *amt)
+>   * verified source address may hold.
+>   */
+>  static struct amt_tunnel_list *amt_tunnel_get_or_create(struct amt_dev *amt,
+> -							__be32 saddr,
+> +							union amt_addr *saddr,
+>  							__be16 sport)
+>  {
+>  	struct amt_tunnel_list *tunnel;
+> @@ -2779,9 +2830,11 @@ static struct amt_tunnel_list *amt_tunnel_get_or_create(struct amt_dev *amt,
+>  	 * against its address.
+>  	 */
+>  	list_for_each_entry(tunnel, &amt->tunnel_list, list) {
+> -		if (tunnel->ip4 != saddr || READ_ONCE(tunnel->dead))
+> +		if (!amt_same_source(amt, &tunnel->addr, saddr) ||
+> +		    READ_ONCE(tunnel->dead))
+>  			continue;
 
-  This requires netdev_run_todo() to wait for RCU readers after flushing
-  routes; that fix is a prerequisite of this patch.
+[Severity: Low]
+This isn't a bug, but the comment on amt_max_tunnels_per_src() now says
+the cap counts an IPv4 address or an IPv6 /64. Three other comments
+about the same cap still describe it as per-address.
 
-That change isn't in this tree. Neither this patch nor the earlier
-"ipv4: route: fix use-after-free in ip_route_output_flow()" touches
-net/core/. The only rcu_barrier() in netdev_run_todo() still runs before
-the route flush, and nothing waits for readers after the flush:
+The kernel-doc above amt_tunnel_get_or_create():
 
-net/core/dev.c:netdev_run_todo() {
-    ...
-	if (!list_empty(&list))
-		rcu_barrier();
-    ...
-	if (!list_empty(&list)) {
-		rt_flush_dev(NULL);
-		rt6_uncached_list_flush_dev(NULL);
-	}
+ * table, amt_max_tunnels_per_src(), additionally limits the tunnels one
+ * verified source address may hold.
 
-	cnt = 0;
-	while (!list_empty(&list)) {
-		struct net *net;
+The comment above this loop:
 
-		dev = netdev_wait_allrefs_any(&list);
-    ...
-}
+	 * a tunnel being freed neither stands in for its endpoint nor counts
+	 * against its address.
 
-rt_flush_dev() and rt6_uncached_list_flush_dev() call
-rcu_assign_pointer(rt->dst.dev_rcu, blackhole_netdev). They then drop the
-old device reference at once through netdev_ref_replace().
+And in include/net/amt.h:
 
-netdev_wait_allrefs_any() returns immediately when netdev_refcnt_read(dev)
-is 1. The device is then released through kobject_put() and
-netdev_release(), which calls kvfree(dev) without waiting for an RCU grace
-period.
+/* Upper bound of amt_max_tunnels_per_src(), the per-address tunnel cap */
+#define AMT_MAX_TUNNELS_PER_SRC 16
 
-The only grace period on the free path is the synchronize_net() in
-netdev_napi_exit(). It is skipped when napi_list is empty, which is the
-case for the dummy device used in the reproducer.
+amt_same_source() compares only the first AMT_SRC_PREFIX6_LEN bytes for
+IPv6, so two gateways at different addresses in the same /64 share one
+cap. None of these comments is updated later in the series either. At
+the series tip, the AMT_MAX_TUNNELS_PER_SRC comment and the
+amt_tunnel_get_or_create() kernel-doc still say per-address.
 
-If dst_orig is an uncached output route, can this sequence still happen?
+Could these be updated to match the new definition of a source?
 
-CPU A
-xfrm_lookup_with_ifid()
-    rcu_read_lock();
-    dev = dst_dev_rcu(dst_orig);
-    <preempted under CONFIG_PREEMPT_RCU>
-
-CPU B
-netdev_run_todo()
-    rt_flush_dev(NULL)
-        rcu_assign_pointer(rt->dst.dev_rcu, blackhole_netdev);
-        netdev_ref_replace(...);
-    netdev_wait_allrefs_any()        <-- refcnt is 1, returns at once
-    kobject_put(&dev->dev.kobj)
-        netdev_release()
-            kvfree(dev);
-
-CPU A
-    is_loopback = dev && (dev->flags & IFF_LOOPBACK);   <-- freed dev
-
-As far as I can tell, this makes the window smaller but doesn't close it.
-That would need a synchronize_rcu() or synchronize_net() in
-netdev_run_todo() after the flush and before the devices are freed.
-
-The commit message doesn't give a SHA, Link or Depends-on for the
-prerequisite, and the patch is tagged Cc: stable with Fixes: 2d151d39073a.
-Could the prerequisite be named explicitly, or sent in the same series as
-this patch? Otherwise a stable backport could pick up this patch without
-it.
-
-The commit message also names dst_dev_put() as the writer:
-
-  dst_dev_put() can replace a dst's device with the blackhole device and
-  drop the reference to the original device.
-
-The dst_dev_put() calls made from NETDEV_UNREGISTER notifiers are followed
-by synchronize_net() in unregister_netdevice_many_notify(). The pointer
-swap with no grace period after it seems to be the rt_flush_dev(NULL) and
-rt6_uncached_list_flush_dev(NULL) calls in netdev_run_todo(). Would it be
-more accurate to describe those calls instead?
+[ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795769101.git.n0ps1edzz%40gmail.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127094703.3025517-1-omar%40blockcast.net
