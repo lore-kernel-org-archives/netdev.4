@@ -1,101 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795862029;
-	b=agQwzdlBuqasy7vKmWu+EbfVeQqcOFwz+/xZr+A9vF4FYfnQy4+QpJlmHYJLvyougVVT
-	 edn8Lzs4DK3I4uJkIb98RIrHzCpUzVE/A95ALgpHzBy8+AGTYTlj7sepi24QDpfIij6Hc
-	 JGJrKpDRzhqY38Q+b/OxjeVrVjfvJ5rUHKRyOQwTPz6ZWUDmFfhw54NcOdhDl36k64xKN
-	 mmMdKHvFlX5ZPRfOipIVL3N8hi5sV9POF0IReXa0o5xkI6w9T8Nk4tRz3NhGmhTeF1F7T
-	 H2/5FiKnXM4xuzzfvTdR4UIb3S4m4G/ZBLaQBC7kY/9GWc9ggiPt9D8h+9XQYPHEd8A==
+	t=1795864069;
+	b=2WKHCxAY33hunsHNidNF3SzDNPHSopNTJnJdMXTr19E/qyfLYSlrHhphcftAWZYS/twQ
+	 qHMOV0w+3zwo1SPDko68qdyIyLDBPAbJqVJMNo4ESfCFN1N2ekeer7wH0SLykjmccMu2F
+	 ZoZ8CJyNwE4Bj4MhgOzynoBcb/rvUFVxAxW4U8XDmBTWEKJCpn1/6mn8wmqnEuMdFUGH7
+	 yu+t91auVVwemURjkYrZ1/6MQ14Gfgm4z6JwR9CLtTdSZywbhc2VmT3TXNTnpZclLez5a
+	 rPpZLbJ4ZAVu28b4sHnCUdAoECq7wdIm689v4ma7DuiasKW8L6/T0ptNMN1WjFlfAyg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795862029;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=AHvYKHq95D+qAXx/ZpNwF1YDR0GRXaHoHUy1ieoCmCI=;
-	b=UcJCia1VbK5ZzfVIVpFnXqDni19MSyrWI60R6KfoH2zJC7/+KM3RJI42LpNmAzW3ibMU
-	 3UoAWY1mtQ180RwPKqcl190YrY1o4M80dZggFxRCd2spRX/U/40U82uwCF/vJMBa5GY+c
-	 XMrW1AZgXMSmXmMVyee5Bvxc60NfSZz6BFO5+wQ0T0bMjTpe4Mz6uPWbjsh5fd/dlwIcw
-	 GqH5HdUCZS0k+JXufBBJY0VupiHEklygbafQnsyTTJzxZhPKY0ERDOcpMJVqqz0OTPF35
-	 FlKd35JBIrn4NDqbnvlVDAsS/liCwQ+/1X3iXncHu+QpwRd8/1Lb4Xnaev45R71w6iw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795864069;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=dhEpXUDwJ1KCU+C5f7ZI1vtRh4Q+NQI9jx4jEzwEGOE=;
+	b=ntEdobkL2aTgE6cEJ1RB54vh5yaxM0ovdS9uERjPog2IZqIcSU9AGPWRIVrZjAKZddNX
+	 khhUcSCzMdn16hz1PuhWQN9Bwssfc3tg5jpxOZGTuHdhnBPLQBfEgSsWijXstuMH7ncwb
+	 63jkS5ilFdASUPoOmMRfyUFRnkGwYWv0Qi/MTA06/rmFIUYWSJM3dqP5K6DoTn12y8mTM
+	 iDBQgYi+m9c1fhiYAAi77+UaRrxR9SKyNgMVkXWvYFwEmNgbUAoLxWo+8vUoTJYJRqXKt
+	 fWO9v00xuvIi/nqA/Kvi9GIZg3faenydmkBhPcsEyNtz3z/BzuQBXa4aaJ90H/OuuCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mojatatu.com;
-	spf=none smtp.mailfrom=mojatatu.com;
-	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=e2W4lw6v;
-	arc=none smtp.remote-ip=209.85.222.172
-Received: from mail-qk1-f172.google.com (mail-qk1-f172.google.com [209.85.222.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LnUKfdOe;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9782606A321
-	for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 10:33:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9782606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 551F7606A31C;
+	Sat, 28 Nov 2026 11:07:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=e2W4lw6v
-Received: by mail-qk1-f172.google.com with SMTP id af79cd13be357-949b0d32315so721781685a.1
-        for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 02:33:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mojatatu.com; s=google; t=1795862028; x=1796466828; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=AHvYKHq95D+qAXx/ZpNwF1YDR0GRXaHoHUy1ieoCmCI=;
-        b=e2W4lw6v95tCcg1Vkwlnk4Dv0h1zAJzs9oyxGnURqDy9ElwtavGEaG15l9vEoVGek9
-         tAPPm4H2aoSmu4h5EJFayN9mWiWQUaSY5S7tosTA/OX68C9Kyh5CU0EtRjYuEZ15LBA+
-         xjBVnY7O1oHIedrv93liO87v6oBKPrLe7iGRE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795862028; x=1796466828;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=AHvYKHq95D+qAXx/ZpNwF1YDR0GRXaHoHUy1ieoCmCI=;
-        b=E4lilcqDZNiiYYiEkok9p+jn/DCyF4CPjI7LzLLnhiotjppS8JExK9u61hp1U0p4qo
-         ENWRk1pSZXKNRCx1OhO6dWfOPzEP5qK3cysQFcpFIRTlyCgFAYh7Wst4e1GX+dEPa8aY
-         fW7s1zvFEqv3QcF3C45I+gLTH8R3vGO/s01lTjfJUQwwtWdWQDV+OmBVREIg6kXMLN2n
-         1C2TLtE8LzF/IQbq+xyhqiqjhPGCBXy+N3jHOqxYYm4NXIMXGBYLR1GTXix/u2mezF0k
-         soUv0a5UHfA5cDzi3cZ1vBDdmjqDfWUTADpCtlItEWSPYSx1kjehn5kwK63Glw6TNdMj
-         X6zg==
-X-Gm-Message-State: APuU4Z9RFFsMwuGUy8G3NbYNVS3Z5W4uQhDZN+Fp5zG+aMszPDF79kFx
-	7RDxCxaPVOgqa6BgAmRH4BGGMyxViErfps9yw3ffJ8W4v/72RgEk5URSS8D+wBsbUZekLJ9ZeLd
-	KX3c=
-X-Gm-Gg: AZFdTZdBmCDAETTWLe7vyfkEatFRVJFgbFyjDg3U7S8xQoeNGH1RJ9/225/bjGYkk89
-	ejdHZcmZZHy7O9Zr40TgnKaB+P5HbeQPDOwBSdJ0XcoEaYjot/EWgcB0jLjxR75i/4hROtiq82m
-	M7KmK0W0SKNhm7srUTNwlfN/8nWulxUSWVcMtW+ZtjAufzYE61a7P1V1kcimeqeoRoGSZoHwGb2
-	FFV69kXqlX8yZ58GwAtDMV8h+HEyCWK4rv0UPRJGNhCm97eUABF/4wJM1CwGKFXesv6bneMWGEs
-	SdNdZrSZ3zu7SnSCBIm2feNCOUsPlCn/CSBY0MyPB2p03yDQI8wgcxWiX0jn6rRlnZrUcuAmDf5
-	/yA4VJSXmVB8eHszd9jbjVwj9mD0dI6E9Ji6WicmOBbp+4lYAf+obRDvxqfr0suvJPQH5yIOdA4
-	6l4SoLoM78rw2mFX2jdq1VEWlEK/EbfKJB9t37p0dZ4zT6J14McyCuWeTSddYK4LYINMCDYaqIO
-	HnFFR5uZWTwP9x2ylZjPaRxQVJr5xzUXW/ruK9df8O3FgpbQPyMlMXaCIaZWxb2qPciulL6mpFC
-	RSWh+RHo3DhWi9dvX+E2G4gehrocA0JGp6jlnG8kWa9thp4aX7WaXXoJrqDqRwPwsJxLwJEX1mu
-	rw4EH
-X-Received: by 2002:a05:620a:3722:b0:949:472f:226e with SMTP id af79cd13be357-949bab15455mr5419372385a.71.1795862027745;
-        Sat, 28 Nov 2026 02:33:47 -0800 (PST)
-Received: from majuu.waya ([184.147.180.207])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3f5c31sm2053970085a.30.2026.11.28.02.33.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Nov 2026 02:33:47 -0800 (PST)
-From: Jamal Hadi Salim <jhs@mojatatu.com>
-To: netdev@vger.kernel.org
-Cc: Jamal Hadi Salim <jhs@mojatatu.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	linux-rt-devel@lists.linux.dev,
-	wenxu <wenxu@ucloud.cn>,
-	stable@vger.kernel.org,
-	Victor Nogueira <victor@mojatatu.com>,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH net] net/sched: sch_frag: guard against same-CPU re-entrancy
-Date: Sat, 28 Nov 2026 05:33:33 -0500
-Message-Id: <QDISC-R0QC.v1.r0.20261125082538-1@mojatatu.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LnUKfdOe
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 529AC1F000C1;
+	Sat, 28 Nov 2026 11:07:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795864068;
+	bh=dhEpXUDwJ1KCU+C5f7ZI1vtRh4Q+NQI9jx4jEzwEGOE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=LnUKfdOecEKCcF+AqM0TU/K7CxUt4GYRJHG2Fn/10CsvxinCtO61w57MVH3s/yWsB
+	 ZLQ8A07ZfXXh+6MxRvr726IPEdj5J97Yow/HpGm6Slw8fqg7G3CKSlDE/p9Sa3GbL8
+	 AntxMdzXXksMjO2TsyzZu8eXyS6VKZHKQ0oH+ZeR84P/hEWvoR9PYSnxnT4P2ZrRBz
+	 ZmeWM5hSambf9zgZmH419ul15lEX5Dy56TE4VQdEpqWGj+a+k9Pbwv0SUnJIhb7Uez
+	 fZQBGksC9GsUNBHytXWJNuxfkOqx5KGoKWWr91mih4HVpqCexUgZyHAibdAkkRnsDX
+	 rrdsPctiKu9tQ==
+Subject: Re: [PATCH net v2] net: usb: cdc_ncm: send the NTB once another
+ datagram would not fit
+From: netdev-bot+sashiko@kernel.org
+To: william@wkennington.com
+Cc: oliver@neukum.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-usb@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Sat, 28 Nov 2026 11:07:47 +0000
+Message-ID: <179586406785.3135.9027128089065565502@kernel.org>
+In-Reply-To: <20261127110521.1235409-1-william@wkennington.com>
+References: <20261127110521.1235409-1-william@wkennington.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,172 +64,189 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-This is a followup of commit 975b5b067f52 ("ipv6: sr: restore network
-header before routing and forwarding") as reported by Sashiko. That change
-fixed the negative L2 length that could reach sch_fragment(); this patch
-addresses a separate pre-existing bug in the same fragment path.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-The issue:
-sch_fragment() holds the per-CPU local_lock_nested_bh across
-ip_do_fragment()/ip6_fragment(). Their sch_frag_xmit() callback calls
-data->xmit(skb), which may re-enter TC egress (cascaded act_mirred
-redirect to a qdisc that calls sch_frag_xmit_hook() again on the same
-CPU). Re-entering re-acquires the per-CPU bh_lock:
+Critical: 0 · High: 1 · Medium: 1 · Low: 1
 
-- on PREEMPT_RT this is a real spin_lock, so the same-CPU recursion
-  self-deadlocks;
-- on non-RT the inner call overwrites the shared per-CPU sch_frag_data
-  (dst, cb, xmit, l2_data), so when the outer fragment loop resumes it
-  uses the inner call's stale state.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-With the lockdep detector built in, the recursion reports itself as:
+- [High] The patch only narrows one way that a datagram ends up parked in
+  ctx->tx_rem_skb.
+- [Medium] Other usbnet queue stops cause the same drop, and a heuristic
+  based on NTB size cannot prevent them.
+- [Low] The new early-close check in cdc_ncm_fill_tx_frame()
+  (drivers/net/usb/cdc_ncm.c:1382-1383) adds VLAN_HLEN to every reserved…
 
- ============================================
- WARNING: possible recursive locking detected
- 7.3.0-rc7+ #44 Not tainted
- --------------------------------------------
- python3/20084 is trying to acquire lock:
- ffff8e80bd7b44d0 (bh_lock#2){+.-.}-{3:3}, at: sch_fragment+0x288/0x560
+--
 
-                but task is already holding lock:
- ffff8e80bd7b44d0 (bh_lock#2){+.-.}-{3:3}, at: sch_fragment+0x288/0x560
+net: usb: cdc_ncm: send the NTB once another datagram would not fit
 
-  Possible unsafe locking scenario:
+With this patch, cdc_ncm_fill_tx_frame() sends the current NTB as soon
+as another MTU-sized datagram (with Ethernet and VLAN headers) would no
+longer fit, as long as nothing is parked in tx_rem_skb. The goal is
+that no datagram is held in tx_rem_skb when usbnet stops the TX queue,
+so the timer flush in cdc_ncm_txpath_bh() no longer drops it into a
+stopped queue.
 
-        CPU0
-        ----
-   lock(bh_lock#2);
-   lock(bh_lock#2);
+> diff --git a/drivers/net/usb/cdc_ncm.c b/drivers/net/usb/cdc_ncm.c
+> index e92dc7f011ea7..7fbce4846a044 100644
+> --- a/drivers/net/usb/cdc_ncm.c
+> +++ b/drivers/net/usb/cdc_ncm.c
 
-                 *** DEADLOCK ***
+[ ... ]
 
- Call Trace:
-  <IRQ>
-  sch_fragment+0x291/0x560
-  sch_frag_xmit_hook+0x74/0x90
-  tcf_dev_queue_xmit+0x1f/0x30
-  tcf_mirred_to_dev+0x2da/0x560
-  ...
-  sch_frag_xmit+0x169/0x260
-  ip6_fragment+0x8dc/0xa70
-  sch_fragment+0x33f/0x560
-  sch_frag_xmit_hook+0x74/0x90
+> @@ -1369,6 +1370,22 @@ cdc_ncm_fill_tx_frame(struct usbnet *dev, struct sk_buff *skb, __le32 sign)
+>  			ctx->tx_reason_ndp_full++;	/* count reason for transmitting */
+>  			break;
+>  		}
+> +
+> +		/* Send now if another full size datagram would not fit.
+> +		 * Accepting one more would park it in tx_rem_skb after
+> +		 * this NTB has been handed to usbnet. If that NTB fills
+> +		 * the TX queue, usbnet stops the queue and drops the NTB
+> +		 * the timer builds for the parked datagram.
+> +		 */
+> +		if (!ctx->tx_rem_skb && n + 1 < ctx->tx_max_datagrams &&
+> +		    skb_out->len + ctx->tx_modulus + ctx->tx_remainder +
+> +		    READ_ONCE(dev->net->mtu) + cdc_ncm_eth_hlen(dev) +
+> +		    VLAN_HLEN + delayed_ndp_size > ctx->tx_curr_size) {
 
-The Fix:
-Prevent same-CPU re-entrancy by recording which task owns the per-CPU
-fragment state. A deeper call must not re-use the outer call's per-CPU
-state, and it must not transmit the skb: sch_frag_xmit_hook() has
-already determined that the skb exceeds its recorded fragment MRU. Drop
-it and return an error instead.
+[Severity: High]
+Does this check cover every way a datagram can still be parked in
+ctx->tx_rem_skb? It only reserves room for a same-signature datagram of
+up to mtu + eth_hlen + VLAN_HLEN. The "no room for skb - store for
+later" branch in cdc_ncm_fill_tx_frame() still looks reachable:
 
-Owner identity, not nesting depth: on PREEMPT_RT a second task that
-reaches sch_fragment() on the same CPU waits for the real spin_lock and
-then works on its own state, so only the task that already owns the
-state is the recursive one. A depth counter would refuse that contender
-too, and reporting -ELOOP for it would be wrong.
+	ctx->tx_rem_skb = skb;
+	ctx->tx_rem_sign = sign;
+	skb = NULL;
+	ready2send = 1;
 
-Conditions to recreate the bug:
-  # Minimum privilege: CAP_NET_ADMIN in a user-owned network namespace,
-  #   e.g. via `unshare -Urn`; nothing outside that namespace is required.
-  # Build with CONFIG_DEBUG_LOCK_ALLOC=y for the recursive-lock splat;
-  # on PREEMPT_RT the same recursion is a hard self-deadlock instead.
-  ip link add vetha type veth peer name vethb
-  ip link add vethc type veth peer name vethd
-  ip link add vethe type veth peer name vethf
-  for i in a b c d e f; do ip link set veth$i up; done
+Here are a few cases where that seems to happen.
 
-  # outer: reassemble the fragments on ingress, then redirect to vethc
-  tc qdisc add dev vetha clsact
-  tc filter add dev vetha ingress matchall action ct zone 1 \
-      action mirred egress redirect dev vethc
+MBIM with several IPS/DSS sessions, without NDP_TO_END. The first
+datagram of a new session needs NDP alignment plus max_ndp_size, which
+cdc_ncm_ndp16() and cdc_ncm_ndp32() check:
 
-  # inner: the refragmented egress re-enters sch_fragment() on the same
-  # CPU while the outer call still holds the per-CPU lock
-  tc qdisc add dev vethc clsact
-  tc filter add dev vethc egress matchall action ct zone 2 \
-      action mirred egress redirect dev vethe
+	if (skb->len + reserve + ctx->max_ndp_size > ctx->tx_curr_size)
+		return NULL;
 
-  # then send a multi-fragment IPv6/UDP datagram out vethb (the zone-1
-  #   ct reassembly sets cb.mru so the redirect enters sch_fragment()).
+The new check doesn't reserve that space, so an MTU-sized datagram for
+a new session can still be parked.
 
-Fixes: 20d677d389e7 ("net/sched: Use nested-BH locking for sch_frag_data_storage")
-Reported-by: Sashiko (gemini) <sashiko-bot@kernel.org>
-Closes: https://sashiko.dev/#/patchset/20260827092345.2301937-1-fouriezhang@tencent.com
-Link: https://lore.kernel.org/netdev/20260827092345.2301937-1-fouriezhang@tencent.com/
-Cc: stable@vger.kernel.org
-Signed-off-by: Jamal Hadi Salim <jhs@mojatatu.com>
----
- net/sched/sch_frag.c | 23 ++++++++++++++++++++++-
- 1 file changed, 22 insertions(+), 1 deletion(-)
+Devices with CDC_NCM_FLAG_NDP_TO_END, such as cdc_mbim_info_ndp_to_end
+or any device with the ndp_to_end sysfs flag set. cdc_ncm_ndp16() and
+cdc_ncm_ndp32() return NULL for any second signature, whatever the free
+space:
 
-diff --git a/net/sched/sch_frag.c b/net/sched/sch_frag.c
-index 75ee52750919..980f1490b027 100644
---- a/net/sched/sch_frag.c
-+++ b/net/sched/sch_frag.c
-@@ -17,6 +17,7 @@ struct sch_frag_data {
- 	unsigned int l2_len;
- 	u8 l2_data[VLAN_ETH_HLEN];
- 	int (*xmit)(struct sk_buff *skb);
-+	struct task_struct *owner;
- 	local_lock_t bh_lock;
- };
- 
-@@ -98,10 +99,19 @@ static int sch_fragment(struct net *net, struct sk_buff *skb,
- 
- 	if (skb_protocol(skb, true) == htons(ETH_P_IP)) {
- 		struct rtable sch_frag_rt = { 0 };
-+		struct sch_frag_data *data;
- 		unsigned long orig_dst;
- 
-+		data = this_cpu_ptr(&sch_frag_data_storage);
-+		if (READ_ONCE(data->owner) == current) {
-+			kfree_skb(skb);
-+			return -ELOOP;
-+		}
-+
- 		local_lock_nested_bh(&sch_frag_data_storage.bh_lock);
-+		data = this_cpu_ptr(&sch_frag_data_storage);
- 		sch_frag_prepare_frag(skb, xmit);
-+		WRITE_ONCE(data->owner, current);
- 		dst_init(&sch_frag_rt.dst, &sch_frag_dst_ops, NULL,
- 			 DST_OBSOLETE_NONE, DST_NOCOUNT);
- 		sch_frag_rt.dst.dev = skb->dev;
-@@ -111,14 +121,24 @@ static int sch_fragment(struct net *net, struct sk_buff *skb,
- 		IPCB(skb)->frag_max_size = mru;
- 
- 		ret = ip_do_fragment(net, skb->sk, skb, sch_frag_xmit);
-+		WRITE_ONCE(data->owner, NULL);
- 		local_unlock_nested_bh(&sch_frag_data_storage.bh_lock);
- 		refdst_drop(orig_dst);
- 	} else if (skb_protocol(skb, true) == htons(ETH_P_IPV6)) {
--		unsigned long orig_dst;
- 		struct rt6_info sch_frag_rt;
-+		struct sch_frag_data *data;
-+		unsigned long orig_dst;
-+
-+		data = this_cpu_ptr(&sch_frag_data_storage);
-+		if (READ_ONCE(data->owner) == current) {
-+			kfree_skb(skb);
-+			return -ELOOP;
-+		}
- 
- 		local_lock_nested_bh(&sch_frag_data_storage.bh_lock);
-+		data = this_cpu_ptr(&sch_frag_data_storage);
- 		sch_frag_prepare_frag(skb, xmit);
-+		WRITE_ONCE(data->owner, current);
- 		memset(&sch_frag_rt, 0, sizeof(sch_frag_rt));
- 		dst_init(&sch_frag_rt.dst, &sch_frag_dst_ops, NULL,
- 			 DST_OBSOLETE_NONE, DST_NOCOUNT);
-@@ -129,6 +149,7 @@ static int sch_fragment(struct net *net, struct sk_buff *skb,
- 		IP6CB(skb)->frag_max_size = mru;
- 
- 		ret = ip6_fragment(net, skb->sk, skb, sch_frag_xmit);
-+		WRITE_ONCE(data->owner, NULL);
- 		local_unlock_nested_bh(&sch_frag_data_storage.bh_lock);
- 		refdst_drop(orig_dst);
- 	} else {
+	else if (ctx->delayed_ndp16->dwSignature)
+		return NULL;
+
+The comment above cdc_mbim_info_ndp_to_end says multiplexed sessions
+cannot share an NTB. So each session switch parks a datagram.
+
+Frames longer than mtu + ETH_HLEN + VLAN_HLEN on plain cdc_ncm. cdc_ncm
+doesn't set NETIF_F_HW_VLAN_CTAG_TX. Stacked 802.1ad/802.1Q devices
+inherit the real device's MTU, so they send inline frames of mtu + 22
+bytes. Frames queued before an MTU decrease also qualify, because
+READ_ONCE(dev->net->mtu) returns the new, smaller value. These pass the
+new check and then fail the real fit check, which uses skb->len.
+
+In each case, the NTB returned with ready2send = 1 can be the one that
+brings txq.qlen up to TX_QLEN in usbnet_start_xmit():
+
+	if (dev->txq.qlen >= TX_QLEN (dev))
+		netif_stop_queue (net);
+
+The hrtimer then fires, and the following runs:
+
+cdc_ncm_txpath_bh()
+  usbnet_start_xmit(NULL, dev->net)
+    info->tx_fixup()    /* builds an NTB from the parked datagram */
+    netif_queue_stopped(net) -> goto drop
+
+Isn't this the same tx_dropped path that the commit message and the
+Fixes tag describe? cdc_mbim and huawei_cdc_ncm share this code.
+
+The commit message also says:
+
+  tx_rem_skb is still used when a datagram needs a new NDP that does not
+  fit, as with several MBIM sessions.
+
+For NDP_TO_END devices the datagram is parked whether or not it fits.
+Is "does not fit" accurate there?
+
+Would it be more robust to fix this in the flush path? One option is to
+check netif_queue_stopped() in cdc_ncm_txpath_bh() under netif_tx_lock
+and re-arm the timer instead of flushing. Another is to keep usbnet
+from consuming tx_fixup(NULL) data while the queue is stopped.
+
+[Severity: Low]
+Should VLAN_HLEN be added for MBIM? cdc_ncm_eth_hlen() returns 0 for
+MBIM because the datagrams are raw L3. cdc_mbim sets
+NETIF_F_HW_VLAN_CTAG_TX. Also, cdc_mbim_tx_fixup() strips the L2 header
+before calling cdc_ncm_fill_tx_frame():
+
+	if (vlan_get_tag(skb, &tci) < 0 && skb->len > VLAN_ETH_HLEN &&
+	    __vlan_get_tag(skb, &tci) == 0) {
+		...
+		skb_pull(skb, VLAN_ETH_HLEN);
+	} else {
+		...
+		skb_pull(skb, ETH_HLEN);
+	}
+
+So the largest MBIM datagram is mtu, but this check reserves mtu + 4.
+Inside a 4-byte window, an MBIM NTB gets closed even though another
+full-size datagram would still fit.
+
+Would adding VLAN_HLEN only when cdc_ncm_eth_hlen(dev) is non-zero
+match the header model that the helper encodes?
+
+> +			ready2send = 1;
+> +			ctx->tx_reason_ntb_full++;	/* count reason for transmitting */
+> +			n++;
+> +			break;
+> +		}
+>  	}
+
+[Severity: Medium]
+Can other kinds of queue stop still lose datagrams through the same
+flush path? For -EPROTO, -ETIME and -EILSEQ, tx_complete() stops the
+queue and arms dev->delay for THROTTLE_JIFFIES (HZ/8). EHCI hosts can
+report these errors:
+
+	case -EPROTO:
+	case -ETIME:
+	case -EILSEQ:
+		...
+		netif_stop_queue(dev->net);
+		break;
+
+usbnet_start_xmit() also stops the queue on -EPIPE and for
+EVENT_DEV_ASLEEP.
+
+After this patch, cdc_ncm_fill_tx_frame() still holds partially filled
+NTBs in ctx->tx_curr_skb with the hrtimer armed. The flush interval is
+about 400 us plus a few re-arms through tx_timer_pending. That is much
+shorter than the 125 ms throttle window, so
+cdc_ncm_txpath_bh()->usbnet_start_xmit(NULL) would build an NTB from
+every held datagram and drop it at the netif_queue_stopped() check.
+
+The commit message says "every drop came from cdc_ncm_txpath_bh()
+calling usbnet_start_xmit(NULL, ...) into a stopped TX queue". That
+diagnosis and the Fixes tag cover these stops too, since ad70411a978d
+added the stopped-queue drop for every stop reason. This patch only
+addresses stops caused by a full TX queue.
+
+Would a flush-path fix that re-arms the timer instead of flushing into
+a stopped queue cover these cases as well?
+
 -- 
-2.43.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127110521.1235409-1-william%40wkennington.com
