@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795853226;
-	b=J/9ZoWfFLXAuOyE+HkDM/TsHGTnXq8t6fuvAOMS0zodcc18AER72IBCW5sr/Ta3vhYzb
-	 PJx+cvPTuZJnwg6i7H+efZ5jQR1S0+zHrT8jPWRyjP/b0vCQshTO3Ligl26m9cBintsU4
-	 VAijcEs247HNwpHkII1ERT8XHrhvzmlbPVm1jdwU86qExYx5qf4/qFSiDSINQyACyponX
-	 Tqglk0yVTOewhQIRhLRpBree+bTgVzk43AsHkT6Z0obMsUVr/8AvOP3cyrqvGHn/OrZ2A
-	 CPn+KvdBT7Dn3ZAvY+W0BgErOOYVyrdsKVl0ygWc90Na/V2sa25hzdwsOUlSUbN6iKg==
+	t=1795853228;
+	b=Alg4JvIr5VWLyLD2LfIILcKGB77HqI8ZVXl1SGxMSx2RWh45YpkMgD0aoB/To10AZsYA
+	 I9uWxbYTKUZUbLmh4oZNuXrz17aNmD4uxnALOYUxyI7102zy1rByPrh2SgHbq/P2YOx8Q
+	 5iPuBZrOW3OPwBEPcGfMMTFQmMiCm22snYCwQnGtbQnXFFceSqmcyEEMZaeA1lX/66KcV
+	 aCb+R4pAqmEgl9Bp3OO4HE1mIFB+bcqqvtN5GFA7QdtEPnyWUPkuon+6ktiqphpEPzdeQ
+	 8HxxZJPBj7b7IyEOvpI0NzXeoVf8BeIu5LnS2x3ljdIGdFiMeFYj01FIXiHNZqJi1Ug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795853226;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795853228;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=3zOU248e0HS8AqJHoonLf9cpOrvrZWu/vfhMI1YKMc4=;
-	b=zg+gDbk3sxbiq90M0R1YtmBRl6Fvx8Vu7LLXtnQ4kjf1AeReiX32qboQESjAH4Vd9iG/
-	 kgBiBp/wMirrvkA4GD4+IAl6lbhurU8iTnUXr0xoJvBsqwnw/BuMNAEVGcVJ3X0GMFuzX
-	 a3WI41c86fp4vEYuHDcqUtGDshGlMEVxUQYBpsAY4tN8xfM2VHTI4KHkA+edoVoYhw7l7
-	 sLRXvZowgm3oI/JMVpSUkkdlUeqhBKoUq8MxMx1c6u/wMVYseqt/K1+7NcJseBYT7N3gQ
-	 nA67AIFfWIKVsn27xgIkGPropu79xaAqkAD4x0Ch77Qkx2EStkBpbX+smfozGvaoeDw==
+	bh=9UVbQYkFbGEm75TrZqLkO8hxGwTEDnFKDrFEOf1iYn8=;
+	b=jmPQWlPjL0eGsh/l5pZWR1nO9m+JqcQjEG8VM4CAfwpkeDQMZrvXB1XLupbdLzCQiHc/
+	 Y6W50RaObbSMo1GRgFno0Ifi6e6/rWlOPtMxyvPVvmpPYORUHcyroiSMyeHYPj2aZw0zg
+	 X2/ijktPKZ9iHFwXlxvuRS6BXlU608CmzuJrA5RLzpGL8qxcwHdFu8jXYIbTozCIu5MVh
+	 bvFuATDvCYqe+I+C9ruCb6HH0YOCPXqj1IJp4X+xqCP0PxA2wJENerGNsCn0ui6QdTIJX
+	 b9I1g2GTFqNF0utvtJHtb9Fh+IPD2oUXa6pCjSdJj9xy/O0Hp7f0iSw0Ehu4BGqT1OA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=GPKqrLqt;
-	arc=none smtp.remote-ip=209.85.216.70
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=frhFnucG;
+	arc=none smtp.remote-ip=209.85.216.71
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0604606A326
-	for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 08:07:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0604606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AD33606A682
+	for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 08:07:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9AD33606A682
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=GPKqrLqt
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b4cd0f7abfso5938188a91.3
-        for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 00:07:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=frhFnucG
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3b41aa2b9a8so5848442a91.3
+        for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 00:07:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795853225; x=1796458025; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795853227; x=1796458027; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=3zOU248e0HS8AqJHoonLf9cpOrvrZWu/vfhMI1YKMc4=;
-        b=GPKqrLqtKmEWxiu8BKt9iKq8wLUJpZ2wx2sYKSnRCWhsqSCRiudQpnwmIfp2+rDR1X
-         FkftEmKUGCUS98PMZNUZmJTF5K4tcjcXcIAyK3Fd75iwZ8bpITCgZfUypksi2SnYdee9
-         BoBqA1A4jKF2Vx8lsdt8iP5Efk8hMK+CMDstBintGKqCjnwlbbeD1BxxiRzg8fYf1QjZ
-         bvfT6nmEHvexaSw9ev9Hils0SKkBMRwO7l24Rxe1O+jXRDNlMU0hbb1hC8eXEddu7iCY
-         iKrRlgFrltmMASV9TI+/3+btbSDIlXLHQ4kIOBXZ+QqDUf6Iifb1zb35ttD29SyRyRPs
-         +6fg==
+        bh=9UVbQYkFbGEm75TrZqLkO8hxGwTEDnFKDrFEOf1iYn8=;
+        b=frhFnucGo4He+q+1B15u8+LMCJWfEQ6nVwd/VOH+jUP2rtlsOmMDtnurxSu1aiWebk
+         n8bl84IwJce4bQaXKxTbB9YhvsXwor0SbrfkQsHBSLLQsy8xDzqlCtsepcwvFVxXrVaS
+         tZ+bA66wXgUpeo2neyPP3wWGSXqGFg3T6jH21On+rrab07TD29LzFfQZpN6NfJos6Aqh
+         MtUAazQ26R4YkmF93lBkBpSwmCtBERClAOue+/zY6ETpa/a+aj/qtBMHp9ihzRDmm1Zg
+         HsH/0FIUrfXmEu48A1fpC/CBZ1Y1XxTI6pixOKqhx09DyOOJ4CG16xrmgNF3m3fH2fWH
+         VC4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795853225; x=1796458025;
+        d=1e100.net; s=20260707; t=1795853227; x=1796458027;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=3zOU248e0HS8AqJHoonLf9cpOrvrZWu/vfhMI1YKMc4=;
-        b=Y2SuoyNXH+vzY55aafwdxN9Bdu8ZIXuZKmMROl4fVkZd0SAzB86XryyaqHFv34z8ta
-         LleG2ivd4XpSbtIkGsgw6Xf9hehJ8kpxi48OkWWAFSpsMKfKn/bbrppcgKppi2PmQ549
-         NnkWI/K36kBmlpGhxIEsKyym/FCXrSDqTdHThS7iZatqpX9M1VkT43nLcpIEOytTcuTv
-         sUUUsYWEDJulNVsOHe4w/cTgSSyth1rDL6w1/h5EAkToTheIRfm8/eB1AgE9TD39fq5N
-         QZzJ8wweSk5moMlRXmQbaSG+FJomDpVEXhPsL2ZqWXC33o7C31dDc3dwcgkrs6NqFrNg
-         oZEw==
-X-Forwarded-Encrypted: i=1; AL+hErHf5cNkMQKxp8VWFx0GC9dPTajGzWxpvJNSYsrb1kaaj3nfB2qAHI/NhBONJs9u7Nzb7gq4L8w=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/UuKg/+PfJ4ZKLzpD58sm5CFeolDCuhIGZdTFxDhenLa6hu5Pf
-	MnHi3gvhc7QZ+SMlScT7j713M+iikEvOnw9+nCTF8BxpFRxacbw5etPUiuNgf6N7RDiMPWoySGC
-	eBJIDwQ==
-X-Received: from pjbmf4.prod.google.com ([2002:a17:90b:1844:b0:3b4:2a5f:97bc])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:e70c:b0:3b3:c04e:4b61
- with SMTP id 98e67ed59e1d1-3b41cafe407mr28014030a91.47.1795853225079; Sat, 28
- Nov 2026 00:07:05 -0800 (PST)
-Date: Sat, 28 Nov 2026 08:06:15 +0000
+        bh=9UVbQYkFbGEm75TrZqLkO8hxGwTEDnFKDrFEOf1iYn8=;
+        b=ZJHgE4ibDdu6aigEhkVqZwh/s6VYq5Z7z3guH/ZReHTW16k2i60a2wPQp2JH0FDfYT
+         1Dy9B2nSPup/XcLkme8NShP4ATF7K6PAABbHxNfeVE05mXc81MQcD5br9ydxExIL0NOq
+         5Gfiul61EeBaWUSnbJCjg/+TwMIVgB+hcctnsFuEp6o2ZBfpR45pumUcrhGuOMqsB+uP
+         Rde4S0b9EBhFIqpt26LjfglOUOdFPxD7XP14ohsZypx8wngtbrSG1RcULOlFH+K8PhDd
+         WIX1VdPTFKpFnGlHsNOZk+phTofNd9auwDy9oQiKSjwrmqrCCFxTyDsxbppxVvUFFBLB
+         mjmw==
+X-Forwarded-Encrypted: i=1; AL+hErFyc/UTjlz4f+s11r+eyR9V540ezjffTUIUZFZfpTExfTnpwRHAOGVDGY+FogDbgR5cTd3NRr4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Q75JBz8felYzFoWm8MUicgGULQzqVOHiKjp0SSTFG7P1W/nsj
+	tyFm0UC1KUH5aPU+l9RaUf5Fdqo9asHGSxjRsUMQrVU1Fe5w8CwEJaFlOTC5KGh32dwQ5PQo74t
+	mUom1yw==
+X-Received: from pjbds18.prod.google.com ([2002:a17:90b:8d2:b0:3b4:119b:583a])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2ecb:b0:3b0:e2a9:3466
+ with SMTP id 98e67ed59e1d1-3b41c98a1d1mr23693215a91.16.1795853226726; Sat, 28
+ Nov 2026 00:07:06 -0800 (PST)
+Date: Sat, 28 Nov 2026 08:06:17 +0000
 In-Reply-To: <20261128080700.3828378-1-kuniyu@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -81,90 +81,79 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261128080700.3828378-1-kuniyu@google.com>
 X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261128080700.3828378-4-kuniyu@google.com>
-Subject: [PATCH v2 net 3/8] tcp: Don't bypass GTSM check for reqsk in tcp_v[46]_rcv().
+Message-ID: <20261128080700.3828378-6-kuniyu@google.com>
+Subject: [PATCH v2 net 5/8] tcp: Check ip_sk_accept_pmtu() in tcp_v4_err().
 From: Kuniyuki Iwashima <kuniyu@google.com>
 To: Eric Dumazet <edumazet@kernel.org>, Neal Cardwell <ncardwell@google.com>, 
 	"David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
 	Willem de Bruijn <willemb@google.com>
 Cc: Simon Horman <horms@kernel.org>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org
+	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org, 
+	Hannes Frederic Sowa <hannes@stressinduktion.org>
 Content-Type: text/plain; charset="UTF-8"
 
-The cited commit added TCP_NEW_SYN_RECV handling just before
-the GTSM check in tcp_v[46]_rcv().
+Currently, tcp_v4_mtu_reduced() checks ip_sk_accept_pmtu()
+after calling inet_csk_update_pmtu(), which is too late.
 
-Without this patch, we cannot see SYN+ACK in the script below
-because the ACK with TTL 10 completes 3WHS.
+Even if we configure a socket not to perform Path MTU
+Discovery with IP_PMTUDISC_INTERFACE, ICMP_FRAG_NEEDED
+can overwrite MTU.
+
+The last getsockopt() returns 1200 MTU:
 
   --ip_version=ipv4
-   0 socket(..., SOCK_STREAM|SOCK_NONBLOCK, IPPROTO_TCP) = 3
-  +0 setsockopt(3, SOL_IP, IP_MINTTL, [250], 4) = 0
+   0 socket(..., SOCK_STREAM, IPPROTO_TCP) = 3
   +0 bind(3, ..., ...) = 0
-  +0 listen(3, 10) = 0
-  +0 < (ttl 255) S 0:0(0) win 65535 <mss 1460,nop,nop,sackOK>
-  +0 > S. 0:0(0) ack 1 <...>
-  +0 < (ttl 10) . 1:1(0) ack 1 win 65535
-  +1 > S. 0:0(0) ack 1 <...>
+  +0 listen(3, 1) = 0
+  +0 < S 0:0(0) win 65535 <mss 1460,sackOK,nop,nop,nop,wscale 8>
+  +0 > S. 0:0(0) ack 1 <mss 1460,nop,nop,sackOK,nop,wscale 9>
+  +0 < . 1:1(0) ack 1 win 257
+  +0 accept(3, ..., ...) = 4
+  +0 setsockopt(4, SOL_IP, IP_MTU_DISCOVER, [4], 4) = 0
+  +0 getsockopt(4, SOL_IP, IP_MTU, [1500], [4]) = 0
+  +0 write(4, ..., 1000) = 1000
+  +0 > P. 1:1001(1000) ack 1
+  +0 < icmp unreachable frag_needed mtu 1200 [1:1001(1000)]
+  +0 getsockopt(4, SOL_IP, IP_MTU, [1500], [4]) = 0
 
-Let's restore GTSM check for reqsk in tcp_v[46]_rcv().
+Let's check ip_sk_accept_pmtu() in tcp_v4_err() as done
+in tcp_v6_err().
 
-Fixes: 079096f103fa ("tcp/dccp: install syn_recv requests into ehash table")
+Note that inet_sk(sk)->pmtudisc is configured locklessly,
+so we do not recheck it in tcp_v4_mtu_reduced().  This is
+same with tcp_v6_mtu_reduced() too.
+
+Fixes: 482fc6094afa ("ipv4: introduce new IP_MTU_DISCOVER mode IP_PMTUDISC_INTERFACE")
 Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
 ---
- net/ipv4/tcp_ipv4.c | 10 ++++++++--
- net/ipv6/tcp_ipv6.c |  9 +++++++--
- 2 files changed, 15 insertions(+), 4 deletions(-)
+Cc: Hannes Frederic Sowa <hannes@stressinduktion.org>
+---
+ net/ipv4/tcp_ipv4.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
-index fe9cc5b66b97..4b6bc7812cb1 100644
+index f7fef1dd8780..767f84d94aaa 100644
 --- a/net/ipv4/tcp_ipv4.c
 +++ b/net/ipv4/tcp_ipv4.c
-@@ -2135,12 +2135,18 @@ int tcp_v4_rcv(struct sk_buff *skb)
- 		struct sock *nsk;
+@@ -391,7 +391,6 @@ void tcp_v4_mtu_reduced(struct sock *sk)
+ 		WRITE_ONCE(sk->sk_err_soft, EMSGSIZE);
  
- 		sk = req->rsk_listener;
--		if (!xfrm4_policy_check(sk, XFRM_POLICY_IN, skb))
+ 	if (inet->pmtudisc != IP_PMTUDISC_DONT &&
+-	    ip_sk_accept_pmtu(sk) &&
+ 	    inet_csk(sk)->icsk_pmtu_cookie > dmtu) {
+ 		tcp_sync_mss(sk, dmtu);
+ 
+@@ -587,6 +586,9 @@ int tcp_v4_err(struct sk_buff *skb, u32 info)
+ 			if (sk->sk_state == TCP_LISTEN)
+ 				goto out;
+ 
++			if (!ip_sk_accept_pmtu(sk))
++				goto out;
 +
-+		if (static_branch_unlikely(&ip4_min_ttl) &&
-+		    iph->ttl < READ_ONCE(inet_sk(sk)->min_ttl)) {
-+			__NET_INC_STATS(net, LINUX_MIB_TCPMINTTLDROP);
-+			drop_reason = SKB_DROP_REASON_TCP_MINTTL;
-+		} else if (!xfrm4_policy_check(sk, XFRM_POLICY_IN, skb)) {
- 			drop_reason = SKB_DROP_REASON_XFRM_POLICY;
--		else
-+		} else {
- 			drop_reason = tcp_inbound_hash(sk, req, skb,
- 						       &iph->saddr, &iph->daddr,
- 						       AF_INET, dif, sdif);
-+		}
- 		if (unlikely(drop_reason)) {
- 			sk_drops_skbadd(sk, skb);
- 			reqsk_put(req);
-diff --git a/net/ipv6/tcp_ipv6.c b/net/ipv6/tcp_ipv6.c
-index 90426ea9e073..7c17162160ad 100644
---- a/net/ipv6/tcp_ipv6.c
-+++ b/net/ipv6/tcp_ipv6.c
-@@ -1792,12 +1792,17 @@ INDIRECT_CALLABLE_SCOPE int tcp_v6_rcv(struct sk_buff *skb)
- 		struct sock *nsk;
- 
- 		sk = req->rsk_listener;
--		if (!xfrm6_policy_check(sk, XFRM_POLICY_IN, skb))
-+		if (static_branch_unlikely(&ip6_min_hopcount) &&
-+		    hdr->hop_limit < READ_ONCE(tcp_inet6_sk(sk)->min_hopcount)) {
-+			__NET_INC_STATS(net, LINUX_MIB_TCPMINTTLDROP);
-+			drop_reason = SKB_DROP_REASON_TCP_MINTTL;
-+		} else if (!xfrm6_policy_check(sk, XFRM_POLICY_IN, skb)) {
- 			drop_reason = SKB_DROP_REASON_XFRM_POLICY;
--		else
-+		} else {
- 			drop_reason = tcp_inbound_hash(sk, req, skb,
- 						       &hdr->saddr, &hdr->daddr,
- 						       AF_INET6, dif, sdif);
-+		}
- 		if (drop_reason) {
- 			sk_drops_skbadd(sk, skb);
- 			reqsk_put(req);
+ 			WRITE_ONCE(tp->mtu_info, info);
+ 			if (!sock_owned_by_user(sk)) {
+ 				tcp_v4_mtu_reduced(sk);
 -- 
 2.56.1.839.g22a8290db9-goog
 
