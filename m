@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795858208;
-	b=Ryr8gKaJ2QH8ivjoSNgT4c0DxDar61HF2Zu5Q5TGOU/C+vjvTXO8GGBm1va8CF4GVnuw
-	 KQlTEBgF/7HG7pWXikwB5UqNSMpvZlfN2NxnvM/PSd5/EOUBPnvkLSdz7pBVoIyd9/Efx
-	 De8T6o/G2osmjxKTrLskXbouBJ+FwAmLnATwGY2psEsxA0sOZOuHT/ZD0Va6ZSYhJt3jG
-	 VAGr8wvP924zXYdnXREcUDOTeF/dyo8fwIFbImCK52NB7Db8YGj03OY+ruTxrtneACerL
-	 /KUhIF8BTk2dxW8Ccaoozyn5aABVhbY2Cvr4zguGblYz+BIHd40x3x7w9RWOMmC/viA==
+	t=1795858215;
+	b=SRe7DNyyQOw7yNqz8TYBCNHkQhWYkAcuYgmZogRTlzezmNfhO3zMB/JjSUYFKXIWl2Yl
+	 tDuvR8MRl02i04eHJcD4XcDHOA/JzJi/1wGJLr/OanmUco0Gr6WLSg34+cQ5slCFlGTHF
+	 iBKvCBcLBzLVoR3wss3f3bLeOYImKT9VTOjKgM/BVxpnbFZvSY21HzswPiGdrdKEa7OIQ
+	 xC57kJLM3SugBcV7KNBZCWNnvOckicKDz6A/RFyJftrUiDH1qxDRfqdNgaSmk1KlLQHov
+	 P8l2SZbPOQqyVt0xlKL2YF7tlfgZHXY1dPozwk/gIP3wim88hzhrJZkTHUMhGLKV6WQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795858208;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795858215;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=zgOM8vAhf19+9a0t5JbrihfRnYtAHBHB03GFJ5Sqe8M=;
-	b=Aw617Yr5kw1gT5Mf5uEooPGK13ZovaRx+PzJowJznmWplEwj97afNHBdg4QLgOueRQws
-	 U+Sg2Dxim+vh6HlwghOHZI0uGQkkpJx3BThrrYZ+r/nrji76yxqc8J3UZtIJxvEcDUwQV
-	 RHq37SAIbwthTlhuy8NOKMkLWLqf6Iqu5wKn35/qCS1UKel4UW0Hg/DBc2XavUsId5qQC
-	 RimDCWmyE1NWY0VFiu678ylJ0k0Gr3xV4NUaVzRBmIH7oYwTULG5OPzYTng/AF3m2btKf
-	 k14J+fCjQU/pifs7E9BnFBkk+mHz959FyVHSoyVwSsaGVLL07nqN/M+z3SrzU44YWXg==
+	bh=YlUSTqlDLSiYnKXcQwkZ7xCXG+D4DiBqjnIkYe6WzA8=;
+	b=Yrg/BNiECIj9VWxg1F+MOMaYvgYT/JDyR3XyoSqHYGQgjhBQI8FC0hbFxTCOBiFamOLR
+	 zjc27hRFH3xuhOiTgjVlZZgxlfhGMya49QyyK6cwzYxloonbAHuv3Ydv762U94Zq0bax/
+	 sqQCrXX3UpJAalT24Hq3OijS+UjgqZgIyGTlOPh+VuN8+3/qVBFXJderXWJzvOPEMxJ6P
+	 a69LJleL3ih1L6BxTDIPUY55AeqA3sROzPNEqXgJFSrObajmYXqrmohhavWA4+IsPfKfX
+	 DcT76BeDpxTmswSNwS6Yvt+Z9sz5LsNkWOr2TzzPjLoOtOPKOSV6WbSNvCxXeRwpnNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=etxzu4GT;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SjORHsWA;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85BD7606A31F;
-	Sat, 28 Nov 2026 09:30:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F40C6606A688;
+	Sat, 28 Nov 2026 09:30:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=etxzu4GT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9F6D1F000C1;
-	Sat, 28 Nov 2026 09:30:06 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SjORHsWA
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFDA01F0089A;
+	Sat, 28 Nov 2026 09:30:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795858208;
-	bh=zgOM8vAhf19+9a0t5JbrihfRnYtAHBHB03GFJ5Sqe8M=;
+	s=k20260515; t=1795858214;
+	bh=YlUSTqlDLSiYnKXcQwkZ7xCXG+D4DiBqjnIkYe6WzA8=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=etxzu4GTQ3UAhayP6IwZ0T6LF9L1qSUo19CaH3iTmZJVZH5ESTqVbkZN1Vz0PxMaS
-	 2wBVe5sdp5u2WvEf9kxs8tEk56YVDrE1bHB6B7n08bE1kHEGaXkVcOOfNC3jgQ/5xc
-	 yfWMDm82Vg9ytJwKzhgAMEWJAJ9yvfDP0HKRFbwM7NIBnN5AR2F7vjwVMXXKRaLlEv
-	 bgDLY941y3JoOtLsHp7FN6R/7AjhTau+ObJnq7euXJXEvjk/IdcVTmWgW5MtLvzOpV
-	 qWbKKk6p4XzCq9UtK4o5u9Vg97vYnsBAgEvvFJzjgCKtuc1cNRHKRLPN2UUPSxwih6
-	 Ae19c48Z5xojw==
-Subject:
- Re: [PATCH net v5 1/4] ice: stop the service task before the PF is unloaded
+	b=SjORHsWAO9yz/Mt5R6NvoEtQfbJgdaJpkD4VjFddJYzw3KwVI4attRiCksHVhYvMs
+	 dY2M5BWX09WPPlzgx0ORURCZTK0RYkA/l6v2xZrhckHNOK3RMJZl9C+x8OckCUa22X
+	 kjk1ovdm6hQ1dGa/HJcBiMuPWCqw0JTL9AHNJQsgM2SLLVAM82YEMIZfUc4hH1qvip
+	 mRfW+FPP3+eFhQ9odyavFx8Y0DpSzWRAzuiJn+53YOJQCTof3imkJXjBzVy+Sr50jr
+	 ey7WgwpjQMwzc/C0h3kVqX11ekw/DYQx7crPEjzVwkSFd+MZ+rzMs97Dxdk+qzl3Pr
+	 5nfGBZytQgJhg==
+Subject: Re: [PATCH net v5 4/4] ice: use a VLAN agnostic multicast promisc
+ rule pair for PF VSIs
 From: netdev-bot+sashiko@kernel.org
 To: poros@redhat.com
 Cc: netdev@vger.kernel.org, anthony.l.nguyen@intel.com,
@@ -55,11 +55,11 @@ Cc: netdev@vger.kernel.org, anthony.l.nguyen@intel.com,
  jbrandeb@kernel.org, patryk.holda@intel.com, sx.rinitha@intel.com,
  aaron.ma@canonical.com, intel-wired-lan@lists.osuosl.org,
  linux-kernel@vger.kernel.org
-Date: Sat, 28 Nov 2026 09:30:06 +0000
-Message-ID: <179585820637.3135.16053674648760900756@kernel.org>
-In-Reply-To: <20261127085714.1207361-2-poros@redhat.com>
-References: <20261127085714.1207361-2-poros@redhat.com>
-X-sashiko-severity: High
+Date: Sat, 28 Nov 2026 09:30:12 +0000
+Message-ID: <179585821237.3135.7178956472467266393@kernel.org>
+In-Reply-To: <20261127085714.1207361-5-poros@redhat.com>
+References: <20261127085714.1207361-5-poros@redhat.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -72,10 +72,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 2 · Medium: 1 · Low: 0
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -83,193 +83,118 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The patch moves the early ice_service_task_stop() only in
-  ice_remove().
-- [High] The patch handles the "last run re-arms the service timer after
-  the stop, and the timer fires after the PF is freed" race only in the…
-- [Medium] The early ice_service_task_stop() in ice_remove()
-  (ice_main.c:5390) does not stop the service work from being queued…
+- [Medium] In ice_vsi_sync_fltr()
+  (drivers/net/ethernet/intel/ice/ice_main.c), the error paths rewritten…
 
 --
 
-ice: stop the service task before the PF is unloaded
+ice: use a VLAN agnostic multicast promisc rule pair for PF VSIs
 
-This patch moves ice_service_task_stop() and ice_aq_cancel_waiting_tasks()
-in ice_remove() back to right after ice_free_vfs(). The service task is then
-stopped before the aRFS filters, netdev, LAG and VSIs are freed. The stop
-in ice_deinit_dev() is kept so that it deletes a timer re-armed by the last
-run.
+On PF VSIs, this patch replaces the per-VID ICE_SW_LKUP_PROMISC_VLAN
+multicast promisc rule pairs with one VLAN agnostic ICE_SW_LKUP_PROMISC
+pair, so the switch lookup table no longer runs out. It removes the
+per-VID handling from ice_vlan_rx_add_vid() and ice_vlan_rx_kill_vid().
+The multicast subscription is now reconciled from IFF_PROMISC and
+IFF_ALLMULTI in one place in ice_vsi_sync_fltr().
 
 > diff --git a/drivers/net/ethernet/intel/ice/ice_main.c b/drivers/net/ethernet/intel/ice/ice_main.c
-> index 47c6798c97e8f..6dede87b78944 100644
+> index 2ce2b7138f668..ea6da46bf7955 100644
 > --- a/drivers/net/ethernet/intel/ice/ice_main.c
 > +++ b/drivers/net/ethernet/intel/ice/ice_main.c
-> @@ -5387,6 +5387,9 @@ static void ice_remove(struct pci_dev *pdev)
->  		ice_free_vfs(pf);
->  	}
->  
-> +	ice_service_task_stop(pf);
-> +	ice_aq_cancel_waiting_tasks(pf);
-> +
 
-[Severity: High]
-The same ordering problem seems to remain on the other paths that unload
-the PF. ice_devlink_reinit_down() in devlink/devlink.c does:
-
-	ice_unload(pf);
-	rtnl_lock();
-	ice_vsi_decfg(ice_get_main_vsi(pf));
-	rtnl_unlock();
-	ice_deinit_pf(pf);
-	ice_deinit_hw(&pf->hw);
-	ice_deinit_dev(pf);
-
-Nothing sets ICE_SERVICE_DIS before ice_deinit_dev(), so the service timer
-keeps queueing serv_task during this whole sequence:
-
-  - ice_unload()->ice_decfg_netdev() calls free_netdev(vsi->netdev).
-  - ice_deinit_pf() destroys sw_mutex, tc_mutex and lag_mutex, frees the
-    avail_txqs/avail_rxqs bitmaps and frees the misc IRQ.
-  - ice_deinit_hw() destroys the control queues.
-
-Can a run of ice_sync_fltr_subtask()->ice_vsi_sync_fltr() that has already
-read vsi->netdev keep using netdev->flags and netif_addr_lock_bh(netdev)
-after free_netdev()?
-
-A devlink dev reload with action driver_reinit can trigger this while a
-filter sync is pending, for example after a promisc or multicast change
-through ice_set_rx_mode().
-
-The probe error unwind in ice_probe() looks similar:
-
-unroll_load:
-	ice_unload(pf);
-unroll_init:
-	devl_unlock(priv_to_devlink(pf));
-	ice_deinit(pf);
 [ ... ]
-unroll_hw_init:
-	ice_deinit_hw(hw);
-	if (need_dev_deinit)
-		ice_deinit_dev(pf);
 
-When this unwind runs, ice_init() has already cleared ICE_SERVICE_DIS and
-armed serv_tmr. ice_load() has also queued serv_task through
-ice_service_task_restart().
+> @@ -399,91 +408,65 @@ static int ice_vsi_sync_fltr(struct ice_vsi *vsi)
+>  		goto exit;
+>  
+>  	/* check for changes in promiscuous modes */
 
-ice_deinit() only sets ICE_SERVICE_DIS, which does not wait for a running
-work item, and then ice_dealloc_vsis() frees pf->vsi. After that come
-ice_adapter_put() and ice_deinit_hw(), and only then the stop in
-ice_deinit_dev().
+[ ... ]
 
-Commit 8a37f9e2ff40, named in the Fixes: tag, is also the commit that moved
-ice_deinit_dev() after ice_deinit_hw() in this unwind. Should
-ice_devlink_reinit_down() and the probe unwind also stop the service task
-before they tear down the PF? Neither path seems to change later in the
-series.
+> +	promisc_changed = test_and_clear_bit(ICE_VSI_PROMISC_CHANGED,
+> +					     vsi->state);
+> +	if ((changed_flags & IFF_PROMISC) || promisc_forced_on)
+> +		promisc_changed = true;
+> +
+> +	if (promisc_changed && (vsi->current_netdev_flags & IFF_PROMISC)) {
+> +		/* Apply Rx filter rule to get traffic from wire */
+> +		if (!ice_is_dflt_vsi_in_use(vsi->port_info)) {
+> +			err = ice_set_dflt_vsi(vsi);
+> +			if (err && err != -EEXIST) {
+> +				netdev_err(netdev, "Error %d setting default VSI %i Rx rule\n",
+> +					   err, vsi->vsi_num);
+> +				vsi->current_netdev_flags &= ~IFF_PROMISC;
+> +				set_bit(ICE_VSI_PROMISC_CHANGED, vsi->state);
+> +				dflt_err = true;
+
+[ ... ]
+
+> +	/* promiscuous mode implies allmulticast */
+> +	if (promisc_changed || (changed_flags & IFF_ALLMULTI)) {
+> +		int mc_err = 0;
+> +
+> +		/* a failed DFLT install leaves the netdev promiscuous */
+> +		if (ice_vsi_wants_mc_promisc(vsi))
+> +			mc_err = ice_set_promisc(vsi, ICE_MCAST_PROMISC_BITS);
+> +		else if (!dflt_err)
+> +			mc_err = ice_clear_promisc(vsi, ICE_MCAST_PROMISC_BITS);
+> +		if (mc_err) {
+> +			netdev_err(netdev, "Error %d syncing multicast promiscuous on VSI %i\n",
+> +				   mc_err, vsi->vsi_num);
+> +			/* retried by the next sync, with the allmulti change */
+> +			vsi->current_netdev_flags ^=
+> +				changed_flags & IFF_ALLMULTI;
+> +			set_bit(ICE_VSI_PROMISC_CHANGED, vsi->state);
+> +			if (!err)
+> +				err = mc_err;
+>  		}
+>  	}
+>  	goto exit;
 
 [Severity: Medium]
-Does a single ice_service_task_stop() here prevent serv_task from being
-queued again before ice_remove_arfs(), ice_unload() and ice_deinit() run?
+Does this retry actually happen? Both the comment above and the commit
+message ("a failed DFLT install does not remove it before the retry")
+expect a later sync.
 
-ice_service_task_schedule() tests ICE_SERVICE_DIS without a lock and only
-calls queue_work() afterwards:
+Three error paths are involved: the failed DFLT install (dflt_err), the
+failed DFLT clear and this mc_err path. Each one only sets
+ICE_VSI_PROMISC_CHANGED, returns an error and leaves through exit.
 
-	if (!test_bit(ICE_SERVICE_DIS, pf->state) &&
-	    !test_and_set_bit(ICE_SERVICE_SCHED, pf->state) &&
-	    !test_bit(ICE_NEEDS_RESTART, pf->state))
-		queue_work(ice_wq, &pf->serv_task);
+ice_sync_fltr_subtask() calls ice_vsi_sync_fltr() only when
+ice_vsi_fltr_changed() is true:
 
-Also, ice_service_task() does not check ICE_SERVICE_DIS when it starts.
-
-At this point the netdev is still registered and the misc IRQ is still
-live. That means ice_set_rx_mode(), ice_rx_flow_steer(), ice_misc_intr()
-and the VF fdir handlers can all still reach ice_service_task_schedule().
-
-One possible interleaving:
-
-CPU0 (ice_set_rx_mode)              CPU1 (ice_remove)
-set ICE_FLAG_FLTR_SYNC
-test_bit(ICE_SERVICE_DIS) == 0
-                                    ice_service_task_stop()
-                                      test_and_set_bit(ICE_SERVICE_DIS)
-                                      timer_delete_sync()
-                                      cancel_work_sync() /* idle */
-                                      clear_bit(ICE_SERVICE_SCHED)
-queue_work(ice_wq, &pf->serv_task)
-                                    ice_remove_arfs()
-                                    ice_unload()  /* free_netdev() */
-                                    ice_deinit()  /* ice_dealloc_vsis() */
-
-The worker would then run ice_sync_fltr_subtask(), ice_sync_arfs_fltrs()
-and the other subtasks against the state being freed. The second stop in
-ice_deinit_dev() only runs after the VSIs are already gone.
-
-The window is only a few instructions wide. Would a check of
-ICE_SERVICE_DIS at the start of ice_service_task(), or quiescing these
-scheduling sources first, be needed to close it?
-
->  	if (!ice_is_safe_mode(pf))
->  		ice_remove_arfs(pf);
->  
-> @@ -5407,7 +5410,6 @@ static void ice_remove(struct pci_dev *pdev)
->  	ice_deinit_hw(&pf->hw);
->  
->  	ice_deinit_dev(pf);
-> -	ice_aq_cancel_waiting_tasks(pf);
->  	set_bit(ICE_DOWN, pf->state);
->  }
-
-[Severity: High]
-The commit message says the stop in ice_deinit_dev() "stays and deletes a
-timer armed by the last run". The ordering inside ice_service_task_stop()
-has not changed, though:
-
-	ret = test_and_set_bit(ICE_SERVICE_DIS, pf->state);
-
-	if (pf->serv_tmr.function)
-		timer_delete_sync(&pf->serv_tmr);
-	if (pf->serv_task.func)
-		cancel_work_sync(&pf->serv_task);
-
-A work item that is running during the stop can re-arm the timer after
-timer_delete_sync():
-
-  - ice_service_task() calls mod_timer(&pf->serv_tmr, jiffies) at its tail
-    when a run was long or an *_EVENT_PENDING bit is set.
-  - ice_service_task_recovery_mode() always calls
-    mod_timer(&pf->serv_tmr, jiffies + msecs_to_jiffies(100)).
-
-Once that happens, ice_service_timer() keeps re-arming itself.
-
-Some paths still stop only once. The first is the recovery-mode branch
-of ice_remove():
-
-	if (ice_is_recovery_mode(&pf->hw)) {
-		ice_service_task_stop(pf);
-		scoped_guard(devl, priv_to_devlink(pf)) {
-			ice_deinit_devlink(pf);
+ice_sync_fltr_subtask() {
+    ...
+	ice_for_each_vsi(pf, v)
+		if (pf->vsi[v] && ice_vsi_fltr_changed(pf->vsi[v]) &&
+		    ice_vsi_sync_fltr(pf->vsi[v])) {
+			/* come back and try again later */
+			set_bit(ICE_FLAG_FLTR_SYNC, pf->flags);
+			break;
 		}
-		return;
-	}
+}
 
-After this, devres frees the PF (the devlink priv), and the recovery-mode
-work re-arms every 100ms. Can serv_tmr then fire on freed memory, or, after
-rmmod, on unloaded module text?
+ice_vsi_fltr_changed() looks only at the UMAC and MMAC bits:
 
-The probe error unwind also calls ice_deinit_dev() only once before devres
-frees the PF.
+	return test_bit(ICE_VSI_UMAC_FLTR_CHANGED, vsi->state) ||
+	       test_bit(ICE_VSI_MMAC_FLTR_CHANGED, vsi->state);
 
-In ice_devlink_reinit_down(), the single stop in ice_deinit_dev() is
-followed by ice_devlink_reinit_up()->ice_init_dev()->
-ice_start_service_task(). That calls timer_setup(&pf->serv_tmr, ...) on a
-timer that may still be enqueued. Could this corrupt the timer wheel list
-once mod_timer() enqueues it again?
+ice_vsi_sync_fltr() clears both bits near its start. Only the out label
+sets them again, and these paths skip it. So ICE_FLAG_FLTR_SYNC is set
+again after the error, but on the next service task pass the VSI is
+skipped and the flag is cleared.
 
-Would it be better to fix this inside ice_service_task_stop()? One option
-is a second timer_delete_sync() after cancel_work_sync(). Another is to
-skip the tail mod_timer() calls when ICE_SERVICE_DIS is set. Either would
-avoid relying on a double stop at the call site.
+The admin queue can fail transiently, for example in the FW ENOSPC ->
+-EIO case from the commit message. Could the VSI then stay with
+IFF_PROMISC set but no DFLT Rx rule? Could it also stay with IFF_ALLMULTI
+or IFF_PROMISC set and missing or stale multicast promisc rules?
+
+Removing VLANs to free FLU entries would not trigger a resync, because
+ice_vlan_rx_kill_vid() sets no sync bits. The state seems to last until
+an unrelated ice_set_rx_mode() call or an eswitch resync.
+
+The old out_promisc label had the same gating, but this patch adds new
+retry state and depends on it.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127085714.1207361-1-poros%40redhat.com
