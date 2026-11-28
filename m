@@ -1,59 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795837025;
-	b=SmvmJTEDpWDIRiEW4M64yK9SlduY4zGcER4ifqunny1CeKFJrlrUSan16bCEl8CCneHo
-	 QSnFVTLsjCADgQbYD54L+doXD2VPXUHbKFSmJDVN3+WLBZdr5iPK1rI47Iwl5mwPa49Tj
-	 /tZVMNC6sZ0H+o5ANsX9n4gWooYRIIs48cR6oeDA+LfaeU2Wsd7Ap71p9HGFCnBcsBN3h
-	 oAx6jdY9j4kWckSOVNnEAs/OIfs/5vMQiIdAHoN93DRpK6RJhXevbp4SBzGnPnC+1z2Sh
-	 SpE3kPqA/7E8R5+aUgwsKHg+2QNxsxA3wbhYmuHzSCL0EY2rr74dzlq/QZ6DmyfOGrw==
+	t=1795837058;
+	b=qqeBHBg6gmIFYBLPFreesh7oKeIUwlFuRTqlcGU+VwrRKlMI2aT/LM464zOdjOQx1xUq
+	 iWABSX8Tqqzszua9/ONX/Zpa2hC1TJymQqzcF+YpldIYRhlxAXKNbhWbzw1T3k+IkYjPk
+	 Ekrao679R3QQTLacLI0OnFqizDvEyUMpHvW/ilHkT+eOyYxUU01uzbfrZHAiMtZAxzHJo
+	 8Wm+X34QVienfpQTSoKIB0Pj7Ateu6bqhM5kIAN5Whp8Shb3k1A04fNAXX8R9/olFEnDn
+	 +l5ZoUurnj7D+8fdmhzj84jAPqW55SSBaO6b4AcaM+XSY+ITqqdeLJWUAX1CxEETtUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795837025;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=umri0wGVOp6EjZGjfBMAhWDZPVdQFdgQPgw3pddiSsg=;
-	b=SyuYV3+ppZLcQmfOg4oKLirxTNrvQcbFakg3oZ2AT2EHNxvj9AXXo/xfClBbnmp+44Z5
-	 A70rb8KKqEWF2qwwANlZdnBnGKmVcWGS8zYm2Ml8x5dAglPIYz75dstK7HWh3RzsE9mRm
-	 SuD0GHQm7Ms8HYU8cnpp30p5CsUegzzO2Xz8AFNCgQPn16xPI/moSf+opZ4FpYb3d+LB/
-	 3EhVBhccXiQ8oZH6Ena6YkuIHtVhc+5jtf8E7pfTjg1JTsHkKQEGSuZLE66kobRA27sRN
-	 rRaR/Fecdny2C5rUPpeUFQTil/gZf7oz0J33eBuuCPo6zlz4d/s6pSW1pnHakzBnFyw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795837058;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=8kVwYZ1mIBLHJGNNGwqW6ng8APu6uVBnAbfyiIE9tJs=;
+	b=fcSrFLP98SDtA0SU8ynO862DT6VS3y4+mBbH8ST9UW2GfQ5Hlwht7btoOcofNeNFAPg/
+	 7azjwwchdg/4PbGHJ5QrRaWrm0FfuE/mZEetaeOJsl1Pm5zk1Sb/lnLH2t9rks0wRtAFi
+	 2Zgj8ZBywo2TW9gqIQren8KnnTDDMEaJHHOWVbvvbNsv2CxDRY5z1A+6faVjanIgHBV6V
+	 6b6Sc+A3m2mBfSBPMZIzG5TvPBOMrb7yqQ3F2vZ1es501k60MnmhTEHms2DsIBbqvr+fJ
+	 qQIzzwHKW42Y799vgA1gtjzkoQbErHB36FMf5Rud3IpaE15h/qKpBQQ+3CIrR28KwCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f2hgCn4h;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=iiitd.ac.in;
+	spf=pass smtp.mailfrom=iiitd.ac.in;
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=DYUo+wws;
+	arc=none smtp.remote-ip=209.85.210.180
+Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E21B606A31C;
-	Sat, 28 Nov 2026 03:37:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B910606A31C
+	for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 03:37:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B910606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f2hgCn4h
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 661621F00893;
-	Sat, 28 Nov 2026 03:37:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795837025;
-	bh=umri0wGVOp6EjZGjfBMAhWDZPVdQFdgQPgw3pddiSsg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=f2hgCn4hwFktXSy/kAg24lEmmtOfuvFZbDuL1jDjSVEcGNeIT3HJAcq7S4s4qBcWi
-	 35cQtOZTFYkUckXY8vDo/2r/fSJzASWVDxqDKDwAg73r+h8NdDpMdXisoIuOh23pAy
-	 h1O5cTMQ5bgloI1sUMQbcvY85/J8HRVBfPZ0Uw8cZLeR3HnYMdu5GNJHdWRv7Glebs
-	 qa7LnnNwao9jfwb6yEjyZoXHrPP9RId/XzBK1AlZlmRjvEPTgtIOFmk9Kat+SkD+iy
-	 s64++sSf7uewEsuUWdp/6uLvBNWv8IuKkrUGKtETkz24j84g6ZLcbcHXwduEu1bbbO
-	 2phwpkPdaSvMw==
-Subject: Re: [PATCH net] sctp: validate Cookie Preservative in the first pass
-From: netdev-bot+sashiko@kernel.org
-To: sunyiqi2@huawei.com
-Cc: netdev@vger.kernel.org, linux-sctp@vger.kernel.org,
- marcelo.leitner@gmail.com, lucien.xin@gmail.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, willemb@google.com,
- horms@kernel.org, trilobyte777@gmail.com, luoxiaoxing@huawei.com
-Date: Sat, 28 Nov 2026 03:37:03 +0000
-Message-ID: <179583702392.3135.14690679679244034273@kernel.org>
-In-Reply-To: <20261127033534.175-1-sunyiqi2@huawei.com>
-References: <20261127033534.175-1-sunyiqi2@huawei.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=DYUo+wws
+Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8b600fae14dso3197620b3a.2
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 19:37:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=iiitd.ac.in; s=google; t=1795837056; x=1796441856; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8kVwYZ1mIBLHJGNNGwqW6ng8APu6uVBnAbfyiIE9tJs=;
+        b=DYUo+wwsdvZ2uBVBZOzEm5U5W9GPYaVG1B8lE1wMMB7M3GYkXY/ojl5G64dKGlD5tr
+         +q62VVyLgX2hgoJ5ZMiqd416cH3sn1HOGQznwFmVhzGhK8TRN0DxLf60ZTJD2CIYBGh3
+         Uq5Ey4kfu+SBCGCHCr+DVX4r/H76UKVF2MX/U=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795837056; x=1796441856;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8kVwYZ1mIBLHJGNNGwqW6ng8APu6uVBnAbfyiIE9tJs=;
+        b=NXuYtsWF5qxYaW6IUEa6eJXjkEmYedUZ3ci/OeC4bKBs11012G7OJoH/j9PfN+509Q
+         jeo3PsBimtOyj6J1KLxF0JBNpxIWWoHlcQykJ4UJ783ekBRB/SVit+FvpqHBQG3UgV2k
+         bSlR8C1incoKxQ13kHWj54DHVbZrv31B6fQcpg6/bRonkfJWqAmMo8EzWVAnt6uXNw8M
+         C7rIsZ61toyt7XVrVYXbkSOMa2l24RikE0UZ7XZMWlXcgEzk352SoFzQMPjh/KYoLFXG
+         ZQa/K0i6SvX15GgesPKqwH73orvRVXzcREjM38YLRpis6x3fHiJQQAzDV9TRLHstRV/u
+         ys8Q==
+X-Forwarded-Encrypted: i=1; AL+hErEW+34nrbMW2FJ/AP+yQ1iWGww7+8YuNsrBBMWYJzPLbfOHjIaDUMPvtuXEb1+pL7W2kDW7Hqg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+HmbNR9V7BWMrRp/BPwnZuzd8BmB+UCMNaaa+z8aiFW0EfGV6L
+	4HTQMmaKzYoS4g6YlQ6uM2ZK0RYkFylG0OBGDmCHcJ2ajEjd3ibN3OlmzKo9kaUU5DM=
+X-Gm-Gg: AZFdTZfAKXGz7qLdO5Hc5kRuautWbthAp6w1nyiQgl8WY1H0PQVtTdjcVXmzH3ZXDG9
+	dJrA+R93xeDTDr8/ynD4iqh8OtZlgskfATNr7pmnW7rWDltFZ1zrlnpO7/aG90Zd7Z1Sqxya9dp
+	X8IDG5s0FPM20by4WtwjsDS7YMDr2RAnEeyqpsJCErLNkrI/W5YsqV3ZKv1dyGdF/lHC2xS6Oy8
+	s9UHixq+SamvtwHi8kCpgnFg7hXEuMorBMFqnCoecADyaD88mmdcXwW0+YIxD95e0UtkH8en3fu
+	rBuAm+9EKN+spNtESal/fa6dUhysAeB+f8jSDnO959HTQw/aLjTMCYKMAaZZTXcBAnXMTCEPg2k
+	jMexuUYWMNfuglAIjW6JfMnas2P4HTWnz5EVXaUchkvNMwRiTF14iM5h/hAoUFjkqB9j4KuOoGQ
+	OjcoxSVWj7bplqFOnkj2Zi5eepponOxHuDpsnjOx2DioC0TV/wdOr0OhvDuY+gA1kjiQbIUi8Bp
+	MjdKscy4KYkRNplE5CydK8Hm7cgd5pzUmkhbuAUYZNTaPmJ/+yWZP9V8MAMRsaOqwoq/WyY/dDs
+	tB2Wdz4fizTneWcvcFH31gtu3yr5zAoAQrZH5Ih/lY/vxusc/00+9vZJI50wX//rnhpbYjUKrIe
+	JoZA3wzyPJ1ZqdAddIJtd20bT97N1qSM6NRScXQf/TLkP5mAMBf+iT2URdVYdEtqZ
+X-Received: by 2002:a05:6a00:f8e:b0:89f:d620:232 with SMTP id d2e1a72fcca58-8c87c864543mr23366688b3a.35.1795837056560;
+        Fri, 27 Nov 2026 19:37:36 -0800 (PST)
+Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f83dsm13590256b3a.39.2026.11.27.19.37.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 19:37:36 -0800 (PST)
+From: Piyus Kedia <piyus@iiitd.ac.in>
+To: Allison Henderson <achender@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Kapil Vaswani <kapil@presceralabs.ai>
+Subject: [BUG] net/rds: use-after-free of the rdma_cm_id freed by connection shutdown
+Date: Sat, 28 Nov 2026 09:07:30 +0530
+Message-Id: <20261128033730.467831-1-piyus@iiitd.ac.in>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,129 +99,96 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Hi,
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+rds_ib_conn_path_shutdown() frees the connection's rdma_cm_id and clears
+ic->i_cm_id only afterwards:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+  net/rds/ib_cm.c
+	rdma_destroy_id(ic->i_cm_id);
+	if (ic->rds_ibdev)
+		rds_ib_remove_conn(ic->rds_ibdev, conn);
+	ic->i_cm_id = NULL;
 
-- [High] The fix is incomplete.
-- [Low] The lines added to sctp_verify_init() are badly indented.
+rds_ib_remove_conn() takes locks and can sleep, so ic->i_cm_id points at
+freed memory for a while.  Both FRMR paths read it with nothing excluding
+this teardown:
 
---
+  - rds_ib_get_mr(), from sendmsg()'s RDS_CMSG_RDMA_MAP handling, which
+    tests !ic->i_cm_id || !ic->i_cm_id->qp and then registers;
+  - rds_ib_unreg_frmr(), from the MR pool flush.
 
-sctp: validate Cookie Preservative in the first pass
+The NULL test in rds_ib_unreg_frmr() does not help: the pointer is not
+NULL, it is dangling.
 
-This commit adds a length check for the Cookie Preservative parameter to
-the first parameter walk in sctp_verify_init(). A mismatched length is
-reported through sctp_process_inv_paramlength(). The goal is to stop
-sctp_process_param() from reading past a short parameter, even when the
-second verification pass returns early.
+Reproduced on 7.4.0-rc1 (63fe746a609a) with KASAN, by closing a socket
+whose MR pool still holds segments while the connection is shutting down:
 
-Link: https://lists.openwall.net/netdev/2026/07/29/316
+  BUG: KASAN: slab-use-after-free in rds_ib_unreg_frmr+0x119/0x860
+  Read of size 8 at addr ffff888022d67010 by task poc/9559
+   rds_ib_unreg_frmr+0x119/0x860
+   rds_ib_flush_mr_pool+0x685/0x9f0
+   rds_ib_flush_mrs+0x57/0xc0
+   rds_release+0xc9/0x220
+   __sock_release+0x65/0x160
 
-> diff --git a/net/sctp/sm_make_chunk.c b/net/sctp/sm_make_chunk.c
-> index ba0474c2a0bc8..01b1eea0222c4 100644
-> --- a/net/sctp/sm_make_chunk.c
-> +++ b/net/sctp/sm_make_chunk.c
-> @@ -2317,6 +2317,12 @@ int sctp_verify_init(struct net *net, const struct sctp_endpoint *ep,
->  		return sctp_process_inv_mandatory(asoc, chunk, errp);
->  
->  	sctp_walk_params(param, peer_init) {
-> +		/* Validate the length even if the second pass stops early. */
-> +		if (param.p->type == SCTP_PARAM_COOKIE_PRESERVATIVE &&
-> +			ntohs(param.p->length) != sizeof(*param.life))
+  Allocated by task 37:
+   __rdma_create_id+0x48/0x4f0
+   __rdma_create_kernel_id+0x3c/0x80
+   rds_ib_conn_path_connect+0xfa/0x320
 
-[Severity: High]
+  Freed by task 9508:
+   kfree+0x1c7/0x660
+   rds_ib_conn_path_shutdown+0xc2b/0xd30
+   rds_conn_shutdown+0x3ca/0x940
 
-Other fixed-length parameters have the same problem. Does this patch
-cover them?
+The registration side reaches the same dangling pointer.  On 7.3.1 a
+fuzzer caught it posting a work request to the QP of a cm_id already
+destroyed, which rxe reports itself - WARN_ON_ONCE(!qp->valid), "qp has
+been destroyed" - before faulting on qp->state_lock:
 
-This check only handles SCTP_PARAM_COOKIE_PRESERVATIVE. The length checks
-for SCTP_PARAM_ADAPTATION_LAYER_IND and SCTP_PARAM_SET_PRIMARY are still
-only in sctp_verify_param(), which runs in the second pass.
+  BUG: KASAN: slab-use-after-free in do_raw_spin_unlock+0x15/0xf0
+   rxe_post_send+0xfa0/0x1130
+   ib_post_send+0x9c/0xe0
+   rds_ib_post_reg_frmr+0x396/0x570   net/rds/ib_frmr.c:167
+   rds_ib_get_mr+0x26d/0x470
+   __rds_rdma_map+0x555/0x7d0
+   rds_cmsg_send+0x27c/0x3b0
+   rds_sendmsg+0xda0/0x16a0
+  freed by rds_ib_conn_path_shutdown -> rdma_destroy_qp -> ib_destroy_qp_user
 
-As the commit message says, the second pass can stop early. An
-unrecognized parameter with action bits 00 or 01 makes
-sctp_process_unk_param() return SCTP_IERROR_ERROR:
+How reliably it reproduces.  The window is the span between the free and
+the clear, so hitting it needs a registration or a pool flush to land in
+it.  To make that dependable we inserted a 300 ms sleep there - debug
+only, not part of the patch - and then ran six processes registering
+memory regions on a connection being torn down repeatedly.  With the sleep
+the KASAN report above appears within a few minutes; without it, it is a
+fuzzer's odds, which is how it was first seen.
 
-net/sctp/sm_make_chunk.c:sctp_process_unk_param() {
-    ...
-	case SCTP_PARAM_ACTION_DISCARD:
-		retval =  SCTP_IERROR_ERROR;
-		break;
-    ...
-}
+One detail worth passing on, since it cost us several runs: an address is
+only in rds_ib_devices' list while a connection using it is up, so
+rds_ib_get_mr() returns -ENODEV for a socket whose connection has gone.
+A reproducer that tears connections down aggressively never reaches the
+FRMR code at all - 2096 of 2096 calls to __rds_rdma_map returned -ENODEV
+in one of our runs.  The connection has to be up when the registration
+starts.
 
-sctp_verify_init() then returns 1 before it checks any of the later
-parameters:
+A patch follows.  It clears ic->i_cm_id before destroying the cm_id, so a
+racing reader sees NULL instead of freed memory, and adds the pointer test
+to rds_ib_post_reg_frmr(), which was the one FRMR site dereferencing it
+without one.  With the patch applied - and the 300 ms sleep still in place
+- the same six processes produced no report over 14 teardowns and 17636
+registrations.
 
-		case SCTP_IERROR_ERROR:
-			return 1;
+It does not serialise the two sides: a reader that has already loaded a
+non-NULL pointer can still be preempted before using it.  Closing that
+needs the registration path to take the exclusion the other users of
+ic->i_cm_id have, which seemed a bigger change than we should propose
+uninvited.
 
-Say a peer sends an INIT that has an unknown parameter (action 00 or 01)
-followed by a 4-byte ADAPTATION_LAYER_IND. This check in
-sctp_verify_param() is never reached:
+The reproducer is fuzzer-derived and we are happy to send it on request.
 
-	case SCTP_PARAM_ADAPTATION_LAYER_IND:
-		if (ntohs(param.p->length) != sizeof(*param.aind)) {
-
-The path then continues:
-
-sctp_sf_do_5_1B_init()
-  sctp_verify_init()       returns 1 at the unknown parameter
-  sctp_process_init()      walks every parameter
-    sctp_process_param()
-      asoc->peer.adaptation_ind = ntohl(param.aind->adaptation_ind);
-
-This reads 4 bytes past the end of the parameter. sctp_pack_cookie() then
-copies the value into the State Cookie:
-
-	cookie->c.adaptation_ind = asoc->peer.adaptation_ind;
-
-The cookie is sent back to the peer in the INIT-ACK. Isn't that the same
-disclosure to the peer that the commit message describes?
-
-SET_PRIMARY (with asconf_enable set) seems to get past the checks the
-same way. For a parameter length of 4 to 7, this check in
-sctp_process_param() is computed in size_t and wraps:
-
-		addr_param = param.v + sizeof(struct sctp_addip_param);
-		if (ntohs(addr_param->p.length) >
-		    ntohs(param.p->length) - sizeof(struct sctp_addip_param))
-			break;
-
-The out-of-bounds addr_param is then read through addr_param->p and
-af->from_addr_param().
-
-Would one of these options work instead?
-
-  - validate every fixed-length parameter in the first pass
-  - have sctp_process_init() and sctp_process_param() check bounds
-    themselves
-  - have sctp_process_init() stop where the second verify pass stopped
-
-> +				return sctp_process_inv_paramlength(asoc, param.p,
-> +													chunk, errp);
-
-[Severity: Low]
-
-This isn't a bug, but the indentation of the added lines doesn't follow
-kernel coding style or match the rest of sctp_verify_init(). The condition
-continuation and the return are indented too far. Also, "chunk, errp);"
-doesn't line up with the open parenthesis. checkpatch will probably warn
-about this.
-
-> +
->  		if (param.p->type == SCTP_PARAM_STATE_COOKIE)
->  			has_cookie = true;
->  	}
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127033534.175-1-sunyiqi2%40huawei.com
+Thanks,
+Piyus
