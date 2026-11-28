@@ -1,101 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.160.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795840491;
-	b=qS7lnB4R6KWatXBhVpvrv9W4pU6K6qiaurZtMR9lGoZjSB2no9chElcG8rXvOKhef6z6
-	 8x16OBCJKcmXv1VEmCLqVypi099v4wEMQj4kdeYDkq2wT4HKkouM3m2ETre9yMJogobnE
-	 9LFgug7IHUdIBGpmrNBXO+FybPUUA7x02SI8fq6uPurdrP7ZsaoZYHjHDVesX2W1K3hdU
-	 3UebVgYSTW4dTzNfLzdZDuV/slqXL6l85BX/Z6jU4I/SabCuH3qHzedQN8rX0SsFrTY1C
-	 QQdfi+ZIBP3JyLVoGW9QUjOxiGUJWBYPjljnOCeJgbjiDcPlh5FGiqvq6dqwj0ZalOw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795840491;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Ft3cUGMZwuJbnCtx/nSJpqRqOJFMOjO+enjfoT4AQ1w=;
-	b=FAFNId1O44J19qB2rNQPTS9Z8uWjG3ZBrGD5Yy1u/hx0Z4PW3aviBXvq/z2rmPlD0+sq
-	 MNTP8vClaxa6fG5Jxq9TxCJWr8vf8y1o7lEcPLkKz6c0cWwwtdULfCUaaO2e+uybGUsUK
-	 QOJF5iWvfid54Xw+va0ZeZyDndCkSrzJTk0tUUJzZww41urSxp3f3XK3sQQ78YbI1W5HN
-	 ecTaGpRZleIm0+7he9C9zrgvdoVaHcVUwdsFREuPVcKE9B+sCC45OkY5GavtDT5Gffint
-	 AxYLEsEwggim8lcQIC8ptDfrw3w8hhrtcuRNvZ65KzVHwL98EnC2+Z1Bgra6sBqS/XA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yBlDy5ox;
-	arc=fail smtp.remote-ip=209.85.160.54
-Received: from mail-oa1-f54.google.com (mail-oa1-f54.google.com [209.85.160.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.37.255.70
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795845149;
+	b=4cwhBAhrEuzyy+WA2SQPQLYryUYzoFf8/z6hT6cNJHYxiFRCNaIwFr+220SPhk56mOrP
+	 OxQGT2DUsgLq0yGrqVlTOLLg3NTz7vsLzJYIKpm4P+9BfVczobKNWRgGK/E8h/0GL/XSn
+	 Hy6MI0TD3iJo2VoU5FFFAUKskw6qDeAJEuKMpc4EpclIRyJKuiY41f94vqkGOt7xHw/aO
+	 ldbdKl6im63zhGEpgKqim3jU/Nfwf7XFcz/Bg0d5+7m3tf+HH2n5ZDFDDzxP3WjznPfUC
+	 Q6yUONfaTIkaFtoy9jEYfqwu6TbKhKWO3enhA6Eq2Cg/O70FkiqEdLBZd2mrrdR/FAg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795845149;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:
+	 Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Date:
+	 From:To:Cc:Subject:Organization:In-Reply-To:References:Message-ID:
+	 X-Sender:User-Agent:X-Spam-Status:X-Spam-Checker-Version:X-purgate:
+	 X-purgate-ID:X-purgate-type;
+	bh=znvjBjLFYwzq+8PsQDB3a1sIrQ+WiVM6SE0SCET5shc=;
+	b=LNdWhT/BWSRyCsggS8EDjh7V68svNoFDXR2at1BzKhW9vm85ancYXVmZC6V0Lkdmq/CC
+	 y+bAtjKTOQovHjc6J4u03IXRFO3fwccNNPfhoWSqebmYMEFbL4RazIivR+qXDCEsIBYyb
+	 Q3G5HtbLzIlsHsLki7Mgw172IKQ1wom72/TPV1DxQoTB8LSpqXujrCLQzXU12TfpuDu7S
+	 aK4AwSeeSaEUKylAH1QSdXpBxZadS2SEwtEiezdgmYxKWiEPDNEblZtZHAQ6bR+d6zbxe
+	 m9XC71rCPMeSKayDVKkw1Eg/uzxJjDm7doOYpTGwmaN85Myhsr8HC0V69Rjwck2xzLA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=dev.tdt.de;
+	spf=pass smtp.mailfrom=dev.tdt.de;
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=kI2UH5KT;
+	arc=none smtp.remote-ip=194.37.255.70
+Received: from mxout70.expurgate.net (mxout70.expurgate.net [194.37.255.70])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FCCA606A31E
-	for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 04:34:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FCCA606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11AF8606A31C;
+	Sat, 28 Nov 2026 05:52:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11AF8606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dev.tdt.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.tdt.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yBlDy5ox
-Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-4d3dc583029so4995fac.0
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 20:34:51 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795840490; cv=none;
-        d=google.com; s=arc-20260327;
-        b=kgBnxazOUJLnD2kxkqFsqNl1AiqZPrX2BFm1ZY4snEEMfQHo4QanBhYJQpvQ0Xk7nB
-         Hzxm3+/LAbfj29yqN5ZBTrCUTu3Y2th+vWgZTBneyghVpxnjfKwsSOMp5j3ZBaQn1Uu0
-         BEPY6pGFyd+5EQ8LoZaPDyP+DyOLZoJwKNr/CVuNko5PCy8oTpXHKIS6G91fX3JW4ZHd
-         fRp1qBpZ9xdNcyMEFYG+tAWxB5ZWe2xcLDKYbtX3tnbeckVwmuyv+/vhNwjrPiGFPFDd
-         wfoVQ+1Cec76cRRXaAGwaVnt9SwG+oSLxcvqkYFAsQcYJHLwyRWIyUJQlBE667kMjD9l
-         2Itw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Ft3cUGMZwuJbnCtx/nSJpqRqOJFMOjO+enjfoT4AQ1w=;
-        fh=qWawIHK6IWPtlm7n+3y63s4RCRg7Hy5OH2dg7YK9ECE=;
-        b=V/CZca637P+WCzXyukj/2X5jB6NLD7IfFd03vbsG3ZukXlPZNrgEQxffYL4/S+hQMU
-         tFA/D/MBGZdpuw6a3sx5rQkwXtmkTxmwAqEgholdn6yLkv6c1Mm2F9qxA9PIIo98nmq9
-         x8PGXi94c5dSBHWOyDgaso3M+y4QLjZfqyIDktj0xXwXJJT31fTmfFSQ0QnA4Mt7I/uf
-         iERdVgu+LCM8JqYvFsMhYoyISItUnpT2wYmcQKPCG0euzNrHXUog+5Yd0CQE3urKx7ox
-         MFI45UYAAjRYFixiqIXZlGlLHsA3OFj8emSwl8c8x0D/Hf/WCsCLJin+GASjLAym7lLA
-         1ipQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795840490; x=1796445290; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Ft3cUGMZwuJbnCtx/nSJpqRqOJFMOjO+enjfoT4AQ1w=;
-        b=yBlDy5oxOhAUHry053sMlyAdv00U90rbHk36Bz+1T0NNwtlGh+TkZxTo3VwvUNhOsz
-         7JFQSZWLd/Vol7U3Llt8kBlhkze7fYCb8FLYdAGTtfhjQZ6Pc3+AWNMTZj+8bD4POi5E
-         yaGB7YL6AHO1vyG9dMLloSOnSX+BW0p+mDmbXeG8sGOvNMJoZrtvla9G3crknJyLh9PI
-         VWqXpc/7+wf0Y4DCQmvI24qNLzswJ6BpntvRw/EignLknmZnjaZ16M0dnFEDyvPAx3GR
-         1g2f50VdrU0UlcR+eDU4fp0Hz34xpqlrHVQn/mwnLnXNolGzNsJj1F+ht4FyH3+03+wP
-         k6mQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795840490; x=1796445290;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Ft3cUGMZwuJbnCtx/nSJpqRqOJFMOjO+enjfoT4AQ1w=;
-        b=r3lLjskpkAlczk4OEHg6V/ZWp8poKfUGt1fYGG9KW/3/b4ukpZAW6ExcTOziheKXWp
-         lzuuCauTiVSFpX9sVon/9pOOi7ZKc/FXajqZQtxJeCNdbjcJ1NOlYFFZQXrfXhWL6Rmq
-         ABX9m6URDgkNGRyGKlYR2pr40Q8mafCfCN9FMs7KDmD0usKxnSfXv0RjTJS3NtEkgXpC
-         YhUJsuL4m+KiM6Yyfs7f07OOE4Usdfyel2iESfZB/68k5bw0lpKZuXPkylkgf+U0v7ge
-         8Lk3pps0U56JHscWeA/Kn7gBPaJs0ZPqfvv7/ogwBQofdsph2B3LjL39D0vFk5XGMNe3
-         IHJw==
-X-Forwarded-Encrypted: i=1; AL+hErFtUHX5RNXuBABL8zjImo5Pj0mtdMfhMaEaoH8WMjXFPS6kESxFtkeDkcIueuGwSTre9MGqFBM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/9zNO16vkGepOOuBDVPqB74KXIn/dLmL1svPYKYKo/04TKJ/k1
-	uyKOLIVxdDinRZhUE8bOhyf8H/96mNIPFrokG8+w+2JDRdkahhVkdkBHPvNKiOQ4VhCch4mA+w+
-	IrgGjhhGGCE6e+DGowbSGuY6MksdiMyU=
-X-Gm-Gg: AZFdTZemC+kAM+8nYLh32E0hphtkREYDgHMMxg6i0UedQOVO7kYzbawqj49kL3nxN34
-	mv4upqNpYckB7vMJsKEAvaoKUxnO49bUNwPKYfy/mvsURjdoIWJhhXhct83RhN6/YIzZwZ2M3Pl
-	e0u86eRLaZuJosTYlS9/olFfNBgIDT5EA5MRqdUZpTKNy6WqXjyHPRrGac2hJabgfqYNxewiv58
-	u9hsIFuMz86Q4CbjW42gCq7CDAFaH3WQMWjvjvafMjHmtPIeSK95ToKN1vL1C+mz34q4Kgesgtp
-	RoQ+brEZmKBz1FVIVnW2YMURETq9K/rSdatY4fT4SeMZ/kYHuR9QisrucwjwwGsJr2x9oiphxLx
-	cmdvuCraOr0T5boXFcgeMYamMCxPqCcWqgVeuJWWyVwN3CGolntJ9dV1JgEeEVb7IDcnH4Q4VBu
-	tyZRPN5xu2aACrXw7iplJDO6NmskVD1f9psa5xsuE0P0VcB10wxXr/hJMw
-X-Received: by 2002:a05:6870:b154:b0:4a6:f676:ecef with SMTP id
- 586e51a60fabf-4bc85902a3cmr23268703fac.55.1795840490274; Fri, 27 Nov 2026
- 20:34:50 -0800 (PST)
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=kI2UH5KT
+Received: from [194.37.255.9] (helo=mxout.expurgate.net)
+	by relay.expurgate.net with smtp (Exim 4.92)
+	(envelope-from <prvs=68062c6ca6=ms@dev.tdt.de>)
+	id 1xXBMH-00200P-3Z; Sat, 28 Nov 2026 06:52:25 +0100
+Received: from [195.243.126.94] (helo=securemail.tdt.de)
+	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ms@dev.tdt.de>)
+	id 1xXBMF-001bYh-IV; Sat, 28 Nov 2026 06:52:23 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.tdt.de;
+	s=z1-selector1; t=1795845142;
+	bh=znvjBjLFYwzq+8PsQDB3a1sIrQ+WiVM6SE0SCET5shc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=kI2UH5KTzR2HApuxaCK+UmmGwMxPyT9cIKhSuBXwvCejjBxaw9mfm+crGkPK33RBc
+	 XzuuR8JNzuUvAYJPd4SZEN1Hw5b+wOCDvNSiNs95XOhbC4KMso5Pd/ovcyQTu5TJlF
+	 eWpoxvWTjE8KWf8MQGWwcGljJDalaLeJ9XKntfyiklRHS4Ngq5QrnvCoTto3qvmUJ4
+	 4m9n/0j9NyO8PCtOpR9rw4uGjHw6wbPXqa+SmxiDP4ePgM487ke2irx3oWIN+6YeXG
+	 zo+cfL+S7Y6EotqK+kSLe1Sifsq6eDH4enm4bwNCgmp36tGwCA6LCs9Um8IzpuJzes
+	 rfplgQ42ONAJw==
+Received: from securemail.tdt.de (localhost [127.0.0.1])
+	by securemail.tdt.de (Postfix) with ESMTP id DAC14240041;
+	Sat, 28 Nov 2026 06:52:22 +0100 (CET)
+Received: from mail.dev.tdt.de (unknown [10.2.4.42])
+	by securemail.tdt.de (Postfix) with ESMTP id BC27C240036;
+	Sat, 28 Nov 2026 06:52:22 +0100 (CET)
+Received: from mail.dev.tdt.de (localhost [IPv6:::1])
+	by mail.dev.tdt.de (Postfix) with ESMTP id 74D9525F74;
+	Sat, 28 Nov 2026 06:52:22 +0100 (CET)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,127 +71,48 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261126-exp-phy-rs-maybelocked-v4-1-16f9a10bb579@gmail.com> <179579171493.3135.13012003515691317246@kernel.org>
-In-Reply-To: <179579171493.3135.13012003515691317246@kernel.org>
-From: SeungJong Ha <engineer.jjhama@gmail.com>
-Date: Sat, 28 Nov 2026 13:34:39 +0900
-X-Gm-Features: Aa3M54oVMmGH-ZjaDn3eIIdiuG-rT6kTcFR9f6TCVy1lL0hu446KZxkRFm9B_ts
-Message-ID: <CAGAB667-6_gX7_q13GvgmAZQGHNTqxxJ5_nWFLrpvA42ZfAzBg@mail.gmail.com>
-Subject: Re: [PATCH net-next v4 1/2] rust: net: phy: take &self in methods
- that do not need phy_device->lock
-To: netdev-bot+sashiko@kernel.org
-Cc: fujita.tomonori@gmail.com, tmgross@umich.edu, davem@davemloft.net, 
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
-	ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net, 
-	bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org, 
-	aliceryhl@google.com, dakr@kernel.org, daniel.almeida@collabora.com, 
-	tamird@kernel.org, acourbot@nvidia.com, work@onurozkan.dev, andrew@lunn.ch, 
-	hkallweit1@gmail.com, linux@armlinux.org.uk, netdev@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Date: Sat, 28 Nov 2026 06:52:22 +0100 (CET)
+From: Martin Schiller <ms@dev.tdt.de>
+To: Krystian Kaniewski <krystianmkaniewski@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>, Lin Ma <linma@zju.edu.cn>,
+	Duoming Zhou <duoming@zju.edu.cn>,
+	Xiyu Yang <xiyuyang19@fudan.edu.cn>, Xin Tan <tanxin.ctf@gmail.com>,
+	linux-x25@vger.kernel.org, netdev@vger.kernel.org,
+	Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>,
+	Shuai Liu <847807867@qq.com>,
+	syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com,
+	syzbot+9faa82ae2e94c5c7d2ef@syzkaller.appspotmail.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2 0/2] net/x25: don't call lock_sock() from softirq
+ in x25_kill_by_neigh()
+Organization: TDT AG
+In-Reply-To: <5ad2c46b-4ed9-4689-950f-93753fa1586e@gmail.com>
+References: <20261127-x25-kill-by-neigh-v2-0-c7cdcc9f1320@dev.tdt.de>
+ <5ad2c46b-4ed9-4689-950f-93753fa1586e@gmail.com>
+Message-ID: <ef81cfa72a9f35249165b042e645cb88@dev.tdt.de>
+X-Sender: ms@dev.tdt.de
+User-Agent: Roundcube Webmail/1.3.17
+X-purgate: clean
+X-purgate-ID: 151534::1795845144-91996B36-A46D2B35/0/0
+X-purgate-type: clean
 
-2026=EB=85=84 11=EC=9B=94 28=EC=9D=BC (=ED=86=A0) =EC=98=A4=EC=A0=84 12:01,=
- <netdev-bot+sashiko@kernel.org>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=B1:
+On Fri, 27 Nov 2026 14:30:05 +0100, Krystian Kaniewski wrote:
+> Without patch 2 all three end in a NULL pointer dereference
+> (trimmed):
 
-> rust: net: phy: take &self in methods that do not need phy_device->lock
->
-> This commit splits Device::from_raw() into a shared from_raw() and a new
-> from_raw_mut(). It redefines &mut Device to mean exclusive access to the
-> phy_device state that phy_device->lock protects. The getters for that sta=
-te
-> now take &mut self, and phy_id(), read(), write() and genphy_suspend() no=
-w
-> take &self. The callback SAFETY comments are updated to say when PHYLIB
-> calls the callbacks without the lock.
->
-> > diff --git a/rust/kernel/net/phy.rs b/rust/kernel/net/phy.rs
-> > index c4e7b1d6c6f4a..bb2cc6b3c94c8 100644
-> > --- a/rust/kernel/net/phy.rs
-> > +++ b/rust/kernel/net/phy.rs
-> > @@ -57,50 +57,71 @@ pub enum DuplexMode {
->
-> [ ... ]
->
-> > +/// PHYLIB calls the callbacks that get a `&mut Device` with `phy_devi=
-ce->lock` held, except:
-> > +///
-> > +/// - [`Driver::probe`] and [`Driver::get_features`], which `phy_probe=
-()` calls without the lock
-> > +///   before the device is attached.
-> > +/// - [`Driver::soft_reset`], which `phy_init_hw()` calls without the =
-lock while the state machine
-> > +///   is not running, or from a MAC driver that then ensures exclusive=
- access. `phy_mii_ioctl()`,
-> > +///   which PHYLIB documents as "use at own risk", is outside this gua=
-rantee.
-> > +/// - [`Driver::read_status`], when a MAC driver calls `phy_read_statu=
-s()` directly. The MAC
-> > +///   driver is then responsible for exclusive access.
-> > +///
-> >  /// # Invariants
-> >  ///
-> > -/// - Referencing a `phy_device` using this struct asserts that you ar=
-e in
-> > -///   a context where all methods defined on this struct are safe to c=
-all.
-> > -/// - This struct always has a valid `self.0.mdio.dev`.
-> > +/// - `self.0` is a valid `phy_device`, and `self.0.mdio.dev` is a val=
-id `struct device`.
-> > +/// - For the lifetime of a `&mut Device`, no other thread accesses th=
-e state of the `phy_device`
-> > +///   that `phy_device->lock` protects.
->
-> [ ... ]
->
-> > +    /// Creates a new mutable [`Device`] reference from a raw pointer.
-> > +    ///
-> > +    /// # Safety
-> > +    ///
-> > +    /// For the duration of `'a`,
-> > +    /// - the pointer must point at a valid `phy_device`.
-> > +    /// - `(*ptr).mdio.dev` must be valid.
-> > +    /// - the caller must have the exclusive access that [`Device`] de=
-scribes.
-> > +    unsafe fn from_raw_mut<'a>(ptr: *mut bindings::phy_device) -> &'a =
-mut Self {
->
-> [ ... ]
->
-> > @@ -309,10 +331,10 @@ impl<T: Driver> Adapter<T> {
-> >      /// `phydev` must be passed by the corresponding callback in `phy_=
-driver`.
-> >      unsafe extern "C" fn soft_reset_callback(phydev: *mut bindings::ph=
-y_device) -> c_int {
-> >          from_result(|| {
-> > -            // SAFETY: This callback is called only in contexts
-> > -            // where we hold `phy_device->lock`, so the accessors on
-> > -            // `Device` are okay to call.
-> > -            let dev =3D unsafe { Device::from_raw(phydev) };
-> > +            // SAFETY: `phy_init_hw()` calls this with `phy_device->lo=
-ck` held, or without it while
-> > +            // the state machine is not running or a MAC driver ensure=
-s exclusive access. The
-> > +            // `phy_mii_ioctl()` path is outside this guarantee, see `=
-Device`.
-> > +            let dev =3D unsafe { Device::from_raw_mut(phydev) };
->
-> [Severity: Medium]
-> Is it sound to call Device::from_raw_mut() in soft_reset_callback() when
-> the SAFETY comment says the phy_mii_ioctl() path does not give the
-> exclusive access that from_raw_mut() now requires?
->
-> The new invariant on Device says that for the lifetime of a &mut Device,
-> no other thread accesses the phy_device state that phy_device->lock
-> protects. However, phy_mii_ioctl() reaches this callback without
-> phydev->lock, and the PHY state machine may be running at that point:
+Thanks a lot for testing, and for holding the window open. That makes
+patch 2 a triggered bug as well, which supersedes what I wrote to the
+netdev bot about it being theoretical. If the series needs a v3, I'll
+add the symptoms to the commit message.
 
-As discussed on v3 [1], this is documented as an exception, see the
-Device docs above. Passing &Device to soft_reset would drop
-genphy_soft_reset(), which ax88796b_rust needs, and FUJITA agreed on
-keeping &mut Device there [2].
+> I can send the test program if it helps.
 
-[1] https://lore.kernel.org/all/bfd7a44f-2bba-4aee-9758-1dd88f94566f@lunn.c=
-h/
-[2] https://lore.kernel.org/all/20261126.081155.1605990248496749195.tomo@fl=
-apping.org/
+Yes, please, that would be useful for regression testing.
+
+Thanks also to Shuai for testing and reviewing.
