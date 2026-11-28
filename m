@@ -1,60 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795837756;
-	b=RlQ2cT6YcBhA0EDyRuaM44LCXfDSFS0ym7fMqmRWPZj2KAbkcuvIaUYNzqV4YybBqmkQ
-	 qBBCOZoDFG8tNMr7CsZVw1ckJr3eoNDBEH7i5fSLwoEd9VGJ95R9xJ80HQc82FPJHtKoI
-	 Is7ZJG5ohP0UAvF0l+70XHct432B/zZWn356CXdJa/ev8eoWZFCTE0d9k39uhjM7i6ydY
-	 AwY9bq99r/FAkM5YJjBVdllwR7G1BLduwbol9ggxmd0cGHHiJHKROGrurmxv8dx6PNtiJ
-	 lWAsABTTWHUORbqrBZ4E1eyp2+bLnKwAv+sjEd4+yAxRXwWr7SVKYmE2+Y5W/+pGDEQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795837756;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=VhY4IcjPurkabNF69aOs00+tTjgl9zsf3kDoomd3ODs=;
-	b=fyVTe98uKASVxS/NHyNQ7dhv6g/oiWRlyyjtZwSXIeWGby2pQ/xAthf3yf8WJwyL5r0+
-	 ieZWHToYkfQPiUKMY6bw6nDdbNJOHw5fnFM/WICBYoVBfqevZC0XBh/3ZxuDY5CJmYKzk
-	 hYeHK4CeWmTfHc5yf9F2Ig+0KZmgR2kyPkDNn9T2gOQNZDTqQGNyRKF6gPHt3wvXOzBZw
-	 buyLqnWyvYC14+QR4VInEzPcLkyIrTKMTVEzxBlRVQy2sMUSS0AvjiVH1y8KiuKEFqFss
-	 ehtGoixYrx2h4k+h4uYLwxzHSFxJkJ3Rooj324q/rgv5oLMVgPEiE7aODhbqUyxqFWA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l40rBSOq;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.160.54
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795840491;
+	b=qS7lnB4R6KWatXBhVpvrv9W4pU6K6qiaurZtMR9lGoZjSB2no9chElcG8rXvOKhef6z6
+	 8x16OBCJKcmXv1VEmCLqVypi099v4wEMQj4kdeYDkq2wT4HKkouM3m2ETre9yMJogobnE
+	 9LFgug7IHUdIBGpmrNBXO+FybPUUA7x02SI8fq6uPurdrP7ZsaoZYHjHDVesX2W1K3hdU
+	 3UebVgYSTW4dTzNfLzdZDuV/slqXL6l85BX/Z6jU4I/SabCuH3qHzedQN8rX0SsFrTY1C
+	 QQdfi+ZIBP3JyLVoGW9QUjOxiGUJWBYPjljnOCeJgbjiDcPlh5FGiqvq6dqwj0ZalOw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795840491;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Ft3cUGMZwuJbnCtx/nSJpqRqOJFMOjO+enjfoT4AQ1w=;
+	b=FAFNId1O44J19qB2rNQPTS9Z8uWjG3ZBrGD5Yy1u/hx0Z4PW3aviBXvq/z2rmPlD0+sq
+	 MNTP8vClaxa6fG5Jxq9TxCJWr8vf8y1o7lEcPLkKz6c0cWwwtdULfCUaaO2e+uybGUsUK
+	 QOJF5iWvfid54Xw+va0ZeZyDndCkSrzJTk0tUUJzZww41urSxp3f3XK3sQQ78YbI1W5HN
+	 ecTaGpRZleIm0+7he9C9zrgvdoVaHcVUwdsFREuPVcKE9B+sCC45OkY5GavtDT5Gffint
+	 AxYLEsEwggim8lcQIC8ptDfrw3w8hhrtcuRNvZ65KzVHwL98EnC2+Z1Bgra6sBqS/XA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yBlDy5ox;
+	arc=fail smtp.remote-ip=209.85.160.54
+Received: from mail-oa1-f54.google.com (mail-oa1-f54.google.com [209.85.160.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72A6F606A31C
-	for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 03:49:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FCCA606A31E
+	for <netdev@vger.kernel.org>; Sat, 28 Nov 2026 04:34:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FCCA606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l40rBSOq
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67AFC1F000C1;
-	Sat, 28 Nov 2026 03:49:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795837756;
-	bh=VhY4IcjPurkabNF69aOs00+tTjgl9zsf3kDoomd3ODs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=l40rBSOqhWSdHMlRSkGE/Sgic8D2ruM661issrjM+3UTL93Sw5tI8FG6LGa4ntcxg
-	 GmBSUwo3qd/Ic3xgQMKAX6sxnTOw8CMmAb8aRAalGCO96XMKo555L+vdAFZDQ2YfH5
-	 /O0dpLyu9G7/yqEnJsalBXqVZWxUygkTKCQn1rfdQots0dLKpx+Vix+5ejF/myTJan
-	 5KgK15nxBUBr7ptIa0NJ0/4EW71sw/hU11IIMc2f7RQa3iifXShI+RVW2TSbVV7Tto
-	 ZnKTYAhbNtPaJ8wCgXyUWybhEdrFzvPzE/6ACf2FG9yUGDguUzCsrd2SM6QVFSrRpA
-	 lpEzDQeF8+h3w==
-Subject: Re: [PATCH net] net: wwan: iosm: return the callback result of
- synchronous tasks
-From: netdev-bot+sashiko@kernel.org
-To: davidlwesten@gmail.com
-Cc: netdev@vger.kernel.org, loic.poulain@oss.qualcomm.com,
- ryazanov.s.a@gmail.com, johannes@sipsolutions.net, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- m.chetan.kumar@intel.com
-Date: Sat, 28 Nov 2026 03:49:14 +0000
-Message-ID: <179583775492.3135.6308026077719961194@kernel.org>
-In-Reply-To: <20261127034849.11770-1-davidlwesten@gmail.com>
-References: <20261127034849.11770-1-davidlwesten@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yBlDy5ox
+Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-4d3dc583029so4995fac.0
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 20:34:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795840490; cv=none;
+        d=google.com; s=arc-20260327;
+        b=kgBnxazOUJLnD2kxkqFsqNl1AiqZPrX2BFm1ZY4snEEMfQHo4QanBhYJQpvQ0Xk7nB
+         Hzxm3+/LAbfj29yqN5ZBTrCUTu3Y2th+vWgZTBneyghVpxnjfKwsSOMp5j3ZBaQn1Uu0
+         BEPY6pGFyd+5EQ8LoZaPDyP+DyOLZoJwKNr/CVuNko5PCy8oTpXHKIS6G91fX3JW4ZHd
+         fRp1qBpZ9xdNcyMEFYG+tAWxB5ZWe2xcLDKYbtX3tnbeckVwmuyv+/vhNwjrPiGFPFDd
+         wfoVQ+1Cec76cRRXaAGwaVnt9SwG+oSLxcvqkYFAsQcYJHLwyRWIyUJQlBE667kMjD9l
+         2Itw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Ft3cUGMZwuJbnCtx/nSJpqRqOJFMOjO+enjfoT4AQ1w=;
+        fh=qWawIHK6IWPtlm7n+3y63s4RCRg7Hy5OH2dg7YK9ECE=;
+        b=V/CZca637P+WCzXyukj/2X5jB6NLD7IfFd03vbsG3ZukXlPZNrgEQxffYL4/S+hQMU
+         tFA/D/MBGZdpuw6a3sx5rQkwXtmkTxmwAqEgholdn6yLkv6c1Mm2F9qxA9PIIo98nmq9
+         x8PGXi94c5dSBHWOyDgaso3M+y4QLjZfqyIDktj0xXwXJJT31fTmfFSQ0QnA4Mt7I/uf
+         iERdVgu+LCM8JqYvFsMhYoyISItUnpT2wYmcQKPCG0euzNrHXUog+5Yd0CQE3urKx7ox
+         MFI45UYAAjRYFixiqIXZlGlLHsA3OFj8emSwl8c8x0D/Hf/WCsCLJin+GASjLAym7lLA
+         1ipQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795840490; x=1796445290; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Ft3cUGMZwuJbnCtx/nSJpqRqOJFMOjO+enjfoT4AQ1w=;
+        b=yBlDy5oxOhAUHry053sMlyAdv00U90rbHk36Bz+1T0NNwtlGh+TkZxTo3VwvUNhOsz
+         7JFQSZWLd/Vol7U3Llt8kBlhkze7fYCb8FLYdAGTtfhjQZ6Pc3+AWNMTZj+8bD4POi5E
+         yaGB7YL6AHO1vyG9dMLloSOnSX+BW0p+mDmbXeG8sGOvNMJoZrtvla9G3crknJyLh9PI
+         VWqXpc/7+wf0Y4DCQmvI24qNLzswJ6BpntvRw/EignLknmZnjaZ16M0dnFEDyvPAx3GR
+         1g2f50VdrU0UlcR+eDU4fp0Hz34xpqlrHVQn/mwnLnXNolGzNsJj1F+ht4FyH3+03+wP
+         k6mQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795840490; x=1796445290;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Ft3cUGMZwuJbnCtx/nSJpqRqOJFMOjO+enjfoT4AQ1w=;
+        b=r3lLjskpkAlczk4OEHg6V/ZWp8poKfUGt1fYGG9KW/3/b4ukpZAW6ExcTOziheKXWp
+         lzuuCauTiVSFpX9sVon/9pOOi7ZKc/FXajqZQtxJeCNdbjcJ1NOlYFFZQXrfXhWL6Rmq
+         ABX9m6URDgkNGRyGKlYR2pr40Q8mafCfCN9FMs7KDmD0usKxnSfXv0RjTJS3NtEkgXpC
+         YhUJsuL4m+KiM6Yyfs7f07OOE4Usdfyel2iESfZB/68k5bw0lpKZuXPkylkgf+U0v7ge
+         8Lk3pps0U56JHscWeA/Kn7gBPaJs0ZPqfvv7/ogwBQofdsph2B3LjL39D0vFk5XGMNe3
+         IHJw==
+X-Forwarded-Encrypted: i=1; AL+hErFtUHX5RNXuBABL8zjImo5Pj0mtdMfhMaEaoH8WMjXFPS6kESxFtkeDkcIueuGwSTre9MGqFBM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/9zNO16vkGepOOuBDVPqB74KXIn/dLmL1svPYKYKo/04TKJ/k1
+	uyKOLIVxdDinRZhUE8bOhyf8H/96mNIPFrokG8+w+2JDRdkahhVkdkBHPvNKiOQ4VhCch4mA+w+
+	IrgGjhhGGCE6e+DGowbSGuY6MksdiMyU=
+X-Gm-Gg: AZFdTZemC+kAM+8nYLh32E0hphtkREYDgHMMxg6i0UedQOVO7kYzbawqj49kL3nxN34
+	mv4upqNpYckB7vMJsKEAvaoKUxnO49bUNwPKYfy/mvsURjdoIWJhhXhct83RhN6/YIzZwZ2M3Pl
+	e0u86eRLaZuJosTYlS9/olFfNBgIDT5EA5MRqdUZpTKNy6WqXjyHPRrGac2hJabgfqYNxewiv58
+	u9hsIFuMz86Q4CbjW42gCq7CDAFaH3WQMWjvjvafMjHmtPIeSK95ToKN1vL1C+mz34q4Kgesgtp
+	RoQ+brEZmKBz1FVIVnW2YMURETq9K/rSdatY4fT4SeMZ/kYHuR9QisrucwjwwGsJr2x9oiphxLx
+	cmdvuCraOr0T5boXFcgeMYamMCxPqCcWqgVeuJWWyVwN3CGolntJ9dV1JgEeEVb7IDcnH4Q4VBu
+	tyZRPN5xu2aACrXw7iplJDO6NmskVD1f9psa5xsuE0P0VcB10wxXr/hJMw
+X-Received: by 2002:a05:6870:b154:b0:4a6:f676:ecef with SMTP id
+ 586e51a60fabf-4bc85902a3cmr23268703fac.55.1795840490274; Fri, 27 Nov 2026
+ 20:34:50 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,149 +105,127 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261126-exp-phy-rs-maybelocked-v4-1-16f9a10bb579@gmail.com> <179579171493.3135.13012003515691317246@kernel.org>
+In-Reply-To: <179579171493.3135.13012003515691317246@kernel.org>
+From: SeungJong Ha <engineer.jjhama@gmail.com>
+Date: Sat, 28 Nov 2026 13:34:39 +0900
+X-Gm-Features: Aa3M54oVMmGH-ZjaDn3eIIdiuG-rT6kTcFR9f6TCVy1lL0hu446KZxkRFm9B_ts
+Message-ID: <CAGAB667-6_gX7_q13GvgmAZQGHNTqxxJ5_nWFLrpvA42ZfAzBg@mail.gmail.com>
+Subject: Re: [PATCH net-next v4 1/2] rust: net: phy: take &self in methods
+ that do not need phy_device->lock
+To: netdev-bot+sashiko@kernel.org
+Cc: fujita.tomonori@gmail.com, tmgross@umich.edu, davem@davemloft.net, 
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
+	ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net, 
+	bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org, 
+	aliceryhl@google.com, dakr@kernel.org, daniel.almeida@collabora.com, 
+	tamird@kernel.org, acourbot@nvidia.com, work@onurozkan.dev, andrew@lunn.ch, 
+	hkallweit1@gmail.com, linux@armlinux.org.uk, netdev@vger.kernel.org, 
+	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+2026=EB=85=84 11=EC=9B=94 28=EC=9D=BC (=ED=86=A0) =EC=98=A4=EC=A0=84 12:01,=
+ <netdev-bot+sashiko@kernel.org>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=B1:
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
+> rust: net: phy: take &self in methods that do not need phy_device->lock
+>
+> This commit splits Device::from_raw() into a shared from_raw() and a new
+> from_raw_mut(). It redefines &mut Device to mean exclusive access to the
+> phy_device state that phy_device->lock protects. The getters for that sta=
+te
+> now take &mut self, and phy_id(), read(), write() and genphy_suspend() no=
+w
+> take &self. The callback SAFETY comments are updated to say when PHYLIB
+> calls the callbacks without the lock.
+>
+> > diff --git a/rust/kernel/net/phy.rs b/rust/kernel/net/phy.rs
+> > index c4e7b1d6c6f4a..bb2cc6b3c94c8 100644
+> > --- a/rust/kernel/net/phy.rs
+> > +++ b/rust/kernel/net/phy.rs
+> > @@ -57,50 +57,71 @@ pub enum DuplexMode {
+>
+> [ ... ]
+>
+> > +/// PHYLIB calls the callbacks that get a `&mut Device` with `phy_devi=
+ce->lock` held, except:
+> > +///
+> > +/// - [`Driver::probe`] and [`Driver::get_features`], which `phy_probe=
+()` calls without the lock
+> > +///   before the device is attached.
+> > +/// - [`Driver::soft_reset`], which `phy_init_hw()` calls without the =
+lock while the state machine
+> > +///   is not running, or from a MAC driver that then ensures exclusive=
+ access. `phy_mii_ioctl()`,
+> > +///   which PHYLIB documents as "use at own risk", is outside this gua=
+rantee.
+> > +/// - [`Driver::read_status`], when a MAC driver calls `phy_read_statu=
+s()` directly. The MAC
+> > +///   driver is then responsible for exclusive access.
+> > +///
+> >  /// # Invariants
+> >  ///
+> > -/// - Referencing a `phy_device` using this struct asserts that you ar=
+e in
+> > -///   a context where all methods defined on this struct are safe to c=
+all.
+> > -/// - This struct always has a valid `self.0.mdio.dev`.
+> > +/// - `self.0` is a valid `phy_device`, and `self.0.mdio.dev` is a val=
+id `struct device`.
+> > +/// - For the lifetime of a `&mut Device`, no other thread accesses th=
+e state of the `phy_device`
+> > +///   that `phy_device->lock` protects.
+>
+> [ ... ]
+>
+> > +    /// Creates a new mutable [`Device`] reference from a raw pointer.
+> > +    ///
+> > +    /// # Safety
+> > +    ///
+> > +    /// For the duration of `'a`,
+> > +    /// - the pointer must point at a valid `phy_device`.
+> > +    /// - `(*ptr).mdio.dev` must be valid.
+> > +    /// - the caller must have the exclusive access that [`Device`] de=
+scribes.
+> > +    unsafe fn from_raw_mut<'a>(ptr: *mut bindings::phy_device) -> &'a =
+mut Self {
+>
+> [ ... ]
+>
+> > @@ -309,10 +331,10 @@ impl<T: Driver> Adapter<T> {
+> >      /// `phydev` must be passed by the corresponding callback in `phy_=
+driver`.
+> >      unsafe extern "C" fn soft_reset_callback(phydev: *mut bindings::ph=
+y_device) -> c_int {
+> >          from_result(|| {
+> > -            // SAFETY: This callback is called only in contexts
+> > -            // where we hold `phy_device->lock`, so the accessors on
+> > -            // `Device` are okay to call.
+> > -            let dev =3D unsafe { Device::from_raw(phydev) };
+> > +            // SAFETY: `phy_init_hw()` calls this with `phy_device->lo=
+ck` held, or without it while
+> > +            // the state machine is not running or a MAC driver ensure=
+s exclusive access. The
+> > +            // `phy_mii_ioctl()` path is outside this guarantee, see `=
+Device`.
+> > +            let dev =3D unsafe { Device::from_raw_mut(phydev) };
+>
+> [Severity: Medium]
+> Is it sound to call Device::from_raw_mut() in soft_reset_callback() when
+> the SAFETY comment says the phy_mii_ioctl() path does not give the
+> exclusive access that from_raw_mut() now requires?
+>
+> The new invariant on Device says that for the lifetime of a &mut Device,
+> no other thread accesses the phy_device state that phy_device->lock
+> protects. However, phy_mii_ioctl() reaches this callback without
+> phydev->lock, and the PHY state machine may be running at that point:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+As discussed on v3 [1], this is documented as an exception, see the
+Device docs above. Passing &Device to soft_reset would drop
+genphy_soft_reset(), which ax88796b_rust needs, and FUJITA agreed on
+keeping &mut Device there [2].
 
-- [High] The fix still leaves a way for a late device reply to call
-  complete() on a returned stack frame.
-- [Medium] The patch now passes the callback result through unchanged,
-  and ipc_protocol_msg_send() uses it as the rsp_ring index.
-
---
-
-net: wwan: iosm: return the callback result of synchronous tasks
-
-This patch makes ipc_task_queue_send_task() return the callback result
-instead of 0 when the task was queued and completed. ipc_protocol_msg_send()
-uses that value as the rsp_ring index. With this change, a timeout clears
-the slot that actually points at its on-stack response.
-
-> diff --git a/drivers/net/wwan/iosm/iosm_ipc_task_queue.c b/drivers/net/wwan/iosm/iosm_ipc_task_queue.c
-> index 7cb2f6a506d9f..069075481825e 100644
-> --- a/drivers/net/wwan/iosm/iosm_ipc_task_queue.c
-> +++ b/drivers/net/wwan/iosm/iosm_ipc_task_queue.c
-> @@ -162,10 +162,8 @@ int ipc_task_queue_send_task(struct iosm_imem *imem,
->  			copy, size, is_copy);
->  		if (is_copy)
->  			kfree(copy);
-> -		goto out;
->  	}
->  
-> -	ret = 0;
->  out:
->  	return ret;
->  }
-
-[Severity: High]
-The index is now correct. Can a late reply still call complete() on a
-returned stack frame if the remove task itself fails to queue?
-
-The timeout path in ipc_protocol_msg_send() ignores the return value of
-the remove call:
-
-drivers/net/wwan/iosm/iosm_ipc_protocol.c:ipc_protocol_msg_send() {
-    ...
-	case 0:
-		ipc_task_queue_send_task(ipc_protocol->imem,
-					 ipc_protocol_tq_msg_remove, index,
-					 NULL, 0, true);
-		dev_err(ipc_protocol->dev, "msg timeout");
-    ...
-	return 0;
-}
-
-If the 256-entry task ring is full, ipc_task_queue_add_task() takes the
-"queue is full" branch. It then returns -EIO without ever running
-ipc_protocol_tq_msg_remove():
-
-	if (nextpos != ipc_task->q_rpos) {
-		...
-	}
-	...
-	} else {
-		dev_err(ipc_imem->ipc_task->dev, "queue is full");
-	}
-
-In that case rsp_ring[index] still points at the on-stack struct ipc_rsp
-response after ipc_protocol_msg_send() has returned 0. When the device
-answers later, ipc_protocol_msg_process() does:
-
-		if (rsp_ring[i]) {
-			rsp_ring[i]->status =
-				le32_to_cpu(msg->common.completion_status);
-			complete(&rsp_ring[i]->completion);
-			rsp_ring[i] = NULL;
-		}
-
-That looks like the same oops shown in the commit message, which says:
-
-    so a timeout clears slot 0 and leaves the real slot pointing to the
-    returned stack frame. A late reply then calls complete() on it
-
-Should the failed enqueue be handled too? Some options would be retrying,
-clearing the slot under a lock the tasklet also takes, or not returning
-while rsp_ring[index] can still reference the stack.
-
-[Severity: Medium]
-Now that the exact callback result is used as an rsp_ring index, is the
-read of that result in ipc_task_queue_add_task() safe?
-
-drivers/net/wwan/iosm/iosm_ipc_task_queue.c:ipc_task_queue_add_task() {
-    ...
-		if (wait) {
-			wait_for_completion(&completion);
-			result = ipc_task->args[pos].response;
-		}
-    ...
-}
-
-This reads args[pos] without q_lock and without checking that the slot
-still belongs to this caller.
-
-ipc_task_queue_handler() calls complete(), clears the entry and moves
-q_rpos past pos right away:
-
-		if (args->completion)
-			complete(args->completion);
-		...
-		q_rpos = (q_rpos + 1) % IPC_THREAD_QUEUE_SIZE;
-		ipc_task->q_rpos = q_rpos;
-
-So slot pos can be reused before the woken waiter runs. If the ring
-wraps, a new producer writes args[pos].response = -1 under q_lock. The
-tasklet may then store another callback's result in that slot.
-
-One way this could happen: the queue is nearly full and the tasklet runs
-on the waiter's CPU. The tasklet keeps looping in softirq while
-IRQ-context producers refill slot pos, and the waiter cannot read its
-result in the meantime. Whether this shows up on real systems depends on
-load and timing.
-
-If the waiter reads -1, ipc_protocol_msg_send() returns an error even
-though the message was sent and rsp_ring[real_index] = &response.
-
-If it reads another task's result, the timeout path clears the wrong
-slot.
-
-Either way, a later device reply would call complete() on a returned
-stack frame.
-
-The comment in ipc_task_queue_handler() relies on timing ("queue will not
-rotate again to ipc_task same element within such short time") rather
-than on synchronization.
-
-Would it be more robust to keep the response in caller-owned storage, for
-example next to the on-stack completion, instead of re-reading the shared
-ring slot?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261127034849.11770-1-davidlwesten%40gmail.com
+[1] https://lore.kernel.org/all/bfd7a44f-2bba-4aee-9758-1dd88f94566f@lunn.c=
+h/
+[2] https://lore.kernel.org/all/20261126.081155.1605990248496749195.tomo@fl=
+apping.org/
